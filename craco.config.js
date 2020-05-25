@@ -14,7 +14,8 @@ module.exports = {
       "@authentication": path.resolve(__dirname, "src/lib/authentication/"),
       "@history": path.resolve(__dirname, "src/lib/history/"),
       "@theme": path.resolve(__dirname, "src/semantic-ui/"),
-      "@helpers": path.resolve(__dirname, "src/lib/helpers")
+      "@helpers": path.resolve(__dirname, "src/lib/helpers"),
+      "@modules": path.resolve(__dirname, "src/lib/modules")
     }
   },
   jest: {

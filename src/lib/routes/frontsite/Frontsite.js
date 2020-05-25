@@ -1,11 +1,10 @@
-import { NotFound } from "@components/ui";
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Route, Switch } from "react-router-dom";
-import { ILSMenu, ILSFooter } from "@components/ui";
-import { FrontSiteRoutes } from "./urls";
-import { Home } from "@pages/frontsite";
-import { Container } from "semantic-ui-react";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Route, Switch } from 'react-router-dom';
+import { ILSMenu, ILSFooter, NotFound } from '@components';
+import { FrontSiteRoutes } from '@routes/frontsite/frontsiteUrls';
+import { Home } from '@pages/frontsite';
+import { Container } from 'semantic-ui-react';
 
 export default class FrontSite extends Component {
   render() {
@@ -14,7 +13,11 @@ export default class FrontSite extends Component {
         <ILSMenu />
         <Container fluid className="fs-content">
           <Switch>
-            <Route exact path={FrontSiteRoutes.home} component={Home} />
+            <Route
+              exact
+              path={FrontSiteRoutes.home}
+              render={props => <Home {...props} {...this.props} />}
+            />
             <Route>
               <NotFound />
             </Route>

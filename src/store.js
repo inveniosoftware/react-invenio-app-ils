@@ -1,11 +1,16 @@
-import { createStore, applyMiddleware, combineReducers } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import { authenticationReducer } from '@authentication/reducer';
+import { notificationsReducer } from '@components/Notifications/reducer';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  authenticationManagement: authenticationReducer,
+  notifications: notificationsReducer,
+});
 
 const composeEnhancers = composeWithDevTools({
-  name: "ILS Backoffice"
+  name: 'ILS Backoffice',
 });
 
 const store = createStore(

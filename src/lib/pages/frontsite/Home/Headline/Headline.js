@@ -1,22 +1,20 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import Overridable from "react-overridable";
-import { Button, Container, Divider, Grid, Header } from "semantic-ui-react";
-import { strictProps } from "@helpers/propTypes";
-import { HomeSearchBar } from "./HomeSearchBar";
-import { FrontSiteRoutes } from "@routes/urls";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Overridable from 'react-overridable';
+import { Button, Container, Divider, Grid, Header } from 'semantic-ui-react';
+import { HomeSearchBar } from './HomeSearchBar';
+import { FrontSiteRoutes } from '@routes/urls';
+import { Link } from 'react-router-dom';
 
 const OverridableHeadline = props => {
+  const { headlineImage } = props;
   return (
     <Overridable id="Home.Headline.render">
       <Container
         fluid
         className="fs-headline-section"
         style={{
-          backgroundImage: props.headlineImage
-            ? `url(${props.headlineImage})`
-            : null
+          backgroundImage: headlineImage ? `url(${headlineImage})` : null,
         }}
       >
         <Container fluid className="fs-headline">
@@ -50,7 +48,7 @@ const OverridableHeadline = props => {
                     className="headline-quick-access"
                     as={Link}
                     to={FrontSiteRoutes.documentsListWithQuery(
-                      "&sort=mostrecent&order=desc"
+                      '&sort=mostrecent&order=desc'
                     )}
                     primary
                   >
@@ -60,7 +58,7 @@ const OverridableHeadline = props => {
                     className="headline-quick-access"
                     as={Link}
                     to={FrontSiteRoutes.documentsListWithQuery(
-                      "&sort=mostloaned&order=desc"
+                      '&sort=mostloaned&order=desc'
                     )}
                     primary
                   >
@@ -70,7 +68,7 @@ const OverridableHeadline = props => {
                     className="headline-quick-access"
                     as={Link}
                     to={FrontSiteRoutes.documentsListWithQuery(
-                      "&f=doctype%3ABOOK&f=medium%3AELECTRONIC_VERSION&sort=mostrecent&order=desc"
+                      '&f=doctype%3ABOOK&f=medium%3AELECTRONIC_VERSION&sort=mostrecent&order=desc'
                     )}
                     primary
                   >
@@ -92,6 +90,6 @@ class Headline extends Component {
   }
 }
 
-Headline.propTypes = strictProps({ headlineImage: PropTypes.string });
+Headline.propTypes = { headlineImage: PropTypes.string };
 
-export default Overridable.component("Home.Headline", Headline);
+export default Overridable.component('Home.Headline', Headline);

@@ -1,14 +1,14 @@
 /**
  * until https://github.com/facebook/prop-types/issues/263 fixed
+ * from https://github.com/facebook/prop-types/issues/11#issuecomment-400590566
  */
-import PropTypes from "prop-types";
 
 export function conditionalPropType(
   condition,
   message,
   fullMessageOverride = false
 ) {
-  if (typeof condition !== "function")
+  if (typeof condition !== 'function')
     throw new TypeError(
       `Wrong argument type 'condition' supplied to 'conditionalPropType'. Expected 'function', got '${typeof condition}'.`
     );
@@ -17,7 +17,7 @@ export function conditionalPropType(
     const conditionResult = condition(props, propName, componentName);
     if (conditionResult) {
       const parsedMessage =
-        typeof message === "function"
+        typeof message === 'function'
           ? message(conditionResult, props, propName, componentName)
           : message;
       const defaultMessage = `Invalid prop '${propName}' '${props[propName]}' supplied to '${componentName}'. ${parsedMessage}`;
@@ -27,7 +27,7 @@ export function conditionalPropType(
 }
 
 export function strictProps(propTypes) {
-  if (typeof propTypes !== "object") {
+  if (typeof propTypes !== 'object') {
     throw new TypeError(
       `Wrong argument type 'propTypes' supplied to 'forbidExtraProps'. Expected 'object', got '${typeof propTypes}'.`
     );
@@ -46,9 +46,9 @@ export function strictProps(propTypes) {
       },
       (unknownProps, _p, _pN, componentName) =>
         `Unknown props found in component '${componentName}': ${unknownProps.join(
-          ", "
+          ', '
         )}.`,
       true
-    )
+    ),
   };
 }

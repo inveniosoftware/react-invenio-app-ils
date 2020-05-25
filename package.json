@@ -69,6 +69,15 @@
       "last 1 safari version"
     ]
   },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "plugins": [
+      "react"
+    ]
+  },
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"

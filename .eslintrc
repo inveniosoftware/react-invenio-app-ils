@@ -23,27 +23,16 @@
     "react/jsx-boolean-value": "error",
     "react/jsx-closing-bracket-location": [
       "error",
-      {
-        "properties": "after-props"
-      }
+      "tag-aligned"
     ],
     "react/jsx-closing-tag-location": "error",
-    "react/jsx-curly-brace-presence": "error",
+    "react/jsx-curly-brace-presence": ["error", {"props": "never"}],
     "react/jsx-curly-spacing": "error",
     "react/jsx-equals-spacing": "error",
-    "react/jsx-first-prop-new-line": [
-      "error",
-      {
-        "properties": "never"
-      }
-    ],
     "react/jsx-filename-extension": "off",
-    "react/jsx-indent": "error",
     "react/jsx-indent-props": [
       "error",
-      {
-        "properties": "first"
-      }
+      "first"
     ],
     "react/jsx-key": "error",
     "react/jsx-no-comment-textnodes": "error",
@@ -55,12 +44,10 @@
     "react/jsx-tag-spacing": [
       "error",
       {
-        "properties": {
           "closingSlash": "never",
           "beforeSelfClosing": "always",
           "afterOpening": "never",
           "beforeClosing": "never"
-        }
       }
     ],
     "react/jsx-uses-react": "error",
@@ -68,7 +55,6 @@
     "react/jsx-wrap-multilines": [
       "error",
       {
-        "properties": {
           "declaration": "parens-new-line",
           "assignment": "parens-new-line",
           "return": "parens-new-line",
@@ -76,7 +62,6 @@
           "condition": "parens-new-line",
           "logical": "parens-new-line",
           "prop": "ignore"
-        }
       }
     ],
     "react/no-children-prop": "error",
@@ -96,12 +81,10 @@
     "react/no-unescaped-entities": [
       "error",
       {
-        "properties": {
           "forbid": [
             ">",
             "}"
           ]
-        }
       }
     ],
     "react/no-unknown-property": "error",
