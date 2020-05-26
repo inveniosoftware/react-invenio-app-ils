@@ -176,7 +176,7 @@ const count = async query => {
   return response;
 };
 
-export const document = {
+export const documentApi = {
   searchBaseURL: `${apiConfig.baseURL}${documentURL}`,
   get: get,
   create: create,

@@ -5,7 +5,7 @@ import { DocumentCardGroup } from '@modules/Document';
 import SectionServices from './SectionServices';
 import { Container } from 'semantic-ui-react';
 import SectionTags from './SectionTags';
-import { document as documentApi } from '@api';
+import { documentApi } from '@api';
 import { FrontSiteRoutes } from '@routes/urls';
 
 export default class SectionsWrapper extends Component {
@@ -68,10 +68,10 @@ export default class SectionsWrapper extends Component {
 
   renderSections = () => {
     const { sections } = this.props;
-    if (!isEmpty(this.props.sections)) {
+    if (!isEmpty(sections)) {
       return (
         <Container fluid className="fs-landing-page-section-wrapper">
-          {this.props.sections.map((Section, idx) => {
+          {sections.map((Section, idx) => {
             return <Section key={idx} className="fs-landing-page-section" />;
           })}
         </Container>

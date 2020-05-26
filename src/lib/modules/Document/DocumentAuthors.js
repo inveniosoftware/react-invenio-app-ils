@@ -14,7 +14,7 @@ class DocumentAuthors extends Component {
     } = this.props;
     const otherAuthors = otherAuthorsDisplay ? otherAuthorsDisplay : 'et al.';
     return (
-      <Overridable id="DocumentAuthors" {...this.props}>
+      <Overridable id="DocumentAuthors.layout" {...this.props}>
         <div className="document-authors-list-wrapper">
           {prefix ? prefix + ' ' : null}
           {metadata && metadata.authors ? (
@@ -41,7 +41,7 @@ DocumentAuthors.propTypes = {
   metadata: PropTypes.object,
   prefix: PropTypes.string,
   otherAuthorsDisplay: PropTypes.string,
-  listItemAs: PropTypes.oneOf([PropTypes.string, PropTypes.elementType]),
+  listItemAs: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
   delimiter: PropTypes.string,
 };
 

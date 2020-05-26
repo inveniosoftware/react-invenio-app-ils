@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { InvenioSearchApi, ReactSearchKit } from 'react-searchkit';
-import { document as documentApi } from '@api';
+import { documentApi } from '@api';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -53,7 +53,7 @@ describe('SearchControls tests', () => {
     component = mount(
       <Provider store={store}>
         <ReactSearchKit searchApi={searchApi}>
-          <SearchControls modelName={'documents'} />
+          <SearchControls modelName="documents" />
         </ReactSearchKit>
       </Provider>
     );

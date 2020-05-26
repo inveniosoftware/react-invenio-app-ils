@@ -8,7 +8,7 @@ import { DocumentEdition } from '@modules/Document';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 
-export class LiteratureRelations extends Component {
+export default class LiteratureRelations extends Component {
   constructor(props) {
     super(props);
     this.relations = props.relations;

@@ -78,7 +78,7 @@ export class Error extends Component {
 Error.propTypes = {
   error: PropTypes.object,
   onUIError: PropTypes.func,
-  boundary: PropTypes.string,
+  boundary: PropTypes.bool,
   children: PropTypes.node,
   FallbackComponent: PropTypes.elementType,
 };

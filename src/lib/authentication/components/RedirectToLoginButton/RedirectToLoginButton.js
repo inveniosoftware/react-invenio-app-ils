@@ -15,7 +15,7 @@ export class RedirectToLoginButton extends Component {
   };
 
   render() {
-    const { renderClass, ...restProps } = this.props;
+    const { renderClass, nextUrl, ...restProps } = this.props;
     const RenderComponent = renderClass;
     return <RenderComponent {...restProps} onClick={this.onClick} />;
   }

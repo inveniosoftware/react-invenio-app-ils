@@ -171,7 +171,7 @@ ESSelectorLoanRequest.propTypes = {
   initialSelections: PropTypes.array,
   onSelectResult: PropTypes.func,
   onSave: PropTypes.func,
-  content: PropTypes.oneOf([PropTypes.string, PropTypes.node]),
+  content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   selectorComponent: PropTypes.elementType,
 };
 

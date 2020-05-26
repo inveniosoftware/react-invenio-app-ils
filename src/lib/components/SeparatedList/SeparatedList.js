@@ -31,7 +31,7 @@ SeparatedList.propTypes = {
   items: PropTypes.array.isRequired,
   itemProps: PropTypes.object,
   prefix: PropTypes.node,
-  separator: PropTypes.oneOf([PropTypes.node, PropTypes.string]),
+  separator: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   suffix: PropTypes.node,
 };
 

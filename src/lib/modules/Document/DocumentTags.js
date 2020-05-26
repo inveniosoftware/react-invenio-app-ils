@@ -9,7 +9,9 @@ import _isEmpty from 'lodash/isEmpty';
 class DocumentTags extends Component {
   render() {
     const { metadata, ...uiProps } = this.props;
+
     if (_isEmpty(metadata.tags)) return null;
+
     return (
       <Overridable id="DocumentTags.layout" {...this.props}>
         <>

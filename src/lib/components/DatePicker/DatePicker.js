@@ -55,7 +55,7 @@ class DatePicker extends Component {
 
 DatePicker.propTypes = {
   defaultValue: PropTypes.string,
-  error: PropTypes.object,
+  error: PropTypes.string,
   handleDateChange: PropTypes.func.isRequired,
   id: PropTypes.string,
   initialDate: PropTypes.string,
@@ -75,7 +75,7 @@ DatePicker.defaultProps = {
   name: 'selectedDate',
   id: null,
   label: null,
-  error: {},
+  error: null,
 };
 
 export default Overridable.component('DatePicker', DatePicker);

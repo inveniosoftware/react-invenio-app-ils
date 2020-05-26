@@ -6,3 +6,8 @@ export { default as DocumentTitle } from './DocumentTitle';
 export { default as DocumentEdition } from './DocumentEdition';
 export { DocumentCard } from './DocumentCard';
 export { DocumentCardGroup } from './DocumentCardGroup';
+export { DocumentInfo } from './DocumentInfo';
+export { DocumentStats } from './DocumentStats';
+export { DocumentConference } from './DocumentConference';
+export { DocumentLinks } from './DocumentLinks';
+export { DocumentTableOfContent } from './DocumentTableOfContent';

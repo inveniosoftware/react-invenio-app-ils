@@ -1,1 +1,0 @@
-export { LiteratureNotes } from './LiteratureNotes';

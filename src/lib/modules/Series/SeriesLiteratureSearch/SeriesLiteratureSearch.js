@@ -22,8 +22,8 @@ import {
 } from 'react-searchkit';
 import { Container, Divider, Loader, Responsive } from 'semantic-ui-react';
 import { qsBuilderForSeries } from './RequestSerializer';
-import { LiteratureSearchResultsList } from '@modules/Literature/LiteratureSearchResultsList';
-import { LiteratureSearchResultsGrid } from '@modules/Literature/LiteratureSearchResultsGrid';
+import { LiteratureSearchResultsList } from '@modules/Literature';
+import { LiteratureSearchResultsGrid } from '@modules/Literature';
 import { SeriesLiteratureSearchMobile } from './SeriesLiteratureSearchMobile';
 
 export class SeriesLiteratureSearch extends React.Component {

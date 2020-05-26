@@ -75,12 +75,12 @@ ESSelectorModal.propTypes = {
   trigger: PropTypes.node.isRequired,
   title: PropTypes.string,
   size: PropTypes.string,
-  content: PropTypes.oneOf([PropTypes.string, PropTypes.node]),
+  content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   initialSelections: PropTypes.array,
   onSelectResult: PropTypes.func,
   onSave: PropTypes.func,
   selectorComponent: PropTypes.elementType,
-  saveButtonContent: PropTypes.oneOf([PropTypes.string, PropTypes.node]),
+  saveButtonContent: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
 
 ESSelectorModal.defaultProps = {

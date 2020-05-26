@@ -1,4 +1,4 @@
-import { document as documentApi } from './document';
+import { documentApi } from './document';
 
 describe('Document query builder tests', () => {
   it('should build the query string for overbooked documents', () => {
