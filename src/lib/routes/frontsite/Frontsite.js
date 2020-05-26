@@ -1,3 +1,4 @@
+import { LiteratureSearch } from '@pages/frontsite/Literature/LiteratureSearch';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
@@ -17,6 +18,11 @@ export default class FrontSite extends Component {
               exact
               path={FrontSiteRoutes.home}
               render={props => <Home {...props} {...this.props} />}
+            />
+            <Route
+              exact
+              path={FrontSiteRoutes.documentsList}
+              component={LiteratureSearch}
             />
             <Route>
               <NotFound />

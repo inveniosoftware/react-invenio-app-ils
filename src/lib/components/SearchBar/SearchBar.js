@@ -54,13 +54,13 @@ class SearchBar extends Component {
             {...otherProps}
             className={`${otherProps.className} ils-searchbar`}
           />
-          {queryHelperFields ? (
+          {queryHelperFields.length > 0 && (
             <QueryBuildHelper
               fields={queryHelperFields}
               currentQueryString={currentQueryString}
               updateQueryString={onInputChange}
             />
-          ) : null}
+          )}
         </>
       </Overridable>
     );
@@ -76,7 +76,7 @@ SearchBar.propTypes = {
   buttonColor: PropTypes.string,
 };
 
-SearchBar.defaultTypes = {
+SearchBar.defaultProps = {
   currentQueryString: '',
   queryHelperFields: [],
   buttonColor: null,

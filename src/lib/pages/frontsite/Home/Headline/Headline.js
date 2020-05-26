@@ -6,7 +6,7 @@ import { HomeSearchBar } from './HomeSearchBar';
 import { FrontSiteRoutes } from '@routes/urls';
 import { Link } from 'react-router-dom';
 
-const OverridableHeadline = props => {
+const HeadlineLayout = props => {
   const { headlineImage } = props;
   return (
     <Overridable id="Home.Headline.render">
@@ -86,10 +86,13 @@ const OverridableHeadline = props => {
 
 class Headline extends Component {
   render() {
-    return <OverridableHeadline {...this.props} />;
+    return <HeadlineLayout {...this.props} />;
   }
 }
 
 Headline.propTypes = { headlineImage: PropTypes.string };
+Headline.defaultProps = { headlineImage: null };
+HeadlineLayout.propTypes = Headline.propTypes;
+HeadlineLayout.defaultProps = Headline.defaultProps;
 
 export default Overridable.component('Home.Headline', Headline);

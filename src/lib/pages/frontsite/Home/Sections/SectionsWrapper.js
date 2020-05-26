@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
-import { LiteratureCardGroup } from '@modules/Literature';
+import { DocumentCardGroup } from '@modules/Document';
 import SectionServices from './SectionServices';
 import { Container } from 'semantic-ui-react';
 import SectionTags from './SectionTags';
@@ -15,7 +15,7 @@ export default class SectionsWrapper extends Component {
         <SectionServices />
         <Container fluid>
           <Container textAlign="center" className="fs-landing-page-section">
-            <LiteratureCardGroup
+            <DocumentCardGroup
               title="Most Recent Books"
               headerClass="section-header highlight"
               fetchDataMethod={documentApi.list}
@@ -32,7 +32,7 @@ export default class SectionsWrapper extends Component {
         </Container>
         <SectionTags />
         <Container textAlign="center" className="fs-landing-page-section">
-          <LiteratureCardGroup
+          <DocumentCardGroup
             title="Most Loaned Books"
             headerClass="section-header highlight"
             fetchDataMethod={documentApi.list}
@@ -47,7 +47,7 @@ export default class SectionsWrapper extends Component {
           />
         </Container>
         <Container textAlign="center" className="fs-landing-page-section">
-          <LiteratureCardGroup
+          <DocumentCardGroup
             title="Most Recent E-Books"
             headerClass="section-header highlight"
             fetchDataMethod={documentApi.list}
@@ -87,4 +87,8 @@ export default class SectionsWrapper extends Component {
 
 SectionsWrapper.propTypes = {
   sections: PropTypes.array,
+};
+
+SectionsWrapper.defaultProps = {
+  sections: [],
 };

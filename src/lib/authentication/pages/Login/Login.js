@@ -21,7 +21,7 @@ import { parseParams } from '../../utils';
 import { LoginWithLocalAccount } from './LoginWithLocalAccount';
 import { LoginWithOauthProviders } from './LoginWithOauthProviders';
 
-const OverridableLogin = ({ backgroundImage, ...props }) => {
+const LoginLayout = ({ backgroundImage, ...props }) => {
   const notImplementedPopup = (
     <Popup
       content="Not implemented yet!"
@@ -34,7 +34,7 @@ const OverridableLogin = ({ backgroundImage, ...props }) => {
   );
 
   return (
-    <Overridable id="Login.layout" {...props}>
+    <Overridable id="Login.layout" backgroundImage={backgroundImage} {...props}>
       <>
         <Notifications />
         <div className="frontsite">
@@ -213,7 +213,7 @@ class Login extends Component {
   };
   render() {
     this.redirectIfAlreadyLoggedIn();
-    return <OverridableLogin {...this.props} />;
+    return <LoginLayout {...this.props} />;
   }
 }
 
@@ -232,7 +232,7 @@ Login.defaultProps = {
   user: {},
 };
 
-OverridableLogin.propTypes = Login.propTypes;
-OverridableLogin.defaultProps = Login.defaultProps;
+LoginLayout.propTypes = Login.propTypes;
+LoginLayout.defaultProps = Login.defaultProps;
 
 export default Overridable.component('LoginPage', Login);

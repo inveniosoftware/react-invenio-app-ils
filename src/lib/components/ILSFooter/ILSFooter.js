@@ -5,7 +5,7 @@ import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Header, List } from 'semantic-ui-react';
 
-const OverridableFooter = props => {
+const FooterLayout = props => {
   return (
     <Overridable id="Footer.layout" {...props}>
       <footer>
@@ -56,7 +56,7 @@ const OverridableFooter = props => {
 
 class ILSFooter extends Component {
   render() {
-    return <OverridableFooter {...this.props} />;
+    return <FooterLayout {...this.props} />;
   }
 }
 
@@ -73,5 +73,8 @@ ILSFooter.propTypes = {
 ILSFooter.defaultProps = {
   staticPages: [],
 };
+
+FooterLayout.propTypes = ILSFooter.propTypes;
+FooterLayout.dafaultProps = ILSFooter.defaultProps;
 
 export default Overridable.component('ILSFooter', ILSFooter);

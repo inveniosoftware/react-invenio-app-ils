@@ -1,1 +1,1 @@
-export { YearPicker } from "./YearPicker";
+export { default as YearPicker } from './YearPicker';

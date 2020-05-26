@@ -10,32 +10,39 @@ import { FrontSiteRoutes } from '@routes/urls';
 import { parseParams } from '@authentication/utils';
 import PropTypes from 'prop-types';
 
-const OverridableLoginWithLocalAccount = ({ data, buttons, onSubmit }) => {
+const LoginWithLocalAccountLayout = ({ data, buttons, onSubmit }) => {
   return (
-    <Container
-      fluid
-      id="login-with-local-account-form"
-      className="bottom-spaced"
+    <Overridable
+      id="LoginWithLocalAccount.layout"
+      data={data}
+      buttons={buttons}
+      onSubmit={onSubmit}
     >
-      <BaseForm initialValues={data} buttons={buttons} onSubmit={onSubmit}>
-        <StringField
-          fieldPath="email"
-          placeholder="Email Address"
-          type="email"
-          icon="user"
-          iconPosition="left"
-          required
-        />
-        <StringField
-          fieldPath="password"
-          placeholder="Password"
-          type="password"
-          icon="lock"
-          iconPosition="left"
-          required
-        />
-      </BaseForm>
-    </Container>
+      <Container
+        fluid
+        id="login-with-local-account-form"
+        className="bottom-spaced"
+      >
+        <BaseForm initialValues={data} buttons={buttons} onSubmit={onSubmit}>
+          <StringField
+            fieldPath="email"
+            placeholder="Email Address"
+            type="email"
+            icon="user"
+            iconPosition="left"
+            required
+          />
+          <StringField
+            fieldPath="password"
+            placeholder="Password"
+            type="password"
+            icon="lock"
+            iconPosition="left"
+            required
+          />
+        </BaseForm>
+      </Container>
+    </Overridable>
   );
 };
 
@@ -101,7 +108,7 @@ class LoginWithLocalAccount extends Component {
   render() {
     const { data } = this.state;
     return (
-      <OverridableLoginWithLocalAccount
+      <LoginWithLocalAccountLayout
         {...this.props}
         data={data}
         buttons={this.buttons}
@@ -117,7 +124,7 @@ LoginWithLocalAccount.propTypes = {
   clearNotifications: PropTypes.func.isRequired,
 };
 
-OverridableLoginWithLocalAccount.propTypes = {
+LoginWithLocalAccountLayout.propTypes = {
   data: PropTypes.object.isRequired,
   onSubmit: PropTypes.func.isRequired,
   buttons: PropTypes.array.isRequired,

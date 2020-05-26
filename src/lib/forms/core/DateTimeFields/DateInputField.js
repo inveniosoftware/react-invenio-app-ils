@@ -1,5 +1,5 @@
 import { fromISO, toShortDate } from '@api/date';
-import { DatePicker } from '@components/DatePicker/DatePicker';
+import { DatePicker } from '@components/DatePicker';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Form } from 'semantic-ui-react';

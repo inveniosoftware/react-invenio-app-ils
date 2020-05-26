@@ -1,36 +1,40 @@
-import React, { Component } from "react";
-import { YearInput } from "semantic-ui-calendar-react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import Overridable from 'react-overridable';
+import { YearInput } from 'semantic-ui-calendar-react';
+import PropTypes from 'prop-types';
 
-export class YearPicker extends Component {
+class YearPicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedYear: props.defaultValue
+      selectedYear: props.defaultValue,
     };
   }
 
   handleYearChange = (_, { name, value }) => {
+    const { handleYearChange } = this.props;
     this.setState({ selectedYear: value });
-    this.props.handleYearChange(value, name);
+    handleYearChange(value, name);
   };
 
   render() {
+    const { initialYear, error, label, id, name, placeholder } = this.props;
+    const { selectedYear } = this.state;
     return (
       <YearInput
         autoComplete="off"
         clearable
         closable
         iconPosition="left"
-        initialDate={this.props.initialYear}
-        error={this.props.error}
-        label={this.props.label}
-        id={this.props.id}
-        name={this.props.name}
+        initialDate={initialYear}
+        error={error}
+        label={label}
+        id={id}
+        name={name}
         onChange={this.handleYearChange}
-        placeholder={this.props.placeholder}
-        value={this.state.selectedYear}
-        data-test={this.state.selectedYear}
+        placeholder={placeholder}
+        value={selectedYear}
+        data-test={selectedYear}
       />
     );
   }
@@ -39,18 +43,19 @@ export class YearPicker extends Component {
 YearPicker.propTypes = {
   defaultValue: PropTypes.string,
   error: PropTypes.object,
-  handleBlur: PropTypes.func,
   handleYearChange: PropTypes.func.isRequired,
   id: PropTypes.string,
   initialYear: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
 };
 
 YearPicker.defaultProps = {
-  initialYear: "",
-  defaultValue: "",
-  placeholder: "",
-  name: "selectedYear"
+  initialYear: '',
+  defaultValue: '',
+  placeholder: '',
+  name: 'selectedYear',
 };
+
+export default Overridable.component('YearPicker', YearPicker);

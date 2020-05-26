@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import Overridable from 'react-overridable';
 import { DateInput } from 'semantic-ui-calendar-react';
 import PropTypes from 'prop-types';
 
-export class DatePicker extends Component {
+class DatePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,28 +12,40 @@ export class DatePicker extends Component {
   }
 
   handleDateChange = (_, { name, value }) => {
+    const { handleDateChange } = this.props;
     this.setState({ selectedDate: value });
-    this.props.handleDateChange(value, name);
+    handleDateChange(value, name);
   };
 
   render() {
+    const {
+      initialDate,
+      minDate,
+      maxDate,
+      error,
+      label,
+      id,
+      name,
+      placeholder,
+    } = this.props;
+    const { selectedDate } = this.state;
     return (
       <DateInput
         autoComplete="off"
         clearable
         closable
         iconPosition="left"
-        initialDate={this.props.initialDate}
-        minDate={this.props.minDate}
-        maxDate={this.props.maxDate}
-        error={this.props.error}
-        label={this.props.label}
-        id={this.props.id}
-        name={this.props.name}
+        initialDate={initialDate}
+        minDate={minDate}
+        maxDate={maxDate}
+        error={error}
+        label={label}
+        id={id}
+        name={name}
         onChange={this.handleDateChange}
-        placeholder={this.props.placeholder}
-        value={this.state.selectedDate}
-        data-test={this.state.selectedDate}
+        placeholder={placeholder}
+        value={selectedDate}
+        data-test={selectedDate}
         dateFormat="YYYY-MM-DD"
         animation="none"
       />
@@ -64,3 +77,5 @@ DatePicker.defaultProps = {
   label: null,
   error: {},
 };
+
+export default Overridable.component('DatePicker', DatePicker);

@@ -8,13 +8,11 @@ class Loader extends Component {
     const { isLoading } = this.props;
     return (
       <Overridable id="Loader.layout" {...this.props}>
-        <>
-          {isLoading ? (
-            <UILoader active size="huge" inline="centered" />
-          ) : (
-            this.props.children
-          )}
-        </>
+        {isLoading ? (
+          <UILoader active size="huge" inline="centered" />
+        ) : (
+          this.props.children
+        )}
       </Overridable>
     );
   }

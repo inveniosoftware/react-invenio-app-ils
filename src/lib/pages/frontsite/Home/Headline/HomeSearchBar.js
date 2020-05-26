@@ -9,19 +9,21 @@ export class HomeSearchBar extends Component {
     this.state = { query: '' };
   }
 
-  updateSearchQuery = (value, event) => {
-    this.setState({ query: event.target.value });
+  updateSearchQuery = (e, elem) => {
+    this.setState({ query: elem.target.value });
   };
 
   onSearchExecute = () => {
-    const query = encodeURIComponent(this.state.query);
-    goTo(FrontSiteRoutes.documentsListWithQuery(query));
+    const { query } = this.state;
+    const encodedQuery = encodeURIComponent(query);
+    goTo(FrontSiteRoutes.documentsListWithQuery(encodedQuery));
   };
 
   render() {
+    const { query } = this.state;
     return (
       <SearchBar
-        currentQueryString={this.state.searchQuery}
+        currentQueryString={query}
         onInputChange={this.updateSearchQuery}
         executeSearch={this.onSearchExecute}
         placeholder="Search for books, series, articles, publications..."
