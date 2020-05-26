@@ -1,4 +1,5 @@
 export { documentApi } from './documents/document';
+export { documentRequestApi } from './documentRequests/documentRequest';
 export { http } from './base';
 export { fileApi } from './files/file';
 export { literatureApi } from './literature/literature';

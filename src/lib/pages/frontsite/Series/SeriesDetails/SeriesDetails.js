@@ -15,6 +15,11 @@ import { SeriesMetadata } from './SeriesMetadata';
 import { SeriesPanel } from './SeriesPanel';
 
 const SeriesDetailsLayout = ({ error, isLoading, series }) => {
+  const breadcrumbs = () => [
+    { to: FrontSiteRoutes.home, label: 'Home' },
+    { to: FrontSiteRoutes.documentsList, label: 'Search' },
+  ];
+
   return (
     <Overridable id="SeriesDetails.layout" {...{ error, isLoading, series }}>
       <Error boundary error={error}>
@@ -24,7 +29,7 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
               <Grid.Column width={13}>
                 <Breadcrumbs
                   isLoading={isLoading}
-                  elements={this.breadcrumbs()}
+                  elements={breadcrumbs()}
                   currentElement={
                     series.metadata ? series.metadata.title : null
                   }
@@ -108,11 +113,6 @@ class SeriesDetails extends React.Component {
     fetchSeriesDetails(seriesPid);
   }
 
-  breadcrumbs = () => [
-    { to: FrontSiteRoutes.home, label: 'Home' },
-    { to: FrontSiteRoutes.documentsList, label: 'Search' },
-  ];
-
   onSearchClick = () => {
     const { searchQuery } = this.state;
     const query = encodeURIComponent(searchQuery);
@@ -127,20 +127,22 @@ class SeriesDetails extends React.Component {
     const { error, isLoading, series } = this.props;
     const { searchQuery } = this.state;
     return (
-      <Container fluid className="document-details-search-container">
-        <Overridable id="SeriesDetails.top">
-          <Container>
-            <SearchBar
-              currentQueryString={searchQuery}
-              onInputChange={this.onSearchInputChange}
-              executeSearch={this.onSearchClick}
-              placeholder="Search for books..."
-              className="document-details-search-bar"
-            />
-          </Container>
-        </Overridable>
+      <>
+        <Container fluid className="document-details-search-container">
+          <Overridable id="SeriesDetails.top">
+            <Container>
+              <SearchBar
+                currentQueryString={searchQuery}
+                onInputChange={this.onSearchInputChange}
+                executeSearch={this.onSearchClick}
+                placeholder="Search for books..."
+                className="document-details-search-bar"
+              />
+            </Container>
+          </Overridable>
+        </Container>
         <SeriesDetailsLayout {...{ series, error, isLoading }} />
-      </Container>
+      </>
     );
   }
 }
