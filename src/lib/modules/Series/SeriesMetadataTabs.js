@@ -1,11 +1,12 @@
 import { LiteratureNotes, LiteratureRelations } from '@modules/Literature';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import Overridable from 'react-overridable';
 import { Tab } from 'semantic-ui-react';
 import { Identifiers } from '../Identifiers';
 import { SeriesAllTitles, SeriesInfo, SeriesLinks } from './';
 
-export class SeriesMetadataTabs extends Component {
+class SeriesMetadataTabs extends Component {
   renderTabPanes = () => {
     const { metadata } = this.props;
     return [
@@ -67,3 +68,5 @@ export class SeriesMetadataTabs extends Component {
 SeriesMetadataTabs.propTypes = {
   metadata: PropTypes.object.isRequired,
 };
+
+export default Overridable.component('SeriesMetadataTabs', SeriesMetadataTabs);

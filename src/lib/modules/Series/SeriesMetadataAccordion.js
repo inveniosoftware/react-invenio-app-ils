@@ -1,6 +1,7 @@
 import { LiteratureRelations, LiteratureNotes } from '@modules/Literature';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import Overridable from 'react-overridable';
 import { Accordion, Icon } from 'semantic-ui-react';
 import { Identifiers } from '../Identifiers';
 import {
@@ -10,7 +11,7 @@ import {
   SeriesLinks,
 } from './';
 
-export class SeriesMetadataAccordion extends Component {
+class SeriesMetadataAccordion extends Component {
   state = { activeIndex: 'details' };
 
   handleClick = (e, titleProps) => {
@@ -95,3 +96,8 @@ export class SeriesMetadataAccordion extends Component {
 SeriesMetadataAccordion.propTypes = {
   metadata: PropTypes.object.isRequired,
 };
+
+export default Overridable.component(
+  'SeriesMetadataAccordion',
+  SeriesMetadataAccordion
+);
