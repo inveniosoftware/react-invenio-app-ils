@@ -19,6 +19,16 @@ import {
   patronPastDocumentRequestsReducer,
 } from '@pages/frontsite/PatronProfile/reducer';
 import { staticPageReducer } from '@pages/frontsite/StaticPage/reducer';
+import {
+  loansCardReducer,
+  documentCardReducer,
+  overbookedDocumentsReducer,
+  overdueLoansReducer,
+  pendingOverdueDocumentsReducer,
+  idleLoansReducer,
+  renewedLoansReducer,
+} from '@pages/backoffice/Home/reducer';
+import { overdueLoanSendMailModalReducer } from '@components/backoffice/OverdueLoanSendMailModal/reducer';
 
 const rootReducer = combineReducers({
   authenticationManagement: authenticationReducer,
@@ -36,6 +46,16 @@ const rootReducer = combineReducers({
   patronCurrentBorrowingRequests: patronCurrentBorrowingRequestsReducer,
   patronPastBorrowingRequests: patronPastBorrowingRequestsReducer,
   staticPage: staticPageReducer,
+
+  /* backoffice */
+  loansCard: loansCardReducer,
+  documentCard: documentCardReducer,
+  overbookedDocuments: overbookedDocumentsReducer,
+  overdueLoans: overdueLoansReducer,
+  pendingOverdueDocuments: pendingOverdueDocumentsReducer,
+  idlePendingLoans: idleLoansReducer,
+  latestRenewedLoans: renewedLoansReducer,
+  overdueLoanSendMailModal: overdueLoanSendMailModalReducer,
 });
 
 const composeEnhancers = composeWithDevTools({

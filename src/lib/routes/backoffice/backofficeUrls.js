@@ -1,6 +1,6 @@
 import { generatePath } from 'react-router-dom';
 
-const BackOfficeBase = '/backoffice';
+export const BackOfficeBase = '/backoffice';
 
 const BackOfficeRoutesList = {
   home: BackOfficeBase,
@@ -36,7 +36,7 @@ const BackOfficeRoutesList = {
   },
 };
 
-const BackOfficeRouteGenerators = {
+export const BackOfficeRouteGenerators = {
   documentEditFor: documentPid =>
     generatePath(BackOfficeRoutesList.documentEdit, {
       documentPid: documentPid,

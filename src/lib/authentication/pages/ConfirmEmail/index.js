@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { confirmUser } from '@authentication/actions';
+import { confirmUser } from '@authentication/state/actions';
 import {
   addNotification,
   clearNotifications,
