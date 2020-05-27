@@ -53,7 +53,7 @@ class DocumentCard extends Component {
           <Card.Content>
             <Card.Header>{metadata.title}</Card.Header>
             <Card.Meta>
-              <DocumentAuthors metadata={metadata} />
+              <DocumentAuthors metadata={data.metadata} authorsLimit={10} />
               <div>
                 {!isEmpty(metadata.imprints) ? (
                   <>

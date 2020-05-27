@@ -35,9 +35,9 @@ export class ILSParagraphPlaceholder extends Component {
 
     return isLoading ? (
       <Placeholder {...restParams}>{this.renderLines()}</Placeholder>
-    ) : this.props.children ? (
+    ) : (
       this.props.children
-    ) : null;
+    );
   }
 }
 

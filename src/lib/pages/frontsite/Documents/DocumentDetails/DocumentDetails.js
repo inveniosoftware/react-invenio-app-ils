@@ -152,7 +152,6 @@ class DocumentDetails extends Component {
   render() {
     const { isLoading, error, documentDetails } = this.props;
     const { searchQuery } = this.state;
-
     return (
       <>
         <Overridable id="DocumentDetails.top">
