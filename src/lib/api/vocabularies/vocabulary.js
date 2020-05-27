@@ -63,7 +63,7 @@ const count = async query => {
   return response;
 };
 
-export const vocabulary = {
+export const vocabularyApi = {
   searchBaseURL: `${apiConfig.baseURL}${vocabulariesURL}`,
   list: list,
   count: count,

@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { vocabulary as vocabularyApi } from "@api";
-import { SelectField } from "./SelectField";
-import { invenioConfig } from "@config";
-import { AccordionField } from "./AccordionField";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { vocabularyApi } from '@api';
+import { SelectField } from './SelectField';
+import { invenioConfig } from '@config';
+import { AccordionField } from './AccordionField';
 
 export class VocabularyField extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export class VocabularyField extends React.Component {
     this.state = {
       isLoading: true,
       error: null,
-      options: []
+      options: [],
     };
   }
 
@@ -28,7 +28,7 @@ export class VocabularyField extends React.Component {
   serializer = hit => ({
     key: hit.metadata.id,
     value: hit.metadata.key,
-    text: hit.metadata.text
+    text: hit.metadata.text,
   });
 
   fetchVocabularies = async serializer => {
@@ -40,11 +40,11 @@ export class VocabularyField extends React.Component {
     } catch (error) {
       this.setState({
         isloading: false,
-        options: [{ key: "", value: "", text: "Failed to load vocabularies." }],
+        options: [{ key: '', value: '', text: 'Failed to load vocabularies.' }],
         error: {
-          content: "Failed to load vocabularies.",
-          pointing: "above"
-        }
+          content: 'Failed to load vocabularies.',
+          pointing: 'above',
+        },
       });
     }
   };
@@ -66,7 +66,7 @@ export class VocabularyField extends React.Component {
     } = this.props;
     const { isLoading, options } = this.state;
     const noResultsMessage = isLoading
-      ? "Loading options..."
+      ? 'Loading options...'
       : `No ${type} vocabularies found.`;
     const selectField = (
       <SelectField
@@ -103,10 +103,10 @@ VocabularyField.propTypes = {
   label: PropTypes.string,
   multiple: PropTypes.bool,
   serializer: PropTypes.func,
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
 };
 
 VocabularyField.defaultProps = {
   accordion: false,
-  multiple: false
+  multiple: false,
 };

@@ -1,12 +1,14 @@
 export { Breadcrumbs } from './Breadcrumbs';
 export { DatePicker } from './DatePicker';
-export { EmptyMessage } from './EmptyMessage';
+export { InfoMessage } from './InfoMessage';
 export { Error } from './Error';
 export { ILSFooter } from './ILSFooter';
 export { ILSMenu } from './ILSMenu';
 export { InfoPopup } from './InfoPopup';
 export { Loader } from './Loader';
 export { NotFound } from './NotFound';
+export { Pagination } from './Pagination';
+export { ResultsTable } from './ResultsTable/ResultsTable';
 export { SearchBar } from './SearchBar';
 export { SeparatedList } from './SeparatedList';
 export { ShowMoreContent } from './ShowMoreContent';

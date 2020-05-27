@@ -2,6 +2,8 @@ import { LiteratureSearch } from '@pages/frontsite/Literature';
 import { DocumentDetails } from '@pages/frontsite/Documents';
 import { SeriesDetails } from '@pages/frontsite/Series';
 import { DocumentRequestForm } from '@pages/frontsite/DocumentRequests';
+import { PatronProfile } from '@pages/frontsite/PatronProfile';
+import { Notifications } from '@components/Notifications';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
@@ -15,6 +17,7 @@ export default class FrontSite extends Component {
     return (
       <div className="frontsite">
         <ILSMenu />
+        <Notifications className="compact" />
         <Container fluid className="fs-content">
           <Switch>
             <Route
@@ -41,6 +44,11 @@ export default class FrontSite extends Component {
               exact
               path={FrontSiteRoutes.documentRequestForm}
               component={DocumentRequestForm}
+            />
+            <Route
+              exact
+              path={FrontSiteRoutes.patronProfile}
+              component={PatronProfile}
             />
             <Route>
               <NotFound />

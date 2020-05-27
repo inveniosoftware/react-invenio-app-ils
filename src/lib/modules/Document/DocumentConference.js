@@ -1,4 +1,4 @@
-import { EmptyMessage } from '@components/EmptyMessage';
+import { InfoMessage } from '@components';
 import React, { Component } from 'react';
 import { Divider, Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
@@ -9,7 +9,7 @@ export class DocumentConference extends Component {
     const { conference, documentType } = this.props;
     if (_isEmpty(conference)) {
       return (
-        <EmptyMessage
+        <InfoMessage
           title="No conference information"
           message="This literature has not been published on a conference"
         />
