@@ -18,6 +18,7 @@ import {
   patronCurrentDocumentRequestsReducer,
   patronPastDocumentRequestsReducer,
 } from '@pages/frontsite/PatronProfile/reducer';
+import { staticPageReducer } from '@pages/frontsite/StaticPage/reducer';
 
 const rootReducer = combineReducers({
   authenticationManagement: authenticationReducer,
@@ -34,6 +35,7 @@ const rootReducer = combineReducers({
   patronPendingLoans: patronPendingLoansReducer,
   patronCurrentBorrowingRequests: patronCurrentBorrowingRequestsReducer,
   patronPastBorrowingRequests: patronPastBorrowingRequestsReducer,
+  staticPage: staticPageReducer,
 });
 
 const composeEnhancers = composeWithDevTools({
