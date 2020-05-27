@@ -28,7 +28,7 @@ import {
   idleLoansReducer,
   renewedLoansReducer,
 } from '@pages/backoffice/Home/reducer';
-import { overdueLoanSendMailModalReducer } from '@components/backoffice/OverdueLoanSendMailModal/reducer';
+import { overdueLoanSendMailModalReducer } from '@modules/Loan/backoffice/OverdueLoanSendMailModal/reducer';
 
 const rootReducer = combineReducers({
   authenticationManagement: authenticationReducer,

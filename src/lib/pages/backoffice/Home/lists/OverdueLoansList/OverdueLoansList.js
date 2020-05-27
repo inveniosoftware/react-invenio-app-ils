@@ -8,7 +8,7 @@ import { loanApi } from '@api';
 import { dateFormatter } from '@api/date';
 import { BackOfficeRoutes } from '@routes/urls';
 import { SeeAllButton } from '@components/backoffice/buttons';
-import { OverdueLoanSendMailModal } from '@components/backoffice';
+import { OverdueLoanSendMailModal } from '@modules/Loan/backoffice';
 
 export default class OverdueLoansList extends Component {
   componentDidMount() {

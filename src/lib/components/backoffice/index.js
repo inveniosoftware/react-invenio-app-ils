@@ -4,7 +4,6 @@
 //   ExportReactSearchKitResults,
 //   ExportSearchResults,
 // } from './ExportSearchResults';
-export { OverdueLoanSendMailModal } from './OverdueLoanSendMailModal';
 // export { DocumentList } from './Document';
 // export { EditButton, NewButton, SeeAllButton } from './buttons';
 // export * from './icons';
