@@ -8,8 +8,8 @@ import {
   // BorrowingRequestSearch,
   // DocumentDetails,
   // DocumentEditor,
-  // DocumentRequestDetails,
-  // DocumentRequestSearch,
+  DocumentRequestDetails,
+  DocumentRequestSearch,
   // DocumentSearch,
   // EItemDetails,
   // EItemEditor,
@@ -166,17 +166,17 @@ export default class BackOfficeRoutesSwitch extends Component {
         {/*  path={BackOfficeRoutes.seriesDetails}*/}
         {/*  component={SeriesDetails}*/}
         {/*/>*/}
-        {/*/!* document requests *!/*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.documentRequestDetails}*/}
-        {/*  component={DocumentRequestDetails}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.documentRequestsList}*/}
-        {/*  component={DocumentRequestSearch}*/}
-        {/*/>*/}
+        {/* document requests */}
+        <Route
+          exact
+          path={BackOfficeRoutes.documentRequestDetails}
+          component={DocumentRequestDetails}
+        />
+        <Route
+          exact
+          path={BackOfficeRoutes.documentRequestsList}
+          component={DocumentRequestSearch}
+        />
         {/*/!* vendors *!/*/}
         {/*<Route*/}
         {/*  exact*/}

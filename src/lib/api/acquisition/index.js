@@ -1,2 +1,2 @@
-export { order as acqOrder } from './order';
-export { vendor as acqVendor } from './vendor';
+export { orderApi as acqOrderApi } from './order';
+export { vendorApi as acqVendorApi } from './vendor';

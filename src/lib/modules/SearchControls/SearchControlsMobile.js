@@ -55,5 +55,9 @@ export class SearchControlsMobile extends Component {
 
 SearchControlsMobile.propTypes = {
   modelName: PropTypes.string.isRequired,
-  stickyRef: PropTypes.object.isRequired,
+  stickyRef: PropTypes.object,
+};
+
+SearchControlsMobile.defaultProps = {
+  stickyRef: null,
 };

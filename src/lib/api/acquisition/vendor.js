@@ -89,7 +89,7 @@ const queryBuilder = () => {
   return new QueryBuilder();
 };
 
-export const vendor = {
+export const vendorApi = {
   searchBaseURL: `${apiConfig.baseURL}${vendorURL}`,
   get: get,
   create: create,

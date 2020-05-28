@@ -13,3 +13,4 @@ export { statsApi, circulationStatsApi } from './stats';
 export { illBorrowingRequestApi, illLibraryApi } from './ill';
 export { internalLocationApi } from './locations/internalLocation';
 export { pageApi } from './staticPages/page';
+export { acqOrderApi, acqVendorApi } from './acquisition';

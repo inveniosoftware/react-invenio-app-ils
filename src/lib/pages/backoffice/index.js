@@ -1,9 +1,9 @@
 export { Home } from './Home';
 // export { DocumentDetails, DocumentSearch, DocumentEditor } from './Document';
-// export {
-//   DocumentRequestDetails,
-//   DocumentRequestSearch,
-// } from './DocumentRequest';
+export {
+  DocumentRequestDetails,
+  DocumentRequestSearch,
+} from './DocumentRequest';
 // export { EItemEditor, EItemDetails, EItemSearch } from './EItem';
 // export { ItemDetails, ItemEditor, ItemSearch } from './Item';
 export { LoanDetails, LoanSearch } from './Loan';

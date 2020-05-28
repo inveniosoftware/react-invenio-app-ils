@@ -1,9 +1,9 @@
 export { MetadataTable } from './MetadataTable';
 // export { DeleteRecordModal } from './DeleteRecordModal';
-// export {
-//   ExportReactSearchKitResults,
-//   ExportSearchResults,
-// } from './ExportSearchResults';
+export {
+  ExportReactSearchKitResults,
+  ExportSearchResults,
+} from './ExportSearchResults';
 // export { DocumentList } from './Document';
 // export { EditButton, NewButton, SeeAllButton } from './buttons';
 export * from './icons';

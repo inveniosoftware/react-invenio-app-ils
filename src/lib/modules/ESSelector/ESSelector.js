@@ -179,7 +179,7 @@ ESSelector.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   selectionInfoText: PropTypes.func,
-  emptySelectionInfoText: PropTypes.string,
+  emptySelectionInfoText: PropTypes.func,
 };
 
 ESSelector.defaultProps = {

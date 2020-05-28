@@ -31,6 +31,7 @@ import {
 } from '@pages/backoffice/Home/reducer';
 import { overdueLoanSendMailModalReducer } from '@modules/Loan/backoffice/OverdueLoanSendMailModal/reducer';
 import { availableItemsReducer } from '@pages/backoffice/Loan/LoanDetails/reducer';
+import { documentRequestDetailsReducer } from '@pages/backoffice/DocumentRequest/DocumentRequestDetails/reducer';
 
 const rootReducer = combineReducers({
   authenticationManagement: authenticationReducer,
@@ -61,6 +62,7 @@ const rootReducer = combineReducers({
   loanDetails: loanDetailsReducer,
   loanActions: loanActionReducer,
   availableItems: availableItemsReducer,
+  documentRequestDetails: documentRequestDetailsReducer,
 });
 
 const composeEnhancers = composeWithDevTools({
