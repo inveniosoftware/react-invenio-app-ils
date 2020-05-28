@@ -7,7 +7,7 @@ import {
   DocumentRequestHeader,
   DocumentRequestMetadata,
   DocumentRequestSteps,
-} from './components';
+} from './index';
 
 export default class DocumentRequestDetails extends Component {
   componentDidMount() {

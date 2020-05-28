@@ -17,6 +17,8 @@ export {
   BorrowingRequestDetailsLink,
 } from './buttons';
 export { InfoMessage } from './InfoMessage';
-// export { RestrictedAccessLabel } from './RestrictedAccessLabel';
-// export { OpenAccessLabel } from './OpenAccessLabel';
+export { RestrictedAccessLabel } from './RestrictedAccessLabel';
+export { OpenAccessLabel } from './OpenAccessLabel';
 export { RecordsBriefCard } from './RecordsBriefCard';
+export { CreatedBy, UpdatedBy } from './ChangedBy';
+export { UrlList } from './UrlList';

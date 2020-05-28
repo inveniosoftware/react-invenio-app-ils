@@ -37,6 +37,21 @@ import {
   internalLocationListReducer,
 } from '@pages/backoffice/Location/LocationList/reducer';
 import { deleteRecordModalReducer } from '@components/backoffice/DeleteRecordModal/reducer';
+import {
+  documentDetailsReducer,
+  documentStatsReducer,
+  documentPendingLoans,
+  documentItems,
+  documentEItems,
+} from '@pages/backoffice/Document/DocumentDetails/reducer';
+import { recordRelationsReducer } from '@modules/Relations/backoffice/reducer';
+import { relationSelectorReducer } from '@modules/Relations/backoffice/reducer';
+import {
+  seriesDetailsReducer,
+  seriesDocumentsReducer,
+  seriesMultipartMonographsReducer,
+  seriesRelationsReducer,
+} from '@pages/backoffice/Series/SeriesDetails/reducer';
 
 const rootReducer = combineReducers({
   authenticationManagement: authenticationReducer,
@@ -71,6 +86,17 @@ const rootReducer = combineReducers({
   locations: locationListReducer,
   internalLocations: internalLocationListReducer,
   deleteRecordModal: deleteRecordModalReducer,
+  recordRelationsSelections: relationSelectorReducer,
+  recordRelations: recordRelationsReducer,
+  documentDetails: documentDetailsReducer,
+  documentItems: documentItems,
+  documentEItems: documentEItems,
+  documentPendingLoans: documentPendingLoans,
+  documentStats: documentStatsReducer,
+  seriesDetails: seriesDetailsReducer,
+  seriesDocuments: seriesDocumentsReducer,
+  seriesMultipartMonographs: seriesMultipartMonographsReducer,
+  seriesRelations: seriesRelationsReducer,
 });
 
 const composeEnhancers = composeWithDevTools({

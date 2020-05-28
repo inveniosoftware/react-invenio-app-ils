@@ -1,5 +1,5 @@
 export { Home } from './Home';
-// export { DocumentDetails, DocumentSearch, DocumentEditor } from './Document';
+export { DocumentDetails, DocumentSearch, DocumentEditor } from './Document';
 export {
   DocumentRequestDetails,
   DocumentRequestSearch,
@@ -13,7 +13,7 @@ export {
   LocationList,
 } from './Location';
 // export { PatronDetails, PatronSearch } from './Patron';
-// export { SeriesEditor, SeriesDetails, SeriesSearch } from './Series';
+export { SeriesEditor, SeriesDetails, SeriesSearch } from './Series';
 // export { Stats } from './Stats';
 // export {
 //   OrderDetails,

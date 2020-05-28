@@ -8,7 +8,7 @@ export { loanApi } from './loans/loan';
 export { patronApi } from './patrons/patron';
 export { seriesApi } from './series/series';
 export { vocabularyApi } from './vocabularies/vocabulary';
-export { eitemApi } from './eitems/eitem';
+export { eItemApi } from './eitems/eitem';
 export { statsApi, circulationStatsApi } from './stats';
 export { illBorrowingRequestApi, illLibraryApi } from './ill';
 export { internalLocationApi } from './locations/internalLocation';

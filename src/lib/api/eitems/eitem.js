@@ -70,7 +70,7 @@ const queryBuilder = () => {
   return new QueryBuilder();
 };
 
-export const eitemApi = {
+export const eItemApi = {
   bucket: bucket,
   create: create,
   delete: del,

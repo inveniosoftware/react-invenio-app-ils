@@ -6,11 +6,11 @@ import {
   // BorrowingRequestDetails,
   // BorrowingRequestEditor,
   // BorrowingRequestSearch,
-  // DocumentDetails,
-  // DocumentEditor,
+  DocumentDetails,
+  DocumentEditor,
   DocumentRequestDetails,
   DocumentRequestSearch,
-  // DocumentSearch,
+  DocumentSearch,
   // EItemDetails,
   // EItemEditor,
   // EItemSearch,
@@ -31,9 +31,9 @@ import {
   // OrderSearch,
   // PatronDetails,
   // PatronSearch,
-  // SeriesDetails,
-  // SeriesEditor,
-  // SeriesSearch,
+  SeriesDetails,
+  SeriesEditor,
+  SeriesSearch,
   // Stats,
   // VendorDetails,
   // VendorEditor,
@@ -45,27 +45,27 @@ export default class BackOfficeRoutesSwitch extends Component {
     return (
       <Switch>
         <Route exact path={BackOfficeRoutes.home} component={Home} />
-        {/*/!* documents *!/*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.documentCreate}*/}
-        {/*  component={DocumentEditor}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.documentsList}*/}
-        {/*  component={DocumentSearch}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.documentEdit}*/}
-        {/*  component={DocumentEditor}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.documentDetails}*/}
-        {/*  component={DocumentDetails}*/}
-        {/*/>*/}
+        {/* documents */}
+        <Route
+          exact
+          path={BackOfficeRoutes.documentCreate}
+          component={DocumentEditor}
+        />
+        <Route
+          exact
+          path={BackOfficeRoutes.documentsList}
+          component={DocumentSearch}
+        />
+        <Route
+          exact
+          path={BackOfficeRoutes.documentEdit}
+          component={DocumentEditor}
+        />
+        <Route
+          exact
+          path={BackOfficeRoutes.documentDetails}
+          component={DocumentDetails}
+        />
         {/*/!* eitems *!/*/}
         {/*<Route*/}
         {/*  exact*/}
@@ -146,26 +146,26 @@ export default class BackOfficeRoutesSwitch extends Component {
         {/*  component={PatronDetails}*/}
         {/*/>*/}
         {/*/!* series *!/*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.seriesList}*/}
-        {/*  component={SeriesSearch}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.seriesCreate}*/}
-        {/*  component={SeriesEditor}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.seriesEdit}*/}
-        {/*  component={SeriesEditor}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.seriesDetails}*/}
-        {/*  component={SeriesDetails}*/}
-        {/*/>*/}
+        <Route
+          exact
+          path={BackOfficeRoutes.seriesList}
+          component={SeriesSearch}
+        />
+        <Route
+          exact
+          path={BackOfficeRoutes.seriesCreate}
+          component={SeriesEditor}
+        />
+        <Route
+          exact
+          path={BackOfficeRoutes.seriesEdit}
+          component={SeriesEditor}
+        />
+        <Route
+          exact
+          path={BackOfficeRoutes.seriesDetails}
+          component={SeriesDetails}
+        />
         {/* document requests */}
         <Route
           exact

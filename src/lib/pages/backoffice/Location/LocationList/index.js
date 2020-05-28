@@ -18,3 +18,4 @@ export const LocationList = connect(
   mapStateToProps,
   mapDispatchToProps
 )(LocationListComponent);
+export { InternalLocationList } from './InternalLocationList';

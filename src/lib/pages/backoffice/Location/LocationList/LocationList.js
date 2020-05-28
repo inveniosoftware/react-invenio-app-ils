@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Container, Divider, Grid, Header } from 'semantic-ui-react';
 import { internalLocationApi } from '@api';
-import { InternalLocationList } from './components';
+import { InternalLocationList } from './index';
 import { Error, Loader, ResultsTable } from '@components';
 import { DeleteRecordModal } from '@components/backoffice';
 import { Button } from 'semantic-ui-react';

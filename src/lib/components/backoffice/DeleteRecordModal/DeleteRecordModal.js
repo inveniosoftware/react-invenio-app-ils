@@ -5,7 +5,7 @@ import sumBy from 'lodash/sumBy';
 import sortBy from 'lodash/sortBy';
 import { Button, Header, Icon, Modal, Segment, List } from 'semantic-ui-react';
 import { Loader, Error } from '@components';
-import { DeleteButton } from './components/DeleteButton';
+import { DeleteButton } from './DeleteButton';
 
 export default class DeleteRecordModal extends Component {
   constructor(props) {

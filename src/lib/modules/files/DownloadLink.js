@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fileApi, eitemApi } from '@api';
+import { fileApi, eItemApi } from '@api';
 
 export const DownloadLink = ({ children, content, eitem, filename }) => (
   <a
     href={fileApi.downloadURL(eitem.bucket_id, filename)}
-    onClick={() => eitemApi.fileDownloaded(eitem.pid, filename)}
+    onClick={() => eItemApi.fileDownloaded(eitem.pid, filename)}
   >
     {content || children || filename}
   </a>
