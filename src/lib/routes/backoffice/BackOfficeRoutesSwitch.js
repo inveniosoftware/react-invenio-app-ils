@@ -22,8 +22,8 @@ import {
   // LibraryDetails,
   // LibraryEditor,
   // LibrarySearch,
-  // LoanDetails,
-  // LoanSearch,
+  LoanDetails,
+  LoanSearch,
   // LocationEditor,
   // LocationList,
   // OrderDetails,
@@ -100,13 +100,13 @@ export default class BackOfficeRoutesSwitch extends Component {
         {/*  path={BackOfficeRoutes.itemDetails}*/}
         {/*  component={ItemDetails}*/}
         {/*/>*/}
-        {/*/!* loans *!/*/}
-        {/*<Route exact path={BackOfficeRoutes.loansList} component={LoanSearch} />*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.loanDetails}*/}
-        {/*  component={LoanDetails}*/}
-        {/*/>*/}
+        {/* loans */}
+        <Route exact path={BackOfficeRoutes.loansList} component={LoanSearch} />
+        <Route
+          exact
+          path={BackOfficeRoutes.loanDetails}
+          component={LoanDetails}
+        />
         {/*/!* internal locations *!/*/}
         {/*<Route*/}
         {/*  exact*/}

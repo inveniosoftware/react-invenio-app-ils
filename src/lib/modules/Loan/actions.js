@@ -3,10 +3,36 @@ import {
   sendSuccessNotification,
   sendErrorNotification,
 } from '@components/Notifications';
+import { ES_DELAY } from '@config/index';
 
 export const IS_LOADING = 'loanAction/IS_LOADING';
 export const SUCCESS = 'loanAction/SUCCESS';
 export const HAS_ERROR = 'loanAction/HAS_ERROR';
+
+export const DETAILS_IS_LOADING = 'fetchLoanDetails/IS_LOADING';
+export const DETAILS_SUCCESS = 'fetchLoanDetails/SUCCESS';
+export const DETAILS_HAS_ERROR = 'fetchLoanDetails/HAS_ERROR';
+
+export const fetchLoanDetails = loanPid => {
+  return async dispatch => {
+    dispatch({
+      type: DETAILS_IS_LOADING,
+    });
+    try {
+      const response = await loanApi.get(loanPid);
+      dispatch({
+        type: DETAILS_SUCCESS,
+        payload: response.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: DETAILS_HAS_ERROR,
+        payload: error,
+      });
+      dispatch(sendErrorNotification(error));
+    }
+  };
+};
 
 export const performLoanAction = (
   actionURL,
@@ -32,6 +58,13 @@ export const performLoanAction = (
         type: SUCCESS,
         payload: response.data,
       });
+      dispatch({
+        type: DETAILS_IS_LOADING,
+      });
+      setTimeout(
+        () => dispatch(fetchLoanDetails(response.data.metadata.pid)),
+        ES_DELAY
+      );
       const loanPid = response.data.pid;
       dispatch(
         sendSuccessNotification(

@@ -6,7 +6,7 @@ export { Home } from './Home';
 // } from './DocumentRequest';
 // export { EItemEditor, EItemDetails, EItemSearch } from './EItem';
 // export { ItemDetails, ItemEditor, ItemSearch } from './Item';
-// export { LoanDetails, LoanSearch } from './Loan';
+export { LoanDetails, LoanSearch } from './Loan';
 // export {
 //   InternalLocationEditor,
 //   LocationEditor,

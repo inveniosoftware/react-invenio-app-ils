@@ -31,8 +31,8 @@ export class ResultsTable extends Component {
         compact
         selectable
         unstackable
-        fixed
-        singleLine
+        fixed={fixed}
+        singleLine={singleLine}
         {...tableProps}
       >
         <ResultsTableHeader columns={columns} />
@@ -130,9 +130,9 @@ ResultsTable.defaultProps = {
   seeAllComponent: null,
   showAllResults: false,
   showMaxRows: invenioConfig.defaultResultsSize,
-  singleLine: false,
+  singleLine: true,
   subtitle: '',
   title: '',
-  fixed: true,
+  fixed: false,
   name: '',
 };

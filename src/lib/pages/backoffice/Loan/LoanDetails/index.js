@@ -1,0 +1,19 @@
+import { connect } from 'react-redux';
+
+import { fetchLoanDetails } from '@modules/Loan/actions';
+import LoanDetailsComponent from './LoanDetails';
+
+const mapStateToProps = state => ({
+  isLoading: state.loanDetails.isLoading,
+  error: state.loanDetails.error,
+  data: state.loanDetails.data,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchLoanDetails: loanPid => dispatch(fetchLoanDetails(loanPid)),
+});
+
+export const LoanDetails = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoanDetailsComponent);

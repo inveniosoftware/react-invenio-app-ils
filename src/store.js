@@ -1,3 +1,4 @@
+import { loanDetailsReducer, loanActionReducer } from '@modules/Loan/reducer';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
@@ -29,6 +30,7 @@ import {
   renewedLoansReducer,
 } from '@pages/backoffice/Home/reducer';
 import { overdueLoanSendMailModalReducer } from '@modules/Loan/backoffice/OverdueLoanSendMailModal/reducer';
+import { availableItemsReducer } from '@pages/backoffice/Loan/LoanDetails/reducer';
 
 const rootReducer = combineReducers({
   authenticationManagement: authenticationReducer,
@@ -56,6 +58,9 @@ const rootReducer = combineReducers({
   idlePendingLoans: idleLoansReducer,
   latestRenewedLoans: renewedLoansReducer,
   overdueLoanSendMailModal: overdueLoanSendMailModalReducer,
+  loanDetails: loanDetailsReducer,
+  loanActions: loanActionReducer,
+  availableItems: availableItemsReducer,
 });
 
 const composeEnhancers = composeWithDevTools({

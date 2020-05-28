@@ -175,7 +175,7 @@ class DocumentAuthors extends Component {
     const otherAuthors = otherAuthorsDisplay ? otherAuthorsDisplay : 'et al.';
 
     let scrollableClass;
-    const { authors: docAuthors = {} } = metadata;
+    const { authors: docAuthors } = metadata;
     let authors = docAuthors;
 
     if (!isEmpty(authors)) {
@@ -185,7 +185,6 @@ class DocumentAuthors extends Component {
         authors = authors.slice(0, authorsLimit);
       }
     }
-
     return (
       <Overridable id="DocumentAuthors.layout" {...this.props}>
         <div className={`document-authors-list-wrapper ${scrollableClass}`}>

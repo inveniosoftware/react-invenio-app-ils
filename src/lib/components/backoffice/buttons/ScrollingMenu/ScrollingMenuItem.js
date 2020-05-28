@@ -26,7 +26,13 @@ export default class ScrollingMenuItem extends Component {
 ScrollingMenuItem.propTypes = {
   elementId: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  setActiveLink: PropTypes.func.isRequired,
-  activeItem: PropTypes.string.isRequired,
-  offset: PropTypes.number.isRequired,
+  setActiveLink: PropTypes.func,
+  activeItem: PropTypes.string,
+  offset: PropTypes.number,
+};
+
+ScrollingMenuItem.defaultProps = {
+  setActiveLink: () => {},
+  activeItem: '',
+  offset: 0,
 };

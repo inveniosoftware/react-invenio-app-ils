@@ -1,4 +1,6 @@
 export { Breadcrumbs } from './Breadcrumbs';
+export { CopyButton } from './CopyButton';
+export { CancelModal } from './CancelModal';
 export { DatePicker } from './DatePicker';
 export { InfoMessage } from './InfoMessage';
 export { Error } from './Error';
