@@ -32,6 +32,11 @@ import {
 import { overdueLoanSendMailModalReducer } from '@modules/Loan/backoffice/OverdueLoanSendMailModal/reducer';
 import { availableItemsReducer } from '@pages/backoffice/Loan/LoanDetails/reducer';
 import { documentRequestDetailsReducer } from '@pages/backoffice/DocumentRequest/DocumentRequestDetails/reducer';
+import {
+  locationListReducer,
+  internalLocationListReducer,
+} from '@pages/backoffice/Location/LocationList/reducer';
+import { deleteRecordModalReducer } from '@components/backoffice/DeleteRecordModal/reducer';
 
 const rootReducer = combineReducers({
   authenticationManagement: authenticationReducer,
@@ -63,6 +68,9 @@ const rootReducer = combineReducers({
   loanActions: loanActionReducer,
   availableItems: availableItemsReducer,
   documentRequestDetails: documentRequestDetailsReducer,
+  locations: locationListReducer,
+  internalLocations: internalLocationListReducer,
+  deleteRecordModal: deleteRecordModalReducer,
 });
 
 const composeEnhancers = composeWithDevTools({

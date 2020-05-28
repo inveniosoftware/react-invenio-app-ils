@@ -34,7 +34,7 @@ const list = async (query = '', size = 100) => {
   return response;
 };
 
-export const location = {
+export const locationApi = {
   list: list,
   get: get,
   delete: del,

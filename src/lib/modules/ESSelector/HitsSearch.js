@@ -58,12 +58,19 @@ export class HitsSearch extends Component {
     this.searchInputRef.focus();
   };
 
-  search = () => {
-    const { serializer, alwaysWildcard, query, onResults, delay } = this.props;
-    return debounce(async searchQuery => {
+  search = searchQuery => {
+    const {
+      serializer,
+      alwaysWildcard,
+      onResults,
+      delay,
+      query: queryFunc,
+    } = this.props;
+
+    const deb = debounce(async searchQuery => {
       try {
         const queryString = alwaysWildcard ? searchQuery + '*' : searchQuery;
-        const response = await query(queryString);
+        const response = await queryFunc(queryString);
         let results = [];
 
         if (serializer) {
@@ -95,6 +102,8 @@ export class HitsSearch extends Component {
         });
       }
     }, delay);
+
+    return deb(searchQuery);
   };
 
   onSearchChange = (event, { value }) => {

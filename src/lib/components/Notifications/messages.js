@@ -50,16 +50,16 @@ export const SuccessMessage = ({ id, header, content, removeNotification }) => (
 );
 
 IlsMessage.propTypes = {
-  autoDismiss: PropTypes.bool,
+  autoDismiss: PropTypes.number,
   onDismiss: PropTypes.func.isRequired,
 };
 
 IlsMessage.defaultProps = {
-  autoDismiss: false,
+  autoDismiss: null,
 };
 
 ErrorMessage.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   header: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   removeNotification: PropTypes.func.isRequired,

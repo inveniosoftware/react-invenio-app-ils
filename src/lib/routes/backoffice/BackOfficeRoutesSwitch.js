@@ -15,7 +15,7 @@ import {
   // EItemEditor,
   // EItemSearch,
   Home,
-  // InternalLocationEditor,
+  InternalLocationEditor,
   // ItemDetails,
   // ItemEditor,
   // ItemSearch,
@@ -24,8 +24,8 @@ import {
   // LibrarySearch,
   LoanDetails,
   LoanSearch,
-  // LocationEditor,
-  // LocationList,
+  LocationEditor,
+  LocationList,
   // OrderDetails,
   // OrderEditor,
   // OrderSearch,
@@ -107,33 +107,33 @@ export default class BackOfficeRoutesSwitch extends Component {
           path={BackOfficeRoutes.loanDetails}
           component={LoanDetails}
         />
-        {/*/!* internal locations *!/*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.ilocationsCreate}*/}
-        {/*  component={InternalLocationEditor}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.ilocationsEdit}*/}
-        {/*  component={InternalLocationEditor}*/}
-        {/*/>*/}
-        {/*/!* locations *!/*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.locationsList}*/}
-        {/*  component={LocationList}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.locationsCreate}*/}
-        {/*  component={LocationEditor}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.locationsEdit}*/}
-        {/*  component={LocationEditor}*/}
-        {/*/>*/}
+        {/* internal locations */}
+        <Route
+          exact
+          path={BackOfficeRoutes.ilocationsCreate}
+          component={InternalLocationEditor}
+        />
+        <Route
+          exact
+          path={BackOfficeRoutes.ilocationsEdit}
+          component={InternalLocationEditor}
+        />
+        {/* locations */}
+        <Route
+          exact
+          path={BackOfficeRoutes.locationsList}
+          component={LocationList}
+        />
+        <Route
+          exact
+          path={BackOfficeRoutes.locationsCreate}
+          component={LocationEditor}
+        />
+        <Route
+          exact
+          path={BackOfficeRoutes.locationsEdit}
+          component={LocationEditor}
+        />
         {/*/!* patrons *!/*/}
         {/*<Route*/}
         {/*  exact*/}
