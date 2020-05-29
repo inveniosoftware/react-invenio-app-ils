@@ -11,9 +11,9 @@ import {
   DocumentRequestDetails,
   DocumentRequestSearch,
   DocumentSearch,
-  // EItemDetails,
-  // EItemEditor,
-  // EItemSearch,
+  EItemDetails,
+  EItemEditor,
+  EItemSearch,
   Home,
   InternalLocationEditor,
   ItemDetails,
@@ -66,27 +66,27 @@ export default class BackOfficeRoutesSwitch extends Component {
           path={BackOfficeRoutes.documentDetails}
           component={DocumentDetails}
         />
-        {/*/!* eitems *!/*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.eitemsList}*/}
-        {/*  component={EItemSearch}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.eitemCreate}*/}
-        {/*  component={EItemEditor}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.eitemEdit}*/}
-        {/*  component={EItemEditor}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.eitemDetails}*/}
-        {/*  component={EItemDetails}*/}
-        {/*/>*/}
+        {/* eitems */}
+        <Route
+          exact
+          path={BackOfficeRoutes.eitemsList}
+          component={EItemSearch}
+        />
+        <Route
+          exact
+          path={BackOfficeRoutes.eitemCreate}
+          component={EItemEditor}
+        />
+        <Route
+          exact
+          path={BackOfficeRoutes.eitemEdit}
+          component={EItemEditor}
+        />
+        <Route
+          exact
+          path={BackOfficeRoutes.eitemDetails}
+          component={EItemDetails}
+        />
         {/*/!* items *!/*/}
         <Route exact path={BackOfficeRoutes.itemsList} component={ItemSearch} />
         <Route

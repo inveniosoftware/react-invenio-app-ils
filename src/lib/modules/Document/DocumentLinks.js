@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Divider, List } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { DownloadLink } from '@modules/files';
+import { DownloadLink } from '@modules/EItem';
 import { sessionManager } from '@authentication/services';
 
 export class DocumentLinks extends Component {
