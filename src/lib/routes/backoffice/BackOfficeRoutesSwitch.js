@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { BackOfficeRoutes, AcquisitionRoutes, ILLRoutes } from '@routes/urls';
 import {
-  // BorrowingRequestDetails,
-  // BorrowingRequestEditor,
-  // BorrowingRequestSearch,
+  BorrowingRequestDetails,
+  BorrowingRequestEditor,
+  BorrowingRequestSearch,
   DocumentDetails,
   DocumentEditor,
   DocumentRequestDetails,
@@ -19,9 +19,9 @@ import {
   ItemDetails,
   ItemEditor,
   ItemSearch,
-  // LibraryDetails,
-  // LibraryEditor,
-  // LibrarySearch,
+  LibraryDetails,
+  LibraryEditor,
+  LibrarySearch,
   LoanDetails,
   LoanSearch,
   LocationEditor,
@@ -220,34 +220,34 @@ export default class BackOfficeRoutesSwitch extends Component {
           component={OrderDetails}
         />
         {/*/!* ILL *!/*/}
-        {/*<Route exact path={ILLRoutes.libraryList} component={LibrarySearch} />*/}
-        {/*<Route exact path={ILLRoutes.libraryCreate} component={LibraryEditor} />*/}
-        {/*<Route exact path={ILLRoutes.libraryEdit} component={LibraryEditor} />*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={ILLRoutes.libraryDetails}*/}
-        {/*  component={LibraryDetails}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={ILLRoutes.borrowingRequestList}*/}
-        {/*  component={BorrowingRequestSearch}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={ILLRoutes.borrowingRequestCreate}*/}
-        {/*  component={BorrowingRequestEditor}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={ILLRoutes.borrowingRequestEdit}*/}
-        {/*  component={BorrowingRequestEditor}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={ILLRoutes.borrowingRequestDetails}*/}
-        {/*  component={BorrowingRequestDetails}*/}
-        {/*/>*/}
+        <Route exact path={ILLRoutes.libraryList} component={LibrarySearch} />
+        <Route exact path={ILLRoutes.libraryCreate} component={LibraryEditor} />
+        <Route exact path={ILLRoutes.libraryEdit} component={LibraryEditor} />
+        <Route
+          exact
+          path={ILLRoutes.libraryDetails}
+          component={LibraryDetails}
+        />
+        <Route
+          exact
+          path={ILLRoutes.borrowingRequestList}
+          component={BorrowingRequestSearch}
+        />
+        <Route
+          exact
+          path={ILLRoutes.borrowingRequestCreate}
+          component={BorrowingRequestEditor}
+        />
+        <Route
+          exact
+          path={ILLRoutes.borrowingRequestEdit}
+          component={BorrowingRequestEditor}
+        />
+        <Route
+          exact
+          path={ILLRoutes.borrowingRequestDetails}
+          component={BorrowingRequestDetails}
+        />
         {/*<Route exact path={BackOfficeRoutes.stats.home} component={Stats} />*/}
         <Route>
           <NotFound />

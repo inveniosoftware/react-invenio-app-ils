@@ -61,6 +61,11 @@ import {
   orderDetailsReducer,
   vendorDetailsReducer,
 } from '@pages/backoffice/Acquisition';
+import {
+  borrowingRequestDetailsReducer,
+  libraryDetailsReducer,
+} from '@pages/backoffice/ILL';
+import { borrowingRequestPatronLoanCreateReducer } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/BorrowingRequestPatronLoan/reducer';
 
 const rootReducer = combineReducers({
   authenticationManagement: authenticationReducer,
@@ -111,6 +116,9 @@ const rootReducer = combineReducers({
   eitemDetails: eitemDetailsReducer,
   orderDetails: orderDetailsReducer,
   vendorDetails: vendorDetailsReducer,
+  borrowingRequestDetails: borrowingRequestDetailsReducer,
+  borrowingRequestPatronLoanCreate: borrowingRequestPatronLoanCreateReducer,
+  libraryDetails: libraryDetailsReducer,
 });
 
 const composeEnhancers = composeWithDevTools({
