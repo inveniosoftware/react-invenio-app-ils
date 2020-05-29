@@ -16,9 +16,9 @@ import {
   // EItemSearch,
   Home,
   InternalLocationEditor,
-  // ItemDetails,
-  // ItemEditor,
-  // ItemSearch,
+  ItemDetails,
+  ItemEditor,
+  ItemSearch,
   // LibraryDetails,
   // LibraryEditor,
   // LibrarySearch,
@@ -88,18 +88,18 @@ export default class BackOfficeRoutesSwitch extends Component {
         {/*  component={EItemDetails}*/}
         {/*/>*/}
         {/*/!* items *!/*/}
-        {/*<Route exact path={BackOfficeRoutes.itemsList} component={ItemSearch} />*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.itemCreate}*/}
-        {/*  component={ItemEditor}*/}
-        {/*/>*/}
-        {/*<Route exact path={BackOfficeRoutes.itemEdit} component={ItemEditor} />*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.itemDetails}*/}
-        {/*  component={ItemDetails}*/}
-        {/*/>*/}
+        <Route exact path={BackOfficeRoutes.itemsList} component={ItemSearch} />
+        <Route
+          exact
+          path={BackOfficeRoutes.itemCreate}
+          component={ItemEditor}
+        />
+        <Route exact path={BackOfficeRoutes.itemEdit} component={ItemEditor} />
+        <Route
+          exact
+          path={BackOfficeRoutes.itemDetails}
+          component={ItemDetails}
+        />
         {/* loans */}
         <Route exact path={BackOfficeRoutes.loansList} component={LoanSearch} />
         <Route

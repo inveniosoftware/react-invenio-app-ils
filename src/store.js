@@ -52,6 +52,10 @@ import {
   seriesMultipartMonographsReducer,
   seriesRelationsReducer,
 } from '@pages/backoffice/Series/SeriesDetails/reducer';
+import {
+  itemDetailsReducer,
+  itemPastLoansReducer,
+} from '@pages/backoffice/Item/ItemDetails/reducer';
 
 const rootReducer = combineReducers({
   authenticationManagement: authenticationReducer,
@@ -97,6 +101,8 @@ const rootReducer = combineReducers({
   seriesDocuments: seriesDocumentsReducer,
   seriesMultipartMonographs: seriesMultipartMonographsReducer,
   seriesRelations: seriesRelationsReducer,
+  itemDetails: itemDetailsReducer,
+  itemPastLoans: itemPastLoansReducer,
 });
 
 const composeEnhancers = composeWithDevTools({

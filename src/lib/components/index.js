@@ -3,6 +3,7 @@ export { CopyButton } from './CopyButton';
 export { CancelModal } from './CancelModal';
 export { DatePicker } from './DatePicker';
 export { InfoMessage } from './InfoMessage';
+export { EmailLink } from './EmailLink';
 export { Error } from './Error';
 export { ILSFooter } from './ILSFooter';
 export { ILSMenu } from './ILSMenu';
