@@ -15,14 +15,14 @@ export {
 // export { PatronDetails, PatronSearch } from './Patron';
 export { SeriesEditor, SeriesDetails, SeriesSearch } from './Series';
 // export { Stats } from './Stats';
-// export {
-//   OrderDetails,
-//   OrderEditor,
-//   OrderSearch,
-//   VendorDetails,
-//   VendorEditor,
-//   VendorSearch,
-// } from './Acquisition';
+export {
+  OrderDetails,
+  OrderEditor,
+  OrderSearch,
+  VendorDetails,
+  VendorEditor,
+  VendorSearch,
+} from './Acquisition';
 // export {
 //   LibraryEditor,
 //   LibraryDetails,

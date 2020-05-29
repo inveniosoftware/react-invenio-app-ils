@@ -57,6 +57,10 @@ import {
   itemPastLoansReducer,
 } from '@pages/backoffice/Item/ItemDetails/reducer';
 import { eitemDetailsReducer } from '@pages/backoffice/EItem/EItemDetails/reducer';
+import {
+  orderDetailsReducer,
+  vendorDetailsReducer,
+} from '@pages/backoffice/Acquisition';
 
 const rootReducer = combineReducers({
   authenticationManagement: authenticationReducer,
@@ -105,6 +109,8 @@ const rootReducer = combineReducers({
   itemDetails: itemDetailsReducer,
   itemPastLoans: itemPastLoansReducer,
   eitemDetails: eitemDetailsReducer,
+  orderDetails: orderDetailsReducer,
+  vendorDetails: vendorDetailsReducer,
 });
 
 const composeEnhancers = composeWithDevTools({

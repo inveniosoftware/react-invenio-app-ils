@@ -26,18 +26,18 @@ import {
   LoanSearch,
   LocationEditor,
   LocationList,
-  // OrderDetails,
-  // OrderEditor,
-  // OrderSearch,
+  OrderDetails,
+  OrderEditor,
+  OrderSearch,
   // PatronDetails,
   // PatronSearch,
   SeriesDetails,
   SeriesEditor,
   SeriesSearch,
   // Stats,
-  // VendorDetails,
-  // VendorEditor,
-  // VendorSearch,
+  VendorDetails,
+  VendorEditor,
+  VendorSearch,
 } from '@pages/backoffice';
 
 export default class BackOfficeRoutesSwitch extends Component {
@@ -177,48 +177,48 @@ export default class BackOfficeRoutesSwitch extends Component {
           path={BackOfficeRoutes.documentRequestsList}
           component={DocumentRequestSearch}
         />
-        {/*/!* vendors *!/*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={AcquisitionRoutes.vendorsList}*/}
-        {/*  component={VendorSearch}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={AcquisitionRoutes.vendorCreate}*/}
-        {/*  component={VendorEditor}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={AcquisitionRoutes.vendorEdit}*/}
-        {/*  component={VendorEditor}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={AcquisitionRoutes.vendorDetails}*/}
-        {/*  component={VendorDetails}*/}
-        {/*/>*/}
-        {/*/!* orders *!/*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={AcquisitionRoutes.ordersList}*/}
-        {/*  component={OrderSearch}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={AcquisitionRoutes.orderCreate}*/}
-        {/*  component={OrderEditor}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={AcquisitionRoutes.orderEdit}*/}
-        {/*  component={OrderEditor}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={AcquisitionRoutes.orderDetails}*/}
-        {/*  component={OrderDetails}*/}
-        {/*/>*/}
+        {/* vendors */}
+        <Route
+          exact
+          path={AcquisitionRoutes.vendorsList}
+          component={VendorSearch}
+        />
+        <Route
+          exact
+          path={AcquisitionRoutes.vendorCreate}
+          component={VendorEditor}
+        />
+        <Route
+          exact
+          path={AcquisitionRoutes.vendorEdit}
+          component={VendorEditor}
+        />
+        <Route
+          exact
+          path={AcquisitionRoutes.vendorDetails}
+          component={VendorDetails}
+        />
+        {/* orders */}
+        <Route
+          exact
+          path={AcquisitionRoutes.ordersList}
+          component={OrderSearch}
+        />
+        <Route
+          exact
+          path={AcquisitionRoutes.orderCreate}
+          component={OrderEditor}
+        />
+        <Route
+          exact
+          path={AcquisitionRoutes.orderEdit}
+          component={OrderEditor}
+        />
+        <Route
+          exact
+          path={AcquisitionRoutes.orderDetails}
+          component={OrderDetails}
+        />
         {/*/!* ILL *!/*/}
         {/*<Route exact path={ILLRoutes.libraryList} component={LibrarySearch} />*/}
         {/*<Route exact path={ILLRoutes.libraryCreate} component={LibraryEditor} />*/}
