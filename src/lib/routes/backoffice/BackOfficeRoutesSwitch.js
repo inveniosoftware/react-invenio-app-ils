@@ -34,7 +34,7 @@ import {
   SeriesDetails,
   SeriesEditor,
   SeriesSearch,
-  // Stats,
+  Stats,
   VendorDetails,
   VendorEditor,
   VendorSearch,
@@ -248,7 +248,7 @@ export default class BackOfficeRoutesSwitch extends Component {
           path={ILLRoutes.borrowingRequestDetails}
           component={BorrowingRequestDetails}
         />
-        {/*<Route exact path={BackOfficeRoutes.stats.home} component={Stats} />*/}
+        <Route exact path={BackOfficeRoutes.stats.home} component={Stats} />
         <Route>
           <NotFound />
         </Route>

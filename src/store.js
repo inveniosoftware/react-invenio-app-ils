@@ -71,6 +71,7 @@ import {
   patronDetailsReducer,
   patronItemCheckoutReducer,
 } from '@pages/backoffice/Patron/PatronDetails/reducer';
+import { mostLoanedDocumentsReducer } from '@pages/backoffice/Stats/reducer';
 
 const rootReducer = combineReducers({
   authenticationManagement: authenticationReducer,
@@ -127,6 +128,7 @@ const rootReducer = combineReducers({
   patronDetails: patronDetailsReducer,
   itemsSearchInput: itemsSearchByBarcodeReducer,
   patronItemsCheckout: patronItemCheckoutReducer,
+  statsMostLoanedDocuments: mostLoanedDocumentsReducer,
 });
 
 const composeEnhancers = composeWithDevTools({
