@@ -66,6 +66,11 @@ import {
   libraryDetailsReducer,
 } from '@pages/backoffice/ILL';
 import { borrowingRequestPatronLoanCreateReducer } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/BorrowingRequestPatronLoan/reducer';
+import {
+  itemsSearchByBarcodeReducer,
+  patronDetailsReducer,
+  patronItemCheckoutReducer,
+} from '@pages/backoffice/Patron/PatronDetails/reducer';
 
 const rootReducer = combineReducers({
   authenticationManagement: authenticationReducer,
@@ -119,6 +124,9 @@ const rootReducer = combineReducers({
   borrowingRequestDetails: borrowingRequestDetailsReducer,
   borrowingRequestPatronLoanCreate: borrowingRequestPatronLoanCreateReducer,
   libraryDetails: libraryDetailsReducer,
+  patronDetails: patronDetailsReducer,
+  itemsSearchInput: itemsSearchByBarcodeReducer,
+  patronItemsCheckout: patronItemCheckoutReducer,
 });
 
 const composeEnhancers = composeWithDevTools({

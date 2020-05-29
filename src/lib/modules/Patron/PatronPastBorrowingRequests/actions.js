@@ -1,6 +1,6 @@
 import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
 import { invenioConfig } from '@config';
-import { illBorrowingRequest as BorrowingRequestApi } from '@api';
+import { illBorrowingRequestApi as BorrowingRequestApi } from '@api';
 import { sendErrorNotification } from '@components/Notifications';
 
 const selectQuery = (patronPid, page = 1, size) => {

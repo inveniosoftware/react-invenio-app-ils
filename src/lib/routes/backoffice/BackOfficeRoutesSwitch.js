@@ -29,8 +29,8 @@ import {
   OrderDetails,
   OrderEditor,
   OrderSearch,
-  // PatronDetails,
-  // PatronSearch,
+  PatronDetails,
+  PatronSearch,
   SeriesDetails,
   SeriesEditor,
   SeriesSearch,
@@ -135,16 +135,16 @@ export default class BackOfficeRoutesSwitch extends Component {
           component={LocationEditor}
         />
         {/*/!* patrons *!/*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.patronsList}*/}
-        {/*  component={PatronSearch}*/}
-        {/*/>*/}
-        {/*<Route*/}
-        {/*  exact*/}
-        {/*  path={BackOfficeRoutes.patronDetails}*/}
-        {/*  component={PatronDetails}*/}
-        {/*/>*/}
+        <Route
+          exact
+          path={BackOfficeRoutes.patronsList}
+          component={PatronSearch}
+        />
+        <Route
+          exact
+          path={BackOfficeRoutes.patronDetails}
+          component={PatronDetails}
+        />
         {/*/!* series *!/*/}
         <Route
           exact

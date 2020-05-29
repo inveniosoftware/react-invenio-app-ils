@@ -12,7 +12,7 @@ export {
   LocationEditor,
   LocationList,
 } from './Location';
-// export { PatronDetails, PatronSearch } from './Patron';
+export { PatronDetails, PatronSearch } from './Patron';
 export { SeriesEditor, SeriesDetails, SeriesSearch } from './Series';
 // export { Stats } from './Stats';
 export {
