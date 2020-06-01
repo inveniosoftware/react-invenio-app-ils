@@ -10,7 +10,7 @@ import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
-import { acqVendorApi as vendorApi } from '@api';
+import { acqVendorApi as vendorApi } from '@api/acquisition';
 
 export const fetchVendorDetails = pid => {
   return async dispatch => {

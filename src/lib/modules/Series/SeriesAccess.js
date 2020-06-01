@@ -1,13 +1,13 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { Segment, Header } from 'semantic-ui-react';
-import { SeriesAccessUrls } from '.';
+import React from 'react';
+import { Header, Segment } from 'semantic-ui-react';
+import { SeriesAccessUrls } from './SeriesAccessUrls';
 
-export const SeriesAccess = () => {
+export const SeriesAccess = ({ urls }) => {
   return (
     <Segment className="highlighted">
       <Header as="h3">Access online</Header>
-      <SeriesAccessUrls truncate />
+      <SeriesAccessUrls url={urls} truncate />
       <br />
       It's not possible to loan an entire series but individual volumes can be
       loaned from the library. Please see the list of available volumes and
@@ -16,4 +16,10 @@ export const SeriesAccess = () => {
   );
 };
 
-SeriesAccess.propTypes = {};
+SeriesAccess.propTypes = {
+  urls: PropTypes.object,
+};
+
+SeriesAccess.defaultProps = {
+  urls: [],
+};

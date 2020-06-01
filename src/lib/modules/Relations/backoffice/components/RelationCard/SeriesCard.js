@@ -1,10 +1,10 @@
-import { SeriesAuthors } from '@modules/Series';
+import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { BackOfficeRoutes } from '@routes/urls';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Card, Icon } from 'semantic-ui-react';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 
 export default class SeriesCard extends Component {
   render() {
@@ -22,7 +22,7 @@ export default class SeriesCard extends Component {
             {data.metadata.title}
           </Card.Header>
           <Card.Meta>
-            <SeriesAuthors metadata={data.metadata} />
+            <SeriesAuthors authors={data.metadata.authors} />
             <div>
               {data.metadata.edition ? `ed.  ${data.metadata.edition}` : null}
               {data.metadata.publication_year &&
@@ -30,7 +30,7 @@ export default class SeriesCard extends Component {
             </div>
           </Card.Meta>
         </Card.Content>
-        {!isEmpty(extra) && <Card.Content extra>{extra}</Card.Content>}
+        {!_isEmpty(extra) && <Card.Content extra>{extra}</Card.Content>}
       </Card>
     );
   }

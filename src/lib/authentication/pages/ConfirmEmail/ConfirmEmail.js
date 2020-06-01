@@ -11,8 +11,8 @@ import {
   Message,
   Icon,
 } from 'semantic-ui-react';
-import { Loader } from '@components';
-import { parseParams } from '../../utils';
+import { Loader } from '@components/Loader';
+import { parseParams } from '@authentication/utils';
 
 const ConfirmEmailLayout = ({
   isConfirmed,

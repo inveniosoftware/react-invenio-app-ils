@@ -10,9 +10,9 @@ import {
 } from 'react-searchkit';
 import { getSearchConfig } from '@config';
 import { Error as IlsError, SearchBar as ItemsSearchBar } from '@components';
-import { itemApi } from '@api';
-import { ExportReactSearchKitResults } from '@components/backoffice';
-import { NewButton } from '@components/backoffice/buttons';
+import { itemApi } from '@api/items';
+import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { BackOfficeRoutes } from '@routes/urls';
 import { ItemListEntry } from './ItemListEntry';
 import history from '@history';

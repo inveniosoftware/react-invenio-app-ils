@@ -5,8 +5,10 @@ exports[`DocumentDetails tests should load the details component 1`] = `
   <Container
     fluid={true}
   >
-    <Loader>
-      <Error>
+    <Overridable(Loader)>
+      <Error
+        error={null}
+      >
         <Sticky
           active={true}
           bottomOffset={0}
@@ -52,7 +54,7 @@ exports[`DocumentDetails tests should load the details component 1`] = `
                     <div
                       id="document-summary"
                     >
-                      <DocumentSummary
+                      <Component
                         anchors={
                           Object {
                             "attachedEItemsRef": Object {
@@ -81,7 +83,7 @@ exports[`DocumentDetails tests should load the details component 1`] = `
                       />
                     </div>
                   </Container>
-                  <DocumentMetadata
+                  <Component
                     anchors={
                       Object {
                         "attachedEItemsRef": Object {
@@ -151,7 +153,7 @@ exports[`DocumentDetails tests should load the details component 1`] = `
                   offset={200}
                   scrollContext={[Window]}
                 >
-                  <DocumentActionMenu
+                  <Component
                     offset={-250}
                   />
                 </Sticky>
@@ -160,7 +162,7 @@ exports[`DocumentDetails tests should load the details component 1`] = `
           </Ref>
         </Container>
       </Error>
-    </Loader>
+    </Overridable(Loader)>
   </Container>
 </div>
 `;

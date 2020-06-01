@@ -1,18 +1,15 @@
-import { Error, Loader } from '@components';
-import {
-  DocumentDetailsLink,
-  SeriesDetailsLink,
-} from '@components/backoffice/buttons';
-import { InfoMessage } from '@components/backoffice';
-import {
-  ExistingRelations,
-  RelationRemover,
-} from '@modules/Relations/backoffice';
-import { DocumentTitle } from '@modules/Document';
-import React, { Component } from 'react';
+import { DocumentDetailsLink } from '@components/backoffice/buttons/DocumentDetailsLink';
+import { SeriesDetailsLink } from '@components/backoffice/buttons/SeriesDetailsLink';
+import { InfoMessage } from '@components/backoffice/InfoMessage';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import { DocumentTitle } from '@modules/Document/DocumentTitle';
+import { ExistingRelations } from '@modules/Relations/backoffice/components/ExistingRelations';
+import { RelationEditionModal } from '@modules/Relations/backoffice/components/RelationEdition';
+import { RelationRemover } from '@modules/Relations/backoffice/components/RelationRemover';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
-import { RelationEditionModal } from '../RelationEdition';
+import React, { Component } from 'react';
 
 export default class RelationEdition extends Component {
   constructor(props) {
@@ -40,7 +37,7 @@ export default class RelationEdition extends Component {
   removeHandler = ({ row }) => {
     const { recordDetails } = this.props;
 
-    if (!isEmpty(recordDetails)) {
+    if (!_isEmpty(recordDetails)) {
       return (
         <RelationRemover
           referrer={recordDetails}

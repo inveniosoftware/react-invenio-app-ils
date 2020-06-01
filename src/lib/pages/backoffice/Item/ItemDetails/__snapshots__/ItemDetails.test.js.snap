@@ -5,8 +5,12 @@ exports[`ItemDetails tests should load the details component 1`] = `
   <Container
     fluid={true}
   >
-    <Loader>
-      <Error>
+    <Overridable(Loader)
+      isLoading={false}
+    >
+      <Error
+        error={null}
+      >
         <Sticky
           active={true}
           bottomOffset={0}
@@ -49,9 +53,9 @@ exports[`ItemDetails tests should load the details component 1`] = `
                   <Container
                     className="spaced"
                   >
-                    <ItemCirculation />
-                    <ItemMetadata />
-                    <ItemPastLoans />
+                    <Component />
+                    <Component />
+                    <Component />
                   </Container>
                 </Container>
               </GridColumn>
@@ -69,7 +73,7 @@ exports[`ItemDetails tests should load the details component 1`] = `
                   offset={180}
                   scrollContext={[Window]}
                 >
-                  <ItemActionMenu
+                  <Component
                     offset={-180}
                   />
                 </Sticky>
@@ -78,7 +82,7 @@ exports[`ItemDetails tests should load the details component 1`] = `
           </Ref>
         </Container>
       </Error>
-    </Loader>
+    </Overridable(Loader)>
   </Container>
 </div>
 `;

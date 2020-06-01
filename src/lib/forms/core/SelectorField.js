@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { FastField, Field, getIn } from "formik";
-import { Form, Card, Icon, Label } from "semantic-ui-react";
-import { ESSelector } from "@modules/ESSelector";
-import isEmpty from "lodash/isEmpty";
-import _has from "lodash/has";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { FastField, Field, getIn } from 'formik';
+import { Form, Card, Icon, Label } from 'semantic-ui-react';
+import { ESSelector } from '@modules/ESSelector';
+import _isEmpty from 'lodash/isEmpty';
+import _has from 'lodash/has';
 
 export class SelectorField extends Component {
   state = {
-    value: null
+    value: null,
   };
 
   renderEmpty = () => (
@@ -34,7 +34,7 @@ export class SelectorField extends Component {
   };
 
   defaultRenderGroup = (selections, renderSelection, removeSelection) => {
-    if (isEmpty(selections)) {
+    if (_isEmpty(selections)) {
       return this.renderEmpty();
     }
 
@@ -52,7 +52,7 @@ export class SelectorField extends Component {
     if (!this.props.multiple) {
       let data = {};
       if (selections.length > 0) {
-        data = _has(selections[0], "metadata")
+        data = _has(selections[0], 'metadata')
           ? selections[0].metadata
           : selections[0];
       }
@@ -62,7 +62,7 @@ export class SelectorField extends Component {
 
   hasFieldError(errors, name, value) {
     const error = errors[name];
-    return !isEmpty(error);
+    return !_isEmpty(error);
   }
 
   renderFormField = ({ form: { errors, setFieldValue, values } }) => {
@@ -85,12 +85,12 @@ export class SelectorField extends Component {
     const value = getIn(values, fieldPath);
     if (multiple) {
       for (const record of value) {
-        if (!isEmpty(record)) {
+        if (!_isEmpty(record)) {
           selections.push(serializer({ metadata: record }));
         }
       }
     } else {
-      if (!isEmpty(value)) {
+      if (!_isEmpty(value)) {
         selections.push(serializer({ metadata: value }));
       }
     }
@@ -101,7 +101,7 @@ export class SelectorField extends Component {
     return (
       <Form.Field required={required} error={hasFieldError}>
         {label && <label htmlFor={fieldPath}>{label}</label>}
-        {hasFieldError && !isEmpty(error) && (
+        {hasFieldError && !_isEmpty(error) && (
           <Label prompt pointing="below">
             {error}
           </Label>
@@ -145,11 +145,11 @@ SelectorField.propTypes = {
   serializer: PropTypes.func.isRequired,
   renderGroup: PropTypes.func,
   renderSelection: PropTypes.func,
-  required: PropTypes.bool
+  required: PropTypes.bool,
 };
 
 SelectorField.defaultProps = {
-  emptyHeader: "Nothing selected",
-  emptyDescription: "Please select a value before saving.",
-  optimized: false
+  emptyHeader: 'Nothing selected',
+  emptyDescription: 'Please select a value before saving.',
+  optimized: false,
 };

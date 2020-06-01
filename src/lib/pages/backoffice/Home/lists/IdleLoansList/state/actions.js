@@ -1,6 +1,6 @@
 import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
 import { invenioConfig } from '@config';
-import { loanApi } from '@api';
+import { loanApi } from '@api/loan';
 import { DateTime } from 'luxon';
 import { toShortDate } from '@api/date';
 import { sendErrorNotification } from '@components/Notifications';

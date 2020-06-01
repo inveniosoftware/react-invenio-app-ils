@@ -1,9 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { List } from 'semantic-ui-react';
-import get from 'lodash/get';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import _truncate from 'lodash/truncate';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { List } from 'semantic-ui-react';
 
 const Url = ({ truncate, url }) => {
   const description = url.description || url.value;
@@ -28,14 +27,13 @@ Url.defaultProps = {
 
 export class SeriesUrls extends React.Component {
   render() {
-    const { metadata, truncate } = this.props;
-    const urls = get(metadata, 'urls', []);
-    return isEmpty(urls) ? (
+    const { urls, truncate } = this.props;
+    return _isEmpty(urls) ? (
       <p>There are no URLs.</p>
     ) : (
       <List bulleted>
         {urls.map((url, index) => (
-          <List.Item key={index}>
+          <List.Item key={url}>
             <Url truncate={truncate} url={url} />
           </List.Item>
         ))}
@@ -45,6 +43,11 @@ export class SeriesUrls extends React.Component {
 }
 
 SeriesUrls.propTypes = {
-  metadata: PropTypes.object.isRequired,
+  urls: PropTypes.array,
   truncate: PropTypes.bool,
+};
+
+SeriesUrls.defaultProps = {
+  urls: [],
+  truncate: false,
 };

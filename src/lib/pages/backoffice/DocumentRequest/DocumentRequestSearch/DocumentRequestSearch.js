@@ -1,9 +1,7 @@
-import {
-  SearchAggregationsCards,
-  SearchControls,
-  SearchEmptyResults,
-  SearchFooter,
-} from '@modules/SearchControls';
+import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
+import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import { SearchFooter } from '@modules/SearchControls/SearchFooter';
 import DocumentRequestList from './DocumentRequestList';
 import React, { Component } from 'react';
 import { Container, Grid, Header } from 'semantic-ui-react';
@@ -21,7 +19,7 @@ import {
 } from '@components';
 import { documentRequestApi } from '@api/documentRequests/documentRequest';
 import { getSearchConfig } from '@config';
-import { ExportReactSearchKitResults } from '@components/backoffice';
+import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import history from '@history';
 import { responseRejectInterceptor } from '@api/base';
 

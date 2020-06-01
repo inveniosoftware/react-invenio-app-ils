@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Overridable from 'react-overridable';
 import { List, Container, Icon } from 'semantic-ui-react';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import { HitsSearch } from './HitsSearch';
 import find from 'lodash/find';
 
@@ -110,7 +110,10 @@ class ESSelector extends Component {
   renderSelectionInfoText = () => {
     const { selectionInfoText, emptySelectionInfoText } = this.props;
     const { selections } = this.state;
-    if (!isEmpty(selections) && (selectionInfoText || emptySelectionInfoText)) {
+    if (
+      !_isEmpty(selections) &&
+      (selectionInfoText || emptySelectionInfoText)
+    ) {
       return (
         <p>
           {selections.length > 0 ? selectionInfoText : emptySelectionInfoText}

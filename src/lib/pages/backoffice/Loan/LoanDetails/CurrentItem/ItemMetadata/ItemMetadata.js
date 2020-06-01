@@ -1,4 +1,4 @@
-import { MetadataTable } from '@components/backoffice';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { ItemDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';

@@ -1,9 +1,9 @@
-import { loanApi } from '@api';
+import { loanApi } from '@api/loans';
 import {
   sendSuccessNotification,
   sendErrorNotification,
 } from '@components/Notifications';
-import { ES_DELAY } from '@config/index';
+import { uiConfig } from '@config';
 
 export const IS_LOADING = 'loanAction/IS_LOADING';
 export const SUCCESS = 'loanAction/SUCCESS';
@@ -63,7 +63,7 @@ export const performLoanAction = (
       });
       setTimeout(
         () => dispatch(fetchLoanDetails(response.data.metadata.pid)),
-        ES_DELAY
+        uiConfig.ES_DELAY
       );
       const loanPid = response.data.pid;
       dispatch(

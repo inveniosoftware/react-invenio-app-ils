@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
-import { getIn } from 'formik';
-import Overridable from 'react-overridable';
-import { Container } from 'semantic-ui-react';
-import isEmpty from 'lodash/isEmpty';
-import { BaseForm, StringField } from '@forms';
-import { authenticationService } from '@authentication/services';
+import { authenticationService } from '@authentication/services/AuthenticationServices';
+import { parseParams } from '@authentication/utils';
+import { BaseForm } from '@forms/core/BaseForm';
+import { StringField } from '@forms/core/StringField';
 import { goTo } from '@history';
 import { FrontSiteRoutes } from '@routes/urls';
-import { parseParams } from '@authentication/utils';
+import { getIn } from 'formik';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import Overridable from 'react-overridable';
+import { Container } from 'semantic-ui-react';
 
 const LoginWithLocalAccountLayout = ({ data, buttons, onSubmit }) => {
   return (
@@ -79,7 +80,7 @@ class LoginWithLocalAccount extends Component {
     } catch (error) {
       const errors = getIn(error, 'response.data.errors', []);
 
-      if (isEmpty(errors)) {
+      if (_isEmpty(errors)) {
         const message = getIn(error, 'response.data.message', null);
         if (message) {
           actions.setSubmitting(false);

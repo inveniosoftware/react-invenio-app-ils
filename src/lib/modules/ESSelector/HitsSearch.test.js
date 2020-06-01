@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import { HitsSearch } from './HitsSearch';
 import { serializeLocation } from './serializer';
 
-jest.mock('../ESSelectorLoanRequest', () => {
+jest.mock('./ESSelectorLoanRequest', () => {
   return {
     ESSelectorLoanRequest: () => null,
   };

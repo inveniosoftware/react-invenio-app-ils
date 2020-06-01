@@ -1,4 +1,5 @@
-import { Error, Loader } from '@components';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import { RelationSerial } from '@modules/Relations/backoffice/RelationSerial';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';

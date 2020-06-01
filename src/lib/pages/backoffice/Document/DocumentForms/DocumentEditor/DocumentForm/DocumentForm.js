@@ -1,15 +1,13 @@
-import { documentRequestApi } from '@api/documentRequests/documentRequest';
-import { documentApi } from '@api/documents/document';
+import { documentRequestApi } from '@api/documentRequests';
+import { documentApi } from '@api/documents';
 import { invenioConfig } from '@config';
-import {
-  BaseForm,
-  BooleanField,
-  GroupField,
-  SelectField,
-  StringField,
-  TextField,
-  UrlsField,
-} from '@forms';
+import { UrlsField } from '@forms/components';
+import { BaseForm } from '@forms/core/BaseForm';
+import { BooleanField } from '@forms/core/BooleanField';
+import { GroupField } from '@forms/core/GroupField';
+import { SelectField } from '@forms/core/SelectField';
+import { StringField } from '@forms/core/StringField';
+import { TextField } from '@forms/core/TextField';
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
 import { getIn } from 'formik';
@@ -21,18 +19,18 @@ import {
   AlternativeIdentifiers,
   AlternativeTitles,
   AuthorsField,
+  ConferenceInfoField,
   Copyrights,
   Identifiers,
+  Imprint,
+  InternalNotes,
+  Keywords,
   LicensesField,
   PublicationInfoField,
   Subjects,
   TableOfContent,
   TagsField,
 } from './components';
-import { ConferenceInfoField } from './components/ConferenceInfoField';
-import { Imprint } from './components/Imprint';
-import { InternalNotes } from './components/InternalNotes';
-import { Keywords } from './components/Keywords';
 import documentSubmitSerializer from './documentSubmitSerializer';
 
 export class DocumentForm extends Component {

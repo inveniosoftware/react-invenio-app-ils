@@ -8,7 +8,9 @@ import {
   Segment,
   Table,
 } from 'semantic-ui-react';
-import { DatePicker, Loader, Error } from '@components';
+import { DatePicker } from '@components/DatePicker';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import PropTypes from 'prop-types';
 import sumBy from 'lodash/sumBy';
 

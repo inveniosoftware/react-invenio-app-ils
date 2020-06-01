@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Button, Header, Message, Segment } from 'semantic-ui-react';
-import { Loader, Error, ResultsTable } from '@components';
-import { itemApi } from '@api';
+import { Link } from 'react-router-dom';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
+import { itemApi } from '@api/items';
 import { invenioConfig } from '@config';
-import { SeeAllButton } from '@components/backoffice/buttons';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 import { BackOfficeRoutes } from '@routes/urls';
 import { recordToPidType } from '@api/utils';
 

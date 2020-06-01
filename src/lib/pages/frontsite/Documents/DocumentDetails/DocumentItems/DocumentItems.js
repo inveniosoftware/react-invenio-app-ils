@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import _has from 'lodash/has';
 import Overridable from 'react-overridable';
 import {
@@ -28,7 +28,7 @@ class DocumentItems extends Component {
 
     if (props.documentDetails.metadata.items) {
       const onShelf = props.documentDetails.metadata.items.on_shelf;
-      if (!isEmpty(onShelf)) {
+      if (!_isEmpty(onShelf)) {
         this.state.activeLibrary = Object.keys(onShelf)[0];
       }
     }
@@ -139,7 +139,7 @@ class DocumentItems extends Component {
     } = this.props;
     const { activeLibrary, activeInternalLocation } = this.state;
 
-    if (!isEmpty(onShelf)) {
+    if (!_isEmpty(onShelf)) {
       let items = [];
       if (!activeLibrary) {
         return 'Click on an available location to see the physical copies';
@@ -205,7 +205,7 @@ class DocumentItems extends Component {
       </Message>
     );
 
-    const hasCopies = _has(items, 'on_shelf') && !isEmpty(items.on_shelf);
+    const hasCopies = _has(items, 'on_shelf') && !_isEmpty(items.on_shelf);
     const cmpItems = hasCopies ? cmpItemsLocation : cmpNoItems;
     return (
       <>

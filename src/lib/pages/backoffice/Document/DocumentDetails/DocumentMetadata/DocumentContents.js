@@ -1,10 +1,10 @@
-import { DocumentToc } from '@modules/Document';
+import { DocumentToc } from '@modules/Document/DocumentToc';
 import { DocumentSubjects } from './DocumentSubjects';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Divider, Header } from 'semantic-ui-react';
-import isEmpty from 'lodash/isEmpty';
-import { ShowMoreContent } from '@components';
+import _isEmpty from 'lodash/isEmpty';
+import { ShowMoreContent } from '@components/ShowMoreContent';
 
 export class DocumentContents extends Component {
   render() {
@@ -14,7 +14,7 @@ export class DocumentContents extends Component {
         <Header as="h3">Abstract</Header>
         <ShowMoreContent content={document.metadata.abstract} lines={10} />
 
-        {!isEmpty(document.metadata.table_of_content) && (
+        {!_isEmpty(document.metadata.table_of_content) && (
           <>
             <Divider />
             <Header as="h3">Table of content</Header>
@@ -22,7 +22,7 @@ export class DocumentContents extends Component {
           </>
         )}
 
-        {!isEmpty(document.metadata.subjects) && (
+        {!_isEmpty(document.metadata.subjects) && (
           <>
             <Divider />
             <Header as="h3">Subjects</Header>

@@ -1,7 +1,13 @@
 import { dateFormatter } from '@api/date';
-import { Error, Loader, Pagination, ResultsTable } from '@components';
+import {
+  Error,
+  InfoMessage,
+  Loader,
+  Pagination,
+  ResultsTable,
+} from '@components';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
-import { ES_DELAY, invenioConfig } from '@config';
+import { invenioConfig, uiConfig } from '@config';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _has from 'lodash/has';
@@ -11,7 +17,6 @@ import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Button, Header, Item } from 'semantic-ui-react';
-import { InfoMessage } from '@components';
 import PatronCancelModal from '../PatronCancelModal';
 
 class PatronCurrentDocumentRequests extends Component {
@@ -133,7 +138,7 @@ class PatronCurrentDocumentRequests extends Component {
         btnClasses.remove('disabled');
         btnClasses.remove('loading');
       });
-    }, ES_DELAY);
+    }, uiConfig.ES_DELAY);
   };
 
   onCloseCancelModal = () => {

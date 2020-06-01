@@ -1,19 +1,21 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { ObjectArrayField, VocabularyField, StringField } from "../core";
+import { ObjectArrayField } from '@forms/core/ObjectArrayField';
+import { StringField } from '@forms/core/StringField';
+import { VocabularyField } from '@forms/core/VocabularyField';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 export class IdentifiersField extends Component {
   getObjects = () => [
     {
-      key: "scheme",
+      key: 'scheme',
       element: VocabularyField,
-      props: { type: this.props.schemeVocabularyType, label: "Scheme" }
+      props: { type: this.props.schemeVocabularyType, label: 'Scheme' },
     },
     {
-      key: "value",
+      key: 'value',
       element: StringField,
-      props: { inline: true, label: "Value", required: true }
-    }
+      props: { inline: true, label: 'Value', required: true },
+    },
   ];
 
   render() {
@@ -37,14 +39,14 @@ IdentifiersField.propTypes = {
   fieldPath: PropTypes.string,
   label: PropTypes.string,
   objects: PropTypes.array,
-  schemeVocabularyType: PropTypes.string
+  schemeVocabularyType: PropTypes.string,
 };
 
 IdentifiersField.defaultProps = {
-  addButtonLabel: "Add new identifier",
+  addButtonLabel: 'Add new identifier',
   accordion: false,
-  fieldPath: "identifiers",
-  label: "Identifiers",
-  defaultNewValue: { scheme: "", value: "" },
-  schemeVocabularyType: "identifier_scheme"
+  fieldPath: 'identifiers',
+  label: 'Identifiers',
+  defaultNewValue: { scheme: '', value: '' },
+  schemeVocabularyType: 'identifier_scheme',
 };

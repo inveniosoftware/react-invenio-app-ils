@@ -1,7 +1,7 @@
 import { toShortDate } from '@api/date';
 import { formatPrice } from '@api/utils';
 import { invenioConfig } from '@config';
-import { MetadataTable } from '@components/backoffice';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import _isEmpty from 'lodash/isEmpty';
 import { PropTypes } from 'prop-types';
 import React from 'react';

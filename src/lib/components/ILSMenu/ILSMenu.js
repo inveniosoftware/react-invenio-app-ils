@@ -1,18 +1,18 @@
+import { RedirectToLoginButton } from '@authentication/components/RedirectToLoginButton';
+import { authenticationService } from '@authentication/services/AuthenticationService';
+import { uiConfig } from '@config';
+import { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import {
   Container,
-  Menu,
   Dropdown,
-  Responsive,
   Image,
+  Menu,
+  Responsive,
 } from 'semantic-ui-react';
-import { authenticationService } from '@authentication/services';
-import { FrontSiteRoutes, BackOfficeRoutes } from '@routes/urls';
-import { RedirectToLoginButton } from '@authentication/components';
-import logo from '@theme/site/images/logo-invenio-ils.svg';
 
 class ILSMenu extends Component {
   logout = async () => {
@@ -73,7 +73,7 @@ class ILSMenu extends Component {
         content="Sign in"
       />
     ) : (
-      <>{this.renderRightDropDown(userMenuText)}</>
+      this.renderRightDropDown(userMenuText)
     );
   };
 
@@ -93,7 +93,12 @@ class ILSMenu extends Component {
               <Container>
                 <Menu.Item header>
                   <Link to="/">
-                    <Image src={logo} size="tiny" centered alt="Logo" />
+                    <Image
+                      src={uiConfig.LOGO_SRC}
+                      size="tiny"
+                      centered
+                      alt="Logo"
+                    />
                   </Link>
                 </Menu.Item>
                 <Menu.Menu position="right">
@@ -114,7 +119,12 @@ class ILSMenu extends Component {
               <Container>
                 <Menu.Item header>
                   <Link to="/">
-                    <Image src={logo} size="tiny" centered alt="Logo" />
+                    <Image
+                      src={uiConfig.LOGO_SRC}
+                      size="tiny"
+                      centered
+                      alt="Logo"
+                    />
                   </Link>
                 </Menu.Item>
                 <Menu.Menu position="right">

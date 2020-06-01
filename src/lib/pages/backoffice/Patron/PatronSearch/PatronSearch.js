@@ -1,10 +1,8 @@
 import { EmailLink, CopyButton } from '@components';
-import {
-  SearchAggregationsCards,
-  SearchControls,
-  SearchEmptyResults,
-  SearchFooter,
-} from '@modules/SearchControls';
+import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
+import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import { SearchFooter } from '@modules/SearchControls/SearchFooter';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Container, Header } from 'semantic-ui-react';
@@ -22,7 +20,7 @@ import {
   SearchBar as PatronsSearchBar,
   ResultsTable,
 } from '@components';
-import { patronApi } from '@api';
+import { patronApi } from '@api/patrons';
 import { responseRejectInterceptor } from '@api/base';
 import { getSearchConfig } from '@config';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';

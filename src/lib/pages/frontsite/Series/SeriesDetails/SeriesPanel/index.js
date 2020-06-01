@@ -8,10 +8,7 @@ const mapStateToProps = state => ({
   isLoading: state.seriesDetailsFront.isLoading,
 });
 
-export const SeriesPanel = connect(
-  mapStateToProps,
-  null
-)(SeriesPanelComponent);
+export const SeriesPanel = connect(mapStateToProps, null)(SeriesPanelComponent);
 
 export const SeriesPanelMobile = connect(
   mapStateToProps,

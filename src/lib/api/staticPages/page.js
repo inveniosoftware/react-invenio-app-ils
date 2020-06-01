@@ -1,4 +1,4 @@
-import { http } from '../base';
+import { http } from '@api/base';
 
 const pageURL = '/pages/';
 

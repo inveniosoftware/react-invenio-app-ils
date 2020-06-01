@@ -1,18 +1,18 @@
-import { LiteratureSearch } from '@pages/frontsite/Literature';
-import { DocumentDetails } from '@pages/frontsite/Documents';
-import { SeriesDetails } from '@pages/frontsite/Series';
-import { DocumentRequestForm } from '@pages/frontsite/DocumentRequests';
-import { PatronProfile } from '@pages/frontsite/PatronProfile';
+import { ILSFooter, ILSMenu, NotFound } from '@components';
 import { Notifications } from '@components/Notifications';
-import { StaticPage } from '@pages/frontsite/StaticPage';
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Route, Switch } from 'react-router-dom';
-import { ILSMenu, ILSFooter, NotFound } from '@components';
-import { FrontSiteRoutes } from '@routes/frontsite/frontsiteUrls';
-import { Home } from '@pages/frontsite';
-import { Container } from 'semantic-ui-react';
 import { getStaticPagesRoutes } from '@config/uiConfig';
+import { Home } from '@pages/frontsite/Home';
+import { DocumentRequestForm } from '@pages/frontsite/DocumentRequests';
+import { DocumentDetails } from '@pages/frontsite/Documents';
+import { LiteratureSearch } from '@pages/frontsite/Literature';
+import { PatronProfile } from '@pages/frontsite/PatronProfile';
+import { SeriesDetails } from '@pages/frontsite/Series';
+import { StaticPage } from '@pages/frontsite/StaticPage';
+import { FrontSiteRoutes } from '@routes/frontsite/frontsiteUrls';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { Container } from 'semantic-ui-react';
 
 export default class FrontSite extends Component {
   renderCustomStaticPages = () => {

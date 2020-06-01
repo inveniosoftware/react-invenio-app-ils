@@ -10,8 +10,8 @@ import {
 } from 'react-searchkit';
 import { responseRejectInterceptor } from '@api/base';
 import { Error as IlsError, SearchBar as LoansSearchBar } from '@components';
-import { NewButton } from '@components/backoffice/buttons';
-import { loanApi } from '@api';
+import { NewButton } from '@components/backoffice/buttons/NewButton';
+import { loanApi } from '@api/loan';
 import { BackOfficeRoutes } from '@routes/urls';
 import history from '@history';
 import LoanList from './LoanList';

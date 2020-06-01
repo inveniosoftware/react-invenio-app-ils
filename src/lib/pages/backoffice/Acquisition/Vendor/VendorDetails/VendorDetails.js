@@ -1,8 +1,11 @@
-import { acqOrderApi as orderApi } from '@api';
-import { CopyButton, Error, Loader } from '@components';
+import { acqOrderApi as orderApi } from '@api/acquisition';
+import { CopyButton } from '@components/CopyButton';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import { goTo } from '@history';
-import { DeleteRecordModal, DetailsHeader } from '@components/backoffice';
-import { EditButton } from '@components/backoffice/buttons';
+import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
+import { DetailsHeader } from '@components/backoffice/DetailsHeader';
+import { EditButton } from '@components/backoffice/buttons/EditButton';
 import { DeleteButton } from '@components/backoffice/DeleteRecordModal/DeleteButton';
 import { AcquisitionVendorIcon } from '@components/backoffice/icons';
 import { AcquisitionRoutes } from '@routes/urls';

@@ -7,7 +7,7 @@ import { DocumentSystemInfo } from './DocumentSystemInfo';
 import React, { Component } from 'react';
 import { Header, Tab } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { isEmpty } from 'lodash';
+import _isEmpty from 'lodash/isEmpty';
 
 export default class DocumentMetadata extends Component {
   panes = () => {
@@ -57,8 +57,8 @@ export default class DocumentMetadata extends Component {
       },
     ];
     if (
-      !isEmpty(document.metadata.copyrights) ||
-      !isEmpty(document.metadata.licenses)
+      !_isEmpty(document.metadata.copyrights) ||
+      !_isEmpty(document.metadata.licenses)
     ) {
       panes.push({
         menuItem: 'Copyrights & licenses',
@@ -71,9 +71,9 @@ export default class DocumentMetadata extends Component {
     }
 
     if (
-      !isEmpty(document.metadata.publication_info) ||
-      !isEmpty(document.metadata.conference_info) ||
-      !isEmpty(document.metadata.extra_data)
+      !_isEmpty(document.metadata.publication_info) ||
+      !_isEmpty(document.metadata.conference_info) ||
+      !_isEmpty(document.metadata.extra_data)
     ) {
       panes.push({
         menuItem: 'Other',

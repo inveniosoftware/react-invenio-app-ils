@@ -1,6 +1,7 @@
 import { recordToPidType } from '@api/utils';
-import { LiteratureCover } from '@modules/Literature';
-import { DocumentAuthors, DocumentTitle } from '@modules/Document';
+import { LiteratureCover } from '@modules/Literature/LiteratureCover';
+import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
+import { DocumentTitle } from '@modules/Document/DocumentTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import PatronDetails from './PatronDetails';
 
-jest.mock('../components/', () => {
+jest.mock('./', () => {
   return {
     ItemsCheckout: () => null,
     ItemsSearch: () => null,

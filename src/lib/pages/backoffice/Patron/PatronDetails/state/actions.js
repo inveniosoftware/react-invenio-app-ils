@@ -1,5 +1,5 @@
 import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
-import { patronApi } from '@api';
+import { patronApi } from '@api/patrons';
 import { sendErrorNotification } from '@components/Notifications';
 
 export const fetchPatronDetails = patronPid => {

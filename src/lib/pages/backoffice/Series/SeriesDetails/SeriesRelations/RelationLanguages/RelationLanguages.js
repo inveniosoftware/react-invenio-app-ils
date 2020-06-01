@@ -1,12 +1,11 @@
-import { Error, Loader } from '@components';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import { SeriesLanguages } from '@modules/Series';
 import { SeriesDetailsLink } from '@components/backoffice/buttons';
 import { InfoMessage } from '@components/backoffice';
-import {
-  ExistingRelations,
-  RelationRemover,
-} from '@modules/Relations/backoffice';
-import { DocumentTitle } from '@modules/Document';
+import { ExistingRelations } from '@modules/Relations/backoffice/components/ExistingRelations';
+import { RelationRemover } from '@modules/Relations/backoffice/components/RelationRemover';
+import { DocumentTitle } from '@modules/Document/DocumentTitle';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _isEmpty from 'lodash/isEmpty';
@@ -42,7 +41,7 @@ export default class RelationLanguage extends Component {
   };
 
   languagesFormatter = ({ row }) => {
-    return <SeriesLanguages metadata={row.record_metadata} />;
+    return <SeriesLanguages languages={row.record_metadata.languages} />;
   };
 
   render() {

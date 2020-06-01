@@ -1,5 +1,5 @@
 import { Notifications } from '@components/Notifications';
-import { ENABLE_LOCAL_ACCOUNT_LOGIN, ENABLE_OAUTH_LOGIN } from '@config';
+import { invenioConfig, uiConfig } from '@config';
 import { goTo } from '@history';
 import { FrontSiteRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
@@ -16,8 +16,7 @@ import {
   Popup,
   Segment,
 } from 'semantic-ui-react';
-import logo from '@theme/site/images/logo-invenio-ils.svg';
-import { parseParams } from '../../utils';
+import { parseParams } from '@authentication/utils';
 import { LoginWithLocalAccount } from './LoginWithLocalAccount';
 import { LoginWithOauthProviders } from './LoginWithOauthProviders';
 
@@ -48,7 +47,7 @@ const LoginLayout = ({ backgroundImage, ...props }) => {
             }}
           >
             <Container>
-              <Image src={logo} size="small" centered />
+              <Image src={uiConfig.LOGO_SRC} size="small" centered />
               <Segment
                 className="background-transparent pb-default pt-default"
                 color="orange"
@@ -146,8 +145,10 @@ const LoginLayout = ({ backgroundImage, ...props }) => {
                         <Icon name="users" size="massive" />
                       </Header>
                       <p>Choose one of the options to sign in</p>
-                      {ENABLE_OAUTH_LOGIN && <LoginWithOauthProviders />}
-                      {ENABLE_LOCAL_ACCOUNT_LOGIN && (
+                      {invenioConfig.ENABLE_OAUTH_LOGIN && (
+                        <LoginWithOauthProviders />
+                      )}
+                      {invenioConfig.ENABLE_LOCAL_ACCOUNT_LOGIN && (
                         <>
                           <Divider horizontal>Or</Divider>
                           <LoginWithLocalAccount />

@@ -1,12 +1,10 @@
+import { IdentifierRows } from '@modules/Identifiers';
+import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
+import { SeriesLanguages } from '@modules/Series/SeriesLanguages';
+import { SeriesModeOfIssuance } from '@modules/Series/SeriesModeOfIssuance';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Divider, Table } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
-import {
-  SeriesAuthors,
-  SeriesLanguages,
-  SeriesModeOfIssuance,
-} from '@modules/Series';
-import { IdentifierRows } from '../Identifiers';
 
 export const SeriesInfo = ({ metadata }) => {
   return (
@@ -21,13 +19,15 @@ export const SeriesInfo = ({ metadata }) => {
           <Table.Row>
             <Table.Cell>Authors</Table.Cell>
             <Table.Cell>
-              <SeriesAuthors metadata={metadata} />
+              <SeriesAuthors authors={metadata.authors} />
             </Table.Cell>
           </Table.Row>
           <Table.Row>
             <Table.Cell>Mode of issuance</Table.Cell>
             <Table.Cell>
-              <SeriesModeOfIssuance metadata={metadata} />
+              <SeriesModeOfIssuance
+                modeOfIssuance={metadata.mode_of_issuance}
+              />
             </Table.Cell>
           </Table.Row>
           {metadata.publisher && (
@@ -46,7 +46,7 @@ export const SeriesInfo = ({ metadata }) => {
             <Table.Row>
               <Table.Cell>Languages</Table.Cell>
               <Table.Cell>
-                <SeriesLanguages metadata={metadata} />
+                <SeriesLanguages languages={metadata.languages} />
               </Table.Cell>
             </Table.Row>
           )}

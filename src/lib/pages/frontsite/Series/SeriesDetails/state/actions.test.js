@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
-import { initialState } from '../reducer';
+import { initialState } from './reducer';
 import * as types from './types';
 import { series as seriesApi } from '@api';
 

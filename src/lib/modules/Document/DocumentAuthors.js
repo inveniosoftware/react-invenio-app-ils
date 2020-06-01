@@ -2,7 +2,7 @@ import Overridable from 'react-overridable';
 import { List, Popup, Icon } from 'semantic-ui-react';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 
 class Roles extends Component {
   render() {
@@ -178,7 +178,7 @@ class DocumentAuthors extends Component {
     const { authors: docAuthors } = metadata;
     let authors = docAuthors;
 
-    if (!isEmpty(authors)) {
+    if (!_isEmpty(authors)) {
       scrollableClass =
         authors.length > scrollLimit && expanded ? 'expanded' : '';
       if (authorsLimit && !expanded) {
@@ -195,7 +195,8 @@ class DocumentAuthors extends Component {
                 <List.Item key={`Key${index}`}>
                   {author.full_name}
                   {popupDisplay &&
-                    (!isEmpty(author.roles) || !isEmpty(author.affiliations)) &&
+                    (!_isEmpty(author.roles) ||
+                      !_isEmpty(author.affiliations)) &&
                     this.renderPopup(author)}
                   {index !== authors.length - 1 ? delimiter : null}
                 </List.Item>

@@ -2,7 +2,7 @@ import { locationApi } from '@api/locations/location';
 import { internalLocationApi } from '@api';
 import { delay } from '@api/utils';
 import { serializeLocation } from '@modules/ESSelector/serializer';
-import { BaseForm, SelectorField, StringField, TextField } from '@forms';
+import { BaseForm, SelectorField, StringField, TextField } from '@forms/core';
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
 import pick from 'lodash/pick';
@@ -10,10 +10,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 export class InternalLocationForm extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   prepareData = data => {
     return pick(data, [
       'name',

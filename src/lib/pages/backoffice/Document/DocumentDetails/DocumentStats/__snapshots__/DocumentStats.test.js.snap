@@ -33,25 +33,17 @@ exports[`DocumentStats tests should load the component 1`] = `
           as="form"
         >
           <FormField>
-            <DatePicker
-              defaultValue=""
+            <Overridable(DatePicker)
               handleDateChange={[Function]}
-              initialDate=""
               maxDate=""
-              minDate=""
-              name="selectedDate"
-              placeholder="From Date"
+              placeholder="To date"
             />
           </FormField>
           <FormField>
-            <DatePicker
-              defaultValue=""
+            <Overridable(DatePicker)
               handleDateChange={[Function]}
-              initialDate=""
-              maxDate=""
               minDate=""
-              name="selectedDate"
-              placeholder="To Date"
+              placeholder="From Date"
             />
           </FormField>
         </Form>
@@ -61,8 +53,12 @@ exports[`DocumentStats tests should load the component 1`] = `
         textAlign="right"
         width={12}
       >
-        <Loader>
-          <Error>
+        <Overridable(Loader)
+          isLoading={false}
+        >
+          <Error
+            error={null}
+          >
             <Table
               as="table"
               basic="very"
@@ -143,7 +139,7 @@ exports[`DocumentStats tests should load the component 1`] = `
               </TableBody>
             </Table>
           </Error>
-        </Loader>
+        </Overridable(Loader)>
       </GridColumn>
     </GridRow>
   </Grid>

@@ -19,8 +19,8 @@ import {
   SearchEmptyResults,
 } from '@modules/SearchControls';
 import { illBorrowingRequestApi as borrowingRequestApi } from '@api';
-import { ExportReactSearchKitResults } from '@components/backoffice';
-import { NewButton } from '@components/backoffice/buttons';
+import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ILLRoutes } from '@routes/urls';
 import history from '@history';
 import { BorrowingRequestList } from './BorrowingRequestList';

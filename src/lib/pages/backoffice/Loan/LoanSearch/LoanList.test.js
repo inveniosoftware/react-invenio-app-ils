@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import LoanList from './LoanList';
 import * as testData from '@testData/loans.json';
 
-jest.mock('../../../components/OverdueLoanSendMailModal', () => {
+jest.mock('@modules/Loan/backoffice/OverdueLoanSendMailModal', () => {
   return {
     OverdueLoanSendMailModal: () => null,
   };

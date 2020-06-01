@@ -1,15 +1,14 @@
-import { LiteratureRelations, LiteratureNotes } from '@modules/Literature';
+import { LiteratureRelations } from '@modules/Literature/LiteratureRelations';
+import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Accordion, Icon } from 'semantic-ui-react';
-import { Identifiers } from '../Identifiers';
-import {
-  SeriesAllTitles,
-  SeriesAlternativeTitles,
-  SeriesInfo,
-  SeriesLinks,
-} from './';
+import { Identifiers } from '@modules/Identifiers';
+import { SeriesAllTitles } from './SeriesAllTitles';
+import { SeriesAlternativeTitles } from './SeriesAlternativeTitles';
+import { SeriesInfo } from './SeriesInfo';
+import { SeriesLinks } from './SeriesLinks';
 
 class SeriesMetadataAccordion extends Component {
   state = { activeIndex: 'details' };
@@ -38,7 +37,9 @@ class SeriesMetadataAccordion extends Component {
         <Accordion.Content active={activeIndex === 'details'}>
           <LiteratureRelations relations={metadata.relations} />
           <SeriesInfo metadata={metadata} />
-          <SeriesAlternativeTitles metadata={metadata} />
+          <SeriesAlternativeTitles
+            alternativeTitles={metadata.alternative_titles}
+          />
         </Accordion.Content>
 
         <Accordion.Title
@@ -62,7 +63,11 @@ class SeriesMetadataAccordion extends Component {
           Titles
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 'titles'}>
-          <SeriesAllTitles />
+          <SeriesAllTitles
+            title={metadata.title}
+            abbreviatedTitle={metadata.abbreviated_title}
+            alternativeTitles={metadata.alternative_titles}
+          />
         </Accordion.Content>
 
         <Accordion.Title
@@ -86,7 +91,7 @@ class SeriesMetadataAccordion extends Component {
           Links
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 'links'}>
-          <SeriesLinks />
+          <SeriesLinks accessUrls={metadata.access_urls} urls={metadata.urls} />
         </Accordion.Content>
       </Accordion>
     );

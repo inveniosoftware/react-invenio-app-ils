@@ -21,7 +21,7 @@ export default class Home extends Component {
             <DocumentCard />
           </Grid.Column>
           <Grid.Column>
-            <ACQRequestsCard data={0} isLoading={false}/>
+            <ACQRequestsCard data={0} isLoading={false} />
           </Grid.Column>
           <Grid.Column>
             <ILLCard data={0} />

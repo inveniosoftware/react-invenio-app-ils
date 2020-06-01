@@ -1,28 +1,29 @@
-// EditUserDialog.js
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { getIn } from 'formik';
-import pick from 'lodash/pick';
+import { seriesApi } from '@api/series';
+import { invenioConfig } from '@config';
+import {
+  DeleteActionButton,
+  LanguageField,
+  UrlsField,
+} from '@forms/components';
 import {
   ArrayField,
   BaseForm,
+  GroupField,
   SelectField,
   StringField,
   TextField,
-  LanguageField,
-  GroupField,
-  DeleteActionButton,
-  UrlsField,
-} from '@forms';
-import { seriesApi } from '@api/series/series';
-import { BackOfficeRoutes } from '@routes/urls';
+} from '@forms/core';
 import { goTo } from '@history';
-import { invenioConfig } from '@config';
 import {
-  Identifiers,
   AlternativeTitles,
+  Identifiers,
 } from '@pages/backoffice/Document/DocumentForms/DocumentEditor/DocumentForm/components';
 import { InternalNotes } from '@pages/backoffice/Document/DocumentForms/DocumentEditor/DocumentForm/components/InternalNotes';
+import { BackOfficeRoutes } from '@routes/urls';
+import { getIn } from 'formik';
+import pick from 'lodash/pick';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { AccessUrls } from './AccessUrls';
 
 export class SeriesForm extends Component {

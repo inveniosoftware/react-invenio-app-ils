@@ -1,6 +1,6 @@
 import { Error, Loader, Pagination } from '@components';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container, Header, Item } from 'semantic-ui-react';
@@ -50,7 +50,7 @@ export default class PatronPastLoans extends Component {
   };
 
   renderList = data => {
-    if (!isEmpty(data.hits)) {
+    if (!_isEmpty(data.hits)) {
       return (
         <>
           <Item.Group divided>

@@ -1,15 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PatronLoans tests should load the ItemsCheckout component 1`] = `
-<Loader>
-  <Error>
+<Overridable(Loader)
+  isLoading={false}
+>
+  <Error
+    error={null}
+  >
     <Message
       color="blue"
     >
       Scan or type the barcode to checkout the physical copy for this patron.
     </Message>
   </Error>
-</Loader>
+</Overridable(Loader)>
 `;
 
 exports[`PatronLoans tests should render show a message with added loan 1`] = `
@@ -24,19 +28,34 @@ exports[`PatronLoans tests should render show a message with added loan 1`] = `
       "loan_pid": 2,
     }
   }
+  error={null}
+  isLoading={false}
 >
-  <Loader>
-    <Error>
-      <Message
-        color="blue"
+  <Overridable(Loader)
+    isLoading={false}
+  >
+    <Loader
+      isLoading={false}
+    >
+      <Overridable
+        id="Loader.layout"
+        isLoading={false}
       >
-        <div
-          className="ui blue message"
+        <Error
+          error={null}
         >
-          Scan or type the barcode to checkout the physical copy for this patron.
-        </div>
-      </Message>
-    </Error>
-  </Loader>
+          <Message
+            color="blue"
+          >
+            <div
+              className="ui blue message"
+            >
+              Scan or type the barcode to checkout the physical copy for this patron.
+            </div>
+          </Message>
+        </Error>
+      </Overridable>
+    </Loader>
+  </Overridable(Loader)>
 </ItemsCheckout>
 `;

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { VocabularyField } from "../core";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { VocabularyField } from '@forms/core/VocabularyField';
 
 export class LanguageField extends Component {
   render() {
@@ -10,8 +10,8 @@ export class LanguageField extends Component {
         multiple={multiple}
         type={this.props.type}
         fieldPath={this.props.fieldPath}
-        label={multiple ? "Languages" : "Language"}
-        placeholder={multiple ? "Select languages..." : "Select language"}
+        label={multiple ? 'Languages' : 'Language'}
+        placeholder={multiple ? 'Select languages...' : 'Select language'}
       />
     );
   }
@@ -20,9 +20,9 @@ export class LanguageField extends Component {
 LanguageField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   multiple: PropTypes.bool,
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
 };
 
 LanguageField.defaultProps = {
-  multiple: false
+  multiple: false,
 };

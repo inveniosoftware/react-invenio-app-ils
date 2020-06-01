@@ -1,13 +1,13 @@
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 
 function serializeResponse(hit) {
   let result = {};
-  if (!isEmpty(hit)) {
+  if (!_isEmpty(hit)) {
     result['id'] = hit.id;
     if (hit.links) {
       result['links'] = hit.links;
     }
-    if (!isEmpty(hit.metadata)) {
+    if (!_isEmpty(hit.metadata)) {
       result['metadata'] = hit.metadata;
     }
   }

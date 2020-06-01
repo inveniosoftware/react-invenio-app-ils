@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Divider, Grid, Ref, Sticky } from 'semantic-ui-react';
-import { Error, Loader } from '@components';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import {
   ItemActionMenu,
   ItemCirculation,

@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Button, Icon } from "semantic-ui-react";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Button, Icon } from 'semantic-ui-react';
 
 export class DeleteActionButton extends React.Component {
   render() {
@@ -15,10 +15,10 @@ export class DeleteActionButton extends React.Component {
 DeleteActionButton.propTypes = {
   icon: PropTypes.string,
   onClick: PropTypes.func.isRequired,
-  size: PropTypes.string
+  size: PropTypes.string,
 };
 
 DeleteActionButton.defaultProps = {
-  icon: "delete",
-  size: "large"
+  icon: 'delete',
+  size: 'large',
 };

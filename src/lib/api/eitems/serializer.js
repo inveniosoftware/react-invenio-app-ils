@@ -1,16 +1,16 @@
-import isEmpty from 'lodash/isEmpty';
-import { fromISO } from '../date';
+import _isEmpty from 'lodash/isEmpty';
+import { fromISO } from '@api/date';
 
 export function serializeResponse(hit) {
   let result = {};
-  if (!isEmpty(hit)) {
+  if (!_isEmpty(hit)) {
     result['id'] = hit.id;
     result['created'] = fromISO(hit.created);
     result['updated'] = fromISO(hit.updated);
     if (hit.links) {
       result['links'] = hit.links;
     }
-    if (!isEmpty(hit.metadata)) {
+    if (!_isEmpty(hit.metadata)) {
       result['metadata'] = hit.metadata;
       result['pid'] = hit.metadata.pid;
     }

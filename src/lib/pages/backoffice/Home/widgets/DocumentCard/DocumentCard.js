@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Loader, Error } from '@components';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
 import { RecordsBriefCard } from '@components/backoffice/RecordsBriefCard';
 import { NewButton, SeeAllButton } from '@components/backoffice/buttons';
 import { BackOfficeRoutes } from '@routes/urls';
-import { documentApi } from '@api';
+import { documentApi } from '@api/documents';
 
 export default class DocumentCard extends Component {
   constructor(props) {

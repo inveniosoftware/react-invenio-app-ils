@@ -1,4 +1,4 @@
-import { http } from '../base';
+import { http } from '@api/base';
 import { internalLocationSerializer as serializer } from './serializer';
 
 const internalLocationURL = '/internal-locations/';

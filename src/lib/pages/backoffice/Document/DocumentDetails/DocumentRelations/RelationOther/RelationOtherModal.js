@@ -1,12 +1,10 @@
-import { documentApi } from '@api';
+import { documentApi } from '@api/documents';
 import { DocumentLanguages } from '@modules/Document';
-import { DocumentSelectListEntry } from '@modules/Document/backoffice';
-import {
-  RelationModal,
-  RelationSelector,
-  RelationSummary,
-  SingleSelection,
-} from '@modules/Relations/backoffice';
+import { DocumentSelectListEntry } from '@modules/Document/backoffice/DocumentSelectListEntry';
+import { RelationModal } from '@modules/Relations/backoffice/components/RelationModal';
+import { RelationSelector } from '@modules/Relations/backoffice/components/RelationSelector';
+import { RelationSummary } from '@modules/Relations/backoffice/components/RelationSummary';
+import { SingleSelection } from '@modules/Relations/backoffice/components/SingleSelection';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';

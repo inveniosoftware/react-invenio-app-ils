@@ -5,13 +5,13 @@ import DocumentMetadata from './DocumentMetadata';
 
 jest.mock('@config/invenioConfig');
 
-jest.mock('../../DocumentMetadata', () => {
+jest.mock('./DocumentMetadata', () => {
   return {
     DocumentMetadata: () => null,
   };
 });
 
-jest.mock('@pages/backoffice/components/DeleteRecordModal', () => {
+jest.mock('@components/backoffice/DeleteRecordModal', () => {
   return {
     DeleteRecordModal: () => null,
   };

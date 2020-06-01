@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Headline } from './Headline';
 import Overridable from 'react-overridable';
 import { SectionsWrapper } from './Sections';
@@ -22,7 +21,5 @@ class Home extends Component {
     return <OverridableHome {...this.props} />;
   }
 }
-
-Home.propTypes = {};
 
 export default Overridable.component('Home', Home);

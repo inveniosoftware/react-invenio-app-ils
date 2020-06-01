@@ -1,9 +1,7 @@
-import {
-  SearchAggregationsCards,
-  SearchControls,
-  SearchEmptyResults,
-  SearchFooter,
-} from '@modules/SearchControls';
+import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
+import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import { SearchFooter } from '@modules/SearchControls/SearchFooter';
 import EItemList from './EitemList';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -19,10 +17,10 @@ import {
 } from 'react-searchkit';
 import { getSearchConfig } from '@config';
 import { Error as IlsError, SearchBar as EItemsSearchBar } from '@components';
-import { eItemApi } from '@api';
+import { eItemApi } from '@api/eitems';
 import { responseRejectInterceptor } from '@api/base';
-import { ExportReactSearchKitResults } from '@components/backoffice';
-import { NewButton } from '@components/backoffice/buttons';
+import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { BackOfficeRoutes } from '@routes/urls';
 import history from '@history';
 

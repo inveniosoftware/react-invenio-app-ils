@@ -1,5 +1,5 @@
-import { MetadataTable } from '@components/backoffice';
-import { UrlList } from '@components/backoffice';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
+import { UrlList } from '@components/backoffice/UrlList';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import ShowMore from 'react-show-more';

@@ -1,5 +1,5 @@
 import { loanRequestFormReducer as reducer, initialState } from './reducer';
-import * as actions from '../actions';
+import * as actions from './actions';
 
 describe('Loan Request Form reducer test', () => {
   it('should have initial state', () => {

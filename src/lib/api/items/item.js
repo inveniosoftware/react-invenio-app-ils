@@ -1,6 +1,6 @@
 import { invenioConfig } from '@config';
-import { apiConfig, http } from '../base';
-import { prepareSumQuery } from '../utils';
+import { apiConfig, http } from '@api/base';
+import { prepareSumQuery } from '@api/utils';
 import { serializer } from './serializer';
 
 const itemURL = '/items/';

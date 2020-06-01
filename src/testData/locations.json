@@ -1,0 +1,10 @@
+[
+  {
+    "pid": "locid-1",
+    "name": "Main Library"
+  },
+  {
+    "pid": "locid-2",
+    "name": "Library of Alexandria"
+  }
+]

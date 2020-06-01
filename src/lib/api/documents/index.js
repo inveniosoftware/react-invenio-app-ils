@@ -1,0 +1,1 @@
+export { documentApi } from './document';

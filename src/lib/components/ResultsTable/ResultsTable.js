@@ -5,7 +5,7 @@ import ResultsTableHeader from './ResultsTableHeader';
 import ResultsTableBody from './ResultsTableBody';
 import ResultsTableFooter from './ResultsTableFooter';
 import { invenioConfig } from '@config';
-import isEmpty from 'lodash';
+import _isEmpty from 'lodash/isEmpty';
 
 export class ResultsTable extends Component {
   renderTable = () => {
@@ -75,7 +75,7 @@ export class ResultsTable extends Component {
       <Header as="h3" content={title} subheader={subtitle} />
     ) : null;
 
-    if (!(title || subtitle || !isEmpty(headerActionComponent))) {
+    if (!(title || subtitle || !_isEmpty(headerActionComponent))) {
       return null;
     }
     return (

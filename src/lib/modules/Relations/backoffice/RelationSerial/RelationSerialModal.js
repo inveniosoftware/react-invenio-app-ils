@@ -1,11 +1,9 @@
-import { SeriesAuthors } from '@modules/Series';
-import { SeriesSelectListEntry } from '@modules/Series/backoffice';
-import {
-  RelationModal,
-  SingleSelection,
-  RelationSummary,
-  RelationSelector,
-} from '@modules/Relations/backoffice';
+import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
+import { SeriesSelectListEntry } from '@modules/Series/backoffice/SeriesSelectListEntry';
+import { RelationModal } from '@modules/Relations/backoffice/components/RelationModal';
+import { SingleSelection } from '@modules/Relations/backoffice/components/SingleSelection';
+import { RelationSummary } from '@modules/Relations/backoffice/components/RelationSummary';
+import { RelationSelector } from '@modules/Relations/backoffice/components/RelationSelector';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -17,7 +15,7 @@ import {
   Label,
   Modal,
 } from 'semantic-ui-react';
-import { seriesApi } from '@api';
+import { seriesApi } from '@api/series';
 
 export default class RelationSerialModal extends Component {
   constructor(props) {
@@ -34,7 +32,7 @@ export default class RelationSerialModal extends Component {
         series={option}
         description={
           <>
-            <SeriesAuthors metadata={option.metadata} />
+            <SeriesAuthors authors={option.metadata.authors} />
             {<label>By </label> && option.metadata.publisher} <br />
           </>
         }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Loader, Error } from '@components';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
 import { EItemForm } from './EItemForm';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';

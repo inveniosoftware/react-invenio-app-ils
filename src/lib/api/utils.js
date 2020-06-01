@@ -1,6 +1,6 @@
-import { ES_DELAY, invenioConfig } from '@config';
+import { invenioConfig, uiConfig } from '@config';
 import _get from 'lodash/get';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import _set from 'lodash/set';
 import { fromISO } from './date';
 
@@ -88,7 +88,7 @@ export const formatPrice = (price, includeCurrency = true) => {
 export const recordResponseSerializer = (hit, customSerializer = null) => {
   const DATETIME_FIELDS = ['created', 'updated'];
   const result = {};
-  if (!isEmpty(hit)) {
+  if (!_isEmpty(hit)) {
     result.id = hit.id;
 
     DATETIME_FIELDS.forEach(field => {
@@ -102,7 +102,7 @@ export const recordResponseSerializer = (hit, customSerializer = null) => {
       result.links = hit.links;
     }
 
-    if (!isEmpty(hit.metadata)) {
+    if (!_isEmpty(hit.metadata)) {
       result.metadata = hit.metadata;
       if (customSerializer) {
         customSerializer(result.metadata);
@@ -143,5 +143,5 @@ export const withCancel = promise => {
  * @returns the delayed promise
  */
 export const delay = async () => {
-  return await new Promise(resolve => setTimeout(resolve, ES_DELAY));
+  return await new Promise(resolve => setTimeout(resolve, uiConfig.ES_DELAY));
 };

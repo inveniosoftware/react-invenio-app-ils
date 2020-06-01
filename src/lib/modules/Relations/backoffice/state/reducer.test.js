@@ -1,5 +1,5 @@
-import reducer, { initialState } from '../reducer';
-import * as types from '../types';
+import reducer, { initialState } from './reducer';
+import * as types from './types';
 
 describe('Document relations reducer', () => {
   it('should have initial state', () => {

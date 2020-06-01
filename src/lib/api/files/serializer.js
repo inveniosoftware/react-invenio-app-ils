@@ -1,8 +1,8 @@
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 
 export function serializeResponse(data) {
   const result = {};
-  if (!isEmpty(data)) {
+  if (!_isEmpty(data)) {
     result.checksum = data.checksum;
     result.key = data.key;
     result.mimetype = data.mimetype;

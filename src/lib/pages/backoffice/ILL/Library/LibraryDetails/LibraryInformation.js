@@ -1,5 +1,6 @@
-import { CopyButton, EmailLink } from '@components';
-import { MetadataTable } from '@components/backoffice';
+import { CopyButton } from '@components/CopyButton';
+import { EmailLink } from '@components/EmailLink';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Grid } from 'semantic-ui-react';

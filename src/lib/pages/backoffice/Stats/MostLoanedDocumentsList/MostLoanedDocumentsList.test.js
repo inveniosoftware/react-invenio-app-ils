@@ -8,7 +8,7 @@ import { BackOfficeRoutes } from '@routes/urls';
 import { MemoryRouter } from 'react-router';
 import * as testData from '@testData/documents.json';
 
-jest.mock('@pages/backoffice/components/ExportSearchResults');
+jest.mock('@components/backoffice/ExportSearchResults');
 jest.mock('@config/invenioConfig');
 
 Settings.defaultZoneName = 'utc';

@@ -1,7 +1,8 @@
 import { toShortDateTime } from '@api/date';
-import { CreatedBy, UpdatedBy } from '@components/backoffice';
-import { MetadataTable } from '@components/backoffice';
-import { isEmpty } from 'lodash';
+import { CreatedBy } from '@components/backoffice/CreatedBy';
+import { UpdatedBy } from '@components/backoffice/UpdatedBy';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
@@ -9,7 +10,7 @@ export class DocumentSystemInfo extends Component {
   renderInternalNotes = () => {
     const { document } = this.props;
 
-    if (!isEmpty(document.metadata.internal_notes)) {
+    if (!_isEmpty(document.metadata.internal_notes)) {
       return document.metadata.internal_notes.map((entry, index) => (
         <>
           User {entry.user} noted for field {entry.field}:<br />

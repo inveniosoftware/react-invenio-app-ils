@@ -1,14 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { InfoMessage } from '@components/InfoMessage';
+import { InfoPopup } from '@components/InfoPopup';
+import { SeparatedList } from '@components/SeparatedList';
 import capitalize from 'lodash/capitalize';
-import { Table, Divider } from 'semantic-ui-react';
-import { SeparatedList, InfoPopup, InfoMessage } from '@components';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Divider, Table } from 'semantic-ui-react';
 
 export const Identifiers = ({ identifiers }) => {
   return (
     <InfoMessage
-      show={!isEmpty(identifiers)}
+      show={!_isEmpty(identifiers)}
       message="There are no identifiers."
     >
       <Divider horizontal>Identifiers</Divider>

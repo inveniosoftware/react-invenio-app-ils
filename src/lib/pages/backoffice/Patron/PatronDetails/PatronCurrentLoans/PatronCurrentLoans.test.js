@@ -4,7 +4,7 @@ import { BackOfficeRoutes } from '@routes/urls';
 import { BrowserRouter } from 'react-router-dom';
 import PatronCurrentLoans from './PatronCurrentLoans';
 import testData from '@testData/loans.json';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 
 jest.mock('@config/invenioConfig');
 BackOfficeRoutes.loanDetailsFor = jest.fn(pid => `url/${pid}`);
@@ -30,7 +30,7 @@ describe('PatronCurrentLoans tests', () => {
   let component;
   afterEach(() => {
     mockViewDetails.mockClear();
-    if (!isEmpty(component)) {
+    if (!_isEmpty(component)) {
       component.unmount();
     }
   });

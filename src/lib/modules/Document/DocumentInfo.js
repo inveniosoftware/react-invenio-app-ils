@@ -1,9 +1,9 @@
-import { DocumentAuthors } from '@modules/Document';
+import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Divider, Table } from 'semantic-ui-react';
-import { IdentifierRows } from '../Identifiers';
+import { IdentifierRows } from '@modules/Identifiers';
 
 export class DocumentInfo extends Component {
   renderLanguages() {

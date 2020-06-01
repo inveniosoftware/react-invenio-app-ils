@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { FastField, Field, getIn } from 'formik';
 import cloneDeep from 'lodash/cloneDeep';
 import { AuthorForm } from './AuthorForm';
-import { SubForm, GroupField, ObjectListField } from '@forms';
+import { SubForm } from '@forms/core/SubForm';
+import { GroupField } from '@forms/core/GroupField';
+import { ObjectListField } from '@forms/core/ObjectListField';
 import { invenioConfig } from '@config';
 import { AuthorSearchField } from './AuthorSearchField';
 

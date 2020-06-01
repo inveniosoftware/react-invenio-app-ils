@@ -1,4 +1,5 @@
-import { http } from '../base';
+import { http } from '@api/base';
+
 const statsURL = '/stats';
 
 const recordStats = (pidType, pidValue) => {

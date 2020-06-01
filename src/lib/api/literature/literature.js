@@ -1,6 +1,6 @@
-import { http, apiConfig } from '../base';
+import { http, apiConfig } from '@api/base';
 import { serializer } from './serializer';
-import { prepareSumQuery } from '../utils';
+import { prepareSumQuery } from '@api/utils';
 
 const literatureURL = '/literature/';
 

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LoansSearch SearchBar tests should render search bar with query helper 1`] = `
-<SearchBar
+<Overridable(SearchBar)
   currentQueryString=""
   executeSearch={[MockFunction]}
   onInputChange={[MockFunction]}
@@ -20,89 +20,13 @@ exports[`LoansSearch SearchBar tests should render search bar with query helper 
     ]
   }
 >
-  <Input
-    action={
-      Object {
-        "color": undefined,
-        "icon": "search",
-        "onClick": [MockFunction],
-      }
-    }
-    className="undefined ils-searchbar"
-    fluid={true}
-    onChange={[Function]}
-    onKeyPress={[Function]}
-    placeholder="Search"
-    size="big"
-    type="text"
-    value=""
-  >
-    <div
-      className="ui big fluid action input undefined ils-searchbar"
-    >
-      <input
-        onChange={[Function]}
-        onKeyPress={[Function]}
-        placeholder="Search"
-        type="text"
-        value=""
-      />
-      <Button
-        as="button"
-        icon="search"
-        onClick={[MockFunction]}
-      >
-        <Ref
-          innerRef={
-            Object {
-              "current": <button
-                class="ui icon button"
-              >
-                <i
-                  aria-hidden="true"
-                  class="search icon"
-                />
-              </button>,
-            }
-          }
-        >
-          <RefFindNode
-            innerRef={
-              Object {
-                "current": <button
-                  class="ui icon button"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="search icon"
-                  />
-                </button>,
-              }
-            }
-          >
-            <button
-              className="ui icon button"
-              onClick={[Function]}
-            >
-              <Icon
-                as="i"
-                name="search"
-              >
-                <i
-                  aria-hidden="true"
-                  className="search icon"
-                  onClick={[Function]}
-                />
-              </Icon>
-            </button>
-          </RefFindNode>
-        </Ref>
-      </Button>
-    </div>
-  </Input>
-  <QueryBuildHelper
+  <SearchBar
+    buttonColor={null}
     currentQueryString=""
-    fields={
+    executeSearch={[MockFunction]}
+    onInputChange={[MockFunction]}
+    placeholder="Search"
+    queryHelperFields={
       Array [
         Object {
           "defaultValue": "\\"Doe, John\\"",
@@ -115,158 +39,298 @@ exports[`LoansSearch SearchBar tests should render search bar with query helper 
         },
       ]
     }
-    size={15}
-    updateQueryString={[MockFunction]}
   >
-    <Grid>
-      <div
-        className="ui grid"
+    <Overridable
+      buttonColor={null}
+      currentQueryString=""
+      executeSearch={[MockFunction]}
+      id="SearchBar.layout"
+      onInputChange={[MockFunction]}
+      placeholder="Search"
+      queryHelperFields={
+        Array [
+          Object {
+            "defaultValue": "\\"Doe, John\\"",
+            "field": "authors.full_name",
+            "name": "author",
+          },
+          Object {
+            "field": "_created",
+            "name": "created",
+          },
+        ]
+      }
+    >
+      <Input
+        action={
+          Object {
+            "color": null,
+            "icon": "search",
+            "onClick": [MockFunction],
+          }
+        }
+        className="undefined ils-searchbar"
+        fluid={true}
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        placeholder="Search"
+        size="big"
+        type="text"
+        value=""
       >
-        <GridRow
-          columns={1}
+        <div
+          className="ui big fluid action input undefined ils-searchbar"
         >
-          <div
-            className="one column row"
+          <input
+            onChange={[Function]}
+            onKeyPress={[Function]}
+            placeholder="Search"
+            type="text"
+            value=""
+          />
+          <Button
+            as="button"
+            color={null}
+            icon="search"
+            onClick={[MockFunction]}
           >
-            <GridColumn
-              width={16}
+            <Ref
+              innerRef={
+                Object {
+                  "current": <button
+                    class="ui icon button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="search icon"
+                    />
+                  </button>,
+                }
+              }
+            >
+              <RefFindNode
+                innerRef={
+                  Object {
+                    "current": <button
+                      class="ui icon button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="search icon"
+                      />
+                    </button>,
+                  }
+                }
+              >
+                <button
+                  className="ui icon button"
+                  onClick={[Function]}
+                >
+                  <Icon
+                    as="i"
+                    name="search"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="search icon"
+                      onClick={[Function]}
+                    />
+                  </Icon>
+                </button>
+              </RefFindNode>
+            </Ref>
+          </Button>
+        </div>
+      </Input>
+      <QueryBuildHelper
+        currentQueryString=""
+        fields={
+          Array [
+            Object {
+              "defaultValue": "\\"Doe, John\\"",
+              "field": "authors.full_name",
+              "name": "author",
+            },
+            Object {
+              "field": "_created",
+              "name": "created",
+            },
+          ]
+        }
+        size={15}
+        updateQueryString={[MockFunction]}
+      >
+        <Grid>
+          <div
+            className="ui grid"
+          >
+            <GridRow
+              columns={1}
             >
               <div
-                className="sixteen wide column"
+                className="one column row"
               >
-                Search by: 
-                <List
-                  bulleted={true}
-                  horizontal={true}
+                <GridColumn
+                  width={16}
                 >
                   <div
-                    className="ui bulleted horizontal list"
-                    role="list"
+                    className="sixteen wide column"
                   >
-                    <ListItem
-                      as="a"
-                      key="authors.full_name"
-                      onClick={[Function]}
+                    Search by: 
+                    <List
+                      bulleted={true}
+                      horizontal={true}
                     >
-                      <a
-                        className="item"
-                        onClick={[Function]}
-                        role="listitem"
+                      <div
+                        className="ui bulleted horizontal list"
+                        role="list"
                       >
-                        author
-                      </a>
-                    </ListItem>
-                    <ListItem
-                      as="a"
-                      key="_created"
-                      onClick={[Function]}
-                    >
-                      <a
-                        className="item"
-                        onClick={[Function]}
-                        role="listitem"
-                      >
-                        created
-                      </a>
-                    </ListItem>
+                        <ListItem
+                          as="a"
+                          key="authors.full_name"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="item"
+                            onClick={[Function]}
+                            role="listitem"
+                          >
+                            author
+                          </a>
+                        </ListItem>
+                        <ListItem
+                          as="a"
+                          key="_created"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="item"
+                            onClick={[Function]}
+                            role="listitem"
+                          >
+                            created
+                          </a>
+                        </ListItem>
+                      </div>
+                    </List>
                   </div>
-                </List>
+                </GridColumn>
               </div>
-            </GridColumn>
+            </GridRow>
           </div>
-        </GridRow>
-      </div>
-    </Grid>
-  </QueryBuildHelper>
-</SearchBar>
+        </Grid>
+      </QueryBuildHelper>
+    </Overridable>
+  </SearchBar>
+</Overridable(SearchBar)>
 `;
 
 exports[`LoansSearch SearchBar tests should render the current query string 1`] = `
-<SearchBar
+<Overridable(SearchBar)
   currentQueryString="The Gulf: The Making of An American Sea"
   executeSearch={[Function]}
   onInputChange={[Function]}
   placeholder="Search"
 >
-  <Input
-    action={
-      Object {
-        "color": undefined,
-        "icon": "search",
-        "onClick": [Function],
-      }
-    }
-    className="undefined ils-searchbar"
-    fluid={true}
-    onChange={[Function]}
-    onKeyPress={[Function]}
+  <SearchBar
+    buttonColor={null}
+    currentQueryString="The Gulf: The Making of An American Sea"
+    executeSearch={[Function]}
+    onInputChange={[Function]}
     placeholder="Search"
-    size="big"
-    type="text"
-    value="The Gulf: The Making of An American Sea"
+    queryHelperFields={Array []}
   >
-    <div
-      className="ui big fluid action input undefined ils-searchbar"
+    <Overridable
+      buttonColor={null}
+      currentQueryString="The Gulf: The Making of An American Sea"
+      executeSearch={[Function]}
+      id="SearchBar.layout"
+      onInputChange={[Function]}
+      placeholder="Search"
+      queryHelperFields={Array []}
     >
-      <input
+      <Input
+        action={
+          Object {
+            "color": null,
+            "icon": "search",
+            "onClick": [Function],
+          }
+        }
+        className="undefined ils-searchbar"
+        fluid={true}
         onChange={[Function]}
         onKeyPress={[Function]}
         placeholder="Search"
+        size="big"
         type="text"
         value="The Gulf: The Making of An American Sea"
-      />
-      <Button
-        as="button"
-        icon="search"
-        onClick={[Function]}
       >
-        <Ref
-          innerRef={
-            Object {
-              "current": <button
-                class="ui icon button"
-              >
-                <i
-                  aria-hidden="true"
-                  class="search icon"
-                />
-              </button>,
-            }
-          }
+        <div
+          className="ui big fluid action input undefined ils-searchbar"
         >
-          <RefFindNode
-            innerRef={
-              Object {
-                "current": <button
-                  class="ui icon button"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="search icon"
-                  />
-                </button>,
-              }
-            }
+          <input
+            onChange={[Function]}
+            onKeyPress={[Function]}
+            placeholder="Search"
+            type="text"
+            value="The Gulf: The Making of An American Sea"
+          />
+          <Button
+            as="button"
+            color={null}
+            icon="search"
+            onClick={[Function]}
           >
-            <button
-              className="ui icon button"
-              onClick={[Function]}
+            <Ref
+              innerRef={
+                Object {
+                  "current": <button
+                    class="ui icon button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="search icon"
+                    />
+                  </button>,
+                }
+              }
             >
-              <Icon
-                as="i"
-                name="search"
+              <RefFindNode
+                innerRef={
+                  Object {
+                    "current": <button
+                      class="ui icon button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="search icon"
+                      />
+                    </button>,
+                  }
+                }
               >
-                <i
-                  aria-hidden="true"
-                  className="search icon"
+                <button
+                  className="ui icon button"
                   onClick={[Function]}
-                />
-              </Icon>
-            </button>
-          </RefFindNode>
-        </Ref>
-      </Button>
-    </div>
-  </Input>
-</SearchBar>
+                >
+                  <Icon
+                    as="i"
+                    name="search"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="search icon"
+                      onClick={[Function]}
+                    />
+                  </Icon>
+                </button>
+              </RefFindNode>
+            </Ref>
+          </Button>
+        </div>
+      </Input>
+    </Overridable>
+  </SearchBar>
+</Overridable(SearchBar)>
 `;

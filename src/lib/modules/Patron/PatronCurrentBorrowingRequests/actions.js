@@ -1,6 +1,6 @@
 import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
 import { invenioConfig } from '@config';
-import { illBorrowingRequestApi as BorrowingRequestApi } from '@api';
+import { illBorrowingRequestApi as BorrowingRequestApi } from '@api/ill';
 import { sendErrorNotification } from '@components/Notifications';
 import _difference from 'lodash/difference';
 

@@ -1,13 +1,12 @@
-import { Error, Loader } from '@components';
-import { DocumentTitle } from '@modules/Document';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import { DocumentTitle } from '@modules/Document/DocumentTitle';
 import { SeriesDetailsLink } from '@components/backoffice/buttons';
 import { InfoMessage } from '@components/backoffice';
-import {
-  ExistingRelations,
-  RelationRemover,
-} from '@modules/Relations/backoffice';
+import { ExistingRelations } from '@modules/Relations/backoffice/components/ExistingRelations';
+import { RelationRemover } from '@modules/Relations/backoffice/components/RelationRemover';
 import _get from 'lodash/get';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Divider, Grid } from 'semantic-ui-react';
@@ -30,7 +29,7 @@ export default class RelationSequence extends Component {
   removeHandler = ({ row }) => {
     const { seriesDetails } = this.props;
 
-    if (!isEmpty(seriesDetails)) {
+    if (!_isEmpty(seriesDetails)) {
       return (
         <RelationRemover
           referrer={seriesDetails}

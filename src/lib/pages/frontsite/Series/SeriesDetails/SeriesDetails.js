@@ -5,7 +5,7 @@ import { goTo } from '@history';
 import { Breadcrumbs } from '@components';
 import { SeriesLiteratureSearch } from '@modules/Series';
 import { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Overridable from 'react-overridable';
@@ -36,7 +36,7 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
                 />
               </Grid.Column>
               <Grid.Column width={3} textAlign="right">
-                {!isEmpty(series.metadata) && (
+                {!_isEmpty(series.metadata) && (
                   <AuthenticationGuard
                     silent
                     authorizedComponent={() => (

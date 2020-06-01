@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { CalendarInputField } from "./CalendarInputField";
-import { YearPicker } from "@components";
-import { Form } from "semantic-ui-react";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { CalendarInputField } from './CalendarInputField';
+import { YearPicker } from '@components/YearPicker';
+import { Form } from 'semantic-ui-react';
 
 export class YearInputField extends React.Component {
   renderFormField = props => {
@@ -36,10 +36,10 @@ YearInputField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   inline: PropTypes.bool,
   label: PropTypes.string,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
 };
 
 YearInputField.defaultProps = {
-  label: "",
-  placeholder: ""
+  label: '',
+  placeholder: '',
 };

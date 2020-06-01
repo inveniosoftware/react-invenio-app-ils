@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { authenticationService } from '@authentication/services';
+import { authenticationService } from '@authentication/services/AuthenticationService';
 
 export default class LoginWithOauthButton extends Component {
   render() {

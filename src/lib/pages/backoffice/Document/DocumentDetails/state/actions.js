@@ -1,4 +1,5 @@
-import { documentApi, loanApi } from '@api';
+import { documentApi } from '@api/documents';
+import { loanApi } from '@api/loans';
 import { toShortDate } from '@api/date';
 import { delay } from '@api/utils';
 import {

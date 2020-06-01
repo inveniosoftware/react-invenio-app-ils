@@ -11,7 +11,7 @@ import {
   SelectorField,
   AccordionField,
   PriceField,
-} from '@forms';
+} from '@forms/core';
 import { BackOfficeRoutes } from '@routes/urls';
 import { goTo } from '@history';
 import itemSubmitSerializer from './itemSubmitSerializer';

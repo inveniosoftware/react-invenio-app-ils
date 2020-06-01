@@ -1,12 +1,10 @@
-import {
-  DocumentLanguages,
-  DocumentTags,
-  DocumentAuthors,
-} from '@modules/Document';
-import { MetadataTable } from '@components/backoffice';
-import { UrlList } from '@components/backoffice';
+import { DocumentLanguages } from '@modules/Document/DocumentLanguages';
+import { DocumentTags } from '@modules/Document/DocumentTags';
+import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
+import { UrlList } from '@components/backoffice/UrlList';
 import { BackOfficeRoutes } from '@routes/urls';
-import { isEmpty } from 'lodash';
+import _isEmpty from 'lodash/isEmpty';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -59,7 +57,7 @@ export class DocumentMetadataGeneral extends Component {
     ];
 
     const request = document.metadata.request;
-    if (!isEmpty(request)) {
+    if (!_isEmpty(request)) {
       rows.push({
         name: 'Document Request',
         value: (
@@ -89,7 +87,7 @@ export class DocumentMetadataGeneral extends Component {
       <Container fluid>
         <MetadataTable rows={this.prepareGeneral()} />
 
-        {!isEmpty(document.metadata.imprint) && (
+        {!_isEmpty(document.metadata.imprint) && (
           <>
             <Divider />
             <Header as="h3">Imprint</Header>

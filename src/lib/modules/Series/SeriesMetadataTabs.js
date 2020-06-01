@@ -1,10 +1,13 @@
-import { LiteratureNotes, LiteratureRelations } from '@modules/Literature';
+import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
+import { LiteratureRelations } from '@modules/Literature/LiteratureRelations';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Tab } from 'semantic-ui-react';
-import { Identifiers } from '../Identifiers';
-import { SeriesAllTitles, SeriesInfo, SeriesLinks } from './';
+import { Identifiers } from '@modules/Identifiers';
+import { SeriesAllTitles } from './SeriesAllTitles';
+import { SeriesInfo } from './SeriesInfo';
+import { SeriesLinks } from './SeriesLinks';
 
 class SeriesMetadataTabs extends Component {
   renderTabPanes = () => {
@@ -15,7 +18,7 @@ class SeriesMetadataTabs extends Component {
         render: () => (
           <Tab.Pane attached={false}>
             <LiteratureRelations relations={metadata.relations} />
-            <SeriesInfo />
+            <SeriesInfo metadata={metadata} />
           </Tab.Pane>
         ),
       },
@@ -31,7 +34,11 @@ class SeriesMetadataTabs extends Component {
         menuItem: 'Titles',
         render: () => (
           <Tab.Pane attached={false}>
-            <SeriesAllTitles />
+            <SeriesAllTitles
+              title={metadata.title}
+              abbreviatedTitle={metadata.abbreviated_title}
+              alternativeTitles={metadata.alternative_titles}
+            />
           </Tab.Pane>
         ),
       },
@@ -47,7 +54,10 @@ class SeriesMetadataTabs extends Component {
         menuItem: 'Links',
         render: () => (
           <Tab.Pane attached={false}>
-            <SeriesLinks />
+            <SeriesLinks
+              accessUrls={metadata.access_urls}
+              urls={metadata.urls}
+            />
           </Tab.Pane>
         ),
       },

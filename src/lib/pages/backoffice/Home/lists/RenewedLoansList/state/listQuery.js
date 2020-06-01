@@ -1,4 +1,4 @@
-import { loanApi } from '@api';
+import { loanApi } from '@api/loan';
 import { toShortDate } from '@api/date';
 import { DateTime } from 'luxon';
 

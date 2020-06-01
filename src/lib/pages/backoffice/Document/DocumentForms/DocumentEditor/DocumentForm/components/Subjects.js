@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ObjectArrayStringField } from '@forms';
+import { ObjectArrayStringField } from '@forms/core/ObjectArrayStringField';
 
 export class Subjects extends Component {
   render() {

@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { VocabularyField } from "../core";
-import { Dropdown, Flag } from "semantic-ui-react";
-import { names as FLAG_NAMES } from "semantic-ui-react/dist/commonjs/elements/Flag/Flag";
-import cx from "classnames";
-import get from "lodash/get";
+import { VocabularyField } from '@forms/core/VocabularyField';
+import cx from 'classnames';
+import get from 'lodash/get';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Dropdown, Flag } from 'semantic-ui-react';
+import { names as FLAG_NAMES } from 'semantic-ui-react/dist/commonjs/elements/Flag/Flag';
 
 export class FlagDropdown extends Dropdown {
   renderText = () => {
@@ -13,9 +13,9 @@ export class FlagDropdown extends Dropdown {
     const hasValue = this.hasValue();
 
     const classes = cx(
-      placeholder && !hasValue && "default",
-      "text",
-      search && searchQuery && "filtered"
+      placeholder && !hasValue && 'default',
+      'text',
+      search && searchQuery && 'filtered'
     );
     let _text = placeholder;
     let _flag = null;
@@ -23,10 +23,10 @@ export class FlagDropdown extends Dropdown {
     if (text) {
       _text = text;
     } else if (open && !multiple) {
-      _text = get(this.getSelectedItem(), "text");
+      _text = get(this.getSelectedItem(), 'text');
     } else if (hasValue) {
       const item = this.getItemByValue(value);
-      _text = get(item, "text");
+      _text = get(item, 'text');
       if (item && item.flag) {
         _flag = <Flag name={item.flag} />;
       }
@@ -47,7 +47,7 @@ export class CountryField extends Component {
     const obj = {
       key: hit.metadata.id,
       value: hit.metadata.key,
-      text: hit.metadata.text
+      text: hit.metadata.text,
     };
     const code = obj.value.toLowerCase();
     if (FLAG_NAMES.includes(code)) {
@@ -75,10 +75,10 @@ CountryField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   label: PropTypes.string,
   multiple: PropTypes.bool,
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
 };
 
 CountryField.defaultProps = {
-  label: "Country",
-  multiple: false
+  label: 'Country',
+  multiple: false,
 };

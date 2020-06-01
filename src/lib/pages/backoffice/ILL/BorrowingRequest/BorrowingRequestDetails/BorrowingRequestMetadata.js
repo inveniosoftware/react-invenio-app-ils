@@ -1,7 +1,8 @@
 import { toShortDate } from '@api/date';
-import { CreatedBy, UpdatedBy } from '@components/backoffice';
-import { DocumentTitle } from '@modules/Document';
-import { MetadataTable } from '@components/backoffice';
+import { CreatedBy } from '@components/backoffice/CreatedBy';
+import { UpdatedBy } from '@components/backoffice/UpdatedBy';
+import { DocumentTitle } from '@modules/Document/DocumentTitle';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import {
   DocumentIcon,
   ILLLibraryIcon,

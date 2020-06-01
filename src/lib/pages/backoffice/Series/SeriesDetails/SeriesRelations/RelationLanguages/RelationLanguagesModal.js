@@ -1,4 +1,4 @@
-import { SeriesLanguages } from '@modules/Series';
+import { SeriesLanguages } from '@modules/Series/SeriesLanguages';
 import {
   RelationModal,
   RelationSummary,
@@ -29,7 +29,8 @@ export default class RelationLanguagesModal extends Component {
   selectResultRender = (option, disabled) => {
     const description = (
       <>
-        <label>languages:</label> <SeriesLanguages metadata={option.metadata} />
+        <label>languages:</label>{' '}
+        <SeriesLanguages languages={option.metadata.languages} />
       </>
     );
     return (

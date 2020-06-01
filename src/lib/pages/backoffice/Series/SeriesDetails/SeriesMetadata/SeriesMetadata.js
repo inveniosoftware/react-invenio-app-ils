@@ -1,12 +1,12 @@
 import { ResultsTable } from '@components';
-import { SeriesAuthors, SeriesLanguages } from '@modules/Series';
-import { UrlList } from '@components/backoffice';
+import { MetadataTable, UrlList } from '@components/backoffice';
+import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
+import { SeriesLanguages } from '@modules/Series/SeriesLanguages';
 import get from 'lodash/get';
-import React, { Component } from 'react';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
-import { Divider, Container } from 'semantic-ui-react';
-import { MetadataTable } from '@components/backoffice';
-import isEmpty from 'lodash/isEmpty';
+import React, { Component } from 'react';
+import { Container, Divider } from 'semantic-ui-react';
 
 export default class SeriesMetadata extends Component {
   prepareData = () => {
@@ -22,7 +22,7 @@ export default class SeriesMetadata extends Component {
       },
       {
         name: 'Authors',
-        value: <SeriesAuthors metadata={seriesDetails.metadata} />,
+        value: <SeriesAuthors authors={seriesDetails.metadata.authors} />,
       },
       {
         name: 'Publication Year',
@@ -34,7 +34,7 @@ export default class SeriesMetadata extends Component {
       },
       {
         name: 'Languages',
-        value: <SeriesLanguages metadata={seriesDetails.metadata} />,
+        value: <SeriesLanguages languages={seriesDetails.metadata.languages} />,
       },
       { name: 'Publisher', value: seriesDetails.metadata.publisher },
       { name: 'Urls', value: <UrlList urls={urls} /> },
@@ -57,7 +57,7 @@ export default class SeriesMetadata extends Component {
       { title: 'Restrictions', field: 'access_restriction' },
     ];
 
-    const hasAccessUrls = !isEmpty(series.metadata.access_urls);
+    const hasAccessUrls = !_isEmpty(series.metadata.access_urls);
 
     return (
       <Container fluid className="series-metadata">

@@ -1,5 +1,5 @@
-import { RemoveItemButton } from '@components/backoffice/buttons';
-import { RelationCard } from '@modules/Relations/backoffice';
+import { RemoveItemButton } from '@components/backoffice/buttons/RemoveItemButton';
+import { RelationCard } from '@modules/Relations/backoffice/components/RelationCard';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 

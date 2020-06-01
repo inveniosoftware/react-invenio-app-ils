@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { List } from 'semantic-ui-react';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 
 export const SeparatedList = ({
   items,
@@ -11,7 +11,7 @@ export const SeparatedList = ({
   suffix,
   ...listProps
 }) => {
-  return isEmpty(items) ? null : (
+  return _isEmpty(items) ? null : (
     <>
       {prefix}
       <List horizontal {...listProps}>

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Divider } from 'semantic-ui-react';
-import { Loader, Error } from '@components';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
 import {
   DocumentRequestActions,
   DocumentRequestHeader,

@@ -1,7 +1,8 @@
-import { patronApi } from '@api';
-import { ESSelectorLoanRequest } from '@modules/ESSelector';
+import { patronApi } from '@api/patrons';
+import { ESSelectorLoanRequest } from '@modules/ESSelector/ESSelectorLoanRequest';
 import { serializePatron } from '@modules/ESSelector/serializer';
-import { EditButton, NewButton } from '@components/backoffice/buttons';
+import { EditButton } from '@components/backoffice/buttons/EditButton';
+import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { LoanIcon } from '@components/backoffice/icons';
 import {
   ScrollingMenu,
@@ -9,7 +10,7 @@ import {
 } from '@components/backoffice/buttons/ScrollingMenu';
 import { DocumentDeleteModal } from '../DocumentDeleteModal';
 import { BackOfficeRoutes } from '@routes/urls';
-import { isEmpty } from 'lodash';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Divider } from 'semantic-ui-react';
@@ -36,10 +37,10 @@ export default class DocumentActionMenu extends Component {
       requestLoanForPatron,
     } = this.props;
     const optionalParams = {};
-    if (!isEmpty(requestEndDate)) {
+    if (!_isEmpty(requestEndDate)) {
       optionalParams.requestEndDate = requestEndDate;
     }
-    if (!isEmpty(deliveryMethod)) {
+    if (!_isEmpty(deliveryMethod)) {
       optionalParams.deliveryMethod = deliveryMethod;
     }
     requestLoanForPatron(documentPid, patronPid, optionalParams);

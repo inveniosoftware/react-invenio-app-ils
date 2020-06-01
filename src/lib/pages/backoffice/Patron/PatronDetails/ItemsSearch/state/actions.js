@@ -1,4 +1,4 @@
-import { itemApi } from '@api';
+import { itemApi } from '@api/items';
 import { sendErrorNotification } from '@components/Notifications';
 import {
   CLEAR_SEARCH,

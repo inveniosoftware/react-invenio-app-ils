@@ -2,7 +2,7 @@ import { recordToPidType } from '@api/utils';
 import { Loader, ResultsTable } from '@components';
 import { invenioConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -44,7 +44,7 @@ export default class ItemsResultsList extends Component {
       />
     );
 
-    const circulationStatus = !isEmpty(row.metadata.circulation)
+    const circulationStatus = !_isEmpty(row.metadata.circulation)
       ? row.metadata.circulation.state
       : null;
 

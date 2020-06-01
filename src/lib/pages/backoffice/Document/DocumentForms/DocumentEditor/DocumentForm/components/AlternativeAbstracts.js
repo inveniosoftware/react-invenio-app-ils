@@ -1,11 +1,9 @@
+import { DeleteActionButton } from '@forms/components/DeleteActionButton';
+import { AccordionField } from '@forms/core/AccordionField';
+import { ArrayField } from '@forms/core/ArrayField';
+import { GroupField } from '@forms/core/GroupField';
+import { TextField } from '@forms/core/TextField';
 import React, { Component } from 'react';
-import {
-  AccordionField,
-  ArrayField,
-  TextField,
-  GroupField,
-  DeleteActionButton,
-} from '@forms';
 
 export class AlternativeAbstracts extends Component {
   renderFormField({ arrayPath, indexPath, ...arrayHelpers }) {

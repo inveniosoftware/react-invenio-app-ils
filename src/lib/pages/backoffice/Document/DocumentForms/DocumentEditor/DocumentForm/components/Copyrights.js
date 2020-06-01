@@ -1,12 +1,10 @@
+import { DeleteActionButton } from '@forms/components/DeleteActionButton';
+import { AccordionField } from '@forms/core/AccordionField';
+import { ArrayField } from '@forms/core/ArrayField';
+import { GroupField } from '@forms/core/GroupField';
+import { StringField } from '@forms/core/StringField';
+import { YearInputField } from '@forms/core/YearInputField';
 import React, { Component } from 'react';
-import {
-  AccordionField,
-  ArrayField,
-  StringField,
-  DeleteActionButton,
-  GroupField,
-  YearInputField,
-} from '@forms';
 
 export class Copyrights extends Component {
   renderFormField({ arrayPath, indexPath, ...arrayHelpers }) {

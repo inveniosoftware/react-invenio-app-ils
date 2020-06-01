@@ -1,9 +1,9 @@
+import { InfoPopup } from '@components/InfoPopup';
+import capitalize from 'lodash/capitalize';
+import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Divider, Table } from 'semantic-ui-react';
-import capitalize from 'lodash/capitalize';
-import isEmpty from 'lodash/isEmpty';
-import { InfoPopup } from '@components';
-import PropTypes from 'prop-types';
 
 export const AlternativeTitle = ({ title }) => {
   const type = capitalize(title.type.replace('_', ' '));
@@ -31,16 +31,15 @@ AlternativeTitle.propTypes = {
   }).isRequired,
 };
 
-export const SeriesAlternativeTitles = ({ metadata }) => {
-  const { alternativeTitles } = metadata;
+export const SeriesAlternativeTitles = ({ alternativeTitles }) => {
   return (
-    !isEmpty(alternativeTitles) && (
+    !_isEmpty(alternativeTitles) && (
       <>
         <Divider horizontal>Alternative titles</Divider>
         <Table definition>
           <Table.Body>
-            {alternativeTitles.map((title, index) => (
-              <AlternativeTitle title={title} key={index} />
+            {alternativeTitles.map(title => (
+              <AlternativeTitle title={title} key={title} />
             ))}
           </Table.Body>
         </Table>
@@ -50,5 +49,9 @@ export const SeriesAlternativeTitles = ({ metadata }) => {
 };
 
 SeriesAlternativeTitles.propTypes = {
-  metadata: PropTypes.object.isRequired,
+  alternativeTitles: PropTypes.array,
+};
+
+SeriesAlternativeTitles.defaultProps = {
+  alternativeTitles: [],
 };

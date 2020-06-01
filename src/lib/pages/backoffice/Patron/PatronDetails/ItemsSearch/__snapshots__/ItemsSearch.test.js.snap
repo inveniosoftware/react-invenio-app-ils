@@ -5,7 +5,7 @@ exports[`PatronLoans tests should load the ItemsSearch component 1`] = `
   <Container
     className="search-bar spaced"
   >
-    <SearchBar
+    <Overridable(SearchBar)
       action={
         Object {
           "icon": "search",
@@ -28,8 +28,12 @@ exports[`PatronLoans tests should load the ItemsSearch component 1`] = `
     <GridColumn
       width={16}
     >
-      <Loader>
-        <Error>
+      <Overridable(Loader)
+        isLoading={false}
+      >
+        <Error
+          error={null}
+        >
           <div
             className="results-list"
           >
@@ -45,7 +49,7 @@ exports[`PatronLoans tests should load the ItemsSearch component 1`] = `
             />
           </div>
         </Error>
-      </Loader>
+      </Overridable(Loader)>
     </GridColumn>
   </Grid>
 </Fragment>

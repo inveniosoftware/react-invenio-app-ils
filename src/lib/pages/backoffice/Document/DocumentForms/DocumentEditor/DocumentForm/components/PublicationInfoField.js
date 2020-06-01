@@ -1,13 +1,11 @@
+import { DeleteActionButton } from '@forms/components/DeleteActionButton';
+import { AccordionField } from '@forms/core/AccordionField';
+import { ArrayField } from '@forms/core/ArrayField';
+import { GroupField } from '@forms/core/GroupField';
+import { StringField } from '@forms/core/StringField';
+import { TextField } from '@forms/core/TextField';
+import { YearInputField } from '@forms/core/YearInputField';
 import React from 'react';
-import {
-  AccordionField,
-  ArrayField,
-  DeleteActionButton,
-  GroupField,
-  StringField,
-  TextField,
-  YearInputField,
-} from '@forms';
 
 export class PublicationInfoField extends React.Component {
   renderPublication = ({ arrayPath, indexPath, ...arrayHelpers }) => {

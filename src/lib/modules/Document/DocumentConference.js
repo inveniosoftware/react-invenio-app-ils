@@ -1,4 +1,4 @@
-import { InfoMessage } from '@components';
+import { InfoMessage } from '@components/InfoMessage';
 import React, { Component } from 'react';
 import { Divider, Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';

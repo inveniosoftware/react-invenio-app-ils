@@ -1,13 +1,15 @@
-import { itemApi } from '@api';
-import { Error, Loader, ResultsTable } from '@components';
+import { itemApi } from '@api/items';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import { ResultsTable } from '@components/ResultsTable';
 import { goTo } from '@history';
-import { NewButton } from '@components/backoffice/buttons';
+import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
-import { DeleteRecordModal } from '@components/backoffice';
+import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
 
 export default class InternalLocationList extends Component {
   componentDidMount() {

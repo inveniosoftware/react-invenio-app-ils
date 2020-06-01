@@ -10,7 +10,7 @@ import {
   Form,
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 
 export default class CancelModal extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ export default class CancelModal extends Component {
   cancel = () => {
     const { value } = this.state;
     const { action } = this.props;
-    if (isEmpty(value)) {
+    if (_isEmpty(value)) {
       this.setState({ showPopup: true });
     } else {
       action(value);
@@ -45,7 +45,7 @@ export default class CancelModal extends Component {
   handleOnChange = (event, { value }) => {
     const { showPopup } = this.state;
     const newState = { value };
-    if (showPopup && !isEmpty(value)) {
+    if (showPopup && !_isEmpty(value)) {
       newState.showPopup = false;
     }
     this.setState(newState);

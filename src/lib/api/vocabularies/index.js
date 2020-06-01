@@ -1,0 +1,1 @@
+export { vocabularyApi } from './vocabulary';

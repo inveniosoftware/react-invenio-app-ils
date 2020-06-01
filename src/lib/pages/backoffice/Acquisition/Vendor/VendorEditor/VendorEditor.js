@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Loader, Error } from '@components';
-import { acqVendorApi as vendorApi } from '@api';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
+import { acqVendorApi as vendorApi } from '@api/acquisition';
 import { VendorForm } from './VendorForm';
 
 export class VendorEditor extends Component {

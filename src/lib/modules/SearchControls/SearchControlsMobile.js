@@ -7,7 +7,7 @@ import { SearchSortBy } from './SearchSortBy';
 import { SearchSortOrder } from './SearchSortOrder';
 import PropTypes from 'prop-types';
 import { getSearchConfig } from '@config';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 
 export class SearchControlsMobile extends Component {
   renderCount = totalResults => {
@@ -33,7 +33,7 @@ export class SearchControlsMobile extends Component {
                   size="small"
                   pointing
                   className="link item"
-                  disabled={isEmpty(searchConfig.FILTERS)}
+                  disabled={_isEmpty(searchConfig.FILTERS)}
                 >
                   <Dropdown.Menu>
                     <SearchAggregationsMenu modelName={modelName} />

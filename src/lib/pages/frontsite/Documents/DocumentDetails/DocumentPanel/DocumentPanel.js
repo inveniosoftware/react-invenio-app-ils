@@ -1,5 +1,5 @@
-import { LiteratureCover } from '@modules/Literature';
-import { DocumentAuthors } from '@modules/Document';
+import { LiteratureCover } from '@modules/Literature/LiteratureCover';
+import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
 import {
   ILSHeaderPlaceholder,
   ILSParagraphPlaceholder,

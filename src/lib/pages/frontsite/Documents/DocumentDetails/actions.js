@@ -1,4 +1,4 @@
-import { documentApi } from '@api';
+import { documentApi } from '@api/documents';
 
 export const IS_LOADING = 'fetchDocumentsDetails/IS_LOADING';
 export const SUCCESS = 'fetchDocumentsDetails/SUCCESS';

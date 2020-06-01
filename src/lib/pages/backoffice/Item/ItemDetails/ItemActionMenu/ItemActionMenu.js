@@ -5,8 +5,8 @@ import { serializePatron } from '@modules/ESSelector/serializer';
 import { invenioConfig } from '@config';
 import { goTo } from '@history';
 import { LoanIcon } from '@components/backoffice/icons';
-import { EditButton } from '@components/backoffice/buttons';
-import { DeleteRecordModal } from '@components/backoffice';
+import { EditButton } from '@components/backoffice/buttons/EditButton';
+import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
 import {
   ScrollingMenu,
   ScrollingMenuItem,

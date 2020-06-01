@@ -1,6 +1,6 @@
 import { EmailLink } from '@components';
 import { invenioConfig } from '@config';
-import { MetadataTable } from '@components/backoffice';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import React, { Component } from 'react';

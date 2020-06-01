@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { FastField, Field, getIn } from "formik";
-import { Form } from "semantic-ui-react";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { FastField, Field, getIn } from 'formik';
+import { Form } from 'semantic-ui-react';
 
 export class BooleanField extends Component {
-  renderError(errors, name, direction = "left") {
+  renderError(errors, name, direction = 'left') {
     const error = errors[name];
     return error
       ? {
           content: error,
-          pointing: direction
+          pointing: direction,
         }
       : null;
   }
@@ -17,7 +17,7 @@ export class BooleanField extends Component {
   renderFormField = props => {
     const { fieldPath, label, optimized, ...uiProps } = this.props;
     const {
-      form: { values, handleBlur, errors, setFieldValue }
+      form: { values, handleBlur, errors, setFieldValue },
     } = props;
     const value = getIn(values, fieldPath, false);
     return (
@@ -49,10 +49,10 @@ export class BooleanField extends Component {
 BooleanField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   label: PropTypes.string,
-  optimized: PropTypes.bool
+  optimized: PropTypes.bool,
 };
 
 BooleanField.defaultProps = {
-  label: "",
-  optimized: false
+  label: '',
+  optimized: false,
 };

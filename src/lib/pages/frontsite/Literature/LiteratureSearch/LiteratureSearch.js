@@ -1,31 +1,31 @@
-import React, { Component } from 'react';
-import Overridable from 'react-overridable';
-import { Container, Grid, Header, Responsive, Loader } from 'semantic-ui-react';
-import {
-  ReactSearchKit,
-  SearchBar,
-  ResultsLoader,
-  Error,
-  InvenioSearchApi,
-  ResultsMultiLayout,
-} from 'react-searchkit';
+import { literatureApi } from '@api';
+import { responseRejectInterceptor } from '@api/base';
 import {
   Error as IlsError,
   SearchBar as DocumentsSearchBar,
 } from '@components';
-import { literatureApi } from '@api';
-import { responseRejectInterceptor } from '@api/base';
-import { SearchControls } from '@modules';
+import history from '@history';
 import {
-  SearchAggregationsCards,
-  SearchFooter,
-  SearchEmptyResults,
-} from '@modules/SearchControls';
+  LiteratureSearchResultsGrid,
+  LiteratureSearchResultsList,
+} from '@modules/Literature';
+import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
+import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import { SearchFooter } from '@modules/SearchControls/SearchFooter';
+import React, { Component } from 'react';
+import Overridable from 'react-overridable';
+import {
+  Error,
+  InvenioSearchApi,
+  ReactSearchKit,
+  ResultsLoader,
+  ResultsMultiLayout,
+  SearchBar,
+} from 'react-searchkit';
+import { Container, Grid, Header, Loader, Responsive } from 'semantic-ui-react';
 import { LiteratureSearchMobile } from '../LiteratureSearch';
 import { SearchMessage } from './SearchMessage';
-import { LiteratureSearchResultsGrid } from '@modules/Literature';
-import { LiteratureSearchResultsList } from '@modules/Literature';
-import history from '@history';
 
 class LiteratureSearch extends Component {
   searchApi = new InvenioSearchApi({

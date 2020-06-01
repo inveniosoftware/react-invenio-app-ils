@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import { DocumentCard } from '@modules/Document';
-import { Card, Responsive } from 'semantic-ui-react';
-import { ResultsGrid } from 'react-searchkit';
-import { SeriesCard, findVolume } from '@modules/Series';
 import { recordToPidType } from '@api/utils';
+import { DocumentCard } from '@modules/Document/DocumentCard';
+import { SeriesCard } from '@modules/Series/SeriesCard';
+import { findVolume } from '@modules/Series/utils';
 import get from 'lodash/get';
+import React, { Component } from 'react';
+import { ResultsGrid } from 'react-searchkit';
+import { Card, Responsive } from 'semantic-ui-react';
 
 export default class LiteratureSearchResultsGrid extends Component {
   renderResultsGrid = results => {

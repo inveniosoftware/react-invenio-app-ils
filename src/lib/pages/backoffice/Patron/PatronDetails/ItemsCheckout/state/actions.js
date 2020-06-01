@@ -1,4 +1,4 @@
-import { loanApi } from '@api';
+import { loanApi } from '@api/loan';
 import { delay } from '@api/utils';
 import {
   sendErrorNotification,

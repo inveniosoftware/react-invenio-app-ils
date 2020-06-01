@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Formik } from "formik";
-import { Button } from "semantic-ui-react";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Formik } from 'formik';
+import { Button } from 'semantic-ui-react';
 
 export class SubForm extends Component {
   render() {
@@ -44,10 +44,10 @@ SubForm.propTypes = {
   onRemove: PropTypes.func,
   onSubmit: PropTypes.func.isRequired,
   removeButtonText: PropTypes.string,
-  submitButtonText: PropTypes.string
+  submitButtonText: PropTypes.string,
 };
 
 SubForm.defaultPrpos = {
-  submitButtonText: "Save",
-  removeButtonText: "Remove"
+  submitButtonText: 'Save',
+  removeButtonText: 'Remove',
 };

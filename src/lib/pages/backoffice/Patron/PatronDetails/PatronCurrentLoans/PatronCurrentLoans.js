@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Loader, Error, ResultsTable } from '@components';
-import { loanApi } from '@api';
+import { Link } from 'react-router-dom';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
+import { loanApi } from '@api/loan';
 import { invenioConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';
 import { dateFormatter } from '@api/date';
-import { SeeAllButton } from '@components/backoffice/buttons';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 
 export default class PatronCurrentLoans extends Component {
   componentDidMount() {

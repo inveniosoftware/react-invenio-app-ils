@@ -1,8 +1,10 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { AccordionField, ArrayField, StringField } from "../core";
-import { GroupField } from "./GroupField";
-import { DeleteActionButton } from "../components";
+import { DeleteActionButton } from '@forms/components/DeleteActionButton';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { AccordionField } from './AccordionField';
+import { ArrayField } from './ArrayField';
+import { GroupField } from './GroupField';
+import { StringField } from './StringField';
 
 export class ObjectArrayStringField extends Component {
   renderFormField = ({ arrayPath, indexPath, ...arrayHelpers }) => {
@@ -69,13 +71,13 @@ ObjectArrayStringField.propTypes = {
     PropTypes.shape({
       key: PropTypes.string,
       text: PropTypes.string,
-      required: PropTypes.bool
+      required: PropTypes.bool,
     })
   ),
   addButtonLabel: PropTypes.string,
-  basic: PropTypes.bool
+  basic: PropTypes.bool,
 };
 
 ObjectArrayStringField.defaultProps = {
-  basic: false
+  basic: false,
 };

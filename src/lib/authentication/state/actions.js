@@ -5,10 +5,8 @@ import {
   IS_CONFIRMED,
   IS_CONFIRMED_LOADING,
 } from './types';
-import {
-  authenticationService,
-  sessionManager,
-} from '@authentication/services';
+import { authenticationService } from '@authentication/services/AuthenticationService';
+import { sessionManager } from '@authentication/services/SessionManager';
 import { FrontSiteRoutes } from '@routes/urls';
 import { goTo } from '@history';
 

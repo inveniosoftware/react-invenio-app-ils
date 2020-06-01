@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Divider, List } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { DownloadLink } from '@modules/EItem';
-import { sessionManager } from '@authentication/services';
+import { DownloadLink } from '@modules/EItem/DownloadLink';
+import { sessionManager } from '@authentication/services/SessionManager';
 
 export class DocumentLinks extends Component {
   constructor(props) {

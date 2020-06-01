@@ -1,9 +1,11 @@
 import { fileApi } from '@api';
-import { Error, Loader, ResultsTable } from '@components';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import { ResultsTable } from '@components/ResultsTable';
 import { invenioConfig } from '@config';
 import { InfoMessage } from '@components/backoffice';
 import { DownloadButton } from '@components/backoffice/buttons';
-import { DeleteRecordModal } from '@components/backoffice';
+import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
 import _get from 'lodash/get';
 import prettyBytes from 'pretty-bytes';
 import PropTypes from 'prop-types';

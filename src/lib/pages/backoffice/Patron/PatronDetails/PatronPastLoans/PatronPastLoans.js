@@ -1,7 +1,9 @@
-import { loanApi } from '@api';
+import { loanApi } from '@api/loan';
 import { dateFormatter } from '@api/date';
-import { Error, Loader, ResultsTable } from '@components';
-import { DocumentTitle } from '@modules/Document';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import { ResultsTable } from '@components/ResultsTable';
+import { DocumentTitle } from '@modules/Document/DocumentTitle';
 import { invenioConfig } from '@config';
 import {
   DocumentDetailsLink,

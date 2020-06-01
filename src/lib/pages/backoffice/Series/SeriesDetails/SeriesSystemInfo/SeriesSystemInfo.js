@@ -1,6 +1,7 @@
 import { toShortDateTime } from '@api/date';
-import { CreatedBy, UpdatedBy } from '@components/backoffice';
-import { MetadataTable } from '@components/backoffice';
+import { CreatedBy } from '@components/backoffice/CreatedBy';
+import { UpdatedBy } from '@components/backoffice/UpdatedBy';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 

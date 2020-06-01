@@ -1,4 +1,4 @@
-import { DocumentAuthors } from '@modules/Document';
+import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
 import { DocumentIcon, ItemIcon, LoanIcon } from '@components/backoffice';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';

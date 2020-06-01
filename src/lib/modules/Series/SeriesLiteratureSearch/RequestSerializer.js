@@ -1,4 +1,4 @@
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import { InvenioRequestSerializer } from 'react-searchkit';
 
 export const qsBuilderForSeries = seriesMetadata => {
@@ -16,7 +16,7 @@ export const qsBuilderForSeries = seriesMetadata => {
    */
   return class LiteratureRequestSerializer extends InvenioRequestSerializer {
     serialize(stateQuery) {
-      if (isEmpty(stateQuery.queryString)) {
+      if (_isEmpty(stateQuery.queryString)) {
         stateQuery.queryString = relationsQuery;
       } else {
         stateQuery.queryString = `${relationsQuery} AND (${stateQuery.queryString})`;

@@ -2,7 +2,7 @@ import { toShortDate } from '@api/date';
 import { CopyButton, Error, Loader } from '@components';
 import { CreatedBy } from '@components/backoffice/ChangedBy';
 import { DetailsHeader } from '@components/backoffice';
-import { EditButton } from '@components/backoffice/buttons';
+import { EditButton } from '@components/backoffice/buttons/EditButton';
 import {
   ScrollingMenu,
   ScrollingMenuItem,

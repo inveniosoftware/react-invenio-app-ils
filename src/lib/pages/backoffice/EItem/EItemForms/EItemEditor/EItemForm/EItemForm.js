@@ -1,19 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { documentApi, eItemApi } from '@api';
+import { UrlsField } from '@forms/components';
+import { BaseForm, BooleanField, SelectorField, TextField } from '@forms/core';
+import { goTo } from '@history';
+import { serializeDocument } from '@modules/ESSelector/serializer';
+import { BackOfficeRoutes } from '@routes/urls';
 import { getIn } from 'formik';
 import pick from 'lodash/pick';
-import {
-  BaseForm,
-  BooleanField,
-  TextField,
-  SelectorField,
-  UrlsField,
-} from '@forms';
-import { BackOfficeRoutes } from '@routes/urls';
-import { goTo } from '@history';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import eitemSubmitSerializer from './eitemSubmitSerializer';
-import { documentApi, eItemApi } from '@api';
-import { serializeDocument } from '@modules/ESSelector/serializer';
 
 export class EItemForm extends Component {
   prepareData = data => {

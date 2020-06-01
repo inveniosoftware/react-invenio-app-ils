@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import { uiConfig } from '@config';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Message } from 'semantic-ui-react';
-import { SUCCESS_AUTO_DISMISS_SECONDS } from '@config';
 
 export class IlsMessage extends Component {
   componentDidMount() {
@@ -44,7 +44,7 @@ export const SuccessMessage = ({ id, header, content, removeNotification }) => (
     icon="check"
     header={header}
     content={content}
-    autoDismiss={SUCCESS_AUTO_DISMISS_SECONDS * 1000}
+    autoDismiss={uiConfig.SUCCESS_AUTO_DISMISS_SECONDS * 1000}
     onDismiss={() => removeNotification(id)}
   />
 );

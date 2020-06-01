@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Message } from 'semantic-ui-react';
 import get from 'lodash/get';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import { DefaultFallbackComponent } from './DefaultFallbackComponent';
 
 const isAPIError = error => {
@@ -67,7 +67,7 @@ export class Error extends Component {
 
     if (boundary && this.state.error) {
       return <Fallback {...this.state} />;
-    } else if (!isEmpty(error) && shouldShowErrorPage(error)) {
+    } else if (!_isEmpty(error) && shouldShowErrorPage(error)) {
       return this.renderErrorMessage(error);
     } else {
       return children ? children : null;

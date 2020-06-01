@@ -1,7 +1,7 @@
+import { fromISO, toISODate } from '@api/date';
+import { recordResponseSerializer } from '@api/utils';
 import _get from 'lodash/get';
 import _set from 'lodash/set';
-import { fromISO, toISODate } from '../date';
-import { recordResponseSerializer } from '../utils';
 
 const DocumentSerializers = {
   DATE_FIELDS: ['circulation.next_available_date'],

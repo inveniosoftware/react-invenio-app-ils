@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-import {
-  AccordionField,
-  ArrayField,
-  StringField,
-  LanguageField,
-  DeleteActionButton,
-  GroupField,
-  VocabularyField,
-} from '@forms';
 import { invenioConfig } from '@config';
+import { DeleteActionButton } from '@forms/components/DeleteActionButton';
+import { LanguageField } from '@forms/components/LanguageField';
+import { AccordionField } from '@forms/core/AccordionField';
+import { ArrayField } from '@forms/core/ArrayField';
+import { GroupField } from '@forms/core/GroupField';
+import { StringField } from '@forms/core/StringField';
+import { VocabularyField } from '@forms/core/VocabularyField';
+import React, { Component } from 'react';
 
 export class AlternativeTitles extends Component {
   renderFormField({ arrayPath, indexPath, ...arrayHelpers }) {

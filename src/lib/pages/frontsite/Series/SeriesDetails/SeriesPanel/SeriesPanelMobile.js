@@ -1,11 +1,12 @@
-import { LiteratureCover } from '@modules/Literature';
+import { ShowMoreContent } from '@components';
 import {
   ILSHeaderPlaceholder,
   ILSParagraphPlaceholder,
 } from '@components/ILSPlaceholder';
-import { SeriesAuthors } from '@modules/Series';
-import { SeriesAccess, SeriesTitle } from '@modules/Series';
-import { ShowMoreContent } from '@components';
+import { LiteratureCover } from '@modules/Literature/LiteratureCover';
+import { SeriesAccess } from '@modules/Series/SeriesAccess';
+import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
+import { SeriesTitle } from '@modules/Series/SeriesTitle';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -28,20 +29,23 @@ class SeriesPanelMobile extends Component {
                 url={_get(series, 'metadata.cover_metadata.urls.medium')}
               />
               <ILSHeaderPlaceholder isLoading={isLoading} center="true">
-                <SeriesTitle />
+                <SeriesTitle
+                  title={series.metadata.title}
+                  modeOfIssuance={series.metadata.mode_of_issuance}
+                />
               </ILSHeaderPlaceholder>
               <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
                 <SeriesAuthors
                   prefix="by "
                   itemProps={{ as: 'h4' }}
-                  metadata={series.metadata}
+                  authors={series.metadata.authors}
                 />
               </ILSParagraphPlaceholder>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
             <Grid.Column mobile={16}>
-              <SeriesAccess />
+              <SeriesAccess urls={series.metadata.access_urls} />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>

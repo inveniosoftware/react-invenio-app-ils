@@ -14,19 +14,17 @@ class DocumentTags extends Component {
 
     return (
       <Overridable id="DocumentTags.layout" {...this.props}>
-        <>
-          {metadata.tags.map(tag => (
-            <Label className="highlighted" key={tag} {...uiProps}>
-              <Link
-                to={FrontSiteRoutes.documentsListWithQuery(
-                  `&sort=mostrecent&order=desc&f=tag%3A${tag}`
-                )}
-              >
-                {tag}
-              </Link>
-            </Label>
-          ))}
-        </>
+        {metadata.tags.map(tag => (
+          <Label className="highlighted" key={tag} {...uiProps}>
+            <Link
+              to={FrontSiteRoutes.documentsListWithQuery(
+                `&sort=mostrecent&order=desc&f=tag%3A${tag}`
+              )}
+            >
+              {tag}
+            </Link>
+          </Label>
+        ))}
       </Overridable>
     );
   }

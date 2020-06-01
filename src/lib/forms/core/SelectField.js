@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { FastField, Field, getIn } from "formik";
-import { Form } from "semantic-ui-react";
-import isEmpty from "lodash/isEmpty";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { FastField, Field, getIn } from 'formik';
+import { Form } from 'semantic-ui-react';
+import _isEmpty from 'lodash/isEmpty';
 
 export class SelectField extends Component {
-  renderError = (errors, name, value, direction = "above") => {
+  renderError = (errors, name, value, direction = 'above') => {
     let error = null;
     if (!Array.isArray(value)) {
       const options = this.props.options;
       if (
-        !isEmpty(options) &&
+        !_isEmpty(options) &&
         !options.find(o => o.value === value) &&
-        !isEmpty(value)
+        !_isEmpty(value)
       ) {
         error = `The current value "${value}" is invalid, please select another value.`;
       }
@@ -24,7 +24,7 @@ export class SelectField extends Component {
     return error
       ? {
           content: error,
-          pointing: direction
+          pointing: direction,
         }
       : null;
   };
@@ -36,21 +36,21 @@ export class SelectField extends Component {
     if (!this.props.required) {
       options = [
         {
-          key: "",
-          value: "",
-          text: "-"
+          key: '',
+          value: '',
+          text: '-',
         },
-        ...options
+        ...options,
       ];
     }
     if (!this.props.loading) {
       for (const value of values) {
-        if (!isEmpty(value) && !options.find(o => o.value === value)) {
+        if (!_isEmpty(value) && !options.find(o => o.value === value)) {
           options.push({
             key: value,
             value: value,
             text: `Missing value: ${value}`,
-            error: undefined // set the key so we can check it in renderLabel
+            error: undefined, // set the key so we can check it in renderLabel
           });
         }
       }
@@ -59,15 +59,15 @@ export class SelectField extends Component {
   };
 
   renderLabel = (item, index, defaultLabelProps) => {
-    if (!this.props.loading && "error" in item) {
-      defaultLabelProps.className = "error";
+    if (!this.props.loading && 'error' in item) {
+      defaultLabelProps.className = 'error';
     }
     return item.text;
   };
 
   renderFormField = props => {
     const {
-      form: { values, setFieldValue, handleBlur, errors }
+      form: { values, setFieldValue, handleBlur, errors },
     } = props;
     const {
       defaultValue,
@@ -121,11 +121,11 @@ SelectField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   loading: PropTypes.bool,
   multiple: PropTypes.bool,
-  optimized: PropTypes.bool
+  optimized: PropTypes.bool,
 };
 
 SelectField.defaultProps = {
-  defaultValue: "",
+  defaultValue: '',
   multiple: false,
-  optimized: false
+  optimized: false,
 };

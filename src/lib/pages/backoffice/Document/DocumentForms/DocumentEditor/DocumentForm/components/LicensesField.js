@@ -1,5 +1,6 @@
 import React from 'react';
-import { AccordionField, VocabularyField } from '@forms';
+import { AccordionField } from '@forms/core/AccordionField';
+import { VocabularyField } from '@forms/core/VocabularyField';
 import { invenioConfig } from '@config';
 
 export class LicensesField extends React.Component {

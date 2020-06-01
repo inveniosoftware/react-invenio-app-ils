@@ -2,7 +2,7 @@ import { fromISO, toShortDate } from '@api/date';
 import { DatePicker } from '@components';
 import { invenioConfig } from '@config';
 import { getDisplayVal } from '@config/invenioConfig';
-import { MetadataTable } from '@components/backoffice';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { LoanIcon } from '@components/backoffice/icons';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';

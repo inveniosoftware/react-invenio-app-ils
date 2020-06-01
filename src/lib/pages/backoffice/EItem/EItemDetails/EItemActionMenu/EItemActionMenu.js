@@ -1,5 +1,5 @@
-import { DeleteRecordModal } from '@components/backoffice';
-import { EditButton } from '@components/backoffice/buttons';
+import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
+import { EditButton } from '@components/backoffice/buttons/EditButton';
 import {
   ScrollingMenu,
   ScrollingMenuItem,

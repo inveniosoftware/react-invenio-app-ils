@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import DocumentRequestDetails from './DocumentRequestDetails';
 
-jest.mock('../components/', () => {
+jest.mock('./', () => {
   return {
     DocumentRequestActions: () => null,
     DocumentRequestHeader: () => null,

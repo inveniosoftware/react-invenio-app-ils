@@ -1,8 +1,11 @@
-import { Error, Loader, ResultsTable } from '@components';
-import { InfoMessage, SeriesDetailsLink } from '@components/backoffice';
-import { RelationRemover } from '@modules/Relations/backoffice';
-import { DocumentTitle } from '@modules/Document';
-import isEmpty from 'lodash/isEmpty';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import { ResultsTable } from '@components/ResultsTable';
+import { InfoMessage } from '@components/backoffice/InfoMessage';
+import { SeriesDetailsLink } from '@components/backoffice/SeriesDetailsLink';
+import { RelationRemover } from '@modules/Relations/backoffice/components/RelationRemover';
+import { DocumentTitle } from '@modules/Document/DocumentTitle';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Icon, Popup } from 'semantic-ui-react';
@@ -28,7 +31,7 @@ export default class RelationMultipart extends Component {
   removeHandler = ({ row }) => {
     const { documentDetails } = this.props;
 
-    if (!isEmpty(documentDetails)) {
+    if (!_isEmpty(documentDetails)) {
       return (
         <RelationRemover
           referrer={documentDetails}
@@ -58,10 +61,10 @@ export default class RelationMultipart extends Component {
         <Error error={error}>
           <RelationMultipartModal
             relationType={this.relationType}
-            disabled={!isEmpty(multipartMonograph)}
+            disabled={!_isEmpty(multipartMonograph)}
           />
 
-          {!isEmpty(multipartMonograph) && (
+          {!_isEmpty(multipartMonograph) && (
             <Popup
               content="A document can be attached only to one multipart monotgraph. Remove the existing relation to add a new one."
               trigger={<Icon name="question circle" />}

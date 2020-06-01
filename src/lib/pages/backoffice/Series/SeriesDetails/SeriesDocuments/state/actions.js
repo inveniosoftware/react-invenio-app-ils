@@ -1,5 +1,5 @@
 import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
-import { documentApi } from '@api';
+import { documentApi } from '@api/documents';
 import { sendErrorNotification } from '@components/Notifications';
 
 export const fetchSeriesDocuments = (seriesPid, moi) => {

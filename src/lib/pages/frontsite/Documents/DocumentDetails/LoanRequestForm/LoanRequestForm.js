@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { invenioConfig } from '@config';
 import { DateTime } from 'luxon';
 import { toShortDate } from '@api/date';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 
 class LoanRequestForm extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class LoanRequestForm extends Component {
     };
 
     // init delivery method
-    this.withDeliveryMethod = !isEmpty(
+    this.withDeliveryMethod = !_isEmpty(
       invenioConfig.circulation.deliveryMethods
     );
     this.deliveryMethods = this.withDeliveryMethod
@@ -54,10 +54,10 @@ class LoanRequestForm extends Component {
     } = this.props;
     const { requestEndDate, deliveryMethod } = this.state;
     const optionalParams = {};
-    if (!isEmpty(requestEndDate)) {
+    if (!_isEmpty(requestEndDate)) {
       optionalParams.requestEndDate = requestEndDate;
     }
-    if (!isEmpty(deliveryMethod)) {
+    if (!_isEmpty(deliveryMethod)) {
       optionalParams.deliveryMethod = deliveryMethod;
     }
     requestLoanForDocument(documentPid, optionalParams);

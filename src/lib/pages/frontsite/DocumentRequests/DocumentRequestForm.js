@@ -7,7 +7,7 @@ import {
   StringField,
   TextField,
   YearInputField,
-} from '@forms';
+} from '@forms/core';
 import { goTo } from '@history';
 import { FrontSiteRoutes } from '@routes/urls';
 import { getIn } from 'formik';

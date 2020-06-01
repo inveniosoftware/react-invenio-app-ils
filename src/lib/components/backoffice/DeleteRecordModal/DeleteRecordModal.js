@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import _isEmpty from 'lodash/isEmpty';
+import _sortBy from 'lodash/sortBy';
+import _sumBy from 'lodash/sumBy';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
-import sumBy from 'lodash/sumBy';
-import sortBy from 'lodash/sortBy';
-import { Button, Header, Icon, Modal, Segment, List } from 'semantic-ui-react';
-import { Loader, Error } from '@components';
+import React, { Component } from 'react';
+import { Button, Header, Icon, List, Modal, Segment } from 'semantic-ui-react';
 import { DeleteButton } from './DeleteButton';
 
 export default class DeleteRecordModal extends Component {
@@ -23,7 +24,7 @@ export default class DeleteRecordModal extends Component {
 
   handleOpen() {
     const { refProps, fetchReferences } = this.props;
-    if (!isEmpty(refProps)) {
+    if (!_isEmpty(refProps)) {
       fetchReferences(refProps.map(entry => entry.getRefData()));
     }
   }
@@ -51,7 +52,7 @@ export default class DeleteRecordModal extends Component {
 
   renderContent = (refEntry, refData) => {
     const { refType, onRefClick } = refEntry;
-    const references = sortBy(refData.hits, 'id').map((hit, i) => (
+    const references = _sortBy(refData.hits, 'id').map((hit, i) => (
       <List.Item
         key={i}
         as="a"
@@ -95,7 +96,7 @@ export default class DeleteRecordModal extends Component {
 
   renderAll = () => {
     const { data, refProps } = this.props;
-    const canDelete = isEmpty(refProps) || sumBy(data, 'total') === 0;
+    const canDelete = _isEmpty(refProps) || _sumBy(data, 'total') === 0;
 
     if (canDelete) {
       return [this.renderDeleteHeader(), this.renderActions(canDelete)];

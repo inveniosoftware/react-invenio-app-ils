@@ -1,9 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Icon, List } from 'semantic-ui-react';
-import get from 'lodash/get';
-import isEmpty from 'lodash/isEmpty';
 import _truncate from 'lodash/truncate';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Icon, List } from 'semantic-ui-react';
 
 const AccessUrl = ({ truncate, url }) => {
   const description = url.description || url.value;
@@ -30,14 +28,13 @@ AccessUrl.defaultProps = {
 
 export class SeriesAccessUrls extends React.Component {
   render() {
-    const { metadata, truncate } = this.props;
-    const urls = get(metadata, 'access_urls', []);
-    return isEmpty(urls) ? (
+    const { urls, truncate } = this.props;
+    return urls ? (
       <p>There are no access URLs.</p>
     ) : (
       <List bulleted>
         {urls.map((url, index) => (
-          <List.Item key={index}>
+          <List.Item key={url}>
             <AccessUrl truncate={truncate} url={url} />
           </List.Item>
         ))}
@@ -47,10 +44,11 @@ export class SeriesAccessUrls extends React.Component {
 }
 
 SeriesAccessUrls.propTypes = {
-  metadata: PropTypes.object.isRequired,
+  urls: PropTypes.object,
   truncate: PropTypes.bool,
 };
 
 SeriesAccessUrls.defaultProps = {
+  urls: [],
   truncate: false,
 };

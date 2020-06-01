@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { FastField, Field, getIn } from "formik";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FastField, Field, getIn } from 'formik';
 
 export class CalendarInputField extends React.Component {
   renderFormField = props => {
     const { fieldPath } = this.props;
     const {
-      form: { values, errors, setFieldValue }
+      form: { values, errors, setFieldValue },
     } = props;
-    const value = getIn(values, fieldPath, "");
+    const value = getIn(values, fieldPath, '');
     const error = getIn(errors, fieldPath, null);
 
     const onChange = (value, name) => {
@@ -19,7 +19,7 @@ export class CalendarInputField extends React.Component {
       error: error,
       form: props.form,
       onChange: onChange,
-      value: value
+      value: value,
     };
 
     return this.props.component(newProps);
@@ -39,9 +39,9 @@ export class CalendarInputField extends React.Component {
 CalendarInputField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   component: PropTypes.func.isRequired,
-  optimized: PropTypes.bool
+  optimized: PropTypes.bool,
 };
 
 CalendarInputField.defaultProps = {
-  optimized: false
+  optimized: false,
 };

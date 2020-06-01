@@ -3,13 +3,13 @@ import { shallow, mount } from 'enzyme';
 import LoanDetails from './LoanDetails';
 import * as testData from '@testData/loans.json';
 
-jest.mock('../../../components/OverdueLoanSendMailModal', () => {
+jest.mock('@modules/Loan/backoffice/OverdueLoanSendMailModal', () => {
   return {
     OverdueLoanSendMailModal: () => null,
   };
 });
 
-jest.mock('../components/', () => {
+jest.mock('./', () => {
   return {
     LoanMetadata: () => null,
     CurrentItem: () => null,

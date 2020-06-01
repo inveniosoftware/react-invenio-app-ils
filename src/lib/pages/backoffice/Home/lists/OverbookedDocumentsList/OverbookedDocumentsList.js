@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
-import { Loader, Error, ResultsTable } from '@components';
-import { documentApi } from '@api';
+import { Link } from 'react-router-dom';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
+import { documentApi } from '@api/documents';
 import { BackOfficeRoutes } from '@routes/urls';
-import { SeeAllButton } from '@components/backoffice/buttons';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 
 export default class OverbookedDocumentsList extends Component {
   componentDidMount() {

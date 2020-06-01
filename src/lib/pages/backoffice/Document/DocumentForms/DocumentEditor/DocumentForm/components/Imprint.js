@@ -1,4 +1,6 @@
-import { AccordionField, GroupField, StringField } from '@forms';
+import { AccordionField } from '@forms/core/AccordionField';
+import { GroupField } from '@forms/core/GroupField';
+import { StringField } from '@forms/core/StringField';
 import React, { Component } from 'react';
 
 export class Imprint extends Component {

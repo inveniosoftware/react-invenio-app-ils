@@ -1,7 +1,7 @@
 import _get from 'lodash/get';
 import _set from 'lodash/set';
-import { fromISO, toISODate } from '../date';
-import { recordResponseSerializer } from '../utils';
+import { fromISO, toISODate } from '@api/date';
+import { recordResponseSerializer } from '@api/utils';
 
 const BrwReqSerializers = {
   DATE_FIELDS: [

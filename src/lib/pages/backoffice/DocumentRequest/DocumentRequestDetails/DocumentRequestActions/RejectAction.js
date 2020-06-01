@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown, Confirm, Menu } from 'semantic-ui-react';
-import { documentApi } from '@api';
+import { documentApi } from '@api/documents';
 import { ESSelectorModal } from '@modules/ESSelector';
 import { serializeDocument } from '@modules/ESSelector/serializer';
 import get from 'lodash/get';

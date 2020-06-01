@@ -1,5 +1,5 @@
 import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
-import { documentRequestApi } from '@api';
+import { documentRequestApi } from '@api/documentRequests';
 import { sendErrorNotification } from '@components/Notifications';
 
 const selectQuery = (patronPid, page = 1) => {

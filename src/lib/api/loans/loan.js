@@ -1,11 +1,11 @@
-import { http, apiConfig } from '../base';
-import { sessionManager } from '@authentication/services';
-import { toShortDate } from '../date';
+import { apiConfig, http } from '@api/base';
+import { toShortDate } from '@api/date';
+import { prepareDateQuery, prepareSumQuery } from '@api/utils';
+import { sessionManager } from '@authentication/services/sessionManager';
+import _isEmpty from 'lodash/isEmpty';
 import { DateTime } from 'luxon';
-import { serializer } from './serializer';
-import isEmpty from 'lodash/isEmpty';
-import { prepareDateQuery, prepareSumQuery } from '../utils';
 import { generatePath } from 'react-router-dom';
+import { serializer } from './serializer';
 
 const apiPaths = {
   checkout: '/circulation/loans/checkout',
@@ -138,7 +138,7 @@ class QueryBuilder {
   withDocPid(documentPid) {
     if (
       !documentPid ||
-      (typeof documentPid != 'number' && isEmpty(documentPid))
+      (typeof documentPid != 'number' && _isEmpty(documentPid))
     ) {
       throw TypeError('DocumentPid argument missing');
     }
@@ -147,7 +147,7 @@ class QueryBuilder {
   }
 
   withItemPid(itemPid) {
-    if (!itemPid || (typeof itemPid != 'number' && isEmpty(itemPid))) {
+    if (!itemPid || (typeof itemPid != 'number' && _isEmpty(itemPid))) {
       throw TypeError('itemPid argument missing');
     }
     this.itemQuery.push(`item_pid.value:${prepareSumQuery(itemPid)}`);
@@ -155,7 +155,7 @@ class QueryBuilder {
   }
 
   withPatronPid(patronPid) {
-    if (!patronPid || (typeof patronPid != 'number' && isEmpty(patronPid))) {
+    if (!patronPid || (typeof patronPid != 'number' && _isEmpty(patronPid))) {
       throw TypeError('patronPid argument missing');
     }
     this.patronQuery.push(`patron_pid:${prepareSumQuery(patronPid)}`);
@@ -163,7 +163,7 @@ class QueryBuilder {
   }
 
   withState(state) {
-    if (!state || isEmpty(state)) {
+    if (!state || _isEmpty(state)) {
       throw TypeError('state argument missing');
     }
     this.stateQuery.push(`state:${prepareSumQuery(state)}`);
@@ -200,7 +200,7 @@ class QueryBuilder {
   withRenewedCount(renewals) {
     if (
       !renewals ||
-      isEmpty(renewals) ||
+      _isEmpty(renewals) ||
       !(typeof renewals === 'number' || typeof renewals === 'string')
     ) {
       throw TypeError('Renewal argument missing or invalid type');

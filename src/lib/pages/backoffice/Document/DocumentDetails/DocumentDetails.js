@@ -1,4 +1,5 @@
-import { Error, Loader } from '@components';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container, Divider, Grid, Ref, Sticky } from 'semantic-ui-react';

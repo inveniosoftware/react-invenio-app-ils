@@ -1,34 +1,24 @@
-import { http } from '@api';
-import { sessionManager } from './SessionManager';
+import { http } from '@api/base';
+import { invenioConfig } from '@config';
 import _has from 'lodash/has';
+import { sessionManager } from './SessionManager';
 
 class AuthenticationService {
   loginWithOauthProvider = (nextUrl, providerUrl) => {
     sessionManager.setAnonymous();
-    let redirectOauthUrl = `${
-      process.env.REACT_APP_BACKEND_DEV_BASE_URL
+    const redirectOauthUrl = `${
+      invenioConfig.INVENIO_UI_URL
     }${providerUrl}?next=${encodeURIComponent(nextUrl)}`;
-    if (process.env.NODE_ENV === 'production') {
-      redirectOauthUrl =
-        window.location.origin +
-        `${providerUrl}?next=${encodeURIComponent(nextUrl)}`;
-    }
     window.location = redirectOauthUrl;
   };
 
   loginWithLocalAccount = data => {
-    let loginUrl = `${process.env.REACT_APP_BACKEND_DEV_BASE_URL}/api/login`;
-    if (process.env.NODE_ENV === 'production') {
-      loginUrl = `${window.location.origin}/api/login`;
-    }
+    const loginUrl = `${invenioConfig.REST_ENDOINTS_BASE_URL}/login`;
     return http.post(loginUrl, data);
   };
 
   logout = () => {
-    let logoutUrl = `${process.env.REACT_APP_BACKEND_DEV_BASE_URL}/api/logout`;
-    if (process.env.NODE_ENV === 'production') {
-      logoutUrl = `${window.location.origin}/api/logout`;
-    }
+    const logoutUrl = `${invenioConfig.REST_ENDOINTS_BASE_URL}/logout`;
     return http.post(logoutUrl);
   };
 

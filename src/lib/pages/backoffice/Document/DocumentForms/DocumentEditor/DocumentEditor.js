@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Loader, Error } from '@components';
-import { documentApi } from '@api';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
+import { documentApi } from '@api/documents';
 import { DocumentForm } from './DocumentForm';
 import _get from 'lodash/get';
 

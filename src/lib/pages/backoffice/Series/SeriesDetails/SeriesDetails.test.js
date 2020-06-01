@@ -5,13 +5,12 @@ import { BrowserRouter } from 'react-router-dom';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import SeriesDetails from './SeriesDetails';
-import testData from '@testData/documents.json';
 import testSeries from '@testData/series.json';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-jest.mock('../components/', () => {
+jest.mock('./', () => {
   return {
     SeriesDocuments: () => null,
     SeriesMetadata: () => null,
@@ -23,7 +22,7 @@ jest.mock('../components/', () => {
   };
 });
 
-jest.mock('../', () => {
+jest.mock('./', () => {
   return {
     SeriesActionMenu: () => null,
     SeriesHeader: () => null,
@@ -36,14 +35,14 @@ jest.mock('@pages/backoffice/components/Relations/RelationSerial', () => {
   };
 });
 
-jest.mock('../components/SeriesRelations/RelationLanguages', () => {
+jest.mock('./SeriesRelations/RelationLanguages', () => {
   return {
     RelationLanguages: () => null,
     RelationOther: () => null,
   };
 });
 
-jest.mock('../components/SeriesRelations/RelationOther', () => {
+jest.mock('./SeriesRelations/RelationOther', () => {
   return {
     RelationOther: () => null,
   };

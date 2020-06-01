@@ -35,51 +35,6 @@ exports[`Extend loan button tests should match snapshot 1`] = `
     }
   }
 >
-  <Button
-    as="button"
-    color="purple"
-    content="Request extension"
-    disabled={true}
-    onClick={[Function]}
-    size="mini"
-  >
-    <Ref
-      innerRef={
-        Object {
-          "current": <button
-            class="ui purple mini disabled button"
-            disabled=""
-            tabindex="-1"
-          >
-            Request extension
-          </button>,
-        }
-      }
-    >
-      <RefFindNode
-        innerRef={
-          Object {
-            "current": <button
-              class="ui purple mini disabled button"
-              disabled=""
-              tabindex="-1"
-            >
-              Request extension
-            </button>,
-          }
-        }
-      >
-        <button
-          className="ui purple mini disabled button"
-          disabled={true}
-          onClick={[Function]}
-          tabIndex={-1}
-        >
-          Request extension
-        </button>
-      </RefFindNode>
-    </Ref>
-  </Button>
   <Popup
     content="It is too early for extending the loan. You can request an extension from
       January 25"
@@ -159,5 +114,50 @@ exports[`Extend loan button tests should match snapshot 1`] = `
       </Ref>
     </Portal>
   </Popup>
+  <Button
+    as="button"
+    color="purple"
+    content="Request extension"
+    disabled={true}
+    onClick={[Function]}
+    size="mini"
+  >
+    <Ref
+      innerRef={
+        Object {
+          "current": <button
+            class="ui purple mini disabled button"
+            disabled=""
+            tabindex="-1"
+          >
+            Request extension
+          </button>,
+        }
+      }
+    >
+      <RefFindNode
+        innerRef={
+          Object {
+            "current": <button
+              class="ui purple mini disabled button"
+              disabled=""
+              tabindex="-1"
+            >
+              Request extension
+            </button>,
+          }
+        }
+      >
+        <button
+          className="ui purple mini disabled button"
+          disabled={true}
+          onClick={[Function]}
+          tabIndex={-1}
+        >
+          Request extension
+        </button>
+      </RefFindNode>
+    </Ref>
+  </Button>
 </ExtendButton>
 `;

@@ -1,0 +1,238 @@
+[
+  {
+    "pid": "itemid-1",
+    "barcode": "123456789-1",
+    "document_pid": "docid-1",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "MISSING",
+    "document": {}
+  },
+  {
+    "pid": "itemid-2",
+    "barcode": "123456789-2",
+    "document_pid": "docid-1",
+    "internal_location_pid": "ilocid-2",
+    "circulation_restriction": "ONE_WEEK",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "document": {}
+
+  },
+  {
+    "pid": "itemid-3",
+    "barcode": "123456789-3",
+    "document_pid": "docid-2",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "TWO_WEEKS",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "document": {}
+  },
+  {
+    "pid": "itemid-4",
+    "barcode": "123456789-4",
+    "document_pid": "docid-3",
+    "internal_location_pid": "ilocid-2",
+    "circulation_restriction": "THREE_WEEKS",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "document": {}
+  },
+  {
+    "pid": "itemid-5",
+    "barcode": "123456789-5",
+    "document_pid": "docid-3",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "FOUR_WEEKS",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "document": {}
+  },
+  {
+    "pid": "itemid-6",
+    "barcode": "123456789-6",
+    "document_pid": "docid-3",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "document": {}
+  },
+  {
+    "pid": "itemid-7",
+    "barcode": "123456789-7",
+    "document_pid": "docid-5",
+    "internal_location_pid": "ilocid-2",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "IN_BINDING",
+    "document": {}
+  },
+  {
+    "pid": "itemid-8",
+    "barcode": "123456789-8",
+    "document_pid": "docid-5",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "MISSING",
+    "document": {}
+  },
+  {
+    "pid": "itemid-9",
+    "barcode": "123456789-9",
+    "document_pid": "docid-5",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "document": {}
+  },
+  {
+    "pid": "itemid-10",
+    "barcode": "123456789-10",
+    "document_pid": "docid-5",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "document": {}
+  },
+  {
+    "pid": "itemid-50",
+    "barcode": "123456789-50",
+    "document_pid": "docid-5",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "_access": { "update": [1] },
+    "document": {}
+  },
+  {
+    "pid": "itemid-51",
+    "barcode": "123456789-51",
+    "document_pid": "docid-5",
+    "internal_location_pid": "ilocid-2",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "_access": { "delete": ["librarian"] },
+    "document": {}
+  },
+  {
+    "pid": "itemid-52",
+    "barcode": "123456789-52",
+    "document_pid": "docid-5",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "_access": { "delete": ["1"] },
+    "document": {}
+  },
+  {
+    "pid": "itemid-53",
+    "barcode": "123456789-53",
+    "document_pid": "docid-5",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "_access": { "update": ["1"] },
+    "document": {}
+  },
+  {
+    "pid": "itemid-54",
+    "barcode": "123456789-54",
+    "document_pid": "docid-5",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "_access": { "read": ["1"] },
+    "document": {}
+  },
+  {
+    "pid": "itemid-55",
+    "barcode": "123456789-55",
+    "document_pid": "docid-1",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "MISSING",
+    "document": {}
+  },
+  {
+    "pid": "itemid-56",
+    "barcode": "123456789-54",
+    "document_pid": "docid-5",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "document": {}
+  },
+  {
+    "pid": "itemid-57",
+    "barcode": "123456789-55",
+    "document_pid": "docid-1",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "document": {}
+  },
+  {
+    "pid": "itemid-MISSING",
+    "barcode": "123456789-55",
+    "document_pid": "docid-1",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "MISSING",
+    "document": {}
+  },
+  {
+    "pid": "itemid-60",
+    "barcode": "123456789-55",
+    "document_pid": "docid-1",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "document": {}
+  },
+  {
+    "pid": "itemid-61",
+    "barcode": "123456789-55",
+    "document_pid": "docid-1",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "document": {}
+  },
+  {
+    "pid": "itemid-62",
+    "barcode": "123456789-55",
+    "document_pid": "docid-1",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "document": {}
+  },
+  {
+    "pid": "itemid-63",
+    "barcode": "123456789-55",
+    "document_pid": "docid-1",
+    "internal_location_pid": "ilocid-1",
+    "circulation_restriction": "NO_RESTRICTION",
+    "medium": "NOT_SPECIFIED",
+    "status": "CAN_CIRCULATE",
+    "document": {}
+  }
+]

@@ -1,10 +1,8 @@
-import { LiteratureCover } from '@modules/Literature';
-import {
-  DocumentAuthors,
-  DocumentEdition,
-  DocumentLanguages,
-  DocumentTags,
-} from '@modules/Document';
+import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
+import { DocumentEdition } from '@modules/Document/DocumentEdition';
+import { DocumentLanguages } from '@modules/Document/DocumentLanguages';
+import { DocumentTags } from '@modules/Document/DocumentTags';
+import { LiteratureCover } from '@modules/Literature/LiteratureCover';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
@@ -45,44 +43,40 @@ export default class DocumentListEntry extends Component {
       .join(' OR ');
 
     return (
-      <>
-        <Item.Description>
-          <List verticalAlign="middle" className="document-relations">
-            {partOfMMQuery && (
-              <List.Item>
-                <List.Content floated="right">
-                  <Link
-                    to={BackOfficeRoutes.seriesListWithQuery(partOfMMQuery)}
-                  >
-                    <Icon name="paperclip" />
-                  </Link>
-                </List.Content>
-                <List.Content>Part of multipart monograph</List.Content>
-              </List.Item>
-            )}
-            {partOfSeriesQuery && (
-              <List.Item>
-                <List.Content floated="right">
-                  <Link
-                    to={BackOfficeRoutes.seriesListWithQuery(partOfSeriesQuery)}
-                  >
-                    <Icon name="search plus" />
-                  </Link>
-                </List.Content>
-                <List.Content>Part of serials</List.Content>
-              </List.Item>
-            )}
-            {document.metadata.eitems.total > 0 ? (
-              <List.Item>
-                <List.Content floated="right">
-                  <Icon name="desktop" />
-                </List.Content>
-                <List.Content>Has electronic items</List.Content>
-              </List.Item>
-            ) : null}
-          </List>
-        </Item.Description>
-      </>
+      <Item.Description>
+        <List verticalAlign="middle" className="document-relations">
+          {partOfMMQuery && (
+            <List.Item>
+              <List.Content floated="right">
+                <Link to={BackOfficeRoutes.seriesListWithQuery(partOfMMQuery)}>
+                  <Icon name="paperclip" />
+                </Link>
+              </List.Content>
+              <List.Content>Part of multipart monograph</List.Content>
+            </List.Item>
+          )}
+          {partOfSeriesQuery && (
+            <List.Item>
+              <List.Content floated="right">
+                <Link
+                  to={BackOfficeRoutes.seriesListWithQuery(partOfSeriesQuery)}
+                >
+                  <Icon name="search plus" />
+                </Link>
+              </List.Content>
+              <List.Content>Part of serials</List.Content>
+            </List.Item>
+          )}
+          {document.metadata.eitems.total > 0 ? (
+            <List.Item>
+              <List.Content floated="right">
+                <Icon name="desktop" />
+              </List.Content>
+              <List.Content>Has electronic items</List.Content>
+            </List.Item>
+          ) : null}
+        </List>
+      </Item.Description>
     );
   };
 

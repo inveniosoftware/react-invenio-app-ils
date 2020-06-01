@@ -1,4 +1,5 @@
-import { Error, Loader } from '@components';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import { RelationEdition } from '@modules/Relations/backoffice/RelationEdition';
 import { RelationSequence } from '@pages/backoffice/Series/SeriesDetails/SeriesRelations/RelationSequence';
 import PropTypes from 'prop-types';

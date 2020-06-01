@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import { loanApi } from '@api';
+import { loanApi } from '@api/loans';
 import { sessionManager } from '@authentication/services';
 
 jest.mock('@config/invenioConfig');

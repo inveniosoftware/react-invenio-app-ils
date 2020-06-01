@@ -8,23 +8,18 @@ import {
   SearchBar,
   InvenioSearchApi,
 } from 'react-searchkit';
-import {
-  Error as IlsError,
-  SearchBar as DocumentsSearchBar,
-} from '@components';
-
+import { Error as IlsError } from '@components/Error';
+import { SearchBar as DocumentsSearchBar } from '@components/SearchBar';
 import { documentApi } from '@api/documents/document';
 import { getSearchConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';
-import { ExportReactSearchKitResults } from '@components/backoffice';
-import { NewButton } from '@components/backoffice/buttons';
-import { DocumentList } from '@modules/Document/backoffice';
-import {
-  SearchAggregationsCards,
-  SearchFooter,
-  SearchEmptyResults,
-  SearchControls,
-} from '@modules/SearchControls';
+import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import { NewButton } from '@components/backoffice/buttons/NewButton';
+import { DocumentList } from '@modules/Document/backoffice/DocumentList';
+import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
+import { SearchFooter } from '@modules/SearchControls/SearchFooter';
+import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
 import history from '@history';
 
 export class DocumentSearch extends Component {

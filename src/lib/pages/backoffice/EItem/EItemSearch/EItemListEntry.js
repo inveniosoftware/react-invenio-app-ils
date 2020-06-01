@@ -1,11 +1,11 @@
-import { DocumentAuthors } from '@modules/Document';
+import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
 import {
   DocumentIcon,
   EItemIcon,
   OpenAccessLabel,
 } from '@components/backoffice';
 import { BackOfficeRoutes } from '@routes/urls';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -45,7 +45,7 @@ export default class EItemListEntry extends Component {
               <Item.Meta>
                 <List>
                   <List.Item>
-                    {!isEmpty(eitem.metadata.files) && (
+                    {!_isEmpty(eitem.metadata.files) && (
                       <List.Content>
                         {eitem.metadata.files.length} file(s) attached{' '}
                         <Icon name="file" />
@@ -54,7 +54,7 @@ export default class EItemListEntry extends Component {
                   </List.Item>
                   <List.Item>
                     <List.Content>
-                      {!isEmpty(eitem.metadata.urls) && (
+                      {!_isEmpty(eitem.metadata.urls) && (
                         <List.Content>
                           {eitem.metadata.urls.length} linked resources{' '}
                           <Icon name="external" />

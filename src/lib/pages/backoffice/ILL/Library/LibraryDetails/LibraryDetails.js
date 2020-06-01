@@ -1,7 +1,8 @@
 import { illBorrowingRequestApi as brwReqApi } from '@api';
 import { CopyButton, Error, Loader } from '@components';
-import { DeleteRecordModal, DetailsHeader } from '@components/backoffice';
-import { EditButton } from '@components/backoffice/buttons';
+import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
+import { DetailsHeader } from '@components/backoffice/DetailsHeader';
+import { EditButton } from '@components/backoffice/buttons/EditButton';
 import { DeleteButton } from '@components/backoffice/DeleteRecordModal/DeleteButton';
 import { ILLLibraryIcon } from '@components/backoffice/icons';
 import { ILLRoutes } from '@routes/urls';

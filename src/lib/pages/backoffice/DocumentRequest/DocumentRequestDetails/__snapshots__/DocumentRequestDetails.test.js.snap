@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DocumentRequestDetails tests should load the details component 1`] = `
-<Loader>
-  <Error>
+<Overridable(Loader)
+  isLoading={false}
+>
+  <Error
+    error={Object {}}
+  >
     <Container
       className="spaced"
       fluid={true}
@@ -18,5 +22,5 @@ exports[`DocumentRequestDetails tests should load the details component 1`] = `
       <DocumentRequestSteps />
     </Container>
   </Error>
-</Loader>
+</Overridable(Loader)>
 `;

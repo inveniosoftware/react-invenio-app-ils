@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import { DeleteActionButton } from '@forms/components/DeleteActionButton';
 import {
   AccordionField,
   ArrayField,
-  StringField,
-  GroupField,
   BooleanField,
+  GroupField,
+  StringField,
   VocabularyField,
-  DeleteActionButton,
-} from '@forms';
+} from '@forms/core';
+import React, { Component } from 'react';
 
 export class AccessUrls extends Component {
   renderFormField({ arrayPath, indexPath, ...arrayHelpers }) {

@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { FastField, Field, getIn } from "formik";
-import { Form, Dropdown, Input, Label } from "semantic-ui-react";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { FastField, Field, getIn } from 'formik';
+import { Form, Dropdown, Input, Label } from 'semantic-ui-react';
 
 // Wrapped Dropdown so we submit the selected value of the dropdown with the form
 const DropdownField = ({
@@ -25,12 +25,12 @@ const DropdownField = ({
 };
 
 export class PriceField extends Component {
-  renderError(errors, name, direction = "above") {
+  renderError(errors, name, direction = 'above') {
     const error = errors[name];
     return error
       ? {
           content: error,
-          pointing: direction
+          pointing: direction,
         }
       : null;
   }
@@ -40,7 +40,7 @@ export class PriceField extends Component {
       currencies,
       fieldPath,
       defaultCurrency,
-      canSelectCurrency
+      canSelectCurrency,
     } = this.props;
     return canSelectCurrency ? (
       <Field
@@ -66,7 +66,7 @@ export class PriceField extends Component {
       ...uiProps
     } = this.props;
     const {
-      form: { values, handleChange, handleBlur, errors, status }
+      form: { values, handleChange, handleBlur, errors, status },
     } = props;
     return (
       <Form.Field inline={inline} required={required}>
@@ -82,7 +82,7 @@ export class PriceField extends Component {
           name={`${fieldPath}.value`}
           onChange={handleChange}
           onBlur={handleBlur}
-          value={getIn(values, `${fieldPath}.value`, "")}
+          value={getIn(values, `${fieldPath}.value`, '')}
           error={this.renderError(status || errors, fieldPath)}
           {...uiProps}
         />
@@ -109,12 +109,12 @@ PriceField.propTypes = {
   canSelectCurrency: PropTypes.bool,
   required: PropTypes.bool,
   inline: PropTypes.bool,
-  optimized: PropTypes.bool
+  optimized: PropTypes.bool,
 };
 
 PriceField.defaultProps = {
   canSelectCurrency: true,
   required: false,
   inline: false,
-  optimized: true
+  optimized: true,
 };

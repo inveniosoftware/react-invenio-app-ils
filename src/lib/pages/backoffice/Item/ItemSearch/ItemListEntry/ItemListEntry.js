@@ -1,8 +1,8 @@
-import { DocumentAuthors } from '@modules/Document';
+import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
 import { getDisplayVal } from '@config/invenioConfig';
 import { DocumentIcon, ItemIcon } from '@components/backoffice/icons';
 import { BackOfficeRoutes } from '@routes/urls';
-import { isEmpty } from 'lodash';
+import _isEmpty from 'lodash/isEmpty';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ import { Grid, Header, Item, List } from 'semantic-ui-react';
 class ItemCirculation extends Component {
   render() {
     const { circulation } = this.props;
-    if (isEmpty(circulation)) {
+    if (_isEmpty(circulation)) {
       return null;
     } else {
       return (

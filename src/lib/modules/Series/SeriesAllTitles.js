@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Divider, Table } from 'semantic-ui-react';
-import { SeriesAlternativeTitles } from '.';
+import { SeriesAlternativeTitles } from './SeriesAlternativeTitles';
 
-export const SeriesAllTitles = ({ metadata }) => {
+export const SeriesAllTitles = ({
+  title,
+  abbreviatedTitle,
+  alternativeTitles,
+}) => {
   return (
     <>
       <Divider horizontal>Main titles</Divider>
@@ -11,19 +15,26 @@ export const SeriesAllTitles = ({ metadata }) => {
         <Table.Body>
           <Table.Row>
             <Table.Cell>Title</Table.Cell>
-            <Table.Cell>{metadata.title}</Table.Cell>
+            <Table.Cell>{title}</Table.Cell>
           </Table.Row>
           <Table.Row>
             <Table.Cell>Abbreviated title</Table.Cell>
-            <Table.Cell>{metadata.abbreviated_title}</Table.Cell>
+            <Table.Cell>{abbreviatedTitle}</Table.Cell>
           </Table.Row>
         </Table.Body>
       </Table>
-      <SeriesAlternativeTitles />
+      <SeriesAlternativeTitles alternativeTitles={alternativeTitles} />
     </>
   );
 };
 
 SeriesAllTitles.propTypes = {
-  metadata: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  abbreviatedTitle: PropTypes.string,
+  alternativeTitles: PropTypes.array,
+};
+
+SeriesAllTitles.defaultProps = {
+  abbreviatedTitle: '',
+  alternativeTitles: [],
 };

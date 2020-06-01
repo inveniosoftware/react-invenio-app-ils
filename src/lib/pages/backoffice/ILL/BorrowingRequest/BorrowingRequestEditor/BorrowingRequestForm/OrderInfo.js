@@ -14,7 +14,7 @@ import {
   StringField,
   TextField,
   VocabularyField,
-} from '@forms';
+} from '@forms/core';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 

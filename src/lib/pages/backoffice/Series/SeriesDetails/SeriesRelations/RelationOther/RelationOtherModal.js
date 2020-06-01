@@ -1,11 +1,9 @@
 import { seriesApi } from '@api';
 import { SeriesLanguages } from '@modules/Series';
-import {
-  RelationModal,
-  RelationSelector,
-  RelationSummary,
-  SingleSelection,
-} from '@modules/Relations/backoffice';
+import { RelationModal } from '@modules/Relations/backoffice/components/RelationModal';
+import { RelationSelector } from '@modules/Relations/backoffice/components/RelationSelector';
+import { RelationSummary } from '@modules/Relations/backoffice/components/RelationSummary';
+import { SingleSelection } from '@modules/Relations/backoffice/components/SingleSelection';
 import SeriesSelectListEntry from '@modules/Series/backoffice/SeriesSelectListEntry/SeriesSelectListEntry';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
@@ -32,7 +30,8 @@ export default class RelationOtherModal extends Component {
   selectResultRender = (option, disabled) => {
     const description = (
       <>
-        <label>languages:</label> <SeriesLanguages metadata={option.metadata} />
+        <label>languages:</label>{' '}
+        <SeriesLanguages languages={option.metadata.languages} />
       </>
     );
     return (

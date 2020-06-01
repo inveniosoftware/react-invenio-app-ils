@@ -1,4 +1,4 @@
-import { DocumentEdition } from '@modules/Document';
+import DocumentEdition from './DocumentEdition';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Overridable from 'react-overridable';

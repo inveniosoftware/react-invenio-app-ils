@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Loader, Error, Pagination } from '@components';
-import { Container, Header, Item } from 'semantic-ui-react';
+import { Error, InfoMessage, Loader, Pagination } from '@components';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
-import { InfoMessage } from '@components';
-import { ES_DELAY } from '@config';
-import LoanRequestListEntry from './LoanRequestListEntry';
-import PatronCancelModal from '../PatronCancelModal';
-import isEmpty from 'lodash/isEmpty';
+import { uiConfig } from '@config';
 import _get from 'lodash/get';
 import _has from 'lodash/has';
+import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Container, Header, Item } from 'semantic-ui-react';
+import PatronCancelModal from '../PatronCancelModal';
+import LoanRequestListEntry from './LoanRequestListEntry';
 
 const PAGE_SIZE = 5;
 
@@ -44,7 +43,7 @@ export default class PatronPendingLoans extends Component {
     const { isLoading, data } = this.props;
     const { activePage } = this.state;
 
-    if (!isEmpty(data.hits)) {
+    if (!_isEmpty(data.hits)) {
       return (
         <>
           <Item.Group divided>
@@ -127,7 +126,7 @@ export default class PatronPendingLoans extends Component {
         btnClasses.remove('disabled');
         btnClasses.remove('loading');
       });
-    }, ES_DELAY);
+    }, uiConfig.ES_DELAY);
   };
 
   render() {

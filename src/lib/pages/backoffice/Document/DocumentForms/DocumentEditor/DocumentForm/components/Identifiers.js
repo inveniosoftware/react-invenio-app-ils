@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ObjectArrayField, StringField, VocabularyField } from '@forms';
+import { ObjectArrayField } from '@forms/core/ObjectArrayField';
+import { StringField } from '@forms/core/StringField';
+import { VocabularyField } from '@forms/core/VocabularyField';
 import { invenioConfig } from '@config';
 
 export class Identifiers extends Component {

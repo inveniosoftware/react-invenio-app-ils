@@ -11,10 +11,10 @@ import {
   DocumentIcon,
   PatronIcon,
 } from '@components/backoffice';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import { toShortDate, toShortDateTime } from '@api/date';
 import { LoanLinkToItem } from '@modules/Loan/backoffice';
-import { DocumentTitle } from '@modules/Document';
+import { DocumentTitle } from '@modules/Document/DocumentTitle';
 
 export default class LoanMetadata extends Component {
   getPickupLocation(metadata) {
@@ -131,7 +131,7 @@ export default class LoanMetadata extends Component {
       );
     }
     rows.push({ name: 'Extensions', value: data.metadata.extension_count });
-    if (state === 'CANCELLED' && !isEmpty(reason)) {
+    if (state === 'CANCELLED' && !_isEmpty(reason)) {
       rows.push({
         name: 'Cancel Reason',
         value: reason,

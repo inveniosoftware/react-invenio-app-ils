@@ -1,6 +1,6 @@
 import { ShowMoreContent } from '@components';
 import { DocumentAuthors, DocumentTags } from '@modules/Document';
-import { LiteratureCover } from '@modules/Literature';
+import { LiteratureCover } from '@modules/Literature/LiteratureCover';
 import {
   ILSHeaderPlaceholder,
   ILSParagraphPlaceholder,

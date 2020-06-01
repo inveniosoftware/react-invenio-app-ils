@@ -1,13 +1,12 @@
-import React from 'react';
-import {
-  AccordionField,
-  CountryField,
-  GroupField,
-  IdentifiersField,
-  StringField,
-  YearInputField,
-} from '@forms';
 import { invenioConfig } from '@config';
+import { CountryField } from '@forms/components/CountryField';
+import { IdentifiersField } from '@forms/components/IdentifiersField';
+import { AccordionField } from '@forms/core/AccordionField';
+import { GroupField } from '@forms/core/GroupField';
+import { StringField } from '@forms/core/StringField';
+import { YearInputField } from '@forms/core/YearInputField';
+
+import React from 'react';
 
 export class ConferenceInfoField extends React.Component {
   render() {

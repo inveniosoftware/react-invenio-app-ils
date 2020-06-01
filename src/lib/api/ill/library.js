@@ -1,4 +1,4 @@
-import { http, apiConfig } from '../base';
+import { http, apiConfig } from '@api/base';
 import { librarySerializer as serializer } from './serializers';
 
 const libraryUrl = '/ill/libraries/';

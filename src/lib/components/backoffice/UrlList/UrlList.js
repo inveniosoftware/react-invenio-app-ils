@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { List } from 'semantic-ui-react';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 
 export class UrlList extends Component {
   render() {
     const { urls } = this.props;
-    if (isEmpty(urls)) {
+    if (_isEmpty(urls)) {
       return null;
     }
     return (

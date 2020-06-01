@@ -1,4 +1,4 @@
-import { EditButton } from '@components/backoffice/buttons';
+import { EditButton } from '@components/backoffice/buttons/EditButton';
 import { SeriesDeleteModal } from '@pages/backoffice/Series/SeriesDetails';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';

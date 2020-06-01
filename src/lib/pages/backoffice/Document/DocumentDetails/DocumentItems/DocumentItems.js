@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Loader, Error, ResultsTable } from '@components';
-import { itemApi } from '@api';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
+import { ResultsTable } from '@components/ResultsTable';
+import { itemApi } from '@api/items';
 import { BackOfficeRoutes } from '@routes/urls';
-import { SeeAllButton } from '@components/backoffice/buttons';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 import _get from 'lodash/get';
 
 export default class DocumentItems extends Component {

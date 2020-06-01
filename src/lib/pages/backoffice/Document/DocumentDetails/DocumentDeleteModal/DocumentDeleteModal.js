@@ -1,7 +1,9 @@
-import { documentRequestApi, itemApi, loanApi } from '@api';
+import { documentRequestApi } from '@api/documentRequests';
+import { itemApi } from '@api/items';
+import { loanApi } from '@api/loans';
 import { invenioConfig } from '@config';
 import { goTo } from '@history';
-import { DeleteRecordModal } from '@components/backoffice';
+import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
 import { DeleteButton } from '@components/backoffice/DeleteRecordModal/DeleteButton';
 import { formatPidTypeToName } from '@components/backoffice/utils';
 import { BackOfficeRoutes } from '@routes/urls';

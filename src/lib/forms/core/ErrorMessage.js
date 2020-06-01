@@ -1,6 +1,6 @@
-import React from "react";
-import { Message } from "semantic-ui-react";
-import { Field } from "formik";
+import React from 'react';
+import { Message } from 'semantic-ui-react';
+import { Field } from 'formik';
 
 export class ErrorMessage extends React.Component {
   renderFormField = ({ form: { errors } }) => {

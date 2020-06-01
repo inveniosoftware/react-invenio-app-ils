@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { getIn } from 'formik';
-import { StringField, TextField } from '@forms';
-import { acqVendorApi as vendorApi } from '@api';
-import { AcquisitionRoutes } from '@routes/urls';
+import { acqVendorApi as vendorApi } from '@api/acquisition';
+import { BaseForm } from '@forms/core/BaseForm';
+import { StringField } from '@forms/core/StringField';
+import { TextField } from '@forms/core/TextField';
 import { goTo } from '@history';
-import { BaseForm } from '@forms';
+import { AcquisitionRoutes } from '@routes/urls';
+import { getIn } from 'formik';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Segment } from 'semantic-ui-react';
 
 export class VendorForm extends Component {

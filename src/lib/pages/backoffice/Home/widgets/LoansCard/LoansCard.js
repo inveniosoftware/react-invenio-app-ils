@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Loader, Error } from '@components';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
 import { invenioConfig } from '@config';
-import { loanApi } from '@api';
+import { loanApi } from '@api/loan';
 import { RecordsBriefCard } from '@components/backoffice/RecordsBriefCard';
 import { BackOfficeRoutes } from '@routes/urls';
 import { NewButton, SeeAllButton } from '@components/backoffice/buttons';

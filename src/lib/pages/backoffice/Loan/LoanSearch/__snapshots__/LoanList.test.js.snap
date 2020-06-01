@@ -230,24 +230,52 @@ exports[`LoanList tests should load the LoanList component 2`] = `
                                     TEST
                                   </h5>
                                 </Header>
-                                <DocumentAuthors
-                                  allFields={false}
+                                <Overridable(DocumentAuthors)
                                   authorsLimit={10}
-                                  delimiter="; "
                                   metadata={
                                     Object {
                                       "title": "TEST",
                                     }
                                   }
                                   prefix="by "
-                                  scrollLimit={Infinity}
                                 >
-                                  <div
-                                    className="document-authors-list-wrapper undefined"
+                                  <DocumentAuthors
+                                    allFields={false}
+                                    authorsLimit={10}
+                                    delimiter="; "
+                                    listItemAs={null}
+                                    metadata={
+                                      Object {
+                                        "title": "TEST",
+                                      }
+                                    }
+                                    otherAuthorsDisplay={null}
+                                    prefix="by "
+                                    scrollLimit={Infinity}
                                   >
-                                    by  
-                                  </div>
-                                </DocumentAuthors>
+                                    <Overridable
+                                      allFields={false}
+                                      authorsLimit={10}
+                                      delimiter="; "
+                                      id="DocumentAuthors.layout"
+                                      listItemAs={null}
+                                      metadata={
+                                        Object {
+                                          "title": "TEST",
+                                        }
+                                      }
+                                      otherAuthorsDisplay={null}
+                                      prefix="by "
+                                      scrollLimit={Infinity}
+                                    >
+                                      <div
+                                        className="document-authors-list-wrapper undefined"
+                                      >
+                                        by  
+                                      </div>
+                                    </Overridable>
+                                  </DocumentAuthors>
+                                </Overridable(DocumentAuthors)>
                               </div>
                             </ItemMeta>
                           </div>
@@ -491,4 +519,8 @@ exports[`LoanList tests should load the LoanList component 2`] = `
 </BrowserRouter>
 `;
 
-exports[`LoanList tests should show empty message 1`] = `<SearchEmptyResults />`;
+exports[`LoanList tests should show empty message 1`] = `
+<SearchEmptyResults
+  extras={[Function]}
+/>
+`;

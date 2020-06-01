@@ -1,16 +1,13 @@
-import React from 'react';
-import {
-  AccordionField,
-  ArrayField,
-  DeleteActionButton,
-  GroupField,
-  IdentifiersField,
-  StringField,
-  VocabularyField,
-} from '@forms';
-import PropTypes from 'prop-types';
-
 import { invenioConfig } from '@config';
+import { DeleteActionButton } from '@forms/components/DeleteActionButton';
+import { IdentifiersField } from '@forms/components/IdentifiersField';
+import { AccordionField } from '@forms/core/AccordionField';
+import { ArrayField } from '@forms/core/ArrayField';
+import { GroupField } from '@forms/core/GroupField';
+import { StringField } from '@forms/core/StringField';
+import { VocabularyField } from '@forms/core/VocabularyField';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 export class AuthorForm extends React.Component {
   constructor(props) {

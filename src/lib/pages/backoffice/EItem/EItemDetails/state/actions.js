@@ -1,4 +1,4 @@
-import { eItemApi } from '@api';
+import { eItemApi } from '@api/eitems';
 import { delay } from '@api/utils';
 import {
   sendErrorNotification,

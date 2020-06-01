@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SeriesDocuments tests should load the SeriesDocuments component 1`] = `
-<Loader>
-  <Error>
+<Overridable(Loader)
+  isLoading={false}
+>
+  <Error
+    error={Object {}}
+  >
     <ResultsTable
       columns={
         Array [
@@ -23,6 +27,7 @@ exports[`SeriesDocuments tests should load the SeriesDocuments component 1`] = `
       }
       currentPage={1}
       data={Array []}
+      fixed={false}
       headerActionComponent={null}
       name="documents"
       paginationComponent={null}
@@ -36,11 +41,11 @@ exports[`SeriesDocuments tests should load the SeriesDocuments component 1`] = `
       }
       showAllResults={false}
       showMaxRows={5}
-      singleLine={false}
+      singleLine={true}
       subtitle=""
       title=""
       totalHitsCount={0}
     />
   </Error>
-</Loader>
+</Overridable(Loader)>
 `;

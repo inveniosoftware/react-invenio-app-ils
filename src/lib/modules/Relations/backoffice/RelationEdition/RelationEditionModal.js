@@ -1,12 +1,10 @@
 import { DocumentEdition } from '@modules/Document';
-import { DocumentSelectListEntry } from '@modules/Document/backoffice';
+import { DocumentSelectListEntry } from '@modules/Document/backoffice/DocumentSelectListEntry';
 import { SeriesSelectListEntry } from '@modules/Series/backoffice';
-import {
-  MultipleSelections,
-  RelationSelector,
-  RelationModal,
-  RelationSummary,
-} from '@modules/Relations/backoffice';
+import { MultipleSelections } from '@modules/Relations/backoffice/components/MultipleSelections';
+import { RelationSelector } from '@modules/Relations/backoffice/components/RelationSelector';
+import { RelationModal } from '@modules/Relations/backoffice/components/RelationModal';
+import { RelationSummary } from '@modules/Relations/backoffice/components/RelationSummary';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -17,7 +15,8 @@ import {
   Label,
   Modal,
 } from 'semantic-ui-react';
-import { documentApi, seriesApi } from '@api';
+import { documentApi } from '@api/documents';
+import { seriesApi } from '@api/series';
 
 export default class RelationEditionModal extends Component {
   constructor(props) {

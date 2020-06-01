@@ -1,12 +1,10 @@
-import {
-  DocumentAuthors,
-  DocumentLanguages,
-  DocumentTags,
-} from '@modules/Document';
-import { LiteratureCover } from '@modules/Literature';
+import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
+import { DocumentLanguages } from '@modules/Document/DocumentLanguages';
+import { DocumentTags } from '@modules/Document/DocumentTags';
+import { LiteratureCover } from '@modules/Literature/LiteratureCover';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -45,7 +43,7 @@ export default class DocumentListEntry extends Component {
   };
 
   renderImprintInfo = () => {
-    if (!isEmpty(this.metadata.imprint)) {
+    if (!_isEmpty(this.metadata.imprint)) {
       return (
         <Grid.Column width={4}>
           <List>

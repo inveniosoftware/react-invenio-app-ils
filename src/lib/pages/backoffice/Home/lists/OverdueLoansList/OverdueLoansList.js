@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
-import { Loader, Error, ResultsTable } from '@components';
+import { Link } from 'react-router-dom';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
 import { invenioConfig } from '@config';
-import { loanApi } from '@api';
+import { loanApi } from '@api/loan';
 import { dateFormatter } from '@api/date';
 import { BackOfficeRoutes } from '@routes/urls';
-import { SeeAllButton } from '@components/backoffice/buttons';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 import { OverdueLoanSendMailModal } from '@modules/Loan/backoffice';
 
 export default class OverdueLoansList extends Component {

@@ -5,8 +5,12 @@ exports[`PatronDetails tests should load the details component 1`] = `
   <Container
     fluid={true}
   >
-    <Loader>
-      <Error>
+    <Overridable(Loader)
+      isLoading={false}
+    >
+      <Error
+        error={null}
+      >
         <Sticky
           active={true}
           bottomOffset={0}
@@ -172,7 +176,7 @@ exports[`PatronDetails tests should load the details component 1`] = `
           </Ref>
         </Container>
       </Error>
-    </Loader>
+    </Overridable(Loader)>
   </Container>
 </div>
 `;

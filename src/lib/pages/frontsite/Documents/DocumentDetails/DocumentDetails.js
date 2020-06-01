@@ -13,8 +13,8 @@ import { DocumentPanel } from './DocumentPanel';
 import { DocumentTags } from '@modules/Document';
 import { ILSParagraphPlaceholder } from '@components/ILSPlaceholder';
 import { DocumentItems } from './DocumentItems';
-import { documentApi } from '@api';
-import isEmpty from 'lodash/isEmpty';
+import { documentApi } from '@api/documents';
+import _isEmpty from 'lodash/isEmpty';
 
 const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
   const breadcrumbs = () => [
@@ -53,7 +53,7 @@ const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
                 mobile={16}
                 textAlign="right"
               >
-                {!isEmpty(documentDetails.metadata) && (
+                {!_isEmpty(documentDetails.metadata) && (
                   <AuthenticationGuard
                     silent
                     authorizedComponent={() => (

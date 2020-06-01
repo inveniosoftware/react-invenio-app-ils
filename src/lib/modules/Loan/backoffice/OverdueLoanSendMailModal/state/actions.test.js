@@ -1,9 +1,9 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import * as actions from '../actions';
-import * as types from '../types';
-import { initialState } from '../reducer';
-import { loan as loanApi } from '@api';
+import * as actions from './actions';
+import * as types from './types';
+import { initialState } from './reducer';
+import { loanApi } from '@api/loans';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

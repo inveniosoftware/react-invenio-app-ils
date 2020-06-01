@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Button, Form, Header, Modal, Segment } from 'semantic-ui-react';
-import { ESSelector } from '../ESSelector';
-import { DateTime } from 'luxon';
-import { invenioConfig } from '@config';
-import { DatePicker } from '@components/DatePicker';
 import { toShortDate } from '@api/date';
-import { isEmpty } from 'lodash';
+import { DatePicker } from '@components/DatePicker';
+import { invenioConfig } from '@config';
+import _isEmpty from 'lodash/isEmpty';
+import { DateTime } from 'luxon';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Button, Form, Header, Modal, Segment } from 'semantic-ui-react';
+import ESSelector from './ESSelector';
 
 export const PatronSearchInputContext = React.createContext({
   patronSelectionError: 'false',
@@ -25,7 +25,7 @@ export default class ESSelectorLoanRequest extends Component {
     this.selectorRef = null;
 
     // init delivery method
-    this.withDeliveryMethod = !isEmpty(
+    this.withDeliveryMethod = !_isEmpty(
       invenioConfig.circulation.deliveryMethods
     );
     this.deliveryMethods = this.withDeliveryMethod
@@ -47,16 +47,16 @@ export default class ESSelectorLoanRequest extends Component {
   save = () => {
     const { onSave } = this.props;
     const { selections, requestEndDate, deliveryMethod } = this.state;
-    if (isEmpty(selections)) {
+    if (_isEmpty(selections)) {
       this.setState({ missingPatron: 'true' });
     } else {
       if (onSave) {
         const patronPid = selections[0].metadata.id.toString();
         const optionalParams = {};
-        if (!isEmpty(requestEndDate)) {
+        if (!_isEmpty(requestEndDate)) {
           optionalParams.requestEndDate = requestEndDate;
         }
-        if (!isEmpty(deliveryMethod)) {
+        if (!_isEmpty(deliveryMethod)) {
           optionalParams.deliveryMethod = deliveryMethod;
         }
         onSave(patronPid, optionalParams);

@@ -1,13 +1,9 @@
-import {
-  DocumentEItems,
-  DocumentItems,
-  DocumentPendingLoans,
-  DocumentStats,
-} from '@pages/backoffice/Document/DocumentDetails';
-import {
-  DocumentSeries,
-  DocumentSiblings,
-} from '@pages/backoffice/Document/DocumentDetails/DocumentRelations';
+import { DocumentEItems } from '@pages/backoffice/Document/DocumentDetails/DocumentEItems';
+import { DocumentItems } from '@pages/backoffice/Document/DocumentDetails/DocumentItems';
+import { DocumentPendingLoans } from '@pages/backoffice/Document/DocumentDetails/DocumentPendingLoans';
+import { DocumentStats } from '@pages/backoffice/Document/DocumentDetails/DocumentStats';
+import { DocumentSeries } from '@pages/backoffice/Document/DocumentDetails/DocumentRelations/DocumentSeries';
+import { DocumentSiblings } from '@pages/backoffice/Document/DocumentDetails/DocumentRelations/DocumentSiblings';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Accordion } from 'semantic-ui-react';

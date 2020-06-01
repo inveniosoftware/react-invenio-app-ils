@@ -1,6 +1,6 @@
 import { invenioConfig } from '@config';
 import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
-import { loanApi } from '@api';
+import { loanApi } from '@api/loan';
 import { sendErrorNotification } from '@components/Notifications';
 
 export const fetchOverdueLoans = () => {

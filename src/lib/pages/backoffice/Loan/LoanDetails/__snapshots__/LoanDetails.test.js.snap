@@ -5,7 +5,7 @@ exports[`LoanDetails tests should load the details component 1`] = `
   <Container
     fluid={true}
   >
-    <Loader
+    <Overridable(Loader)
       isLoading={false}
     >
       <Error
@@ -76,8 +76,8 @@ exports[`LoanDetails tests should load the details component 1`] = `
                     className="spaced"
                   >
                     <Loan />
-                    <CurrentItem />
-                    <AvailableItems
+                    <Connect(CurrentItem) />
+                    <Connect(AvailableItems)
                       loan={
                         Object {
                           "metadata": Object {
@@ -126,7 +126,7 @@ exports[`LoanDetails tests should load the details component 1`] = `
           </Ref>
         </Container>
       </Error>
-    </Loader>
+    </Overridable(Loader)>
   </Container>
 </div>
 `;

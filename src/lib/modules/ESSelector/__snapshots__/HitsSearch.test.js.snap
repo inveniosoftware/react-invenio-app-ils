@@ -11,7 +11,7 @@ exports[`HitsSearch tests should load the selector component 1`] = `
     }
   }
   loading={false}
-  minCharacters={1}
+  minCharacters={3}
   noResultsMessage="No results found."
   onResultSelect={[Function]}
   onSearchChange={[Function]}

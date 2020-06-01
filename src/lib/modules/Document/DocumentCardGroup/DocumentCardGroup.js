@@ -1,11 +1,12 @@
 import { withCancel } from '@api/utils';
-import { Error, Loader } from '@components';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Card, Divider, Header, Icon } from 'semantic-ui-react';
-import { DocumentCard } from '../DocumentCard';
+import { DocumentCard } from '@modules/components/Document/DocumentCard';
 
 class DocumentCardGroup extends Component {
   constructor(props) {

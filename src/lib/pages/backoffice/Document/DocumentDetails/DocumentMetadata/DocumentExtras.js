@@ -1,6 +1,6 @@
-import { MetadataTable } from '@components/backoffice';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import capitalize from 'lodash/capitalize';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, List } from 'semantic-ui-react';
@@ -38,7 +38,7 @@ export class DocumentExtras extends Component {
   render() {
     const { document } = this.props;
     return (
-      !isEmpty(document.metadata.conference_info) && (
+      !_isEmpty(document.metadata.conference_info) && (
         <>
           <Header>Conference info</Header>
           <MetadataTable rows={this.renderConferenceInfo()} />

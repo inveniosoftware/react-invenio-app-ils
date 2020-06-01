@@ -1,9 +1,9 @@
-import { http, apiConfig } from '../base';
+import { http, apiConfig } from '@api/base';
 import {
   brwReqSerializer as serializer,
   brwReqCreateLoanSerializer as createLoanSerializer,
 } from './serializers';
-import { prepareSumQuery } from '../utils';
+import { prepareSumQuery } from '@api/utils';
 
 const borrowingRequestUrl = '/ill/borrowing-requests/';
 

@@ -1,11 +1,12 @@
-import { LiteratureCover } from '@modules/Literature';
+import { ShowMoreContent } from '@components';
 import {
   ILSHeaderPlaceholder,
   ILSParagraphPlaceholder,
 } from '@components/ILSPlaceholder';
-import { SeriesAuthors } from '@modules/Series';
-import { SeriesAccess, SeriesTitle } from '@modules/Series';
-import { ShowMoreContent } from '@components';
+import { LiteratureCover } from '@modules/Literature/LiteratureCover';
+import { SeriesAccess } from '@modules/Series/SeriesAccess';
+import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
+import { SeriesTitle } from '@modules/Series/SeriesTitle';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -32,7 +33,10 @@ class SeriesPanel extends Component {
                 </Grid.Column>
                 <Grid.Column width={6}>
                   <ILSHeaderPlaceholder isLoading={isLoading}>
-                    <SeriesTitle />
+                    <SeriesTitle
+                      title={series.metadata.title}
+                      modeOfIssuance={series.metadata.mode_of_issuance}
+                    />
                   </ILSHeaderPlaceholder>
                   <ILSParagraphPlaceholder
                     linesNumber={1}
@@ -41,7 +45,7 @@ class SeriesPanel extends Component {
                     <SeriesAuthors
                       prefix="by "
                       itemProps={{ as: 'h4' }}
-                      metadata={series.metadata}
+                      authors={series.metadata.authors}
                     />
                   </ILSParagraphPlaceholder>
                   <ILSParagraphPlaceholder
@@ -55,7 +59,7 @@ class SeriesPanel extends Component {
                   </ILSParagraphPlaceholder>
                 </Grid.Column>
                 <Grid.Column width={5}>
-                  <SeriesAccess />
+                  <SeriesAccess urls={series.metadata.access_urls} />
                   <SeriesSequences relations={series.metadata.relations} />
                 </Grid.Column>
               </Grid.Row>

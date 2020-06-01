@@ -1,8 +1,8 @@
-import { DocumentLanguages } from '@modules/Document';
+import { DocumentLanguages } from '@modules/Document/DocumentLanguages';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { RelationCard } from '../../components/RelationCard';
-import isEmpty from 'lodash/isEmpty';
+import { RelationCard } from '@modules/Relations/backoffice/components/RelationCard';
+import _isEmpty from 'lodash/isEmpty';
 import { Container, Grid, Icon, Label, Message } from 'semantic-ui-react';
 
 export default class RelationSummary extends Component {
@@ -47,7 +47,7 @@ export default class RelationSummary extends Component {
           </Grid.Column>
 
           <Grid.Column width={columnsWidths.right} className="scrolling">
-            {isEmpty(selections) ? (
+            {_isEmpty(selections) ? (
               <Message
                 info
                 icon="info circle"

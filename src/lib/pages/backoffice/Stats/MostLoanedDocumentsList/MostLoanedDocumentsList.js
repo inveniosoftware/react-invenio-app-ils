@@ -5,7 +5,7 @@ import { Grid, List, Header } from 'semantic-ui-react';
 import { DatePicker, Loader, Error } from '@components';
 import { BackOfficeRoutes } from '@routes/urls';
 import { circulationStatsApi, loanApi } from '@api';
-import { DocumentList } from '@modules/Document/backoffice';
+import { DocumentList } from '@modules/Document/backoffice/DocumentList';
 import { ExportSearchResults } from '@components/backoffice';
 import { invenioConfig } from '@config/invenioConfig';
 import {

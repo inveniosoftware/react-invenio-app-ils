@@ -1,7 +1,7 @@
 import { toShortDate } from '@api/date';
 import { CopyButton } from '@components';
 import { CreatedBy } from '@components/backoffice';
-import { LiteratureCover } from '@modules/Literature';
+import { LiteratureCover } from '@modules/Literature/LiteratureCover';
 import { SeriesAuthors } from '@modules/Series';
 import { DocumentTags, DocumentTitle } from '@modules/Document';
 import { DetailsHeader } from '@components/backoffice';
@@ -44,7 +44,9 @@ export class SeriesHeader extends Component {
             <DocumentTitle metadata={data.metadata} />
           </>
         }
-        subTitle={<SeriesAuthors metadata={data.metadata} prefix="by " />}
+        subTitle={
+          <SeriesAuthors authors={data.metadata.authors} prefix="by " />
+        }
         pid={data.metadata.pid}
         image={
           <LiteratureCover

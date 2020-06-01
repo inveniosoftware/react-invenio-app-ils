@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
-export const SeriesModeOfIssuance = ({ metadata }) => {
-  switch (metadata.mode_of_issuance) {
+export const SeriesModeOfIssuance = ({ modeOfIssuance }) => {
+  switch (modeOfIssuance) {
     case 'SERIAL':
       return 'SERIAL';
     case 'MULTIPART_MONOGRAPH':
@@ -12,5 +12,5 @@ export const SeriesModeOfIssuance = ({ metadata }) => {
 };
 
 SeriesModeOfIssuance.propTypes = {
-  metadata: PropTypes.object.isRequired,
+  modeOfIssuance: PropTypes.string.isRequired,
 };

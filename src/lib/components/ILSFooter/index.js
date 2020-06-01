@@ -1,1 +1,1 @@
-export { default as ILSFooter } from "./ILSFooter";
+export { default as ILSFooter } from './ILSFooter';

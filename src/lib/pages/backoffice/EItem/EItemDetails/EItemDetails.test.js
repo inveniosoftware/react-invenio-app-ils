@@ -10,7 +10,7 @@ import EItemDetails from './EItemDetails';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-jest.mock('../components/', () => {
+jest.mock('./', () => {
   return {
     EItemMetadata: () => null,
     EItemFiles: () => null,
@@ -18,7 +18,7 @@ jest.mock('../components/', () => {
   };
 });
 
-jest.mock('../../EItemDetails/', () => {
+jest.mock('./EItemDetails/', () => {
   return {
     EItemHeader: () => null,
   };

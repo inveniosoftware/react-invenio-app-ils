@@ -1,6 +1,9 @@
-import React, { Component } from "react";
-import { AccordionField, ArrayField, StringField, GroupField } from "../core";
-import { DeleteActionButton } from "./DeleteActionButton";
+import { AccordionField } from '@forms/core/AccordionField';
+import { ArrayField } from '@forms/core/ArrayField';
+import { GroupField } from '@forms/core/GroupField';
+import { StringField } from '@forms/core/StringField';
+import React, { Component } from 'react';
+import { DeleteActionButton } from './DeleteActionButton';
 
 export class UrlsField extends Component {
   renderFormField({ arrayPath, indexPath, ...arrayHelpers }) {
@@ -30,7 +33,7 @@ export class UrlsField extends Component {
         content={
           <ArrayField
             fieldPath="urls"
-            defaultNewValue={{ value: "", description: "" }}
+            defaultNewValue={{ value: '', description: '' }}
             renderArrayItem={this.renderFormField}
             addButtonLabel="Add new url"
           />

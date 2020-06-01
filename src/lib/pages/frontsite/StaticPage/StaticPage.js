@@ -4,16 +4,16 @@ import {
   ILSParagraphPlaceholder,
 } from '@components/ILSPlaceholder';
 import { getStaticPageByRoute } from '@config/uiConfig';
-import React, { Component } from 'react';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Container, Header } from 'semantic-ui-react';
-import _isEmpty from 'lodash/isEmpty';
 
 class StaticPage extends Component {
   componentDidMount() {
-    const { fetchStaticPageDetails } = this.props;
-    const staticPage = getStaticPageByRoute(this.props.match.path);
+    const { fetchStaticPageDetails, match } = this.props;
+    const staticPage = getStaticPageByRoute(match.path);
     const staticPageID = staticPage['apiURL'];
     fetchStaticPageDetails(staticPageID);
   }
@@ -56,6 +56,11 @@ class StaticPage extends Component {
 }
 
 StaticPage.propTypes = {
+  /* ROUTER */
+  match: PropTypes.shape({
+    path: PropTypes.string,
+  }),
+  /* REDUX */
   fetchStaticPageDetails: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired,
   error: PropTypes.object,
@@ -63,6 +68,9 @@ StaticPage.propTypes = {
 };
 
 StaticPage.defaultProps = {
+  match: {
+    path: '',
+  },
   error: {},
 };
 

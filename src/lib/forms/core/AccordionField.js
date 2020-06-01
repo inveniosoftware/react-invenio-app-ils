@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Field } from "formik";
-import { Accordion, Form, Icon } from "semantic-ui-react";
-import { ErrorIcon } from "./ErrorIcon";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Field } from 'formik';
+import { Accordion, Form, Icon } from 'semantic-ui-react';
+import { ErrorIcon } from './ErrorIcon';
 
 export class AccordionField extends Component {
   state = { active: false };
 
   iconActive = (
-    <Icon name="angle down" size="large" style={{ float: "right" }} />
+    <Icon name="angle down" size="large" style={{ float: 'right' }} />
   );
 
   iconInactive = (
-    <Icon name="angle right" size="large" style={{ float: "right" }} />
+    <Icon name="angle right" size="large" style={{ float: 'right' }} />
   );
 
   handleClick = showContent => {
@@ -33,7 +33,7 @@ export class AccordionField extends Component {
 
   renderAccordion = props => {
     const {
-      form: { errors, status }
+      form: { errors, status },
     } = props;
     const { active } = this.state;
     const hasError = status ? this.hasError(status) : this.hasError(errors);
@@ -65,10 +65,10 @@ AccordionField.propTypes = {
   content: PropTypes.object.isRequired,
   fieldPath: PropTypes.string.isRequired,
   label: PropTypes.string,
-  required: PropTypes.bool
+  required: PropTypes.bool,
 };
 
 AccordionField.defaultProps = {
-  label: "",
-  required: false
+  label: '',
+  required: false,
 };

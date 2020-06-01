@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Formik, getIn } from "formik";
-import isEmpty from "lodash/isEmpty";
-import { Form, Button, Header } from "semantic-ui-react";
-import { ErrorMessage } from "../ErrorMessage";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Formik, getIn } from 'formik';
+import _isEmpty from 'lodash/isEmpty';
+import { Form, Button, Header } from 'semantic-ui-react';
+import { ErrorMessage } from '@forms/core/ErrorMessage';
 
 export class BaseForm extends Component {
   submitSerializer = values => {
@@ -24,17 +24,17 @@ export class BaseForm extends Component {
         : await this.props.createApiMethod(submitValues);
 
       this.props.sendSuccessNotification(
-        "Success!",
+        'Success!',
         this.props.successSubmitMessage
       );
       if (this.props.successCallback) {
         this.props.successCallback(response, submitButton);
       }
     } catch (error) {
-      const errors = getIn(error, "response.data.errors", []);
+      const errors = getIn(error, 'response.data.errors', []);
 
-      if (isEmpty(errors)) {
-        const message = getIn(error, "response.data.message", null);
+      if (_isEmpty(errors)) {
+        const message = getIn(error, 'response.data.message', null);
         if (message) {
           actions.setSubmitting(false);
           actions.setErrors({ message });
@@ -61,7 +61,7 @@ export class BaseForm extends Component {
   };
 
   renderButtons = (isSubmitting, submitForm, values) => {
-    const buttons = getIn(this.props, "buttons", []);
+    const buttons = getIn(this.props, 'buttons', []);
 
     return buttons.map(({ name, ...props }) => (
       <Button
@@ -90,7 +90,7 @@ export class BaseForm extends Component {
           {({ isSubmitting, handleSubmit, submitForm, values }) => (
             <Form
               onSubmit={event =>
-                this.submitForm(event, "submit", submitForm, values)
+                this.submitForm(event, 'submit', submitForm, values)
               }
               loading={isSubmitting}
             >
@@ -129,7 +129,7 @@ BaseForm.propTypes = {
   onSubmit: PropTypes.func,
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired
+      name: PropTypes.string.isRequired,
     })
-  )
+  ),
 };

@@ -1,4 +1,4 @@
-import { http, apiConfig } from '../base';
+import { http, apiConfig } from '@api/base';
 import { orderSerializer as serializer } from './serializers';
 
 const orderURL = '/acquisition/orders/';

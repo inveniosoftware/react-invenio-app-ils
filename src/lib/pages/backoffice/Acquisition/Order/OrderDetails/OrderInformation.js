@@ -1,6 +1,6 @@
 import { toShortDate } from '@api/date';
 import { CreatedBy, UpdatedBy } from '@components/backoffice/ChangedBy';
-import { MetadataTable } from '@components/backoffice';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { PropTypes } from 'prop-types';
 import React from 'react';
 import { Grid } from 'semantic-ui-react';

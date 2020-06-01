@@ -1,25 +1,24 @@
+import { acqOrderApi } from '@api/acquisition';
+import { Error as IlsError } from '@components/Error';
+import { SearchBar as OrdersSearchBar } from '@components/SearchBar';
+import { NewButton } from '@components/backoffice/buttons/NewButton';
+import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import history from '@history';
+import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
+import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import { SearchFooter } from '@modules/SearchControls/SearchFooter';
+import { AcquisitionRoutes } from '@routes/urls';
 import React, { Component } from 'react';
-import { Container, Grid, Header } from 'semantic-ui-react';
 import {
   Error,
-  ResultsList,
+  InvenioSearchApi,
   ReactSearchKit,
+  ResultsList,
   ResultsLoader,
   SearchBar,
-  InvenioSearchApi,
 } from 'react-searchkit';
-import { Error as IlsError, SearchBar as OrdersSearchBar } from '@components';
-import { SearchControls } from '@modules';
-import { acqOrderApi } from '@api';
-import { AcquisitionRoutes } from '@routes/urls';
-import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
-import { NewButton } from '@components/backoffice/buttons';
-import {
-  SearchFooter,
-  SearchEmptyResults,
-  SearchAggregationsCards,
-} from '@modules/SearchControls';
-import history from '@history';
+import { Container, Grid, Header } from 'semantic-ui-react';
 import { OrderList } from './OrderList';
 
 class OrderResponseSerializer {

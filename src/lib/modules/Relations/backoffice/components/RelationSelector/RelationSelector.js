@@ -1,7 +1,7 @@
 import { HitsSearch } from '@modules/ESSelector/HitsSearch';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 
 export default class RelationSelector extends Component {
   disabledSelectionOption = result => {
@@ -14,7 +14,7 @@ export default class RelationSelector extends Component {
     }
 
     /* if relation already exists the option gets blocked */
-    const hasRelations = !isEmpty(existingRelations);
+    const hasRelations = !_isEmpty(existingRelations);
     if (!hasRelations) {
       return false;
     }

@@ -1,6 +1,6 @@
 import { toShortDate } from '@api/date';
-import { LiteratureCover } from '@modules/Literature';
-import { DocumentAuthors } from '@modules/Document';
+import { LiteratureCover } from '@modules/Literature/LiteratureCover';
+import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _has from 'lodash/has';

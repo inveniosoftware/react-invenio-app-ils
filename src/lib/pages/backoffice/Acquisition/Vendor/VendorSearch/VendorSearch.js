@@ -1,21 +1,23 @@
+import { acqVendorApi as vendorApi } from '@api/acquisition';
+import { NewButton } from '@components/backoffice/buttons/NewButton';
+import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import { Error as IlsError } from '@components/Error';
+import { SearchBar as VendorsSearchBar } from '@components/SearchBar';
+import history from '@history';
+import { SearchControls } from '@modules/SearchControls';
+import { SearchEmptyResults } from '@modules/SearchEmptyResults';
+import { SearchFooter } from '@modules/SearchFooter';
+import { AcquisitionRoutes } from '@routes/urls';
 import React, { Component } from 'react';
-import { Container, Grid, Header } from 'semantic-ui-react';
 import {
   Error,
-  ResultsList,
+  InvenioSearchApi,
   ReactSearchKit,
+  ResultsList,
   ResultsLoader,
   SearchBar,
-  InvenioSearchApi,
 } from 'react-searchkit';
-import { Error as IlsError, SearchBar as VendorsSearchBar } from '@components';
-import { SearchControls } from '@modules/SearchControls';
-import { acqVendorApi as vendorApi } from '@api';
-import { AcquisitionRoutes } from '@routes/urls';
-import { NewButton } from '@components/backoffice/buttons';
-import { ExportReactSearchKitResults } from '@components/backoffice';
-import { SearchFooter, SearchEmptyResults } from '@modules/SearchControls';
-import history from '@history';
+import { Container, Grid, Header } from 'semantic-ui-react';
 import { VendorList } from './VendorList';
 
 export class VendorSearch extends Component {

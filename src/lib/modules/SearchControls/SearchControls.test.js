@@ -1,8 +1,8 @@
 import React from 'react';
-import { shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import * as testData from '@testData/documents.json';
 
-import { SearchControls } from '../index';
+import { SearchControls } from './SearchControls';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 
@@ -26,7 +26,6 @@ beforeEach(() => {
   store.clearActions();
 });
 
-
 describe('SearchControls tests', () => {
   let component;
   afterEach(() => {
@@ -39,5 +38,4 @@ describe('SearchControls tests', () => {
     const component = shallow(<SearchControls modelName={'documents'} />);
     expect(component).toMatchSnapshot();
   });
-
 });

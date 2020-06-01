@@ -1,14 +1,10 @@
-import { literatureApi } from '@api';
-import {
-  Error as IlsError,
-  SearchBar as LiteratureSearchBar,
-} from '@components';
-import {
-  SearchControls,
-  SearchEmptyResults,
-  SearchFooter,
-  SearchControlsMobile,
-} from '@modules/SearchControls';
+import { literatureApi } from '@api/literature';
+import { Error as IlsError } from '@components/Error';
+import { SearchBar as LiteratureSearchBar } from '@components/SearchBar';
+import { SearchControls } from '@modules/SearchControls';
+import { SearchEmptyResults } from '@modules/SearchEmptyResults';
+import { SearchFooter } from '@modules/SearchFooter';
+import { SearchControlsMobile } from '@modules/SearchControlsMobile';
 import history from '@history';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -22,8 +18,8 @@ import {
 } from 'react-searchkit';
 import { Container, Divider, Loader, Responsive } from 'semantic-ui-react';
 import { qsBuilderForSeries } from './RequestSerializer';
-import { LiteratureSearchResultsList } from '@modules/Literature';
-import { LiteratureSearchResultsGrid } from '@modules/Literature';
+import { LiteratureSearchResultsList } from '@modules/Literature/LiteratureSearchResultsList';
+import { LiteratureSearchResultsGrid } from '@modules/Literature/LiteratureSearchResultsGrid';
 import { SeriesLiteratureSearchMobile } from './SeriesLiteratureSearchMobile';
 
 export class SeriesLiteratureSearch extends React.Component {

@@ -1,0 +1,34 @@
+[
+  {
+    "pid": "dreq-1",
+    "state": "PENDING",
+    "patron_pid": "1",
+    "title": "Test title 1",
+    "document_pid": "docid-1",
+    "physical_item_provider": {
+      "pid": "acq-order-pid",
+      "pid_type": "acquisition"
+    }
+  },
+  {
+    "pid": "dreq-2",
+    "state": "REJECTED",
+    "patron_pid": "2",
+    "title": "Test title 2",
+    "reject_reason": "Test."
+  },
+  {
+    "pid": "dreq-3",
+    "state": "ACCEPTED",
+    "patron_pid": "3",
+    "document_pid": "docid-1",
+    "title": "Test title 3"
+  },
+  {
+    "pid": "dreq-4",
+    "state": "ACCEPTED",
+    "patron_pid": "4",
+    "document_pid": "docid-2",
+    "title": "Test title 4"
+  }
+]

@@ -1,6 +1,6 @@
 import { DocumentLanguages } from '@modules/Document';
-import { RemoveItemButton } from '@components/backoffice/buttons';
-import { RelationListEntry } from '../../components';
+import { RemoveItemButton } from '@components/backoffice/buttons/RemoveItemButton';
+import { RelationListEntry } from '@components/Relations/backoffice/components/RelationListEntry';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Label, Item } from 'semantic-ui-react';

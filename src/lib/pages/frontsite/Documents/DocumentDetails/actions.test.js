@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import { documentApi } from '@api';
+import { documentApi } from '@api/documents';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

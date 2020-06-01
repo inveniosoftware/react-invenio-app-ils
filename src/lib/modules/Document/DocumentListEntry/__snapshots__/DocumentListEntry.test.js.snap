@@ -2,12 +2,11 @@
 
 exports[`should render correctly 1`] = `
 <Item>
-  <LiteratureCover
+  <Overridable(LiteratureCover)
     asItem={true}
     isRestricted={false}
     linkTo="/literature/13"
     size="small"
-    url={null}
   />
   <ItemContent>
     <ItemMeta>
@@ -33,8 +32,8 @@ exports[`should render correctly 1`] = `
       The Gulf: The Making of An American Sea
     </ItemHeader>
     <ItemMeta>
-      <DocumentAuthors
-        delimiter="; "
+      <Overridable(DocumentAuthors)
+        authorsLimit={10}
         metadata={
           Object {
             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
@@ -100,8 +99,7 @@ exports[`should render correctly 1`] = `
                 <span>
                   Languages: 
                 </span>
-                <DocumentLanguages
-                  listItemAs=""
+                <Overridable(DocumentLanguages)
                   metadata={
                     Object {
                       "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
@@ -132,8 +130,6 @@ exports[`should render correctly 1`] = `
                       "title": "The Gulf: The Making of An American Sea",
                     }
                   }
-                  separator=", "
-                  withLabel={false}
                 />
               </ListContent>
             </ListItem>
@@ -142,7 +138,7 @@ exports[`should render correctly 1`] = `
       </Grid>
     </ItemMeta>
     <ItemExtra>
-      <DocumentTags
+      <Overridable(DocumentTags)
         metadata={
           Object {
             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",

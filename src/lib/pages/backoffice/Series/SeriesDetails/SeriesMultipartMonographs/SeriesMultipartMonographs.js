@@ -1,10 +1,13 @@
-import { InfoMessage, SeriesDetailsLink } from '@components/backoffice';
+import { InfoMessage } from '@components/backoffice/InfoMessage';
+import { SeriesDetailsLink } from '@components/backoffice/SeriesDetailsLink';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { DocumentTitle } from '@modules/Document';
-import { Loader, Error, ResultsTable } from '@components';
+import { DocumentTitle } from '@modules/Document/DocumentTitle';
+import { Link } from 'react-router-dom';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
 import { seriesApi } from '@api';
-import { SeeAllButton } from '@components/backoffice/buttons';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 

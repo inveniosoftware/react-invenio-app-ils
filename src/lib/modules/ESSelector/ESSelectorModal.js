@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Button, Modal } from 'semantic-ui-react';
-import { ESSelector } from '../ESSelector';
+import ESSelector from './ESSelector';
 
 export default class ESSelectorModal extends Component {
   state = {

@@ -1,4 +1,4 @@
-import { shallow, mount } from 'enzyme/build';
+import { mount } from 'enzyme/build';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import AuthenticationGuard from './AuthenticationGuard';

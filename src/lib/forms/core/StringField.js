@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { FastField, Field, getIn } from "formik";
-import { Form } from "semantic-ui-react";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { FastField, Field, getIn } from 'formik';
+import { Form } from 'semantic-ui-react';
 
 export class StringField extends Component {
-  renderError(errors, name, direction = "above") {
+  renderError(errors, name, direction = 'above') {
     const error = errors[name];
     return error
       ? {
           content: error,
-          pointing: direction
+          pointing: direction,
         }
       : null;
   }
@@ -17,7 +17,7 @@ export class StringField extends Component {
   renderFormField = props => {
     const { fieldPath, inline, optimized, ...uiProps } = this.props;
     const {
-      form: { values, handleChange, handleBlur, errors, status }
+      form: { values, handleChange, handleBlur, errors, status },
     } = props;
 
     return (
@@ -28,7 +28,7 @@ export class StringField extends Component {
           name={fieldPath}
           onChange={handleChange}
           onBlur={handleBlur}
-          value={getIn(values, fieldPath, "")}
+          value={getIn(values, fieldPath, '')}
           error={this.renderError(status || errors, fieldPath)}
           {...uiProps}
         />
@@ -50,10 +50,10 @@ export class StringField extends Component {
 StringField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   inline: PropTypes.bool,
-  optimized: PropTypes.bool
+  optimized: PropTypes.bool,
 };
 
 StringField.defaultProps = {
   inline: false,
-  optimized: true
+  optimized: true,
 };

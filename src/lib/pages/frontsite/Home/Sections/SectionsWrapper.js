@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import { DocumentCardGroup } from '@modules/Document';
 import SectionServices from './SectionServices';
 import { Container } from 'semantic-ui-react';
 import SectionTags from './SectionTags';
-import { documentApi } from '@api';
+import { documentApi } from '@api/documents';
 import { FrontSiteRoutes } from '@routes/urls';
 
 export default class SectionsWrapper extends Component {
@@ -68,7 +68,7 @@ export default class SectionsWrapper extends Component {
 
   renderSections = () => {
     const { sections } = this.props;
-    if (!isEmpty(sections)) {
+    if (!_isEmpty(sections)) {
       return (
         <Container fluid className="fs-landing-page-section-wrapper">
           {sections.map((Section, idx) => {

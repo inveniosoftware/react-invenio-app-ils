@@ -1,4 +1,4 @@
-import { MetadataTable } from '@components/backoffice';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import React from 'react';
 import { formatPrice } from '@api/utils';
 import { Component } from 'react';

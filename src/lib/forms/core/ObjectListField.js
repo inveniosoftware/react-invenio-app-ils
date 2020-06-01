@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Field, getIn } from "formik";
-import { Form, List, Icon } from "semantic-ui-react";
-import { ErrorIcon } from "./ErrorIcon";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Field, getIn } from 'formik';
+import { Form, List, Icon } from 'semantic-ui-react';
+import { ErrorIcon } from './ErrorIcon';
 
 export class ObjectListField extends Component {
   state = {
-    activeIndex: null
+    activeIndex: null,
   };
 
   onItemClick = (item, index) => {
@@ -32,7 +32,7 @@ export class ObjectListField extends Component {
   renderFormField = props => {
     const { fieldPath, keyField } = this.props;
     const {
-      form: { errors, values }
+      form: { errors, values },
     } = props;
     const items = getIn(values, fieldPath, []);
     const { activeIndex } = this.state;
@@ -79,5 +79,5 @@ export class ObjectListField extends Component {
 
 ObjectListField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
-  onItemChange: PropTypes.func
+  onItemChange: PropTypes.func,
 };

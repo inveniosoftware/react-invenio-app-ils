@@ -1,6 +1,7 @@
 import { recordToPidType } from '@api/utils';
 import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
-import { documentApi, seriesApi } from '@api';
+import { documentApi } from '@api/documents';
+import { seriesApi } from '@api/series';
 import {
   sendErrorNotification,
   sendSuccessNotification,

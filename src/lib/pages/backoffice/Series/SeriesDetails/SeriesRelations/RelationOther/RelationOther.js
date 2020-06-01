@@ -1,14 +1,13 @@
-import { Error, Loader } from '@components';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import { SeriesDetailsLink } from '@components/backoffice/buttons';
 import { InfoMessage } from '@components/backoffice';
-import {
-  ExistingRelations,
-  RelationRemover,
-} from '@modules/Relations/backoffice';
-import { DocumentTitle } from '@modules/Document';
+import { ExistingRelations } from '@modules/Relations/backoffice/components/ExistingRelations';
+import { RelationRemover } from '@modules/Relations/backoffice/components/RelationRemover';
+import { DocumentTitle } from '@modules/Document/DocumentTitle';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import { RelationOtherModal } from '../RelationOther';
 
 export default class RelationOther extends Component {
@@ -28,7 +27,7 @@ export default class RelationOther extends Component {
   removeHandler = ({ row }) => {
     const { seriesDetails } = this.props;
 
-    if (!isEmpty(seriesDetails)) {
+    if (!_isEmpty(seriesDetails)) {
       return (
         <RelationRemover
           referrer={seriesDetails}

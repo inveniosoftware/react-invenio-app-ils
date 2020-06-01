@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Loader, Error } from '@components';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
 import { locationApi } from '@api/locations/location';
 import { LocationForm } from './components';
 

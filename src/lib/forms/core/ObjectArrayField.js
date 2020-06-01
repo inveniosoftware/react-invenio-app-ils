@@ -1,7 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { AccordionField, ArrayField, GroupField } from "../core";
-import { DeleteActionButton } from "../components";
+import { DeleteActionButton } from '@forms/components/DeleteActionButton';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { AccordionField } from './AccordionField';
+import { ArrayField } from './ArrayField';
+import { GroupField } from './GroupField';
 
 export class ObjectArrayField extends React.Component {
   renderArrayItem = ({ arrayPath, indexPath, ...arrayHelpers }) => {
@@ -43,11 +45,12 @@ export class ObjectArrayField extends React.Component {
   );
 
   render() {
-    if (this.props.accordion) {
+    const { accordion, label, fieldPath } = this.props;
+    if (accordion) {
       return (
         <AccordionField
-          label={this.props.label}
-          fieldPath={this.props.fieldPath}
+          label={label}
+          fieldPath={fieldPath}
           content={this.renderArrayField()}
         />
       );
@@ -61,18 +64,18 @@ ObjectArrayField.propTypes = {
   accordion: PropTypes.bool,
   addButtonLabel: PropTypes.string,
   defaultNewValue: PropTypes.object.isRequired,
-  fieldPath: PropTypes.string,
-  label: PropTypes.string,
+  fieldPath: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
   objects: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string.isRequired,
       element: PropTypes.any.isRequired,
-      props: PropTypes.object
+      props: PropTypes.object,
     })
-  ).isRequired
+  ).isRequired,
 };
 
 ObjectArrayField.defaultProps = {
   accordion: false,
-  addButtonLabel: "Add"
+  addButtonLabel: 'Add',
 };

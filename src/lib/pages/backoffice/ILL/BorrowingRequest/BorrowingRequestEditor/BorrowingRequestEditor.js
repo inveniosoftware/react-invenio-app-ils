@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Loader, Error } from '@components';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
 import { illBorrowingRequestApi as borrowingRequestApi } from '@api';
 import { BorrowingRequestForm } from './BorrowingRequestForm';
 

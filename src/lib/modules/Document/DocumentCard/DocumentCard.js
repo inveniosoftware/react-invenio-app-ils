@@ -1,10 +1,10 @@
 import { toShortDate } from '@api/date';
-import { LiteratureCover } from '@modules/Literature';
-import { DocumentAuthors } from '@modules/Document';
+import { LiteratureCover } from '@modules/Literature/LiteratureCover';
+import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
 import { goTo } from '@history';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
@@ -55,7 +55,7 @@ class DocumentCard extends Component {
             <Card.Meta>
               <DocumentAuthors metadata={data.metadata} authorsLimit={10} />
               <div>
-                {!isEmpty(metadata.imprints) ? (
+                {!_isEmpty(metadata.imprints) ? (
                   <>
                     {toShortDate(_get(metadata, 'imprints[0].date'))} <br />{' '}
                   </>

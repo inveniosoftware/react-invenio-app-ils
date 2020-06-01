@@ -1,7 +1,7 @@
-import { http, apiConfig } from '../base';
+import { http, apiConfig } from '@api/base';
 import { serializer } from './serializer';
-import { prepareSumQuery } from '../utils';
-import isEmpty from 'lodash/isEmpty';
+import { prepareSumQuery } from '@api/utils';
+import _isEmpty from 'lodash/isEmpty';
 import { generatePath } from 'react-router-dom';
 
 const documentRequestURL = '/document-requests/';
@@ -97,7 +97,7 @@ class QueryBuilder {
   }
 
   withPatronPid(patronPid) {
-    if (!patronPid || (typeof patronPid != 'number' && isEmpty(patronPid))) {
+    if (!patronPid || (typeof patronPid != 'number' && _isEmpty(patronPid))) {
       throw TypeError('patronPid argument missing');
     }
     this.patronQuery.push(`patron_pid:${prepareSumQuery(patronPid)}`);

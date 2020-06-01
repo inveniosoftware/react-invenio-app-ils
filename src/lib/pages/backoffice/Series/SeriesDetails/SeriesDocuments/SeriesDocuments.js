@@ -1,9 +1,11 @@
 import { InfoMessage } from '@components/backoffice';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Loader, Error, ResultsTable } from '@components';
-import { DocumentTitle } from '@modules/Document';
-import { documentApi } from '@api';
+import { Link } from 'react-router-dom';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
+import { DocumentTitle } from '@modules/Document/DocumentTitle';
+import { documentApi } from '@api/documents';
 import {
   DocumentDetailsLink,
   SeeAllButton,

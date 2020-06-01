@@ -1,1 +1,0 @@
-export { FrontSite } from './frontsite';

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
-import { authenticationService } from '@authentication/services';
+import { authenticationService } from '@authentication/services/AuthenticationService';
 import { AuthenticationRoutes } from '@routes/urls';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 export default class AuthenticationGuard extends Component {
   render() {

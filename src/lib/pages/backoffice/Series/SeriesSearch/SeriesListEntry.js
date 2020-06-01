@@ -1,4 +1,4 @@
-import { LiteratureCover } from '@modules/Literature';
+import { LiteratureCover } from '@modules/Literature/LiteratureCover';
 import { SeriesAuthors } from '@modules/Series';
 import {
   DocumentEdition,
@@ -111,7 +111,7 @@ export class SeriesListEntry extends Component {
           <Grid columns={3}>
             <Grid.Column computer={6} largeScreen={5}>
               <Item.Meta className="series-authors">
-                <SeriesAuthors prefix="by " metadata={series.metadata} />
+                <SeriesAuthors prefix="by " authors={series.metadata.authors} />
               </Item.Meta>
               {identifier && (
                 <>

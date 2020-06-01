@@ -16,8 +16,8 @@ import {
 } from '@modules/SearchControls';
 import { illLibraryApi as libraryApi } from '@api';
 import { ILLRoutes } from '@routes/urls';
-import { ExportReactSearchKitResults } from '@components/backoffice';
-import { NewButton } from '@components/backoffice/buttons';
+import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import { NewButton } from '@components/backoffice/buttons/NewButton';
 import history from '@history';
 import { LibraryList } from './LibraryList';
 

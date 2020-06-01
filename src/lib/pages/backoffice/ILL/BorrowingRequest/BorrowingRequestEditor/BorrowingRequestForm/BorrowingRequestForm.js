@@ -1,7 +1,7 @@
 import { illBorrowingRequestApi, vocabularyApi } from '@api';
 import { Loader } from '@components';
 import { invenioConfig } from '@config';
-import { BaseForm } from '@forms';
+import { BaseForm } from '@forms/core';
 import { goTo } from '@history';
 import { ILLRoutes } from '@routes/urls';
 import { getIn } from 'formik';

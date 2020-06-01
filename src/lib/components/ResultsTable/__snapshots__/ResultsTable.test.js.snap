@@ -54,26 +54,32 @@ exports[`ResultsTable tests should not render the see all button when showing on
       },
     ]
   }
+  fixed={false}
   headerActionComponent={null}
+  name=""
   paginationComponent={null}
   seeAllComponent={null}
   showAllResults={false}
   showMaxRows={3}
-  singleLine={false}
+  singleLine={true}
   subtitle=""
   title=""
 >
   <Table
     as="table"
     compact={true}
+    fixed={false}
+    name=""
     selectable={true}
+    singleLine={true}
     striped={true}
     subtitle=""
     title=""
     unstackable={true}
   >
     <table
-      className="ui selectable striped unstackable compact table"
+      className="ui selectable single line striped unstackable compact table"
+      name=""
       subtitle=""
       title=""
     >
@@ -384,7 +390,9 @@ exports[`ResultsTable tests should render the see all button when showing only a
       },
     ]
   }
+  fixed={false}
   headerActionComponent={null}
+  name=""
   paginationComponent={null}
   seeAllComponent={
     <Button
@@ -397,21 +405,25 @@ exports[`ResultsTable tests should render the see all button when showing only a
   }
   showAllResults={false}
   showMaxRows={1}
-  singleLine={false}
+  singleLine={true}
   subtitle=""
   title=""
 >
   <Table
     as="table"
     compact={true}
+    fixed={false}
+    name=""
     selectable={true}
+    singleLine={true}
     striped={true}
     subtitle=""
     title=""
     unstackable={true}
   >
     <table
-      className="ui selectable striped unstackable compact table"
+      className="ui selectable single line striped unstackable compact table"
+      name=""
       subtitle=""
       title=""
     >

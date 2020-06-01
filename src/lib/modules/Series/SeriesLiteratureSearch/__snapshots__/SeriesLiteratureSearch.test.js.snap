@@ -74,7 +74,9 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
       <Connect(ResultsLoader)
         renderElement={[Function]}
       >
-        <SearchEmptyResults />
+        <SearchEmptyResults
+          extras={[Function]}
+        />
         <Connect(Error)
           renderElement={[Function]}
         />
@@ -98,6 +100,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
         >
           <SearchControlsMobile
             modelName="literature"
+            stickyRef={null}
           />
         </Responsive>
         <SearchFooter />

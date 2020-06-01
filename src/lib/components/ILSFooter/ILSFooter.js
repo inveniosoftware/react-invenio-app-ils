@@ -1,6 +1,6 @@
 import { getStaticPageByName } from '@config/uiConfig';
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Header, List } from 'semantic-ui-react';

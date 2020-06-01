@@ -10,7 +10,7 @@ import DocumentDetails from './DocumentDetails';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-jest.mock('../components/', () => {
+jest.mock('./', () => {
   return {
     DocumentActionMenu: () => null,
     DocumentMetadata: () => null,
@@ -25,14 +25,14 @@ jest.mock('../components/', () => {
   };
 });
 
-jest.mock('../', () => {
+jest.mock('./', () => {
   return {
     DocumentHeader: () => null,
     DocumentContent: () => null,
   };
 });
 
-jest.mock('../components/DocumentRelations', () => {
+jest.mock('./DocumentRelations', () => {
   return {
     DocumentSeries: () => null,
     DocumentSiblings: () => null,

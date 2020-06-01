@@ -1,7 +1,9 @@
-import { eItemApi } from '@api';
-import { Error, Loader, ResultsTable } from '@components';
+import { eItemApi } from '@api/eitems';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import { ResultsTable } from '@components/ResultsTable';
 import { OpenAccessLabel } from '@components/backoffice';
-import { SeeAllButton } from '@components/backoffice/buttons';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
