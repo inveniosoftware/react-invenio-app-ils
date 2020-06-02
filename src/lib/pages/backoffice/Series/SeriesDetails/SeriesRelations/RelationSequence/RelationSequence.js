@@ -2,7 +2,7 @@ import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import { DocumentTitle } from '@modules/Document/DocumentTitle';
 import { SeriesDetailsLink } from '@components/backoffice/buttons';
-import { InfoMessage } from '@components/backoffice';
+import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { ExistingRelations } from '@modules/Relations/backoffice/components/ExistingRelations';
 import { RelationRemover } from '@modules/Relations/backoffice/components/RelationRemover';
 import _get from 'lodash/get';

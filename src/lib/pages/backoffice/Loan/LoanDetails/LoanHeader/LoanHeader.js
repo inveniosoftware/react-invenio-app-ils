@@ -1,13 +1,12 @@
 import { toShortDate } from '@api/date';
-import { CopyButton } from '@components';
-import { DocumentTitle, DocumentAuthors } from '@modules/Document';
+import { CopyButton } from '@components/CopyButton';
+import { DocumentAuthors } from '@modules/Document/DocumentTitle';
+import { DocumentTitle } from '@modules/Document/DocumentAuthors';
 import { getDisplayVal } from '@config/invenioConfig';
-import {
-  DetailsHeader,
-  DocumentDetailsLink,
-  LoanIcon,
-  PatronIcon,
-} from '@components/backoffice';
+import { DetailsHeader } from '@components/backoffice/DetailsHeader';
+import { DocumentDetailsLink } from '@components/backoffice/DocumentDetailsLink';
+import { LoanIcon } from '@components/backoffice/LoanIcon';
+import { PatronIcon } from '@components/backoffice/PatronIcon';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, Label } from 'semantic-ui-react';

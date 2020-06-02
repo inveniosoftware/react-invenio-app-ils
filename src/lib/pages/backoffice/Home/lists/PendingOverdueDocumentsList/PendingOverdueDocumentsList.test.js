@@ -1,11 +1,9 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { Button } from 'semantic-ui-react';
 import { Settings } from 'luxon';
 import { fromISO } from '@api/date';
 import { BackOfficeRoutes } from '@routes/urls';
 import PendingOverdueDocumentsList from './PendingOverdueDocumentsList';
-import history from '@history';
 import * as testData from '@testData/documents.json';
 
 jest.mock('react-router-dom');

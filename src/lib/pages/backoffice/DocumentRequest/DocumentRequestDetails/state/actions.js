@@ -1,4 +1,4 @@
-import { documentRequestApi } from '@api';
+import { documentRequestApi } from '@api/documentRequests';
 import { delay } from '@api/utils';
 import {
   sendErrorNotification,

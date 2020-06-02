@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-
 import { fetchEItemDetails } from '../../EItemDetails/state/actions';
 import { EItemEditor as EItemEditorComponent } from './EItemEditor';
 

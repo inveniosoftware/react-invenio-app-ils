@@ -8,13 +8,12 @@ import {
   SearchBar,
   InvenioSearchApi,
 } from 'react-searchkit';
-import { Error as IlsError, SearchBar as LibrarySearchBar } from '@components';
-import {
-  SearchControls,
-  SearchFooter,
-  SearchEmptyResults,
-} from '@modules/SearchControls';
-import { illLibraryApi as libraryApi } from '@api';
+import { Error as IlsError } from '@components/Error';
+import { SearchBar as LibrarySearchBar } from '@components/SearchBar';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
+import { SearchFooter } from '@modules/SearchControls/SearchFooter';
+import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import { illLibraryApi as libraryApi } from '@api/ill';
 import { ILLRoutes } from '@routes/urls';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { NewButton } from '@components/backoffice/buttons/NewButton';

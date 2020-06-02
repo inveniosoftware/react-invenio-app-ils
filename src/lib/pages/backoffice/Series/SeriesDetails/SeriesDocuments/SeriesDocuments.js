@@ -1,4 +1,4 @@
-import { InfoMessage } from '@components/backoffice';
+import { InfoMessage } from '@components/backoffice/InfoMessage';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';

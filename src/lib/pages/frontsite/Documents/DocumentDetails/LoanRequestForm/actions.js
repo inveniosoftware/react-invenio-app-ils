@@ -1,5 +1,5 @@
-import { sessionManager } from '@authentication/services';
-import { loanApi } from '@api/loan';
+import { sessionManager } from '@authentication/services/SessionManager';
+import { loanApi } from '@api/loans';
 import { toShortDate } from '@api/date';
 import { DateTime } from 'luxon';
 

@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { BackOfficeRoutes } from '@routes/urls';
 import { Label } from 'semantic-ui-react';
 import { toShortDate } from '@api/date';
-import { CopyButton } from '@components';
+import { CopyButton } from '@components/CopyButton';
 import { DocumentRequestIcon } from '@components/backoffice/icons';
-import { DetailsHeader } from '@components/backoffice';
+import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 
 export default class DocumentRequestHeader extends Component {
   renderStatus(status) {

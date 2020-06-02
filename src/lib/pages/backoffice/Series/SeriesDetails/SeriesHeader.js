@@ -1,5 +1,5 @@
 import { toShortDate } from '@api/date';
-import { CopyButton } from '@components';
+import { CopyButton } from '@components/CopyButton';
 import { CreatedBy } from '@components/backoffice';
 import { LiteratureCover } from '@modules/Literature/LiteratureCover';
 import { SeriesAuthors } from '@modules/Series';

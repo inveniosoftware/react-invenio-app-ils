@@ -7,7 +7,7 @@ import { CurrentItem } from './CurrentItem';
 import { LoanHeader } from './LoanHeader';
 import { Loan } from './Loan';
 import { AvailableItems } from './AvailableItems';
-import { LoanActionMenu } from './LoanActionMenu/';
+import { LoanActionMenu } from './LoanActionMenu';
 
 export default class LoanDetails extends Component {
   constructor(props) {

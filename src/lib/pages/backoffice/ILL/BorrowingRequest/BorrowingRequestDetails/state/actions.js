@@ -1,4 +1,4 @@
-import { illBorrowingRequestApi as borrowingRequestApi } from '@api';
+import { illBorrowingRequestApi as borrowingRequestApi } from '@api/ill';
 import { HAS_ERROR, IS_LOADING, SUCCESS } from './types';
 
 export const fetchBorrowingRequestDetails = borrowingRequestPid => {

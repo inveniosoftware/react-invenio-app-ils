@@ -1,5 +1,5 @@
 import { invenioConfig } from '@config';
-import { InfoMessage } from '@components/backoffice';
+import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { BorrowingRequest } from './BorrowingRequest';
 import { ItemMetadata } from './ItemMetadata';
 import _isEmpty from 'lodash/isEmpty';

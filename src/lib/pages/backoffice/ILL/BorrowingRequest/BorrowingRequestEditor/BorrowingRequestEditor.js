@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
-import { illBorrowingRequestApi as borrowingRequestApi } from '@api';
+import { illBorrowingRequestApi as borrowingRequestApi } from '@api/ill';
 import { BorrowingRequestForm } from './BorrowingRequestForm';
 
 export class BorrowingRequestEditor extends Component {

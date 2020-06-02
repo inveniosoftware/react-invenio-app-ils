@@ -3,14 +3,12 @@ import { getDisplayVal } from '@config/invenioConfig';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Icon, Label } from 'semantic-ui-react';
-import {
-  MetadataTable,
-  PatronDetailsLink,
-  LocationsLink,
-  ItemIcon,
-  DocumentIcon,
-  PatronIcon,
-} from '@components/backoffice';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
+import { PatronDetailsLink } from '@components/backoffice/PatronDetailsLink';
+import { LocationsLink } from '@components/backoffice/LocationsLink';
+import { ItemIcon } from '@components/backoffice/ItemIcon';
+import { DocumentIcon } from '@components/backoffice/DocumentIcon';
+import { PatronIcon } from '@components/backoffice/PatronIcon';
 import _isEmpty from 'lodash/isEmpty';
 import { toShortDate, toShortDateTime } from '@api/date';
 import { LoanLinkToItem } from '@modules/Loan/backoffice';

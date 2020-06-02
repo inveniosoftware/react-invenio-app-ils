@@ -1,4 +1,4 @@
-import { illLibraryApi as libraryApi } from '@api';
+import { illLibraryApi as libraryApi } from '@api/ill';
 import { delay } from '@api/utils';
 import {
   sendErrorNotification,

@@ -9,11 +9,9 @@ import {
   Step,
 } from 'semantic-ui-react';
 import { AcquisitionRoutes, ILLRoutes } from '@routes/urls';
-import {
-  documentRequestApi,
-  acqOrderApi,
-  illBorrowingRequestApi as illBrwReqApi,
-} from '@api';
+import { documentRequestApi } from '@api/documentRequests';
+import { acqOrderApi } from '@api/acquisition';
+import { illBorrowingRequestApi as illBrwReqApi } from '@api/ill';
 import { ESSelector } from '@modules/ESSelector';
 import {
   serializeAcqOrder,

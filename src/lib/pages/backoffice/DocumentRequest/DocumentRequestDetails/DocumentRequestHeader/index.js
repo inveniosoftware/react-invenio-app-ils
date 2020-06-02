@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-
 import DocumentRequestHeaderComponent from './DocumentRequestHeader';
 
 const mapStateToProps = state => ({

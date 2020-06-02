@@ -1,4 +1,4 @@
-import { InfoMessage } from '@components/backoffice';
+import { InfoMessage } from '@components/backoffice/InfoMessage';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import ShowMore from 'react-show-more';

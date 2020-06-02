@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
-import { loanApi } from '@api/loan';
+import { loanApi } from '@api/loans';
 import { dateFormatter } from '@api/date';
 import { invenioConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';

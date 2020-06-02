@@ -1,20 +1,20 @@
-import { documentApi, illLibraryApi, patronApi } from '@api';
+import { documentApi } from '@api/documents';
+import { illLibraryApi } from '@api/ill';
+import { patronApi } from '@api/patrons';
 import {
   serializeDocument,
   serializeLibrary,
   serializePatron,
 } from '@modules/ESSelector/serializer';
 import { invenioConfig } from '@config';
-import {
-  DateInputField,
-  GroupField,
-  PriceField,
-  SelectField,
-  SelectorField,
-  StringField,
-  TextField,
-  VocabularyField,
-} from '@forms/core';
+import { DateInputField } from '@forms/core/DateTimeFields/DateInputField';
+import { GroupField } from '@forms/core/GroupField';
+import { PriceField } from '@forms/core/PriceField';
+import { SelectField } from '@forms/core/SelectField';
+import { SelectorField } from '@forms/core/SelectorField';
+import { StringField } from '@forms/core/StringField';
+import { TextField } from '@forms/core/TextField';
+import { VocabularyField } from '@forms/core/VocabularyField';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 

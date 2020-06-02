@@ -1,6 +1,7 @@
 import { toShortDate } from '@api/date';
-import { CopyButton } from '@components';
-import { DocumentTitle, DocumentAuthors } from '@modules/Document';
+import { CopyButton } from '@components/CopyButton';
+import { DocumentAuthors } from '@modules/Document/DocumentTitle';
+import { DocumentTitle } from '@modules/Document/DocumentAuthors';
 import { DetailsHeader, DocumentIcon, ItemIcon } from '@components/backoffice';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';

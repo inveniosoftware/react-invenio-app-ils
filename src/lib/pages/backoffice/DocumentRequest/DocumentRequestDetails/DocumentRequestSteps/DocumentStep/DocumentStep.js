@@ -11,7 +11,8 @@ import {
 } from 'semantic-ui-react';
 import { ESSelector } from '@modules/ESSelector';
 import { serializeDocument } from '@modules/ESSelector/serializer';
-import { documentApi, documentRequestApi } from '@api';
+import { documentApi } from '@api/documents';
+import { documentRequestApi } from '@api/documentRequests';
 import { DocumentIcon } from '@components/backoffice/icons';
 import { BackOfficeRoutes } from '@routes/urls';
 import { goTo } from '@history';

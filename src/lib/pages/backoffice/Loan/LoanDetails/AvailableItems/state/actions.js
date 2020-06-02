@@ -3,7 +3,8 @@ import {
   DETAILS_SUCCESS as FETCH_LOAN_SUCCESS,
   DETAILS_IS_LOADING as FETCH_LOAN_IS_LOADING,
 } from '@modules/Loan/actions';
-import { itemApi, loanApi } from '@api';
+import { itemApi } from '@api/items';
+import { loanApi } from '@api/loans';
 import { invenioConfig } from '@config';
 import { sendErrorNotification } from '@components/Notifications';
 

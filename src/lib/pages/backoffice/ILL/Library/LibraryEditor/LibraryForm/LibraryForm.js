@@ -1,5 +1,7 @@
-import { illLibraryApi as libraryApi } from '@api';
-import { BaseForm, StringField, TextField } from '@forms/core';
+import { illLibraryApi as libraryApi } from '@api/ill';
+import { BaseForm } from '@forms/core/BaseForm';
+import { StringField } from '@forms/core/StringField';
+import { TextField } from '@forms/core/TextField';
 import { goTo } from '@history';
 import { ILLRoutes } from '@routes/urls';
 import { getIn } from 'formik';

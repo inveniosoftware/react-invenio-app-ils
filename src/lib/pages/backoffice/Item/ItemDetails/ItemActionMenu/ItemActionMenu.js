@@ -1,4 +1,5 @@
-import { loanApi, patronApi } from '@api';
+import { loanApi } from '@api/loans';
+import { patronApi } from '@api/patrons';
 import { recordToPidType } from '@api/utils';
 import { ESSelectorModal } from '@modules/ESSelector';
 import { serializePatron } from '@modules/ESSelector/serializer';

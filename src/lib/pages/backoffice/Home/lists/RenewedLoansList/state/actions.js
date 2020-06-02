@@ -1,5 +1,5 @@
 import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
-import { loanApi } from '@api/loan';
+import { loanApi } from '@api/loans';
 import { listQuery } from './listQuery';
 import { sendErrorNotification } from '@components/Notifications';
 

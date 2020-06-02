@@ -1,9 +1,8 @@
-import { InfoMessage } from '@components/backoffice';
+import { InfoMessage } from '@components/backoffice/InfoMessage';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Button, Header, Message, Segment } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
 import { itemApi } from '@api/items';

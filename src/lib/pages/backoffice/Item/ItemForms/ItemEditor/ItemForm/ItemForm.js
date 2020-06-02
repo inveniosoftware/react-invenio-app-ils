@@ -2,16 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getIn } from 'formik';
 import pick from 'lodash/pick';
-import {
-  BaseForm,
-  StringField,
-  TextField,
-  SelectField,
-  GroupField,
-  SelectorField,
-  AccordionField,
-  PriceField,
-} from '@forms/core';
+import { BaseForm } from '@forms/core/BaseForm';
+import { StringField } from '@forms/core/StringField';
+import { TextField } from '@forms/core/TextField';
+import { SelectField } from '@forms/core/SelectField';
+import { GroupField } from '@forms/core/GroupField';
+import { SelectorField } from '@forms/core/SelectorField';
+import { AccordionField } from '@forms/core/AccordionField';
+import { PriceField } from '@forms/core/PriceField';
 import { BackOfficeRoutes } from '@routes/urls';
 import { goTo } from '@history';
 import itemSubmitSerializer from './itemSubmitSerializer';

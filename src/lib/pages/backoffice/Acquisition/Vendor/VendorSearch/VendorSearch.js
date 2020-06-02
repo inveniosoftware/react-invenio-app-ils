@@ -4,9 +4,9 @@ import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearch
 import { Error as IlsError } from '@components/Error';
 import { SearchBar as VendorsSearchBar } from '@components/SearchBar';
 import history from '@history';
-import { SearchControls } from '@modules/SearchControls';
-import { SearchEmptyResults } from '@modules/SearchEmptyResults';
-import { SearchFooter } from '@modules/SearchFooter';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
+import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import { SearchFooter } from '@modules/SearchControls/SearchFooter';
 import { AcquisitionRoutes } from '@routes/urls';
 import React, { Component } from 'react';
 import {

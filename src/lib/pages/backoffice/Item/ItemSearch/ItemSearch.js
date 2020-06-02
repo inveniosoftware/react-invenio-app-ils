@@ -9,7 +9,8 @@ import {
   InvenioSearchApi,
 } from 'react-searchkit';
 import { getSearchConfig } from '@config';
-import { Error as IlsError, SearchBar as ItemsSearchBar } from '@components';
+import { Error as IlsError } from '@components/Error';
+import { SearchBar as ItemsSearchBar } from '@components/SearchBar';
 import { itemApi } from '@api/items';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
@@ -17,12 +18,10 @@ import { BackOfficeRoutes } from '@routes/urls';
 import { ItemListEntry } from './ItemListEntry';
 import history from '@history';
 import { responseRejectInterceptor } from '@api/base';
-import {
-  SearchEmptyResults,
-  SearchAggregationsCards,
-  SearchFooter,
-  SearchControls,
-} from '@modules/SearchControls';
+import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
+import { SearchFooter } from '@modules/SearchControls/SearchFooter';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
 
 export class ItemSearch extends Component {
   searchApi = new InvenioSearchApi({

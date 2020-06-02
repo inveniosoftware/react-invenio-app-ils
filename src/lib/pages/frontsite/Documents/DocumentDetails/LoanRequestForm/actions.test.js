@@ -3,9 +3,9 @@ import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
 import * as types from './types';
-import { loan as loanApi } from '@api';
+import { loanApi } from '@api/loans';
 import * as testData from '@testData/loans.json';
-import { sessionManager } from '@authentication/services';
+import { sessionManager } from '@authentication/services/SessionManager';
 import { toShortDate } from '@api/date';
 import { DateTime } from 'luxon';
 

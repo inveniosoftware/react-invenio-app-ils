@@ -10,8 +10,8 @@ const mockStore = configureMockStore(middlewares);
 
 const mockGet = jest.fn();
 const mockDelete = jest.fn();
-eitemApi.get = mockGet;
-eitemApi.delete = mockDelete;
+eItemApi.get = mockGet;
+eItemApi.delete = mockDelete;
 
 const response = { data: {} };
 const expectedPayload = {};

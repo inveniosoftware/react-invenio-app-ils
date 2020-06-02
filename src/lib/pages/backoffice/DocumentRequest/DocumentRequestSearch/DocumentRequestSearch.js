@@ -13,11 +13,9 @@ import {
   Error,
   InvenioSearchApi,
 } from 'react-searchkit';
-import {
-  Error as IlsError,
-  SearchBar as DocumentRequestsSearchBar,
-} from '@components';
-import { documentRequestApi } from '@api/documentRequests/documentRequest';
+import { Error as IlsError } from '@components/Error';
+import { SearchBar as DocumentRequestsSearchBar } from '@components/SearchBar';
+import { documentRequestApi } from '@api/documentRequests';
 import { getSearchConfig } from '@config';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import history from '@history';

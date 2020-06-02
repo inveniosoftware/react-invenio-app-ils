@@ -9,7 +9,8 @@ import {
   DELETE_SUCCESS,
   DELETE_HAS_ERROR,
 } from './types';
-import { itemApi, loanApi } from '@api';
+import { itemApi } from '@api/items';
+import { loanApi } from '@api/loans';
 import { BackOfficeRoutes } from '@routes/urls';
 import {
   sendErrorNotification,

@@ -1,4 +1,4 @@
-import { ResultsTable } from '@components';
+import { ResultsTable } from '@components/ResultsTable';
 import { MetadataTable, UrlList } from '@components/backoffice';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { SeriesLanguages } from '@modules/Series/SeriesLanguages';

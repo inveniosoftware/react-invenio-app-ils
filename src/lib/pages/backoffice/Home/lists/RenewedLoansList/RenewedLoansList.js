@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
 import { BackOfficeRoutes } from '@routes/urls';

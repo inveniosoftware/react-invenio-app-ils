@@ -1,4 +1,4 @@
-import { CopyButton } from '@components';
+import { CopyButton } from '@components/CopyButton';
 import { DetailsHeader } from '@components/backoffice';
 import { PatronIcon } from '@components/backoffice/icons';
 import React, { Component } from 'react';

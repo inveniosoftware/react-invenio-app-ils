@@ -1,4 +1,4 @@
-import { loanApi } from '@api/loan';
+import { loanApi } from '@api/loans';
 import { dateFormatter } from '@api/date';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';

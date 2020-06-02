@@ -1,6 +1,10 @@
-import { documentApi, eItemApi } from '@api';
-import { UrlsField } from '@forms/components';
-import { BaseForm, BooleanField, SelectorField, TextField } from '@forms/core';
+import { documentApi } from '@api/documents';
+import { eItemApi } from '@api/eitems';
+import { UrlsField } from '@forms/components/UrlsField';
+import { BaseForm } from '@forms/core/BaseForm';
+import { BooleanField } from '@forms/core/BooleanField';
+import { SelectorField } from '@forms/core/SelectorField';
+import { TextField } from '@forms/core/TextField';
 import { goTo } from '@history';
 import { serializeDocument } from '@modules/ESSelector/serializer';
 import { BackOfficeRoutes } from '@routes/urls';

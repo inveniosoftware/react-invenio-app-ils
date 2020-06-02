@@ -1,4 +1,4 @@
-import { illBorrowingRequestApi as borrowingRequestApi } from '@api';
+import { illBorrowingRequestApi as borrowingRequestApi } from '@api/ill';
 import { delay } from '@api/utils';
 import { sendSuccessNotification } from '@components/Notifications';
 import { SUCCESS as FETCH_SUCCESS } from '../../state/types';

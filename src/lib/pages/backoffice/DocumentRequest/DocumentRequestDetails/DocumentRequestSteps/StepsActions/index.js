@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-
 import { fetchDocumentRequestDetails } from '@pages/backoffice/DocumentRequest/DocumentRequestDetails/state/actions';
 import StepsActionsComponent from './StepsActions';
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Grid, Icon, Item, List } from 'semantic-ui-react';
 import { ILLRoutes } from '@routes/urls';
-import { illBorrowingRequestApi as brwReqApi } from '@api';
+import { illBorrowingRequestApi as brwReqApi } from '@api/ill';
 import { ILLLibraryIcon } from '@components/backoffice/icons';
 
 const LibraryListInfo = ({ libraryMetadata }) => (

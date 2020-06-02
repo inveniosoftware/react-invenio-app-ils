@@ -1,4 +1,5 @@
-import { eitemApi, fileApi } from '@api';
+import { eitemApi } from '@api/eitems';
+import { fileApi } from '@api/files';
 import testData from '@testData/eitems.json';
 import { shallow } from 'enzyme';
 import React from 'react';

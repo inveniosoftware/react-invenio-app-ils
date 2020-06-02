@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
 import { loanApi } from '@api/loans';
-import { sessionManager } from '@authentication/services';
+import { sessionManager } from '@authentication/services/SessionManager';
 
 jest.mock('@config/invenioConfig');
 

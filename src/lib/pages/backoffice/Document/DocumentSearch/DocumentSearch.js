@@ -10,7 +10,7 @@ import {
 } from 'react-searchkit';
 import { Error as IlsError } from '@components/Error';
 import { SearchBar as DocumentsSearchBar } from '@components/SearchBar';
-import { documentApi } from '@api/documents/document';
+import { documentApi } from '@api/documents';
 import { getSearchConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
-import { illBorrowingRequestApi as borrowingRequestApi } from '@api';
+import { illBorrowingRequestApi as borrowingRequestApi } from '@api/ill';
 import { invenioConfig } from '@config';
 import { ILLRoutes, BackOfficeRoutes } from '@routes/urls';
 import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';

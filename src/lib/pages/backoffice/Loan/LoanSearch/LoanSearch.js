@@ -11,16 +11,14 @@ import {
 import { responseRejectInterceptor } from '@api/base';
 import { Error as IlsError, SearchBar as LoansSearchBar } from '@components';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
-import { loanApi } from '@api/loan';
+import { loanApi } from '@api/loans';
 import { BackOfficeRoutes } from '@routes/urls';
 import history from '@history';
 import LoanList from './LoanList';
-import {
-  SearchControls,
-  SearchEmptyResults,
-  SearchFooter,
-  SearchAggregationsCards,
-} from '@modules/SearchControls';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
+import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import { SearchFooter } from '@modules/SearchControls/SearchFooter';
+import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
 
 import { SearchDateRange } from './SearchDateRange';
 

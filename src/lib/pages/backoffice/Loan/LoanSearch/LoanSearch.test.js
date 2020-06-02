@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { Settings } from 'luxon';
 import { fromISO, toISO } from '@api/date';
-import { ResultsTable } from '@components';
+import { ResultsTable } from '@components/ResultsTable';
 import { Button } from 'semantic-ui-react';
 
 jest.mock('@pages/backoffice/components');

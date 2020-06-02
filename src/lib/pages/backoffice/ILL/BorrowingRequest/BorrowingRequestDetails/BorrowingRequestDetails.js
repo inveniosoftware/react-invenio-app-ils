@@ -1,5 +1,7 @@
 import { toShortDate } from '@api/date';
-import { CopyButton, Error, Loader } from '@components';
+import { CopyButton } from '@components/CopyButton';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import { CreatedBy } from '@components/backoffice/ChangedBy';
 import { DetailsHeader } from '@components/backoffice';
 import { EditButton } from '@components/backoffice/buttons/EditButton';

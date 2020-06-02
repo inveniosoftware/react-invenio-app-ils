@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
-import { ResultsTable } from '@components';
+import { ResultsTable } from '@components/ResultsTable';
 import { documentApi } from '@api/documents';
 import { BackOfficeRoutes } from '@routes/urls';
 import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
 import { RecordsBriefCard } from '@components/backoffice/RecordsBriefCard';
-import { NewButton, SeeAllButton } from '@components/backoffice/buttons';
+import { NewButton } from '@components/backoffice/buttons/NewButton';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 import { BackOfficeRoutes } from '@routes/urls';
 import { documentApi } from '@api/documents';
 

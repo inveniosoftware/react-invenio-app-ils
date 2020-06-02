@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { ResultsTable } from '@components/';
+import { ResultsTable } from '@components/ResultsTable';
 import testData from '@testData/eitems.json';
 import { Button } from 'semantic-ui-react';
 

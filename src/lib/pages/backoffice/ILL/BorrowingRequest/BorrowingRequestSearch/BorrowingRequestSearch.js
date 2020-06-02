@@ -8,17 +8,13 @@ import {
   Error,
   InvenioSearchApi,
 } from 'react-searchkit';
-import {
-  Error as IlsError,
-  SearchBar as BorrowingRequestSearchBar,
-} from '@components';
-import {
-  SearchControls,
-  SearchAggregationsCards,
-  SearchFooter,
-  SearchEmptyResults,
-} from '@modules/SearchControls';
-import { illBorrowingRequestApi as borrowingRequestApi } from '@api';
+import { Error as IlsError } from '@components/Error';
+import { SearchBar as BorrowingRequestSearchBar } from '@components/SearchBar';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
+import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
+import { SearchFooter } from '@modules/SearchControls/SearchFooter';
+import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import { illBorrowingRequestApi as borrowingRequestApi } from '@api/ill';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ILLRoutes } from '@routes/urls';

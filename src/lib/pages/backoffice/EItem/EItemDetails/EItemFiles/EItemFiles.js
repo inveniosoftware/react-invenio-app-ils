@@ -1,9 +1,9 @@
-import { fileApi } from '@api';
+import { fileApi } from '@api/files';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable';
 import { invenioConfig } from '@config';
-import { InfoMessage } from '@components/backoffice';
+import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { DownloadButton } from '@components/backoffice/buttons';
 import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
 import _get from 'lodash/get';

@@ -1,5 +1,7 @@
-import { illBorrowingRequestApi as brwReqApi } from '@api';
-import { CopyButton, Error, Loader } from '@components';
+import { illBorrowingRequestApi as brwReqApi } from '@api/ill';
+import { CopyButton } from '@components/CopyButton';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
 import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { EditButton } from '@components/backoffice/buttons/EditButton';

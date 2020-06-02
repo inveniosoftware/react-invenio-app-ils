@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
 import * as types from './types';
-import { loan as loanApi } from '@api';
+import { loanApi } from '@api/loans';
 
 jest.mock('@config/invenioConfig');
 const middlewares = [thunk];

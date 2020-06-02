@@ -1,9 +1,9 @@
 import { literatureApi } from '@api/literature';
 import { Error as IlsError } from '@components/Error';
 import { SearchBar as LiteratureSearchBar } from '@components/SearchBar';
-import { SearchControls } from '@modules/SearchControls';
-import { SearchEmptyResults } from '@modules/SearchEmptyResults';
-import { SearchFooter } from '@modules/SearchFooter';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
+import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import { SearchFooter } from '@modules/SearchControls/SearchFooter';
 import { SearchControlsMobile } from '@modules/SearchControlsMobile';
 import history from '@history';
 import PropTypes from 'prop-types';

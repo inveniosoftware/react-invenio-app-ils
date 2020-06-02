@@ -3,13 +3,11 @@ import { shallow, mount } from 'enzyme';
 import { BackOfficeRoutes } from '@routes/urls';
 import OverdueLoansList from './OverdueLoansList';
 import testData from '@testData/loans.json';
-import { Button } from 'semantic-ui-react';
 
 jest.mock('react-router-dom');
 jest.mock('@pages/backoffice/components');
 jest.mock('@config/invenioConfig');
 BackOfficeRoutes.loanDetailsFor = jest.fn(pid => `url/${pid}`);
-let mockViewDetails = jest.fn();
 
 const data = {
   hits: [

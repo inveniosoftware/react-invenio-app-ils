@@ -1,12 +1,11 @@
 import { toShortDate } from '@api/date';
-import { CopyButton } from '@components';
-import { DocumentTitle, DocumentAuthors } from '@modules/Document';
-import {
-  DetailsHeader,
-  DocumentIcon,
-  EItemIcon,
-  OpenAccessLabel,
-} from '@components/backoffice';
+import { CopyButton } from '@components/CopyButton';
+import { DocumentAuthors } from '@modules/Document/DocumentTitle';
+import { DocumentTitle } from '@modules/Document/DocumentAuthors';
+import { DetailsHeader } from '@components/backoffice/DetailsHeader';
+import { DocumentIcon } from '@components/backoffice/DetailsHeader';
+import { EItemIcon } from '@components/backoffice/DetailsHeader';
+import { OpenAccessLabel } from '@components/backoffice/DetailsHeader';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
