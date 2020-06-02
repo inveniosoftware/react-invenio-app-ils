@@ -1,5 +1,5 @@
 import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
-import { seriesApi } from '@api';
+import { seriesApi } from '@api/series';
 import { sendErrorNotification } from '@components/Notifications';
 
 export const fetchSeriesMultipartMonographs = seriesPid => {

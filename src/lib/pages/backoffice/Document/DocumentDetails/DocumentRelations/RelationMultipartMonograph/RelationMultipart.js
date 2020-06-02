@@ -1,15 +1,15 @@
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
-import { ResultsTable } from '@components/ResultsTable';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { InfoMessage } from '@components/backoffice/InfoMessage';
-import { SeriesDetailsLink } from '@components/backoffice/SeriesDetailsLink';
+import { SeriesDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/SeriesDetailsLink';
 import { RelationRemover } from '@modules/Relations/backoffice/components/RelationRemover';
-import { DocumentTitle } from '@modules/Document/DocumentTitle';
+import DocumentTitle from '@modules/Document/DocumentTitle';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Icon, Popup } from 'semantic-ui-react';
-import { RelationMultipartModal } from '../RelationMultipartMonograph';
+import { RelationMultipartModal } from '../RelationMultipartMonograph/RelationMultipartModal';
 
 export default class RelationMultipart extends Component {
   constructor(props) {

@@ -1,11 +1,9 @@
 import { dateFormatter } from '@api/date';
-import {
-  Error,
-  InfoMessage,
-  Loader,
-  Pagination,
-  ResultsTable,
-} from '@components';
+import { Error } from '@components/Error';
+import { InfoMessage } from '@components/InfoMessage';
+import { Loader } from '@components/Loader';
+import { Pagination } from '@components/Pagination';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { invenioConfig, uiConfig } from '@config';
 import { FrontSiteRoutes } from '@routes/urls';

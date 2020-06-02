@@ -1,18 +1,18 @@
 import { invenioConfig } from '@config';
 import { getDisplayVal } from '@config/invenioConfig';
+import LoanLinkToItem from '@modules/Loan/backoffice/LoanLinkToItem';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Icon, Label } from 'semantic-ui-react';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
-import { PatronDetailsLink } from '@components/backoffice/PatronDetailsLink';
-import { LocationsLink } from '@components/backoffice/LocationsLink';
-import { ItemIcon } from '@components/backoffice/ItemIcon';
-import { DocumentIcon } from '@components/backoffice/DocumentIcon';
-import { PatronIcon } from '@components/backoffice/PatronIcon';
+import { PatronDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/PatronDetailsLink';
+import { LocationsLink } from '@components/backoffice/buttons/ViewDetailsButtons/LocationsLink';
+import { ItemIcon } from '@components/backoffice/icons';
+import { DocumentIcon } from '@components/backoffice/icons';
+import { PatronIcon } from '@components/backoffice/icons';
 import _isEmpty from 'lodash/isEmpty';
 import { toShortDate, toShortDateTime } from '@api/date';
-import { LoanLinkToItem } from '@modules/Loan/backoffice';
-import { DocumentTitle } from '@modules/Document/DocumentTitle';
+import DocumentTitle from '@modules/Document/DocumentTitle';
 
 export default class LoanMetadata extends Component {
   getPickupLocation(metadata) {

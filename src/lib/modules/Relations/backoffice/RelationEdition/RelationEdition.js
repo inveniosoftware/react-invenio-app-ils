@@ -1,11 +1,11 @@
-import { DocumentDetailsLink } from '@components/backoffice/buttons/DocumentDetailsLink';
-import { SeriesDetailsLink } from '@components/backoffice/buttons/SeriesDetailsLink';
+import { DocumentDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/DocumentDetailsLink';
+import { SeriesDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/SeriesDetailsLink';
 import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
-import { DocumentTitle } from '@modules/Document/DocumentTitle';
+import DocumentTitle from '@modules/Document/DocumentTitle';
 import { ExistingRelations } from '@modules/Relations/backoffice/components/ExistingRelations';
-import { RelationEditionModal } from '@modules/Relations/backoffice/components/RelationEdition';
+import { RelationEditionModal } from './RelationEditionModal';
 import { RelationRemover } from '@modules/Relations/backoffice/components/RelationRemover';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';

@@ -1,9 +1,9 @@
-import { ShowMoreContent } from '@components';
+import { ShowMoreContent } from '@components/ShowMoreContent';
 import {
   ILSHeaderPlaceholder,
   ILSParagraphPlaceholder,
 } from '@components/ILSPlaceholder';
-import { LiteratureCover } from '@modules/Literature/LiteratureCover';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
 import { SeriesAccess } from '@modules/Series/SeriesAccess';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { SeriesTitle } from '@modules/Series/SeriesTitle';
@@ -12,7 +12,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Grid, Responsive } from 'semantic-ui-react';
-import { SeriesPanelMobile, SeriesSequences } from './index';
+import SeriesPanelMobile from './SeriesPanelMobile';
+import SeriesSequences from './SeriesSequences';
 
 class SeriesPanel extends Component {
   render() {

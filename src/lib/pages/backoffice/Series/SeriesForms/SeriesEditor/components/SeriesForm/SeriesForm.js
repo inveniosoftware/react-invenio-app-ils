@@ -5,14 +5,12 @@ import {
   LanguageField,
   UrlsField,
 } from '@forms/components';
-import {
-  ArrayField,
-  BaseForm,
-  GroupField,
-  SelectField,
-  StringField,
-  TextField,
-} from '@forms/core';
+import { ArrayField } from '@forms/core/ArrayField';
+import { BaseForm } from '@forms/core/BaseForm';
+import { GroupField } from '@forms/core/GroupField';
+import { SelectField } from '@forms/core/SelectField';
+import { StringField } from '@forms/core/StringField';
+import { TextField } from '@forms/core/TextField';
 import { goTo } from '@history';
 import {
   AlternativeTitles,

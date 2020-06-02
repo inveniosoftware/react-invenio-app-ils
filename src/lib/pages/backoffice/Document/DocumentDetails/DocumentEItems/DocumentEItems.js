@@ -1,8 +1,8 @@
 import { eItemApi } from '@api/eitems';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
-import { ResultsTable } from '@components/ResultsTable';
-import { OpenAccessLabel } from '@components/backoffice';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import { OpenAccessLabel } from '@components/backoffice/OpenAccessLabel';
 import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';

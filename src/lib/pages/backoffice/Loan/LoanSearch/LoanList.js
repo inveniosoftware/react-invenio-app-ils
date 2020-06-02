@@ -1,4 +1,4 @@
-import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';

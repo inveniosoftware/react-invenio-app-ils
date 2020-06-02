@@ -19,7 +19,7 @@ import {
 } from '@modules/ESSelector/serializer';
 import { goTo } from '@history';
 import { invenioConfig } from '@config';
-import { STEPS } from '../DocumentRequestSteps';
+import { STEPS } from '../Steps';
 import PropTypes from 'prop-types';
 
 export const ProviderStep = ({ step }) => (

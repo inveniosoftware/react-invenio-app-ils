@@ -18,8 +18,3 @@ export const ItemDetails = connect(
   mapStateToProps,
   mapDispatchToProps
 )(ItemDetailsComponent);
-
-export { ItemActionMenu } from './ItemActionMenu';
-export { ItemCirculation } from './ItemCirculation';
-export { ItemMetadata } from './ItemMetadata';
-export { ItemPastLoans } from './ItemPastLoans';

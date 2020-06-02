@@ -1,7 +1,7 @@
 import { apiConfig, http } from '@api/base';
 import { toShortDate } from '@api/date';
 import { prepareDateQuery, prepareSumQuery } from '@api/utils';
-import { sessionManager } from '@authentication/services/sessionManager';
+import { sessionManager } from '@authentication/services/SessionManager';
 import _isEmpty from 'lodash/isEmpty';
 import { DateTime } from 'luxon';
 import { generatePath } from 'react-router-dom';

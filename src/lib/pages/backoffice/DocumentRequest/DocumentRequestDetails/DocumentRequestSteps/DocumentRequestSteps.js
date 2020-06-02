@@ -2,21 +2,14 @@ import _get from 'lodash/get';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Message, Step, Divider } from 'semantic-ui-react';
-import {
-  DocumentStep,
-  DocumentStepContent,
-  ProviderStep,
-  ProviderStepContent,
-  ReviewStep,
-  ReviewStepContent,
-  StepsActions,
-} from './index';
-
-export const STEPS = {
-  document: 'document',
-  provider: 'provider',
-  review: 'review',
-};
+import { DocumentStep } from './DocumentStep/DocumentStep';
+import { DocumentStepContent } from './DocumentStep';
+import { ProviderStep } from './ProviderStep/ProviderStep';
+import { ProviderStepContent } from './ProviderStep/';
+import { ReviewStep } from './ReviewStep/ReviewStep';
+import { ReviewStepContent } from './ReviewStep';
+import { StepsActions } from './StepsActions';
+import { STEPS } from './Steps';
 
 export default class DocumentRequestSteps extends Component {
   calculateStep = (docPid = undefined, providerPid = undefined) => {

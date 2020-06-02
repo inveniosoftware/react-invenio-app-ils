@@ -15,8 +15,9 @@ import {
   Segment,
   Sticky,
 } from 'semantic-ui-react';
-import { SeriesActionMenu } from './';
-import { SeriesDocuments, SeriesMultipartMonographs } from './index';
+import { SeriesActionMenu } from './SeriesActionMenu';
+import { SeriesDocuments } from './SeriesDocuments';
+import { SeriesMultipartMonographs } from './SeriesMultipartMonographs';
 import SeriesMetadataTabs from './SeriesMetadata/SeriesMetadataTabs';
 import { SeriesRelations } from './SeriesRelations/';
 import { SeriesHeader } from './SeriesHeader';
@@ -196,6 +197,7 @@ SeriesDetails.propTypes = {
   // from redux state
   documentsInSeries: PropTypes.object,
   multipartMonographsInSeries: PropTypes.object,
+  fetchSeriesDetails: PropTypes.func.isRequired,
 };
 
 SeriesDetails.defaultProps = {

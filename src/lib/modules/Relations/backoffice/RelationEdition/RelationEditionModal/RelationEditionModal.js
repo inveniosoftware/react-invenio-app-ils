@@ -1,6 +1,6 @@
-import { DocumentEdition } from '@modules/Document';
+import DocumentEdition from '@modules/Document/DocumentEdition';
 import { DocumentSelectListEntry } from '@modules/Document/backoffice/DocumentSelectListEntry';
-import { SeriesSelectListEntry } from '@modules/Series/backoffice';
+import SeriesSelectListEntry from '@modules/Series/backoffice/SeriesSelectListEntry';
 import { MultipleSelections } from '@modules/Relations/backoffice/components/MultipleSelections';
 import { RelationSelector } from '@modules/Relations/backoffice/components/RelationSelector';
 import { RelationModal } from '@modules/Relations/backoffice/components/RelationModal';

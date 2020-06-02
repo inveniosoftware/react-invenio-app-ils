@@ -19,18 +19,19 @@ import {
   AlternativeIdentifiers,
   AlternativeTitles,
   AuthorsField,
-  ConferenceInfoField,
   Copyrights,
   Identifiers,
-  Imprint,
-  InternalNotes,
-  Keywords,
   LicensesField,
   PublicationInfoField,
   Subjects,
   TableOfContent,
   TagsField,
 } from './components';
+import { ConferenceInfoField } from './components/ConferenceInfoField';
+import { Imprint } from './components/Imprint';
+import { InternalNotes } from './components/InternalNotes';
+import { Keywords } from './components/Keywords';
+
 import documentSubmitSerializer from './documentSubmitSerializer';
 
 export class DocumentForm extends Component {

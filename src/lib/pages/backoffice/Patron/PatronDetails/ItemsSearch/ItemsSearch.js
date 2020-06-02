@@ -1,5 +1,7 @@
 import { recordToPidType } from '@api/utils';
-import { Error, Loader, SearchBar } from '@components';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import { SearchBar } from '@components/SearchBar';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container, Grid, Header, Icon, Segment } from 'semantic-ui-react';

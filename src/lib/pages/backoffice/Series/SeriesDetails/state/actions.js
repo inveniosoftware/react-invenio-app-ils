@@ -1,4 +1,4 @@
-import { seriesApi } from '@api';
+import { seriesApi } from '@api/series';
 import { delay } from '@api/utils';
 import {
   sendErrorNotification,

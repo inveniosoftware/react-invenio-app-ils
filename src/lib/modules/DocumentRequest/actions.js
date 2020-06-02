@@ -1,4 +1,4 @@
-import { documentRequestApi } from '@api';
+import { documentRequestApi } from '@api/documentRequests/documentRequest';
 import {
   sendErrorNotification,
   sendSuccessNotification,

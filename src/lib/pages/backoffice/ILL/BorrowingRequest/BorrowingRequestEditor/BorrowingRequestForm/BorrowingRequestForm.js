@@ -1,5 +1,6 @@
-import { illBorrowingRequestApi, vocabularyApi } from '@api';
-import { Loader } from '@components';
+import { borrowingRequest as illBorrowingRequestApi } from '@api/ill/borrowingRequest';
+import { vocabularyApi } from '@api/vocabularies';
+import { Loader } from '@components/Loader';
 import { invenioConfig } from '@config';
 import { BaseForm } from '@forms/core/BaseForm';
 import { goTo } from '@history';
@@ -8,7 +9,8 @@ import { getIn } from 'formik';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, Segment } from 'semantic-ui-react';
-import { OrderInfo, Payment } from './index';
+import { OrderInfo } from './OrderInfo';
+import { Payment } from './Payment';
 import { withCancel } from '@api/utils';
 
 const submitSerializer = values => {

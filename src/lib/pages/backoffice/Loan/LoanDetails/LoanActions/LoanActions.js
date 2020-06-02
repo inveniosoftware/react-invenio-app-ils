@@ -1,4 +1,4 @@
-import { OverdueLoanSendMailModal } from '@modules/Loan/backoffice';
+import { OverdueLoanSendMailModal } from '@modules/Loan/backoffice/OverdueLoanSendMailModal';
 import { InfoMessage } from '@components/backoffice/InfoMessage';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';

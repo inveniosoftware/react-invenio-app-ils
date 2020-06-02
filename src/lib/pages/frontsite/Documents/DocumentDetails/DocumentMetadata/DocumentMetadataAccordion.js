@@ -1,12 +1,12 @@
-import { LiteratureRelations } from '@modules/Literature';
+import LiteratureRelations from '@modules/Literature/LiteratureRelations';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Accordion, Icon } from 'semantic-ui-react';
-import { LiteratureNotes } from '@modules/Literature';
-import { DocumentConference } from '@modules/Document';
-import { DocumentTableOfContent } from '@modules/Document';
-import { DocumentInfo } from '@modules/Document';
+import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
+import { DocumentConference } from '@modules/Document/DocumentConference';
+import { DocumentTableOfContent } from '@modules/Document/DocumentTableOfContent';
+import { DocumentInfo } from '@modules/Document/DocumentInfo';
 
 class DocumentMetadataAccordion extends Component {
   state = { activeIndex: 'details' };

@@ -17,7 +17,7 @@ import { DocumentIcon } from '@components/backoffice/icons';
 import { BackOfficeRoutes } from '@routes/urls';
 import { goTo } from '@history';
 import _isEmpty from 'lodash/isEmpty';
-import { STEPS } from '../DocumentRequestSteps';
+import { STEPS } from '../Steps';
 
 export const DocumentStep = ({ step }) => (
   <Step active={step === STEPS.document}>

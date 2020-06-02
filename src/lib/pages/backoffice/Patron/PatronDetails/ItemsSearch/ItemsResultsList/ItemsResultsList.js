@@ -1,8 +1,8 @@
 import { recordToPidType } from '@api/utils';
-import { Loader, ResultsTable } from '@components';
+import { Loader } from '@components/Loader';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { invenioConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';
-import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';

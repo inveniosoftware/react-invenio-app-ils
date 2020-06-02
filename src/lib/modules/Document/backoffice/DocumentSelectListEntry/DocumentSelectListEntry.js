@@ -1,5 +1,5 @@
-import { DocumentTitle } from '@modules/Document/DocumentTitle';
-import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
+import DocumentTitle from '@modules/Document/DocumentTitle';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Popup } from 'semantic-ui-react';

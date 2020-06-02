@@ -1,4 +1,4 @@
-import { authenticationService } from '@authentication/services/AuthenticationServices';
+import { authenticationService } from '@authentication/services/AuthenticationService';
 import { parseParams } from '@authentication/utils';
 import { BaseForm } from '@forms/core/BaseForm';
 import { StringField } from '@forms/core/StringField';

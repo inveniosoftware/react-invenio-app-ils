@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Card, Divider, Header, Icon } from 'semantic-ui-react';
-import { DocumentCard } from '@modules/components/Document/DocumentCard';
+import { DocumentCard } from '@modules/Document/DocumentCard';
 
 class DocumentCardGroup extends Component {
   constructor(props) {

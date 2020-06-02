@@ -1,5 +1,5 @@
 import { CopyButton } from '@components/CopyButton';
-import { DetailsHeader } from '@components/backoffice';
+import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { PatronIcon } from '@components/backoffice/icons';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';

@@ -3,7 +3,9 @@ import { Loader } from '@components/Loader';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container, Divider, Grid, Ref, Sticky } from 'semantic-ui-react';
-import { DocumentActionMenu, DocumentMetadata, DocumentSummary } from './index';
+import { DocumentActionMenu } from './DocumentActionMenu';
+import { DocumentMetadata } from './DocumentMetadata';
+import { DocumentSummary } from './DocumentSummary';
 import { DocumentContent } from './DocumentContent';
 import { DocumentHeader } from './DocumentHeader';
 

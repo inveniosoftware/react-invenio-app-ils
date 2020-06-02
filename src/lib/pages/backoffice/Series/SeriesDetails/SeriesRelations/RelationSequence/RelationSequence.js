@@ -1,7 +1,7 @@
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
-import { DocumentTitle } from '@modules/Document/DocumentTitle';
-import { SeriesDetailsLink } from '@components/backoffice/buttons';
+import DocumentTitle from '@modules/Document/DocumentTitle';
+import { SeriesDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/SeriesDetailsLink';
 import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { ExistingRelations } from '@modules/Relations/backoffice/components/ExistingRelations';
 import { RelationRemover } from '@modules/Relations/backoffice/components/RelationRemover';
@@ -10,7 +10,7 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Divider, Grid } from 'semantic-ui-react';
-import { RelationSequenceModal } from '../RelationSequence';
+import { RelationSequenceModal } from '../RelationSequence/RelationSequenceModal';
 
 export default class RelationSequence extends Component {
   constructor(props) {

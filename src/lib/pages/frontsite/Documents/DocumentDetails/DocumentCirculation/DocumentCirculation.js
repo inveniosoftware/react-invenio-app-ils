@@ -1,4 +1,4 @@
-import { RedirectToLoginButton } from '@authentication/components';
+import { RedirectToLoginButton } from '@authentication/components/RedirectToLoginButton';
 import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
 import { ILSImagePlaceholder } from '@components/ILSPlaceholder';
 import Overridable from 'react-overridable';

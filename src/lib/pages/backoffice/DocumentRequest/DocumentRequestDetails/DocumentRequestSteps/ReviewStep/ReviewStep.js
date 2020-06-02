@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Header, Icon, Message, Step } from 'semantic-ui-react';
-import { STEPS } from '../DocumentRequestSteps';
+import { STEPS } from '../Steps';
 import PropTypes from 'prop-types';
 
 export const ReviewStep = ({ step }) => (

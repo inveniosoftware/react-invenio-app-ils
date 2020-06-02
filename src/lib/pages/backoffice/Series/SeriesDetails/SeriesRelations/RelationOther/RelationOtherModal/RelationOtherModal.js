@@ -1,10 +1,10 @@
-import { seriesApi } from '@api';
-import { SeriesLanguages } from '@modules/Series';
+import { seriesApi } from '@api/series';
+import SeriesSelectListEntry from '@modules/Series/backoffice/SeriesSelectListEntry';
+import { SeriesLanguages } from '@modules/Series/SeriesLanguages';
 import { RelationModal } from '@modules/Relations/backoffice/components/RelationModal';
 import { RelationSelector } from '@modules/Relations/backoffice/components/RelationSelector';
 import { RelationSummary } from '@modules/Relations/backoffice/components/RelationSummary';
 import { SingleSelection } from '@modules/Relations/backoffice/components/SingleSelection';
-import SeriesSelectListEntry from '@modules/Series/backoffice/SeriesSelectListEntry/SeriesSelectListEntry';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';

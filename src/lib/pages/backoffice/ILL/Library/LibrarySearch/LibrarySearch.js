@@ -11,8 +11,8 @@ import {
 import { Error as IlsError } from '@components/Error';
 import { SearchBar as LibrarySearchBar } from '@components/SearchBar';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
-import { SearchFooter } from '@modules/SearchControls/SearchFooter';
-import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
+import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
 import { illLibraryApi as libraryApi } from '@api/ill';
 import { ILLRoutes } from '@routes/urls';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';

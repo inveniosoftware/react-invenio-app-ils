@@ -1,3 +1,4 @@
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -9,7 +10,7 @@ import { loanApi } from '@api/loans';
 import { dateFormatter } from '@api/date';
 import { BackOfficeRoutes } from '@routes/urls';
 import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
-import { OverdueLoanSendMailModal } from '@modules/Loan/backoffice';
+import { OverdueLoanSendMailModal } from '@modules/Loan/backoffice/OverdueLoanSendMailModal';
 
 export default class OverdueLoansList extends Component {
   componentDidMount() {

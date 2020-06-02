@@ -1,4 +1,4 @@
-import { internalLocationApi } from '@api';
+import { internalLocationApi } from '@api/locations';
 import { delay } from '@api/utils';
 import {
   sendErrorNotification,

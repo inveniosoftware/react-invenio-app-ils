@@ -1,9 +1,9 @@
 import { dateFormatter } from '@api/date';
-import { DocumentTitle } from '@modules/Document/DocumentTitle';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import DocumentTitle from '@modules/Document/DocumentTitle';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
 import { loanApi } from '@api/loans';

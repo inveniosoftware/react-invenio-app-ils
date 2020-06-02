@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Container, Divider, Grid, Ref, Sticky } from 'semantic-ui-react';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
-import { EItemFiles, EItemHeader, EItemMetadata } from './index';
+import { EItemFiles } from './EItemFiles';
+import { EItemHeader } from './EItemHeader';
+import { EItemMetadata } from './EItemMetadata';
 import { EItemActionMenu } from './EItemActionMenu';
 
 export default class EItemDetails extends Component {

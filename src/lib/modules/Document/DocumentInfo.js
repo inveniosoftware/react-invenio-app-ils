@@ -1,4 +1,4 @@
-import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';

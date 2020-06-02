@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { EmptyResults } from 'react-searchkit';
 import { Header, Icon, Segment } from 'semantic-ui-react';
-import { ClearButton } from '@modules/SearchControls/ClearButton';
+import ClearButton from '@modules/SearchControls/ClearButton';
 
 export default class SearchEmptyResults extends Component {
   renderEmptyResults = (queryString, resetQuery) => {

@@ -1,4 +1,4 @@
-import { LoginWithOauthButton } from '@authentication/components/AuthenticationServices';
+import { LoginWithOauthButton } from '@authentication/components/LoginWithOauthButton';
 import { parseParams } from '@authentication/utils';
 import { invenioConfig } from '@config';
 import { goTo } from '@history';

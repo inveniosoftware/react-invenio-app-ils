@@ -3,12 +3,15 @@ import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import _startCase from 'lodash/startCase';
-import { Loader, Error, ResultsTable, Pagination } from '@components';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import { Pagination } from '@components/Pagination';
 import { dateFormatter } from '@api/date';
 import { FrontSiteRoutes } from '@routes/urls';
 import { Header, Item } from 'semantic-ui-react';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
-import { InfoMessage } from '@components';
+import { InfoMessage } from '@components/InfoMessage';
 
 class PatronPastDocumentRequests extends Component {
   constructor(props) {

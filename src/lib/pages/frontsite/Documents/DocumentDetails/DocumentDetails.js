@@ -1,5 +1,5 @@
-import { AuthenticationGuard } from '@authentication/components';
-import { Breadcrumbs } from '@components';
+import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
+import { Breadcrumbs } from '@components/Breadcrumbs';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Overridable from 'react-overridable';
@@ -8,9 +8,10 @@ import { Container, Grid, Icon, Responsive } from 'semantic-ui-react';
 import { DocumentMetadata } from './DocumentMetadata';
 import { goTo } from '@history';
 import { FrontSiteRoutes, BackOfficeRoutes } from '@routes/urls';
-import { SearchBar, Error } from '@components';
-import { DocumentPanel } from './DocumentPanel';
-import { DocumentTags } from '@modules/Document';
+import { SearchBar } from '@components/SearchBar';
+import { Error } from '@components/Error';
+import DocumentPanel from './DocumentPanel/DocumentPanel';
+import DocumentTags from '@modules/Document/DocumentTags';
 import { ILSParagraphPlaceholder } from '@components/ILSPlaceholder';
 import { DocumentItems } from './DocumentItems';
 import { documentApi } from '@api/documents';
@@ -71,7 +72,10 @@ const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
                 )}
               </Grid.Column>
             </Grid>
-            <DocumentPanel />
+            <DocumentPanel
+              isLoading={isLoading}
+              documentDetails={documentDetails}
+            />
           </Container>
           <Container className="document-tags spaced">
             <Responsive minWidth={Responsive.onlyTablet.minWidth}>

@@ -1,9 +1,9 @@
-import { DocumentDetailsLink } from '@components/backoffice/DocumentDetailsLink';
+import { DocumentDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/DocumentDetailsLink';
 import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
-import { DocumentLanguages } from '@modules/Document/DocumentLanguages';
-import { DocumentTitle } from '@modules/Document/DocumentTitle';
+import DocumentLanguages from '@modules/Document/DocumentLanguages';
+import DocumentTitle from '@modules/Document/DocumentTitle';
 import { ExistingRelations } from '@modules/Relations/backoffice/components/ExistingRelations';
 import { RelationRemover } from '@modules/Relations/backoffice/components/RelationRemover';
 import _isEmpty from 'lodash/isEmpty';

@@ -1,7 +1,7 @@
 import { itemApi } from '@api/items';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
-import { ResultsTable } from '@components/ResultsTable';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { goTo } from '@history';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { BackOfficeRoutes } from '@routes/urls';

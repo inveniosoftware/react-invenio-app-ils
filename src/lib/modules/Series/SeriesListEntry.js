@@ -1,5 +1,5 @@
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
-import { LiteratureCover } from '@modules/Literature/LiteratureCover';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
 import { SeriesLanguages } from '@modules/Series/SeriesLanguages';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';

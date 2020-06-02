@@ -1,8 +1,8 @@
 import { recordToPidType } from '@api/utils';
-import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
-import { DocumentEdition } from '@modules/Document/DocumentEdition';
-import { DocumentTitle } from '@modules/Document/DocumentTitle';
-import { LiteratureCover } from '@modules/Literature/LiteratureCover';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import DocumentEdition from '@modules/Document/DocumentEdition';
+import DocumentTitle from '@modules/Document/DocumentTitle';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';

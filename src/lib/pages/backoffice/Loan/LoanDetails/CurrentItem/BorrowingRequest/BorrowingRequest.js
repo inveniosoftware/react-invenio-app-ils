@@ -1,4 +1,4 @@
-import { BorrowingRequestDetailsLink } from '@components/backoffice/buttons';
+import { BorrowingRequestDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/BorrowingRequestDetailsLink';
 import { InfoMessage } from '@components/backoffice/InfoMessage';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';

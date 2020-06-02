@@ -1,4 +1,4 @@
-import { SearchEmptyResults } from '@modules/SearchControls';
+import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
 import { SeriesListEntry } from './SeriesListEntry';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';

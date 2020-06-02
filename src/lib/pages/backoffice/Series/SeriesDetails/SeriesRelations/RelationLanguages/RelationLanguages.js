@@ -1,15 +1,15 @@
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
-import { SeriesLanguages } from '@modules/Series';
-import { SeriesDetailsLink } from '@components/backoffice/buttons';
+import { SeriesLanguages } from '@modules/Series/SeriesLanguages';
+import { SeriesDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/SeriesDetailsLink';
 import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { ExistingRelations } from '@modules/Relations/backoffice/components/ExistingRelations';
 import { RelationRemover } from '@modules/Relations/backoffice/components/RelationRemover';
-import { DocumentTitle } from '@modules/Document/DocumentTitle';
+import DocumentTitle from '@modules/Document/DocumentTitle';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _isEmpty from 'lodash/isEmpty';
-import { RelationLanguagesModal } from '../RelationLanguages';
+import { RelationLanguagesModal } from '../RelationLanguages/RelationLanguagesModal';
 
 export default class RelationLanguage extends Component {
   constructor(props) {

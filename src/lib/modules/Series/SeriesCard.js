@@ -1,4 +1,4 @@
-import { LiteratureCover } from '@modules/Literature/LiteratureCover';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { goTo } from '@history';
 import { FrontSiteRoutes } from '@routes/urls';

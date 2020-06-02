@@ -1,9 +1,9 @@
 import { Error as IlsError } from '@components/Error';
-import { LiteratureSearchResultsGrid } from '@modules/Literature/LiteratureSearchResultsGrid';
-import { SearchControlsMobile } from '@modules/SearchControlsMobile';
-import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
-import { SearchFooter } from '@modules/SearchControls/SearchFooter';
-import { SearchPagination } from '@modules/SearchPagination';
+import LiteratureSearchResultsGrid from '@modules/Literature/LiteratureSearchResultsGrid';
+import { SearchControlsMobile } from '@modules/SearchControls/SearchControlsMobile';
+import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
+import SearchPagination from '@modules/SearchControls/SearchPagination';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Error, ResultsLoader } from 'react-searchkit';

@@ -4,7 +4,7 @@ import { List, Divider } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { FrontSiteRoutes } from '@routes/urls';
 import { SeparatedList } from '@components/SeparatedList';
-import { DocumentEdition } from '@modules/Document/DocumentEdition';
+import DocumentEdition from '@modules/Document/DocumentEdition';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 

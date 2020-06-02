@@ -1,11 +1,10 @@
+import { MultipleSelections } from '@modules/Relations/backoffice/components/MultipleSelections';
+import { RelationSelector } from '@modules/Relations/backoffice/components/RelationSelector';
+import { RelationSummary } from '@modules/Relations/backoffice/components/RelationSummary';
+import SeriesSelectListEntry from '@modules/Series/backoffice/SeriesSelectListEntry';
 import { SeriesLanguages } from '@modules/Series/SeriesLanguages';
-import {
-  RelationModal,
-  RelationSummary,
-  RelationSelector,
-  MultipleSelections,
-} from '@modules/Relations/backoffice';
-import SeriesSelectListEntry from '@modules/Series/backoffice/SeriesSelectListEntry/SeriesSelectListEntry';
+import { RelationModal } from '@modules/Relations/backoffice/components/RelationModal';
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -16,7 +15,7 @@ import {
   Label,
   Modal,
 } from 'semantic-ui-react';
-import { seriesApi } from '@api';
+import { seriesApi } from '@api/series';
 
 export default class RelationLanguagesModal extends Component {
   constructor(props) {

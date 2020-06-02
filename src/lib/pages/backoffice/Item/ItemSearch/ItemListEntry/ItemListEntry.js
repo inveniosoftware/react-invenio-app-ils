@@ -1,4 +1,4 @@
-import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import { getDisplayVal } from '@config/invenioConfig';
 import { DocumentIcon, ItemIcon } from '@components/backoffice/icons';
 import { BackOfficeRoutes } from '@routes/urls';

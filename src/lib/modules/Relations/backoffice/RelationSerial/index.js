@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 
-import RelationSerialModalComponent from './RelationSerialModal';
 import RelationSerialComponent from './RelationSerial';
 
 const mapStateToProps = state => ({
@@ -8,11 +7,6 @@ const mapStateToProps = state => ({
   isLoading: state.recordRelations.isLoading,
   relations: state.recordRelations.data,
 });
-
-export const RelationSerialModal = connect(
-  mapStateToProps,
-  null
-)(RelationSerialModalComponent);
 
 export const RelationSerial = connect(
   mapStateToProps,

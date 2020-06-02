@@ -1,5 +1,5 @@
 import { documentApi } from '@api/documents';
-import { DocumentLanguages } from '@modules/Document';
+import DocumentLanguages from '@modules/Document/DocumentEdition';
 import { DocumentSelectListEntry } from '@modules/Document/backoffice/DocumentSelectListEntry';
 import { RelationModal } from '@modules/Relations/backoffice/components/RelationModal';
 import { RelationSelector } from '@modules/Relations/backoffice/components/RelationSelector';

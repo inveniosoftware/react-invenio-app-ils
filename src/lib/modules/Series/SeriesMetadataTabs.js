@@ -1,5 +1,5 @@
 import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
-import { LiteratureRelations } from '@modules/Literature/LiteratureRelations';
+import LiteratureRelations from '@modules/Literature/LiteratureRelations';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';

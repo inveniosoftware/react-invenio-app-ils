@@ -1,9 +1,10 @@
-import { AuthenticationGuard } from '@authentication/components';
-import { Error, SearchBar } from '@components';
+import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
+import { Error } from '@components/Error';
+import { SearchBar } from '@components/SearchBar';
 import { ILSParagraphPlaceholder } from '@components/ILSPlaceholder';
 import { goTo } from '@history';
-import { Breadcrumbs } from '@components';
-import { SeriesLiteratureSearch } from '@modules/Series';
+import { Breadcrumbs } from '@components/Breadcrumbs';
+import { SeriesLiteratureSearch } from '@modules/Series/SeriesLiteratureSearch';
 import { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
@@ -12,7 +13,7 @@ import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Icon, Responsive } from 'semantic-ui-react';
 import { SeriesMetadata } from './SeriesMetadata';
-import { SeriesPanel } from './SeriesPanel';
+import SeriesPanel from './SeriesPanel/SeriesPanel';
 
 const SeriesDetailsLayout = ({ error, isLoading, series }) => {
   const breadcrumbs = () => [
@@ -56,7 +57,7 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
             </Grid>
           </ILSParagraphPlaceholder>
 
-          <SeriesPanel />
+          <SeriesPanel isLoading={isLoading} seriesDetails={SeriesDetails} />
         </Container>
         <Responsive minWidth={Responsive.onlyComputer.minWidth}>
           <Container className="items-locations spaced">

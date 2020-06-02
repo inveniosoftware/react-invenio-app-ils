@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import * as testData from '@testData/documents.json';
 
-import { LiteratureSearch } from './index';
+import LiteratureSearch from './LiteratureSearch';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 

@@ -1,5 +1,5 @@
 import { EditButton } from '@components/backoffice/buttons/EditButton';
-import { SeriesDeleteModal } from '@pages/backoffice/Series/SeriesDetails';
+import { SeriesDeleteModal } from '../SeriesDeleteModal';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';

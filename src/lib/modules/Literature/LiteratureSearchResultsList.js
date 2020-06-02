@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Item } from 'semantic-ui-react';
 import { DocumentListEntry } from '@modules/Document/DocumentListEntry';
-import { SeriesListEntry } from '@modules/Series/SeriesListEntry';
+import SeriesListEntry from '@modules/Series/SeriesListEntry';
 import { ResultsList } from 'react-searchkit';
 import { recordToPidType } from '@api/utils';
 

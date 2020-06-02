@@ -1,4 +1,4 @@
-import { EmailLink } from '@components';
+import { EmailLink } from '@components/EmailLink';
 import { invenioConfig } from '@config';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { BackOfficeRoutes } from '@routes/urls';

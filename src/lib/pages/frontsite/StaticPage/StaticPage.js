@@ -1,4 +1,4 @@
-import { Error } from '@components';
+import { Error } from '@components/Error';
 import {
   ILSHeaderPlaceholder,
   ILSParagraphPlaceholder,

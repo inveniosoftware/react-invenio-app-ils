@@ -1,7 +1,7 @@
-import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
+import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
-import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
-import { SearchFooter } from '@modules/SearchControls/SearchFooter';
+import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
 import EItemList from './EitemList';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -16,7 +16,8 @@ import {
   InvenioSearchApi,
 } from 'react-searchkit';
 import { getSearchConfig } from '@config';
-import { Error as IlsError, SearchBar as EItemsSearchBar } from '@components';
+import { Error as IlsError } from '@components/Error';
+import { SearchBar as EItemsSearchBar } from '@components/SearchBar';
 import { eItemApi } from '@api/eitems';
 import { responseRejectInterceptor } from '@api/base';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';

@@ -1,7 +1,7 @@
 import { DocumentRequestListEntry } from './DocumentRequestListEntry';
 import React, { Component } from 'react';
 import { Item } from 'semantic-ui-react';
-import { SearchEmptyResults } from '@modules/SearchControls';
+import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
 import PropTypes from 'prop-types';
 
 export default class DocumentRequestList extends Component {

@@ -17,15 +17,3 @@ export const PatronDetails = connect(
   mapStateToProps,
   mapDispatchToProps
 )(PatronDetailsComponent);
-
-export { ItemsCheckout } from './ItemsCheckout';
-export { ItemsSearch } from './ItemsSearch';
-export { PatronCurrentLoans } from './PatronCurrentLoans';
-export { PatronDocumentRequests } from './PatronDocumentRequests';
-export { PatronMetadata } from './PatronMetadata';
-export { PatronPendingLoans } from './PatronPendingLoans';
-export { PatronPastLoans } from './PatronPastLoans';
-export { PatronHeader } from './PatronHeader';
-export { PatronActionMenu } from './PatronActionMenu';
-export { PatronCurrentBorrowingRequests } from './PatronCurrentBorrowingRequests';
-export { PatronPastBorrowingRequests } from './PatronPastBorrowingRequests';

@@ -11,18 +11,16 @@ import {
   Segment,
   Sticky,
 } from 'semantic-ui-react';
-import {
-  ItemsCheckout,
-  ItemsSearch,
-  PatronCurrentLoans,
-  PatronDocumentRequests,
-  PatronPendingLoans,
-  PatronActionMenu,
-  PatronHeader,
-  PatronPastLoans,
-  PatronCurrentBorrowingRequests,
-  PatronPastBorrowingRequests,
-} from './index';
+import { ItemsCheckout } from './ItemsCheckout';
+import { ItemsSearch } from './ItemsSearch';
+import { PatronCurrentLoans } from './PatronCurrentLoans';
+import { PatronDocumentRequests } from './PatronDocumentRequests';
+import { PatronPendingLoans } from './PatronPendingLoans';
+import { PatronActionMenu } from './PatronActionMenu';
+import { PatronHeader } from './PatronHeader';
+import { PatronPastLoans } from './PatronPastLoans';
+import { PatronCurrentBorrowingRequests } from './PatronCurrentBorrowingRequests';
+import { PatronPastBorrowingRequests } from './PatronPastBorrowingRequests';
 
 export default class PatronDetails extends Component {
   constructor(props) {

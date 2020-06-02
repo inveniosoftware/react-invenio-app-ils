@@ -1,14 +1,15 @@
-import { LiteratureRelations, LiteratureNotes } from '@modules/Literature';
+import LiteratureRelations from '@modules/Literature/LiteratureRelations';
+import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Tab } from 'semantic-ui-react';
 import { Identifiers } from '@modules/Identifiers';
-import { DocumentConference } from '@modules/Document';
-import { DocumentLinks } from '@modules/Document';
-import { DocumentTableOfContent } from '@modules/Document';
-import { DocumentInfo } from '@modules/Document';
+import { DocumentConference } from '@modules/Document/DocumentConference';
+import { DocumentLinks } from '@modules/Document/DocumentLinks';
+import { DocumentTableOfContent } from '@modules/Document/DocumentTableOfContent';
+import { DocumentInfo } from '@modules/Document/DocumentInfo';
 
 class DocumentMetadataTabs extends Component {
   renderTabPanes = () => {

@@ -1,4 +1,4 @@
-import { statsApi } from '@api';
+import { statsApi } from '@api/stats';
 import { recordToPidType, withCancel } from '@api/utils';
 import _get from 'lodash/get';
 import React, { Component } from 'react';

@@ -1,8 +1,9 @@
-import { AuthenticationGuard, UnAuthorized } from '@authentication/components';
+import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
+import { UnAuthorized } from '@authentication/components/UnAuthorized';
 import { ConfirmEmail } from '@authentication/pages';
 import { Login } from '@authentication/pages/Login';
 import { fetchUserProfile } from '@authentication/state/actions';
-import { NotFound } from '@components';
+import { NotFound } from '@components/NotFound';
 import history from '@history';
 import { FrontSite } from '@routes/frontsite';
 import { AuthenticationRoutes } from '@routes/authentication/urls';

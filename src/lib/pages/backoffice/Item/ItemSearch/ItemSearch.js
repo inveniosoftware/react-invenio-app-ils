@@ -18,9 +18,9 @@ import { BackOfficeRoutes } from '@routes/urls';
 import { ItemListEntry } from './ItemListEntry';
 import history from '@history';
 import { responseRejectInterceptor } from '@api/base';
-import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
-import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
-import { SearchFooter } from '@modules/SearchControls/SearchFooter';
+import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
+import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 
 export class ItemSearch extends Component {

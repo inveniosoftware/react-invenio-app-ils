@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import { Container, Divider } from 'semantic-ui-react';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
-import {
-  DocumentRequestActions,
-  DocumentRequestHeader,
-  DocumentRequestMetadata,
-  DocumentRequestSteps,
-} from './index';
+import { DocumentRequestActions } from './DocumentRequestActions';
+import { DocumentRequestHeader } from './DocumentRequestHeader';
+import { DocumentRequestMetadata } from './DocumentRequestMetadata';
+import { DocumentRequestSteps } from './DocumentRequestSteps';
 
 export default class DocumentRequestDetails extends Component {
   componentDidMount() {

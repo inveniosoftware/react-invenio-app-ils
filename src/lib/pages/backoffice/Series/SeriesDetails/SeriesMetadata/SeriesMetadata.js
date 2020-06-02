@@ -1,5 +1,6 @@
-import { ResultsTable } from '@components/ResultsTable';
-import { MetadataTable, UrlList } from '@components/backoffice';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
+import { UrlList } from '@components/backoffice/UrlList';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { SeriesLanguages } from '@modules/Series/SeriesLanguages';
 import get from 'lodash/get';

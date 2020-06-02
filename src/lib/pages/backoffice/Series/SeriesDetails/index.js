@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
-import { deleteSeries, fetchSeriesDetails } from './state/actions';
+import { fetchSeriesDetails } from './state/actions';
 import SeriesDetailsComponent from './SeriesDetails';
-import SeriesActionMenuComponent from './SeriesActionMenu';
 
 const mapStateToProps = state => ({
   isLoading: state.seriesDetails.isLoading,
@@ -16,21 +15,7 @@ const mapDispatchToProps = dispatch => ({
   fetchSeriesDetails: seriesPid => dispatch(fetchSeriesDetails(seriesPid)),
 });
 
-const mapDeleteDispatch = dispatch => ({
-  deleteSeries: seriesPid => dispatch(deleteSeries(seriesPid)),
-});
-
 export const SeriesDetails = connect(
   mapStateToProps,
   mapDispatchToProps
 )(SeriesDetailsComponent);
-
-export const SeriesActionMenu = connect(
-  mapStateToProps,
-  mapDeleteDispatch
-)(SeriesActionMenuComponent);
-
-export { SeriesDocuments } from './SeriesDocuments';
-export { SeriesMetadata } from './SeriesMetadata';
-export { SeriesMultipartMonographs } from './SeriesMultipartMonographs';
-export { SeriesDeleteModal } from './SeriesDeleteModal';

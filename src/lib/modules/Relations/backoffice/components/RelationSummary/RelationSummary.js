@@ -1,4 +1,4 @@
-import { DocumentLanguages } from '@modules/Document/DocumentLanguages';
+import DocumentLanguages from '@modules/Document/DocumentLanguages';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { RelationCard } from '@modules/Relations/backoffice/components/RelationCard';

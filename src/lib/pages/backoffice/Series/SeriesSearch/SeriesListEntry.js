@@ -1,10 +1,8 @@
-import { LiteratureCover } from '@modules/Literature/LiteratureCover';
-import { SeriesAuthors } from '@modules/Series';
-import {
-  DocumentEdition,
-  DocumentLanguages,
-  DocumentTags,
-} from '@modules/Document';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
+import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
+import DocumentEdition from '@modules/Document/DocumentEdition';
+import DocumentLanguages from '@modules/Document/DocumentLanguages';
+import DocumentTags from '@modules/Document/DocumentTags';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';

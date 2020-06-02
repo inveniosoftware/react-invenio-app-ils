@@ -15,5 +15,3 @@ export const ProviderStepContent = connect(
   mapStateToProps,
   mapDispatchToProps
 )(ProviderStepContentComponent);
-
-export { ProviderStep } from './ProviderStep';

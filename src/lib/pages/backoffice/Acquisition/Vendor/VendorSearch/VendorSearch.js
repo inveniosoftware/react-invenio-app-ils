@@ -5,8 +5,8 @@ import { Error as IlsError } from '@components/Error';
 import { SearchBar as VendorsSearchBar } from '@components/SearchBar';
 import history from '@history';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
-import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
-import { SearchFooter } from '@modules/SearchControls/SearchFooter';
+import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
 import { AcquisitionRoutes } from '@routes/urls';
 import React, { Component } from 'react';
 import {
@@ -18,7 +18,7 @@ import {
   SearchBar,
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
-import { VendorList } from './VendorList';
+import VendorList from './VendorList';
 
 export class VendorSearch extends Component {
   searchApi = new InvenioSearchApi({

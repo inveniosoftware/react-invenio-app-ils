@@ -1,9 +1,9 @@
-import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
-import { SeriesSelectListEntry } from '@modules/Series/backoffice/SeriesSelectListEntry';
 import { RelationModal } from '@modules/Relations/backoffice/components/RelationModal';
-import { SingleSelection } from '@modules/Relations/backoffice/components/SingleSelection';
 import { RelationSummary } from '@modules/Relations/backoffice/components/RelationSummary';
+import { SingleSelection } from '@modules/Relations/backoffice/components/SingleSelection';
 import { RelationSelector } from '@modules/Relations/backoffice/components/RelationSelector';
+import SeriesSelectListEntry from '@modules/Series/backoffice/SeriesSelectListEntry';
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -15,9 +15,9 @@ import {
   Label,
   Modal,
 } from 'semantic-ui-react';
-import { seriesApi } from '@api/series';
+import { seriesApi } from '@api/series/series';
 
-export default class RelationSerialModal extends Component {
+export default class RelationMultipartModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,47 +30,43 @@ export default class RelationSerialModal extends Component {
     return (
       <SeriesSelectListEntry
         series={option}
-        description={
-          <>
-            <SeriesAuthors authors={option.metadata.authors} />
-            {<label>By </label> && option.metadata.publisher} <br />
-          </>
-        }
+        description={option.metadata.publisher}
         disabled={disabled}
       />
     );
   };
 
   render() {
-    const { disabled, recordDetails, relationType, relations } = this.props;
+    const { disabled, documentDetails, relationType, relations } = this.props;
     const { isLoading, volume } = this.state;
     return (
       <RelationModal
         disabled={disabled}
-        modalHeader="Attach document to a serial"
-        triggerButtonContent="Add to a serial"
+        modalHeader="Attach document to a multipart monograph"
+        triggerButtonContent="Attach multipart"
         isLoading={isLoading}
         relationType={relationType}
-        referrerRecord={recordDetails}
+        referrerRecord={documentDetails}
         extraRelationField={{ field: { volume: volume } }}
       >
         <Modal.Content>
           <Container textAlign="left">
-            Select the serial to attach this document to it.
+            Select a multipart monograph to attach this document to it.
             <Form>
               <Form.Group>
                 <Container className="spaced">
                   <RelationSelector
                     mode="single"
-                    existingRelations={relations.serial || {}}
-                    optionsQuery={seriesApi.serials}
+                    existingRelations={relations.multipart_monograph}
+                    optionsQuery={seriesApi.multipartMonographs}
                     resultRenderer={this.selectResultRender}
-                    referrerRecordPid={recordDetails.metadata.pid}
+                    referrerRecordPid={documentDetails.metadata.pid}
                   />
                 </Container>
               </Form.Group>
               Provide volume index (optional)
-              <br /> <br />
+              <br />
+              <br />
               <Form.Field inline key="volume">
                 <label>Volume index</label>
                 <Input
@@ -84,7 +80,7 @@ export default class RelationSerialModal extends Component {
           <Container textAlign="center">
             <Divider horizontal> Summary </Divider>
             <RelationSummary
-              currentReferrer={recordDetails}
+              currentReferrer={documentDetails}
               renderSelections={() => <SingleSelection />}
               relationDescription={
                 <>
@@ -105,14 +101,10 @@ export default class RelationSerialModal extends Component {
   }
 }
 
-RelationSerialModal.propTypes = {
+RelationMultipartModal.propTypes = {
   /* relations got from the current document, reducer */
   relations: PropTypes.object.isRequired,
-  recordDetails: PropTypes.object.isRequired,
+  documentDetails: PropTypes.object.isRequired,
   relationType: PropTypes.string.isRequired,
-  disabled: PropTypes.bool,
-};
-
-RelationSerialModal.defaultProps = {
-  disabled: false,
+  disabled: PropTypes.bool.isRequired,
 };

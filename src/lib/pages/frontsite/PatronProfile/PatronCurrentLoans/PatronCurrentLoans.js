@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Loader, Error, Pagination } from '@components';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
+import { Pagination } from '@components/Pagination';
 import { Container, Header, Item } from 'semantic-ui-react';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
-import { InfoMessage } from '@components';
+import { InfoMessage } from '@components/InfoMessage';
 import { LoanListEntry } from './LoanListEntry';
 import _isEmpty from 'lodash/isEmpty';
 

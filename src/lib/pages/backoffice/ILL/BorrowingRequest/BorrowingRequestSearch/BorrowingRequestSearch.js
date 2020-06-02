@@ -11,15 +11,15 @@ import {
 import { Error as IlsError } from '@components/Error';
 import { SearchBar as BorrowingRequestSearchBar } from '@components/SearchBar';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
-import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
-import { SearchFooter } from '@modules/SearchControls/SearchFooter';
-import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
+import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
 import { illBorrowingRequestApi as borrowingRequestApi } from '@api/ill';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ILLRoutes } from '@routes/urls';
 import history from '@history';
-import { BorrowingRequestList } from './BorrowingRequestList';
+import BorrowingRequestList from './BorrowingRequestList/BorrowingRequestList';
 
 export class BorrowingRequestSearch extends Component {
   searchApi = new InvenioSearchApi({

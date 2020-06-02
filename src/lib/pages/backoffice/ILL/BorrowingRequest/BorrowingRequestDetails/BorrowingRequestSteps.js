@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Icon, Segment, Step } from 'semantic-ui-react';
 import { getDisplayVal, invenioConfig } from '@config/invenioConfig';
-import { LoanIcon } from '@components/backoffice';
+import { LoanIcon } from '@components/backoffice/icons';
 
 class BorrowingRequestStep extends Component {
   render() {

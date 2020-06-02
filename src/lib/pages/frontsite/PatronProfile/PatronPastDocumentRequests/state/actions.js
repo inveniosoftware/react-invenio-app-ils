@@ -1,4 +1,4 @@
-import { documentRequestApi } from '@api';
+import { documentRequestApi } from '@api/documentRequests';
 import { sendErrorNotification } from '@components/Notifications';
 import { HAS_ERROR, IS_LOADING, SUCCESS } from './types';
 

@@ -1,1 +1,0 @@
-export { LiteratureSearch } from './LiteratureSearch';

@@ -1,15 +1,13 @@
-import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
-import { DocumentIcon, ItemIcon, LoanIcon } from '@components/backoffice';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import { DocumentIcon, ItemIcon, LoanIcon } from '@components/backoffice/icons';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Header, Item, Label, List } from 'semantic-ui-react';
-import {
-  LoanLinkToItem,
-  OverdueLoanSendMailModal,
-} from '@modules/Loan/backoffice';
+import LoanLinkToItem from '@modules/Loan/backoffice/LoanLinkToItem';
+import { OverdueLoanSendMailModal } from '@modules/Loan/backoffice/OverdueLoanSendMailModal';
 import { LoanDates } from './LoanDates';
 
 export class LoanListEntry extends Component {

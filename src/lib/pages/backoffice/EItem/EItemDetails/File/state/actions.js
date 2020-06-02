@@ -1,4 +1,5 @@
-import { eItemApi, fileApi } from '@api';
+import { eItemApi } from '@api/eitems/eitem';
+import { fileApi } from '@api/files/file';
 import { sendErrorNotification } from '@components/Notifications';
 import {
   DELETE_FILE,

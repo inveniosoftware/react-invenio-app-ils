@@ -2,17 +2,13 @@ import { loanApi } from '@api/loans';
 import { dateFormatter } from '@api/date';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
-import { ResultsTable } from '@components/ResultsTable';
-import { DocumentTitle } from '@modules/Document/DocumentTitle';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import DocumentTitle from '@modules/Document/DocumentTitle';
 import { invenioConfig } from '@config';
-import {
-  DocumentDetailsLink,
-  SeeAllButton,
-} from '@components/backoffice/buttons';
-import {
-  ItemDetailsLink,
-  LoanDetailsLink,
-} from '@components/backoffice/buttons/ViewDetailsButtons';
+import { DocumentDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/DocumentDetailsLink';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
+import { ItemDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/ItemDetailsLink';
+import { LoanDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/LoanDetailsLink';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';

@@ -1,15 +1,13 @@
+import { SearchControlsMobile } from '@modules/SearchControls/SearchControlsMobile';
+import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
+import SearchPagination from '@modules/SearchControls/SearchPagination';
 import React, { Component, createRef } from 'react';
 import Overridable from 'react-overridable';
 import { Container, Ref, Sticky } from 'semantic-ui-react';
 import { ResultsLoader, Error } from 'react-searchkit';
-import {
-  SearchFooter,
-  SearchEmptyResults,
-  SearchPagination,
-  SearchControlsMobile,
-} from '@modules/SearchControls';
-import { SearchMessage } from './SearchMessage';
-import { LiteratureSearchResultsGrid } from '@modules/Literature';
+import SearchMessage from './SearchMessage/SearchMessage';
+import LiteratureSearchResultsGrid from '@modules/Literature/LiteratureSearchResultsGrid';
 
 class LiteratureSearchMobile extends Component {
   stickyRef = createRef();

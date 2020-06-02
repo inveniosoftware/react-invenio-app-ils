@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
-import { ResultsTable } from '@components/ResultsTable';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { itemApi } from '@api/items';
 import { BackOfficeRoutes } from '@routes/urls';
 import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';

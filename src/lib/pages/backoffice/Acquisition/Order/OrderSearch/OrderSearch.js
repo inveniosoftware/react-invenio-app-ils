@@ -4,10 +4,10 @@ import { SearchBar as OrdersSearchBar } from '@components/SearchBar';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import history from '@history';
-import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
+import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
-import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
-import { SearchFooter } from '@modules/SearchControls/SearchFooter';
+import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
 import { AcquisitionRoutes } from '@routes/urls';
 import React, { Component } from 'react';
 import {

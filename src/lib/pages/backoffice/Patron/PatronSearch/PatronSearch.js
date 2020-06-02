@@ -1,8 +1,9 @@
-import { EmailLink, CopyButton } from '@components';
-import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
+import { CopyButton } from '@components/CopyButton';
+import { EmailLink } from '@components/EmailLink';
+import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
-import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
-import { SearchFooter } from '@modules/SearchControls/SearchFooter';
+import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Container, Header } from 'semantic-ui-react';
@@ -15,11 +16,9 @@ import {
   InvenioSearchApi,
 } from 'react-searchkit';
 import { BackOfficeRoutes } from '@routes/urls';
-import {
-  Error as IlsError,
-  SearchBar as PatronsSearchBar,
-  ResultsTable,
-} from '@components';
+import { Error as IlsError } from '@components/Error';
+import { SearchBar as PatronsSearchBar } from '@components/SearchBar';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { patronApi } from '@api/patrons';
 import { responseRejectInterceptor } from '@api/base';
 import { getSearchConfig } from '@config';

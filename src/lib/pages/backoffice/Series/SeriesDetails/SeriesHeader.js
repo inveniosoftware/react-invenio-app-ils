@@ -1,10 +1,11 @@
 import { toShortDate } from '@api/date';
 import { CopyButton } from '@components/CopyButton';
-import { CreatedBy } from '@components/backoffice';
-import { LiteratureCover } from '@modules/Literature/LiteratureCover';
-import { SeriesAuthors } from '@modules/Series';
-import { DocumentTags, DocumentTitle } from '@modules/Document';
-import { DetailsHeader } from '@components/backoffice';
+import { CreatedBy } from '@components/backoffice/ChangedBy';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
+import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
+import DocumentTags from '@modules/Document/DocumentTags';
+import DocumentTitle from '@modules/Document/DocumentTitle';
+import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import React, { Component } from 'react';

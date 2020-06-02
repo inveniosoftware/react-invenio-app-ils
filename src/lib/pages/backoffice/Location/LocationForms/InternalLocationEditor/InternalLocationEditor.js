@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
-import { internalLocationApi } from '@api';
+import { internalLocationApi } from '@api/locations';
 import { InternalLocationForm } from './components';
 
 export class InternalLocationEditor extends Component {

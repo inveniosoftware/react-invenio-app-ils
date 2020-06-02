@@ -1,4 +1,4 @@
-import { DocumentToc } from '@modules/Document/DocumentToc';
+import DocumentToc from '@modules/Document/DocumentToc';
 import { DocumentSubjects } from './DocumentSubjects';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';

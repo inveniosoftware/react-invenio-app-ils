@@ -1,5 +1,5 @@
 import { fromISO, toShortDate } from '@api/date';
-import { DatePicker } from '@components';
+import { DatePicker } from '@components/DatePicker';
 import { invenioConfig } from '@config';
 import { getDisplayVal } from '@config/invenioConfig';
 import { MetadataTable } from '@components/backoffice/MetadataTable';

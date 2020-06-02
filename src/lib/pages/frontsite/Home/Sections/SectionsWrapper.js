@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _isEmpty from 'lodash/isEmpty';
-import { DocumentCardGroup } from '@modules/Document';
+import { DocumentCardGroup } from '@modules/Document/DocumentCardGroup';
 import SectionServices from './SectionServices';
 import { Container } from 'semantic-ui-react';
 import SectionTags from './SectionTags';

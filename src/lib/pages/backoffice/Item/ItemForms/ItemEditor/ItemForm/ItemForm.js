@@ -14,7 +14,10 @@ import { BackOfficeRoutes } from '@routes/urls';
 import { goTo } from '@history';
 import itemSubmitSerializer from './itemSubmitSerializer';
 import { invenioConfig } from '@config';
-import { documentApi, internalLocationApi, itemApi, vocabularyApi } from '@api';
+import { documentApi } from '@api/documents';
+import { internalLocationApi } from '@api/locations';
+import { itemApi } from '@api/items';
+import { vocabularyApi } from '@api/vocabularies';
 import {
   serializeDocument,
   serializeInternalLocation,

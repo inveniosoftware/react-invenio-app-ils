@@ -1,10 +1,12 @@
-import { Error, Loader, Pagination } from '@components';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import { Pagination } from '@components/Pagination';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container, Header, Item } from 'semantic-ui-react';
-import { InfoMessage } from '@components';
+import { InfoMessage } from '@components/InfoMessage';
 import PastLoanListEntry from './PastLoanListEntry';
 
 export default class PatronPastLoans extends Component {

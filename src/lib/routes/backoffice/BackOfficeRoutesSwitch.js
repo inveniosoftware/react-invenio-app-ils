@@ -1,44 +1,45 @@
-import { NotFound } from '@components';
+import { NotFound } from '@components/NotFound';
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { BackOfficeRoutes, AcquisitionRoutes, ILLRoutes } from '@routes/urls';
+import { BorrowingRequestDetails } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails';
+import { BorrowingRequestEditor } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestEditor/BorrowingRequestEditor';
+import { BorrowingRequestSearch } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestSearch/BorrowingRequestSearch';
+import { DocumentDetails } from '@pages/backoffice/Document/DocumentDetails';
+import { DocumentEditor } from '@pages/backoffice/Document/DocumentForms';
+import { DocumentSearch } from '@pages/backoffice/Document/DocumentSearch';
+import { DocumentRequestDetails } from '@pages/backoffice/DocumentRequest/DocumentRequestDetails';
+import { DocumentRequestSearch } from '@pages/backoffice/DocumentRequest/DocumentRequestSearch';
+
+import { EItemDetails } from '@pages/backoffice/EItem/EItemDetails';
+import { EItemEditor } from '@pages/backoffice/EItem/EItemForms';
+import { EItemSearch } from '@pages/backoffice/EItem/EItemSearch';
+import Home from '@pages/backoffice/Home/Home';
+import { InternalLocationEditor } from '@pages/backoffice/Location/LocationForms';
+import { ItemDetails } from '@pages/backoffice/Item/ItemDetails';
+import { ItemEditor } from '@pages/backoffice/Item/ItemForms';
+import { ItemSearch } from '@pages/backoffice/Item/ItemSearch';
 import {
-  BorrowingRequestDetails,
-  BorrowingRequestEditor,
-  BorrowingRequestSearch,
-  DocumentDetails,
-  DocumentEditor,
-  DocumentRequestDetails,
-  DocumentRequestSearch,
-  DocumentSearch,
-  EItemDetails,
-  EItemEditor,
-  EItemSearch,
-  Home,
-  InternalLocationEditor,
-  ItemDetails,
-  ItemEditor,
-  ItemSearch,
   LibraryDetails,
   LibraryEditor,
   LibrarySearch,
-  LoanDetails,
-  LoanSearch,
-  LocationEditor,
-  LocationList,
-  OrderDetails,
-  OrderEditor,
-  OrderSearch,
-  PatronDetails,
-  PatronSearch,
-  SeriesDetails,
-  SeriesEditor,
-  SeriesSearch,
-  Stats,
-  VendorDetails,
-  VendorEditor,
-  VendorSearch,
-} from '@pages/backoffice';
+} from '@pages/backoffice/ILL/Library';
+import { LoanDetails } from '@pages/backoffice/Loan/LoanDetails';
+import { LoanSearch } from '@pages/backoffice/Loan/LoanSearch';
+import { LocationEditor } from '@pages/backoffice/Location/LocationForms';
+import { LocationList } from '@pages/backoffice/Location/LocationList';
+import { OrderDetails } from '@pages/backoffice/Acquisition/Order/OrderDetails';
+import { OrderEditor } from '@pages/backoffice/Acquisition/Order/OrderEditor';
+import { OrderSearch } from '@pages/backoffice/Acquisition/Order/OrderSearch';
+import { PatronDetails } from '@pages/backoffice/Patron/PatronDetails';
+import { PatronSearch } from '@pages/backoffice/Patron/PatronSearch';
+import { SeriesDetails } from '@pages/backoffice/Series/SeriesDetails';
+import { SeriesEditor } from '@pages/backoffice/Series/SeriesForms';
+import { SeriesSearch } from '@pages/backoffice/Series/SeriesSearch';
+import Stats from '@pages/backoffice/Stats/Stats';
+import { VendorDetails } from '@pages/backoffice/Acquisition/Vendor/VendorDetails';
+import { VendorEditor } from '@pages/backoffice/Acquisition/Vendor/VendorEditor';
+import { VendorSearch } from '@pages/backoffice/Acquisition/Vendor/VendorSearch';
 
 export default class BackOfficeRoutesSwitch extends Component {
   render() {

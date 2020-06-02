@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import { Container, Divider, Grid, Ref, Sticky } from 'semantic-ui-react';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
-import {
-  ItemActionMenu,
-  ItemCirculation,
-  ItemMetadata,
-  ItemPastLoans,
-} from './index';
+import { ItemActionMenu } from './ItemActionMenu';
+import { ItemCirculation } from './ItemCirculation';
+import { ItemMetadata } from './ItemMetadata';
+import { ItemPastLoans } from './ItemPastLoans';
 
 import { ItemHeader } from './ItemHeader';
 

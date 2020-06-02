@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchDocumentRequestDetails } from '@pages/backoffice/DocumentRequest/DocumentRequestDetails/state/actions';
+import { fetchDocumentRequestDetails } from '../state/actions';
 import DocumentRequestStepsComponent from './DocumentRequestSteps';
 
 const mapStateToProps = state => ({
@@ -15,8 +15,3 @@ export const DocumentRequestSteps = connect(
   mapStateToProps,
   mapDispatchToProps
 )(DocumentRequestStepsComponent);
-
-export { DocumentStep, DocumentStepContent } from './DocumentStep';
-export { ProviderStep, ProviderStepContent } from './ProviderStep';
-export { ReviewStep, ReviewStepContent } from './ReviewStep';
-export { StepsActions } from './StepsActions';

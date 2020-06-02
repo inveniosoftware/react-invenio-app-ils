@@ -1,7 +1,7 @@
-import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
-import { DocumentLanguages } from '@modules/Document/DocumentLanguages';
-import { DocumentTags } from '@modules/Document/DocumentTags';
-import { LiteratureCover } from '@modules/Literature/LiteratureCover';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import DocumentLanguages from '@modules/Document/DocumentLanguages';
+import DocumentTags from '@modules/Document/DocumentTags';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';

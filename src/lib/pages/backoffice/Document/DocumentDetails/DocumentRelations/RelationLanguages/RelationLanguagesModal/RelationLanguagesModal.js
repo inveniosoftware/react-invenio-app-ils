@@ -1,4 +1,4 @@
-import { DocumentLanguages } from '@modules/Document/DocumentLanguages';
+import DocumentLanguages from '@modules/Document/DocumentLanguages';
 import { DocumentSelectListEntry } from '@modules/Document/backoffice/DocumentSelectListEntry';
 import { RelationModal } from '@modules/Relations/backoffice/components/RelationModal';
 import { RelationSummary } from '@modules/Relations/backoffice/components/RelationSummary';

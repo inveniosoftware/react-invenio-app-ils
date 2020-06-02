@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Checkbox, Form, Message } from 'semantic-ui-react';
-import { DatePicker } from '@components';
+import { DatePicker } from '@components/DatePicker';
 import PropTypes from 'prop-types';
 import { invenioConfig } from '@config';
 import { DateTime } from 'luxon';

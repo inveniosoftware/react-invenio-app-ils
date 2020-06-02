@@ -1,5 +1,5 @@
 import { patronApi } from '@api/patrons';
-import { ESSelectorLoanRequest } from '@modules/ESSelector/ESSelectorLoanRequest';
+import ESSelectorLoanRequest from '@modules/ESSelector/ESSelectorLoanRequest';
 import { serializePatron } from '@modules/ESSelector/serializer';
 import { EditButton } from '@components/backoffice/buttons/EditButton';
 import { NewButton } from '@components/backoffice/buttons/NewButton';

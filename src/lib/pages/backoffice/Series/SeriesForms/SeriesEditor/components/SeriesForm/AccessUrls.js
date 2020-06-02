@@ -1,12 +1,10 @@
 import { DeleteActionButton } from '@forms/components/DeleteActionButton';
-import {
-  AccordionField,
-  ArrayField,
-  BooleanField,
-  GroupField,
-  StringField,
-  VocabularyField,
-} from '@forms/core';
+import { AccordionField } from '@forms/core/AccordionField';
+import { ArrayField } from '@forms/core/ArrayField';
+import { BooleanField } from '@forms/core/BooleanField';
+import { GroupField } from '@forms/core/GroupField';
+import { StringField } from '@forms/core/StringField';
+import { VocabularyField } from '@forms/core/VocabularyField';
 import React, { Component } from 'react';
 
 export class AccessUrls extends Component {

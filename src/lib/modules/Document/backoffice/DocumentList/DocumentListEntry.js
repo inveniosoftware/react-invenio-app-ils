@@ -1,8 +1,8 @@
-import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
-import { DocumentEdition } from '@modules/Document/DocumentEdition';
-import { DocumentLanguages } from '@modules/Document/DocumentLanguages';
-import { DocumentTags } from '@modules/Document/DocumentTags';
-import { LiteratureCover } from '@modules/Literature/LiteratureCover';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import DocumentEdition from '@modules/Document/DocumentEdition';
+import DocumentLanguages from '@modules/Document/DocumentLanguages';
+import DocumentTags from '@modules/Document/DocumentTags';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';

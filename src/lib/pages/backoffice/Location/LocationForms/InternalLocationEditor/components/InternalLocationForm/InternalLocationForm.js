@@ -1,8 +1,11 @@
 import { locationApi } from '@api/locations/location';
-import { internalLocationApi } from '@api';
+import { internalLocationApi } from '@api/locations';
 import { delay } from '@api/utils';
 import { serializeLocation } from '@modules/ESSelector/serializer';
-import { BaseForm, SelectorField, StringField, TextField } from '@forms/core';
+import { BaseForm } from '@forms/core/BaseForm';
+import { SelectorField } from '@forms/core/SelectorField';
+import { StringField } from '@forms/core/StringField';
+import { TextField } from '@forms/core/TextField';
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
 import pick from 'lodash/pick';

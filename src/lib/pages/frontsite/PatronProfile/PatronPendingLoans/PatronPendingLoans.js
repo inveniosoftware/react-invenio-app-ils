@@ -1,4 +1,7 @@
-import { Error, InfoMessage, Loader, Pagination } from '@components';
+import { Error } from '@components/Error';
+import { InfoMessage } from '@components/InfoMessage';
+import { Loader } from '@components/Loader';
+import { Pagination } from '@components/Pagination';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { uiConfig } from '@config';
 import _get from 'lodash/get';

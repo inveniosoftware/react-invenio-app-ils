@@ -1,6 +1,7 @@
-import { ShowMoreContent } from '@components';
-import { DocumentAuthors, DocumentTags } from '@modules/Document';
-import { LiteratureCover } from '@modules/Literature/LiteratureCover';
+import { ShowMoreContent } from '@components/ShowMoreContent';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import DocumentTags from '@modules/Document/DocumentTags';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
 import {
   ILSHeaderPlaceholder,
   ILSParagraphPlaceholder,

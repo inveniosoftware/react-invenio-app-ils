@@ -1,6 +1,6 @@
 import { toShortDate } from '@api/date';
-import { LiteratureCover } from '@modules/Literature/LiteratureCover';
-import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import { ExtensionCount } from '@modules/Loan';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';

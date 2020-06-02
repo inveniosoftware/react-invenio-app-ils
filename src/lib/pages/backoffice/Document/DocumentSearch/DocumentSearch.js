@@ -16,9 +16,9 @@ import { BackOfficeRoutes } from '@routes/urls';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { DocumentList } from '@modules/Document/backoffice/DocumentList';
-import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
-import { SearchFooter } from '@modules/SearchControls/SearchFooter';
-import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
+import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
+import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 import history from '@history';
 

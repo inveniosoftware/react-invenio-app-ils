@@ -1,6 +1,6 @@
 import { Grid, Responsive } from 'semantic-ui-react';
 import React, { Component } from 'react';
-import { SearchPagination } from './SearchPagination';
+import SearchPagination from './SearchPagination';
 
 export default class SearchFooter extends Component {
   render() {

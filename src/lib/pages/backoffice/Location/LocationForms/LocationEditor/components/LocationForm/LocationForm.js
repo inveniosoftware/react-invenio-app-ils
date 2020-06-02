@@ -1,6 +1,8 @@
 import { locationApi } from '@api/locations/location';
 import { delay } from '@api/utils';
-import { BaseForm, StringField, TextField } from '@forms/core';
+import { BaseForm } from '@forms/core/BaseForm';
+import { StringField } from '@forms/core/StringField';
+import { TextField } from '@forms/core/TextField';
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
 import pick from 'lodash/pick';

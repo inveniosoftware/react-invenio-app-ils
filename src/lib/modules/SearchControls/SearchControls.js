@@ -2,11 +2,11 @@ import { Count, LayoutSwitcher } from 'react-searchkit';
 import React, { Component } from 'react';
 import { Grid, Responsive } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { SearchSortBy } from './SearchSortBy';
-import { SearchSortOrder } from './SearchSortOrder';
-import { SearchResultsPerPage } from './SearchResultsPerPage';
+import SearchSortBy from './SearchSortBy';
+import SearchSortOrder from './SearchSortOrder';
+import SearchResultsPerPage from './SearchResultsPerPage';
 import { SearchControlsMobile } from './SearchControlsMobile';
-import { SearchPagination } from './SearchPagination';
+import SearchPagination from './SearchPagination';
 
 export class SearchControls extends Component {
   render() {

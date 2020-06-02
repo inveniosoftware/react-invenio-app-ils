@@ -1,7 +1,7 @@
-import { SearchAggregationsCards } from '@modules/SearchControls/SearchAggregationsCards';
+import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
-import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
-import { SearchFooter } from '@modules/SearchControls/SearchFooter';
+import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
 import DocumentRequestList from './DocumentRequestList';
 import React, { Component } from 'react';
 import { Container, Grid, Header } from 'semantic-ui-react';

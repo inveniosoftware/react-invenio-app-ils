@@ -1,10 +1,10 @@
 import { Count } from 'react-searchkit';
 import React, { Component } from 'react';
 import { Container, Dropdown, Menu, Sticky } from 'semantic-ui-react';
-import { SearchResultsPerPage } from './SearchResultsPerPage';
-import { SearchAggregationsMenu } from './SearchAggregations';
-import { SearchSortBy } from './SearchSortBy';
-import { SearchSortOrder } from './SearchSortOrder';
+import SearchResultsPerPage from './SearchResultsPerPage';
+import SearchAggregationsMenu from './SearchAggregationsMenu';
+import SearchSortBy from './SearchSortBy';
+import SearchSortOrder from './SearchSortOrder';
 import PropTypes from 'prop-types';
 import { getSearchConfig } from '@config';
 import _isEmpty from 'lodash/isEmpty';

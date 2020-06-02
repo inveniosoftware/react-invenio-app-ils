@@ -2,9 +2,9 @@ import { literatureApi } from '@api/literature';
 import { Error as IlsError } from '@components/Error';
 import { SearchBar as LiteratureSearchBar } from '@components/SearchBar';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
-import { SearchEmptyResults } from '@modules/SearchControls/SearchEmptyResults';
-import { SearchFooter } from '@modules/SearchControls/SearchFooter';
-import { SearchControlsMobile } from '@modules/SearchControlsMobile';
+import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
+import { SearchControlsMobile } from '@modules/SearchControls/SearchControlsMobile';
 import history from '@history';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -18,9 +18,9 @@ import {
 } from 'react-searchkit';
 import { Container, Divider, Loader, Responsive } from 'semantic-ui-react';
 import { qsBuilderForSeries } from './RequestSerializer';
-import { LiteratureSearchResultsList } from '@modules/Literature/LiteratureSearchResultsList';
-import { LiteratureSearchResultsGrid } from '@modules/Literature/LiteratureSearchResultsGrid';
-import { SeriesLiteratureSearchMobile } from './SeriesLiteratureSearchMobile';
+import LiteratureSearchResultsList from '@modules/Literature/LiteratureSearchResultsList';
+import LiteratureSearchResultsGrid from '@modules/Literature/LiteratureSearchResultsGrid';
+import { SeriesLiteratureSearchMobile } from '../SeriesLiteratureSearchMobile';
 
 export class SeriesLiteratureSearch extends React.Component {
   renderSearchBar = (_, queryString, onInputChange, executeSearch) => {

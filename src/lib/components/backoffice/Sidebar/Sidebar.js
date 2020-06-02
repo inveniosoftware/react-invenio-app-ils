@@ -48,147 +48,149 @@ class Sidebar extends Component {
           </Header>
           <Divider />
           <Overridable id="Sidebar.Menu">
-            <Menu text vertical className="bo-menu">
-              <Menu.Item>
-                <Menu.Header>Library</Menu.Header>
-                <Menu.Menu>
-                  <Menu.Item
-                    as={Link}
-                    active={overviewActive}
-                    to={BackOfficeRoutes.home}
-                  >
-                    Overview
-                  </Menu.Item>
-                  <Menu.Item
-                    as={Link}
-                    active={loansActive}
-                    to={BackOfficeRoutes.loansList}
-                  >
-                    Loans
-                  </Menu.Item>
-                  <Menu.Item
-                    as={Link}
-                    active={documentRequestsActive}
-                    to={BackOfficeRoutes.documentRequestsList}
-                  >
-                    Requests for new literature
-                  </Menu.Item>
-                  <Menu.Item
-                    as={Link}
-                    active={locationsActive}
-                    to={BackOfficeRoutes.locationsList}
-                  >
-                    Locations
-                  </Menu.Item>
-                </Menu.Menu>
-              </Menu.Item>
+            <>
+              <Menu text vertical className="bo-menu">
+                <Menu.Item>
+                  <Menu.Header>Library</Menu.Header>
+                  <Menu.Menu>
+                    <Menu.Item
+                      as={Link}
+                      active={overviewActive}
+                      to={BackOfficeRoutes.home}
+                    >
+                      Overview
+                    </Menu.Item>
+                    <Menu.Item
+                      as={Link}
+                      active={loansActive}
+                      to={BackOfficeRoutes.loansList}
+                    >
+                      Loans
+                    </Menu.Item>
+                    <Menu.Item
+                      as={Link}
+                      active={documentRequestsActive}
+                      to={BackOfficeRoutes.documentRequestsList}
+                    >
+                      Requests for new literature
+                    </Menu.Item>
+                    <Menu.Item
+                      as={Link}
+                      active={locationsActive}
+                      to={BackOfficeRoutes.locationsList}
+                    >
+                      Locations
+                    </Menu.Item>
+                  </Menu.Menu>
+                </Menu.Item>
 
-              <Menu.Item>
-                <Menu.Header>Catalogue</Menu.Header>
-                <Menu.Menu>
-                  <Menu.Item
-                    as={Link}
-                    active={documentsActive}
-                    to={BackOfficeRoutes.documentsList}
-                  >
-                    Books / Articles
-                  </Menu.Item>
-                  <Menu.Item
-                    as={Link}
-                    active={seriesActive}
-                    to={BackOfficeRoutes.seriesList}
-                  >
-                    Series / Monographs
-                  </Menu.Item>
-                  <Menu.Item
-                    as={Link}
-                    active={itemsActive}
-                    to={BackOfficeRoutes.itemsList}
-                  >
-                    Physical Copies
-                  </Menu.Item>
-                  <Menu.Item
-                    as={Link}
-                    active={eitemsActive}
-                    to={BackOfficeRoutes.eitemsList}
-                  >
-                    Electronic Items
-                  </Menu.Item>
-                </Menu.Menu>
-              </Menu.Item>
+                <Menu.Item>
+                  <Menu.Header>Catalogue</Menu.Header>
+                  <Menu.Menu>
+                    <Menu.Item
+                      as={Link}
+                      active={documentsActive}
+                      to={BackOfficeRoutes.documentsList}
+                    >
+                      Books / Articles
+                    </Menu.Item>
+                    <Menu.Item
+                      as={Link}
+                      active={seriesActive}
+                      to={BackOfficeRoutes.seriesList}
+                    >
+                      Series / Monographs
+                    </Menu.Item>
+                    <Menu.Item
+                      as={Link}
+                      active={itemsActive}
+                      to={BackOfficeRoutes.itemsList}
+                    >
+                      Physical Copies
+                    </Menu.Item>
+                    <Menu.Item
+                      as={Link}
+                      active={eitemsActive}
+                      to={BackOfficeRoutes.eitemsList}
+                    >
+                      Electronic Items
+                    </Menu.Item>
+                  </Menu.Menu>
+                </Menu.Item>
 
-              <Menu.Item>
-                <Menu.Header>Acquisition</Menu.Header>
-                <Menu.Menu>
-                  <Menu.Item
-                    as={Link}
-                    active={ordersActive}
-                    to={AcquisitionRoutes.ordersList}
-                  >
-                    Purchase Orders
-                  </Menu.Item>
-                  <Menu.Item
-                    as={Link}
-                    active={vendorsActive}
-                    to={AcquisitionRoutes.vendorsList}
-                  >
-                    Vendors
-                  </Menu.Item>
-                </Menu.Menu>
-              </Menu.Item>
+                <Menu.Item>
+                  <Menu.Header>Acquisition</Menu.Header>
+                  <Menu.Menu>
+                    <Menu.Item
+                      as={Link}
+                      active={ordersActive}
+                      to={AcquisitionRoutes.ordersList}
+                    >
+                      Purchase Orders
+                    </Menu.Item>
+                    <Menu.Item
+                      as={Link}
+                      active={vendorsActive}
+                      to={AcquisitionRoutes.vendorsList}
+                    >
+                      Vendors
+                    </Menu.Item>
+                  </Menu.Menu>
+                </Menu.Item>
 
-              <Menu.Item>
-                <Menu.Header>InterLibrary Loans</Menu.Header>
-                <Menu.Menu>
-                  <Menu.Item
-                    as={Link}
-                    active={borrowingRequestsActive}
-                    to={ILLRoutes.borrowingRequestList}
-                  >
-                    Borrowing Requests
-                  </Menu.Item>
-                  <Menu.Item
-                    as={Link}
-                    active={librariesActive}
-                    to={ILLRoutes.libraryList}
-                  >
-                    Libraries
-                  </Menu.Item>
-                </Menu.Menu>
-              </Menu.Item>
+                <Menu.Item>
+                  <Menu.Header>InterLibrary Loans</Menu.Header>
+                  <Menu.Menu>
+                    <Menu.Item
+                      as={Link}
+                      active={borrowingRequestsActive}
+                      to={ILLRoutes.borrowingRequestList}
+                    >
+                      Borrowing Requests
+                    </Menu.Item>
+                    <Menu.Item
+                      as={Link}
+                      active={librariesActive}
+                      to={ILLRoutes.libraryList}
+                    >
+                      Libraries
+                    </Menu.Item>
+                  </Menu.Menu>
+                </Menu.Item>
 
-              <Menu.Item>
-                <Menu.Header>Patrons</Menu.Header>
-                <Menu.Menu>
-                  <Menu.Item
-                    as={Link}
-                    active={patronsActive}
-                    to={BackOfficeRoutes.patronsList}
-                  >
-                    Patrons
-                  </Menu.Item>
-                </Menu.Menu>
-              </Menu.Item>
+                <Menu.Item>
+                  <Menu.Header>Patrons</Menu.Header>
+                  <Menu.Menu>
+                    <Menu.Item
+                      as={Link}
+                      active={patronsActive}
+                      to={BackOfficeRoutes.patronsList}
+                    >
+                      Patrons
+                    </Menu.Item>
+                  </Menu.Menu>
+                </Menu.Item>
 
-              <Menu.Item>
-                <Menu.Header>Statistics</Menu.Header>
-                <Menu.Menu>
-                  <Menu.Item
-                    as={Link}
-                    active={statsActive}
-                    to={BackOfficeRoutes.stats.home}
-                  >
-                    Most Loaned
-                  </Menu.Item>
-                </Menu.Menu>
-              </Menu.Item>
-            </Menu>
-            <Divider horizontal>Other</Divider>
-            <Menu text vertical className="bo-menu">
-              <Menu.Item as={Link} to={FrontSiteRoutes.home}>
-                Go to Home Page
-              </Menu.Item>
-            </Menu>
+                <Menu.Item>
+                  <Menu.Header>Statistics</Menu.Header>
+                  <Menu.Menu>
+                    <Menu.Item
+                      as={Link}
+                      active={statsActive}
+                      to={BackOfficeRoutes.stats.home}
+                    >
+                      Most Loaned
+                    </Menu.Item>
+                  </Menu.Menu>
+                </Menu.Item>
+              </Menu>
+              <Divider horizontal>Other</Divider>
+              <Menu text vertical className="bo-menu">
+                <Menu.Item as={Link} to={FrontSiteRoutes.home}>
+                  Go to Home Page
+                </Menu.Item>
+              </Menu>
+            </>
           </Overridable>
           <AuthenticationGuard
             silent

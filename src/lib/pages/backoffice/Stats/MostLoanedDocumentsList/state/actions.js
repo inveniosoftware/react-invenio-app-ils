@@ -1,6 +1,6 @@
 import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
 import { sendErrorNotification } from '@components/Notifications';
-import { circulationStatsApi } from '@api';
+import { circulationStatsApi } from '@api/stats/circulationStats';
 
 export const fetchMostLoanedDocuments = (fromDate, toDate) => {
   return async dispatch => {

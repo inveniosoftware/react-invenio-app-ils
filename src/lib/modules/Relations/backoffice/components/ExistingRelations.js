@@ -1,5 +1,5 @@
 import { Pagination } from '@components/Pagination';
-import { ResultsTable } from '@components/ResultsTable';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 

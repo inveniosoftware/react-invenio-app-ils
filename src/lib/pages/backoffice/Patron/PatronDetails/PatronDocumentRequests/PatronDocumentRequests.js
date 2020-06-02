@@ -1,10 +1,10 @@
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
-import { documentRequestApi } from '@api/';
+import { documentRequestApi } from '@api/documentRequests/documentRequest';
 import { BackOfficeRoutes } from '@routes/urls';
 import { dateFormatter } from '@api/date';
 import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';

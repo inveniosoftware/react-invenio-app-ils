@@ -3,7 +3,7 @@ import { AccordionField } from '@forms/core/AccordionField';
 import { ArrayField } from '@forms/core/ArrayField';
 import { GroupField } from '@forms/core/GroupField';
 import { StringField } from '@forms/core/StringField';
-import { YearInputField } from '@forms/core/YearInputField';
+import { YearInputField } from '@forms/core/DateTimeFields';
 import React, { Component } from 'react';
 
 export class Copyrights extends Component {

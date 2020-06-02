@@ -1,8 +1,9 @@
+import SeriesMetadataAccordion from '@modules/Series/SeriesMetadataAccordion';
+import SeriesMetadataTabs from '@modules/Series/SeriesMetadataTabs';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Container, Responsive } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { SeriesMetadataAccordion, SeriesMetadataTabs } from '@modules/Series';
 
 class SeriesMetadata extends Component {
   render() {

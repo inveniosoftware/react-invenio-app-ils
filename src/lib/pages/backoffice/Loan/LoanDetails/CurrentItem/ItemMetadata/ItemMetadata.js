@@ -1,5 +1,5 @@
 import { MetadataTable } from '@components/backoffice/MetadataTable';
-import { ItemDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons';
+import { ItemDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/ItemDetailsLink';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import ShowMore from 'react-show-more';

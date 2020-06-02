@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Qs from 'qs';
 import { Grid, List, Header } from 'semantic-ui-react';
-import { DatePicker, Loader, Error } from '@components';
+import { DatePicker } from '@components/DatePicker';
+import { Loader } from '@components/Loader';
+import { Error } from '@components/Error';
 import { BackOfficeRoutes } from '@routes/urls';
-import { circulationStatsApi, loanApi } from '@api';
+import { circulationStatsApi } from '@api/stats/circulationStats';
+import { loanApi } from '@api/loans';
 import { DocumentList } from '@modules/Document/backoffice/DocumentList';
-import { ExportSearchResults } from '@components/backoffice';
+import { ExportSearchResults } from '@components/backoffice/ExportSearchResults';
 import { invenioConfig } from '@config/invenioConfig';
 import {
   DocumentListEntry,

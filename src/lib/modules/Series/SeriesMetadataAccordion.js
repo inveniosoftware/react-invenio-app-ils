@@ -1,4 +1,4 @@
-import { LiteratureRelations } from '@modules/Literature/LiteratureRelations';
+import LiteratureRelations from '@modules/Literature/LiteratureRelations';
 import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';

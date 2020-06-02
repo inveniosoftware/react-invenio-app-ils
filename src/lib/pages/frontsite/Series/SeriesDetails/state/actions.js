@@ -1,5 +1,5 @@
 import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
-import { seriesApi } from '@api';
+import { seriesApi } from '@api/series';
 
 export const fetchSeriesDetails = pid => {
   return async dispatch => {

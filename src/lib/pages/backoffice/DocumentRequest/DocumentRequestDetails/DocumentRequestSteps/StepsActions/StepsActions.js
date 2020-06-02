@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Grid, Header, Message } from 'semantic-ui-react';
 import { AcquisitionRoutes, BackOfficeRoutes, ILLRoutes } from '@routes/urls';
-import { documentRequestApi } from '@api';
+import { documentRequestApi } from '@api/documentRequests/documentRequest';
 import _get from 'lodash/get';
 import { DocumentIcon } from '@components/backoffice/icons';
-import { STEPS } from '../DocumentRequestSteps';
+import { STEPS } from '../Steps';
 import { invenioConfig } from '@config';
 import PropTypes from 'prop-types';
 

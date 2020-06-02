@@ -1,6 +1,6 @@
-import { DocumentLanguages } from '@modules/Document/DocumentLanguages';
-import { DocumentTags } from '@modules/Document/DocumentTags';
-import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
+import DocumentLanguages from '@modules/Document/DocumentLanguages';
+import DocumentTags from '@modules/Document/DocumentTags';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { UrlList } from '@components/backoffice/UrlList';
 import { BackOfficeRoutes } from '@routes/urls';

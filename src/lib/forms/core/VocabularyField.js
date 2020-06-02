@@ -1,4 +1,4 @@
-import { vocabularyApi } from '@api';
+import { vocabularyApi } from '@api/vocabularies';
 import { invenioConfig } from '@config';
 import PropTypes from 'prop-types';
 import React from 'react';

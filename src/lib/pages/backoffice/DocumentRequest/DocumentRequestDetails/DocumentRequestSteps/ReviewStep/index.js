@@ -20,5 +20,3 @@ export const ReviewStepContent = connect(
   mapStateToProps,
   mapDispatchToProps
 )(ReviewStepContentComponent);
-
-export { ReviewStep } from './ReviewStep';

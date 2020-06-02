@@ -1,13 +1,11 @@
-import { documentRequestApi } from '@api';
+import { documentRequestApi } from '@api/documentRequests/documentRequest';
 import { delay } from '@api/utils';
 import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
-import {
-  BaseForm,
-  GroupField,
-  StringField,
-  TextField,
-  YearInputField,
-} from '@forms/core';
+import { BaseForm } from '@forms/core/BaseForm';
+import { YearInputField } from '@forms/core/DateTimeFields';
+import { GroupField } from '@forms/core/GroupField';
+import { StringField } from '@forms/core/StringField';
+import { TextField } from '@forms/core/TextField';
 import { goTo } from '@history';
 import { FrontSiteRoutes } from '@routes/urls';
 import { getIn } from 'formik';

@@ -1,6 +1,6 @@
-import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
-import { DocumentIcon } from '@components/backoffice/DocumentIcon';
-import { EItemIcon } from '@components/backoffice/EItemIcon';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import { DocumentIcon } from '@components/backoffice/icons';
+import { EItemIcon } from '@components/backoffice/icons';
 import { OpenAccessLabel } from '@components/backoffice/OpenAccessLabel';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';

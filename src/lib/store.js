@@ -3,22 +3,19 @@ import { deleteRecordModalReducer } from '@components/backoffice/DeleteRecordMod
 import { notificationsReducer } from '@components/Notifications/reducer';
 import { overdueLoanSendMailModalReducer } from '@modules/Loan/backoffice/OverdueLoanSendMailModal/reducer';
 import { loanActionReducer, loanDetailsReducer } from '@modules/Loan/reducer';
-import {
-  patronCurrentBorrowingRequestsReducer,
-  patronCurrentLoansReducer,
-  patronDocumentRequestsReducer,
-  patronPastBorrowingRequestsReducer,
-  patronPastLoansReducer,
-  patronPendingLoansReducer,
-} from '@modules/Patron';
+import patronCurrentBorrowingRequestsReducer from '@modules/Patron/PatronCurrentBorrowingRequests/reducer';
+import patronCurrentLoansReducer from '@modules/Patron/PatronCurrentLoans/reducer';
+import patronDocumentRequestsReducer from '@modules/Patron/PatronDocumentRequests/reducer';
+
+import patronPastBorrowingRequestsReducer from '@modules/Patron/PatronPastBorrowingRequests/reducer';
+import patronPastLoansReducer from '@modules/Patron/PatronPastLoans/reducer';
+import patronPendingLoansReducer from '@modules/Patron/PatronPendingLoans/reducer';
 import {
   recordRelationsReducer,
   relationSelectorReducer,
 } from '@modules/Relations/backoffice/reducer';
-import {
-  orderDetailsReducer,
-  vendorDetailsReducer,
-} from '@pages/backoffice/Acquisition';
+import orderDetailsReducer from '@pages/backoffice/Acquisition/Order/OrderDetails/state/reducer';
+import vendorDetailsReducer from '@pages/backoffice/Acquisition/Vendor/VendorDetails/state/reducer';
 import {
   documentDetailsReducer,
   documentEItems,
@@ -37,10 +34,8 @@ import {
   pendingOverdueDocumentsReducer,
   renewedLoansReducer,
 } from '@pages/backoffice/Home/reducer';
-import {
-  borrowingRequestDetailsReducer,
-  libraryDetailsReducer,
-} from '@pages/backoffice/ILL';
+import borrowingRequestDetailsReducer from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/state/reducer';
+import libraryDetailsReducer from '@pages/backoffice/ILL/Library/LibraryDetails/state/reducer';
 import { borrowingRequestPatronLoanCreateReducer } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/BorrowingRequestPatronLoan/reducer';
 import {
   itemDetailsReducer,

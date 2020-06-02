@@ -1,5 +1,5 @@
-import { LiteratureCover } from '@modules/Literature/LiteratureCover';
-import { DocumentAuthors } from '@modules/Document/DocumentAuthors';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import {
   ILSHeaderPlaceholder,
   ILSParagraphPlaceholder,
@@ -10,9 +10,9 @@ import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Grid, Responsive } from 'semantic-ui-react';
-import { ShowMoreContent } from '@components';
+import { ShowMoreContent } from '@components/ShowMoreContent';
 import { DocumentCirculation } from '../DocumentCirculation';
-import { DocumentPanelMobile } from './index';
+import DocumentPanelMobile from './DocumentPanelMobile';
 
 class DocumentPanel extends Component {
   render() {
@@ -78,7 +78,7 @@ class DocumentPanel extends Component {
             </div>
           </Responsive>
           <Responsive {...Responsive.onlyMobile}>
-            <DocumentPanelMobile />
+            <DocumentPanelMobile isLoading={isLoading} documentDetails={doc} />
           </Responsive>
         </>
       </Overridable>
