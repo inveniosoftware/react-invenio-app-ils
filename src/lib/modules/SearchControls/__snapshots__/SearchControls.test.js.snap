@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchControls tests should load the SearchControls component 1`] = `
+<Fragment>
+  <Responsive
+    getWidth={[Function]}
+    minWidth={992}
+  >
+    <Grid
+      className="search-controls"
+      columns={3}
+    >
+      <GridColumn
+        computer={6}
+        largeScreen={5}
+      >
+        <Grid
+          columns={2}
+        >
+          <GridColumn
+            width={6}
+          >
+            <Connect(LayoutSwitcher)
+              defaultLayout="grid"
+            />
+          </GridColumn>
+          <GridColumn
+            width={10}
+          >
+            <Connect(Count)
+              label={[Function]}
+            />
+            <SearchResultsPerPage
+              modelName="documents"
+            />
+          </GridColumn>
+        </Grid>
+      </GridColumn>
+      <GridColumn
+        className="search-pagination-column"
+        computer={4}
+        largeScreen={6}
+        textAlign="center"
+      >
+        <Responsive
+          getWidth={[Function]}
+          minWidth={1200}
+        >
+          <SearchPagination />
+        </Responsive>
+      </GridColumn>
+      <GridColumn
+        className="search-sort-options-column"
+        computer={6}
+        largeScreen={5}
+        textAlign="right"
+      >
+        <div
+          className="sort-by-filters"
+        >
+          <SearchSortBy
+            modelName="documents"
+          />
+          <SearchSortOrder
+            modelName="documents"
+          />
+        </div>
+      </GridColumn>
+    </Grid>
+  </Responsive>
+  <Responsive
+    getWidth={[Function]}
+    maxWidth={1199}
+  >
+    <Grid>
+      <GridColumn
+        textAlign="center"
+        width={16}
+      >
+        <SearchPagination />
+      </GridColumn>
+    </Grid>
+  </Responsive>
+  <Responsive
+    getWidth={[Function]}
+    maxWidth={991}
+  >
+    <SearchControlsMobile
+      modelName="documents"
+      stickyRef={null}
+    />
+  </Responsive>
+</Fragment>
+`;

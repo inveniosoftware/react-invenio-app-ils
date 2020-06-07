@@ -240,6 +240,8 @@ exports[`RecordsBriefCard tests should render with buttons 1`] = `
 
 exports[`RecordsBriefCard tests should render without buttons 1`] = `
 <RecordsBriefCard
+  buttonLeft={null}
+  buttonRight={null}
   stats={3}
   text="test test test"
   title="Test"

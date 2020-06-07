@@ -1,12 +1,10 @@
+import { authenticationService } from '@authentication/services/AuthenticationService';
+import { sessionManager } from '@authentication/services/SessionManager';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
 import * as types from './types';
-import {
-  authenticationService,
-  sessionManager,
-} from '@authentication/services';
 
 jest.mock('@config/invenioConfig');
 

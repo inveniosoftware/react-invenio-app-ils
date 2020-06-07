@@ -5,7 +5,7 @@ import testData from '@testData/series.json';
 import SeriesDetails from './SeriesDetails';
 import { BrowserRouter } from 'react-router-dom';
 
-jest.mock('./SeriesPanel', () => {
+jest.mock('./SeriesPanel/SeriesPanel', () => {
   return {
     SeriesPanel: () => null,
   };
@@ -13,12 +13,6 @@ jest.mock('./SeriesPanel', () => {
 jest.mock('./SeriesMetadata', () => {
   return {
     SeriesMetadata: () => null,
-  };
-});
-
-jest.mock('@pages/frontsite/components/Series', () => {
-  return {
-    SeriesTags: () => null,
   };
 });
 

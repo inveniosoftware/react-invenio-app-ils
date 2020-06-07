@@ -2,10 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { Settings } from 'luxon';
 import { fromISO } from '@api/date';
-import { ResultsTable } from '@components/ResultsTable';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { Button } from 'semantic-ui-react';
-
-jest.mock('@pages/backoffice/components');
 
 Settings.defaultZoneName = 'utc';
 const stringDate = fromISO('2018-01-01T11:05:00+01:00');

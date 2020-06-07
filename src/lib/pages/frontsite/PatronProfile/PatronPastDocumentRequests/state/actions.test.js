@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
 import * as types from './types';
-import { documentRequestApi } from '@api';
+import { documentRequestApi } from '@api/documentRequests';
 
 jest.mock('@config/invenioConfig');
 

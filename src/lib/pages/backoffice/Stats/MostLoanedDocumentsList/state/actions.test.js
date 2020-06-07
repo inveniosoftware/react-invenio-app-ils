@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
 import * as types from './types';
-import { circulationStatsApi } from '@api';
+import { circulationStatsApi } from '@api/stats';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

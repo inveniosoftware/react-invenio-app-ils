@@ -1,10 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { ResultsTable } from '@components/ResultsTable';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import testData from '@testData/eitems.json';
 import { Button } from 'semantic-ui-react';
-
-jest.mock('@pages/backoffice/components');
 
 let component;
 const data = [

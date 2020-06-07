@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
 import { mount } from 'enzyme';
-import { ResultsTable } from '@components/ResultsTable';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 
-jest.mock('@components/backoffice/');
+jest.mock('@components/backoffice/ExportSearchResults');
 
 const data = [
   {

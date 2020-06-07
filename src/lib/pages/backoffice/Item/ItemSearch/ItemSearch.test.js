@@ -3,9 +3,7 @@ import { Button } from 'semantic-ui-react';
 import { mount } from 'enzyme';
 import { Settings } from 'luxon';
 import { fromISO, toISO } from '@api/date';
-import { ResultsTable } from '@components/ResultsTable';
-
-jest.mock('@pages/backoffice/components');
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 
 Settings.defaultZoneName = 'utc';
 

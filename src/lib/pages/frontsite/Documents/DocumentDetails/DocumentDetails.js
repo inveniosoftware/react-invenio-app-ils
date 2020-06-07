@@ -31,73 +31,66 @@ const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
         documentDetails,
       }}
     >
-      <>
-        <Error boundary error={error}>
-          <Container className="document-details-container default-margin-top">
-            <Grid columns={2}>
-              <Grid.Column computer={13} tablet={13} mobile={16}>
-                <ILSParagraphPlaceholder isLoading={isLoading} linesNumber={1}>
-                  <Breadcrumbs
-                    isLoading={isLoading}
-                    elements={breadcrumbs()}
-                    currentElement={
-                      documentDetails.metadata
-                        ? documentDetails.metadata.title
-                        : null
-                    }
-                  />
-                </ILSParagraphPlaceholder>
-              </Grid.Column>
-              <Grid.Column
-                computer={3}
-                tablet={3}
-                mobile={16}
-                textAlign="right"
-              >
-                {!_isEmpty(documentDetails.metadata) && (
-                  <AuthenticationGuard
-                    silent
-                    authorizedComponent={() => (
-                      <Link
-                        to={BackOfficeRoutes.documentDetailsFor(
-                          documentDetails.metadata.pid
-                        )}
-                      >
-                        open in backoffice <Icon name="cogs" />
-                      </Link>
-                    )}
-                    roles={['admin', 'librarian']}
-                    loginComponent={() => <></>}
-                  />
-                )}
-              </Grid.Column>
-            </Grid>
-            <DocumentPanel
-              isLoading={isLoading}
-              documentDetails={documentDetails}
-            />
-          </Container>
-          <Container className="document-tags spaced">
-            <Responsive minWidth={Responsive.onlyTablet.minWidth}>
-              <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
-                <DocumentTags metadata={documentDetails.metadata} />
+      <Error boundary error={error}>
+        <Container className="document-details-container default-margin-top">
+          <Grid columns={2}>
+            <Grid.Column computer={13} tablet={13} mobile={16}>
+              <ILSParagraphPlaceholder isLoading={isLoading} linesNumber={1}>
+                <Breadcrumbs
+                  isLoading={isLoading}
+                  elements={breadcrumbs()}
+                  currentElement={
+                    documentDetails.metadata
+                      ? documentDetails.metadata.title
+                      : null
+                  }
+                />
               </ILSParagraphPlaceholder>
-            </Responsive>
-          </Container>
-          <Container className="items-locations spaced">
-            <ILSParagraphPlaceholder linesNumber={3} isLoading={isLoading}>
-              <DocumentItems />
+            </Grid.Column>
+            <Grid.Column computer={3} tablet={3} mobile={16} textAlign="right">
+              {!_isEmpty(documentDetails.metadata) && (
+                <AuthenticationGuard
+                  silent
+                  authorizedComponent={() => (
+                    <Link
+                      to={BackOfficeRoutes.documentDetailsFor(
+                        documentDetails.metadata.pid
+                      )}
+                    >
+                      open in backoffice <Icon name="cogs" />
+                    </Link>
+                  )}
+                  roles={['admin', 'librarian']}
+                  loginComponent={() => <></>}
+                />
+              )}
+            </Grid.Column>
+          </Grid>
+          <DocumentPanel
+            isLoading={isLoading}
+            documentDetails={documentDetails}
+          />
+        </Container>
+        <Container className="document-tags spaced">
+          <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+            <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
+              <DocumentTags metadata={documentDetails.metadata} />
+            </ILSParagraphPlaceholder>
+          </Responsive>
+        </Container>
+        <Container className="items-locations spaced">
+          <ILSParagraphPlaceholder linesNumber={3} isLoading={isLoading}>
+            <DocumentItems />
+          </ILSParagraphPlaceholder>
+        </Container>
+        <Container className="section" fluid>
+          <Container>
+            <ILSParagraphPlaceholder linesNumber={20} isLoading={isLoading}>
+              <DocumentMetadata />
             </ILSParagraphPlaceholder>
           </Container>
-          <Container className="section" fluid>
-            <Container>
-              <ILSParagraphPlaceholder linesNumber={20} isLoading={isLoading}>
-                <DocumentMetadata />
-              </ILSParagraphPlaceholder>
-            </Container>
-          </Container>
-        </Error>
-      </>
+        </Container>
+      </Error>
     </Overridable>
   );
 };
