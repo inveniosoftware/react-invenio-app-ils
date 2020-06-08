@@ -1,4 +1,4 @@
-import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
+import { HAS_ERROR, IS_LOADING, SUCCESS } from './actions';
 
 export const initialState = {
   isLoading: true,

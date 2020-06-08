@@ -1,16 +1,16 @@
-import { ResultsTable } from '@components/ResultsTable/ResultsTable';
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Button } from 'semantic-ui-react';
-import { Loader } from '@components/Loader';
-import { Error } from '@components/Error';
-import { invenioConfig } from '@config';
+import { dateFormatter, toShortDate } from '@api/date';
 import { loanApi } from '@api/loans';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import { invenioConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';
 import { DateTime } from 'luxon';
-import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
-import { dateFormatter, toShortDate } from '@api/date';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
 
 export default class IdleLoansList extends Component {
   componentDidMount() {

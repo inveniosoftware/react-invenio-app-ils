@@ -4,7 +4,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
 
 jest.mock('@config/invenioConfig');
 
@@ -50,7 +49,7 @@ describe('Authentication action tests', () => {
       mockFetchProfile.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: types.IS_LOADING,
+        type: actions.IS_LOADING,
       };
 
       store.dispatch(actions.fetchUserProfile()).then(() => {
@@ -65,7 +64,7 @@ describe('Authentication action tests', () => {
       mockFetchProfile.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: types.SUCCESS,
+        type: actions.SUCCESS,
         payload: mockResponse.data,
       };
 
@@ -82,7 +81,7 @@ describe('Authentication action tests', () => {
       mockFetchProfile.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {
-        type: types.IS_ANONYMOUS,
+        type: actions.IS_ANONYMOUS,
       };
 
       store.dispatch(actions.fetchUserProfile()).then(() => {
@@ -98,7 +97,7 @@ describe('Authentication action tests', () => {
       mockConfirmUser.mockResolvedValue({});
 
       const expectedAction = {
-        type: types.IS_CONFIRMED_LOADING,
+        type: actions.IS_CONFIRMED_LOADING,
       };
       const token = '11111';
 
@@ -114,7 +113,7 @@ describe('Authentication action tests', () => {
       mockConfirmUser.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: types.IS_CONFIRMED,
+        type: actions.IS_CONFIRMED,
         payload: { isConfirmed: true },
       };
       const token = '11111';
@@ -132,7 +131,7 @@ describe('Authentication action tests', () => {
       mockConfirmUser.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {
-        type: types.IS_CONFIRMED,
+        type: actions.IS_CONFIRMED,
         payload: { isConfirmed: false },
       };
       const token = '11111';

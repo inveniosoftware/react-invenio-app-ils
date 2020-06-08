@@ -1,8 +1,8 @@
-import { eitemApi } from './eitem';
+import { eItemApi } from './eitem';
 
 describe('EItem query builder tests', () => {
   it('should build query string with document PID', () => {
-    const query = eitemApi
+    const query = eItemApi
       .query()
       .withDocPid(5)
       .qs();
@@ -11,7 +11,7 @@ describe('EItem query builder tests', () => {
 
   it('should throw error for empty params', () => {
     expect(() => {
-      eitemApi
+      eItemApi
         .query()
         .withDocPid()
         .qs();

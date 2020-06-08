@@ -2,7 +2,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
 import { documentApi } from '@api/documents';
 
 const middlewares = [thunk];
@@ -33,7 +32,7 @@ describe('Document details actions', () => {
 
       const expectedActions = [
         {
-          type: types.IS_LOADING,
+          type: actions.IS_LOADING,
         },
       ];
 
@@ -50,7 +49,7 @@ describe('Document details actions', () => {
 
       const expectedActions = [
         {
-          type: types.SUCCESS,
+          type: actions.SUCCESS,
           payload: expectedPayload,
         },
       ];
@@ -68,7 +67,7 @@ describe('Document details actions', () => {
 
       const expectedActions = [
         {
-          type: types.HAS_ERROR,
+          type: actions.HAS_ERROR,
           payload: [500, 'Error'],
         },
       ];
@@ -85,7 +84,7 @@ describe('Document details actions', () => {
   describe('Delete document tests', () => {
     it('should dispatch an action when trigger delete document', async () => {
       const expectedAction = {
-        type: types.DELETE_IS_LOADING,
+        type: actions.DELETE_IS_LOADING,
       };
 
       store.dispatch(actions.deleteDocument(1));
@@ -96,7 +95,7 @@ describe('Document details actions', () => {
     it('should dispatch an action when document delete succeeds', async () => {
       mockDelete.mockResolvedValue({ data: { documentPid: 1 } });
       const expectedAction = {
-        type: types.DELETE_SUCCESS,
+        type: actions.DELETE_SUCCESS,
         payload: { documentPid: 1 },
       };
 
@@ -112,7 +111,7 @@ describe('Document details actions', () => {
       mockDelete.mockRejectedValue(error);
 
       const expectedAction = {
-        type: types.DELETE_HAS_ERROR,
+        type: actions.DELETE_HAS_ERROR,
         payload: error,
       };
 

@@ -1,4 +1,4 @@
-import { acqVendorApi as vendorApi } from '@api/acquisition';
+import { vendorApi } from '@api/acquisition';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { Error as IlsError } from '@components/Error';

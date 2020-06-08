@@ -2,7 +2,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
 import { loanApi } from '@api/loans';
 import * as testData from '@testData/loans.json';
 import { sessionManager } from '@authentication/services/SessionManager';
@@ -40,7 +39,7 @@ describe('Loan Request form actions', () => {
 
       const expectedActions = [
         {
-          type: types.IS_LOADING,
+          type: actions.IS_LOADING,
         },
       ];
 
@@ -59,7 +58,7 @@ describe('Loan Request form actions', () => {
 
       const expectedActions = [
         {
-          type: types.IS_LOADING,
+          type: actions.IS_LOADING,
         },
       ];
 
@@ -82,7 +81,7 @@ describe('Loan Request form actions', () => {
 
       const expectedActions = [
         {
-          type: types.IS_LOADING,
+          type: actions.IS_LOADING,
         },
       ];
 
@@ -129,7 +128,7 @@ describe('Loan Request form actions', () => {
 
       const expectedActions = [
         {
-          type: types.HAS_ERROR,
+          type: actions.HAS_ERROR,
           payload: [500, 'Error'],
         },
       ];

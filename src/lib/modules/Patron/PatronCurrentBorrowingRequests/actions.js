@@ -1,8 +1,11 @@
-import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
-import { invenioConfig } from '@config';
-import { illBorrowingRequestApi as BorrowingRequestApi } from '@api/ill';
+import { borrowingRequestApi } from '@api/ill';
 import { sendErrorNotification } from '@components/Notifications';
+import { invenioConfig } from '@config';
 import _difference from 'lodash/difference';
+
+export const IS_LOADING = 'fetchPatronCurrentBorrowingRequests/IS_LOADING';
+export const SUCCESS = 'fetchPatronCurrentBorrowingRequests/SUCCESS';
+export const HAS_ERROR = 'fetchPatronCurrentBorrowingRequests/HAS_ERROR';
 
 const selectQuery = (patronPid, page = 1, size) => {
   const illConfig = invenioConfig.illBorrowingRequests;
@@ -10,7 +13,8 @@ const selectQuery = (patronPid, page = 1, size) => {
     illConfig.orderedValidStatuses,
     illConfig.completedStatuses
   );
-  return BorrowingRequestApi.query()
+  return borrowingRequestApi
+    .query()
     .withPatron(patronPid)
     .withState(statuses)
     .withSize(size)
@@ -28,7 +32,7 @@ export const fetchPatronCurrentBorrowingRequests = (
       type: IS_LOADING,
     });
     try {
-      const response = await BorrowingRequestApi.list(
+      const response = await borrowingRequestApi.list(
         selectQuery(patronPid, page, size)
       );
 

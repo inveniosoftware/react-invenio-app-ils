@@ -1,15 +1,15 @@
-import { InfoMessage } from '@components/backoffice/InfoMessage';
-import { ResultsTable } from '@components/ResultsTable/ResultsTable';
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Loader } from '@components/Loader';
-import { Error } from '@components/Error';
-import DocumentTitle from '@modules/Document/DocumentTitle';
 import { documentApi } from '@api/documents';
-import { DocumentDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/DocumentDetailsLink';
 import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
+import { DocumentDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/DocumentDetailsLink';
+import { InfoMessage } from '@components/backoffice/InfoMessage';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import DocumentTitle from '@modules/Document/DocumentTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 export default class SeriesDocuments extends Component {
   componentDidMount() {

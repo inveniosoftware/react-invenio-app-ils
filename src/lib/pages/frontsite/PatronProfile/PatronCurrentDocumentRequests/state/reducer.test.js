@@ -1,5 +1,5 @@
 import reducer, { initialState } from './reducer';
-import * as types from './types';
+import { IS_LOADING, SUCCESS, HAS_ERROR } from './actions';
 
 describe('Fetch current patrons document requests reducer', () => {
   it('should have initial state', () => {
@@ -8,7 +8,7 @@ describe('Fetch current patrons document requests reducer', () => {
 
   it('should change loading state on loading action', () => {
     const action = {
-      type: types.IS_LOADING,
+      type: IS_LOADING,
     };
     expect(reducer(initialState, action)).toEqual({
       ...initialState,
@@ -19,7 +19,7 @@ describe('Fetch current patrons document requests reducer', () => {
   it('should change data state on success action', () => {
     const documentRequests = [{ field: '123' }, { field: '456' }];
     const action = {
-      type: types.SUCCESS,
+      type: SUCCESS,
       payload: documentRequests,
     };
     expect(reducer(initialState, action)).toEqual({
@@ -32,7 +32,7 @@ describe('Fetch current patrons document requests reducer', () => {
 
   it('should change error state on error action', () => {
     const action = {
-      type: types.HAS_ERROR,
+      type: HAS_ERROR,
       payload: 'Error',
     };
     expect(reducer(initialState, action)).toEqual({

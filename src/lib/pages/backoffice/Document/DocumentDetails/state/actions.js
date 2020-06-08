@@ -11,14 +11,14 @@ import { BackOfficeRoutes } from '@routes/urls';
 import { DateTime } from 'luxon';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  DELETE_HAS_ERROR,
-  DELETE_IS_LOADING,
-  DELETE_SUCCESS,
-  HAS_ERROR,
-  IS_LOADING,
-  SUCCESS,
-} from './types';
+
+export const IS_LOADING = 'fetchDocumentDetails/IS_LOADING';
+export const SUCCESS = 'fetchDocumentDetails/SUCCESS';
+export const HAS_ERROR = 'fetchDocumentDetails/HAS_ERROR';
+
+export const DELETE_IS_LOADING = 'deleteDocument/DELETE_IS_LOADING';
+export const DELETE_SUCCESS = 'deleteDocument/DELETE_SUCCESS';
+export const DELETE_HAS_ERROR = 'deleteDocument/DELETE_HAS_ERROR';
 
 export const fetchDocumentDetails = documentPid => {
   return async dispatch => {
@@ -78,33 +78,32 @@ export const updateDocument = (documentPid, path, value) => {
       type: IS_LOADING,
     });
 
-    await documentApi
-      .patch(documentPid, [
+    try {
+      const response = await documentApi.patch(documentPid, [
         {
           op: 'replace',
           path: path,
           value: value,
         },
-      ])
-      .then(response => {
-        dispatch({
-          type: SUCCESS,
-          payload: response.data,
-        });
-        dispatch(
-          sendSuccessNotification(
-            'Success!',
-            `The document ${documentPid} has been updated.`
-          )
-        );
-      })
-      .catch(error => {
-        dispatch({
-          type: HAS_ERROR,
-          payload: error,
-        });
-        dispatch(sendErrorNotification(error));
+      ]);
+
+      dispatch({
+        type: SUCCESS,
+        payload: response.data,
       });
+      dispatch(
+        sendSuccessNotification(
+          'Success!',
+          `The document ${documentPid} has been updated.`
+        )
+      );
+    } catch (error) {
+      dispatch({
+        type: HAS_ERROR,
+        payload: error,
+      });
+      dispatch(sendErrorNotification(error));
+    }
   };
 };
 

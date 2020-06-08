@@ -2,7 +2,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -20,7 +19,7 @@ describe('Delete Record Modal', () => {
   describe('Fetch References', () => {
     it('should dispatch an action when fetching record references', async () => {
       const expectedAction = {
-        type: types.IS_LOADING,
+        type: actions.IS_LOADING,
       };
 
       store.dispatch(actions.fetchReferences([mockReferences()]));
@@ -37,7 +36,7 @@ describe('Delete Record Modal', () => {
       });
 
       const expectedAction = {
-        type: types.SUCCESS,
+        type: actions.SUCCESS,
         payload: [
           {
             hits: [{ id: 1 }],
@@ -58,7 +57,7 @@ describe('Delete Record Modal', () => {
       mockReferences.mockRejectedValue(error);
 
       const expectedAction = {
-        type: types.HAS_ERROR,
+        type: actions.HAS_ERROR,
         payload: error,
       };
 

@@ -5,7 +5,7 @@ import {
   DELETE_IS_LOADING,
   DELETE_HAS_ERROR,
   DELETE_SUCCESS,
-} from './types';
+} from './actions';
 
 export const initialState = {
   isLoading: true,

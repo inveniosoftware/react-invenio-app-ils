@@ -2,7 +2,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
 import { loanApi } from '@api/loans';
 
 jest.mock('@config/invenioConfig');
@@ -39,7 +38,7 @@ describe('Patron past loans tests', () => {
   it('should dispatch a loading action when fetching patron loans', async () => {
     mockFetchPatronPasttLoans.mockResolvedValue(mockResponse);
     const expectedAction = {
-      type: types.IS_LOADING,
+      type: actions.IS_LOADING,
     };
     await store.dispatch(actions.fetchPatronPastLoans(2));
     expect(mockFetchPatronPasttLoans).toHaveBeenCalledWith(
@@ -51,7 +50,7 @@ describe('Patron past loans tests', () => {
   it('should dispatch a success action when patron loans fetch succeeds', async () => {
     mockFetchPatronPasttLoans.mockResolvedValue(mockResponse);
     const expectedAction = {
-      type: types.SUCCESS,
+      type: actions.SUCCESS,
       payload: mockResponse.data,
     };
     await store.dispatch(actions.fetchPatronPastLoans(2));
@@ -64,7 +63,7 @@ describe('Patron past loans tests', () => {
   it('should dispatch an error action when patron loans fetch fails', async () => {
     mockFetchPatronPasttLoans.mockRejectedValue([500, 'Error']);
     const expectedAction = {
-      type: types.HAS_ERROR,
+      type: actions.HAS_ERROR,
       payload: [500, 'Error'],
     };
     await store.dispatch(actions.fetchPatronPastLoans(2));
@@ -77,7 +76,7 @@ describe('Patron past loans tests', () => {
   it('should dispatch a delayed loading action when fetching patron loans', async () => {
     mockFetchPatronPasttLoans.mockResolvedValue(mockResponse);
     const expectedAction = {
-      type: types.IS_LOADING,
+      type: actions.IS_LOADING,
     };
     await store.dispatch(actions.fetchPatronPastLoans(2));
     expect(mockFetchPatronPasttLoans).toHaveBeenCalledWith(

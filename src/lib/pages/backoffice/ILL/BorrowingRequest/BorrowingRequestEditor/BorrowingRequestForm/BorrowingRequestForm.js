@@ -1,4 +1,5 @@
-import { borrowingRequest as illBorrowingRequestApi } from '@api/ill/borrowingRequest';
+import { borrowingRequestApi } from '@api/ill';
+import { withCancel } from '@api/utils';
 import { vocabularyApi } from '@api/vocabularies';
 import { Loader } from '@components/Loader';
 import { invenioConfig } from '@config';
@@ -11,7 +12,6 @@ import React, { Component } from 'react';
 import { Header, Segment } from 'semantic-ui-react';
 import { OrderInfo } from './OrderInfo';
 import { Payment } from './Payment';
-import { withCancel } from '@api/utils';
 
 const submitSerializer = values => {
   const submitValues = { ...values };
@@ -96,11 +96,11 @@ export class BorrowingRequestForm extends Component {
   };
 
   updateBorrowingRequest = (pid, data) => {
-    return illBorrowingRequestApi.update(pid, data);
+    return borrowingRequestApi.update(pid, data);
   };
 
   createBorrowingRequest = data => {
-    return illBorrowingRequestApi.create(data);
+    return borrowingRequestApi.create(data);
   };
 
   successCallback = (response, submitButton) => {

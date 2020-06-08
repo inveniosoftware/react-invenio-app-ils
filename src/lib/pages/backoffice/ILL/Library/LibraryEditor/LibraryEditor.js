@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Loader } from '@components/Loader';
+import { libraryApi } from '@api/ill';
 import { Error } from '@components/Error';
-import { illLibraryApi as libraryApi } from '@api/ill';
+import { Loader } from '@components/Loader';
+import React, { Component } from 'react';
 import { LibraryForm } from './LibraryForm';
 
 export class LibraryEditor extends Component {

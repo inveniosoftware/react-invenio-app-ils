@@ -5,9 +5,12 @@ import {
   sendSuccessNotification,
 } from '@components/Notifications';
 import { fetchPatronCurrentLoans } from '@modules/Patron/PatronCurrentLoans/actions';
-import { IS_LOADING as CURRENT_LOANS_IS_LOADING } from '@modules/Patron/PatronCurrentLoans/types';
-import { CLEAR_SEARCH } from '../../ItemsSearch/state/types';
-import { HAS_ERROR, IS_LOADING, SUCCESS } from './types';
+import { IS_LOADING as CURRENT_LOANS_IS_LOADING } from '@modules/Patron/PatronCurrentLoans/actions';
+import { CLEAR_SEARCH } from '../../ItemsSearch/state/actions';
+
+export const IS_LOADING = 'patronItemCheckout/IS_LOADING';
+export const SUCCESS = 'patronItemCheckout/SUCCESS';
+export const HAS_ERROR = 'patronItemCheckout/ERROR';
 
 export const checkoutItem = (
   documentPid,

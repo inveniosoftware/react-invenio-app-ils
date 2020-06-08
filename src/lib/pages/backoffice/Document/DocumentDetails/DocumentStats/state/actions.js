@@ -1,15 +1,18 @@
-import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
 import { loanApi } from '@api/loans';
-import { invenioConfig } from '@config';
 import { sendErrorNotification } from '@components/Notifications';
+import { invenioConfig } from '@config';
+
+export const IS_LOADING = 'fetchDocumentStats/IS_LOADING';
+export const SUCCESS = 'fetchDocumentStats/SUCCESS';
+export const HAS_ERROR = 'fetchDocumentStats/HAS_ERROR';
 
 export const fetchDocumentStats = ({ documentPid, fromDate, toDate }) => {
   return async dispatch => {
     dispatch({
       type: IS_LOADING,
     });
-    await loanApi
-      .list(
+    try {
+      const response = await loanApi.list(
         loanApi
           .query()
           .withDocPid(documentPid)
@@ -19,19 +22,18 @@ export const fetchDocumentStats = ({ documentPid, fromDate, toDate }) => {
             toDate: toDate,
           })
           .qs()
-      )
-      .then(response => {
-        dispatch({
-          type: SUCCESS,
-          payload: response.data,
-        });
-      })
-      .catch(error => {
-        dispatch({
-          type: HAS_ERROR,
-          payload: error,
-        });
-        dispatch(sendErrorNotification(error));
+      );
+
+      dispatch({
+        type: SUCCESS,
+        payload: response.data,
       });
+    } catch (error) {
+      dispatch({
+        type: HAS_ERROR,
+        payload: error,
+      });
+      dispatch(sendErrorNotification(error));
+    }
   };
 };

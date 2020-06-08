@@ -1,9 +1,8 @@
+import { borrowingRequestApi } from '@api/ill';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
-import { illBorrowingRequestApi } from '@api/ill';
 
 jest.mock('@config/invenioConfig');
 const middlewares = [thunk];
@@ -25,7 +24,7 @@ const mockResponse = {
 };
 
 const mockFetchUserBorrowingRequest = jest.fn();
-illBorrowingRequestApi.list = mockFetchUserBorrowingRequest;
+borrowingRequestApi.list = mockFetchUserBorrowingRequest;
 
 let store;
 beforeEach(() => {
@@ -41,7 +40,7 @@ describe('Patron borrowing requests tests', () => {
       mockFetchUserBorrowingRequest.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: types.IS_LOADING,
+        type: actions.IS_LOADING,
       };
 
       await store.dispatch(actions.fetchPatronPastBorrowingRequests(2));
@@ -55,7 +54,7 @@ describe('Patron borrowing requests tests', () => {
       mockFetchUserBorrowingRequest.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: types.SUCCESS,
+        type: actions.SUCCESS,
         payload: mockResponse.data,
       };
 
@@ -70,7 +69,7 @@ describe('Patron borrowing requests tests', () => {
       mockFetchUserBorrowingRequest.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {
-        type: types.HAS_ERROR,
+        type: actions.HAS_ERROR,
         payload: [500, 'Error'],
       };
 

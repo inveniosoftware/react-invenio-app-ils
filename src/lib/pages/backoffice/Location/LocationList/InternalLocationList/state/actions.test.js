@@ -2,7 +2,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
 import { internalLocationApi } from '@api/locations';
 
 const middlewares = [thunk];
@@ -43,7 +42,7 @@ describe('Internal Location actions', () => {
     it('should dispatch an action when fetching internal locations', async () => {
       mockFetchInternalLocations.mockResolvedValue(response);
       const expectedAction = {
-        type: types.IS_LOADING,
+        type: actions.IS_LOADING,
       };
 
       await store.dispatch(actions.fetchInternalLocations());
@@ -54,7 +53,7 @@ describe('Internal Location actions', () => {
     it('should dispatch an action when internal location fetch succeeds', async () => {
       mockFetchInternalLocations.mockResolvedValue(response);
       const expectedAction = {
-        type: types.SUCCESS,
+        type: actions.SUCCESS,
         payload: response.data,
       };
 
@@ -67,7 +66,7 @@ describe('Internal Location actions', () => {
       mockFetchInternalLocations.mockRejectedValue([500, 'Error']);
 
       const expectedActions = {
-        type: types.HAS_ERROR,
+        type: actions.HAS_ERROR,
         payload: [500, 'Error'],
       };
 
@@ -80,7 +79,7 @@ describe('Internal Location actions', () => {
   describe('Delete Internal Location', () => {
     it('should dispatch an action when trigger delete internal location', async () => {
       const expectedAction = {
-        type: types.DELETE_IS_LOADING,
+        type: actions.DELETE_IS_LOADING,
       };
 
       store.dispatch(actions.deleteInternalLocation(1));
@@ -91,7 +90,7 @@ describe('Internal Location actions', () => {
     it('should dispatch an action when location delete succeeds', async () => {
       mockDelete.mockResolvedValue({ data: { internalLocationPid: 1 } });
       const expectedAction = {
-        type: types.DELETE_SUCCESS,
+        type: actions.DELETE_SUCCESS,
         payload: { internalLocationPid: 1 },
       };
 
@@ -107,7 +106,7 @@ describe('Internal Location actions', () => {
       mockDelete.mockRejectedValue(error);
 
       const expectedAction = {
-        type: types.DELETE_HAS_ERROR,
+        type: actions.DELETE_HAS_ERROR,
         payload: error,
       };
 

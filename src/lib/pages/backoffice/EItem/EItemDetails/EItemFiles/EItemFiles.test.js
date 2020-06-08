@@ -1,22 +1,22 @@
-import { eitemApi } from '@api/eitems';
+import { eItemApi } from '@api/eitems';
 import { fileApi } from '@api/files';
 import testData from '@testData/eitems.json';
 import { shallow } from 'enzyme';
 import React from 'react';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import EItemFiles from '../EItemFiles/EItemFiles';
+import EItemFiles from './EItemFiles';
 
 const mockedCreateBucket = jest.fn();
 const mockedUploadFile = jest.fn();
 
-eitemApi.bucket = mockedCreateBucket;
+eItemApi.bucket = mockedCreateBucket;
 fileApi.upload = mockedUploadFile;
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-const store = mockStore({
+mockStore({
   eitemDetails: { metadata: testData[2] },
   files: testData[2].files,
   error: {},
@@ -35,7 +35,11 @@ describe('EItemFiles tests', () => {
     const eitem = testData[2];
     const files = eitem.files;
     const component = shallow(
-      <EItemFiles eitemDetails={{ metadata: eitem }} files={files} />
+      <EItemFiles
+        eitemDetails={{ metadata: eitem }}
+        files={files}
+        deleteFile={() => {}}
+      />
     );
     expect(component).toMatchSnapshot();
   });

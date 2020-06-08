@@ -6,14 +6,14 @@ import {
 } from '@components/Notifications';
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
-import {
-  DELETE_HAS_ERROR,
-  DELETE_IS_LOADING,
-  DELETE_SUCCESS,
-  HAS_ERROR,
-  IS_LOADING,
-  SUCCESS,
-} from './types';
+
+export const IS_LOADING = 'fetchDocumentRequestDetails/IS_LOADING';
+export const SUCCESS = 'fetchDocumentRequestDetails/SUCCESS';
+export const HAS_ERROR = 'fetchDocumentRequestDetails/HAS_ERROR';
+
+export const DELETE_IS_LOADING = 'deleteDocumentRequest/DELETE_IS_LOADING';
+export const DELETE_SUCCESS = 'deleteDocumentRequest/DELETE_SUCCESS';
+export const DELETE_HAS_ERROR = 'deleteDocumentRequest/DELETE_HAS_ERROR';
 
 export const fetchDocumentRequestDetails = documentRequestPid => {
   return async dispatch => {

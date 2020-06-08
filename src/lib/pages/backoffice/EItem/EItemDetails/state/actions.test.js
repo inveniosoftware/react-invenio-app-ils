@@ -2,7 +2,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
 import { eItemApi } from '@api/eitems';
 
 const middlewares = [thunk];
@@ -31,7 +30,7 @@ describe('EItem details actions', () => {
       mockGet.mockResolvedValue(response);
 
       const expectedAction = {
-        type: types.IS_LOADING,
+        type: actions.IS_LOADING,
       };
 
       store.dispatch(actions.fetchEItemDetails('123'));
@@ -43,7 +42,7 @@ describe('EItem details actions', () => {
       mockGet.mockResolvedValue(response);
 
       const expectedAction = {
-        type: types.SUCCESS,
+        type: actions.SUCCESS,
         payload: expectedPayload,
       };
 
@@ -56,7 +55,7 @@ describe('EItem details actions', () => {
       mockGet.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {
-        type: types.HAS_ERROR,
+        type: actions.HAS_ERROR,
         payload: [500, 'Error'],
       };
 
@@ -69,7 +68,7 @@ describe('EItem details actions', () => {
   describe('Delete EItem tests', () => {
     it('should dispatch an action when trigger delete eitem', async () => {
       const expectedAction = {
-        type: types.DELETE_IS_LOADING,
+        type: actions.DELETE_IS_LOADING,
       };
 
       store.dispatch(actions.deleteEItem(1));
@@ -80,7 +79,7 @@ describe('EItem details actions', () => {
     it('should dispatch an action when eitem delete succeeds', async () => {
       mockDelete.mockResolvedValue({ data: { eitemPid: 1 } });
       const expectedAction = {
-        type: types.DELETE_SUCCESS,
+        type: actions.DELETE_SUCCESS,
         payload: { eitemPid: 1 },
       };
 
@@ -96,7 +95,7 @@ describe('EItem details actions', () => {
       mockDelete.mockRejectedValue(error);
 
       const expectedAction = {
-        type: types.DELETE_HAS_ERROR,
+        type: actions.DELETE_HAS_ERROR,
         payload: error,
       };
 

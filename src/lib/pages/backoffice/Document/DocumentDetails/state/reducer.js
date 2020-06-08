@@ -5,7 +5,7 @@ import {
   IS_LOADING,
   SUCCESS,
   HAS_ERROR,
-} from './types';
+} from './actions';
 
 export const initialState = {
   isLoading: true,

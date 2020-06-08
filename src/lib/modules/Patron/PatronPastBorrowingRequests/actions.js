@@ -1,10 +1,14 @@
-import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
-import { invenioConfig } from '@config';
-import { illBorrowingRequestApi as BorrowingRequestApi } from '@api/ill';
+import { borrowingRequestApi } from '@api/ill';
 import { sendErrorNotification } from '@components/Notifications';
+import { invenioConfig } from '@config';
+
+export const IS_LOADING = 'fetchPatronPastBorrowingRequests/IS_LOADING';
+export const SUCCESS = 'fetchPatronPastBorrowingRequests/SUCCESS';
+export const HAS_ERROR = 'fetchPatronPastBorrowingRequests/HAS_ERROR';
 
 const selectQuery = (patronPid, page = 1, size) => {
-  return BorrowingRequestApi.query()
+  return borrowingRequestApi
+    .query()
     .withPatron(patronPid)
     .withState(invenioConfig.illBorrowingRequests.completedStatuses)
     .withSize(size)
@@ -22,7 +26,7 @@ export const fetchPatronPastBorrowingRequests = (
       type: IS_LOADING,
     });
     try {
-      const response = await BorrowingRequestApi.list(
+      const response = await borrowingRequestApi.list(
         selectQuery(patronPid, page, size)
       );
 

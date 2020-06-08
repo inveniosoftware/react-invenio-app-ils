@@ -7,7 +7,7 @@ import {
   HAS_ERROR,
   ADD_FILE,
   DELETE_FILE,
-} from './types';
+} from './actions';
 import get from 'lodash/get';
 
 export const initialState = {

@@ -52,6 +52,9 @@ describe('DocumentMetadata tests', () => {
         document={document}
         requestLoanForDocument={mockRequestLoanForDocument}
         initializeState={() => {}}
+        error={{}}
+        hasError={false}
+        isSuccessful
       />
     );
 

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import Overridable from 'react-overridable';
-import { Label } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { FrontSiteRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import Overridable from 'react-overridable';
+import { Link } from 'react-router-dom';
+import { Label } from 'semantic-ui-react';
 
 class DocumentTags extends Component {
   render() {
@@ -14,17 +14,19 @@ class DocumentTags extends Component {
 
     return (
       <Overridable id="DocumentTags.layout" {...this.props}>
-        {metadata.tags.map(tag => (
-          <Label className="highlighted" key={tag} {...uiProps}>
-            <Link
-              to={FrontSiteRoutes.documentsListWithQuery(
-                `&sort=mostrecent&order=desc&f=tag%3A${tag}`
-              )}
-            >
-              {tag}
-            </Link>
-          </Label>
-        ))}
+        <>
+          {metadata.tags.map(tag => (
+            <Label className="highlighted" key={tag} {...uiProps}>
+              <Link
+                to={FrontSiteRoutes.documentsListWithQuery(
+                  `&sort=mostrecent&order=desc&f=tag%3A${tag}`
+                )}
+              >
+                {tag}
+              </Link>
+            </Label>
+          ))}
+        </>
       </Overridable>
     );
   }

@@ -1,5 +1,5 @@
 import reducer, { initialState } from './reducer';
-import * as types from './types';
+import { IS_LOADING, SUCCESS, HAS_ERROR } from './actions';
 
 describe('Create delete record modal reducer', () => {
   it('should have initial state', () => {
@@ -8,7 +8,7 @@ describe('Create delete record modal reducer', () => {
 
   it('should change loading state when fetching references', () => {
     const action = {
-      type: types.IS_LOADING,
+      type: IS_LOADING,
     };
     expect(reducer(initialState, action)).toEqual({
       ...initialState,
@@ -19,7 +19,7 @@ describe('Create delete record modal reducer', () => {
   it('should change data state on success action', () => {
     const response = { data: [], total: 0 };
     const action = {
-      type: types.SUCCESS,
+      type: SUCCESS,
       payload: response,
     };
     expect(reducer(initialState, action)).toEqual({
@@ -33,7 +33,7 @@ describe('Create delete record modal reducer', () => {
 
   it('should change error state on check refs error', () => {
     const action = {
-      type: types.HAS_ERROR,
+      type: HAS_ERROR,
       payload: 'Error',
     };
     expect(reducer(initialState, action)).toEqual({

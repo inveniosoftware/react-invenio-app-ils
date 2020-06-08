@@ -2,7 +2,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
 import { seriesApi } from '@api/series';
 
 const middlewares = [thunk];
@@ -32,7 +31,7 @@ describe('Series details actions', () => {
 
       const expectedActions = [
         {
-          type: types.IS_LOADING,
+          type: actions.IS_LOADING,
         },
       ];
 
@@ -49,7 +48,7 @@ describe('Series details actions', () => {
 
       const expectedActions = [
         {
-          type: types.SUCCESS,
+          type: actions.SUCCESS,
           payload: expectedPayload,
         },
       ];
@@ -67,7 +66,7 @@ describe('Series details actions', () => {
 
       const expectedActions = [
         {
-          type: types.HAS_ERROR,
+          type: actions.HAS_ERROR,
           payload: [500, 'Error'],
         },
       ];
@@ -84,7 +83,7 @@ describe('Series details actions', () => {
   describe('Delete series tests', () => {
     it('should dispatch an action when trigger delete series', async () => {
       const expectedAction = {
-        type: types.DELETE_IS_LOADING,
+        type: actions.DELETE_IS_LOADING,
       };
 
       store.dispatch(actions.deleteSeries(1));
@@ -95,7 +94,7 @@ describe('Series details actions', () => {
     it('should dispatch an action when series delete succeeds', async () => {
       mockDelete.mockResolvedValue({ data: { seriesPid: 1 } });
       const expectedAction = {
-        type: types.DELETE_SUCCESS,
+        type: actions.DELETE_SUCCESS,
         payload: { seriesPid: 1 },
       };
 
@@ -111,7 +110,7 @@ describe('Series details actions', () => {
       mockDelete.mockRejectedValue(error);
 
       const expectedAction = {
-        type: types.DELETE_HAS_ERROR,
+        type: actions.DELETE_HAS_ERROR,
         payload: error,
       };
 

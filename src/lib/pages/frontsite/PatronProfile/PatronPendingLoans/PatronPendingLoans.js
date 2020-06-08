@@ -1,8 +1,8 @@
 import { Error } from '@components/Error';
+import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
 import { Loader } from '@components/Loader';
 import { Pagination } from '@components/Pagination';
-import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { uiConfig } from '@config';
 import _get from 'lodash/get';
 import _has from 'lodash/has';
@@ -80,12 +80,10 @@ export default class PatronPendingLoans extends Component {
 
   renderLoader = props => {
     return (
-      <>
-        <Item.Group>
-          <ILSItemPlaceholder fluid {...props} />
-          <ILSItemPlaceholder fluid {...props} />
-        </Item.Group>
-      </>
+      <Item.Group>
+        <ILSItemPlaceholder fluid {...props} />
+        <ILSItemPlaceholder fluid {...props} />
+      </Item.Group>
     );
   };
 

@@ -1,17 +1,21 @@
-import reducer, { initialState } from './reducer';
-import * as types from './types';
+import { loanDetailsReducer, initialDetailsState } from './reducer';
+import {
+  DETAILS_IS_LOADING,
+  DETAILS_SUCCESS,
+  DETAILS_HAS_ERROR,
+} from './actions';
 
 describe('Fetch loan details reducer', () => {
   it('should have initial state', () => {
-    expect(reducer(undefined, {})).toEqual(initialState);
+    expect(loanDetailsReducer(undefined, {})).toEqual(initialDetailsState);
   });
 
   it('should change loading state on loading action', () => {
     const action = {
-      type: types.IS_LOADING,
+      type: DETAILS_IS_LOADING,
     };
-    expect(reducer(initialState, action)).toEqual({
-      ...initialState,
+    expect(loanDetailsReducer(initialDetailsState, action)).toEqual({
+      ...initialDetailsState,
       isLoading: true,
     });
   });
@@ -19,11 +23,11 @@ describe('Fetch loan details reducer', () => {
   it('should change data state on success action', () => {
     const loan = { field: '123' };
     const action = {
-      type: types.SUCCESS,
+      type: DETAILS_SUCCESS,
       payload: loan,
     };
-    expect(reducer(initialState, action)).toEqual({
-      ...initialState,
+    expect(loanDetailsReducer(initialDetailsState, action)).toEqual({
+      ...initialDetailsState,
       isLoading: false,
       data: loan,
       hasError: false,
@@ -32,11 +36,11 @@ describe('Fetch loan details reducer', () => {
 
   it('should change error state on error action', () => {
     const action = {
-      type: types.HAS_ERROR,
+      type: DETAILS_HAS_ERROR,
       payload: 'Error',
     };
-    expect(reducer(initialState, action)).toEqual({
-      ...initialState,
+    expect(loanDetailsReducer(initialDetailsState, action)).toEqual({
+      ...initialDetailsState,
       isLoading: false,
       error: 'Error',
       hasError: true,

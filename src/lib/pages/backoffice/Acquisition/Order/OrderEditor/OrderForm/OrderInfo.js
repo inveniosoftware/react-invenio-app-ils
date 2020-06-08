@@ -1,5 +1,4 @@
-import { acqVendorApi as vendorApi } from '@api/acquisition';
-import { serializeVendor } from '@modules/ESSelector/serializer';
+import { vendorApi } from '@api/acquisition';
 import { invenioConfig } from '@config';
 import { DateInputField } from '@forms/core/DateTimeFields/DateInputField';
 import { GroupField } from '@forms/core/GroupField';
@@ -8,6 +7,7 @@ import { SelectField } from '@forms/core/SelectField';
 import { SelectorField } from '@forms/core/SelectorField';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
+import { serializeVendor } from '@modules/ESSelector/serializer';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 

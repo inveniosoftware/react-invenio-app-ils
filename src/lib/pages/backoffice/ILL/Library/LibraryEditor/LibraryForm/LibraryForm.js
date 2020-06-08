@@ -1,4 +1,4 @@
-import { illLibraryApi as libraryApi } from '@api/ill';
+import { libraryApi } from '@api/ill';
 import { BaseForm } from '@forms/core/BaseForm';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';

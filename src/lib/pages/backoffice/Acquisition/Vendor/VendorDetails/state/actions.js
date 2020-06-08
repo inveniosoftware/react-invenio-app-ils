@@ -1,16 +1,16 @@
-import {
-  HAS_ERROR,
-  IS_LOADING,
-  SUCCESS,
-  DELETE_SUCCESS,
-  DELETE_HAS_ERROR,
-  DELETE_IS_LOADING,
-} from './types';
+import { vendorApi } from '@api/acquisition';
 import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
-import { acqVendorApi as vendorApi } from '@api/acquisition';
+
+export const IS_LOADING = 'fetchVendorDetails/IS_LOADING';
+export const SUCCESS = 'fetchVendorDetails/SUCCESS';
+export const HAS_ERROR = 'fetchVendorDetails/HAS_ERROR';
+
+export const DELETE_IS_LOADING = 'deleteVendor/DELETE_IS_LOADING';
+export const DELETE_SUCCESS = 'deleteVendor/DELETE_SUCCESS';
+export const DELETE_HAS_ERROR = 'deleteVendor/DELETE_HAS_ERROR';
 
 export const fetchVendorDetails = pid => {
   return async dispatch => {
@@ -40,26 +40,24 @@ export const deleteVendor = pid => {
       type: DELETE_IS_LOADING,
     });
 
-    await vendorApi
-      .delete(pid)
-      .then(response => {
-        dispatch({
-          type: DELETE_SUCCESS,
-          payload: { pid: pid },
-        });
-        dispatch(
-          sendSuccessNotification(
-            'Success!',
-            `The vendor ${pid} has been deleted.`
-          )
-        );
-      })
-      .catch(error => {
-        dispatch({
-          type: DELETE_HAS_ERROR,
-          payload: error,
-        });
-        dispatch(sendErrorNotification(error));
+    try {
+      await vendorApi.delete(pid);
+      dispatch({
+        type: DELETE_SUCCESS,
+        payload: { pid: pid },
       });
+      dispatch(
+        sendSuccessNotification(
+          'Success!',
+          `The vendor ${pid} has been deleted.`
+        )
+      );
+    } catch (error) {
+      dispatch({
+        type: DELETE_HAS_ERROR,
+        payload: error,
+      });
+      dispatch(sendErrorNotification(error));
+    }
   };
 };

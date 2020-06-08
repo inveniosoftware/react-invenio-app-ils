@@ -13,8 +13,12 @@ exports[`EItemFiles tests should load the files component 1`] = `
     className="bo-metadata-segment no-padding"
     id="eitem-files"
   >
-    <Loader>
-      <Error>
+    <Overridable(Loader)
+      isLoading={false}
+    >
+      <Error
+        error={null}
+      >
         <ResultsTable
           columns={
             Array [
@@ -59,19 +63,21 @@ exports[`EItemFiles tests should load the files component 1`] = `
               },
             ]
           }
+          fixed={false}
           headerActionComponent={null}
+          name=""
           paginationComponent={null}
           renderEmptyResultsElement={[Function]}
           seeAllComponent={null}
           showAllResults={false}
           showMaxRows={5}
-          singleLine={false}
+          singleLine={true}
           subtitle=""
           title=""
           totalHitsCount={2}
         />
       </Error>
-    </Loader>
+    </Overridable(Loader)>
   </Segment>
 </Fragment>
 `;

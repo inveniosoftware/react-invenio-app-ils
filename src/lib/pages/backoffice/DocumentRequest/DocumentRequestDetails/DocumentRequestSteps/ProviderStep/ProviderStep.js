@@ -1,3 +1,15 @@
+import { orderApi } from '@api/acquisition';
+import { documentRequestApi } from '@api/documentRequests';
+import { borrowingRequestApi } from '@api/ill';
+import { invenioConfig } from '@config';
+import { goTo } from '@history';
+import { ESSelector } from '@modules/ESSelector';
+import {
+  serializeAcqOrder,
+  serializeBorrowingRequest,
+} from '@modules/ESSelector/serializer';
+import { AcquisitionRoutes, ILLRoutes } from '@routes/urls';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import {
   Button,
@@ -8,19 +20,7 @@ import {
   Segment,
   Step,
 } from 'semantic-ui-react';
-import { AcquisitionRoutes, ILLRoutes } from '@routes/urls';
-import { documentRequestApi } from '@api/documentRequests';
-import { acqOrderApi } from '@api/acquisition';
-import { illBorrowingRequestApi as illBrwReqApi } from '@api/ill';
-import { ESSelector } from '@modules/ESSelector';
-import {
-  serializeAcqOrder,
-  serializeBorrowingRequest,
-} from '@modules/ESSelector/serializer';
-import { goTo } from '@history';
-import { invenioConfig } from '@config';
 import { STEPS } from '../Steps';
-import PropTypes from 'prop-types';
 
 export const ProviderStep = ({ step }) => (
   <Step active={step === STEPS.provider} disabled={step === STEPS.document}>
@@ -93,7 +93,7 @@ class AcqProvider extends Component {
           <Grid.Column>
             <ESSelector
               onSelectResult={this.onSelectResult}
-              query={acqOrderApi.list}
+              query={orderApi.list}
               serializer={serializeAcqOrder}
             />
           </Grid.Column>
@@ -139,7 +139,7 @@ class IllProvider extends Component {
             <ESSelector
               disabled
               onSelectResult={this.onSelectResult}
-              query={illBrwReqApi.list}
+              query={borrowingRequestApi.list}
               serializer={serializeBorrowingRequest}
             />
           </Grid.Column>

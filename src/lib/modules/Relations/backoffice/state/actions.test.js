@@ -2,7 +2,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
 import * as testData from '@testData/documents.json';
 import { documentApi } from '@api/documents';
 
@@ -55,7 +54,7 @@ describe('Document relations tests', () => {
       mockCreateRelations.mockResolvedValue(mockCreateResponse);
 
       const expectedAction = {
-        type: types.IS_LOADING,
+        type: actions.IS_LOADING,
       };
 
       store.dispatch(
@@ -81,7 +80,7 @@ describe('Document relations tests', () => {
       mockCreateRelations.mockResolvedValue(mockCreateResponse);
 
       const expectedAction = {
-        type: types.SUCCESS,
+        type: actions.SUCCESS,
         payload: mockCreateResponse.data.metadata.relations,
       };
 
@@ -108,7 +107,7 @@ describe('Document relations tests', () => {
       mockCreateRelations.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {
-        type: types.HAS_ERROR,
+        type: actions.HAS_ERROR,
         payload: [500, 'Error'],
       };
 
@@ -136,7 +135,7 @@ describe('Document relations tests', () => {
       mockCreateRelations.mockResolvedValue(mockDeleteResponse);
 
       const expectedAction = {
-        type: types.IS_LOADING,
+        type: actions.IS_LOADING,
       };
 
       store.dispatch(
@@ -152,7 +151,7 @@ describe('Document relations tests', () => {
       mockDeleteRelations.mockResolvedValue(mockDeleteResponse);
 
       const expectedAction = {
-        type: types.SUCCESS,
+        type: actions.SUCCESS,
         payload: mockDeleteResponse.data.metadata.relations,
       };
 
@@ -169,7 +168,7 @@ describe('Document relations tests', () => {
       mockDeleteRelations.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {
-        type: types.HAS_ERROR,
+        type: actions.HAS_ERROR,
         payload: [500, 'Error'],
       };
 

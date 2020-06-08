@@ -2,7 +2,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
 import { loanApi } from '@api/loans';
 import { toShortDate } from '@api/date';
 import { DateTime } from 'luxon';
@@ -44,7 +43,7 @@ describe('Loans renewed more then 3 times (last week) fetch tests', () => {
     mockLoanList.mockResolvedValue(mockResponse);
 
     const expectedAction = {
-      type: types.IS_LOADING,
+      type: actions.IS_LOADING,
     };
 
     store.dispatch(actions.fetchOverdueLoans()).then(() => {
@@ -61,7 +60,7 @@ describe('Loans renewed more then 3 times (last week) fetch tests', () => {
     mockLoanList.mockResolvedValue(mockResponse);
 
     const expectedAction = {
-      type: types.SUCCESS,
+      type: actions.SUCCESS,
       payload: mockResponse.data,
     };
 
@@ -79,7 +78,7 @@ describe('Loans renewed more then 3 times (last week) fetch tests', () => {
     mockLoanList.mockRejectedValue([500, 'Error']);
 
     const expectedAction = {
-      type: types.HAS_ERROR,
+      type: actions.HAS_ERROR,
       payload: [500, 'Error'],
     };
 

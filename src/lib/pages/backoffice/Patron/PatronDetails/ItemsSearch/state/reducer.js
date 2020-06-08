@@ -4,7 +4,7 @@ import {
   HAS_ERROR,
   QUERY_STRING_UPDATE,
   CLEAR_SEARCH,
-} from './types';
+} from './actions';
 
 export const initialState = {
   isLoading: true,

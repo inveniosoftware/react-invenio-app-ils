@@ -1,11 +1,10 @@
+import { toShortDate } from '@api/date';
+import { loanApi } from '@api/loans';
+import { DateTime } from 'luxon';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
-import { loanApi } from '@api/loans';
-import { toShortDate } from '@api/date';
-import { DateTime } from 'luxon';
 
 jest.mock('@config/invenioConfig');
 
@@ -31,12 +30,12 @@ beforeEach(() => {
 describe('Document stats fetch tests', () => {
   it('should dispatch a loading action when fetching document stats', () => {
     const expectedAction = {
-      type: types.IS_LOADING,
+      type: actions.IS_LOADING,
     };
     store.dispatch(actions.fetchDocumentStats(ARGS)).then(done => {
       const range = encodeURI(`{${ARGS.fromDate} TO ${ARGS.toDate}}`);
       expect(mockLoanList).toHaveBeenCalledWith(
-        `(document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED) AND start_date:${range})`
+        `(document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED OR CANCELLED) AND start_date:${range})`
       );
       expect(store.getActions()[0]).toEqual(expectedAction);
       done();
@@ -44,14 +43,16 @@ describe('Document stats fetch tests', () => {
   });
 
   it('should dispatch a success action when document stats fetch succeeds', () => {
+    mockLoanList.mockResolvedValue({ data: 'someData' });
     const expectedAction = {
-      type: types.SUCCESS,
+      type: actions.SUCCESS,
+      payload: 'someData',
     };
 
     store.dispatch(actions.fetchDocumentStats(ARGS)).then(done => {
       const range = encodeURI(`{${ARGS.fromDate} TO ${ARGS.toDate}}`);
       expect(mockLoanList).toHaveBeenCalledWith(
-        `(document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED) AND start_date:${range})`
+        `(document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED OR CANCELLED) AND start_date:${range})`
       );
       expect(store.getActions()[1]).toEqual(expectedAction);
       done();
@@ -61,14 +62,14 @@ describe('Document stats fetch tests', () => {
   it('should dispatch an error action when document stats fetch fails', () => {
     mockLoanList.mockRejectedValue([500, 'Error']);
     const expectedAction = {
-      type: types.HAS_ERROR,
+      type: actions.HAS_ERROR,
       payload: [500, 'Error'],
     };
 
     store.dispatch(actions.fetchDocumentStats(ARGS)).then(done => {
       const range = encodeURI(`{${ARGS.fromDate} TO ${ARGS.toDate}}`);
       expect(mockLoanList).toHaveBeenCalledWith(
-        `(document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED) AND start_date:${range})`
+        `(document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED OR CANCELLED) AND start_date:${range})`
       );
       expect(store.getActions()[1]).toEqual(expectedAction);
       done();

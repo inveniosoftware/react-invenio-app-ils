@@ -1,11 +1,11 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
 import { BackOfficeRoutes, ILLRoutes } from '@routes/urls';
-import { BrowserRouter } from 'react-router-dom';
-import PatronPastBorrowingRequests from './PatronPastBorrowingRequests';
+import documentTestData from '@testData/documents.json';
 import testData from '@testData/ill_borrowing_requests.json';
 import libraryTestData from '@testData/ill_libraries.json';
-import documentTestData from '@testData/documents.json';
+import { mount, shallow } from 'enzyme';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import PatronPastBorrowingRequests from './PatronPastBorrowingRequests';
 
 jest.mock('@config/invenioConfig');
 ILLRoutes.borrowingRequestDetailsFor = jest.fn(pid => `url/${pid}`);
@@ -59,7 +59,7 @@ describe('PatronPastBorrowingRequests tests', () => {
     const component = shallow(
       <PatronPastBorrowingRequests
         data={{ hits: [], total: 0 }}
-        loanState=""
+        isLoading={false}
         patronDetails={patron}
         fetchPatronPastBorrowingRequests={
           mockedFetchPatronPastBorrowingRequests
@@ -76,7 +76,7 @@ describe('PatronPastBorrowingRequests tests', () => {
         <PatronPastBorrowingRequests
           patronDetails={patron}
           data={{ hits: [], total: 0 }}
-          loanState=""
+          isLoading={false}
           fetchPatronPastBorrowingRequests={
             mockedFetchPatronPastBorrowingRequests
           }
@@ -98,7 +98,7 @@ describe('PatronPastBorrowingRequests tests', () => {
         <PatronPastBorrowingRequests
           patronDetails={patron}
           data={data}
-          loanState=""
+          isLoading={false}
           fetchPatronPastBorrowingRequests={
             mockedFetchPatronPastBorrowingRequests
           }
@@ -129,6 +129,7 @@ describe('PatronPastBorrowingRequests tests', () => {
         <PatronPastBorrowingRequests
           patronDetails={patron}
           data={data}
+          isLoading={false}
           fetchPatronPastBorrowingRequests={
             mockedFetchPatronPastBorrowingRequests
           }
@@ -151,7 +152,7 @@ describe('PatronPastBorrowingRequests tests', () => {
         <PatronPastBorrowingRequests
           patronDetails={patron}
           data={data}
-          loanState=""
+          isLoading={false}
           fetchPatronPastBorrowingRequests={
             mockedFetchPatronPastBorrowingRequests
           }

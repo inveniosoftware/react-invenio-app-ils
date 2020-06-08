@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PatronCurrentBorrowingRequests tests should load the details component 1`] = `
-<Overridable(Loader)>
+<Overridable(Loader)
+  isLoading={false}
+>
   <Error
     error={null}
   >
@@ -192,7 +194,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
           ],
         }
       }
-      loanState=""
+      isLoading={false}
       patronDetails={
         Object {
           "user_pid": "2",
@@ -200,7 +202,9 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
       }
       showMaxRequests={5}
     >
-      <Overridable(Loader)>
+      <Overridable(Loader)
+        isLoading={false}
+      >
         <Loader
           isLoading={false}
         >
@@ -1396,7 +1400,7 @@ exports[`PatronCurrentBorrowingRequests tests should render show a message with 
           ],
         }
       }
-      loanState=""
+      isLoading={false}
       patronDetails={
         Object {
           "user_pid": "2",
@@ -1404,7 +1408,9 @@ exports[`PatronCurrentBorrowingRequests tests should render show a message with 
       }
       showMaxRequests={5}
     >
-      <Overridable(Loader)>
+      <Overridable(Loader)
+        isLoading={false}
+      >
         <Loader
           isLoading={false}
         >
@@ -1635,6 +1641,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
           ],
         }
       }
+      isLoading={false}
       patronDetails={
         Object {
           "user_pid": "2",
@@ -1642,7 +1649,9 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
       }
       showMaxRequests={1}
     >
-      <Overridable(Loader)>
+      <Overridable(Loader)
+        isLoading={false}
+      >
         <Loader
           isLoading={false}
         >

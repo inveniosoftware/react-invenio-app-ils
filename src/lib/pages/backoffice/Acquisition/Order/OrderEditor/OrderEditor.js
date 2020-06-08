@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Loader } from '@components/Loader';
+import { orderApi } from '@api/acquisition';
 import { Error } from '@components/Error';
-import { acqOrderApi as orderApi } from '@api/acquisition';
-import { OrderForm } from './OrderForm';
+import { Loader } from '@components/Loader';
 import _get from 'lodash/get';
+import React, { Component } from 'react';
+import { OrderForm } from './OrderForm';
 
 export class OrderEditor extends Component {
   constructor(props) {

@@ -1,5 +1,8 @@
-import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
 import { pageApi } from '@api/staticPages/page';
+
+export const IS_LOADING = 'fetchStaticPage/IS_LOADING';
+export const SUCCESS = 'fetchStaticPage/SUCCESS';
+export const HAS_ERROR = 'fetchStaticPage/HAS_ERROR';
 
 export const fetchStaticPageDetails = pageID => {
   return async dispatch => {

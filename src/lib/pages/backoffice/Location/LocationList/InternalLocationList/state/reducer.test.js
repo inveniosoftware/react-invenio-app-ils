@@ -1,5 +1,12 @@
 import reducer, { initialState } from './reducer';
-import * as types from './types';
+import {
+  IS_LOADING,
+  SUCCESS,
+  HAS_ERROR,
+  DELETE_IS_LOADING,
+  DELETE_SUCCESS,
+  DELETE_HAS_ERROR,
+} from './actions';
 
 describe('Fetch internal location details reducer', () => {
   it('should have initial state', () => {
@@ -8,7 +15,7 @@ describe('Fetch internal location details reducer', () => {
 
   it('should change loading state on loading action', () => {
     const action = {
-      type: types.IS_LOADING,
+      type: IS_LOADING,
     };
     expect(reducer(initialState, action)).toEqual({
       ...initialState,
@@ -19,7 +26,7 @@ describe('Fetch internal location details reducer', () => {
   it('should change data state on success action', () => {
     const internalLocation = { field: 123 };
     const action = {
-      type: types.SUCCESS,
+      type: SUCCESS,
       payload: internalLocation,
     };
     expect(reducer(initialState, action)).toEqual({
@@ -32,7 +39,7 @@ describe('Fetch internal location details reducer', () => {
 
   it('should change error state on error action', () => {
     const action = {
-      type: types.HAS_ERROR,
+      type: HAS_ERROR,
       payload: { response: { status: 404 } },
     };
     expect(reducer(initialState, action)).toEqual({
@@ -51,7 +58,7 @@ describe('Delete internal location reducer', () => {
 
   it('should change loading state on internal location delete', () => {
     const action = {
-      type: types.DELETE_IS_LOADING,
+      type: DELETE_IS_LOADING,
     };
     expect(reducer(initialState, action)).toEqual({
       ...initialState,
@@ -61,7 +68,7 @@ describe('Delete internal location reducer', () => {
 
   it('should keep loading to re-fetch locations on deleted internal location success', () => {
     const action = {
-      type: types.DELETE_SUCCESS,
+      type: DELETE_SUCCESS,
     };
     expect(reducer(initialState, action)).toEqual({
       ...initialState,
@@ -71,7 +78,7 @@ describe('Delete internal location reducer', () => {
 
   it('should change error state on delete error', () => {
     const action = {
-      type: types.DELETE_HAS_ERROR,
+      type: DELETE_HAS_ERROR,
       payload: { response: { status: 404 } },
     };
     expect(reducer(initialState, action)).toEqual({

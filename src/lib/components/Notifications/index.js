@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import NotificationsComponent from './Notifications';
-import { REMOVE } from './state/types';
+import { REMOVE } from './actions';
 export {
   addNotification,
   sendErrorNotification,

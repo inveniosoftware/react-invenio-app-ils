@@ -1,17 +1,17 @@
-import { eitemApi } from '@api/eitems';
+import { eItemApi } from '@api/eitems';
 import { fileApi } from '@api/files';
 import testData from '@testData/eitems.json';
 import { mount } from 'enzyme';
 import React from 'react';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { uploadFile } from '../state/actions';
-import UploadButton from '../UploadButton';
+import { uploadFile } from './state/actions';
+import UploadButton from './UploadButton';
 
 const mockedCreateBucket = jest.fn();
 const mockedUploadFile = jest.fn();
 
-eitemApi.bucket = mockedCreateBucket;
+eItemApi.bucket = mockedCreateBucket;
 fileApi.upload = mockedUploadFile;
 
 const middlewares = [thunk];

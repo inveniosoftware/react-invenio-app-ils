@@ -1,4 +1,4 @@
-import { http, apiConfig } from '@api/base';
+import { apiConfig, http } from '@api/base';
 import { librarySerializer as serializer } from './serializers';
 
 const libraryUrl = '/ill/libraries/';
@@ -35,7 +35,7 @@ const list = async (query = '', size = 100) => {
   return response;
 };
 
-export const library = {
+export const libraryApi = {
   searchBaseURL: `${apiConfig.baseURL}${libraryUrl}`,
   create: create,
   delete: del,

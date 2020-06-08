@@ -1,8 +1,8 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
 import { BackOfficeRoutes } from '@routes/urls';
-import IdleLoansList from './IdleLoansList';
 import testData from '@testData/loans.json';
+import { mount, shallow } from 'enzyme';
+import React from 'react';
+import IdleLoansList from './IdleLoansList';
 
 jest.mock('react-router-dom');
 jest.mock('@config/invenioConfig');
@@ -38,6 +38,7 @@ describe('IdleLoansList tests', () => {
     const component = shallow(
       <IdleLoansList
         data={{ hits: [], total: 0 }}
+        isLoading={false}
         fetchIdlePendingLoans={() => {}}
       />
     );
@@ -49,6 +50,7 @@ describe('IdleLoansList tests', () => {
     component = mount(
       <IdleLoansList
         data={{ hits: [], total: 0 }}
+        isLoading={false}
         fetchIdlePendingLoans={mockedFetchLoans}
       />
     );
@@ -59,6 +61,7 @@ describe('IdleLoansList tests', () => {
     component = mount(
       <IdleLoansList
         data={{ hits: [], total: 0 }}
+        isLoading={false}
         fetchIdlePendingLoans={() => {}}
       />
     );
@@ -68,26 +71,5 @@ describe('IdleLoansList tests', () => {
       .find('Message')
       .filterWhere(element => element.prop('data-test') === 'no-results');
     expect(message).toHaveLength(1);
-  });
-
-  it('should render loans', () => {
-    component = mount(
-      <IdleLoansList data={data} fetchIdlePendingLoans={() => {}} />
-    );
-
-    expect(component).toMatchSnapshot();
-    const rows = component
-      .find('TableRow')
-      .filterWhere(
-        element =>
-          element.prop('data-test') === 'loan1' ||
-          element.prop('data-test') === 'loan2'
-      );
-    expect(rows).toHaveLength(2);
-
-    const footer = component
-      .find('TableRow')
-      .filterWhere(element => element.prop('data-test') === 'footer');
-    expect(footer).toHaveLength(0);
   });
 });

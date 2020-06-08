@@ -17,7 +17,13 @@ describe('AuthenticationGuard tests', () => {
 
   it('should return null if the user fetching is in progress', () => {
     const component = mount(
-      <AuthenticationGuard isLoading authorizedComponent={Authorized} />
+      <AuthenticationGuard
+        isLoading
+        isAnonymous
+        user={{}}
+        authorizedComponent={Authorized}
+        sendErrorNotification={jest.fn()}
+      />
     );
     expect(component.html()).toBeNull();
   });
@@ -26,9 +32,11 @@ describe('AuthenticationGuard tests', () => {
     component = mount(
       <BrowserRouter>
         <AuthenticationGuard
+          user={{}}
           isLoading={false}
           isAnonymous
           authorizedComponent={Authorized}
+          sendErrorNotification={jest.fn()}
         />
       </BrowserRouter>
     );
@@ -41,12 +49,16 @@ describe('AuthenticationGuard tests', () => {
   it('should render login component if user is anonymous and login component is passed', () => {
     const loginComponent = () => <Button data-test="login">Login</Button>;
     component = mount(
-      <AuthenticationGuard
-        isLoading={false}
-        isAnonymous
-        loginComponent={loginComponent}
-        authorizedComponent={Authorized}
-      />
+      <BrowserRouter>
+        <AuthenticationGuard
+          user={{}}
+          isLoading={false}
+          isAnonymous
+          sendErrorNotification={jest.fn()}
+          loginComponent={loginComponent}
+          authorizedComponent={Authorized}
+        />
+      </BrowserRouter>
     );
 
     const redirected = component
@@ -60,6 +72,7 @@ describe('AuthenticationGuard tests', () => {
     const mockSendErrorNotification = jest.fn();
     component = mount(
       <AuthenticationGuard
+        isLoading={false}
         isAnonymous={false}
         sendErrorNotification={mockSendErrorNotification}
         user={{ roles: ['notadmin'] }}
@@ -74,14 +87,17 @@ describe('AuthenticationGuard tests', () => {
   it('should return unauthorized component if user is logged in, roles are not sufficient and unauthorized component was provided', () => {
     const mockSendErrorNotification = jest.fn();
     component = mount(
-      <AuthenticationGuard
-        isAnonymous={false}
-        sendErrorNotification={mockSendErrorNotification}
-        user={{ roles: ['notadmin'] }}
-        roles={['admin']}
-        unAuthorizedComponent={UnAuthorized}
-        authorizedComponent={Authorized}
-      />
+      <BrowserRouter>
+        <AuthenticationGuard
+          isLoading={false}
+          isAnonymous={false}
+          sendErrorNotification={mockSendErrorNotification}
+          user={{ roles: ['notadmin'] }}
+          roles={['admin']}
+          unAuthorizedComponent={UnAuthorized}
+          authorizedComponent={Authorized}
+        />
+      </BrowserRouter>
     );
     let unAuthorized = component.find('UnAuthorized');
     expect(unAuthorized).toHaveLength(1);
@@ -92,14 +108,17 @@ describe('AuthenticationGuard tests', () => {
   it('should return authorized component if user is logged in and roles are sufficient', () => {
     const mockSendErrorNotification = jest.fn();
     component = mount(
-      <AuthenticationGuard
-        isAnonymous={false}
-        sendErrorNotification={mockSendErrorNotification}
-        user={{ roles: ['admin'] }}
-        roles={['admin']}
-        unAuthorizedComponent={UnAuthorized}
-        authorizedComponent={Authorized}
-      />
+      <BrowserRouter>
+        <AuthenticationGuard
+          isLoading={false}
+          isAnonymous={false}
+          sendErrorNotification={mockSendErrorNotification}
+          user={{ roles: ['admin'] }}
+          roles={['admin']}
+          unAuthorizedComponent={UnAuthorized}
+          authorizedComponent={Authorized}
+        />
+      </BrowserRouter>
     );
     let authorized = component.find('Authorized');
     expect(authorized).toHaveLength(1);

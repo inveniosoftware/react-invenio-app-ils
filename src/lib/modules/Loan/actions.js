@@ -5,9 +5,9 @@ import {
 } from '@components/Notifications';
 import { uiConfig } from '@config';
 
-export const IS_LOADING = 'loanAction/IS_LOADING';
-export const SUCCESS = 'loanAction/SUCCESS';
-export const HAS_ERROR = 'loanAction/HAS_ERROR';
+export const ACTION_IS_LOADING = 'loanAction/IS_LOADING';
+export const ACTION_SUCCESS = 'loanAction/SUCCESS';
+export const ACTION_HAS_ERROR = 'loanAction/HAS_ERROR';
 
 export const DETAILS_IS_LOADING = 'fetchLoanDetails/IS_LOADING';
 export const DETAILS_SUCCESS = 'fetchLoanDetails/SUCCESS';
@@ -42,7 +42,7 @@ export const performLoanAction = (
 ) => {
   return async dispatch => {
     dispatch({
-      type: IS_LOADING,
+      type: ACTION_IS_LOADING,
     });
     try {
       const response = await loanApi.doAction(
@@ -55,7 +55,7 @@ export const performLoanAction = (
         }
       );
       dispatch({
-        type: SUCCESS,
+        type: ACTION_SUCCESS,
         payload: response.data,
       });
       dispatch({
@@ -74,7 +74,7 @@ export const performLoanAction = (
       );
     } catch (error) {
       dispatch({
-        type: HAS_ERROR,
+        type: ACTION_HAS_ERROR,
         payload: error,
       });
       dispatch(sendErrorNotification(error));

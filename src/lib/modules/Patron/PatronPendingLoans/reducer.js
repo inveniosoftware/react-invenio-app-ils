@@ -4,7 +4,7 @@ import {
   HAS_ERROR,
   CHANGE_SORT_BY,
   CHANGE_SORT_ORDER,
-} from './types';
+} from './actions';
 
 export const initialState = {
   isLoading: true,

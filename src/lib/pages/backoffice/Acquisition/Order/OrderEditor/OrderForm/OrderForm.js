@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Header, Segment, Grid } from 'semantic-ui-react';
-import { getIn } from 'formik';
-import { Loader } from '@components/Loader';
-import { acqOrderApi as orderApi } from '@api/acquisition';
+import { orderApi } from '@api/acquisition';
+import { withCancel } from '@api/utils';
 import { vocabularyApi } from '@api/vocabularies';
-import { AcquisitionRoutes } from '@routes/urls';
-import { goTo } from '@history';
+import { sessionManager } from '@authentication/services/SessionManager';
+import { Loader } from '@components/Loader';
+import { invenioConfig } from '@config';
 import { BaseForm } from '@forms/core/BaseForm';
+import { goTo } from '@history';
+import { AcquisitionRoutes } from '@routes/urls';
+import { getIn } from 'formik';
+import _has from 'lodash/has';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Grid, Header, Segment } from 'semantic-ui-react';
 import { OrderInfo } from './OrderInfo';
 import { OrderLines } from './OrderLines';
 import { Payment } from './Payment';
-import { invenioConfig } from '@config';
-import { sessionManager } from '@authentication/services/SessionManager';
-import _has from 'lodash/has';
-import { withCancel } from '@api/utils';
 
 const orderSubmitSerializer = values => {
   const submitValues = { ...values };

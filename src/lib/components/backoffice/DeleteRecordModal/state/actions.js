@@ -1,5 +1,8 @@
-import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
 import { sendErrorNotification } from '@components/Notifications';
+
+export const IS_LOADING = 'fetchReferences/IS_LOADING';
+export const SUCCESS = 'fetchReferences/SUCCESS';
+export const HAS_ERROR = 'fetchReferences/HAS_ERROR';
 
 export const fetchReferences = promiseArray => {
   return async dispatch => {

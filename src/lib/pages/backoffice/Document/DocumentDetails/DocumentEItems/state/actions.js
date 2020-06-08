@@ -1,6 +1,9 @@
-import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
 import { eItemApi } from '@api/eitems';
 import { sendErrorNotification } from '@components/Notifications';
+
+export const IS_LOADING = 'fetchDocumentEItems/IS_LOADING';
+export const SUCCESS = 'fetchDocumentEItems/SUCCESS';
+export const HAS_ERROR = 'fetchDocumentEItems/HAS_ERROR';
 
 export const fetchDocumentEItems = documentPid => {
   return async dispatch => {
@@ -8,25 +11,23 @@ export const fetchDocumentEItems = documentPid => {
       type: IS_LOADING,
     });
 
-    await eItemApi
-      .list(
+    try {
+      const response = await eItemApi.list(
         eItemApi
           .query()
           .withDocPid(documentPid)
           .qs()
-      )
-      .then(response => {
-        dispatch({
-          type: SUCCESS,
-          payload: response.data,
-        });
-      })
-      .catch(error => {
-        dispatch({
-          type: HAS_ERROR,
-          payload: error,
-        });
-        dispatch(sendErrorNotification(error));
+      );
+      dispatch({
+        type: SUCCESS,
+        payload: response.data,
       });
+    } catch (error) {
+      dispatch({
+        type: HAS_ERROR,
+        payload: error,
+      });
+      dispatch(sendErrorNotification(error));
+    }
   };
 };

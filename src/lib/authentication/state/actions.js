@@ -1,14 +1,14 @@
-import {
-  IS_LOADING,
-  SUCCESS,
-  IS_ANONYMOUS,
-  IS_CONFIRMED,
-  IS_CONFIRMED_LOADING,
-} from './types';
 import { authenticationService } from '@authentication/services/AuthenticationService';
 import { sessionManager } from '@authentication/services/SessionManager';
 import { FrontSiteRoutes } from '@routes/urls';
 import { goTo } from '@history';
+
+export const IS_LOADING = 'fetchUserInfo/IS_LOADING';
+export const SUCCESS = 'fetchUserInfo/SUCCESS';
+export const IS_ANONYMOUS = 'fetchUserInfo/IS_ANONYMOUS';
+
+export const IS_CONFIRMED_LOADING = 'confirmUser/IS_LOADING';
+export const IS_CONFIRMED = 'confirmUser/IS_CONFIRMED';
 
 export const fetchUserProfile = () => {
   return async dispatch => {

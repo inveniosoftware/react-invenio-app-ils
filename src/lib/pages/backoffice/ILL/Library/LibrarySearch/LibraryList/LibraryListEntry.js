@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import { borrowingRequestApi } from '@api/ill';
+import { ILLLibraryIcon } from '@components/backoffice/icons';
+import { ILLRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Icon, Item, List } from 'semantic-ui-react';
-import { ILLRoutes } from '@routes/urls';
-import { illBorrowingRequestApi as brwReqApi } from '@api/ill';
-import { ILLLibraryIcon } from '@components/backoffice/icons';
 
 const LibraryListInfo = ({ libraryMetadata }) => (
   <List verticalAlign="middle" className="document-circulation">
@@ -26,7 +26,7 @@ LibraryListInfo.propTypes = {
 };
 
 const LibraryOrderSearch = ({ libraryMetadata }) => {
-  const brwReqQuery = brwReqApi
+  const brwReqQuery = borrowingRequestApi
     .query()
     .withLibraryPid(libraryMetadata.pid)
     .qs();

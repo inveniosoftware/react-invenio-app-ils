@@ -2,7 +2,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
 import { loanApi } from '@api/loans';
 
 const middlewares = [thunk];
@@ -10,6 +9,7 @@ const mockStore = configureMockStore(middlewares);
 
 const mockDoCheckout = jest.fn();
 loanApi.doCheckout = mockDoCheckout;
+loanApi.list = jest.fn();
 
 const response = { data: {} };
 const expectedPayload = {};
@@ -35,7 +35,7 @@ describe('ItemsCheckout actions tests', () => {
 
       const expectedActions = [
         {
-          type: types.IS_LOADING,
+          type: actions.IS_LOADING,
         },
       ];
 
@@ -62,7 +62,7 @@ describe('ItemsCheckout actions tests', () => {
 
       const expectedActions = [
         {
-          type: types.IS_LOADING,
+          type: actions.IS_LOADING,
         },
       ];
 
@@ -91,7 +91,7 @@ describe('ItemsCheckout actions tests', () => {
 
       const expectedActions = [
         {
-          type: types.SUCCESS,
+          type: actions.SUCCESS,
           payload: expectedPayload,
         },
       ];
@@ -118,7 +118,7 @@ describe('ItemsCheckout actions tests', () => {
 
       const expectedActions = [
         {
-          type: types.HAS_ERROR,
+          type: actions.HAS_ERROR,
           payload: [500, 'Error'],
         },
       ];

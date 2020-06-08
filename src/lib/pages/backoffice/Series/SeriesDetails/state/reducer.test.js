@@ -1,5 +1,12 @@
 import reducer, { initialState } from './reducer';
-import * as types from './types';
+import {
+  IS_LOADING,
+  SUCCESS,
+  HAS_ERROR,
+  DELETE_HAS_ERROR,
+  DELETE_SUCCESS,
+  DELETE_IS_LOADING,
+} from './actions';
 
 describe('Fetch series details reducer', () => {
   it('should have initial state', () => {
@@ -8,7 +15,7 @@ describe('Fetch series details reducer', () => {
 
   it('should change loading state on loading action', () => {
     const action = {
-      type: types.IS_LOADING,
+      type: IS_LOADING,
     };
     expect(reducer(initialState, action)).toEqual({
       ...initialState,
@@ -19,7 +26,7 @@ describe('Fetch series details reducer', () => {
   it('should change data state on success action', () => {
     const series = { series_id: '1232423' };
     const action = {
-      type: types.SUCCESS,
+      type: SUCCESS,
       payload: series,
     };
     expect(reducer(initialState, action)).toEqual({
@@ -32,7 +39,7 @@ describe('Fetch series details reducer', () => {
 
   it('should change error state on error action', () => {
     const action = {
-      type: types.HAS_ERROR,
+      type: HAS_ERROR,
       payload: 'Error',
     };
     expect(reducer(initialState, action)).toEqual({
@@ -51,7 +58,7 @@ describe('Delete series reducer', () => {
 
   it('should change loading state on series delete', () => {
     const action = {
-      type: types.DELETE_IS_LOADING,
+      type: DELETE_IS_LOADING,
     };
     expect(reducer(initialState, action)).toEqual({
       ...initialState,
@@ -61,7 +68,7 @@ describe('Delete series reducer', () => {
 
   it('should keep loading to re-fetch series on deleted series success', () => {
     const action = {
-      type: types.DELETE_SUCCESS,
+      type: DELETE_SUCCESS,
       payload: { seriesPid: 1 },
     };
     expect(reducer(initialState, action)).toEqual({
@@ -72,7 +79,7 @@ describe('Delete series reducer', () => {
 
   it('should change error state on delete series error', () => {
     const action = {
-      type: types.DELETE_HAS_ERROR,
+      type: DELETE_HAS_ERROR,
       payload: { response: { status: 404 } },
     };
     expect(reducer(initialState, action)).toEqual({

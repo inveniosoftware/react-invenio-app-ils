@@ -1,4 +1,4 @@
-import { acqVendorApi as vendorApi } from '@api/acquisition';
+import { vendorApi } from '@api/acquisition';
 import { BaseForm } from '@forms/core/BaseForm';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';

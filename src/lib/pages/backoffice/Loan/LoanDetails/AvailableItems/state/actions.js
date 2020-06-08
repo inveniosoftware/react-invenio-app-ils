@@ -1,4 +1,3 @@
-import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
 import {
   DETAILS_SUCCESS as FETCH_LOAN_SUCCESS,
   DETAILS_IS_LOADING as FETCH_LOAN_IS_LOADING,
@@ -8,34 +7,37 @@ import { loanApi } from '@api/loans';
 import { invenioConfig } from '@config';
 import { sendErrorNotification } from '@components/Notifications';
 
+export const IS_LOADING = 'fetchAvailableItems/IS_LOADING';
+export const SUCCESS = 'fetchAvailableItems/SUCCESS';
+export const HAS_ERROR = 'fetchAvailableItems/HAS_ERROR';
+
 export const fetchAvailableItems = documentPid => {
   return async dispatch => {
     dispatch({
       type: IS_LOADING,
     });
 
-    await itemApi
-      .list(
+    try {
+      const response = await itemApi.list(
         itemApi
           .query()
           .withDocPid(documentPid)
           .withStatus(invenioConfig.items.canCirculateStatuses)
           .availableForCheckout()
           .qs()
-      )
-      .then(response => {
-        dispatch({
-          type: SUCCESS,
-          payload: response.data,
-        });
-      })
-      .catch(error => {
-        dispatch({
-          type: HAS_ERROR,
-          payload: error,
-        });
-        dispatch(sendErrorNotification(error));
+      );
+
+      dispatch({
+        type: SUCCESS,
+        payload: response.data,
       });
+    } catch (error) {
+      dispatch({
+        type: HAS_ERROR,
+        payload: error,
+      });
+      dispatch(sendErrorNotification(error));
+    }
   };
 };
 
@@ -44,20 +46,20 @@ export const assignItemToLoan = (itemId, loanId) => {
     dispatch({
       type: FETCH_LOAN_IS_LOADING,
     });
-    await loanApi
-      .assignItemToLoan(itemId, loanId)
-      .then(response => {
-        dispatch({
-          type: FETCH_LOAN_SUCCESS,
-          payload: response.data,
-        });
-      })
-      .catch(error => {
-        dispatch({
-          type: HAS_ERROR,
-          payload: error,
-        });
-        dispatch(sendErrorNotification(error));
+
+    try {
+      const response = await loanApi.assignItemToLoan(itemId, loanId);
+
+      dispatch({
+        type: FETCH_LOAN_SUCCESS,
+        payload: response.data,
       });
+    } catch (error) {
+      dispatch({
+        type: HAS_ERROR,
+        payload: error,
+      });
+      dispatch(sendErrorNotification(error));
+    }
   };
 };

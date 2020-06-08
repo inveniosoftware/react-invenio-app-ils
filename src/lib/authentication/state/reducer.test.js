@@ -1,5 +1,5 @@
+import { IS_ANONYMOUS, IS_LOADING, SUCCESS } from './actions';
 import reducer, { initialState } from './reducer';
-import * as types from './types';
 
 describe('Authentication management reducer', () => {
   it('should have initial state', () => {
@@ -8,7 +8,7 @@ describe('Authentication management reducer', () => {
 
   it('should change loading state on loading action', () => {
     const action = {
-      type: types.IS_LOADING,
+      type: IS_LOADING,
     };
     expect(reducer(initialState, action)).toEqual({
       ...initialState,
@@ -24,7 +24,7 @@ describe('Authentication management reducer', () => {
       locationPid: '1',
     };
     const action = {
-      type: types.SUCCESS,
+      type: SUCCESS,
       payload: userData,
     };
     expect(reducer(initialState, action)).toEqual({
@@ -37,7 +37,7 @@ describe('Authentication management reducer', () => {
 
   it('should change anonymous state on anonymous action', () => {
     const action = {
-      type: types.IS_ANONYMOUS,
+      type: IS_ANONYMOUS,
       payload: 'Error',
     };
     expect(reducer(initialState, action)).toEqual({

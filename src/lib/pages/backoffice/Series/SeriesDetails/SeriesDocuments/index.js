@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { fetchSeriesDocuments } from './state/actions';
 import SeriesDocumentsComponent from './SeriesDocuments';
+import { fetchSeriesDocuments } from './state/actions';
 
 const mapStateToProps = state => ({
   seriesDocuments: state.seriesDocuments.data,

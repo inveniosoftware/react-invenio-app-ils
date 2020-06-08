@@ -4,7 +4,7 @@ import {
   HAS_ERROR,
   IS_LOADING,
   SUCCESS,
-} from './types';
+} from './actions';
 
 export const initialState = {
   data: {},

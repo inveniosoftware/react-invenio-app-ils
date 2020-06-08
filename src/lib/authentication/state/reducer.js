@@ -4,7 +4,7 @@ import {
   IS_ANONYMOUS,
   IS_CONFIRMED,
   IS_CONFIRMED_LOADING,
-} from './types';
+} from './actions';
 
 export const initialState = {
   isLoading: true,

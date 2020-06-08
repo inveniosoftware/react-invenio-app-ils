@@ -1,5 +1,5 @@
-import { SUCCESS as FETCH_SERIES_SUCCESS } from '../../state/types';
-import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
+import { SUCCESS as FETCH_SERIES_SUCCESS } from '../../state/actions';
+import { IS_LOADING, SUCCESS, HAS_ERROR } from './actions';
 
 export const initialState = {
   isLoading: true,

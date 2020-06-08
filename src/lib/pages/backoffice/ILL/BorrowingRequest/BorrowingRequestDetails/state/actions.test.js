@@ -1,10 +1,9 @@
+import { borrowingRequestApi } from '@api/ill';
+import { sessionManager } from '@authentication/services/SessionManager';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
-import { illBorrowingRequestApi as borrowingRequestApi } from '@api/ill';
-import { sessionManager } from '@authentication/services/SessionManager';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -42,7 +41,7 @@ describe('BorrowingRequest details tests', () => {
 
       const expectedActions = [
         {
-          type: types.IS_LOADING,
+          type: actions.IS_LOADING,
         },
       ];
 
@@ -59,7 +58,7 @@ describe('BorrowingRequest details tests', () => {
 
       const expectedActions = [
         {
-          type: types.SUCCESS,
+          type: actions.SUCCESS,
           payload: response.data,
         },
       ];
@@ -77,7 +76,7 @@ describe('BorrowingRequest details tests', () => {
 
       const expectedActions = [
         {
-          type: types.HAS_ERROR,
+          type: actions.HAS_ERROR,
           payload: [500, 'Error'],
         },
       ];

@@ -1,11 +1,6 @@
 import { documentApi } from '@api/documents';
-import { illLibraryApi } from '@api/ill';
+import { libraryApi } from '@api/ill';
 import { patronApi } from '@api/patrons';
-import {
-  serializeDocument,
-  serializeLibrary,
-  serializePatron,
-} from '@modules/ESSelector/serializer';
 import { invenioConfig } from '@config';
 import { DateInputField } from '@forms/core/DateTimeFields/DateInputField';
 import { GroupField } from '@forms/core/GroupField';
@@ -15,6 +10,11 @@ import { SelectorField } from '@forms/core/SelectorField';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
 import { VocabularyField } from '@forms/core/VocabularyField';
+import {
+  serializeDocument,
+  serializeLibrary,
+  serializePatron,
+} from '@modules/ESSelector/serializer';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
@@ -31,7 +31,7 @@ export class OrderInfo extends Component {
           errorPath="library_pid"
           label="Library"
           placeholder="Search for a library..."
-          query={illLibraryApi.list}
+          query={libraryApi.list}
           serializer={serializeLibrary}
         />
         <VocabularyField

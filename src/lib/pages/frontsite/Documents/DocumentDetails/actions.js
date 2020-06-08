@@ -11,20 +11,19 @@ export const fetchDocumentsDetails = documentPid => {
       type: IS_LOADING,
     });
 
-    await documentApi
-      .get(documentPid)
-      .then(response => {
-        dispatch({
-          type: SUCCESS,
-          payload: response.data,
-        });
-      })
-      .catch(error => {
-        dispatch({
-          type: HAS_ERROR,
-          payload: error,
-        });
+    try {
+      const response = await documentApi.get(documentPid);
+
+      dispatch({
+        type: SUCCESS,
+        payload: response.data,
       });
+    } catch (error) {
+      dispatch({
+        type: HAS_ERROR,
+        payload: error,
+      });
+    }
   };
 };
 

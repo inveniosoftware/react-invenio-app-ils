@@ -1,7 +1,10 @@
-import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
 import { invenioConfig } from '@config';
 import { loanApi } from '@api/loans';
 import { sendErrorNotification } from '@components/Notifications';
+
+export const IS_LOADING = 'fetchPendingLoansOnDocument/IS_LOADING';
+export const SUCCESS = 'fetchPendingLoansOnDocument/SUCCESS';
+export const HAS_ERROR = 'fetchPendingLoansOnDocument/HAS_ERROR';
 
 export const fetchPendingLoans = documentPid => {
   return async dispatch => {

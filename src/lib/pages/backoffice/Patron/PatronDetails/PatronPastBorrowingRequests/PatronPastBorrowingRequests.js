@@ -1,15 +1,15 @@
 import { dateFormatter } from '@api/date';
+import { borrowingRequestApi } from '@api/ill';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import { invenioConfig } from '@config';
 import DocumentTitle from '@modules/Document/DocumentTitle';
+import { BackOfficeRoutes, ILLRoutes } from '@routes/urls';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { Loader } from '@components/Loader';
-import { Error } from '@components/Error';
-import { illBorrowingRequestApi as borrowingRequestApi } from '@api/ill';
-import { invenioConfig } from '@config';
-import { ILLRoutes, BackOfficeRoutes } from '@routes/urls';
-import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 
 export default class PatronPastBorrowingRequests extends Component {
   componentDidMount() {

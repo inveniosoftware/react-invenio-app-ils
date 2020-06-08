@@ -2,10 +2,8 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
 import { loanApi } from '@api/loans';
 
-jest.mock('@config/invenioConfig');
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
@@ -42,7 +40,7 @@ describe('Past loans tests', () => {
       mockFetchPastOnDocumentItem.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: types.IS_LOADING,
+        type: actions.IS_LOADING,
       };
 
       store.dispatch(actions.fetchPastLoans('456')).then(() => {
@@ -59,7 +57,7 @@ describe('Past loans tests', () => {
       mockFetchPastOnDocumentItem.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: types.SUCCESS,
+        type: actions.SUCCESS,
         payload: mockResponse.data,
       };
 
@@ -77,7 +75,7 @@ describe('Past loans tests', () => {
       mockFetchPastOnDocumentItem.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {
-        type: types.HAS_ERROR,
+        type: actions.HAS_ERROR,
         payload: [500, 'Error'],
       };
 

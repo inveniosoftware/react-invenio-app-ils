@@ -1,6 +1,9 @@
-import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
 import { documentApi } from '@api/documents';
 import { sendErrorNotification } from '@components/Notifications';
+
+export const IS_LOADING = 'fetchSeriesDocuments/IS_LOADING';
+export const SUCCESS = 'fetchSeriesDocuments/SUCCESS';
+export const HAS_ERROR = 'fetchSeriesDocuments/HAS_ERROR';
 
 export const fetchSeriesDocuments = (seriesPid, moi) => {
   return async dispatch => {
@@ -8,25 +11,24 @@ export const fetchSeriesDocuments = (seriesPid, moi) => {
       type: IS_LOADING,
     });
 
-    await documentApi
-      .list(
+    try {
+      const response = await documentApi.list(
         documentApi
           .query()
           .withSeriesPid(seriesPid, moi)
           .qs()
-      )
-      .then(response => {
-        dispatch({
-          type: SUCCESS,
-          payload: response.data,
-        });
-      })
-      .catch(error => {
-        dispatch({
-          type: HAS_ERROR,
-          payload: error,
-        });
-        dispatch(sendErrorNotification(error));
+      );
+
+      dispatch({
+        type: SUCCESS,
+        payload: response.data,
       });
+    } catch (error) {
+      dispatch({
+        type: HAS_ERROR,
+        payload: error,
+      });
+      dispatch(sendErrorNotification(error));
+    }
   };
 };

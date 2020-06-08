@@ -49,7 +49,10 @@ exports[`DocumentMetadata tests should render the loan request form correctly 1`
       "updated": "2019-07-08T10:44:18.354+02:00",
     }
   }
+  error={Object {}}
+  hasError={false}
   initializeState={[Function]}
+  isSuccessful={true}
   requestLoanForDocument={[MockFunction]}
 >
   <LoanRequestForm
@@ -100,7 +103,10 @@ exports[`DocumentMetadata tests should render the loan request form correctly 1`
         "updated": "2019-07-08T10:44:18.354+02:00",
       }
     }
+    error={Object {}}
+    hasError={false}
     initializeState={[Function]}
+    isSuccessful={true}
     requestLoanForDocument={[MockFunction]}
   >
     <Form
@@ -487,6 +493,34 @@ exports[`DocumentMetadata tests should render the loan request form correctly 1`
             </Overridable(DatePicker)>
           </div>
         </FormField>
+        <Message
+          content="You have requested to loan this book."
+          header="Success"
+          positive={true}
+        >
+          <div
+            className="ui positive message"
+          >
+            <MessageContent>
+              <div
+                className="content"
+              >
+                <MessageHeader
+                  content="Success"
+                >
+                  <div
+                    className="header"
+                  >
+                    Success
+                  </div>
+                </MessageHeader>
+                <p>
+                  You have requested to loan this book.
+                </p>
+              </div>
+            </MessageContent>
+          </div>
+        </Message>
         <FormButton
           as={[Function]}
           control={[Function]}

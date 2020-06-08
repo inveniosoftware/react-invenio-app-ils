@@ -1,9 +1,8 @@
+import { documentApi } from '@api/documents';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
-import { documentApi } from '@api/documents';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -33,7 +32,7 @@ describe('Series Document tests', () => {
       mockFetchSeriesDocuments.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: types.IS_LOADING,
+        type: actions.IS_LOADING,
       };
 
       store.dispatch(actions.fetchSeriesDocuments('123', 'SERIAL'));
@@ -47,7 +46,7 @@ describe('Series Document tests', () => {
       mockFetchSeriesDocuments.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: types.SUCCESS,
+        type: actions.SUCCESS,
         payload: mockResponse.data,
       };
 
@@ -62,7 +61,7 @@ describe('Series Document tests', () => {
       mockFetchSeriesDocuments.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {
-        type: types.HAS_ERROR,
+        type: actions.HAS_ERROR,
         payload: [500, 'Error'],
       };
 

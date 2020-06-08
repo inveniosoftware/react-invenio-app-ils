@@ -1,8 +1,8 @@
-import { acqOrderApi } from '@api/acquisition';
-import { Error as IlsError } from '@components/Error';
-import { SearchBar as OrdersSearchBar } from '@components/SearchBar';
+import { orderApi } from '@api/acquisition';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import { Error as IlsError } from '@components/Error';
+import { SearchBar as OrdersSearchBar } from '@components/SearchBar';
 import history from '@history';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
@@ -24,7 +24,7 @@ import { OrderList } from './OrderList';
 class OrderResponseSerializer {
   serialize(results) {
     const hits = results.hits.hits.map(hit =>
-      acqOrderApi.serializer.fromJSON(hit)
+      orderApi.serializer.fromJSON(hit)
     );
     return {
       aggregations: results.aggregations || {},
@@ -37,7 +37,7 @@ class OrderResponseSerializer {
 export class OrderSearch extends Component {
   searchApi = new InvenioSearchApi({
     axios: {
-      url: acqOrderApi.searchBaseURL,
+      url: orderApi.searchBaseURL,
       withCredentials: true,
     },
     invenio: {
@@ -112,7 +112,7 @@ export class OrderSearch extends Component {
                       </Grid.Column>
                       <Grid.Column width={8} textAlign="right">
                         <ExportReactSearchKitResults
-                          exportBaseUrl={acqOrderApi.searchBaseURL}
+                          exportBaseUrl={orderApi.searchBaseURL}
                         />
                       </Grid.Column>
                     </Grid>

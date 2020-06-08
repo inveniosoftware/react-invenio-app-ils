@@ -1,8 +1,11 @@
-import { illBorrowingRequestApi as borrowingRequestApi } from '@api/ill';
+import { borrowingRequestApi } from '@api/ill';
 import { delay } from '@api/utils';
 import { sendSuccessNotification } from '@components/Notifications';
-import { SUCCESS as FETCH_SUCCESS } from '../../state/types';
-import { HAS_ERROR, IS_LOADING, SUCCESS } from './types';
+import { SUCCESS as FETCH_SUCCESS } from '../../state/actions';
+
+export const SUCCESS = 'borrowingRequestPatronLoanCreate/SUCCESS';
+export const IS_LOADING = 'borrowingRequestPatronLoanCreate/IS_LOADING';
+export const HAS_ERROR = 'borrowingRequestPatronLoanCreate/HAS_ERROR';
 
 export const borrowingRequestPatronLoanCreate = (
   borrowingRequestPid,

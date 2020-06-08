@@ -1,5 +1,5 @@
+import { HAS_ERROR, IS_LOADING, SUCCESS } from './actions';
 import reducer, { initialState } from './reducer';
-import * as types from './types';
 
 describe('Fetch Series Document reducer', () => {
   it('should have initial state', () => {
@@ -8,7 +8,7 @@ describe('Fetch Series Document reducer', () => {
 
   it('should change loading state on loading action', () => {
     const action = {
-      type: types.IS_LOADING,
+      type: IS_LOADING,
     };
     expect(reducer(initialState, action)).toEqual({
       ...initialState,
@@ -19,7 +19,7 @@ describe('Fetch Series Document reducer', () => {
   it('should change data state on success action', () => {
     const seriesDocuments = [{ field: '123' }, { field: '456' }];
     const action = {
-      type: types.SUCCESS,
+      type: SUCCESS,
       payload: seriesDocuments,
     };
     expect(reducer(initialState, action)).toEqual({
@@ -32,7 +32,7 @@ describe('Fetch Series Document reducer', () => {
 
   it('should change error state on error action', () => {
     const action = {
-      type: types.HAS_ERROR,
+      type: HAS_ERROR,
       payload: 'Error',
     };
     expect(reducer(initialState, action)).toEqual({

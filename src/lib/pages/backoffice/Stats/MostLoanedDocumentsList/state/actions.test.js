@@ -2,7 +2,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
 import { circulationStatsApi } from '@api/stats';
 
 const middlewares = [thunk];
@@ -42,7 +41,7 @@ describe('Most loaned documents fetch tests', () => {
     mockStatsMostLoaned.mockResolvedValue(mockResponse);
 
     const expectedAction = {
-      type: types.IS_LOADING,
+      type: actions.IS_LOADING,
     };
 
     store.dispatch(actions.fetchMostLoanedDocuments(start, end)).then(() => {
@@ -57,7 +56,7 @@ describe('Most loaned documents fetch tests', () => {
     mockStatsMostLoaned.mockResolvedValue(mockResponse);
 
     const expectedAction = {
-      type: types.SUCCESS,
+      type: actions.SUCCESS,
       payload: mockResponse.data,
     };
 
@@ -73,7 +72,7 @@ describe('Most loaned documents fetch tests', () => {
     mockStatsMostLoaned.mockRejectedValue([500, 'Error']);
 
     const expectedAction = {
-      type: types.HAS_ERROR,
+      type: actions.HAS_ERROR,
       payload: [500, 'Error'],
     };
 

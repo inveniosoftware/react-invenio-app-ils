@@ -1,4 +1,4 @@
-import { literature as literatureApi } from './literature';
+import { literatureApi } from './literature';
 
 describe('Literature query builder tests', () => {
   it('should build the query string for literature that belong to a series', () => {

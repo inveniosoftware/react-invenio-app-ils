@@ -2,7 +2,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
 import { itemApi } from '@api/items';
 
 const middlewares = [thunk];
@@ -33,7 +32,7 @@ describe('Item search by barcode tests', () => {
       mockFetchItems.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: types.IS_LOADING,
+        type: actions.IS_LOADING,
       };
 
       store.dispatch(actions.fetchItems('123'));
@@ -45,7 +44,7 @@ describe('Item search by barcode tests', () => {
       mockFetchItems.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: types.SUCCESS,
+        type: actions.SUCCESS,
         payload: mockResponse.data,
       };
 
@@ -58,7 +57,7 @@ describe('Item search by barcode tests', () => {
       mockFetchItems.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {
-        type: types.HAS_ERROR,
+        type: actions.HAS_ERROR,
         payload: [500, 'Error'],
       };
 
@@ -69,7 +68,7 @@ describe('Item search by barcode tests', () => {
 
     it('should dispatch a query string update action', done => {
       const expectedAction = {
-        type: types.QUERY_STRING_UPDATE,
+        type: actions.QUERY_STRING_UPDATE,
         queryString: 'pppp',
       };
 
@@ -81,7 +80,7 @@ describe('Item search by barcode tests', () => {
 
     it('should dispatch clear query action', done => {
       const expectedAction = {
-        type: types.CLEAR_SEARCH,
+        type: actions.CLEAR_SEARCH,
       };
 
       store.dispatch(actions.clearResults());

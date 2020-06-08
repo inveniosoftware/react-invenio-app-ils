@@ -1,7 +1,10 @@
 import { loanApi } from '@api/loans';
 import { sendErrorNotification } from '@components/Notifications';
 import { invenioConfig } from '@config';
-import { HAS_ERROR, IS_LOADING, SUCCESS } from './types';
+
+export const IS_LOADING = 'fetchPatronPastLoans/IS_LOADING';
+export const SUCCESS = 'fetchPatronPastLoans/SUCCESS';
+export const HAS_ERROR = 'fetchPatronPastLoans/HAS_ERROR';
 
 const selectQuery = (patronPid, page) => {
   return loanApi

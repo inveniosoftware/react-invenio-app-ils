@@ -1,14 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { delay } from '@api/utils';
-import {
-  IS_LOADING,
-  SUCCESS,
-  HAS_ERROR,
-  DELETE_IS_LOADING,
-  DELETE_SUCCESS,
-  DELETE_HAS_ERROR,
-} from './types';
 import { itemApi } from '@api/items';
 import { loanApi } from '@api/loans';
 import { BackOfficeRoutes } from '@routes/urls';
@@ -17,6 +9,14 @@ import {
   sendSuccessNotification,
 } from '@components/Notifications';
 import { goTo } from '@history';
+
+export const IS_LOADING = 'fetchItemDetails/IS_LOADING';
+export const SUCCESS = 'fetchItemDetails/SUCCESS';
+export const HAS_ERROR = 'fetchItemDetails/HAS_ERROR';
+
+export const DELETE_IS_LOADING = 'deleteItem/DELETE_IS_LOADING';
+export const DELETE_SUCCESS = 'deleteItem/DELETE_SUCCESS';
+export const DELETE_HAS_ERROR = 'deleteItem/DELETE_HAS_ERROR';
 
 export const fetchItemDetails = itemPid => {
   return async dispatch => {

@@ -1,32 +1,35 @@
-import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
-import { invenioConfig } from '@config';
 import { loanApi } from '@api/loans';
 import { sendErrorNotification } from '@components/Notifications';
+import { invenioConfig } from '@config';
+
+export const IS_LOADING = 'fetchAllPendingLoans/IS_LOADING';
+export const SUCCESS = 'fetchAllPendingLoans/SUCCESS';
+export const HAS_ERROR = 'fetchAllPendingLoans/HAS_ERROR';
 
 export const fetchPendingLoans = () => {
   return async dispatch => {
     dispatch({
       type: IS_LOADING,
     });
-    await loanApi
-      .count(
+
+    try {
+      const response = await loanApi.count(
         loanApi
           .query()
           .withState(invenioConfig.circulation.loanRequestStates)
           .qs()
-      )
-      .then(response => {
-        dispatch({
-          type: SUCCESS,
-          payload: response.data,
-        });
-      })
-      .catch(error => {
-        dispatch({
-          type: HAS_ERROR,
-          payload: error,
-        });
-        dispatch(sendErrorNotification(error));
+      );
+
+      dispatch({
+        type: SUCCESS,
+        payload: response.data,
       });
+    } catch (error) {
+      dispatch({
+        type: HAS_ERROR,
+        payload: error,
+      });
+      dispatch(sendErrorNotification(error));
+    }
   };
 };

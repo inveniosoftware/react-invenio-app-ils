@@ -6,14 +6,14 @@ import {
 } from '@components/Notifications';
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
-import {
-  DELETE_HAS_ERROR,
-  DELETE_IS_LOADING,
-  DELETE_SUCCESS,
-  HAS_ERROR,
-  IS_LOADING,
-  SUCCESS,
-} from './types';
+
+export const IS_LOADING = 'fetchSeriesDetails/IS_LOADING';
+export const SUCCESS = 'fetchSeriesDetails/SUCCESS';
+export const HAS_ERROR = 'fetchSeriesDetails/HAS_ERROR';
+
+export const DELETE_IS_LOADING = 'deleteSeries/DELETE_IS_LOADING';
+export const DELETE_SUCCESS = 'deleteSeries/DELETE_SUCCESS';
+export const DELETE_HAS_ERROR = 'deleteSeries/DELETE_HAS_ERROR';
 
 export const deleteSeries = seriesPid => {
   return async dispatch => {
@@ -51,20 +51,19 @@ export const fetchSeriesDetails = seriesPid => {
       type: IS_LOADING,
     });
 
-    await seriesApi
-      .get(seriesPid)
-      .then(response => {
-        dispatch({
-          type: SUCCESS,
-          payload: response.data,
-        });
-      })
-      .catch(error => {
-        dispatch({
-          type: HAS_ERROR,
-          payload: error,
-        });
-        dispatch(sendErrorNotification(error));
+    try {
+      const response = await seriesApi.get(seriesPid);
+
+      dispatch({
+        type: SUCCESS,
+        payload: response.data,
       });
+    } catch (error) {
+      dispatch({
+        type: HAS_ERROR,
+        payload: error,
+      });
+      dispatch(sendErrorNotification(error));
+    }
   };
 };

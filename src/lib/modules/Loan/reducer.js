@@ -1,7 +1,7 @@
 import {
-  IS_LOADING,
-  SUCCESS,
-  HAS_ERROR,
+  ACTION_IS_LOADING,
+  ACTION_SUCCESS,
+  ACTION_HAS_ERROR,
   DETAILS_IS_LOADING,
   DETAILS_SUCCESS,
   DETAILS_HAS_ERROR,
@@ -16,9 +16,9 @@ export const initialState = {
 
 export const loanActionReducer = (state = initialState, action) => {
   switch (action.type) {
-    case IS_LOADING:
+    case ACTION_IS_LOADING:
       return { ...state, isLoading: true };
-    case SUCCESS:
+    case ACTION_SUCCESS:
       return {
         ...state,
         data: action.payload,
@@ -26,7 +26,7 @@ export const loanActionReducer = (state = initialState, action) => {
         isLoading: false,
         hasError: false,
       };
-    case HAS_ERROR:
+    case ACTION_HAS_ERROR:
       return {
         ...state,
         error: action.payload,

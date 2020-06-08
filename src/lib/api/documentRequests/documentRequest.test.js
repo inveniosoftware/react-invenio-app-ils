@@ -1,4 +1,4 @@
-import { documentRequest as documentRequestApi } from './documentRequest';
+import { documentRequestApi } from './documentRequest';
 
 describe('Document request query builder tests', () => {
   it('should build query string with a state', () => {

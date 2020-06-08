@@ -4,8 +4,11 @@ import { sendErrorNotification } from '@components/Notifications';
 import {
   DELETE_FILE,
   UPLOAD_IS_LOADING,
-} from '@pages/backoffice/EItem/EItemDetails/state/types';
-import { HAS_ERROR, IS_LOADING, SUCCESS } from './types';
+} from '@pages/backoffice/EItem/EItemDetails/state/actions';
+
+export const HAS_ERROR = 'upload/HAS_ERROR';
+export const SUCCESS = 'upload/SUCCESS';
+export const IS_LOADING = 'upload/IS_LOADING';
 
 export const uploadFile = (eitemPid, bucket, file) => {
   return async dispatch => {

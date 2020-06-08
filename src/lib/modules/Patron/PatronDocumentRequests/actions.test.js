@@ -2,7 +2,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import * as types from './types';
 import { documentRequestApi } from '@api/documentRequests';
 
 jest.mock('@config/invenioConfig');
@@ -42,7 +41,7 @@ describe('Patron document requests tests', () => {
       mockFetchPatronDocumentRequests.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: types.IS_LOADING,
+        type: actions.IS_LOADING,
       };
 
       store.dispatch(actions.fetchPatronDocumentRequests(2)).then(() => {
@@ -59,7 +58,7 @@ describe('Patron document requests tests', () => {
       mockFetchPatronDocumentRequests.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: types.SUCCESS,
+        type: actions.SUCCESS,
         payload: mockResponse.data,
       };
 
@@ -77,7 +76,7 @@ describe('Patron document requests tests', () => {
       mockFetchPatronDocumentRequests.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {
-        type: types.HAS_ERROR,
+        type: actions.HAS_ERROR,
         payload: [500, 'Error'],
       };
 
@@ -95,7 +94,7 @@ describe('Patron document requests tests', () => {
       mockFetchPatronDocumentRequests.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: types.IS_LOADING,
+        type: actions.IS_LOADING,
       };
 
       store.dispatch(actions.fetchPatronDocumentRequests(2)).then(e => {

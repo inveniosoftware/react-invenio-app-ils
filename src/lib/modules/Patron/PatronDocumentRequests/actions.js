@@ -1,6 +1,9 @@
-import { IS_LOADING, SUCCESS, HAS_ERROR } from './types';
 import { documentRequestApi } from '@api/documentRequests';
 import { sendErrorNotification } from '@components/Notifications';
+
+export const IS_LOADING = 'fetchPatronDocumentRequests/IS_LOADING';
+export const SUCCESS = 'fetchPatronDocumentRequests/SUCCESS';
+export const HAS_ERROR = 'fetchPatronDocumentRequests/HAS_ERROR';
 
 const selectQuery = (patronPid, page = 1) => {
   return documentRequestApi

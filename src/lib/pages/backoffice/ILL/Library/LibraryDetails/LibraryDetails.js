@@ -1,12 +1,13 @@
-import { illBorrowingRequestApi as brwReqApi } from '@api/ill';
+import { borrowingRequestApi } from '@api/ill';
+import { EditButton } from '@components/backoffice/buttons/EditButton';
+import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
+import { DeleteButton } from '@components/backoffice/DeleteRecordModal/DeleteButton';
+import { DetailsHeader } from '@components/backoffice/DetailsHeader';
+import { ILLLibraryIcon } from '@components/backoffice/icons';
 import { CopyButton } from '@components/CopyButton';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
-import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
-import { DetailsHeader } from '@components/backoffice/DetailsHeader';
-import { EditButton } from '@components/backoffice/buttons/EditButton';
-import { DeleteButton } from '@components/backoffice/DeleteRecordModal/DeleteButton';
-import { ILLLibraryIcon } from '@components/backoffice/icons';
+import { goTo } from '@history';
 import { ILLRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -21,7 +22,6 @@ import {
   Sticky,
 } from 'semantic-ui-react';
 import { LibraryInformation } from './LibraryInformation';
-import { goTo } from '@history';
 
 const DeleteLibraryButton = props => {
   return (
@@ -41,8 +41,8 @@ class ActionMenu extends React.Component {
       onRefClick: brwReqPid =>
         goTo(ILLRoutes.borrowinRequestDetailsFor(brwReqPid)),
       getRefData: () =>
-        brwReqApi.list(
-          brwReqApi
+        borrowingRequestApi.list(
+          borrowingRequestApi
             .query()
             .withLibraryPid(libraryPid)
             .qs()
@@ -74,7 +74,7 @@ class ActionMenu extends React.Component {
 
           <Link
             to={ILLRoutes.borrowingRequestListWithQuery(
-              brwReqApi
+              borrowingRequestApi
                 .query()
                 .withLibraryPid(library.pid)
                 .qs()

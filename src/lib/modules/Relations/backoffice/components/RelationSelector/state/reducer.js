@@ -1,5 +1,5 @@
 import remove from 'lodash/remove';
-import { SELECT_OPTION, REMOVE_SELECTION, RESET_SELECTIONS } from './types';
+import { SELECT_OPTION, REMOVE_SELECTION, RESET_SELECTIONS } from './actions';
 
 export const initialState = {
   selections: [],

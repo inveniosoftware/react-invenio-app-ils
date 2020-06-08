@@ -1,9 +1,9 @@
-import { http, apiConfig } from '@api/base';
-import {
-  brwReqSerializer as serializer,
-  brwReqCreateLoanSerializer as createLoanSerializer,
-} from './serializers';
+import { apiConfig, http } from '@api/base';
 import { prepareSumQuery } from '@api/utils';
+import {
+  brwReqCreateLoanSerializer as createLoanSerializer,
+  brwReqSerializer as serializer,
+} from './serializers';
 
 const borrowingRequestUrl = '/ill/borrowing-requests/';
 
@@ -123,7 +123,7 @@ const queryBuilder = () => {
   return new QueryBuilder();
 };
 
-export const borrowingRequest = {
+export const borrowingRequestApi = {
   searchBaseURL: `${apiConfig.baseURL}${borrowingRequestUrl}`,
   create: create,
   get: get,

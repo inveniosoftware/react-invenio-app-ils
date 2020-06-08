@@ -14,6 +14,7 @@ export default class AuthenticationGuard extends Component {
       user,
       isAnonymous,
       isLoading,
+      sendErrorNotification,
       silent,
       ...restParams
     } = this.props;
@@ -36,7 +37,7 @@ export default class AuthenticationGuard extends Component {
 
     if (!isAnonymous && !authenticationService.hasRoles(user, roles)) {
       if (!silent) {
-        this.props.sendErrorNotification(
+        sendErrorNotification(
           'Unauthorized',
           `You have no permission to access the page ${window.location.pathname}`
         );
@@ -59,9 +60,9 @@ AuthenticationGuard.propTypes = {
   roles: PropTypes.array,
   silent: PropTypes.bool,
   /* Redux */
-  user: PropTypes.object,
-  isAnonymous: PropTypes.bool,
-  isLoading: PropTypes.bool,
+  user: PropTypes.object.isRequired,
+  isAnonymous: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
   sendErrorNotification: PropTypes.func.isRequired,
 };
 

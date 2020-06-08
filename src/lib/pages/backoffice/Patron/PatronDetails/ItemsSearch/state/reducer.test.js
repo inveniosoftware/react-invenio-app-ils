@@ -1,5 +1,11 @@
 import reducer, { initialState } from './reducer';
-import * as types from './types';
+import {
+  IS_LOADING,
+  SUCCESS,
+  HAS_ERROR,
+  QUERY_STRING_UPDATE,
+  CLEAR_SEARCH,
+} from './actions';
 
 describe('Fetch Document Item reducer', () => {
   it('should have initial state', () => {
@@ -8,7 +14,7 @@ describe('Fetch Document Item reducer', () => {
 
   it('should change loading state on loading action', () => {
     const action = {
-      type: types.IS_LOADING,
+      type: IS_LOADING,
     };
     expect(reducer(initialState, action)).toEqual({
       ...initialState,
@@ -19,7 +25,7 @@ describe('Fetch Document Item reducer', () => {
   it('should change data state on success action', () => {
     const items = [{ field: '123' }, { field: '456' }];
     const action = {
-      type: types.SUCCESS,
+      type: SUCCESS,
       payload: items,
     };
     expect(reducer(initialState, action)).toEqual({
@@ -33,7 +39,7 @@ describe('Fetch Document Item reducer', () => {
 
   it('should change error state on error action', () => {
     const action = {
-      type: types.HAS_ERROR,
+      type: HAS_ERROR,
       payload: 'Error',
     };
     expect(reducer(initialState, action)).toEqual({
@@ -46,7 +52,7 @@ describe('Fetch Document Item reducer', () => {
 
   it('should update query string on string update', () => {
     const action = {
-      type: types.QUERY_STRING_UPDATE,
+      type: QUERY_STRING_UPDATE,
       queryString: 'ppppp',
     };
     expect(reducer(initialState, action)).toEqual({
@@ -57,7 +63,7 @@ describe('Fetch Document Item reducer', () => {
 
   it('should erase query string when clear ', () => {
     const action = {
-      type: types.CLEAR_SEARCH,
+      type: CLEAR_SEARCH,
       queryString: 'ppppp',
     };
     expect(reducer(initialState, action)).toEqual({

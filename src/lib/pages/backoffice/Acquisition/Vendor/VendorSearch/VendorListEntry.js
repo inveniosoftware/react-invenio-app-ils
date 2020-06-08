@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import { orderApi } from '@api/acquisition';
+import { AcquisitionVendorIcon } from '@components/backoffice/icons';
+import { AcquisitionRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Icon, Item, List } from 'semantic-ui-react';
-import { AcquisitionRoutes } from '@routes/urls';
-import { acqOrderApi as orderApi } from '@api/acquisition';
-import { AcquisitionVendorIcon } from '@components/backoffice/icons';
 
 const VendorListInfo = ({ vendor }) => (
   <List verticalAlign="middle" className="document-circulation">
