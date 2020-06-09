@@ -1,34 +1,51 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import 'react-app-polyfill/ie11'; // For IE 11 support
 import ReactDOM from 'react-dom';
 import { OverridableContext } from 'react-overridable';
-import { Link } from 'react-router-dom';
 import 'semantic-ui-less/semantic.less';
-import { Item } from 'semantic-ui-react';
 import { InvenioILSApp } from './lib';
+import 'semantic-ui-less/semantic.less';
+import { Divider, Table } from 'semantic-ui-react';
+import _merge from 'lodash/merge';
+import _keys from 'lodash/keys';
 
-const CustomHome = ({ ...props }) => {
-  return <>And this is custom home</>;
-};
+const CDSDocumentMetadataExtensions = ({ extensions }) => {
+  let result = {};
 
-const CustomCover = ({ size, url, isRestricted, asItem, linkTo }) => {
-  const Cmp = asItem ? Item.Image : Image;
-  const link = linkTo ? { as: Link, to: linkTo } : {};
+  _keys(extensions).map(key => {
+    const [objName, objProp] = key.split(':');
+    result[objName] = _merge({}, result[objName]);
+    result[objName][objProp] = extensions[key];
+    return result;
+  });
+
   return (
-    <Cmp
-      centered
-      disabled={isRestricted}
-      {...link}
-      onError={e => (e.target.style.display = 'none')}
-      src={url}
-      size="tiny"
-    />
+    result &&
+    _keys(result).map(property => (
+      <React.Fragment key={property}>
+        <Divider horizontal>{property}</Divider>
+        <Table definition>
+          <Table.Body>
+            {_keys(result[property]).map(key => (
+              <Table.Row key={key}>
+                <Table.Cell width={4}>{key}</Table.Cell>
+                <Table.Cell>{result[property][key]}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </React.Fragment>
+    ))
   );
 };
 
+CDSDocumentMetadataExtensions.propTypes = {
+  extensions: PropTypes.object.isRequired,
+};
+
 const overriddenCmps = {
-  // 'Home.layout': CustomHome,
-  // 'LiteratureCover.layout': CustomCover,
+  'DocumentMetadata.extensions.layout': CDSDocumentMetadataExtensions,
 };
 
 ReactDOM.render(

@@ -85,7 +85,7 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
 
 SeriesDetailsLayout.propTypes = {
   series: PropTypes.object.isRequired,
-  error: PropTypes.bool.isRequired,
+  error: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
 };
 
@@ -151,7 +151,7 @@ class SeriesDetails extends React.Component {
 SeriesDetails.propTypes = {
   /* redux */
   series: PropTypes.object.isRequired,
-  error: PropTypes.bool.isRequired,
+  error: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   fetchSeriesDetails: PropTypes.func.isRequired,
 };

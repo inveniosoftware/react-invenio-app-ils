@@ -1,6 +1,7 @@
 import LiteratureRelations from '@modules/Literature/LiteratureRelations';
 import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
 import _get from 'lodash/get';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
@@ -20,7 +21,7 @@ class DocumentMetadataTabs extends Component {
       {
         menuItem: 'Details',
         render: () => (
-          <Tab.Pane attached={false}>
+          <Tab.Pane>
             <LiteratureRelations relations={metadata.relations} />
             <DocumentInfo metadata={metadata} />
           </Tab.Pane>
@@ -29,7 +30,7 @@ class DocumentMetadataTabs extends Component {
       {
         menuItem: 'Identifiers',
         render: () => (
-          <Tab.Pane attached={false}>
+          <Tab.Pane>
             <Identifiers identifiers={identifiers.concat(altIdentifiers)} />
           </Tab.Pane>
         ),
@@ -37,7 +38,7 @@ class DocumentMetadataTabs extends Component {
       {
         menuItem: 'Content',
         render: () => (
-          <Tab.Pane attached={false}>
+          <Tab.Pane>
             <DocumentTableOfContent
               toc={metadata.table_of_content}
               abstract={metadata.abstract}
@@ -47,14 +48,12 @@ class DocumentMetadataTabs extends Component {
       },
       {
         menuItem: 'Publications',
-        render: () => (
-          <Tab.Pane attached={false}>We wait for the schema!</Tab.Pane>
-        ),
+        render: () => <Tab.Pane>We wait for the schema!</Tab.Pane>,
       },
       {
         menuItem: 'Conference',
         render: () => (
-          <Tab.Pane attached={false}>
+          <Tab.Pane>
             <DocumentConference
               conference={metadata.conference_info}
               documentType={metadata.document_type}
@@ -65,7 +64,7 @@ class DocumentMetadataTabs extends Component {
       {
         menuItem: 'Notes',
         render: () => (
-          <Tab.Pane attached={false}>
+          <Tab.Pane>
             <LiteratureNotes content={metadata.note} />
           </Tab.Pane>
         ),
@@ -77,8 +76,23 @@ class DocumentMetadataTabs extends Component {
       panes.push({
         menuItem: 'Files',
         render: () => (
-          <Tab.Pane attached={false}>
+          <Tab.Pane>
             <DocumentLinks dividers eitems={eitems} />
+          </Tab.Pane>
+        ),
+      });
+    }
+
+    const extensions = _get(metadata, 'extensions', {});
+    if (!_isEmpty(extensions)) {
+      panes.push({
+        menuItem: 'Extensions',
+        render: () => (
+          <Tab.Pane>
+            <Overridable
+              id="DocumentMetadata.extensions.layout"
+              extensions={extensions}
+            />
           </Tab.Pane>
         ),
       });

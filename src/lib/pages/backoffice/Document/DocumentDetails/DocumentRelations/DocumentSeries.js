@@ -5,13 +5,13 @@ import { RelationMultipart } from './RelationMultipartMonograph';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Label, Tab } from 'semantic-ui-react';
+import _get from 'lodash/get';
 
 export default class DocumentSeries extends Component {
   render() {
     const { isLoading, error, documentDetails, relations } = this.props;
-
-    const multipart = relations['multipart_monograph'] || [];
-    const serial = relations['serial'] || [];
+    const multipart = _get(relations, 'multipart_monograph', []);
+    const serial = _get(relations, 'serial', []);
 
     const panes = [
       {

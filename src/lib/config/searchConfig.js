@@ -432,19 +432,19 @@ const searchConfig = {
   acqVendors: {
     filters: [],
     sortBy: {
-      onEmptyQuery: 'name',
+      onEmptyQuery: 'bestmatch',
       values: [
         {
           default_order: 'asc',
-          field: 'name',
+          field: 'bestmatch',
           order: 1,
-          title: 'Name',
+          title: 'Best match',
         },
         {
           default_order: 'asc',
-          field: 'bestmatch',
+          field: 'name.keyword',
           order: 2,
-          title: 'Best match',
+          title: 'Name',
         },
       ],
     },
@@ -527,6 +527,12 @@ const searchConfig = {
           field: 'bestmatch',
           order: 1,
           title: 'Best match',
+        },
+        {
+          default_order: 'asc',
+          field: 'name.keyword',
+          order: 2,
+          title: 'Name',
         },
       ],
     },

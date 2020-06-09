@@ -98,7 +98,11 @@ const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
 DocumentDetailsLayout.propTypes = {
   documentDetails: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired,
+  error: PropTypes.object,
+};
+
+DocumentDetailsLayout.defaultProps = {
+  error: {},
 };
 
 class DocumentDetails extends Component {
@@ -180,7 +184,11 @@ DocumentDetails.propTypes = {
   fetchDocumentsDetails: PropTypes.func.isRequired,
   documentDetails: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired,
+  error: PropTypes.object,
+};
+
+DocumentDetails.defaultProps = {
+  error: {},
 };
 
 export default Overridable.component('DocumentDetails', DocumentDetails);

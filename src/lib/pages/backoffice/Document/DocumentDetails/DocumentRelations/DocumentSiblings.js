@@ -6,14 +6,15 @@ import { RelationLanguages } from './RelationLanguages';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Label, Tab } from 'semantic-ui-react';
+import _get from 'lodash/get';
 
 export default class DocumentSiblings extends Component {
   render() {
     const { isLoading, error, documentDetails, relations } = this.props;
 
-    const languages = relations['language'] || [];
-    const editions = relations['edition'] || [];
-    const other = relations['other'] || [];
+    const languages = _get(relations, 'language', []);
+    const editions = _get(relations, 'edition', []);
+    const other = _get(relations, 'other', []);
 
     const panes = [
       {
