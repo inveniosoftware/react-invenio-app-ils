@@ -90,7 +90,7 @@ class DocumentMetadataTabs extends Component {
         render: () => (
           <Tab.Pane>
             <Overridable
-              id="DocumentMetadata.extensions.layout"
+              id="DocumentMetadataTabs.Extensions"
               extensions={extensions}
             />
           </Tab.Pane>

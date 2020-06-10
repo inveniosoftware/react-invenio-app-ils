@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import { ObjectArrayField } from '@forms/core/ObjectArrayField';
 import { StringField } from '@forms/core/StringField';
 import { VocabularyField } from '@forms/core/VocabularyField';
-import { invenioConfig } from '@config';
 
 export class Identifiers extends Component {
   render() {
-    const { vocabularies } = this.props;
+    const { scheme } = this.props;
     return (
       <ObjectArrayField
         accordion
@@ -23,7 +22,7 @@ export class Identifiers extends Component {
             key: 'scheme',
             element: VocabularyField,
             props: {
-              type: vocabularies.scheme,
+              type: scheme,
               label: 'Scheme',
             },
           },
@@ -49,9 +48,5 @@ export class Identifiers extends Component {
 }
 
 Identifiers.propTypes = {
-  vocabularies: PropTypes.shape({
-    scheme: PropTypes.exact(
-      invenioConfig.vocabularies.document.identifier.scheme
-    ),
-  }).isRequired,
+  scheme: PropTypes.string.isRequired,
 };

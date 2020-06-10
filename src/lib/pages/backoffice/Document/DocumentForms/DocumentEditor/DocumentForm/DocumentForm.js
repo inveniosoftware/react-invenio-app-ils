@@ -13,24 +13,25 @@ import { BackOfficeRoutes } from '@routes/urls';
 import { getIn } from 'formik';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
+import Overridable from 'react-overridable';
 import React, { Component } from 'react';
 import {
   AlternativeAbstracts,
   AlternativeIdentifiers,
   AlternativeTitles,
   AuthorsField,
+  ConferenceInfoField,
   Copyrights,
   Identifiers,
+  Imprint,
+  InternalNotes,
+  Keywords,
   LicensesField,
   PublicationInfoField,
   Subjects,
   TableOfContent,
   TagsField,
 } from './components';
-import { ConferenceInfoField } from './components/ConferenceInfoField';
-import { Imprint } from './components/Imprint';
-import { InternalNotes } from './components/InternalNotes';
-import { Keywords } from './components/Keywords';
 
 import documentSubmitSerializer from './documentSubmitSerializer';
 
@@ -104,7 +105,7 @@ export class DocumentForm extends Component {
         title={title}
         pid={pid}
         submitSerializer={documentSubmitSerializer}
-        documentRequestPid={_get(this.props, 'data.documentRequestPid', null)}
+        documentRequestPid={_get(data, 'documentRequestPid', null)}
         buttons={this.buttons}
       >
         <StringField label="Title" fieldPath="title" required optimized />
@@ -149,13 +150,19 @@ export class DocumentForm extends Component {
         <UrlsField />
         <Subjects />
         <InternalNotes />
-        <Identifiers />
+        <Identifiers
+          scheme={invenioConfig.vocabularies.document.identifier.scheme}
+        />
         <AlternativeIdentifiers />
         <AlternativeTitles />
         <Copyrights />
         <PublicationInfoField />
         <Imprint />
         <Keywords />
+        <Overridable
+          id="DocumentForm.Extensions"
+          extensions={_get(data, 'metadata.extensions', {})}
+        />
       </BaseForm>
     );
   }
@@ -163,13 +170,14 @@ export class DocumentForm extends Component {
 
 DocumentForm.propTypes = {
   data: PropTypes.object,
+  pid: PropTypes.string,
   successSubmitMessage: PropTypes.string,
   title: PropTypes.string,
-  pid: PropTypes.string.isRequired,
 };
 
 DocumentForm.defaultProps = {
   data: null,
+  pid: null,
   successSubmitMessage: null,
   title: null,
 };

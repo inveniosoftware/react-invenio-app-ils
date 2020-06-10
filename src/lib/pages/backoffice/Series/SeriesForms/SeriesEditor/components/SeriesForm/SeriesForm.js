@@ -139,9 +139,7 @@ export class SeriesForm extends Component {
         <UrlsField />
         <AccessUrls />
         <Identifiers
-          vocabularies={{
-            scheme: invenioConfig.vocabularies.series.identifier.scheme,
-          }}
+          scheme={invenioConfig.vocabularies.series.identifier.scheme}
         />
         <TextField label="Notes" fieldPath="note" rows={5} optimized />
         <InternalNotes />
