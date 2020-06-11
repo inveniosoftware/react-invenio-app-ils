@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { fetchDocumentRequestDetails } from '@pages/backoffice/DocumentRequest/DocumentRequestDetails/state/actions';
+import { removeProvider } from '@pages/backoffice/DocumentRequest/DocumentRequestDetails/state/actions';
+import { removeDocument } from '@pages/backoffice/DocumentRequest/DocumentRequestDetails/state/actions';
 import StepsActionsComponent from './StepsActions';
 
 const mapStateToProps = state => ({
@@ -7,8 +8,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchDocumentRequestDetails: documentRequestPid =>
-    dispatch(fetchDocumentRequestDetails(documentRequestPid)),
+  removeProvider: (pid, provPid) => dispatch(removeProvider(pid, provPid)),
+  removeDocument: (pid, documentPid) =>
+    dispatch(removeDocument(pid, documentPid)),
 });
 
 export const StepsActions = connect(

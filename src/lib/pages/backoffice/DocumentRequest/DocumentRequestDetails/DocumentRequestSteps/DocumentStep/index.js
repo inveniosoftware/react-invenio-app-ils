@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchDocumentRequestDetails } from '../../state/actions';
+import { addDocument } from '@pages/backoffice/DocumentRequest/DocumentRequestDetails/state/actions';
 import DocumentStepContentComponent from './DocumentStep';
 
 const mapStateToProps = state => ({
@@ -7,8 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchDocumentRequestDetails: documentRequestPid =>
-    dispatch(fetchDocumentRequestDetails(documentRequestPid)),
+  addDocument: (pid, key) => dispatch(addDocument(pid, key)),
 });
 
 export const DocumentStepContent = connect(

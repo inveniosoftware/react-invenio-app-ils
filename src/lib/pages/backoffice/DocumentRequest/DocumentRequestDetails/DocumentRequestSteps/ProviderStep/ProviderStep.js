@@ -1,5 +1,4 @@
 import { orderApi } from '@api/acquisition';
-import { documentRequestApi } from '@api/documentRequests';
 import { borrowingRequestApi } from '@api/ill';
 import { invenioConfig } from '@config';
 import { goTo } from '@history';
@@ -40,14 +39,11 @@ ProviderStep.propTypes = {
 
 export default class ProviderStepContent extends Component {
   render() {
-    const { step, data, fetchDocumentRequestDetails } = this.props;
+    const { step, data, addProvider } = this.props;
     return step === STEPS.provider ? (
       <>
-        <AcqProvider
-          data={data}
-          fetchDocumentRequestDetails={fetchDocumentRequestDetails}
-        />
-        <IllProvider />
+        <AcqProvider data={data} addProvider={addProvider} />
+        <IllProvider data={data} addProvider={addProvider} />
       </>
     ) : null;
   }
@@ -56,29 +52,17 @@ export default class ProviderStepContent extends Component {
 ProviderStepContent.propTypes = {
   step: PropTypes.string.isRequired,
   data: PropTypes.object.isRequired,
-  fetchDocumentRequestDetails: PropTypes.func.isRequired,
+  addProvider: PropTypes.func.isRequired,
 };
 
 class AcqProvider extends Component {
-  onCreateClick() {
-    return goTo(AcquisitionRoutes.orderCreate);
-  }
-
-  onSelectResult = async orderData => {
+  onSelectResult = provData => {
     const {
-      data: { pid },
-      fetchDocumentRequestDetails,
+      data: { metadata },
+      addProvider,
     } = this.props;
     const { acq } = invenioConfig.documentRequests.physicalItemProviders;
-    const resp = await documentRequestApi.addProvider(pid, {
-      physical_item_provider: {
-        pid: orderData.pid,
-        pid_type: acq.pid_type,
-      },
-    });
-    if (resp.status === 202) {
-      fetchDocumentRequestDetails(pid);
-    }
+    addProvider(provData.pid, metadata.pid, acq.pid_type);
   };
 
   render() {
@@ -115,21 +99,23 @@ class AcqProvider extends Component {
 
 AcqProvider.propTypes = {
   data: PropTypes.object.isRequired,
-  fetchDocumentRequestDetails: PropTypes.func.isRequired,
+  addProvider: PropTypes.func.isRequired,
 };
 
 class IllProvider extends Component {
-  onCreateClick() {
-    return goTo(ILLRoutes.borrowingRequestCreate);
-  }
-
-  onSelectResult = async data => {
-    // NOTE: do the same things as AcqProvider.onSelectResult()
+  onSelectResult = provData => {
+    const {
+      data: { metadata },
+      addProvider,
+    } = this.props;
+    const { ill } = invenioConfig.documentRequests.physicalItemProviders;
+    addProvider(provData.pid, metadata.pid, ill.pid_type);
   };
 
   render() {
+    const { data } = this.props;
     return (
-      <Segment raised disabled>
+      <Segment raised>
         <Label color="purple" ribbon>
           Interlibrary
         </Label>
@@ -137,7 +123,6 @@ class IllProvider extends Component {
         <Grid columns={2} padded>
           <Grid.Column>
             <ESSelector
-              disabled
               onSelectResult={this.onSelectResult}
               query={borrowingRequestApi.list}
               serializer={serializeBorrowingRequest}
@@ -146,9 +131,8 @@ class IllProvider extends Component {
           <Grid.Column textAlign="center" verticalAlign="middle">
             <Button
               positive
-              disabled
               name="create-ill"
-              onClick={this.onCreateClick}
+              onClick={() => goTo(ILLRoutes.borrowingRequestCreate, data)}
               icon="plus"
               content="Create new Interlibrary Loan"
             />
@@ -159,3 +143,8 @@ class IllProvider extends Component {
     );
   }
 }
+
+IllProvider.propTypes = {
+  data: PropTypes.object.isRequired,
+  addProvider: PropTypes.func.isRequired,
+};

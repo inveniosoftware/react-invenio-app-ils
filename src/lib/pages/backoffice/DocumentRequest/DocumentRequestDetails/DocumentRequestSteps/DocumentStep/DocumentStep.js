@@ -12,7 +12,6 @@ import {
 import { ESSelector } from '@modules/ESSelector';
 import { serializeDocument } from '@modules/ESSelector/serializer';
 import { documentApi } from '@api/documents';
-import { documentRequestApi } from '@api/documentRequests';
 import { DocumentIcon } from '@components/backoffice/icons';
 import { BackOfficeRoutes } from '@routes/urls';
 import { goTo } from '@history';
@@ -34,17 +33,12 @@ DocumentStep.propTypes = {
 };
 
 export default class DocumentStepContent extends Component {
-  onSelectResult = async data => {
+  onSelectResult = data => {
     const {
-      fetchDocumentRequestDetails,
-      data: { pid },
+      data: { metadata },
+      addDocument,
     } = this.props;
-    const resp = await documentRequestApi.addDocument(pid, {
-      document_pid: data.key,
-    });
-    if (resp.status === 202) {
-      fetchDocumentRequestDetails(pid);
-    }
+    addDocument(metadata.pid, data.key);
   };
 
   createDocumentButton = () => {
@@ -94,6 +88,6 @@ export default class DocumentStepContent extends Component {
 
 DocumentStepContent.propTypes = {
   data: PropTypes.object.isRequired,
-  fetchDocumentRequestDetails: PropTypes.func.isRequired,
   step: PropTypes.string.isRequired,
+  addDocument: PropTypes.func.isRequired,
 };

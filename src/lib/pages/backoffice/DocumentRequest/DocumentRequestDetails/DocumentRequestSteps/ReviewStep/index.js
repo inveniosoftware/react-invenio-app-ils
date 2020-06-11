@@ -1,8 +1,5 @@
 import { connect } from 'react-redux';
-import {
-  acceptRequest,
-  fetchDocumentRequestDetails,
-} from '@pages/backoffice/DocumentRequest/DocumentRequestDetails/state/actions';
+import { acceptRequest } from '@pages/backoffice/DocumentRequest/DocumentRequestDetails/state/actions';
 import ReviewStepContentComponent from './ReviewStep';
 
 const mapStateToProps = state => ({
@@ -10,8 +7,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchDocumentRequestDetails: documentRequestPid =>
-    dispatch(fetchDocumentRequestDetails(documentRequestPid)),
   acceptRequest: documentRequestPid =>
     dispatch(acceptRequest(documentRequestPid)),
 });

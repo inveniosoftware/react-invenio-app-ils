@@ -187,7 +187,7 @@ ESSelector.propTypes = {
 
 ESSelector.defaultProps = {
   delay: 250,
-  initialSelections: null,
+  initialSelections: [],
   minCharacters: 3,
   onSelectionsUpdate: () => {},
   emptySelectionInfoText: null,
