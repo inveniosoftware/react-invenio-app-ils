@@ -115,3 +115,84 @@ export const rejectRequest = (pid, data) => {
     }
   };
 };
+
+export const addProvider = (provDataPid, pid, pid_type) => {
+  return async dispatch => {
+    try {
+      const response = await documentRequestApi.addProvider(pid, {
+        physical_item_provider: {
+          pid: provDataPid,
+          pid_type: pid_type,
+        },
+      });
+      dispatch({
+        type: SUCCESS,
+        payload: response.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: HAS_ERROR,
+        payload: error,
+      });
+    }
+  };
+};
+
+export const addDocument = (pid, key) => {
+  return async dispatch => {
+    try {
+      const response = await documentRequestApi.addDocument(pid, {
+        document_pid: key,
+      });
+      dispatch({
+        type: SUCCESS,
+        payload: response.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: HAS_ERROR,
+        payload: error,
+      });
+    }
+  };
+};
+
+export const removeProvider = (pid, provPid) => {
+  return async dispatch => {
+    try {
+      const response = await documentRequestApi.removeProvider(pid, {
+        physical_item_provider_pid: provPid,
+      });
+      console.log('RES', response);
+      dispatch({
+        type: SUCCESS,
+        payload: response.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: HAS_ERROR,
+        payload: error,
+      });
+    }
+  };
+};
+
+export const removeDocument = (pid, documentPid) => {
+  return async dispatch => {
+    try {
+      const response = await documentRequestApi.removeDocument(pid, {
+        document_pid: documentPid,
+      });
+      console.log('RES', response);
+      dispatch({
+        type: SUCCESS,
+        payload: response.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: HAS_ERROR,
+        payload: error,
+      });
+    }
+  };
+};

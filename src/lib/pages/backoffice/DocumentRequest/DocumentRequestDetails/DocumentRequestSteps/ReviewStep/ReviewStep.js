@@ -20,7 +20,7 @@ ReviewStep.propTypes = {
 export default class ReviewStepContent extends Component {
   onAcceptClick = () => {
     const { acceptRequest, data } = this.props;
-    acceptRequest(data.pid);
+    acceptRequest(data.metadata.pid);
   };
 
   render() {

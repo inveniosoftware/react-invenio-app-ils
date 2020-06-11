@@ -4,6 +4,7 @@ import { Loader } from '@components/Loader';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { BorrowingRequestForm } from './BorrowingRequestForm/BorrowingRequestForm';
+import _get from 'lodash/get';
 
 export class BorrowingRequestEditor extends Component {
   state = {
@@ -17,6 +18,19 @@ export class BorrowingRequestEditor extends Component {
     if (match.params.borrowingRequestPid) {
       this.fetchBorrowingRequest(match.params.borrowingRequestPid);
     }
+  }
+
+  get initialData() {
+    const request = this.props.location.state || null;
+    if (!request) return null;
+    return {
+      metadata: {
+        title: _get(request, 'metadata.title'),
+        patron: request.metadata.patron,
+        document: request.metadata.document,
+        status: 'PENDING',
+      },
+    };
   }
 
   fetchBorrowingRequest = async borrowingRequestPid => {
@@ -57,6 +71,7 @@ export class BorrowingRequestEditor extends Component {
       <BorrowingRequestForm
         title="Create new borrowing request"
         successSubmitMessage="The borrowing request was successfully created."
+        data={this.initialData}
       />
     );
   }

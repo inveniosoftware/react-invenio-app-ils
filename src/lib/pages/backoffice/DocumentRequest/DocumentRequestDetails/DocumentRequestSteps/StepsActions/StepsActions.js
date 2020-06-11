@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Grid, Header, Message } from 'semantic-ui-react';
 import { AcquisitionRoutes, BackOfficeRoutes, ILLRoutes } from '@routes/urls';
-import { documentRequestApi } from '@api/documentRequests/documentRequest';
 import _get from 'lodash/get';
 import { DocumentIcon } from '@components/backoffice/icons';
 import { STEPS } from '../Steps';
@@ -13,18 +12,13 @@ const PROVIDERS = invenioConfig.documentRequests.physicalItemProviders;
 
 export default class StepsActions extends Component {
   render() {
-    const { data, step, fetchDocumentRequestDetails } = this.props;
+    const { data, step, removeProvider, removeDocument } = this.props;
+    console.log(data);
     return (
       <>
-        <DocumentSelection
-          data={data}
-          fetchDocumentRequestDetails={fetchDocumentRequestDetails}
-        />
+        <DocumentSelection data={data} removeDocument={removeDocument} />
         {step !== STEPS.document ? (
-          <ProviderSelection
-            data={data}
-            fetchDocumentRequestDetails={fetchDocumentRequestDetails}
-          />
+          <ProviderSelection data={data} removeProvider={removeProvider} />
         ) : null}
       </>
     );
@@ -34,7 +28,8 @@ export default class StepsActions extends Component {
 StepsActions.propTypes = {
   data: PropTypes.object.isRequired,
   step: PropTypes.string.isRequired,
-  fetchDocumentRequestDetails: PropTypes.func.isRequired,
+  removeProvider: PropTypes.func.isRequired,
+  removeDocument: PropTypes.func.isRequired,
 };
 
 const ProviderLink = ({ provider }) => {
@@ -80,15 +75,10 @@ ProviderHeader.propTypes = {
 class ProviderSelection extends Component {
   onRemoveProvider = async () => {
     const {
-      data: { pid, metadata },
-      fetchDocumentRequestDetails,
+      data: { metadata },
+      removeProvider,
     } = this.props;
-    const resp = await documentRequestApi.removeProvider(pid, {
-      physical_item_provider_pid: metadata.physical_item_provider.pid,
-    });
-    if (resp.status === 202) {
-      fetchDocumentRequestDetails(pid);
-    }
+    removeProvider(metadata.pid, metadata.physical_item_provider.pid);
   };
 
   render() {
@@ -131,21 +121,16 @@ class ProviderSelection extends Component {
 
 ProviderSelection.propTypes = {
   data: PropTypes.object.isRequired,
-  fetchDocumentRequestDetails: PropTypes.func.isRequired,
+  removeProvider: PropTypes.func.isRequired,
 };
 
 class DocumentSelection extends Component {
   onRemoveDocument = async () => {
     const {
-      data: { pid, metadata },
-      fetchDocumentRequestDetails,
+      data: { metadata },
+      removeDocument,
     } = this.props;
-    const resp = await documentRequestApi.removeDocument(pid, {
-      document_pid: metadata.document_pid,
-    });
-    if (resp.status === 202) {
-      fetchDocumentRequestDetails(pid);
-    }
+    removeDocument(metadata.pid, metadata.document_pid);
   };
 
   render() {
@@ -193,5 +178,5 @@ class DocumentSelection extends Component {
 
 DocumentSelection.propTypes = {
   data: PropTypes.object.isRequired,
-  fetchDocumentRequestDetails: PropTypes.func.isRequired,
+  removeDocument: PropTypes.func.isRequired,
 };
