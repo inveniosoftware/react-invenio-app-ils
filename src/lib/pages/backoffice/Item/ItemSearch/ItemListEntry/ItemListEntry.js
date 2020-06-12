@@ -1,10 +1,10 @@
-import DocumentAuthors from '@modules/Document/DocumentAuthors';
-import { getDisplayVal } from '@config/invenioConfig';
 import { DocumentIcon, ItemIcon } from '@components/backoffice/icons';
+import { getDisplayVal } from '@config/invenioConfig';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Header, Item, List } from 'semantic-ui-react';
 
@@ -55,9 +55,10 @@ export class ItemListEntry extends Component {
             <Grid.Column computer={6} largeScreen={6}>
               <Item.Meta className="metadata-fields">
                 <DocumentAuthors
-                  metadata={item.metadata.document}
+                  authors={item.metadata.document.authors}
+                  hasOtherAuthors={item.metadata.document.other_authors}
                   prefix="by "
-                  authorsLimit={10}
+                  limit={10}
                 />
                 <List>
                   <List.Item>

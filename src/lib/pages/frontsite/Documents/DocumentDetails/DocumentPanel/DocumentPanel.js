@@ -1,18 +1,18 @@
-import LiteratureCover from '@modules/Literature/LiteratureCover';
-import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import {
   ILSHeaderPlaceholder,
   ILSParagraphPlaceholder,
 } from '@components/ILSPlaceholder';
-import Overridable from 'react-overridable';
-import { DocumentTitle } from './DocumentTitle';
+import { ShowMoreContent } from '@components/ShowMoreContent';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import Overridable from 'react-overridable';
 import { Grid, Responsive } from 'semantic-ui-react';
-import { ShowMoreContent } from '@components/ShowMoreContent';
 import { DocumentCirculation } from '../DocumentCirculation';
 import DocumentPanelMobile from './DocumentPanelMobile';
+import { DocumentTitle } from './DocumentTitle';
 
 class DocumentPanel extends Component {
   render() {
@@ -52,10 +52,11 @@ class DocumentPanel extends Component {
                       isLoading={isLoading}
                     >
                       <DocumentAuthors
+                        authors={doc.metadata.authors}
+                        hasOtherAuthors={doc.metadata.other_authors}
                         prefix="by "
                         listItemAs="h4"
-                        metadata={doc.metadata}
-                        authorsLimit={10}
+                        limit={10}
                       />
                     </ILSParagraphPlaceholder>
                     <ILSParagraphPlaceholder

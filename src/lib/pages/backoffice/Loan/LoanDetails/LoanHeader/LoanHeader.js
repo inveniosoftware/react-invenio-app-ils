@@ -1,12 +1,11 @@
 import { toShortDate } from '@api/date';
-import { CopyButton } from '@components/CopyButton';
-import DocumentAuthors from '@modules/Document/DocumentTitle';
-import DocumentTitle from '@modules/Document/DocumentAuthors';
-import { getDisplayVal } from '@config/invenioConfig';
-import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { DocumentDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/DocumentDetailsLink';
-import { LoanIcon } from '@components/backoffice/icons';
-import { PatronIcon } from '@components/backoffice/icons';
+import { DetailsHeader } from '@components/backoffice/DetailsHeader';
+import { LoanIcon, PatronIcon } from '@components/backoffice/icons';
+import { CopyButton } from '@components/CopyButton';
+import { getDisplayVal } from '@config/invenioConfig';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, Label } from 'semantic-ui-react';
@@ -53,12 +52,17 @@ export default class LoanHeader extends Component {
             on:{' '}
             <DocumentDetailsLink pidValue={data.metadata.document_pid}>
               {' '}
-              <DocumentTitle metadata={data.metadata.document} />
+              <LiteratureTitle
+                title={data.metadata.document.title}
+                edition={data.metadata.document.edition}
+                publicationYear={data.metadata.document.publication_year}
+              />
             </DocumentDetailsLink>
             <DocumentAuthors
-              metadata={data.metadata.document}
+              authors={data.metadata.document.authors}
+              hasOtherAuthors={data.metadata.document.other_authors}
               prefix="by: "
-              authorsLimit={10}
+              limit={10}
             />
           </>
         }

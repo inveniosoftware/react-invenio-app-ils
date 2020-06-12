@@ -1,91 +1,78 @@
+import { toShortDate } from '@api/date';
 import { Error } from '@components/Error';
-import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
 import { Loader } from '@components/Loader';
-import { Pagination } from '@components/Pagination';
 import { uiConfig } from '@config';
 import _get from 'lodash/get';
 import _has from 'lodash/has';
-import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Container, Header, Item } from 'semantic-ui-react';
+import { Button, Container, Header, Label } from 'semantic-ui-react';
+import LoansList from '../LoansList';
+import LoansListItem from '../LoansListEntry';
 import PatronCancelModal from '../PatronCancelModal';
-import LoanRequestListEntry from './LoanRequestListEntry';
 
-const PAGE_SIZE = 5;
+class LoansListEntry extends Component {
+  renderRequestDetails = (startDate, endDate) => (
+    <div className="pt-default">
+      <Label basic>
+        Requested on
+        <Label.Detail>{toShortDate(startDate)}</Label.Detail>
+      </Label>
+      <Label basic>
+        Valid until
+        <Label.Detail>{toShortDate(endDate)}</Label.Detail>
+      </Label>
+    </div>
+  );
+
+  render() {
+    const { loan, onCancelClick } = this.props;
+    return (
+      <LoansListItem
+        loan={loan}
+        extraItemProps={{
+          itemMetaCmp: this.renderRequestDetails(
+            loan.metadata.request_start_date,
+            loan.metadata.request_expire_date
+          ),
+          itemExtraCmp: _has(loan, 'availableActions.cancel') && (
+            <Button size="small" onClick={e => onCancelClick(e, loan)}>
+              Cancel request
+            </Button>
+          ),
+        }}
+      />
+    );
+  }
+}
+
+LoansListEntry.propTypes = {
+  loan: PropTypes.object.isRequired,
+  onCancelClick: PropTypes.func.isRequired,
+};
 
 export default class PatronPendingLoans extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activePage: 1,
+      activePage: props.initialPage,
       cancelModal: { isOpen: false, btnClasses: undefined, data: undefined },
     };
   }
 
   componentDidMount() {
-    const { fetchPatronPendingLoans, patronPid } = this.props;
-    const { activePage } = this.state;
-    fetchPatronPendingLoans(patronPid, {
-      page: activePage,
-      size: PAGE_SIZE,
-    });
+    this.fetchPatronPendingLoans();
   }
 
-  onPageChange = activePage => {
-    const { fetchPatronPendingLoans, patronPid } = this.props;
+  fetchPatronPendingLoans() {
+    const { activePage } = this.state;
+    const { patronPid, fetchPatronPendingLoans, rowsPerPage } = this.props;
     fetchPatronPendingLoans(patronPid, {
       page: activePage,
-      size: PAGE_SIZE,
+      size: rowsPerPage,
     });
-    this.setState({ activePage: activePage });
-  };
-
-  renderList() {
-    const { isLoading, data } = this.props;
-    const { activePage } = this.state;
-
-    if (!_isEmpty(data.hits)) {
-      return (
-        <>
-          <Item.Group divided>
-            {data.hits.map(entry => (
-              <LoanRequestListEntry
-                key={entry.metadata.pid}
-                loan={entry}
-                onCancelButton={this.onShowCancelModal}
-              />
-            ))}
-          </Item.Group>
-          <Container textAlign="center">
-            <Pagination
-              currentPage={activePage}
-              currentSize={PAGE_SIZE}
-              loading={isLoading}
-              onPageChange={this.onPageChange}
-              totalResults={data.total}
-            />
-          </Container>
-        </>
-      );
-    }
-    return (
-      <InfoMessage
-        title="No loan requests"
-        message="You do not currently have any loan request."
-      />
-    );
   }
-
-  renderLoader = props => {
-    return (
-      <Item.Group>
-        <ILSItemPlaceholder fluid {...props} />
-        <ILSItemPlaceholder fluid {...props} />
-      </Item.Group>
-    );
-  };
 
   onShowCancelModal = (e, loan) => {
     this.setState({
@@ -102,13 +89,8 @@ export default class PatronPendingLoans extends Component {
   onCancelRequestClick = () => {
     const {
       cancelModal: { data: loan, btnClasses },
-      activePage,
     } = this.state;
-    const {
-      fetchPatronPendingLoans,
-      patronPid,
-      performLoanAction,
-    } = this.props;
+    const { initialPage, patronPid, performLoanAction } = this.props;
     btnClasses.add('disabled');
     btnClasses.add('loading');
     this.onCloseCancelModal();
@@ -122,7 +104,7 @@ export default class PatronPendingLoans extends Component {
       }
     );
     setTimeout(() => {
-      fetchPatronPendingLoans(patronPid, activePage, PAGE_SIZE).then(res => {
+      this.fetchPatronPendingLoans(initialPage).then(res => {
         if (!_has(btnClasses, 'remove')) return;
         btnClasses.remove('disabled');
         btnClasses.remove('loading');
@@ -131,8 +113,8 @@ export default class PatronPendingLoans extends Component {
   };
 
   render() {
-    const { isLoading, error } = this.props;
-    const { cancelModal } = this.state;
+    const { error, isLoading, loans, rowsPerPage } = this.props;
+    const { activePage, cancelModal } = this.state;
     return (
       <Container className="spaced">
         <Header
@@ -143,7 +125,30 @@ export default class PatronPendingLoans extends Component {
         />
         <Loader isLoading={isLoading} renderElement={this.renderLoader}>
           <Error error={error}>
-            {this.renderList()}
+            <LoansList
+              activePage={activePage}
+              isLoading={isLoading}
+              loans={loans}
+              onPageChange={newPage => {
+                this.setState(
+                  { activePage: newPage },
+                  this.fetchPatronPendingLoans
+                );
+              }}
+              rowsPerPage={rowsPerPage}
+              renderListEntry={loan => (
+                <LoansListEntry
+                  loan={loan}
+                  onCancelClick={this.onShowCancelModal}
+                />
+              )}
+              noLoansCmp={
+                <InfoMessage
+                  title="No loan requests"
+                  message="You do not currently have any loan request."
+                />
+              }
+            />
             <PatronCancelModal
               data={cancelModal.data}
               open={cancelModal.isOpen}
@@ -161,9 +166,17 @@ export default class PatronPendingLoans extends Component {
 
 PatronPendingLoans.propTypes = {
   patronPid: PropTypes.string.isRequired,
-  fetchPatronPendingLoans: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
+  initialPage: PropTypes.number,
+  rowsPerPage: PropTypes.number,
+  /* REDUX */
+  loans: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   error: PropTypes.object.isRequired,
+  fetchPatronPendingLoans: PropTypes.func.isRequired,
   performLoanAction: PropTypes.func.isRequired,
+};
+
+PatronPendingLoans.defaultProps = {
+  initialPage: 1,
+  rowsPerPage: 5,
 };

@@ -1,10 +1,10 @@
+import { SeriesDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/SeriesDetailsLink';
+import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
-import { InfoMessage } from '@components/backoffice/InfoMessage';
-import { SeriesDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/SeriesDetailsLink';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { RelationRemover } from '@modules/Relations/backoffice/components/RelationRemover';
-import DocumentTitle from '@modules/Document/DocumentTitle';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -23,7 +23,11 @@ export default class RelationMultipart extends Component {
   viewDetails = ({ row }) => {
     return (
       <SeriesDetailsLink pidValue={row.pid_value}>
-        <DocumentTitle metadata={row.record_metadata} />
+        <LiteratureTitle
+          title={row.record_metadata.title}
+          edition={row.record_metadata.edition}
+          publicationYear={row.record_metadata.publication_year}
+        />
       </SeriesDetailsLink>
     );
   };

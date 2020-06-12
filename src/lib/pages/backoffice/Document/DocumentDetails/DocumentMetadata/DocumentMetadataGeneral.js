@@ -1,11 +1,11 @@
-import DocumentLanguages from '@modules/Document/DocumentLanguages';
-import DocumentTags from '@modules/Document/DocumentTags';
-import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { UrlList } from '@components/backoffice/UrlList';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import DocumentLanguages from '@modules/Document/DocumentLanguages';
+import DocumentTags from '@modules/Document/DocumentTags';
 import { BackOfficeRoutes } from '@routes/urls';
-import _isEmpty from 'lodash/isEmpty';
 import get from 'lodash/get';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -22,10 +22,11 @@ export class DocumentMetadataGeneral extends Component {
         name: 'Authors',
         value: (
           <DocumentAuthors
-            metadata={document.metadata}
-            popupDisplay
-            allFields
-            authorsLimit={20}
+            authors={document.metadata.authors}
+            hasOtherAuthors={document.metadata.other_authors}
+            withPopUpShowMoreFields
+            showAllFieldsInPopUp
+            limit={20}
             scrollLimit={300}
             expandable
           />

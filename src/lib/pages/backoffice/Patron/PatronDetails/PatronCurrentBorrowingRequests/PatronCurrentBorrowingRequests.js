@@ -5,7 +5,7 @@ import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { invenioConfig } from '@config';
-import DocumentTitle from '@modules/Document/DocumentTitle';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes, ILLRoutes } from '@routes/urls';
 import _difference from 'lodash/difference';
 import PropTypes from 'prop-types';
@@ -54,7 +54,11 @@ export default class PatronCurrentBorrowingRequests extends Component {
         to={BackOfficeRoutes.documentDetailsFor(row.metadata.document_pid)}
         data-test={row.metadata.pid}
       >
-        <DocumentTitle metadata={row.metadata.document} />
+        <LiteratureTitle
+          title={row.metadata.document.title}
+          edition={row.metadata.document.edition}
+          publicationYear={row.metadata.document.publication_year}
+        />
       </Link>
     );
   };

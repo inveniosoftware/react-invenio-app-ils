@@ -1,7 +1,7 @@
 import { toShortDate } from '@api/date';
-import LiteratureCover from '@modules/Literature/LiteratureCover';
-import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import { goTo } from '@history';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
@@ -53,7 +53,11 @@ class DocumentCard extends Component {
           <Card.Content>
             <Card.Header>{metadata.title}</Card.Header>
             <Card.Meta>
-              <DocumentAuthors metadata={data.metadata} authorsLimit={10} />
+              <DocumentAuthors
+                authors={data.metadata.authors}
+                hasOtherAuthors={data.metadata.other_authors}
+                limit={10}
+              />
               <div>
                 {!_isEmpty(metadata.imprints) ? (
                   <>

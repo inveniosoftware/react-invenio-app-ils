@@ -1,7 +1,6 @@
-import DocumentAuthors from '@modules/Document/DocumentAuthors';
-import { DocumentIcon } from '@components/backoffice/icons';
-import { EItemIcon } from '@components/backoffice/icons';
+import { DocumentIcon, EItemIcon } from '@components/backoffice/icons';
 import { OpenAccessLabel } from '@components/backoffice/OpenAccessLabel';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
@@ -28,9 +27,10 @@ export default class EItemListEntry extends Component {
             <Grid.Column computer={6} largeScreen={5}>
               <Item.Meta className="document-authors">
                 <DocumentAuthors
-                  metadata={eitem.metadata.document}
+                  authors={eitem.metadata.document.authors}
+                  hasOtherAuthors={eitem.metadata.document.other_authors}
                   prefix="by "
-                  authorsLimit={10}
+                  limit={10}
                 />
               </Item.Meta>
               {eitem.metadata.doi && (

@@ -1,24 +1,24 @@
-import { InfoMessage } from '@components/backoffice/InfoMessage';
-import { SeriesDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/SeriesDetailsLink';
-import { ResultsTable } from '@components/ResultsTable/ResultsTable';
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import DocumentTitle from '@modules/Document/DocumentTitle';
-import { Loader } from '@components/Loader';
-import { Error } from '@components/Error';
 import { seriesApi } from '@api/series/series';
 import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
+import { SeriesDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/SeriesDetailsLink';
+import { InfoMessage } from '@components/backoffice/InfoMessage';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 export default class SeriesMultipartMonographs extends Component {
   componentDidMount() {
-    const { fetchSeriesMultipartMonographs, seriesPid } = this.props;
+    const { fetchSeriesMultipartMonographs, seriesDetails } = this.props;
+    const seriesPid = seriesDetails.metadata.pid;
     fetchSeriesMultipartMonographs(seriesPid);
   }
 
-  seeAllButton = () => {
-    const { seriesPid } = this.props;
+  seeAllButton = seriesPid => {
     const path = BackOfficeRoutes.seriesListWithQuery(
       seriesApi
         .query()
@@ -30,7 +30,13 @@ export default class SeriesMultipartMonographs extends Component {
 
   viewDetails = ({ row }) => {
     const recordMetadata = row.metadata;
-    const titleCmp = <DocumentTitle metadata={recordMetadata} />;
+    const titleCmp = (
+      <LiteratureTitle
+        title={recordMetadata.title}
+        edition={recordMetadata.edition}
+        publicationYear={recordMetadata.publication_year}
+      />
+    );
     return (
       <SeriesDetailsLink pidValue={recordMetadata.pid}>
         {titleCmp}
@@ -39,7 +45,9 @@ export default class SeriesMultipartMonographs extends Component {
   };
 
   volumeFormatter = ({ row }) => {
-    const { seriesPid, seriesType } = this.props;
+    const { seriesDetails } = this.props;
+    const seriesPid = seriesDetails.metadata.pid;
+    const seriesType = seriesDetails.metadata.mode_of_issuance;
     // Find the series volume for the parent series
     const relation = _get(
       row,
@@ -53,7 +61,14 @@ export default class SeriesMultipartMonographs extends Component {
   };
 
   render() {
-    const { multipartMonographs, isLoading, showMaxSeries, error } = this.props;
+    const {
+      multipartMonographs,
+      isLoading,
+      showMaxSeries,
+      error,
+      seriesDetails,
+    } = this.props;
+    const seriesPid = seriesDetails.metadata.pid;
     const columns = [
       { title: 'PID', field: 'metadata.pid' },
       { title: 'Title', field: '', formatter: this.viewDetails },
@@ -67,7 +82,7 @@ export default class SeriesMultipartMonographs extends Component {
             columns={columns}
             totalHitsCount={multipartMonographs.total}
             name="multipart monographs"
-            seeAllComponent={this.seeAllButton()}
+            seeAllComponent={this.seeAllButton(seriesPid)}
             showMaxRows={showMaxSeries}
             renderEmptyResultsElement={() => (
               <InfoMessage
@@ -86,8 +101,7 @@ export default class SeriesMultipartMonographs extends Component {
 SeriesMultipartMonographs.propTypes = {
   showMaxSeries: PropTypes.number,
   multipartMonographs: PropTypes.object.isRequired,
-  seriesPid: PropTypes.string.isRequired,
-  seriesType: PropTypes.string.isRequired,
+  seriesDetails: PropTypes.object.isRequired,
   fetchSeriesMultipartMonographs: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
   error: PropTypes.object,

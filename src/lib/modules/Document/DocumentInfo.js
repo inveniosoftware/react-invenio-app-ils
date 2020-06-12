@@ -1,9 +1,9 @@
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import { IdentifierRows } from '@modules/Identifiers';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Divider, Table } from 'semantic-ui-react';
-import { IdentifierRows } from '@modules/Identifiers';
 
 export class DocumentInfo extends Component {
   renderLanguages() {
@@ -67,9 +67,10 @@ export class DocumentInfo extends Component {
               <Table.Cell>Authors</Table.Cell>
               <Table.Cell>
                 <DocumentAuthors
-                  metadata={metadata}
-                  popupDisplay
-                  authorsLimit={20}
+                  authors={metadata.authors}
+                  hasOtherAuthors={metadata.other_authors}
+                  withPopUpShowMoreFields
+                  limit={20}
                   scrollLimit={300}
                   expandable
                 />

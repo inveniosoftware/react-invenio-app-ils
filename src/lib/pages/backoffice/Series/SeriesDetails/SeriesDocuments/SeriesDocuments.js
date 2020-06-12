@@ -5,7 +5,7 @@ import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
-import DocumentTitle from '@modules/Document/DocumentTitle';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
@@ -39,7 +39,13 @@ export default class SeriesDocuments extends Component {
 
   viewDetails = ({ row }) => {
     const recordMetadata = row.metadata;
-    const titleCmp = <DocumentTitle metadata={recordMetadata} />;
+    const titleCmp = (
+      <LiteratureTitle
+        title={recordMetadata.title}
+        edition={recordMetadata.edition}
+        publicationYear={recordMetadata.publication_year}
+      />
+    );
     return (
       <DocumentDetailsLink pidValue={recordMetadata.pid}>
         {titleCmp}

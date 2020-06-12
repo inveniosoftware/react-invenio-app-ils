@@ -1,13 +1,13 @@
-import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import { DocumentIcon, ItemIcon, LoanIcon } from '@components/backoffice/icons';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import LoanLinkToItem from '@modules/Loan/backoffice/LoanLinkToItem';
+import { OverdueLoanSendMailModal } from '@modules/Loan/backoffice/OverdueLoanSendMailModal';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Header, Item, Label, List } from 'semantic-ui-react';
-import LoanLinkToItem from '@modules/Loan/backoffice/LoanLinkToItem';
-import { OverdueLoanSendMailModal } from '@modules/Loan/backoffice/OverdueLoanSendMailModal';
 import { LoanDates } from './LoanDates';
 
 export class LoanListEntry extends Component {
@@ -43,9 +43,10 @@ export class LoanListEntry extends Component {
                   {loan.metadata.document.title}
                 </Header>
                 <DocumentAuthors
-                  metadata={loan.metadata.document}
+                  authors={loan.metadata.document.authors}
+                  hasOtherAuthors={loan.metadata.document.other_authors}
                   prefix="by "
-                  authorsLimit={10}
+                  limit={10}
                 />
               </Item.Meta>
             </Grid.Column>
