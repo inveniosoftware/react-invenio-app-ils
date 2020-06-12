@@ -98,11 +98,16 @@ class SeriesDetails extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchSeriesDetails(this.props.match.params.seriesPid);
+    const { match } = this.props;
+    this.fetchSeriesDetails(match.params.seriesPid);
   }
 
   componentDidUpdate(prevProps) {
-    const seriesPid = this.props.match.params.seriesPid;
+    const {
+      match: {
+        params: { seriesPid },
+      },
+    } = this.props;
     const samePidFromRouter = prevProps.match.params.seriesPid === seriesPid;
     if (!samePidFromRouter) {
       this.fetchSeriesDetails(seriesPid);
@@ -154,6 +159,11 @@ SeriesDetails.propTypes = {
   error: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool.isRequired,
   fetchSeriesDetails: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      seriesPid: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export default Overridable.component('SeriesDetails', SeriesDetails);

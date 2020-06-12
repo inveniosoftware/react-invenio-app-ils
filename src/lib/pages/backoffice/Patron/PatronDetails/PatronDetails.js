@@ -30,14 +30,14 @@ export default class PatronDetails extends Component {
   }
 
   componentDidMount() {
-    const { fetchPatronDetails } = this.props;
-    fetchPatronDetails(this.props.match.params.patronPid);
+    const { fetchPatronDetails, match } = this.props;
+    fetchPatronDetails(match.params.patronPid);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { fetchPatronDetails } = this.props;
+    const { fetchPatronDetails, match } = this.props;
 
-    const currentPatronPid = this.props.match.params.patronPid;
+    const currentPatronPid = match.params.patronPid;
     const samePatronPidFromRouter =
       prevProps.match.params.patronPid === currentPatronPid;
     if (!samePatronPidFromRouter) {
@@ -161,6 +161,11 @@ PatronDetails.propTypes = {
   data: PropTypes.object.isRequired,
   error: PropTypes.object,
   isLoading: PropTypes.bool,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      patronPid: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 PatronDetails.defaultProps = {

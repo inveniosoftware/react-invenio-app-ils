@@ -1,6 +1,7 @@
 import { borrowingRequestApi } from '@api/ill';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { BorrowingRequestForm } from './BorrowingRequestForm/BorrowingRequestForm';
 
@@ -12,8 +13,9 @@ export class BorrowingRequestEditor extends Component {
   };
 
   componentDidMount() {
-    if (this.props.match.params.borrowingRequestPid) {
-      this.fetchBorrowingRequest(this.props.match.params.borrowingRequestPid);
+    const { match } = this.props;
+    if (match.params.borrowingRequestPid) {
+      this.fetchBorrowingRequest(match.params.borrowingRequestPid);
     }
   }
 
@@ -59,3 +61,11 @@ export class BorrowingRequestEditor extends Component {
     );
   }
 }
+
+BorrowingRequestEditor.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      borrowingRequestPid: PropTypes.string,
+    }),
+  }).isRequired,
+};

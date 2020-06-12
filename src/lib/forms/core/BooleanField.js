@@ -31,18 +31,14 @@ export class BooleanField extends Component {
           checked={value}
           error={this.renderError(errors, fieldPath)}
           {...uiProps}
-        ></Form.Checkbox>
+        />
       </Form.Group>
     );
   };
   render() {
-    const FormikField = this.props.optimized ? FastField : Field;
-    return (
-      <FormikField
-        name={this.props.fieldPath}
-        component={this.renderFormField}
-      />
-    );
+    const { fieldPath, optimized } = this.props;
+    const FormikField = optimized ? FastField : Field;
+    return <FormikField name={fieldPath} component={this.renderFormField} />;
   }
 }
 

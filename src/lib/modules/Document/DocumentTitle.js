@@ -17,7 +17,7 @@ const EditionTitleCmp = ({ metadata }) => {
   const editionYearCmp =
     edition && year ? (
       <>
-        {'('}
+        (
         <DocumentEdition metadata={metadata} /> - {year}
         {')'}
       </>

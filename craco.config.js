@@ -2,6 +2,11 @@ var path = require('path');
 
 module.exports = {
   plugins: [{ plugin: require('@semantic-ui-react/craco-less') }],
+  eslint: {
+    enable: true /* (default value) */,
+    useEslintrc: true,
+    mode: 'file',
+  },
   webpack: {
     alias: {
       '@api': path.resolve(__dirname, 'src/lib/api'),

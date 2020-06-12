@@ -1,6 +1,7 @@
 import { vendorApi } from '@api/acquisition';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { VendorForm } from './VendorForm';
 
@@ -16,8 +17,13 @@ export class VendorEditor extends Component {
   }
 
   componentDidMount() {
-    if (this.props.match.params.vendorPid) {
-      this.fetchVendor(this.props.match.params.vendorPid);
+    const {
+      match: {
+        params: { vendorPid },
+      },
+    } = this.props;
+    if (vendorPid) {
+      this.fetchVendor(vendorPid);
     }
   }
 
@@ -63,3 +69,11 @@ export class VendorEditor extends Component {
     );
   }
 }
+
+VendorEditor.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      vendorPid: PropTypes.string,
+    }),
+  }).isRequired,
+};

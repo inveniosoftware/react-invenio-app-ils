@@ -16,10 +16,17 @@ export class VocabularyField extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const { serializer: propsSerializer } = this.props;
+    const serializer = propsSerializer || this.serializer;
+    this.fetchVocabularies(serializer);
+  }
+
   query = () => {
+    const { type } = this.props;
     const searchQuery = vocabularyApi
       .query()
-      .withType(this.props.type)
+      .withType(type)
       .withSize(invenioConfig.max_results_window)
       .qs();
     return vocabularyApi.list(searchQuery);
@@ -39,6 +46,7 @@ export class VocabularyField extends React.Component {
       this.setState({ isLoading: false, options: options, error: null });
     } catch (error) {
       this.setState({
+        // eslint-disable-next-line react/no-unused-state
         isloading: false,
         options: [{ key: '', value: '', text: 'Failed to load vocabularies.' }],
         error: {
@@ -48,11 +56,6 @@ export class VocabularyField extends React.Component {
       });
     }
   };
-
-  componentDidMount() {
-    const serializer = this.props.serializer || this.serializer;
-    this.fetchVocabularies(serializer);
-  }
 
   render() {
     const {
@@ -64,7 +67,7 @@ export class VocabularyField extends React.Component {
       type,
       ...uiProps
     } = this.props;
-    const { isLoading, options } = this.state;
+    const { isLoading, options, error } = this.state;
     const noResultsMessage = isLoading
       ? 'Loading options...'
       : `No ${type} vocabularies found.`;
@@ -74,7 +77,7 @@ export class VocabularyField extends React.Component {
         fieldPath={fieldPath}
         label={accordion ? null : label}
         multiple={multiple}
-        error={this.state.error}
+        error={error}
         options={options}
         loading={isLoading}
         upward={false}

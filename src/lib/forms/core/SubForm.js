@@ -5,31 +5,37 @@ import { Button } from 'semantic-ui-react';
 
 export class SubForm extends Component {
   render() {
+    const {
+      initialValues,
+      initialErrors,
+      initialStatus,
+      validationSchema,
+      onSubmit,
+      render,
+      basePath,
+      submitButtonText,
+      onRemove,
+    } = this.props;
     return (
       <Formik
         enableReinitialize
-        initialValues={this.props.initialValues}
-        initialErrors={this.props.initialErrors}
-        initialStatus={this.props.initialStatus}
-        onSubmit={this.props.onSubmit}
-        validationSchema={this.props.validationSchema}
+        initialValues={initialValues}
+        initialErrors={initialErrors}
+        initialStatus={initialStatus}
+        onSubmit={onSubmit}
+        validationSchema={validationSchema}
       >
         {({ submitForm }) => (
           <>
-            {this.props.render(this.props.basePath)}
+            {render(basePath)}
             <Button
               secondary
               type="button"
               onClick={submitForm}
-              content={this.props.submitButtonText}
+              content={submitButtonText}
             />
-            {this.props.onRemove && (
-              <Button
-                negative
-                type="button"
-                icon="trash"
-                onClick={this.props.onRemove}
-              />
+            {onRemove && (
+              <Button negative type="button" icon="trash" onClick={onRemove} />
             )}
           </>
         )}
@@ -43,11 +49,17 @@ SubForm.propTypes = {
   initialValues: PropTypes.object,
   onRemove: PropTypes.func,
   onSubmit: PropTypes.func.isRequired,
-  removeButtonText: PropTypes.string,
   submitButtonText: PropTypes.string,
+  initialErrors: PropTypes.array,
+  initialStatus: PropTypes.string,
+  validationSchema: PropTypes.object,
+  render: PropTypes.func,
 };
 
-SubForm.defaultPrpos = {
+SubForm.defaultProps = {
   submitButtonText: 'Save',
-  removeButtonText: 'Remove',
+  initialValues: null,
+  onRemove: null,
+  initialErrors: null,
+  initialStatus: null,
 };

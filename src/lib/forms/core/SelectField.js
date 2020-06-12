@@ -6,9 +6,9 @@ import _isEmpty from 'lodash/isEmpty';
 
 export class SelectField extends Component {
   renderError = (errors, name, value, direction = 'above') => {
+    const { options } = this.props;
     let error = null;
     if (!Array.isArray(value)) {
-      const options = this.props.options;
       if (
         !_isEmpty(options) &&
         !options.find(o => o.value === value) &&
@@ -30,10 +30,11 @@ export class SelectField extends Component {
   };
 
   getAllOptions = (options, values) => {
+    const { required, loading } = this.props;
     if (!Array.isArray(values)) {
       values = [values];
     }
-    if (!this.props.required) {
+    if (!required) {
       options = [
         {
           key: '',
@@ -43,7 +44,7 @@ export class SelectField extends Component {
         ...options,
       ];
     }
-    if (!this.props.loading) {
+    if (!loading) {
       for (const value of values) {
         if (!_isEmpty(value) && !options.find(o => o.value === value)) {
           options.push({
@@ -59,7 +60,8 @@ export class SelectField extends Component {
   };
 
   renderLabel = (item, index, defaultLabelProps) => {
-    if (!this.props.loading && 'error' in item) {
+    const { loading } = this.props;
+    if (!loading && 'error' in item) {
       defaultLabelProps.className = 'error';
     }
     return item.text;
@@ -105,13 +107,9 @@ export class SelectField extends Component {
   };
 
   render() {
-    const FormikField = this.props.optimized ? FastField : Field;
-    return (
-      <FormikField
-        name={this.props.fieldPath}
-        component={this.renderFormField}
-      />
-    );
+    const { optimized, fieldPath } = this.props;
+    const FormikField = optimized ? FastField : Field;
+    return <FormikField name={fieldPath} component={this.renderFormField} />;
   }
 }
 
@@ -122,6 +120,9 @@ SelectField.propTypes = {
   loading: PropTypes.bool,
   multiple: PropTypes.bool,
   optimized: PropTypes.bool,
+  required: PropTypes.bool,
+  options: PropTypes.array,
+  label: PropTypes.string,
 };
 
 SelectField.defaultProps = {

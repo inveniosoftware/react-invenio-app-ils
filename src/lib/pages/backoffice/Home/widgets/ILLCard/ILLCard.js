@@ -29,9 +29,9 @@ export default class ILLCard extends Component {
   renderCard = data => {
     return (
       <RecordsBriefCard
-        title={'ILL Requests'}
+        title="ILL Requests"
         stats={data}
-        text={'ongoing'}
+        text="ongoing"
         buttonLeft={this.newAcqButton()}
         buttonRight={this.seeAllButton()}
       />

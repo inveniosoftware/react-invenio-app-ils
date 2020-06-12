@@ -24,6 +24,10 @@ const ReturnLabel = ({ endDate }) => (
   </h4>
 );
 
+ReturnLabel.propTypes = {
+  endDate: PropTypes.object.isRequired,
+};
+
 class LoanListEntry extends Component {
   render() {
     const { loan, extendLoan, onExtendSuccess } = this.props;

@@ -1,11 +1,11 @@
 {
-  "extends": [
-    "react-app",
-    "plugin:prettier/recommended"
-  ],
-  "plugins": [
-    "react"
-  ],
+  "extends": ["react-app", "plugin:prettier/recommended", "eslint:recommended"],
+  "plugins": ["react"],
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true
+  },
   "rules": {
     "camelcase": [
       "error",
@@ -21,19 +21,13 @@
     "react/no-access-state-in-setstate": "warn",
     "react/no-array-index-key": "warn",
     "react/jsx-boolean-value": "error",
-    "react/jsx-closing-bracket-location": [
-      "error",
-      "tag-aligned"
-    ],
+    "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
     "react/jsx-closing-tag-location": "error",
-    "react/jsx-curly-brace-presence": ["error", {"props": "never"}],
+    "react/jsx-curly-brace-presence": ["error", { "props": "never" }],
     "react/jsx-curly-spacing": "error",
     "react/jsx-equals-spacing": "error",
     "react/jsx-filename-extension": "off",
-    "react/jsx-indent-props": [
-      "error",
-      "first"
-    ],
+    "react/jsx-indent-props": ["error", "first"],
     "react/jsx-key": "error",
     "react/jsx-no-comment-textnodes": "error",
     "react/jsx-no-duplicate-props": "error",
@@ -44,10 +38,10 @@
     "react/jsx-tag-spacing": [
       "error",
       {
-          "closingSlash": "never",
-          "beforeSelfClosing": "always",
-          "afterOpening": "never",
-          "beforeClosing": "never"
+        "closingSlash": "never",
+        "beforeSelfClosing": "always",
+        "afterOpening": "never",
+        "beforeClosing": "never"
       }
     ],
     "react/jsx-uses-react": "error",
@@ -55,13 +49,13 @@
     "react/jsx-wrap-multilines": [
       "error",
       {
-          "declaration": "parens-new-line",
-          "assignment": "parens-new-line",
-          "return": "parens-new-line",
-          "arrow": "parens-new-line",
-          "condition": "parens-new-line",
-          "logical": "parens-new-line",
-          "prop": "ignore"
+        "declaration": "parens-new-line",
+        "assignment": "parens-new-line",
+        "return": "parens-new-line",
+        "arrow": "parens-new-line",
+        "condition": "parens-new-line",
+        "logical": "parens-new-line",
+        "prop": "ignore"
       }
     ],
     "react/no-children-prop": "error",
@@ -81,10 +75,7 @@
     "react/no-unescaped-entities": [
       "error",
       {
-          "forbid": [
-            ">",
-            "}"
-          ]
+        "forbid": [">", "}"]
       }
     ],
     "react/no-unknown-property": "error",

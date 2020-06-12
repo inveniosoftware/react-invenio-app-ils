@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 
 export class DocumentDetailsLink extends Component {
   render() {
-    const { pidValue, ...props } = this.props;
+    const { pidValue, children, ...props } = this.props;
     return (
       <Link
         to={BackOfficeRoutes.documentDetailsFor(pidValue)}
         data-test={pidValue}
         {...props}
       >
-        {this.props.children}
+        {children}
       </Link>
     );
   }
@@ -20,4 +20,5 @@ export class DocumentDetailsLink extends Component {
 
 DocumentDetailsLink.propTypes = {
   pidValue: PropTypes.string.isRequired,
+  children: PropTypes.node,
 };

@@ -117,6 +117,7 @@ RelationModal.propTypes = {
   extraRelationField: PropTypes.object,
   createRelations: PropTypes.func.isRequired,
   selections: PropTypes.array.isRequired,
+  children: PropTypes.node,
 };
 
 RelationModal.defaultProps = {

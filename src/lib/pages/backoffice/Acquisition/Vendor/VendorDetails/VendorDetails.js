@@ -159,13 +159,13 @@ export default class VendorDetails extends React.Component {
   }
 
   componentDidMount() {
-    const { fetchVendorDetails } = this.props;
-    fetchVendorDetails(this.props.match.params.vendorPid);
+    const { fetchVendorDetails, match } = this.props;
+    fetchVendorDetails(match.params.vendorPid);
   }
 
   componentDidUpdate(prevProps) {
-    const { fetchVendorDetails } = this.props;
-    const vendorPid = this.props.match.params.vendorPid;
+    const { fetchVendorDetails, match } = this.props;
+    const vendorPid = match.params.vendorPid;
     const samePidFromRouter = prevProps.match.params.vendorPid === vendorPid;
     if (!samePidFromRouter) {
       fetchVendorDetails(vendorPid);
@@ -219,6 +219,11 @@ VendorDetails.propTypes = {
   isLoading: PropTypes.bool,
   error: PropTypes.object,
   deleteVendor: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      vendorPid: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 VendorDetails.defaultProps = {

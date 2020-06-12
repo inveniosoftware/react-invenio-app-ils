@@ -2,6 +2,7 @@ import { orderApi } from '@api/acquisition';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import _get from 'lodash/get';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { OrderForm } from './OrderForm';
 
@@ -17,8 +18,13 @@ export class OrderEditor extends Component {
   }
 
   componentDidMount() {
-    if (this.props.match.params.orderPid) {
-      this.fetchOrder(this.props.match.params.orderPid);
+    const {
+      match: {
+        params: { orderPid },
+      },
+    } = this.props;
+    if (orderPid) {
+      this.fetchOrder(orderPid);
     }
   }
   fetchOrder = async orderPid => {
@@ -79,3 +85,11 @@ export class OrderEditor extends Component {
     );
   }
 }
+
+OrderEditor.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      orderPid: PropTypes.string,
+    }),
+  }).isRequired,
+};

@@ -18,14 +18,14 @@ export default class ItemDetails extends Component {
   }
 
   componentDidMount() {
-    const { fetchItemDetails } = this.props;
-    fetchItemDetails(this.props.match.params.itemPid);
+    const { fetchItemDetails, match } = this.props;
+    fetchItemDetails(match.params.itemPid);
   }
 
   componentDidUpdate(prevProps) {
-    const { fetchItemDetails } = this.props;
+    const { fetchItemDetails, match } = this.props;
 
-    const itemPid = this.props.match.params.itemPid;
+    const itemPid = match.params.itemPid;
     const samePidFromRouter = prevProps.match.params.itemPid === itemPid;
     if (!samePidFromRouter) {
       fetchItemDetails(itemPid);
@@ -78,6 +78,11 @@ ItemDetails.propTypes = {
   data: PropTypes.object.isRequired,
   isLoading: PropTypes.bool,
   error: PropTypes.object,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      itemPid: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 ItemDetails.defaultProps = {

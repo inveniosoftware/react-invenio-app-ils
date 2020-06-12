@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
@@ -16,8 +17,11 @@ export class LocationEditor extends Component {
   }
 
   componentDidMount() {
-    if (this.props.match.params.locationPid) {
-      this.fetchLocation(this.props.match.params.locationPid);
+    const {
+      match: { params: locationPid },
+    } = this.props;
+    if (locationPid) {
+      this.fetchLocation(locationPid);
     }
   }
 
@@ -63,3 +67,10 @@ export class LocationEditor extends Component {
     );
   }
 }
+LocationEditor.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      locationPid: PropTypes.string,
+    }),
+  }).isRequired,
+};

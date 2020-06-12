@@ -100,7 +100,7 @@ export default class ESSelectorLoanRequest extends Component {
       <Form.Field>
         <label>Choose the book delivery method</label>
         <Form.Dropdown
-          placeholder={'Select delivery method'}
+          placeholder="Select delivery method"
           options={this.deliveryMethods}
           onChange={this.handleDeliveryMethodChange}
           defaultValue={this.deliveryMethods[1].value}

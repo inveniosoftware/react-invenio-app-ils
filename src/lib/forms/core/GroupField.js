@@ -5,8 +5,9 @@ import { Form } from 'semantic-ui-react';
 
 export class GroupField extends React.Component {
   hasGroupErrors = errors => {
+    const { fieldPath } = this.props;
     for (const field in errors) {
-      if (field.startsWith(this.props.fieldPath)) {
+      if (field.startsWith(fieldPath)) {
         return true;
       }
     }
@@ -53,15 +54,17 @@ export class GroupField extends React.Component {
   };
 
   render() {
-    return (
-      <Field name={this.props.fieldPath} component={this.renderFormField} />
-    );
+    const { fieldPath } = this.props;
+    return <Field name={fieldPath} component={this.renderFormField} />;
   }
 }
 
 GroupField.propTypes = {
   border: PropTypes.bool,
   fieldPath: PropTypes.string,
+  action: PropTypes.func,
+  children: PropTypes.node,
+  basic: PropTypes.bool,
 };
 
 GroupField.defaultProps = {

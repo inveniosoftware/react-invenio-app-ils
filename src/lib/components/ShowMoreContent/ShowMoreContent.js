@@ -21,6 +21,7 @@ export class ShowMoreContent extends Component {
 ShowMoreContent.propTypes = {
   lines: PropTypes.number.isRequired,
   content: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+  children: PropTypes.node,
 };
 
 ShowMoreContent.defaultProps = {

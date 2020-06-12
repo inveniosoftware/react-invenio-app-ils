@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
 
 export class EItemEditor extends Component {
   componentDidMount() {
-    const { fetchEItemDetails } = this.props;
-    if (this.props.match.params.eitemPid) {
-      fetchEItemDetails(this.props.match.params.eitemPid);
+    const { fetchEItemDetails, match } = this.props;
+    if (match.params.eitemPid) {
+      fetchEItemDetails(match.params.eitemPid);
     }
   }
 
@@ -66,6 +66,11 @@ EItemEditor.propTypes = {
   isLoading: PropTypes.bool,
   error: PropTypes.object,
   data: PropTypes.object.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      eitemPid: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 EItemEditor.defaultProps = {

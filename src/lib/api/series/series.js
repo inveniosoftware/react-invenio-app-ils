@@ -93,9 +93,9 @@ class QueryBuilder {
     }
     const pids = prepareSumQuery(
       series.map(o => {
-        if (o.hasOwnProperty('metadata')) {
+        if (Object.prototype.hasOwnProperty.call(o, 'metadata')) {
           return o.metadata.pid;
-        } else if (o.hasOwnProperty('pid')) {
+        } else if (Object.prototype.hasOwnProperty.call(o, 'pid')) {
           return o.pid;
         } else {
           throw TypeError('series objects invalid: no "pid" attribute found');

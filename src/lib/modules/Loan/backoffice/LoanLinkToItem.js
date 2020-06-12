@@ -6,11 +6,11 @@ import { DetailsRouteByPidTypeFor } from '@routes/urls';
 
 export default class LoanLinkToItem extends Component {
   render() {
-    const { itemPid } = this.props;
+    const { itemPid, children } = this.props;
     return (
       !_isEmpty(itemPid) && (
         <Link to={DetailsRouteByPidTypeFor(itemPid.type)(itemPid.value)}>
-          {this.props.children}
+          {children}
         </Link>
       )
     );
@@ -22,6 +22,7 @@ LoanLinkToItem.propTypes = {
     type: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
   }),
+  children: PropTypes.node,
 };
 
 LoanLinkToItem.defaultProps = {

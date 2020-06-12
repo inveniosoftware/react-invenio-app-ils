@@ -187,7 +187,7 @@ export class HitsSearch extends Component {
 
 HitsSearch.propTypes = {
   alwaysWildcard: PropTypes.bool,
-  delay: PropTypes.number.isRequired,
+  delay: PropTypes.number,
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,
   serializer: PropTypes.func,

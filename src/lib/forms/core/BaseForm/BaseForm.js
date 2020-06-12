@@ -7,28 +7,34 @@ import { ErrorMessage } from '@forms/core/ErrorMessage';
 
 export class BaseForm extends Component {
   submitSerializer = values => {
+    const { pid, submitSerializer } = this.props;
     const { _submitButton, ...rawValues } = values;
-    const newRecord = this.props.pid ? false : true;
-    const serializedValues = this.props.submitSerializer
-      ? this.props.submitSerializer(rawValues, newRecord)
+    const newRecord = !!pid;
+    const serializedValues = submitSerializer
+      ? submitSerializer(rawValues, newRecord)
       : { ...rawValues };
     return [serializedValues, _submitButton];
   };
 
   onSubmit = async (values, actions) => {
+    const {
+      pid,
+      editApiMethod,
+      createApiMethod,
+      sendSuccessNotification,
+      successSubmitMessage,
+      successCallback,
+    } = this.props;
     const [submitValues, submitButton] = this.submitSerializer(values);
     try {
       actions.setSubmitting(true);
-      const response = this.props.pid
-        ? await this.props.editApiMethod(this.props.pid, submitValues)
-        : await this.props.createApiMethod(submitValues);
+      const response = pid
+        ? await editApiMethod(pid, submitValues)
+        : await createApiMethod(submitValues);
 
-      this.props.sendSuccessNotification(
-        'Success!',
-        this.props.successSubmitMessage
-      );
-      if (this.props.successCallback) {
-        this.props.successCallback(response, submitButton);
+      sendSuccessNotification('Success!', successSubmitMessage);
+      if (successCallback) {
+        successCallback(response, submitButton);
       }
     } catch (error) {
       const errors = getIn(error, 'response.data.errors', []);
@@ -78,13 +84,13 @@ export class BaseForm extends Component {
   };
 
   render() {
-    const { buttons, initialValues, title } = this.props;
+    const { buttons, initialValues, title, onSubmit, children } = this.props;
     return (
       <>
         <Header textAlign="center">{title}</Header>
         <Formik
           initialValues={initialValues}
-          onSubmit={this.props.onSubmit || this.onSubmit}
+          onSubmit={onSubmit || this.onSubmit}
           validationSchema={this.validationSchema}
         >
           {({ isSubmitting, handleSubmit, submitForm, values }) => (
@@ -95,7 +101,7 @@ export class BaseForm extends Component {
               loading={isSubmitting}
             >
               <ErrorMessage />
-              {this.props.children}
+              {children}
               {buttons ? (
                 this.renderButtons(isSubmitting, submitForm, values)
               ) : (
@@ -116,6 +122,7 @@ export class BaseForm extends Component {
 }
 
 BaseForm.propTypes = {
+  children: PropTypes.node,
   initialValues: PropTypes.object,
   successSubmitMessage: PropTypes.string,
   successCallback: PropTypes.func,

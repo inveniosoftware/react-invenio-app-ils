@@ -37,6 +37,7 @@ EmailLink.propTypes = {
   email: PropTypes.string.isRequired,
   subject: PropTypes.string,
   asButton: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 EmailLink.defaultProps = {

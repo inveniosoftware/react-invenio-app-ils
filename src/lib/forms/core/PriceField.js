@@ -24,6 +24,13 @@ const DropdownField = ({
   );
 };
 
+DropdownField.propTypes = {
+  field: PropTypes.object.isRequired,
+  form: PropTypes.object.isRequired,
+  options: PropTypes.array.isRequired,
+  children: PropTypes.node,
+};
+
 export class PriceField extends Component {
   renderError(errors, name, direction = 'above') {
     const error = errors[name];
@@ -91,13 +98,9 @@ export class PriceField extends Component {
   };
 
   render() {
-    const FormikField = this.props.optimized ? FastField : Field;
-    return (
-      <FormikField
-        name={this.props.fieldPath}
-        component={this.renderFormField}
-      />
-    );
+    const { optimized, fieldPath } = this.props;
+    const FormikField = optimized ? FastField : Field;
+    return <FormikField name={fieldPath} component={this.renderFormField} />;
   }
 }
 

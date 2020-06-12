@@ -10,14 +10,14 @@ import { DocumentRequestSteps } from './DocumentRequestSteps';
 
 export default class DocumentRequestDetails extends Component {
   componentDidMount() {
-    const { fetchDocumentRequestDetails } = this.props;
-    fetchDocumentRequestDetails(this.props.match.params.documentRequestPid);
+    const { fetchDocumentRequestDetails, match } = this.props;
+    fetchDocumentRequestDetails(match.params.documentRequestPid);
   }
 
   componentDidUpdate(prevProps) {
-    const { fetchDocumentRequestDetails } = this.props;
+    const { fetchDocumentRequestDetails, match } = this.props;
 
-    const documentRequestPid = this.props.match.params.documentRequestPid;
+    const documentRequestPid = match.params.documentRequestPid;
     const samePidFromRouter =
       prevProps.match.params.documentRequestPid === documentRequestPid;
     if (!samePidFromRouter) {
@@ -51,6 +51,11 @@ DocumentRequestDetails.propTypes = {
   fetchDocumentRequestDetails: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
   error: PropTypes.object,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      documentRequestPid: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 DocumentRequestDetails.defaultProps = {
