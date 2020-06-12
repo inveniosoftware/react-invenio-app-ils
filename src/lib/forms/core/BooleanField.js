@@ -31,7 +31,7 @@ export class BooleanField extends Component {
           checked={value}
           error={this.renderError(errors, fieldPath)}
           {...uiProps}
-        ></Form.Checkbox>
+        />
       </Form.Group>
     );
   };

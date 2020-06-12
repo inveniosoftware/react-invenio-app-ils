@@ -3,8 +3,15 @@ import React from 'react';
 import { Divider, Table } from 'semantic-ui-react';
 import _merge from 'lodash/merge';
 import _keys from 'lodash/keys';
+import _get from 'lodash/get';
+import _pickBy from 'lodash/pickBy';
+import { extensionsConfig } from '@config';
 
 export const DocumentMetadataExtensions = ({ extensions }) => {
+  extensions = _pickBy(extensions, (value, key) => {
+    return _get(extensionsConfig.fields[key], 'isVisible', true);
+  });
+
   let result = {};
 
   _keys(extensions).map(key => {

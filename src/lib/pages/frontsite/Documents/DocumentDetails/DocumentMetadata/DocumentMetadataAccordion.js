@@ -1,12 +1,16 @@
+import { extensionsConfig } from '@config';
+import { DocumentConference } from '@modules/Document/DocumentConference';
+import { DocumentInfo } from '@modules/Document/DocumentInfo';
+import { DocumentTableOfContent } from '@modules/Document/DocumentTableOfContent';
+import { Identifiers } from '@modules/Identifiers';
+import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
 import LiteratureRelations from '@modules/Literature/LiteratureRelations';
+import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Accordion, Icon } from 'semantic-ui-react';
-import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
-import { DocumentConference } from '@modules/Document/DocumentConference';
-import { DocumentTableOfContent } from '@modules/Document/DocumentTableOfContent';
-import { DocumentInfo } from '@modules/Document/DocumentInfo';
+import { DocumentMetadataExtensions } from './DocumentMetadataExtensions';
 
 class DocumentMetadataAccordion extends Component {
   state = { activeIndex: 'details' };
@@ -22,6 +26,9 @@ class DocumentMetadataAccordion extends Component {
   render() {
     const { activeIndex } = this.state;
     const { metadata } = this.props;
+    const identifiers = _get(metadata, 'identifiers', []);
+    const altIdentifiers = _get(metadata, 'alternative_identifiers', []);
+    const { extensions = {} } = metadata;
     return (
       <Accordion fluid styled>
         <Accordion.Title
@@ -35,6 +42,18 @@ class DocumentMetadataAccordion extends Component {
         <Accordion.Content active={activeIndex === 'details'}>
           <LiteratureRelations relations={metadata.relations} />
           <DocumentInfo metadata={metadata} />
+        </Accordion.Content>
+
+        <Accordion.Title
+          active={activeIndex === 'identifiers'}
+          index="identifiers"
+          onClick={this.handleClick}
+        >
+          <Icon name="dropdown" />
+          Identifiers
+        </Accordion.Title>
+        <Accordion.Content active={activeIndex === 'identifiers'}>
+          <Identifiers identifiers={identifiers.concat(altIdentifiers)} />
         </Accordion.Content>
 
         <Accordion.Title
@@ -90,6 +109,22 @@ class DocumentMetadataAccordion extends Component {
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 'notes'}>
           <LiteratureNotes content={metadata.note} />
+        </Accordion.Content>
+
+        <Accordion.Title
+          active={activeIndex === extensionsConfig.label}
+          index={extensionsConfig.label}
+          onClick={this.handleClick}
+        >
+          <Icon name="dropdown" />
+          {extensionsConfig.label}
+        </Accordion.Title>
+        <Accordion.Content active={activeIndex === extensionsConfig.label}>
+          <Overridable
+            id="DocumentMetadataTabs.Extensions.mobile"
+            extensions={extensions}
+          />
+          <DocumentMetadataExtensions extensions={extensions} />
         </Accordion.Content>
       </Accordion>
     );

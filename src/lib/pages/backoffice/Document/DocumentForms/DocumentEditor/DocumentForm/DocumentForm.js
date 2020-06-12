@@ -34,6 +34,7 @@ import {
 } from './components';
 
 import documentSubmitSerializer from './documentSubmitSerializer';
+import { MetadataExtensions } from './components/MetadataExtensions';
 
 export class DocumentForm extends Component {
   get buttons() {
@@ -95,6 +96,7 @@ export class DocumentForm extends Component {
 
   render() {
     const { data, successSubmitMessage, title, pid } = this.props;
+    const extensions = _get(data, 'metadata.extensions', {});
     return (
       <BaseForm
         initialValues={data ? data.metadata : {}}
@@ -159,10 +161,9 @@ export class DocumentForm extends Component {
         <PublicationInfoField />
         <Imprint />
         <Keywords />
-        <Overridable
-          id="DocumentForm.Extensions"
-          extensions={_get(data, 'metadata.extensions', {})}
-        />
+        <Overridable id="DocumentForm.Extensions" extensions={extensions}>
+          <MetadataExtensions extensions={extensions} />
+        </Overridable>
       </BaseForm>
     );
   }

@@ -3,7 +3,6 @@ import DocumentEdition from '@modules/Document/DocumentEdition';
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
 import DocumentTags from '@modules/Document/DocumentTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
-import Overridable from 'react-overridable';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
@@ -130,12 +129,6 @@ export default class DocumentListEntry extends Component {
               {this.renderRightColumn(document)}
             </Grid.Column>
           </Grid>
-          {_get(document, 'metadata.extensions') && (
-            <Overridable
-              id="DocumentListEntry.Extensions"
-              extensions={document.metadata.extensions}
-            />
-          )}
           <Item.Extra>
             <DocumentTags metadata={document.metadata} />
           </Item.Extra>

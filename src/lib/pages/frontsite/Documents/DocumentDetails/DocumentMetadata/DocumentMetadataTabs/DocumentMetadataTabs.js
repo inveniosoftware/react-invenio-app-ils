@@ -1,16 +1,18 @@
-import LiteratureRelations from '@modules/Literature/LiteratureRelations';
+import { extensionsConfig } from '@config';
+import { DocumentConference } from '@modules/Document/DocumentConference';
+import { DocumentInfo } from '@modules/Document/DocumentInfo';
+import { DocumentLinks } from '@modules/Document/DocumentLinks';
+import { DocumentTableOfContent } from '@modules/Document/DocumentTableOfContent';
+import { Identifiers } from '@modules/Identifiers';
 import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
+import LiteratureRelations from '@modules/Literature/LiteratureRelations';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Tab } from 'semantic-ui-react';
-import { Identifiers } from '@modules/Identifiers';
-import { DocumentConference } from '@modules/Document/DocumentConference';
-import { DocumentLinks } from '@modules/Document/DocumentLinks';
-import { DocumentTableOfContent } from '@modules/Document/DocumentTableOfContent';
-import { DocumentInfo } from '@modules/Document/DocumentInfo';
+import { DocumentMetadataExtensions } from '../DocumentMetadataExtensions';
 
 class DocumentMetadataTabs extends Component {
   renderTabPanes = () => {
@@ -83,16 +85,17 @@ class DocumentMetadataTabs extends Component {
       });
     }
 
-    const extensions = _get(metadata, 'extensions', {});
+    const { extensions = {} } = metadata;
     if (!_isEmpty(extensions)) {
       panes.push({
-        menuItem: 'Extensions',
+        menuItem: extensionsConfig.label,
         render: () => (
           <Tab.Pane>
             <Overridable
               id="DocumentMetadataTabs.Extensions"
               extensions={extensions}
             />
+            <DocumentMetadataExtensions extensions={extensions} />
           </Tab.Pane>
         ),
       });

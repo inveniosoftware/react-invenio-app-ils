@@ -102,7 +102,7 @@ DocumentDetailsLayout.propTypes = {
 };
 
 DocumentDetailsLayout.defaultProps = {
-  error: {},
+  error: null,
 };
 
 class DocumentDetails extends Component {
@@ -155,7 +155,7 @@ class DocumentDetails extends Component {
     const { searchQuery } = this.state;
     return (
       <>
-        <Overridable id="DocumentDetails.top">
+        <Overridable id="DocumentDetails.top" searchQuery={searchQuery}>
           <Container fluid className="document-details-search-container">
             <Container>
               <SearchBar
@@ -188,7 +188,7 @@ DocumentDetails.propTypes = {
 };
 
 DocumentDetails.defaultProps = {
-  error: {},
+  error: null,
 };
 
 export default Overridable.component('DocumentDetails', DocumentDetails);

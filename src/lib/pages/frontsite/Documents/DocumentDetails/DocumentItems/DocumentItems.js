@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import _has from 'lodash/has';
 import Overridable from 'react-overridable';
@@ -93,8 +92,13 @@ class DocumentItems extends Component {
 
   renderLibraries = () => {
     const { activeLibrary } = this.state;
-    const { documentDetails } = this.props;
-    const onShelf = _get(documentDetails, 'metadata.items.on_shelf', {});
+    const {
+      documentDetails: {
+        metadata: {
+          items: { on_shelf: onShelf },
+        },
+      },
+    } = this.props;
     const libraries = [];
 
     Object.entries(onShelf).forEach(([locationName, locationObj]) => {
@@ -126,8 +130,13 @@ class DocumentItems extends Component {
   };
 
   renderItems = () => {
-    const { documentDetails } = this.props;
-    const onShelf = _get(documentDetails, 'metadata.items.on_shelf', {});
+    const {
+      documentDetails: {
+        metadata: {
+          items: { on_shelf: onShelf },
+        },
+      },
+    } = this.props;
     const { activeLibrary, activeInternalLocation } = this.state;
 
     if (!_isEmpty(onShelf)) {

@@ -1,62 +1,71 @@
-import { BooleanField } from '@forms/core/BooleanField';
-import { StringField } from '@forms/core/StringField';
 import _keys from 'lodash/keys';
 
-export const config = {
+const fields = {
   'accelerator_experiments:accelerator': {
-    Component: StringField,
+    type: 'string',
     default: '',
   },
   'accelerator_experiments:curated_relation': {
-    Component: BooleanField,
+    type: 'boolean',
     default: false,
   },
   'accelerator_experiments:experiment': {
-    Component: StringField,
+    type: 'string',
     default: '',
   },
   'accelerator_experiments:institution': {
-    Component: StringField,
+    type: 'string',
     default: '',
   },
   'accelerator_experiments:legacy_name': {
-    Component: StringField,
+    type: 'string',
     default: '',
   },
   'accelerator_experiments:project': {
-    Component: StringField,
+    type: 'string',
     default: '',
   },
   'accelerator_experiments:study': {
-    Component: StringField,
+    type: 'string',
     default: '',
   },
   'standard_CERN_status:CERN_applicability': {
-    Component: StringField,
+    type: 'string',
     default: '',
+    isVisible: false,
   },
   'standard_CERN_status:standard_validity': {
-    Component: StringField,
+    type: 'string',
     default: '',
+    isVisible: false,
     isRequired: true,
   },
   'standard_CERN_status:checkdate': {
-    Component: StringField,
+    type: 'date',
     default: '',
+    isVisible: false,
   },
   'standard_CERN_status:comment': {
-    Component: StringField,
+    type: 'string',
     default: '',
+    isVisible: false,
   },
   'standard_CERN_status:expert': {
-    Component: StringField,
+    type: 'string',
     default: '',
+    isVisible: false,
   },
 };
 
-export const defaults = () => {
-  const keys = _keys(config);
+const defaults = () => {
+  const keys = _keys(fields);
   let result = {};
-  keys.map(key => (result[key] = config[key]['default']));
+  keys.map(key => (result[key] = fields[key]['default']));
   return result;
+};
+
+export const extensionsConfig = {
+  label: 'Other',
+  fields: fields,
+  defaults: defaults,
 };
