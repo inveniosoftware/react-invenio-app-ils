@@ -1,5 +1,5 @@
 /*******************************
-    User Variable Overrides
+Container Variables - REACT-INVENIO-APP-ILS
 *******************************/
 
 @footerPaddings       :  2em;

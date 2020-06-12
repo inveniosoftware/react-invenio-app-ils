@@ -5,6 +5,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import path from 'path';
 import localResolve from 'rollup-plugin-local-resolve';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import copy from 'rollup-plugin-copy';
 import pkg from './package.json';
 
 const cracoAliases = [
@@ -22,7 +23,10 @@ const cracoAliases = [
     find: '@forms',
     replacement: path.resolve(__dirname, 'src/lib/forms/'),
   },
-  { find: '@modules', replacement: path.resolve(__dirname, 'src/lib/modules') },
+  {
+    find: '@modules',
+    replacement: path.resolve(__dirname, 'src/lib/modules'),
+  },
   { find: '@pages', replacement: path.resolve(__dirname, 'src/lib/pages/') },
   { find: '@routes', replacement: path.resolve(__dirname, 'src/lib/routes/') },
   {
@@ -62,8 +66,20 @@ export default {
       exclude: 'node_modules/**',
     }),
     commonjs(),
+    copy({
+      targets: [{ src: 'src/semantic-ui/*', dest: 'dist/theme' }],
+    }),
   ],
+  watch: {
+    include: 'src/**',
+
+    chokidar: {
+      usePolling: true,
+      paths: 'src/**',
+    },
+  },
   onwarn: warning => {
+    console.warn(warning);
     // fail on warnings
     throw new Error(warning.message);
   },

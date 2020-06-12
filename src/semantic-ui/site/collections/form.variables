@@ -1,5 +1,5 @@
 /*******************************
-    User Variable Overrides
+Form Variables - REACT-INVENIO-APP-ILS
 *******************************/
 @fieldsetBorder: @inputBorder;
 @fieldsetBorderRadius: @inputBorderRadius;

@@ -1,6 +1,6 @@
-/*******************************
- SEMANTIC User Global Variables
-*******************************/
+/******************************************************
+ Site Variables - REACT-INVENIO-APP-ILS
+*******************************************************/
 
 @headerFont        : 'Roboto', Arial, Helvetica, sans-serif;
 @pageFont          : 'Raleway', Arial, Helvetica, sans-serif;
