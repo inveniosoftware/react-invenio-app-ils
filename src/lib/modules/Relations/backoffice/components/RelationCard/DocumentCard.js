@@ -1,7 +1,7 @@
 import { recordToPidType } from '@api/utils';
-import LiteratureCover from '@modules/Literature/LiteratureCover';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
-import DocumentTitle from '@modules/Document/DocumentTitle';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
@@ -30,10 +30,19 @@ export class DocumentCard extends Component {
         )}
         <Card.Content>
           <Card.Header as={Link} to={linkTo} target="_blank">
-            <DocumentTitle metadata={data.metadata} truncate titleOnly />
+            <LiteratureTitle
+              title={data.metadata.title}
+              edition={data.metadata.edition}
+              publicationYear={data.metadata.publication_year}
+              showOnlyTitle
+              truncate
+            />
           </Card.Header>
           <Card.Meta>
-            <DocumentAuthors metadata={data.metadata} />
+            <DocumentAuthors
+              authors={data.metadata.authors}
+              hasOtherAuthors={data.metadata.other_authors}
+            />
           </Card.Meta>
         </Card.Content>
         {!_isEmpty(extra) && <Card.Content extra>{extra}</Card.Content>}

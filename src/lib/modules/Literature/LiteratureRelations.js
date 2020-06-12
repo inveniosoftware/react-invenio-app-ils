@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { List, Divider } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-import { FrontSiteRoutes } from '@routes/urls';
 import { SeparatedList } from '@components/SeparatedList';
-import DocumentEdition from '@modules/Document/DocumentEdition';
+import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Divider, List } from 'semantic-ui-react';
+import LiteratureEdition from './LiteratureEdition';
 
 export default class LiteratureRelations extends Component {
   constructor(props) {
@@ -98,9 +98,10 @@ export default class LiteratureRelations extends Component {
     }
 
     const items = relations.map(rel => {
+      const edition = rel.record_metadata.edition;
       return (
         <Link key={rel.pid_value} to={this.getLinkTo(rel)}>
-          <DocumentEdition metadata={rel.record_metadata} />
+          <LiteratureEdition edition={edition} />
         </Link>
       );
     });

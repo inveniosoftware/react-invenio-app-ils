@@ -1,15 +1,15 @@
 import { toShortDate } from '@api/date';
-import { CopyButton } from '@components/CopyButton';
 import { CreatedBy } from '@components/backoffice/ChangedBy';
-import LiteratureCover from '@modules/Literature/LiteratureCover';
-import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
-import DocumentTags from '@modules/Document/DocumentTags';
-import DocumentTitle from '@modules/Document/DocumentTitle';
 import { DetailsHeader } from '@components/backoffice/DetailsHeader';
+import { CopyButton } from '@components/CopyButton';
+import DocumentTags from '@modules/Document/DocumentTags';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
+import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Header, Icon } from 'semantic-ui-react';
 
@@ -42,7 +42,11 @@ export class SeriesHeader extends Component {
             <Header.Subheader>
               {data.metadata.mode_of_issuance}
             </Header.Subheader>
-            <DocumentTitle metadata={data.metadata} />
+            <LiteratureTitle
+              title={data.metadata.title}
+              edition={data.metadata.edition}
+              publicationYear={data.metadata.publication_year}
+            />
           </>
         }
         subTitle={

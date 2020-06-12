@@ -1,8 +1,8 @@
-import LiteratureCover from '@modules/Literature/LiteratureCover';
-import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
-import DocumentEdition from '@modules/Document/DocumentEdition';
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
 import DocumentTags from '@modules/Document/DocumentTags';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
+import LiteratureEdition from '@modules/Literature/LiteratureEdition';
+import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
@@ -29,8 +29,12 @@ export class SeriesListEntry extends Component {
     return (
       <>
         <DocumentLanguages metadata={series.metadata} withLabel />
-        <br />
-        <DocumentEdition metadata={series.metadata} withLabel />
+        {series.metadata.edition && (
+          <>
+            <br />
+            <LiteratureEdition edition={series.metadata.edition} withLabel />
+          </>
+        )}
       </>
     );
   };

@@ -3,7 +3,7 @@ import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
-import DocumentTitle from '@modules/Document/DocumentTitle';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { ExistingRelations } from '@modules/Relations/backoffice/components/ExistingRelations';
 import { RelationRemover } from '@modules/Relations/backoffice/components/RelationRemover';
 import _isEmpty from 'lodash/isEmpty';
@@ -20,7 +20,11 @@ export default class RelationLanguage extends Component {
   viewDetails = ({ row }) => {
     return (
       <DocumentDetailsLink pidValue={row.pid_value}>
-        <DocumentTitle metadata={row.record_metadata} />
+        <LiteratureTitle
+          title={row.record_metadata.title}
+          edition={row.record_metadata.edition}
+          publicationYear={row.record_metadata.publication_year}
+        />
       </DocumentDetailsLink>
     );
   };

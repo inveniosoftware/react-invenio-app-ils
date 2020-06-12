@@ -1,5 +1,4 @@
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
-import DocumentEdition from '@modules/Document/DocumentEdition';
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
 import DocumentTags from '@modules/Document/DocumentTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
@@ -9,6 +8,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Header, Icon, Item, List } from 'semantic-ui-react';
+import LiteratureEdition from '../../../Literature/LiteratureEdition';
 import DocumentCirculation from './DocumentCirculation';
 
 export default class DocumentListEntry extends Component {
@@ -108,9 +108,10 @@ export default class DocumentListEntry extends Component {
             <Grid.Column computer={6} largeScreen={5}>
               <Item.Meta className="document-authors">
                 <DocumentAuthors
-                  metadata={document.metadata}
+                  authors={document.metadata.authors}
+                  hasOtherAuthors={document.metadata.other_authors}
                   prefix="by "
-                  authorsLimit={10}
+                  limit={10}
                 />
               </Item.Meta>
               <DocumentLanguages
@@ -118,7 +119,12 @@ export default class DocumentListEntry extends Component {
                 prefix={<label>languages </label>}
               />
               <Item.Description>
-                <DocumentEdition metadata={document.metadata} withLabel />
+                {document.metadata.edition && (
+                  <LiteratureEdition
+                    edition={document.metadata.edition}
+                    withLabel
+                  />
+                )}
               </Item.Description>
               <label>Published</label> {document.metadata.publication_year}
             </Grid.Column>

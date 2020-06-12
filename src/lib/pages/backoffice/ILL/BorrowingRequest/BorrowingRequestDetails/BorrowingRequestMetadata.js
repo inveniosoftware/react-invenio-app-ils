@@ -1,12 +1,12 @@
 import { toShortDate } from '@api/date';
 import { CreatedBy, UpdatedBy } from '@components/backoffice/ChangedBy';
-import DocumentTitle from '@modules/Document/DocumentTitle';
-import { MetadataTable } from '@components/backoffice/MetadataTable';
 import {
   DocumentIcon,
   ILLLibraryIcon,
   PatronIcon,
 } from '@components/backoffice/icons';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes, ILLRoutes } from '@routes/urls';
 import { PropTypes } from 'prop-types';
 import React from 'react';
@@ -78,7 +78,12 @@ class Metadata extends React.Component {
         value: (
           <Link to={BackOfficeRoutes.documentDetailsFor(brwReq.document_pid)}>
             <DocumentIcon />{' '}
-            <DocumentTitle metadata={brwReq.document} truncate />
+            <LiteratureTitle
+              title={brwReq.document.title}
+              edition={brwReq.document.edition}
+              publicationYear={brwReq.document.publication_year}
+              truncate
+            />
           </Link>
         ),
       },

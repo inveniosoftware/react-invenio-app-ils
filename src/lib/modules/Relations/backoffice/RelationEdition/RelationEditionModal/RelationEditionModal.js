@@ -1,12 +1,14 @@
-import DocumentEdition from '@modules/Document/DocumentEdition';
+import { documentApi } from '@api/documents';
+import { seriesApi } from '@api/series';
 import { DocumentSelectListEntry } from '@modules/Document/backoffice/DocumentSelectListEntry';
-import SeriesSelectListEntry from '@modules/Series/backoffice/SeriesSelectListEntry';
+import LiteratureEdition from '@modules/Literature/LiteratureEdition';
 import { MultipleSelections } from '@modules/Relations/backoffice/components/MultipleSelections';
-import { RelationSelector } from '@modules/Relations/backoffice/components/RelationSelector';
 import { RelationModal } from '@modules/Relations/backoffice/components/RelationModal';
+import { RelationSelector } from '@modules/Relations/backoffice/components/RelationSelector';
 import { RelationSummary } from '@modules/Relations/backoffice/components/RelationSummary';
-import React, { Component } from 'react';
+import SeriesSelectListEntry from '@modules/Series/backoffice/SeriesSelectListEntry';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import {
   Container,
   Divider,
@@ -15,8 +17,6 @@ import {
   Label,
   Modal,
 } from 'semantic-ui-react';
-import { documentApi } from '@api/documents';
-import { seriesApi } from '@api/series';
 
 export default class RelationEditionModal extends Component {
   constructor(props) {
@@ -41,7 +41,7 @@ export default class RelationEditionModal extends Component {
       <SeriesSelectListEntry
         series={option}
         key={option.metadata.pid}
-        description={<DocumentEdition metadata={option.metadata} />}
+        description={<LiteratureEdition edition={option.metadata.edition} />}
         disabled={disabled}
       />
     );
