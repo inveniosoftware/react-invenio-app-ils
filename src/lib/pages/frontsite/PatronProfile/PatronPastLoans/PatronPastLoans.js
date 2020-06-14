@@ -4,7 +4,7 @@ import { InfoMessage } from '@components/InfoMessage';
 import { Loader } from '@components/Loader';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Container, Header, Icon, Label, Popup } from 'semantic-ui-react';
+import { Container, Header, Label } from 'semantic-ui-react';
 import LoansList from '../LoansList';
 import LoansListItem from '../LoansListEntry';
 
@@ -24,22 +24,11 @@ class LoansListEntry extends Component {
 
   render() {
     const { loan } = this.props;
-    const isLoanOverdue = loan.metadata.is_overdue;
-
-    const isIllBrwReq = loan.metadata.item_pid.type === 'illbid';
-    const IllBrwReqPopUp = isIllBrwReq ? (
-      <Popup
-        content="This loan involves third party library, please return on time"
-        trigger={<Icon name="exclamation circle" size="large" color="red" />}
-      />
-    ) : null;
 
     return (
       <LoansListItem
         loan={loan}
         extraItemProps={{
-          itemClass: isLoanOverdue ? 'bkg-danger' : null,
-          itemHeaderCmp: IllBrwReqPopUp,
           itemMetaCmp: this.renderLabels(
             loan.metadata.start_date,
             loan.metadata.end_date

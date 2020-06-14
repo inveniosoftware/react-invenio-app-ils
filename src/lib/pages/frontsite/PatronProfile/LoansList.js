@@ -14,7 +14,6 @@ export default class LoanList extends Component {
       renderListEntry,
       noLoansCmp,
     } = this.props;
-    console.log(loans.total, rowsPerPage);
     return loans.total > 0 ? (
       <>
         <Item.Group divided>

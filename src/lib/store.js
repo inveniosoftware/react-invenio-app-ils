@@ -6,7 +6,6 @@ import { loanActionReducer, loanDetailsReducer } from '@modules/Loan/reducer';
 import patronCurrentBorrowingRequestsReducer from '@modules/Patron/PatronCurrentBorrowingRequests/reducer';
 import patronCurrentLoansReducer from '@modules/Patron/PatronCurrentLoans/reducer';
 import patronDocumentRequestsReducer from '@modules/Patron/PatronDocumentRequests/reducer';
-
 import patronPastBorrowingRequestsReducer from '@modules/Patron/PatronPastBorrowingRequests/reducer';
 import patronPastLoansReducer from '@modules/Patron/PatronPastLoans/reducer';
 import patronPendingLoansReducer from '@modules/Patron/PatronPendingLoans/reducer';
@@ -34,9 +33,9 @@ import {
   pendingOverdueDocumentsReducer,
   renewedLoansReducer,
 } from '@pages/backoffice/Home/reducer';
+import { borrowingRequestPatronLoanCreateReducer } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/BorrowingRequestPatronLoan/reducer';
 import borrowingRequestDetailsReducer from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/state/reducer';
 import libraryDetailsReducer from '@pages/backoffice/ILL/Library/LibraryDetails/state/reducer';
-import { borrowingRequestPatronLoanCreateReducer } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/BorrowingRequestPatronLoan/reducer';
 import {
   itemDetailsReducer,
   itemPastLoansReducer,

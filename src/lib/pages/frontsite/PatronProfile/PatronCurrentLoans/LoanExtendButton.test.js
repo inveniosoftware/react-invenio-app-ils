@@ -3,7 +3,7 @@ import testData from '@testData/loans.json';
 import { mount } from 'enzyme';
 import { Settings } from 'luxon';
 import React from 'react';
-import ExtendButton from './ExtendButton';
+import LoanExtendButton from './LoanExtendButton';
 
 jest.mock('@config/invenioConfig');
 Settings.defaultZoneName = 'utc';
@@ -32,7 +32,7 @@ describe('Extend loan button tests', () => {
     };
 
     const component = mount(
-      <ExtendButton
+      <LoanExtendButton
         extendLoan={() => {}}
         onExtendSuccess={() => {}}
         loan={loan}
@@ -54,7 +54,7 @@ describe('Extend loan button tests', () => {
     };
 
     const component = mount(
-      <ExtendButton
+      <LoanExtendButton
         extendLoan={() => {}}
         onExtendSuccess={() => {}}
         loan={loan}
@@ -76,7 +76,7 @@ describe('Extend loan button tests', () => {
     };
 
     const component = mount(
-      <ExtendButton
+      <LoanExtendButton
         extendLoan={() => {}}
         onExtendSuccess={() => {}}
         loan={loan}
@@ -98,7 +98,7 @@ describe('Extend loan button tests', () => {
     };
 
     const component = mount(
-      <ExtendButton
+      <LoanExtendButton
         extendLoan={() => {}}
         onExtendSuccess={() => {}}
         loan={loan}
