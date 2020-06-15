@@ -44,7 +44,7 @@ export class SeriesAccessUrls extends React.Component {
 }
 
 SeriesAccessUrls.propTypes = {
-  urls: PropTypes.object,
+  urls: PropTypes.arrayOf(AccessUrl.propTypes.url),
   truncate: PropTypes.bool,
 };
 

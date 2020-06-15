@@ -51,7 +51,6 @@ export default class SeriesDetails extends Component {
     const _multiMonoInSeries = _get(multipartMonographsInSeries, 'total', -1);
     const multiMonoInSeries =
       _multiMonoInSeries >= 0 ? ` (${_multiMonoInSeries})` : '';
-
     const docsTitle = (
       <Accordion.Title>
         <Icon name="dropdown" />
@@ -94,7 +93,10 @@ export default class SeriesDetails extends Component {
       content: (
         <Accordion.Content>
           <div id="series-monographs">
-            <SeriesMultipartMonographs />
+            <SeriesMultipartMonographs
+              seriesPid={data.pid}
+              seriesType={data.mode_of_issuance}
+            />
           </div>
         </Accordion.Content>
       ),

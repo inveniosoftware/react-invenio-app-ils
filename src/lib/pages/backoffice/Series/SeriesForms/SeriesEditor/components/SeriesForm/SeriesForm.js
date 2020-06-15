@@ -19,20 +19,25 @@ import {
 import { InternalNotes } from '@pages/backoffice/Document/DocumentForms/DocumentEditor/DocumentForm/components/InternalNotes';
 import { BackOfficeRoutes } from '@routes/urls';
 import { getIn } from 'formik';
-import pick from 'lodash/pick';
+import _isEmpty from 'lodash/isEmpty';
+import _pick from 'lodash/pick';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import Overridable from 'react-overridable';
 import { AccessUrls } from './AccessUrls';
+import { SeriesMetadataExtensions } from './SeriesMetadataExtensions';
+import { extensionsConfig } from '@config';
 
 export class SeriesForm extends Component {
   prepareData = data => {
-    return pick(data, [
+    return _pick(data, [
       'abbreviated_title',
       'abstract',
       'access_urls',
       'alternative_titles',
       'authors',
       'edition',
+      'extensions',
       'identifiers',
       'internal_notes',
       'issn',
@@ -83,6 +88,7 @@ export class SeriesForm extends Component {
       title,
       pid,
     } = this.props;
+    const { extensions } = metadata;
     const initialValues = data ? this.prepareData(metadata) : {};
     return (
       <BaseForm
@@ -139,12 +145,15 @@ export class SeriesForm extends Component {
         <UrlsField />
         <AccessUrls />
         <Identifiers
-          vocabularies={{
-            scheme: invenioConfig.vocabularies.series.identifier.scheme,
-          }}
+          scheme={invenioConfig.vocabularies.series.identifier.scheme}
         />
         <TextField label="Notes" fieldPath="note" rows={5} optimized />
         <InternalNotes />
+        {!_isEmpty(extensions) && !_isEmpty(extensionsConfig.series.fields) && (
+          <Overridable id="SeriesForm.Extensions" extensions={extensions}>
+            <SeriesMetadataExtensions extensions={extensions} />
+          </Overridable>
+        )}
       </BaseForm>
     );
   }

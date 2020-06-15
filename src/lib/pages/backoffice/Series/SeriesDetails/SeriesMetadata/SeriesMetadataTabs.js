@@ -1,6 +1,10 @@
 import { InfoMessage } from '@components/backoffice/InfoMessage';
+import { extensionsConfig } from '@config';
+import { SeriesMetadataExtensions } from '@modules/Series/SeriesMetadataExtensions';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import Overridable from 'react-overridable';
 import ShowMore from 'react-show-more';
 import { Header, Tab } from 'semantic-ui-react';
 import { SeriesIdentifiers } from '../SeriesIdentifiers';
@@ -10,7 +14,7 @@ import { SeriesMetadata } from './';
 export default class SeriesMetadataTabs extends Component {
   panes = () => {
     const { series } = this.props;
-    return [
+    const panes = [
       {
         menuItem: 'Metadata',
         render: () => (
@@ -70,6 +74,26 @@ export default class SeriesMetadataTabs extends Component {
         ),
       },
     ];
+    const { extensions = {} } = series.metadata;
+    if (!_isEmpty(extensions) && !_isEmpty(extensionsConfig.series.fields)) {
+      panes.push({
+        menuItem: extensionsConfig.series.label,
+        render: () => (
+          <Tab.Pane>
+            <Overridable
+              id="BackofficeSeriesMetadataTabs.Extensions"
+              extensions={extensions}
+            >
+              <SeriesMetadataExtensions
+                extensions={extensions}
+                showDivider={false}
+              />
+            </Overridable>
+          </Tab.Pane>
+        ),
+      });
+    }
+    return panes;
   };
 
   render() {

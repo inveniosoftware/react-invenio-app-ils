@@ -1,21 +1,21 @@
+import { documentApi } from '@api/documents';
 import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
 import { Breadcrumbs } from '@components/Breadcrumbs';
-import React, { Component } from 'react';
+import { Error } from '@components/Error';
+import { ILSParagraphPlaceholder } from '@components/ILSPlaceholder';
+import { SearchBar } from '@components/SearchBar';
+import { goTo } from '@history';
+import DocumentTags from '@modules/Document/DocumentTags';
+import { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Icon, Responsive } from 'semantic-ui-react';
-import { DocumentMetadata } from './DocumentMetadata';
-import { goTo } from '@history';
-import { FrontSiteRoutes, BackOfficeRoutes } from '@routes/urls';
-import { SearchBar } from '@components/SearchBar';
-import { Error } from '@components/Error';
-import DocumentPanel from './DocumentPanel/DocumentPanel';
-import DocumentTags from '@modules/Document/DocumentTags';
-import { ILSParagraphPlaceholder } from '@components/ILSPlaceholder';
 import { DocumentItems } from './DocumentItems';
-import { documentApi } from '@api/documents';
-import _isEmpty from 'lodash/isEmpty';
+import { DocumentMetadata } from './DocumentMetadata';
+import DocumentPanel from './DocumentPanel/DocumentPanel';
 
 const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
   const breadcrumbs = () => [
@@ -98,7 +98,11 @@ const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
 DocumentDetailsLayout.propTypes = {
   documentDetails: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired,
+  error: PropTypes.object,
+};
+
+DocumentDetailsLayout.defaultProps = {
+  error: null,
 };
 
 class DocumentDetails extends Component {
@@ -156,15 +160,20 @@ class DocumentDetails extends Component {
     const { searchQuery } = this.state;
     return (
       <>
-        <Overridable id="DocumentDetails.top">
-          <Container fluid className="document-details-search-container">
+        <Overridable
+          id="DocumentDetails.top"
+          searchQuery={searchQuery}
+          currentQueryString={searchQuery}
+          onInputChange={this.onSearchInputChange}
+          executeSearch={this.onSearchClick}
+        >
+          <Container fluid className="literature-search-container">
             <Container>
               <SearchBar
                 currentQueryString={searchQuery}
                 onInputChange={this.onSearchInputChange}
                 executeSearch={this.onSearchClick}
-                placeholder="Search for books..."
-                className="document-details-search-bar"
+                placeholder="Search for literatures..."
               />
             </Container>
           </Container>
@@ -185,12 +194,16 @@ DocumentDetails.propTypes = {
   fetchDocumentsDetails: PropTypes.func.isRequired,
   documentDetails: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired,
+  error: PropTypes.object,
   match: PropTypes.shape({
     params: PropTypes.shape({
       documentPid: PropTypes.string,
     }),
   }).isRequired,
+};
+
+DocumentDetails.defaultProps = {
+  error: null,
 };
 
 export default Overridable.component('DocumentDetails', DocumentDetails);

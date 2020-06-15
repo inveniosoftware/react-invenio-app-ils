@@ -1,18 +1,21 @@
+import { extensionsConfig } from '@config';
+import { Identifiers } from '@modules/Identifiers';
 import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
 import LiteratureRelations from '@modules/Literature/LiteratureRelations';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Tab } from 'semantic-ui-react';
-import { Identifiers } from '@modules/Identifiers';
 import { SeriesAllTitles } from './SeriesAllTitles';
 import { SeriesInfo } from './SeriesInfo';
 import { SeriesLinks } from './SeriesLinks';
+import { SeriesMetadataExtensions } from './SeriesMetadataExtensions';
 
 class SeriesMetadataTabs extends Component {
   renderTabPanes = () => {
     const { metadata } = this.props;
-    return [
+    const panes = [
       {
         menuItem: 'Details',
         render: () => (
@@ -62,6 +65,23 @@ class SeriesMetadataTabs extends Component {
         ),
       },
     ];
+    const { extensions = {} } = metadata;
+    if (!_isEmpty(extensions) && !_isEmpty(extensionsConfig.series.fields)) {
+      panes.push({
+        menuItem: extensionsConfig.series.label,
+        render: () => (
+          <Tab.Pane>
+            <Overridable
+              id="SeriesMetadataTabs.Extensions"
+              extensions={extensions}
+            >
+              <SeriesMetadataExtensions extensions={extensions} />
+            </Overridable>
+          </Tab.Pane>
+        ),
+      });
+    }
+    return panes;
   };
 
   render() {

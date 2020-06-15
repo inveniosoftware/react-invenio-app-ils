@@ -11,7 +11,7 @@ class SeriesMetadata extends Component {
     return (
       <Container className="document-metadata" data-test={series.metadata.pid}>
         <Responsive minWidth={Responsive.onlyTablet.minWidth}>
-          <SeriesMetadataTabs />
+          <SeriesMetadataTabs metadata={series.metadata} />
         </Responsive>
         <Responsive {...Responsive.onlyMobile}>
           <SeriesMetadataAccordion />
