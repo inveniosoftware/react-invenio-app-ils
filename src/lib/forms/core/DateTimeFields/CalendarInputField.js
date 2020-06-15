@@ -4,7 +4,7 @@ import { FastField, Field, getIn } from 'formik';
 
 export class CalendarInputField extends React.Component {
   renderFormField = props => {
-    const { fieldPath } = this.props;
+    const { fieldPath, component } = this.props;
     const {
       form: { values, errors, setFieldValue },
     } = props;
@@ -22,17 +22,13 @@ export class CalendarInputField extends React.Component {
       value: value,
     };
 
-    return this.props.component(newProps);
+    return component(newProps);
   };
 
   render() {
-    const FormikField = this.props.optimized ? FastField : Field;
-    return (
-      <FormikField
-        name={this.props.fieldPath}
-        component={this.renderFormField}
-      />
-    );
+    const { optimized, fieldPath } = this.props;
+    const FormikField = optimized ? FastField : Field;
+    return <FormikField name={fieldPath} component={this.renderFormField} />;
   }
 }
 

@@ -32,6 +32,7 @@ DetailsHeader.propTypes = {
   subTitle: PropTypes.any,
   recordInfo: PropTypes.node,
   title: PropTypes.any.isRequired,
+  children: PropTypes.node,
 };
 
 DetailsHeader.defaultProps = {

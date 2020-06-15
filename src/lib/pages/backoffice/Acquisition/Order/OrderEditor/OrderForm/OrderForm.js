@@ -38,6 +38,7 @@ const orderSubmitSerializer = values => {
 export class OrderForm extends Component {
   state = {
     isLoading: true,
+    // eslint-disable-next-line react/no-unused-state
     error: null,
     currencies: [],
   };
@@ -92,14 +93,17 @@ export class OrderForm extends Component {
     try {
       const response = await this.cancellableFetchData.promise;
       const currencies = response.data.hits.map(hit => this.serializer(hit));
+      // eslint-disable-next-line react/no-unused-state
       this.setState({ isLoading: false, currencies: currencies, error: null });
     } catch (error) {
       if (error !== 'UNMOUNTED') {
         this.setState({
+          // eslint-disable-next-line react/no-unused-state
           isloading: false,
           currencies: [
             { key: '', value: '', text: 'Failed to load currencies.' },
           ],
+          // eslint-disable-next-line react/no-unused-state
           error: {
             content: 'Failed to load currencies.',
             pointing: 'above',

@@ -4,12 +4,12 @@ import { VocabularyField } from '@forms/core/VocabularyField';
 
 export class LanguageField extends Component {
   render() {
-    const { multiple } = this.props;
+    const { multiple, type, fieldPath } = this.props;
     return (
       <VocabularyField
         multiple={multiple}
-        type={this.props.type}
-        fieldPath={this.props.fieldPath}
+        type={type}
+        fieldPath={fieldPath}
         label={multiple ? 'Languages' : 'Language'}
         placeholder={multiple ? 'Select languages...' : 'Select language'}
       />

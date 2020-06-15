@@ -20,7 +20,7 @@ export default class LibraryList extends Component {
       return <Message data-test="no-results">There are no libraries.</Message>;
 
     return (
-      <Item.Group divided className={'bo-document-search'}>
+      <Item.Group divided className="bo-document-search">
         {hits.map(hit => {
           return this.renderListEntry(hit);
         })}

@@ -19,7 +19,7 @@ export default class EItemList extends Component {
     if (!hits.length) return <SearchEmptyResults data-test="no-results" />;
 
     return (
-      <Item.Group divided className={'bo-eitem-search'}>
+      <Item.Group divided className="bo-eitem-search">
         {hits.map(hit => {
           return this.renderListEntry(hit);
         })}

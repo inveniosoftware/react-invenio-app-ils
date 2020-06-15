@@ -4,9 +4,10 @@ import { Button, Icon } from 'semantic-ui-react';
 
 export class DeleteActionButton extends React.Component {
   render() {
+    const { onClick, icon, size } = this.props;
     return (
-      <Button icon basic onClick={this.props.onClick} type="button">
-        <Icon name={this.props.icon} size={this.props.size} />
+      <Button icon basic onClick={onClick} type="button">
+        <Icon name={icon} size={size} />
       </Button>
     );
   }

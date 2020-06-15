@@ -16,13 +16,13 @@ export default class EItemDetails extends Component {
   }
 
   componentDidMount() {
-    const { fetchEItemDetails } = this.props;
-    fetchEItemDetails(this.props.match.params.eitemPid);
+    const { fetchEItemDetails, match } = this.props;
+    fetchEItemDetails(match.params.eitemPid);
   }
 
   componentDidUpdate(prevProps) {
-    const { fetchEItemDetails } = this.props;
-    const eitemPid = this.props.match.params.eitemPid;
+    const { fetchEItemDetails, match } = this.props;
+    const eitemPid = match.params.eitemPid;
     const samePidFromRouter = prevProps.match.params.eitemPid === eitemPid;
     if (!samePidFromRouter) {
       fetchEItemDetails(eitemPid);
@@ -72,6 +72,11 @@ EItemDetails.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   data: PropTypes.object.isRequired,
   error: PropTypes.object,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      eitemPid: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 EItemDetails.defaultProps = {

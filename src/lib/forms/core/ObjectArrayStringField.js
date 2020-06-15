@@ -9,6 +9,7 @@ import { StringField } from './StringField';
 export class ObjectArrayStringField extends Component {
   renderFormField = ({ arrayPath, indexPath, ...arrayHelpers }) => {
     const objectPath = `${arrayPath}.${indexPath}`;
+    const { objectKeysArray } = this.props;
     return (
       <GroupField
         border
@@ -20,7 +21,7 @@ export class ObjectArrayStringField extends Component {
           />
         }
       >
-        {this.props.objectKeysArray.map(keyObj => (
+        {objectKeysArray.map(keyObj => (
           <StringField
             inline
             key={keyObj.key}
@@ -33,29 +34,39 @@ export class ObjectArrayStringField extends Component {
     );
   };
 
-  renderWithoutAccordion = () => (
-    <ArrayField
-      label={this.props.label}
-      fieldPath={this.props.fieldPath}
-      defaultNewValue={this.props.defaultNewValue}
-      renderArrayItem={this.renderFormField}
-      addButtonLabel={this.props.addButtonLabel}
-    />
-  );
+  renderWithoutAccordion = () => {
+    const { label, fieldPath, defaultNewValue, addButtonLabel } = this.props;
+    return (
+      <ArrayField
+        label={label}
+        fieldPath={fieldPath}
+        defaultNewValue={defaultNewValue}
+        renderArrayItem={this.renderFormField}
+        addButtonLabel={addButtonLabel}
+      />
+    );
+  };
 
   render() {
-    return this.props.basic ? (
+    const {
+      basic,
+      label,
+      fieldPath,
+      defaultNewValue,
+      addButtonLabel,
+    } = this.props;
+    return basic ? (
       this.renderWithoutAccordion()
     ) : (
       <AccordionField
-        label={this.props.label}
-        fieldPath={this.props.fieldPath}
+        label={label}
+        fieldPath={fieldPath}
         content={
           <ArrayField
-            fieldPath={this.props.fieldPath}
-            defaultNewValue={this.props.defaultNewValue}
+            fieldPath={fieldPath}
+            defaultNewValue={defaultNewValue}
             renderArrayItem={this.renderFormField}
-            addButtonLabel={this.props.addButtonLabel}
+            addButtonLabel={addButtonLabel}
           />
         }
       />

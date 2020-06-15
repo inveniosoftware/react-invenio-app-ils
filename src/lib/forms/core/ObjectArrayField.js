@@ -8,6 +8,7 @@ import { GroupField } from './GroupField';
 export class ObjectArrayField extends React.Component {
   renderArrayItem = ({ arrayPath, indexPath, ...arrayHelpers }) => {
     const objectPath = `${arrayPath}.${indexPath}`;
+    const { objects } = this.props;
     return (
       <GroupField
         border
@@ -19,7 +20,7 @@ export class ObjectArrayField extends React.Component {
           />
         }
       >
-        {this.props.objects.map(obj => {
+        {objects.map(obj => {
           const ObjectField = obj.element;
           const objProps = obj.props || {};
           return (
@@ -34,15 +35,25 @@ export class ObjectArrayField extends React.Component {
     );
   };
 
-  renderArrayField = () => (
-    <ArrayField
-      fieldPath={this.props.fieldPath}
-      label={this.props.accordion ? undefined : this.props.label}
-      defaultNewValue={this.props.defaultNewValue}
-      renderArrayItem={this.renderArrayItem}
-      addButtonLabel={this.addButtonLabel}
-    />
-  );
+  renderArrayField = () => {
+    const {
+      fieldPath,
+      accordion,
+      defaultNewValue,
+      label,
+      addButtonLabel,
+    } = this.props;
+
+    return (
+      <ArrayField
+        fieldPath={fieldPath}
+        label={accordion ? undefined : label}
+        defaultNewValue={defaultNewValue}
+        renderArrayItem={this.renderArrayItem}
+        addButtonLabel={addButtonLabel}
+      />
+    );
+  };
 
   render() {
     const { accordion, label, fieldPath } = this.props;

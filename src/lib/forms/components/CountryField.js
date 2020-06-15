@@ -57,12 +57,13 @@ export class CountryField extends Component {
   };
 
   render() {
+    const { multiple, type, fieldPath, label } = this.props;
     return (
       <VocabularyField
-        multiple={this.props.multiple}
-        type={this.props.type}
-        fieldPath={this.props.fieldPath}
-        label={this.props.label}
+        multiple={multiple}
+        type={type}
+        fieldPath={fieldPath}
+        label={label}
         placeholder="Search for a country..."
         serializer={this.serializer}
         control={FlagDropdown}

@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 
 export class LoanDetailsLink extends Component {
   render() {
-    const { loanPid, ...props } = this.props;
+    const { loanPid, children, ...props } = this.props;
     return (
       <Link
         to={BackOfficeRoutes.loanDetailsFor(loanPid)}
         data-test={loanPid}
         {...props}
       >
-        {this.props.children}
+        {children}
       </Link>
     );
   }
@@ -20,4 +20,5 @@ export class LoanDetailsLink extends Component {
 
 LoanDetailsLink.propTypes = {
   loanPid: PropTypes.string.isRequired,
+  children: PropTypes.node,
 };

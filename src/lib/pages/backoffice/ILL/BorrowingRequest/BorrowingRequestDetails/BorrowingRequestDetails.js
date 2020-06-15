@@ -141,13 +141,13 @@ export default class BorrowingRequestDetails extends Component {
   }
 
   componentDidMount() {
-    const { fetchBorrowingRequestDetails } = this.props;
-    fetchBorrowingRequestDetails(this.props.match.params.borrowingRequestPid);
+    const { fetchBorrowingRequestDetails, match } = this.props;
+    fetchBorrowingRequestDetails(match.params.borrowingRequestPid);
   }
 
   componentDidUpdate(prevProps) {
-    const { fetchBorrowingRequestDetails } = this.props;
-    const borrowingRequestPid = this.props.match.params.borrowingRequestPid;
+    const { fetchBorrowingRequestDetails, match } = this.props;
+    const borrowingRequestPid = match.params.borrowingRequestPid;
 
     const samePidFromRouter =
       prevProps.match.params.borrowingRequestPid === borrowingRequestPid;
@@ -204,6 +204,11 @@ BorrowingRequestDetails.propTypes = {
   error: PropTypes.object,
   isLoading: PropTypes.bool.isRequired,
   fetchBorrowingRequestDetails: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      borrowingRequestPid: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 BorrowingRequestDetails.defaultProps = {

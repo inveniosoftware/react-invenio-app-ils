@@ -15,6 +15,7 @@ export default class ItemsSearch extends Component {
     // because components gets updated via input change
     // but we need altered behaviour for the paste action
     // and in this way the state from before update is preserved
+    // eslint-disable-next-line react/no-unused-state
     this.state = { prevSearchQuery: '' };
   }
 
@@ -26,6 +27,7 @@ export default class ItemsSearch extends Component {
   executeSearch = queryString => {
     const { queryString: propsQueryString, fetchItems } = this.props;
     queryString = queryString || propsQueryString;
+    // eslint-disable-next-line react/no-unused-state
     this.setState({ prevSearchQuery: queryString });
     return fetchItems(queryString);
   };
@@ -49,6 +51,7 @@ export default class ItemsSearch extends Component {
         };
         checkoutItem(documentPid, itemPid, patronDetails.user_pid, true);
       }
+      // eslint-disable-next-line react/no-unused-state
       this.setState({ prevSearchQuery: '' });
     }
   };
@@ -80,6 +83,7 @@ export default class ItemsSearch extends Component {
   clearSearchQuery = () => {
     const { clearResults } = this.props;
 
+    // eslint-disable-next-line react/no-unused-state
     this.setState({ prevSearchQuery: '' });
     clearResults();
   };

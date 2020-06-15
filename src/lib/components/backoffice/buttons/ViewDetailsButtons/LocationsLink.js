@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 
 export class LocationsLink extends Component {
   render() {
-    const { locationPid, ...props } = this.props;
+    const { locationPid, children, ...props } = this.props;
     return (
       <Link
         to={BackOfficeRoutes.locationsList}
         data-test={locationPid}
         {...props}
       >
-        {this.props.children}
+        {children}
       </Link>
     );
   }
@@ -20,4 +20,5 @@ export class LocationsLink extends Component {
 
 LocationsLink.propTypes = {
   locationPid: PropTypes.string.isRequired,
+  children: PropTypes.node,
 };

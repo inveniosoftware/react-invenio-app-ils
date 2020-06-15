@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 export default class UploadButton extends React.Component {
   constructor(props) {
@@ -15,16 +16,16 @@ export default class UploadButton extends React.Component {
   };
 
   onSelectFile = async file => {
-    if (this.props.files.length >= this.maxFiles) {
-      this.props.sendErrorNotification(
+    const { uploadFile, files, sendErrorNotification, eitem } = this.props;
+    if (files.length >= this.maxFiles) {
+      sendErrorNotification(
         'Failed to upload file',
         `An e-item cannot have more than ${this.maxFiles} files.`
       );
     } else {
-      const { eitem } = this.props;
       const pid = eitem.pid;
       const bucket = eitem.metadata.bucket_id;
-      await this.props.uploadFile(pid, bucket, file);
+      await uploadFile(pid, bucket, file);
     }
   };
 
@@ -53,3 +54,12 @@ export default class UploadButton extends React.Component {
     );
   }
 }
+
+UploadButton.propTypes = {
+  files: PropTypes.array,
+  sendErrorNotification: PropTypes.func.isRequired,
+  eitem: PropTypes.object.isRequired,
+  uploadFile: PropTypes.func.isRequired,
+  isFilesLoading: PropTypes.bool,
+  fluid: PropTypes.bool,
+};

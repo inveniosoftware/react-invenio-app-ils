@@ -20,6 +20,7 @@ InfoMessage.propTypes = {
   message: PropTypes.node.isRequired,
   show: PropTypes.bool,
   title: PropTypes.node,
+  children: PropTypes.node,
 };
 
 InfoMessage.defaultProps = {

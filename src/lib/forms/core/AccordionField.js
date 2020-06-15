@@ -20,11 +20,12 @@ export class AccordionField extends Component {
   };
 
   hasError(errors) {
-    if (this.props.fieldPath in errors) {
+    const { fieldPath } = this.props;
+    if (fieldPath in errors) {
       return true;
     }
     for (const errorPath in errors) {
-      if (errorPath.startsWith(this.props.fieldPath)) {
+      if (errorPath.startsWith(fieldPath)) {
         return true;
       }
     }
@@ -35,19 +36,20 @@ export class AccordionField extends Component {
     const {
       form: { errors, status },
     } = props;
+    const { required, label, content } = this.props;
     const { active } = this.state;
     const hasError = status ? this.hasError(status) : this.hasError(errors);
 
     return (
       <Accordion fluid index={0}>
-        <Form.Field required={this.props.required}>
+        <Form.Field required={required}>
           <Accordion.Title as="label" onClick={() => this.handleClick(active)}>
             {hasError && <ErrorIcon />}
-            <label>{this.props.label}</label>
+            <label>{label}</label>
             <span>{active ? this.iconActive : this.iconInactive}</span>
           </Accordion.Title>
           <Accordion.Content active={active}>
-            {active && this.props.content}
+            {active && content}
           </Accordion.Content>
         </Form.Field>
       </Accordion>
@@ -55,9 +57,8 @@ export class AccordionField extends Component {
   };
 
   render() {
-    return (
-      <Field name={this.props.fieldPath} component={this.renderAccordion} />
-    );
+    const { fieldPath } = this.props;
+    return <Field name={fieldPath} component={this.renderAccordion} />;
   }
 }
 

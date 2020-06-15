@@ -39,6 +39,7 @@ describe('EItemFiles tests', () => {
         eitem={{ metadata: eitem }}
         files={files}
         uploadFile={dispatchUploadFile}
+        sendErrorNotification={() => {}}
       />
     );
 
@@ -61,6 +62,7 @@ describe('EItemFiles tests', () => {
       store.dispatch(uploadFile(eitemPid, bucket, file));
     component = mount(
       <UploadButton
+        sendErrorNotification={() => {}}
         eitem={{ pid: eitemNoBucket.pid, metadata: eitemNoBucket }}
         files={[]}
         uploadFile={dispatchUploadFile}

@@ -161,13 +161,13 @@ export default class LibraryDetails extends React.Component {
   }
 
   componentDidMount() {
-    const { fetchLibraryDetails } = this.props;
-    fetchLibraryDetails(this.props.match.params.libraryPid);
+    const { fetchLibraryDetails, match } = this.props;
+    fetchLibraryDetails(match.params.libraryPid);
   }
 
   componentDidUpdate(prevProps) {
-    const { fetchLibraryDetails } = this.props;
-    const libraryPid = this.props.match.params.libraryPid;
+    const { fetchLibraryDetails, match } = this.props;
+    const libraryPid = match.params.libraryPid;
     const samePidFromRouter = prevProps.match.params.libraryPid === libraryPid;
     if (!samePidFromRouter) {
       fetchLibraryDetails(libraryPid);
@@ -221,6 +221,11 @@ LibraryDetails.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   fetchLibraryDetails: PropTypes.func.isRequired,
   deleteLibrary: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      libraryPid: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 LibraryDetails.defaultProps = {

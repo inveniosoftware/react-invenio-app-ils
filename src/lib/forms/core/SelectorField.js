@@ -8,19 +8,19 @@ import _has from 'lodash/has';
 
 export class SelectorField extends Component {
   state = {
+    // eslint-disable-next-line react/no-unused-state
     value: null,
   };
 
-  renderEmpty = () => (
-    <Card
-      header={this.props.emptyHeader}
-      description={this.props.emptyDescription}
-    />
-  );
+  renderEmpty = () => {
+    const { emptyHeader, emptyDescription } = this.props;
+    return <Card header={emptyHeader} description={emptyDescription} />;
+  };
 
   defaultRenderSelection = (selection, removeSelection) => {
+    const { multiple } = this.props;
     return (
-      <Card fluid={!this.props.multiple} key={selection.id}>
+      <Card fluid={!multiple} key={selection.id}>
         <Card.Content>
           <Card.Header as="a" onClick={() => removeSelection(selection)}>
             {selection.title}
@@ -48,15 +48,17 @@ export class SelectorField extends Component {
   };
 
   onSelectionsUpdate = (selections, setFieldValue) => {
+    const { multiple, fieldPath } = this.props;
+    // eslint-disable-next-line react/no-unused-state
     this.setState({ value: selections });
-    if (!this.props.multiple) {
+    if (!multiple) {
       let data = {};
       if (selections.length > 0) {
         data = _has(selections[0], 'metadata')
           ? selections[0].metadata
           : selections[0];
       }
-      setFieldValue(this.props.fieldPath, data);
+      setFieldValue(fieldPath, data);
     }
   };
 
@@ -125,13 +127,9 @@ export class SelectorField extends Component {
   };
 
   render() {
-    const FormikField = this.props.optimized ? FastField : Field;
-    return (
-      <FormikField
-        name={this.props.fieldPath}
-        component={this.renderFormField}
-      />
-    );
+    const { optimized, fieldPath } = this.props;
+    const FormikField = optimized ? FastField : Field;
+    return <FormikField name={fieldPath} component={this.renderFormField} />;
   }
 }
 
@@ -146,6 +144,8 @@ SelectorField.propTypes = {
   renderGroup: PropTypes.func,
   renderSelection: PropTypes.func,
   required: PropTypes.bool,
+  multiple: PropTypes.bool,
+  placeholder: PropTypes.string,
 };
 
 SelectorField.defaultProps = {

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
@@ -16,8 +17,13 @@ export class DocumentEditor extends Component {
   }
 
   componentDidMount() {
-    if (this.props.match.params.documentPid) {
-      this.fetchDocument(this.props.match.params.documentPid);
+    const {
+      match: {
+        params: { documentPid },
+      },
+    } = this.props;
+    if (documentPid) {
+      this.fetchDocument(documentPid);
     }
   }
 
@@ -79,3 +85,11 @@ export class DocumentEditor extends Component {
     );
   }
 }
+
+DocumentEditor.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      documentPid: PropTypes.string,
+    }),
+  }).isRequired,
+};

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { List, Grid } from 'semantic-ui-react';
-import { invenioConfig } from '@config';
 
 export class QueryBuildHelper extends Component {
   addToQuery = field => {
@@ -63,9 +62,6 @@ QueryBuildHelper.propTypes = {
   fields: PropTypes.array.isRequired,
   currentQueryString: PropTypes.string.isRequired,
   updateQueryString: PropTypes.func.isRequired,
-  size: PropTypes.number,
 };
 
-QueryBuildHelper.defaultProps = {
-  size: invenioConfig.defaultResultsSize,
-};
+QueryBuildHelper.defaultProps = {};

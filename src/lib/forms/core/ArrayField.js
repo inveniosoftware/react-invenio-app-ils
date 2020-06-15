@@ -44,12 +44,8 @@ export class ArrayField extends Component {
   };
 
   render() {
-    return (
-      <FieldArray
-        name={this.props.fieldPath}
-        component={this.renderFormField}
-      />
-    );
+    const { fieldPath } = this.props;
+    return <FieldArray name={fieldPath} component={this.renderFormField} />;
   }
 }
 
@@ -65,5 +61,4 @@ ArrayField.propTypes = {
 ArrayField.defaultProps = {
   label: '',
   addButtonLabel: 'Add new row',
-  placeholder: '',
 };

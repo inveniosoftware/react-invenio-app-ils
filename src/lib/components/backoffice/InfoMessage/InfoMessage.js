@@ -21,6 +21,7 @@ export default class InfoMessage extends Component {
 InfoMessage.propTypes = {
   header: PropTypes.string.isRequired,
   content: PropTypes.string,
+  children: PropTypes.node,
 };
 
 InfoMessage.defaultProps = {

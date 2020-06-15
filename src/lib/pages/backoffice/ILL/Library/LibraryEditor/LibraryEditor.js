@@ -1,6 +1,7 @@
 import { libraryApi } from '@api/ill';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { LibraryForm } from './LibraryForm';
 
@@ -12,8 +13,9 @@ export class LibraryEditor extends Component {
   };
 
   componentDidMount() {
-    if (this.props.match.params.libraryPid) {
-      this.fetchlibrary(this.props.match.params.libraryPid);
+    const { match } = this.props;
+    if (match.params.libraryPid) {
+      this.fetchlibrary(match.params.libraryPid);
     }
   }
 
@@ -59,3 +61,11 @@ export class LibraryEditor extends Component {
     );
   }
 }
+
+LibraryEditor.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      libraryPid: PropTypes.string,
+    }),
+  }).isRequired,
+};

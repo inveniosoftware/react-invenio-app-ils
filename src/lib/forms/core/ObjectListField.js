@@ -10,19 +10,22 @@ export class ObjectListField extends Component {
   };
 
   onItemClick = (item, index) => {
-    if (index === this.state.activeIndex) {
+    const { onItemChange } = this.props;
+    const { activeIndex } = this.state;
+    if (index === activeIndex) {
       index = null;
       item = null;
     }
     this.setState({ activeIndex: index });
-    if (this.props.onItemChange) {
-      this.props.onItemChange(index, item);
+    if (onItemChange) {
+      onItemChange(index, item);
     }
   };
 
   getListItemIcon = (index, errors) => {
+    const { fieldPath } = this.props;
     for (const errorPath in errors) {
-      if (errorPath.startsWith(`${this.props.fieldPath}.${index}`)) {
+      if (errorPath.startsWith(`${fieldPath}.${index}`)) {
         return <ErrorIcon />;
       }
     }
@@ -71,13 +74,13 @@ export class ObjectListField extends Component {
   };
 
   render() {
-    return (
-      <Field name={this.props.fieldPath} component={this.renderFormField} />
-    );
+    const { fieldPath } = this.props;
+    return <Field name={fieldPath} component={this.renderFormField} />;
   }
 }
 
 ObjectListField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   onItemChange: PropTypes.func,
+  keyField: PropTypes.string,
 };

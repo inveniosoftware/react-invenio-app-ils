@@ -61,7 +61,7 @@ const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
                     </Link>
                   )}
                   roles={['admin', 'librarian']}
-                  loginComponent={() => <></>}
+                  loginComponent={() => null}
                 />
               )}
             </Grid.Column>
@@ -108,11 +108,16 @@ class DocumentDetails extends Component {
   }
 
   componentDidMount() {
-    this.fetchDocumentsDetails(this.props.match.params.documentPid);
+    const { match } = this.props;
+    this.fetchDocumentsDetails(match.params.documentPid);
   }
 
   componentDidUpdate(prevProps) {
-    const { documentPid } = this.props.match.params;
+    const {
+      match: {
+        params: { documentPid },
+      },
+    } = this.props;
     const samePidFromRouter =
       prevProps.match.params.documentPid === documentPid;
     if (!samePidFromRouter) {
@@ -181,6 +186,11 @@ DocumentDetails.propTypes = {
   documentDetails: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      documentPid: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export default Overridable.component('DocumentDetails', DocumentDetails);

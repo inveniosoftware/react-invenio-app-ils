@@ -157,7 +157,6 @@ exports[`LoansSearch SearchBar tests should render search bar with query helper 
             },
           ]
         }
-        size={15}
         updateQueryString={[MockFunction]}
       >
         <Grid>

@@ -5,28 +5,38 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 export class IdentifiersField extends Component {
-  getObjects = () => [
-    {
-      key: 'scheme',
-      element: VocabularyField,
-      props: { type: this.props.schemeVocabularyType, label: 'Scheme' },
-    },
-    {
-      key: 'value',
-      element: StringField,
-      props: { inline: true, label: 'Value', required: true },
-    },
-  ];
+  getObjects = () => {
+    const { schemeVocabularyType } = this.props;
+    return [
+      {
+        key: 'scheme',
+        element: VocabularyField,
+        props: { type: schemeVocabularyType, label: 'Scheme' },
+      },
+      {
+        key: 'value',
+        element: StringField,
+        props: { inline: true, label: 'Value', required: true },
+      },
+    ];
+  };
 
   render() {
+    const {
+      accordion,
+      fieldPath,
+      label,
+      defaultNewValue,
+      addButtonLabel,
+    } = this.props;
     return (
       <ObjectArrayField
-        accordion={this.props.accordion}
-        fieldPath={this.props.fieldPath}
-        label={this.props.label}
+        accordion={accordion}
+        fieldPath={fieldPath}
+        label={label}
         objects={this.getObjects()}
-        defaultNewValue={this.props.defaultNewValue}
-        addButtonLabel={this.props.addButtonLabel}
+        defaultNewValue={defaultNewValue}
+        addButtonLabel={addButtonLabel}
       />
     );
   }
@@ -38,7 +48,6 @@ IdentifiersField.propTypes = {
   defaultNewValue: PropTypes.object,
   fieldPath: PropTypes.string,
   label: PropTypes.string,
-  objects: PropTypes.array,
   schemeVocabularyType: PropTypes.string,
 };
 

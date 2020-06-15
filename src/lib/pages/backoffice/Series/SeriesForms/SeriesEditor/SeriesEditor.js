@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
@@ -5,8 +6,14 @@ import { SeriesForm } from './components';
 
 export class SeriesEditor extends Component {
   componentDidMount() {
-    if (this.props.match.params.seriesPid) {
-      this.props.fetchSeriesDetails(this.props.match.params.seriesPid);
+    const {
+      fetchSeriesDetails,
+      match: {
+        params: { seriesPid },
+      },
+    } = this.props;
+    if (seriesPid) {
+      fetchSeriesDetails(seriesPid);
     }
   }
 
@@ -43,3 +50,15 @@ export class SeriesEditor extends Component {
     );
   }
 }
+
+SeriesEditor.propTypes = {
+  fetchSeriesDetails: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool,
+  error: PropTypes.object,
+  data: PropTypes.object,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      seriesPid: PropTypes.string,
+    }),
+  }).isRequired,
+};

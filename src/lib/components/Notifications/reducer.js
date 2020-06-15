@@ -7,7 +7,7 @@ export const initialState = {
 
 export const notificationsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD:
+    case ADD: {
       const notification = action.payload;
       notification['id'] = state.nextNotificationId;
       return {
@@ -15,12 +15,14 @@ export const notificationsReducer = (state = initialState, action) => {
         nextNotificationId: state.nextNotificationId + 1,
         notifications: [...state.notifications, notification],
       };
-    case REMOVE:
+    }
+    case REMOVE: {
       const notificationId = action.payload;
       return {
         ...state,
         notifications: state.notifications.filter(n => n.id !== notificationId),
       };
+    }
     case CLEAR_ALL:
       return {
         ...state,

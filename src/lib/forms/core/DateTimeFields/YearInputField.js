@@ -6,13 +6,14 @@ import { Form } from 'semantic-ui-react';
 
 export class YearInputField extends React.Component {
   renderFormField = props => {
+    const { required, label, placeholder, fieldPath } = this.props;
     return (
-      <Form.Field required={this.props.required}>
-        <label>{this.props.label}</label>
+      <Form.Field required={required}>
+        <label>{label}</label>
         <YearPicker
-          id={this.props.fieldPath}
-          name={this.props.fieldPath}
-          placeholder={this.props.placeholder}
+          id={fieldPath}
+          name={fieldPath}
+          placeholder={placeholder}
           error={props.error}
           defaultValue={`${props.value}`}
           handleBlur={props.form.handleBlur}
@@ -23,9 +24,10 @@ export class YearInputField extends React.Component {
   };
 
   render() {
+    const { fieldPath } = this.props;
     return (
       <CalendarInputField
-        fieldPath={this.props.fieldPath}
+        fieldPath={fieldPath}
         component={this.renderFormField}
       />
     );
@@ -34,7 +36,7 @@ export class YearInputField extends React.Component {
 
 YearInputField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
-  inline: PropTypes.bool,
+  required: PropTypes.bool,
   label: PropTypes.string,
   placeholder: PropTypes.string,
 };

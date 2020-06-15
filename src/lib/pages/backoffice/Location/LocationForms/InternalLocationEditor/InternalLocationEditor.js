@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
@@ -16,8 +17,13 @@ export class InternalLocationEditor extends Component {
   }
 
   componentDidMount() {
-    if (this.props.match.params.ilocationPid) {
-      this.fetchInternalLocation(this.props.match.params.ilocationPid);
+    const {
+      match: {
+        params: { ilocationPid },
+      },
+    } = this.props;
+    if (ilocationPid) {
+      this.fetchInternalLocation(ilocationPid);
     }
   }
 
@@ -63,3 +69,11 @@ export class InternalLocationEditor extends Component {
     );
   }
 }
+
+InternalLocationEditor.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      ilocationPid: PropTypes.string,
+    }),
+  }).isRequired,
+};

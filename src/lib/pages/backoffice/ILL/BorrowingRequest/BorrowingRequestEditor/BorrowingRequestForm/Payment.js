@@ -38,7 +38,7 @@ export class Payment extends Component {
           type={
             invenioConfig.vocabularies.illBorrowingRequests.ill_payment_mode
           }
-          fieldPath={'payment.mode'}
+          fieldPath="payment.mode"
           label="Payment mode"
           placeholder="Select payment mode..."
           required

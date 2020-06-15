@@ -173,13 +173,13 @@ export default class OrderDetails extends React.Component {
   }
 
   componentDidMount() {
-    const { fetchOrderDetails } = this.props;
-    fetchOrderDetails(this.props.match.params.orderPid);
+    const { fetchOrderDetails, match } = this.props;
+    fetchOrderDetails(match.params.orderPid);
   }
 
   componentDidUpdate(prevProps) {
-    const orderPid = this.props.match.params.orderPid;
-    const { fetchOrderDetails } = this.props;
+    const { fetchOrderDetails, match } = this.props;
+    const orderPid = match.params.orderPid;
 
     const samePidFromRouter = prevProps.match.params.orderPid === orderPid;
     if (!samePidFromRouter) {
@@ -236,6 +236,11 @@ OrderDetails.propTypes = {
   fetchOrderDetails: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
   error: PropTypes.object,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      orderPid: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 OrderDetails.defaultProps = {

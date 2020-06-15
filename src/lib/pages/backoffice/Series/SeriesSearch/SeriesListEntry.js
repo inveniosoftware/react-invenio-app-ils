@@ -63,7 +63,7 @@ export class SeriesListEntry extends Component {
             <List.Item>
               <List.Content floated="right">
                 <Link to={BackOfficeRoutes.seriesListWithQuery(partOfMMQuery)}>
-                  <Icon name={'paperclip'} />
+                  <Icon name="paperclip" />
                 </Link>
               </List.Content>
               <List.Content>Part of multipart monograph</List.Content>
@@ -71,7 +71,7 @@ export class SeriesListEntry extends Component {
           )}
           {partOfSeriesQuery && (
             <List.Item>
-              <List.Content floated={'right'}>
+              <List.Content floated="right">
                 <Link
                   to={BackOfficeRoutes.seriesListWithQuery(partOfSeriesQuery)}
                 >
@@ -128,7 +128,7 @@ export class SeriesListEntry extends Component {
             <DocumentTags metadata={series.metadata} />
           </Item.Extra>
         </Item.Content>
-        <div className={'pid-field'}>#{series.metadata.pid}</div>
+        <div className="pid-field">#{series.metadata.pid}</div>
       </Item>
     );
   }

@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 
 export class BorrowingRequestDetailsLink extends Component {
   render() {
-    const { brwPid, ...props } = this.props;
+    const { brwPid, children, ...props } = this.props;
     return (
       <Link
         to={ILLRoutes.borrowingRequestDetailsFor(brwPid)}
         data-test={brwPid}
         {...props}
       >
-        {this.props.children}
+        {children}
       </Link>
     );
   }
@@ -20,4 +20,5 @@ export class BorrowingRequestDetailsLink extends Component {
 
 BorrowingRequestDetailsLink.propTypes = {
   brwPid: PropTypes.string.isRequired,
+  children: PropTypes.node,
 };

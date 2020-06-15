@@ -17,13 +17,17 @@ export default class LoanDetails extends Component {
   }
 
   componentDidMount() {
-    const { fetchLoanDetails } = this.props;
-    fetchLoanDetails(this.props.match.params.loanPid);
+    const { fetchLoanDetails, match } = this.props;
+    fetchLoanDetails(match.params.loanPid);
   }
 
   componentDidUpdate(prevProps) {
-    const loanPid = this.props.match.params.loanPid;
-    const { fetchLoanDetails } = this.props;
+    const {
+      fetchLoanDetails,
+      match: {
+        params: { loanPid },
+      },
+    } = this.props;
 
     const samePidFromRouter = prevProps.match.params.loanPid === loanPid;
     if (!samePidFromRouter) {
@@ -78,6 +82,11 @@ LoanDetails.propTypes = {
   data: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   error: PropTypes.object,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      loanPid: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 LoanDetails.defaultProps = {

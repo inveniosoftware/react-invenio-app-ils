@@ -27,7 +27,8 @@ export default class CancelModal extends Component {
 
   updateInputRef = element => {
     this.inputRef = element
-      ? ReactDOM.findDOMNode(element).querySelector('input')
+      ? // eslint-disable-next-line react/no-find-dom-node
+        ReactDOM.findDOMNode(element).querySelector('input')
       : null;
   };
 

@@ -27,14 +27,14 @@ export default class DocumentDetails extends Component {
   }
 
   componentDidMount() {
-    const { fetchDocumentDetails } = this.props;
-    fetchDocumentDetails(this.props.match.params.documentPid);
+    const { fetchDocumentDetails, match } = this.props;
+    fetchDocumentDetails(match.params.documentPid);
   }
 
   componentDidUpdate(prevProps) {
-    const { fetchDocumentDetails } = this.props;
+    const { fetchDocumentDetails, match } = this.props;
 
-    const documentPid = this.props.match.params.documentPid;
+    const documentPid = match.params.documentPid;
     const samePidFromRouter =
       prevProps.match.params.documentPid === documentPid;
     if (!samePidFromRouter) {
@@ -97,6 +97,11 @@ DocumentDetails.propTypes = {
   error: PropTypes.object,
   data: PropTypes.object.isRequired,
   fetchDocumentDetails: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      documentPid: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 DocumentDetails.defaultProps = {

@@ -41,9 +41,9 @@ export default class DocumentCard extends Component {
       <Loader isLoading={isLoading}>
         <Error error={error}>
           <RecordsBriefCard
-            title={'Documents'}
+            title="Documents"
             stats={data}
-            text={'requested on shelf'}
+            text="requested on shelf"
             buttonLeft={this.newDocumentButton()}
             buttonRight={this.seeAllButton()}
           />

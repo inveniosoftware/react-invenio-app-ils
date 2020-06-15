@@ -33,6 +33,7 @@ export default class ScrollingMenuItem extends Component {
 
 ScrollingMenuItem.propTypes = {
   offset: PropTypes.number,
+  children: PropTypes.node,
 };
 
 ScrollingMenuItem.defaultProps = {

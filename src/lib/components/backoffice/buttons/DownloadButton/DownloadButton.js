@@ -28,6 +28,7 @@ DownloadButton.propTypes = {
   fluid: PropTypes.bool,
   disabled: PropTypes.bool,
   to: PropTypes.string.isRequired,
+  children: PropTypes.node,
 };
 
 DownloadButton.defaultProps = {

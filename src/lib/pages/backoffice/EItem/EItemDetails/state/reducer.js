@@ -33,7 +33,7 @@ export default (state = initialState, action) => {
         error: {},
         hasError: false,
       };
-    case ADD_FILE:
+    case ADD_FILE: {
       let fileAdded = false;
       const files = state.files.map(file => {
         if (file.key === action.payload.key) {
@@ -50,6 +50,7 @@ export default (state = initialState, action) => {
         files: files,
         isFilesLoading: false,
       };
+    }
     case DELETE_FILE:
       return {
         ...state,

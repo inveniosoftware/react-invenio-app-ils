@@ -45,6 +45,7 @@ ILSParagraphPlaceholder.propTypes = {
   isLoading: PropTypes.bool,
   linesNumber: PropTypes.number.isRequired,
   lineLength: PropTypes.string,
+  children: PropTypes.node,
 };
 
 ILSParagraphPlaceholder.defaultProps = {
@@ -67,6 +68,7 @@ export class ILSImagePlaceholder extends Component {
 
 ILSImagePlaceholder.propTypes = {
   isLoading: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 ILSImagePlaceholder.defaultProps = {
@@ -91,6 +93,7 @@ export class ILSHeaderPlaceholder extends Component {
 
 ILSHeaderPlaceholder.propTypes = {
   isLoading: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 ILSHeaderPlaceholder.defaultProps = {
@@ -120,6 +123,7 @@ export class ILSItemPlaceholder extends Component {
 
 ILSItemPlaceholder.propTypes = {
   isLoading: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 ILSItemPlaceholder.defaultProps = {

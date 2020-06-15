@@ -30,16 +30,14 @@ export default class SeriesDetails extends Component {
   }
 
   componentDidMount() {
-    const { fetchSeriesDetails } = this.props;
-    fetchSeriesDetails(this.props.match.params.seriesPid);
+    const { fetchSeriesDetails, match } = this.props;
+    fetchSeriesDetails(match.params.seriesPid);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { fetchSeriesDetails } = this.props;
-    if (
-      prevProps.match.params.seriesPid !== this.props.match.params.seriesPid
-    ) {
-      fetchSeriesDetails(this.props.match.params.seriesPid);
+    const { fetchSeriesDetails, match } = this.props;
+    if (prevProps.match.params.seriesPid !== match.params.seriesPid) {
+      fetchSeriesDetails(match.params.seriesPid);
     }
   }
 
@@ -198,6 +196,11 @@ SeriesDetails.propTypes = {
   documentsInSeries: PropTypes.object,
   multipartMonographsInSeries: PropTypes.object,
   fetchSeriesDetails: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      seriesPid: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 SeriesDetails.defaultProps = {
