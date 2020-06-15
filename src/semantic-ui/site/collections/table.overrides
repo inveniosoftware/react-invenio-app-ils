@@ -1,5 +1,5 @@
 /*******************************
-         Site Overrides
+Table Overrides - REACT-INVENIO-APP-ILS
 *******************************/
 
 .bo-relations-tab, .bo-metadata-tab, .bo-metadata-segment {

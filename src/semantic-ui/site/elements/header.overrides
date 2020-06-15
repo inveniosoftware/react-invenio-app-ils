@@ -1,5 +1,5 @@
 /*******************************
-         Site Overrides
+Header Overrides - REACT-INVENIO-APP-ILS
 *******************************/
 
 @{fs-parent-selector} {

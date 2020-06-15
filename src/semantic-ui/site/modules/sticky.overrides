@@ -1,5 +1,5 @@
 /*******************************
-         Site Overrides
+Sticky Overrides - REACT-INVENIO-APP-ILS
 *******************************/
 
 .ui.stuck-container {

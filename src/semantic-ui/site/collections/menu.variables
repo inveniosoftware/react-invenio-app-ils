@@ -1,5 +1,5 @@
 /*******************************
-    User Variable Overrides
+Menu Variables - REACT-INVENIO-APP-ILS
 *******************************/
 
 @secondaryPointingActiveBorderColor: @fsPrimaryColor;
