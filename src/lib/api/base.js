@@ -1,4 +1,4 @@
-import { invenioConfig } from '@config';
+import { invenioConfig } from '@config/invenioConfig';
 import { goTo } from '@history';
 import { AuthenticationRoutes } from '@routes/urls';
 import axios from 'axios';

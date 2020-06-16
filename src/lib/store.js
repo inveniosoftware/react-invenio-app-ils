@@ -34,9 +34,10 @@ import {
   pendingOverdueDocumentsReducer,
   renewedLoansReducer,
 } from '@pages/backoffice/Home/reducer';
+import { borrowingRequestLoanExtensionReducer } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/BorrowingRequestPatronLoan/BorrowingRequestLoanExtension/reducer';
+import { borrowingRequestPatronLoanCreateReducer } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/BorrowingRequestPatronLoan/reducer';
 import borrowingRequestDetailsReducer from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/state/reducer';
 import libraryDetailsReducer from '@pages/backoffice/ILL/Library/LibraryDetails/state/reducer';
-import { borrowingRequestPatronLoanCreateReducer } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/BorrowingRequestPatronLoan/reducer';
 import {
   itemDetailsReducer,
   itemPastLoansReducer,
@@ -125,6 +126,7 @@ const rootReducer = combineReducers({
   itemsSearchInput: itemsSearchByBarcodeReducer,
   patronItemsCheckout: patronItemCheckoutReducer,
   statsMostLoanedDocuments: mostLoanedDocumentsReducer,
+  borrowingRequestLoanExtension: borrowingRequestLoanExtensionReducer,
 });
 
 const composeEnhancers = composeWithDevTools({

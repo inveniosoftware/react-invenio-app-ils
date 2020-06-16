@@ -118,6 +118,8 @@ export const invenioConfig = {
     requestedStatuses: ['REQUESTED'],
     activeStatuses: ['ON_LOAN'],
     completedStatuses: ['CANCELLED', 'RETURNED'],
+    extensionDeclinedStatuses: ['DECLINED'],
+    extensionPendingStatuses: ['PENDING'],
     statuses: [
       { value: 'CANCELLED', text: 'Cancelled' },
       { value: 'PENDING', text: 'Pending' },
