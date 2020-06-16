@@ -1,5 +1,5 @@
-import { literatureApi } from '@api/literature/literature';
 import { responseRejectInterceptor } from '@api/base';
+import { literatureApi } from '@api/literature/literature';
 import { Error as IlsError } from '@components/Error';
 import { SearchBar as DocumentsSearchBar } from '@components/SearchBar';
 import history from '@history';
@@ -17,7 +17,7 @@ import {
   ReactSearchKit,
   ResultsLoader,
   ResultsMultiLayout,
-  SearchBar,
+  SearchBar
 } from 'react-searchkit';
 import { Container, Grid, Header, Loader, Responsive } from 'semantic-ui-react';
 import LiteratureSearchMobile from './LiteratureSearchMobile';
@@ -60,7 +60,7 @@ class LiteratureSearch extends Component {
       <ReactSearchKit searchApi={this.searchApi} history={history}>
         <Overridable id="LiteratureSearch.layout">
           <>
-            <Container fluid className="document-details-search-container">
+            <Container fluid className="literature-search-container">
               <Container>
                 <SearchBar renderElement={this.renderSearchBar} />
               </Container>

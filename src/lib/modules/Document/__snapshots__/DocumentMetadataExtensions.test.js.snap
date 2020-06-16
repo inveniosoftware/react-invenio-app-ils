@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DocumentMetadataExtensions tests should render the DocumentMetadataExtensions 1`] = `
+<DocumentMetadataExtensions
+  extensions={
+    Object {
+      "barObject:barProp": "barValue",
+      "fooObject:fooProp": "fooValue",
+    }
+  }
+  showDivider={true}
+>
+  <Divider
+    horizontal={true}
+  >
+    <div
+      className="ui horizontal divider"
+    >
+      document
+    </div>
+  </Divider>
+  <Table
+    as="table"
+    definition={true}
+  >
+    <table
+      className="ui definition table"
+    >
+      <TableBody
+        as="tbody"
+      >
+        <tbody
+          className=""
+        >
+          <TableRow
+            as="tr"
+            cellAs="td"
+            key="fooObject:fooProp"
+          >
+            <tr
+              className=""
+            >
+              <TableCell
+                as="td"
+                width={4}
+              >
+                <td
+                  className="four wide"
+                >
+                  Foo
+                </td>
+              </TableCell>
+              <TableCell
+                as="td"
+              >
+                <td
+                  className=""
+                >
+                  fooValue
+                </td>
+              </TableCell>
+            </tr>
+          </TableRow>
+          <TableRow
+            as="tr"
+            cellAs="td"
+            key="barObject:barProp"
+          >
+            <tr
+              className=""
+            >
+              <TableCell
+                as="td"
+                width={4}
+              >
+                <td
+                  className="four wide"
+                >
+                  Bar
+                </td>
+              </TableCell>
+              <TableCell
+                as="td"
+              >
+                <td
+                  className=""
+                >
+                  barValue
+                </td>
+              </TableCell>
+            </tr>
+          </TableRow>
+        </tbody>
+      </TableBody>
+    </table>
+  </Table>
+</DocumentMetadataExtensions>
+`;

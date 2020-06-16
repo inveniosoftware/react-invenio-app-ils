@@ -1,9 +1,9 @@
 import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
-import { Error } from '@components/Error';
-import { SearchBar } from '@components/SearchBar';
-import { ILSParagraphPlaceholder } from '@components/ILSPlaceholder';
-import { goTo } from '@history';
 import { Breadcrumbs } from '@components/Breadcrumbs';
+import { Error } from '@components/Error';
+import { ILSParagraphPlaceholder } from '@components/ILSPlaceholder';
+import { SearchBar } from '@components/SearchBar';
+import { goTo } from '@history';
 import { SeriesLiteratureSearch } from '@modules/Series/SeriesLiteratureSearch';
 import { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
@@ -20,12 +20,11 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
     { to: FrontSiteRoutes.home, label: 'Home' },
     { to: FrontSiteRoutes.documentsList, label: 'Search' },
   ];
-
   return (
     <Overridable id="SeriesDetails.layout" {...{ error, isLoading, series }}>
       <Error boundary error={error}>
         <Container className="document-details-container default-margin-top">
-          <ILSParagraphPlaceholder isLoading={isLoading} lines={1}>
+          <ILSParagraphPlaceholder isLoading={isLoading} linesNumber={1}>
             <Grid columns={2}>
               <Grid.Column width={13}>
                 <Breadcrumbs
@@ -57,7 +56,7 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
             </Grid>
           </ILSParagraphPlaceholder>
 
-          <SeriesPanel isLoading={isLoading} seriesDetails={SeriesDetails} />
+          <SeriesPanel isLoading={isLoading} series={series} />
         </Container>
         <Responsive minWidth={Responsive.onlyComputer.minWidth}>
           <Container className="items-locations spaced">
@@ -85,8 +84,12 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
 
 SeriesDetailsLayout.propTypes = {
   series: PropTypes.object.isRequired,
-  error: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.object,
+};
+
+SeriesDetailsLayout.defaultProps = {
+  error: null,
 };
 
 class SeriesDetails extends React.Component {
@@ -134,15 +137,20 @@ class SeriesDetails extends React.Component {
     const { searchQuery } = this.state;
     return (
       <>
-        <Container fluid className="document-details-search-container">
-          <Overridable id="SeriesDetails.top">
+        <Container fluid className="literature-search-container">
+          <Overridable
+            id="SeriesDetails.top"
+            searchQuery={searchQuery}
+            currentQueryString={searchQuery}
+            onInputChange={this.onSearchInputChange}
+            executeSearch={this.onSearchClick}
+          >
             <Container>
               <SearchBar
                 currentQueryString={searchQuery}
                 onInputChange={this.onSearchInputChange}
                 executeSearch={this.onSearchClick}
-                placeholder="Search for books..."
-                className="document-details-search-bar"
+                placeholder="Search for literatures..."
               />
             </Container>
           </Overridable>
@@ -156,7 +164,6 @@ class SeriesDetails extends React.Component {
 SeriesDetails.propTypes = {
   /* redux */
   series: PropTypes.object.isRequired,
-  error: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool.isRequired,
   fetchSeriesDetails: PropTypes.func.isRequired,
   match: PropTypes.shape({
@@ -164,6 +171,11 @@ SeriesDetails.propTypes = {
       seriesPid: PropTypes.string,
     }),
   }).isRequired,
+  error: PropTypes.object,
+};
+
+SeriesDetails.defaultProps = {
+  error: null,
 };
 
 export default Overridable.component('SeriesDetails', SeriesDetails);

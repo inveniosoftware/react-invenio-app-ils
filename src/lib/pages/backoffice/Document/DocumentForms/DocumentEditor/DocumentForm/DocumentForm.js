@@ -1,6 +1,6 @@
 import { documentRequestApi } from '@api/documentRequests';
 import { documentApi } from '@api/documents';
-import { invenioConfig } from '@config';
+import { extensionsConfig, invenioConfig } from '@config';
 import { UrlsField } from '@forms/components';
 import { BaseForm } from '@forms/core/BaseForm';
 import { BooleanField } from '@forms/core/BooleanField';
@@ -12,26 +12,28 @@ import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
 import { getIn } from 'formik';
 import _get from 'lodash/get';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import Overridable from 'react-overridable';
 import {
   AlternativeAbstracts,
   AlternativeIdentifiers,
   AlternativeTitles,
   AuthorsField,
+  ConferenceInfoField,
   Copyrights,
   Identifiers,
+  Imprint,
+  InternalNotes,
+  Keywords,
   LicensesField,
+  MetadataExtensions,
   PublicationInfoField,
   Subjects,
   TableOfContent,
   TagsField,
 } from './components';
-import { ConferenceInfoField } from './components/ConferenceInfoField';
-import { Imprint } from './components/Imprint';
-import { InternalNotes } from './components/InternalNotes';
-import { Keywords } from './components/Keywords';
-
 import documentSubmitSerializer from './documentSubmitSerializer';
 
 export class DocumentForm extends Component {
@@ -94,6 +96,7 @@ export class DocumentForm extends Component {
 
   render() {
     const { data, successSubmitMessage, title, pid } = this.props;
+    const extensions = _get(data, 'metadata.extensions', {});
     return (
       <BaseForm
         initialValues={data ? data.metadata : {}}
@@ -104,7 +107,7 @@ export class DocumentForm extends Component {
         title={title}
         pid={pid}
         submitSerializer={documentSubmitSerializer}
-        documentRequestPid={_get(this.props, 'data.documentRequestPid', null)}
+        documentRequestPid={_get(data, 'documentRequestPid', null)}
         buttons={this.buttons}
       >
         <StringField label="Title" fieldPath="title" required optimized />
@@ -149,13 +152,20 @@ export class DocumentForm extends Component {
         <UrlsField />
         <Subjects />
         <InternalNotes />
-        <Identifiers />
+        <Identifiers
+          scheme={invenioConfig.vocabularies.document.identifier.scheme}
+        />
         <AlternativeIdentifiers />
         <AlternativeTitles />
         <Copyrights />
         <PublicationInfoField />
         <Imprint />
         <Keywords />
+        {!_isEmpty(extensions) && !_isEmpty(extensionsConfig.document.fields) && (
+          <Overridable id="DocumentForm.Extensions" extensions={extensions}>
+            <MetadataExtensions extensions={extensions} />
+          </Overridable>
+        )}
       </BaseForm>
     );
   }
@@ -163,13 +173,14 @@ export class DocumentForm extends Component {
 
 DocumentForm.propTypes = {
   data: PropTypes.object,
+  pid: PropTypes.string,
   successSubmitMessage: PropTypes.string,
   title: PropTypes.string,
-  pid: PropTypes.string.isRequired,
 };
 
 DocumentForm.defaultProps = {
   data: null,
+  pid: null,
   successSubmitMessage: null,
   title: null,
 };

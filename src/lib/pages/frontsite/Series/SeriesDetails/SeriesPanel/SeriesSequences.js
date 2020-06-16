@@ -1,10 +1,10 @@
+import { FrontSiteRoutes } from '@routes/urls';
+import _get from 'lodash/get';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import { Header, List, Segment } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
-import { FrontSiteRoutes } from '@routes/urls';
 import { Link } from 'react-router-dom';
-import _get from 'lodash/get';
+import { Header, List, Segment } from 'semantic-ui-react';
 
 class SeriesSequences extends Component {
   renderSequenceLinks = sequences => {

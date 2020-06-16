@@ -17,7 +17,7 @@ export const SeriesAccess = ({ urls }) => {
 };
 
 SeriesAccess.propTypes = {
-  urls: PropTypes.object,
+  urls: PropTypes.arrayOf(PropTypes.object),
 };
 
 SeriesAccess.defaultProps = {

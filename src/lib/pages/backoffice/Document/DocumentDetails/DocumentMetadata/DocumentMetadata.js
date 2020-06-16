@@ -6,8 +6,11 @@ import { DocumentIdentifiers } from './DocumentIdentifiers';
 import { DocumentSystemInfo } from './DocumentSystemInfo';
 import React, { Component } from 'react';
 import { Header, Tab } from 'semantic-ui-react';
+import Overridable from 'react-overridable';
 import PropTypes from 'prop-types';
 import _isEmpty from 'lodash/isEmpty';
+import { extensionsConfig } from '@config';
+import { DocumentMetadataExtensions } from '@modules/Document/DocumentMetadataExtensions';
 
 export default class DocumentMetadata extends Component {
   panes = () => {
@@ -80,6 +83,25 @@ export default class DocumentMetadata extends Component {
         render: () => (
           <Tab.Pane>
             <DocumentExtras document={document} />
+          </Tab.Pane>
+        ),
+      });
+    }
+    const { extensions = {} } = document.metadata;
+    if (!_isEmpty(extensions) && !_isEmpty(extensionsConfig.document.fields)) {
+      panes.push({
+        menuItem: extensionsConfig.document.label,
+        render: () => (
+          <Tab.Pane>
+            <Overridable
+              id="BackofficeDocumentMetadataTabs.Extensions"
+              extensions={extensions}
+            >
+              <DocumentMetadataExtensions
+                extensions={extensions}
+                showDivider={false}
+              />
+            </Overridable>
           </Tab.Pane>
         ),
       });
