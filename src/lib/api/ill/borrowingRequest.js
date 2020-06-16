@@ -1,5 +1,6 @@
 import { apiConfig, http } from '@api/base';
 import { prepareSumQuery } from '@api/utils';
+import { sessionManager } from '@authentication/services/SessionManager';
 import {
   brwReqCreateLoanSerializer as createLoanSerializer,
   brwReqSerializer as serializer,
@@ -31,13 +32,45 @@ const update = async (borrowingRequestPid, data) => {
 };
 
 const createLoan = async (borrowingRequestPid, loanStartDate, loanEndDate) => {
+  const currentUser = sessionManager.user;
   const payload = createLoanSerializer.toJSON({
     loan_start_date: loanStartDate,
     loan_end_date: loanEndDate,
+    transaction_location_pid: `${currentUser.locationPid}`,
   });
   const resp = await http.post(
-    `${borrowingRequestUrl}${borrowingRequestPid}/create-loan`,
+    `${borrowingRequestUrl}${borrowingRequestPid}/patron-loan/create`,
     payload
+  );
+  resp.data = serializer.fromJSON(resp.data);
+  return resp;
+};
+
+const requestExtension = async borrowingRequestPid => {
+  const resp = await http.post(
+    `${borrowingRequestUrl}${borrowingRequestPid}/patron-loan/extension/request`
+  );
+  resp.data = serializer.fromJSON(resp.data);
+  return resp;
+};
+
+const acceptExtension = async (borrowingRequestPid, loanEndDate) => {
+  const currentUser = sessionManager.user;
+  const payload = createLoanSerializer.toJSON({
+    loan_end_date: loanEndDate,
+    transaction_location_pid: `${currentUser.locationPid}`,
+  });
+  const resp = await http.post(
+    `${borrowingRequestUrl}${borrowingRequestPid}/patron-loan/extension/accept`,
+    payload
+  );
+  resp.data = serializer.fromJSON(resp.data);
+  return resp;
+};
+
+const declineExtension = async borrowingRequestPid => {
+  const resp = await http.post(
+    `${borrowingRequestUrl}${borrowingRequestPid}/patron-loan/extension/decline`
   );
   resp.data = serializer.fromJSON(resp.data);
   return resp;
@@ -130,6 +163,9 @@ export const borrowingRequestApi = {
   list: list,
   update: update,
   createLoan: createLoan,
+  requestExtension: requestExtension,
+  acceptExtension: acceptExtension,
+  declineExtension: declineExtension,
   query: queryBuilder,
   url: borrowingRequestUrl,
 };

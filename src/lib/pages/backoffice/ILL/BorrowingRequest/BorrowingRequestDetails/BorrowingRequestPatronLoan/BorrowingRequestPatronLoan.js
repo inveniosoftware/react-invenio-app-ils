@@ -6,7 +6,9 @@ import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { LoanIcon } from '@components/backoffice/icons';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
+import _isEmpty from 'lodash/isEmpty';
 import { DateTime } from 'luxon';
+import { BorrowingRequestLoanExtension } from './BorrowingRequestLoanExtension';
 import { PropTypes } from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -175,8 +177,8 @@ class CreateLoan extends React.Component {
               </Form.Group>
               <Divider hidden />
               <i>
-                The loan end date should not be after the borrowing request end
-                date.
+                The loan start date should not be after the borrowing request
+                end date.
               </i>
             </Form>
           </Modal.Content>
@@ -267,6 +269,13 @@ export default class BorrowingRequestPatronLoan extends React.Component {
           </Grid.Row>
         </Grid>
         <CreateLoan {...this.props} />
+
+        {!_isEmpty(brwReq.patron_loan) && (
+          <BorrowingRequestLoanExtension
+            patronLoan={brwReq.patron_loan}
+            brwReqPid={brwReq.pid}
+          />
+        )}
       </>
     );
   }
