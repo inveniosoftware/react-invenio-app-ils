@@ -1,4 +1,4 @@
-import { extensionsConfig } from '@config';
+import { uiConfig } from '@config';
 import { DocumentConference } from '@modules/Document/DocumentConference';
 import { DocumentInfo } from '@modules/Document/DocumentInfo';
 import { DocumentTableOfContent } from '@modules/Document/DocumentTableOfContent';
@@ -113,24 +113,25 @@ class DocumentMetadataAccordion extends Component {
         </Accordion.Content>
 
         <Accordion.Title
-          active={activeIndex === extensionsConfig.document.label}
-          index={extensionsConfig.document.label}
+          active={activeIndex === uiConfig.extensions.document.label}
+          index={uiConfig.extensions.document.label}
           onClick={this.handleClick}
         >
           <Icon name="dropdown" />
-          {extensionsConfig.document.label}
+          {uiConfig.extensions.document.label}
         </Accordion.Title>
-        {!_isEmpty(extensions) && _isEmpty(extensionsConfig.document.fields) && (
-          <Accordion.Content
-            active={activeIndex === extensionsConfig.document.label}
-          >
-            <Overridable
-              id="DocumentMetadataTabs.Extensions.mobile"
-              extensions={extensions}
-            />
-            <DocumentMetadataExtensions extensions={extensions} />
-          </Accordion.Content>
-        )}
+        {!_isEmpty(extensions) &&
+          _isEmpty(uiConfig.extensions.document.fields) && (
+            <Accordion.Content
+              active={activeIndex === uiConfig.extensions.document.label}
+            >
+              <Overridable
+                id="DocumentMetadataTabs.Extensions.mobile"
+                extensions={extensions}
+              />
+              <DocumentMetadataExtensions extensions={extensions} />
+            </Accordion.Content>
+          )}
       </Accordion>
     );
   }

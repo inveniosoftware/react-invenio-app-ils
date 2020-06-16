@@ -17,7 +17,7 @@ const resultsPerPageValues = [
   },
 ];
 
-const searchConfig = {
+export const searchConfig = {
   documents: {
     filters: [
       {

@@ -1,8 +1,8 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import { SeriesMetadataExtensions } from './SeriesMetadataExtensions';
 
-jest.mock('@config/extensionsConfig');
+jest.mock('@config/uiConfig');
 
 describe('SeriesMetadataExtensions tests', () => {
   let component;

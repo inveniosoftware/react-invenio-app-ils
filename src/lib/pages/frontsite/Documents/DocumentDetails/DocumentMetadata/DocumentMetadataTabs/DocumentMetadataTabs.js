@@ -1,4 +1,4 @@
-import { extensionsConfig } from '@config';
+import { uiConfig } from '@config';
 import { DocumentConference } from '@modules/Document/DocumentConference';
 import { DocumentInfo } from '@modules/Document/DocumentInfo';
 import { DocumentLinks } from '@modules/Document/DocumentLinks';
@@ -86,9 +86,12 @@ class DocumentMetadataTabs extends Component {
     }
 
     const { extensions = {} } = metadata;
-    if (!_isEmpty(extensions) && !_isEmpty(extensionsConfig.document.fields)) {
+    if (
+      !_isEmpty(extensions) &&
+      !_isEmpty(uiConfig.extensions.document.fields)
+    ) {
       panes.push({
-        menuItem: extensionsConfig.document.label,
+        menuItem: uiConfig.extensions.document.label,
         render: () => (
           <Tab.Pane>
             <Overridable

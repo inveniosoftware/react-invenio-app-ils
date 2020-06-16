@@ -1,8 +1,8 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import { DocumentMetadataExtensions } from './DocumentMetadataExtensions';
 
-jest.mock('@config/extensionsConfig');
+jest.mock('@config/uiConfig');
 
 describe('DocumentMetadataExtensions tests', () => {
   let component;

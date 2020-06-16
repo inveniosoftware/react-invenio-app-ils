@@ -29,9 +29,19 @@ const overriddenCmps = {
   // 'LiteratureCover.layout': CustomCover,
 };
 
+const config = {
+  invenioConfig: {
+    authors: {
+      maxDisplay: 42,
+    },
+  },
+  uiConfig: {},
+  searchConfig: {},
+};
+
 ReactDOM.render(
   <OverridableContext.Provider value={overriddenCmps}>
-    <InvenioILSApp />
+    <InvenioILSApp config={config} />
   </OverridableContext.Provider>,
   document.getElementById('app')
 );

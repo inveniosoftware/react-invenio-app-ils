@@ -1,6 +1,6 @@
 import { documentRequestApi } from '@api/documentRequests';
 import { documentApi } from '@api/documents';
-import { extensionsConfig, invenioConfig } from '@config';
+import { invenioConfig, uiConfig } from '@config';
 import { UrlsField } from '@forms/components';
 import { BaseForm } from '@forms/core/BaseForm';
 import { BooleanField } from '@forms/core/BooleanField';
@@ -163,11 +163,12 @@ export class DocumentForm extends Component {
         <PublicationInfoField />
         <Imprint />
         <Keywords />
-        {!_isEmpty(extensions) && !_isEmpty(extensionsConfig.document.fields) && (
-          <Overridable id="DocumentForm.Extensions" extensions={extensions}>
-            <MetadataExtensions extensions={extensions} />
-          </Overridable>
-        )}
+        {!_isEmpty(extensions) &&
+          !_isEmpty(uiConfig.extensions.document.fields) && (
+            <Overridable id="DocumentForm.Extensions" extensions={extensions}>
+              <MetadataExtensions extensions={extensions} />
+            </Overridable>
+          )}
       </BaseForm>
     );
   }
