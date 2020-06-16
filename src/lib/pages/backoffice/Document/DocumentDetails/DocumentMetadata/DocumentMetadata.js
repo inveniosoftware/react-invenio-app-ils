@@ -1,16 +1,16 @@
-import { DocumentCopyrights } from './DocumentCopyrights';
-import { DocumentMetadataGeneral } from './DocumentMetadataGeneral';
+import { uiConfig } from '@config';
+import { DocumentMetadataExtensions } from '@modules/Document/DocumentMetadataExtensions';
+import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import Overridable from 'react-overridable';
+import { Header, Tab } from 'semantic-ui-react';
 import { DocumentContents } from './DocumentContents';
+import { DocumentCopyrights } from './DocumentCopyrights';
 import { DocumentExtras } from './DocumentExtras';
 import { DocumentIdentifiers } from './DocumentIdentifiers';
+import { DocumentMetadataGeneral } from './DocumentMetadataGeneral';
 import { DocumentSystemInfo } from './DocumentSystemInfo';
-import React, { Component } from 'react';
-import { Header, Tab } from 'semantic-ui-react';
-import Overridable from 'react-overridable';
-import PropTypes from 'prop-types';
-import _isEmpty from 'lodash/isEmpty';
-import { extensionsConfig } from '@config';
-import { DocumentMetadataExtensions } from '@modules/Document/DocumentMetadataExtensions';
 
 export default class DocumentMetadata extends Component {
   panes = () => {
@@ -75,8 +75,7 @@ export default class DocumentMetadata extends Component {
 
     if (
       !_isEmpty(document.metadata.publication_info) ||
-      !_isEmpty(document.metadata.conference_info) ||
-      !_isEmpty(document.metadata.extra_data)
+      !_isEmpty(document.metadata.conference_info)
     ) {
       panes.push({
         menuItem: 'Other',
@@ -88,9 +87,12 @@ export default class DocumentMetadata extends Component {
       });
     }
     const { extensions = {} } = document.metadata;
-    if (!_isEmpty(extensions) && !_isEmpty(extensionsConfig.document.fields)) {
+    if (
+      !_isEmpty(extensions) &&
+      !_isEmpty(uiConfig.extensions.document.fields)
+    ) {
       panes.push({
-        menuItem: extensionsConfig.document.label,
+        menuItem: uiConfig.extensions.document.label,
         render: () => (
           <Tab.Pane>
             <Overridable

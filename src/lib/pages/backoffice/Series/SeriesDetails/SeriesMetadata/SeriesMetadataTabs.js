@@ -1,5 +1,5 @@
 import { InfoMessage } from '@components/backoffice/InfoMessage';
-import { extensionsConfig } from '@config';
+import { uiConfig } from '@config';
 import { SeriesMetadataExtensions } from '@modules/Series/SeriesMetadataExtensions';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
@@ -75,9 +75,9 @@ export default class SeriesMetadataTabs extends Component {
       },
     ];
     const { extensions = {} } = series.metadata;
-    if (!_isEmpty(extensions) && !_isEmpty(extensionsConfig.series.fields)) {
+    if (!_isEmpty(extensions) && !_isEmpty(uiConfig.extensionsseries.fields)) {
       panes.push({
-        menuItem: extensionsConfig.series.label,
+        menuItem: uiConfig.extensionsseries.label,
         render: () => (
           <Tab.Pane>
             <Overridable

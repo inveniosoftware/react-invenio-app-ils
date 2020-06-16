@@ -4,6 +4,7 @@ import { ConfirmEmail } from '@authentication/pages';
 import { Login } from '@authentication/pages/Login';
 import { fetchUserProfile } from '@authentication/state/actions';
 import { NotFound } from '@components/NotFound';
+import { initConfig } from '@config';
 import history from '@history';
 import { AuthenticationRoutes } from '@routes/authentication/urls';
 import { BackOffice } from '@routes/backoffice';
@@ -40,6 +41,11 @@ const mapDispatchToProps = dispatch => ({
 const FetchUser = connect(null, mapDispatchToProps)(FetchUserComponent);
 
 export default class App extends Component {
+  componentDidMount() {
+    const { config } = this.props;
+    initConfig(config);
+  }
+
   render() {
     return (
       <Provider store={store}>
@@ -71,4 +77,10 @@ export default class App extends Component {
   }
 }
 
-App.propTypes = {};
+App.propTypes = {
+  config: PropTypes.object,
+};
+
+App.defaultProps = {
+  config: {},
+};

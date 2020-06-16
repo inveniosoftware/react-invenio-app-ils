@@ -22,4 +22,14 @@ export const uiConfig = {
   LOGO_SRC: process.env.PUBLIC_URL + '/logo-invenio-ils.svg',
   ES_DELAY: 3000,
   SUCCESS_AUTO_DISMISS_SECONDS: 10,
+  extensions: {
+    document: {
+      label: 'Other',
+      fields: {},
+    },
+    series: {
+      label: 'Other',
+      fields: {},
+    },
+  },
 };

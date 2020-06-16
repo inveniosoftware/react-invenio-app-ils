@@ -1,4 +1,4 @@
-import { extensionsConfig } from '@config';
+import { uiConfig } from '@config';
 import { Identifiers } from '@modules/Identifiers';
 import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
 import LiteratureRelations from '@modules/Literature/LiteratureRelations';
@@ -66,9 +66,9 @@ class SeriesMetadataTabs extends Component {
       },
     ];
     const { extensions = {} } = metadata;
-    if (!_isEmpty(extensions) && !_isEmpty(extensionsConfig.series.fields)) {
+    if (!_isEmpty(extensions) && !_isEmpty(uiConfig.extensions.series.fields)) {
       panes.push({
-        menuItem: extensionsConfig.series.label,
+        menuItem: uiConfig.extensions.series.label,
         render: () => (
           <Tab.Pane>
             <Overridable

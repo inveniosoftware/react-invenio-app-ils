@@ -26,7 +26,7 @@ import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { AccessUrls } from './AccessUrls';
 import { SeriesMetadataExtensions } from './SeriesMetadataExtensions';
-import { extensionsConfig } from '@config';
+import { uiConfig } from '@config';
 
 export class SeriesForm extends Component {
   prepareData = data => {
@@ -149,7 +149,7 @@ export class SeriesForm extends Component {
         />
         <TextField label="Notes" fieldPath="note" rows={5} optimized />
         <InternalNotes />
-        {!_isEmpty(extensions) && !_isEmpty(extensionsConfig.series.fields) && (
+        {!_isEmpty(extensions) && !_isEmpty(uiConfig.extensionsseries.fields) && (
           <Overridable id="SeriesForm.Extensions" extensions={extensions}>
             <SeriesMetadataExtensions extensions={extensions} />
           </Overridable>

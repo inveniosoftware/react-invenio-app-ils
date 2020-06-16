@@ -1,4 +1,4 @@
-import { extensionsConfig } from '@config';
+import { uiConfig } from '@config';
 import { AccordionField } from '@forms/core/AccordionField';
 import { BooleanField } from '@forms/core/BooleanField';
 import { DateInputField } from '@forms/core/DateTimeFields/DateInputField';
@@ -26,7 +26,7 @@ const getFormComponent = fieldType => {
 };
 
 export const SeriesMetadataExtensions = ({ extensions }) => {
-  const { label, fields } = extensionsConfig.series;
+  const { label, fields } = uiConfig.extensionsseries;
   const configDefaults = {};
   _keys(fields).map(key => (configDefaults[key] = fields[key]['default']));
   const allExtensions = _merge(configDefaults, extensions);
