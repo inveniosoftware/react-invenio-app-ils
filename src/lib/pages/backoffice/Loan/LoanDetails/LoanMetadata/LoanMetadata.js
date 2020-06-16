@@ -1,18 +1,20 @@
+import { toShortDate, toShortDateTime } from '@api/date';
+import { LocationsLink } from '@components/backoffice/buttons/ViewDetailsButtons/LocationsLink';
+import { PatronDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/PatronDetailsLink';
+import {
+  DocumentIcon,
+  ItemIcon,
+  PatronIcon,
+} from '@components/backoffice/icons';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { invenioConfig } from '@config';
 import { getDisplayVal } from '@config/invenioConfig';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import LoanLinkToItem from '@modules/Loan/backoffice/LoanLinkToItem';
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Grid, Icon, Label } from 'semantic-ui-react';
-import { MetadataTable } from '@components/backoffice/MetadataTable';
-import { PatronDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/PatronDetailsLink';
-import { LocationsLink } from '@components/backoffice/buttons/ViewDetailsButtons/LocationsLink';
-import { ItemIcon } from '@components/backoffice/icons';
-import { DocumentIcon } from '@components/backoffice/icons';
-import { PatronIcon } from '@components/backoffice/icons';
 import _isEmpty from 'lodash/isEmpty';
-import { toShortDate, toShortDateTime } from '@api/date';
-import DocumentTitle from '@modules/Document/DocumentTitle';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Grid, Icon, Label } from 'semantic-ui-react';
 
 export default class LoanMetadata extends Component {
   getPickupLocation(metadata) {
@@ -47,7 +49,13 @@ export default class LoanMetadata extends Component {
             Document
           </>
         ),
-        value: <DocumentTitle metadata={data.metadata.document} />,
+        value: (
+          <LiteratureTitle
+            title={data.metadata.document.title}
+            edition={data.metadata.document.edition}
+            publicationYear={data.metadata.document.publication_year}
+          />
+        ),
       },
       {
         name: (

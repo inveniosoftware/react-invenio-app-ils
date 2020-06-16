@@ -1,9 +1,9 @@
 import { toShortDate } from '@api/date';
-import { CopyButton } from '@components/CopyButton';
-import DocumentAuthors from '@modules/Document/DocumentTitle';
-import DocumentTitle from '@modules/Document/DocumentAuthors';
-import { DocumentIcon, ItemIcon } from '@components/backoffice/icons';
 import { DetailsHeader } from '@components/backoffice/DetailsHeader';
+import { DocumentIcon, ItemIcon } from '@components/backoffice/icons';
+import { CopyButton } from '@components/CopyButton';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -33,18 +33,21 @@ export class ItemHeader extends Component {
           <>
             <Header.Subheader>Medium: {data.metadata.medium}</Header.Subheader>
             {data.metadata.barcode}:{' '}
-            <DocumentTitle
-              metadata={data.metadata.document}
-              titleOnl
+            <LiteratureTitle
+              title={data.metadata.document.title}
+              edition={data.metadata.document.edition}
+              publicationYear={data.metadata.document.publication_year}
+              showOnlyTitle
               truncate
             />
           </>
         }
         subTitle={
           <DocumentAuthors
-            metadata={data.metadata.document}
+            authors={data.metadata.document.authors}
+            hasOtherAuthors={data.metadata.document.other_authors}
             prefix="by "
-            authorsLimit={10}
+            limit={10}
           />
         }
         pid={data.metadata.pid}

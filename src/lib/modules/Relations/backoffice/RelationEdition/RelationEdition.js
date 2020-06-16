@@ -3,13 +3,13 @@ import { SeriesDetailsLink } from '@components/backoffice/buttons/ViewDetailsBut
 import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
-import DocumentTitle from '@modules/Document/DocumentTitle';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { ExistingRelations } from '@modules/Relations/backoffice/components/ExistingRelations';
-import { RelationEditionModal } from './RelationEditionModal';
 import { RelationRemover } from '@modules/Relations/backoffice/components/RelationRemover';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { RelationEditionModal } from './RelationEditionModal';
 
 export default class RelationEdition extends Component {
   constructor(props) {
@@ -18,7 +18,13 @@ export default class RelationEdition extends Component {
   }
 
   viewDetails = ({ row }) => {
-    const titleCmp = <DocumentTitle metadata={row.record_metadata} />;
+    const titleCmp = (
+      <LiteratureTitle
+        title={row.record_metadata.title}
+        edition={row.record_metadata.edition}
+        publicationYear={row.record_metadata.publication_year}
+      />
+    );
     if (row.pid_type === 'docid')
       return (
         <DocumentDetailsLink pidValue={row.pid_value}>

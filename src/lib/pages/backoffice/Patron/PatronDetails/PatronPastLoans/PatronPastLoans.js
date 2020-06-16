@@ -1,14 +1,14 @@
-import { loanApi } from '@api/loans';
 import { dateFormatter } from '@api/date';
+import { loanApi } from '@api/loans';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
+import { DocumentDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/DocumentDetailsLink';
+import { ItemDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/ItemDetailsLink';
+import { LoanDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/LoanDetailsLink';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
-import DocumentTitle from '@modules/Document/DocumentTitle';
 import { invenioConfig } from '@config';
-import { DocumentDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/DocumentDetailsLink';
-import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
-import { ItemDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/ItemDetailsLink';
-import { LoanDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/LoanDetailsLink';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -45,7 +45,11 @@ export default class PatronPastLoans extends Component {
   viewDocument = ({ row }) => {
     return (
       <DocumentDetailsLink pidValue={row.pid}>
-        <DocumentTitle metadata={row.metadata.document} />
+        <LiteratureTitle
+          title={row.metadata.document.title}
+          edition={row.metadata.document.edition}
+          publicationYear={row.metadata.document.publication_year}
+        />
       </DocumentDetailsLink>
     );
   };

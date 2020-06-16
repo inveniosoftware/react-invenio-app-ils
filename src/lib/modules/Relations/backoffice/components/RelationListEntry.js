@@ -1,8 +1,8 @@
 import { recordToPidType } from '@api/utils';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
-import DocumentEdition from '@modules/Document/DocumentEdition';
-import DocumentTitle from '@modules/Document/DocumentTitle';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
+import LiteratureEdition from '@modules/Literature/LiteratureEdition';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
@@ -47,17 +47,32 @@ export class RelationListEntry extends Component {
             to={BackOfficeRoutes.documentDetailsFor(record.metadata.pid)}
             data-test={`navigate-${record.metadata.pid}`}
           >
-            <DocumentTitle metadata={record.metadata} truncate titleOnly />
+            <LiteratureTitle
+              title={record.metadata.title}
+              edition={record.metadata.edition}
+              publicationYear={record.metadata.publication_year}
+              showOnlyTitle
+              truncate
+            />
           </Item.Header>
           <Grid columns={2}>
             <Grid.Column width={10}>
               <Item.Meta className="document-authors">
                 {recordType === 'docid' ? (
-                  <DocumentAuthors metadata={record.metadata} prefix="by " />
+                  <DocumentAuthors
+                    authors={record.metadata.authors}
+                    hasOtherAuthors={record.metadata.other_authors}
+                    prefix="by "
+                  />
                 ) : (
                   <SeriesAuthors authors={record.metadata.authors} />
                 )}
-                <DocumentEdition metadata={record.metadata} withLabel />
+                {record.metadata.edition && (
+                  <LiteratureEdition
+                    edition={record.metadata.edition}
+                    withLabel
+                  />
+                )}
               </Item.Meta>
             </Grid.Column>
             <Grid.Column width={6}>

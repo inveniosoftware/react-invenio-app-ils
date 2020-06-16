@@ -103,9 +103,10 @@ export default class DocumentListEntry extends Component {
           </Item.Header>
           <Item.Meta>
             <DocumentAuthors
-              metadata={this.metadata}
+              authors={this.metadata.authors}
+              hasOtherAuthors={this.metadata.other_authors}
               prefix="by "
-              authorsLimit={10}
+              limit={10}
             />
           </Item.Meta>
           <Item.Description>

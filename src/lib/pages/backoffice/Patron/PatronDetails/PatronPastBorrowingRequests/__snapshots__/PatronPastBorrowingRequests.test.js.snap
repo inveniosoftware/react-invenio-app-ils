@@ -710,56 +710,16 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                         href="/url/docid-1"
                                         onClick={[Function]}
                                       >
-                                        <Overridable(DocumentTitle)
-                                          metadata={
-                                            Object {
-                                              "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                                              "abstract": "This is an abstract",
-                                              "authors": Array [
-                                                Object {
-                                                  "full_name": "Jack E. Davis",
-                                                },
-                                              ],
-                                              "document_type": "BOOK",
-                                              "edition": "1",
-                                              "keywords": Object {
-                                                "source": "X",
-                                                "value": "Patata",
-                                              },
-                                              "languages": Array [
-                                                "en",
-                                              ],
-                                              "pid": "docid-1",
-                                              "publication_year": "1950",
-                                              "title": "The Gulf: The Making of An American Sea",
-                                            }
-                                          }
+                                        <Overridable(LiteratureTitle)
+                                          edition="1"
+                                          publicationYear="1950"
+                                          title="The Gulf: The Making of An American Sea"
                                         >
-                                          <DocumentTitle
-                                            metadata={
-                                              Object {
-                                                "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                                                "abstract": "This is an abstract",
-                                                "authors": Array [
-                                                  Object {
-                                                    "full_name": "Jack E. Davis",
-                                                  },
-                                                ],
-                                                "document_type": "BOOK",
-                                                "edition": "1",
-                                                "keywords": Object {
-                                                  "source": "X",
-                                                  "value": "Patata",
-                                                },
-                                                "languages": Array [
-                                                  "en",
-                                                ],
-                                                "pid": "docid-1",
-                                                "publication_year": "1950",
-                                                "title": "The Gulf: The Making of An American Sea",
-                                              }
-                                            }
-                                            titleOnly={false}
+                                          <LiteratureTitle
+                                            edition="1"
+                                            publicationYear="1950"
+                                            showOnlyTitle={false}
+                                            title="The Gulf: The Making of An American Sea"
                                             truncate={false}
                                           >
                                             <div
@@ -767,93 +727,28 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                             >
                                               The Gulf: The Making of An American Sea
                                                
-                                              <EditionTitleCmp
-                                                metadata={
-                                                  Object {
-                                                    "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                                                    "abstract": "This is an abstract",
-                                                    "authors": Array [
-                                                      Object {
-                                                        "full_name": "Jack E. Davis",
-                                                      },
-                                                    ],
-                                                    "document_type": "BOOK",
-                                                    "edition": "1",
-                                                    "keywords": Object {
-                                                      "source": "X",
-                                                      "value": "Patata",
-                                                    },
-                                                    "languages": Array [
-                                                      "en",
-                                                    ],
-                                                    "pid": "docid-1",
-                                                    "publication_year": "1950",
-                                                    "title": "The Gulf: The Making of An American Sea",
-                                                  }
-                                                }
+                                              <EditionYear
+                                                edition="1"
+                                                publicationYear="1950"
                                               >
                                                 (
-                                                <Overridable(DocumentEdition)
-                                                  metadata={
-                                                    Object {
-                                                      "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                                                      "abstract": "This is an abstract",
-                                                      "authors": Array [
-                                                        Object {
-                                                          "full_name": "Jack E. Davis",
-                                                        },
-                                                      ],
-                                                      "document_type": "BOOK",
-                                                      "edition": "1",
-                                                      "keywords": Object {
-                                                        "source": "X",
-                                                        "value": "Patata",
-                                                      },
-                                                      "languages": Array [
-                                                        "en",
-                                                      ],
-                                                      "pid": "docid-1",
-                                                      "publication_year": "1950",
-                                                      "title": "The Gulf: The Making of An American Sea",
-                                                    }
-                                                  }
+                                                <Overridable(LiteratureEdition)
+                                                  edition="1"
                                                 >
-                                                  <DocumentEdition
-                                                    metadata={
-                                                      Object {
-                                                        "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                                                        "abstract": "This is an abstract",
-                                                        "authors": Array [
-                                                          Object {
-                                                            "full_name": "Jack E. Davis",
-                                                          },
-                                                        ],
-                                                        "document_type": "BOOK",
-                                                        "edition": "1",
-                                                        "keywords": Object {
-                                                          "source": "X",
-                                                          "value": "Patata",
-                                                        },
-                                                        "languages": Array [
-                                                          "en",
-                                                        ],
-                                                        "pid": "docid-1",
-                                                        "publication_year": "1950",
-                                                        "title": "The Gulf: The Making of An American Sea",
-                                                      }
-                                                    }
+                                                  <LiteratureEdition
+                                                    edition="1"
                                                     withLabel={false}
                                                   >
                                                     ed. 1
-                                                  </DocumentEdition>
-                                                </Overridable(DocumentEdition)>
+                                                  </LiteratureEdition>
+                                                </Overridable(LiteratureEdition)>
                                                  - 
                                                 1950
                                                 )
-                                              </EditionTitleCmp>
+                                              </EditionYear>
                                             </div>
-                                          </DocumentTitle>
-                                        </Overridable(DocumentTitle)>
+                                          </LiteratureTitle>
+                                        </Overridable(LiteratureTitle)>
                                       </a>
                                     </LinkAnchor>
                                   </Link>
@@ -1016,56 +911,16 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                         href="/url/docid-2"
                                         onClick={[Function]}
                                       >
-                                        <Overridable(DocumentTitle)
-                                          metadata={
-                                            Object {
-                                              "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                                              "abstract": "This is an abstract",
-                                              "authors": Array [
-                                                Object {
-                                                  "full_name": "Jack E. Davis",
-                                                },
-                                              ],
-                                              "document_type": "BOOK",
-                                              "edition": "1",
-                                              "keywords": Object {
-                                                "source": "X",
-                                                "value": "Patata",
-                                              },
-                                              "languages": Array [
-                                                "en",
-                                              ],
-                                              "pid": "docid-1",
-                                              "publication_year": "1950",
-                                              "title": "The Gulf: The Making of An American Sea",
-                                            }
-                                          }
+                                        <Overridable(LiteratureTitle)
+                                          edition="1"
+                                          publicationYear="1950"
+                                          title="The Gulf: The Making of An American Sea"
                                         >
-                                          <DocumentTitle
-                                            metadata={
-                                              Object {
-                                                "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                                                "abstract": "This is an abstract",
-                                                "authors": Array [
-                                                  Object {
-                                                    "full_name": "Jack E. Davis",
-                                                  },
-                                                ],
-                                                "document_type": "BOOK",
-                                                "edition": "1",
-                                                "keywords": Object {
-                                                  "source": "X",
-                                                  "value": "Patata",
-                                                },
-                                                "languages": Array [
-                                                  "en",
-                                                ],
-                                                "pid": "docid-1",
-                                                "publication_year": "1950",
-                                                "title": "The Gulf: The Making of An American Sea",
-                                              }
-                                            }
-                                            titleOnly={false}
+                                          <LiteratureTitle
+                                            edition="1"
+                                            publicationYear="1950"
+                                            showOnlyTitle={false}
+                                            title="The Gulf: The Making of An American Sea"
                                             truncate={false}
                                           >
                                             <div
@@ -1073,93 +928,28 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                             >
                                               The Gulf: The Making of An American Sea
                                                
-                                              <EditionTitleCmp
-                                                metadata={
-                                                  Object {
-                                                    "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                                                    "abstract": "This is an abstract",
-                                                    "authors": Array [
-                                                      Object {
-                                                        "full_name": "Jack E. Davis",
-                                                      },
-                                                    ],
-                                                    "document_type": "BOOK",
-                                                    "edition": "1",
-                                                    "keywords": Object {
-                                                      "source": "X",
-                                                      "value": "Patata",
-                                                    },
-                                                    "languages": Array [
-                                                      "en",
-                                                    ],
-                                                    "pid": "docid-1",
-                                                    "publication_year": "1950",
-                                                    "title": "The Gulf: The Making of An American Sea",
-                                                  }
-                                                }
+                                              <EditionYear
+                                                edition="1"
+                                                publicationYear="1950"
                                               >
                                                 (
-                                                <Overridable(DocumentEdition)
-                                                  metadata={
-                                                    Object {
-                                                      "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                                                      "abstract": "This is an abstract",
-                                                      "authors": Array [
-                                                        Object {
-                                                          "full_name": "Jack E. Davis",
-                                                        },
-                                                      ],
-                                                      "document_type": "BOOK",
-                                                      "edition": "1",
-                                                      "keywords": Object {
-                                                        "source": "X",
-                                                        "value": "Patata",
-                                                      },
-                                                      "languages": Array [
-                                                        "en",
-                                                      ],
-                                                      "pid": "docid-1",
-                                                      "publication_year": "1950",
-                                                      "title": "The Gulf: The Making of An American Sea",
-                                                    }
-                                                  }
+                                                <Overridable(LiteratureEdition)
+                                                  edition="1"
                                                 >
-                                                  <DocumentEdition
-                                                    metadata={
-                                                      Object {
-                                                        "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                                                        "abstract": "This is an abstract",
-                                                        "authors": Array [
-                                                          Object {
-                                                            "full_name": "Jack E. Davis",
-                                                          },
-                                                        ],
-                                                        "document_type": "BOOK",
-                                                        "edition": "1",
-                                                        "keywords": Object {
-                                                          "source": "X",
-                                                          "value": "Patata",
-                                                        },
-                                                        "languages": Array [
-                                                          "en",
-                                                        ],
-                                                        "pid": "docid-1",
-                                                        "publication_year": "1950",
-                                                        "title": "The Gulf: The Making of An American Sea",
-                                                      }
-                                                    }
+                                                  <LiteratureEdition
+                                                    edition="1"
                                                     withLabel={false}
                                                   >
                                                     ed. 1
-                                                  </DocumentEdition>
-                                                </Overridable(DocumentEdition)>
+                                                  </LiteratureEdition>
+                                                </Overridable(LiteratureEdition)>
                                                  - 
                                                 1950
                                                 )
-                                              </EditionTitleCmp>
+                                              </EditionYear>
                                             </div>
-                                          </DocumentTitle>
-                                        </Overridable(DocumentTitle)>
+                                          </LiteratureTitle>
+                                        </Overridable(LiteratureTitle)>
                                       </a>
                                     </LinkAnchor>
                                   </Link>
@@ -2053,56 +1843,16 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                                         href="/url/docid-1"
                                         onClick={[Function]}
                                       >
-                                        <Overridable(DocumentTitle)
-                                          metadata={
-                                            Object {
-                                              "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                                              "abstract": "This is an abstract",
-                                              "authors": Array [
-                                                Object {
-                                                  "full_name": "Jack E. Davis",
-                                                },
-                                              ],
-                                              "document_type": "BOOK",
-                                              "edition": "1",
-                                              "keywords": Object {
-                                                "source": "X",
-                                                "value": "Patata",
-                                              },
-                                              "languages": Array [
-                                                "en",
-                                              ],
-                                              "pid": "docid-1",
-                                              "publication_year": "1950",
-                                              "title": "The Gulf: The Making of An American Sea",
-                                            }
-                                          }
+                                        <Overridable(LiteratureTitle)
+                                          edition="1"
+                                          publicationYear="1950"
+                                          title="The Gulf: The Making of An American Sea"
                                         >
-                                          <DocumentTitle
-                                            metadata={
-                                              Object {
-                                                "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                                                "abstract": "This is an abstract",
-                                                "authors": Array [
-                                                  Object {
-                                                    "full_name": "Jack E. Davis",
-                                                  },
-                                                ],
-                                                "document_type": "BOOK",
-                                                "edition": "1",
-                                                "keywords": Object {
-                                                  "source": "X",
-                                                  "value": "Patata",
-                                                },
-                                                "languages": Array [
-                                                  "en",
-                                                ],
-                                                "pid": "docid-1",
-                                                "publication_year": "1950",
-                                                "title": "The Gulf: The Making of An American Sea",
-                                              }
-                                            }
-                                            titleOnly={false}
+                                          <LiteratureTitle
+                                            edition="1"
+                                            publicationYear="1950"
+                                            showOnlyTitle={false}
+                                            title="The Gulf: The Making of An American Sea"
                                             truncate={false}
                                           >
                                             <div
@@ -2110,93 +1860,28 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                                             >
                                               The Gulf: The Making of An American Sea
                                                
-                                              <EditionTitleCmp
-                                                metadata={
-                                                  Object {
-                                                    "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                                                    "abstract": "This is an abstract",
-                                                    "authors": Array [
-                                                      Object {
-                                                        "full_name": "Jack E. Davis",
-                                                      },
-                                                    ],
-                                                    "document_type": "BOOK",
-                                                    "edition": "1",
-                                                    "keywords": Object {
-                                                      "source": "X",
-                                                      "value": "Patata",
-                                                    },
-                                                    "languages": Array [
-                                                      "en",
-                                                    ],
-                                                    "pid": "docid-1",
-                                                    "publication_year": "1950",
-                                                    "title": "The Gulf: The Making of An American Sea",
-                                                  }
-                                                }
+                                              <EditionYear
+                                                edition="1"
+                                                publicationYear="1950"
                                               >
                                                 (
-                                                <Overridable(DocumentEdition)
-                                                  metadata={
-                                                    Object {
-                                                      "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                                                      "abstract": "This is an abstract",
-                                                      "authors": Array [
-                                                        Object {
-                                                          "full_name": "Jack E. Davis",
-                                                        },
-                                                      ],
-                                                      "document_type": "BOOK",
-                                                      "edition": "1",
-                                                      "keywords": Object {
-                                                        "source": "X",
-                                                        "value": "Patata",
-                                                      },
-                                                      "languages": Array [
-                                                        "en",
-                                                      ],
-                                                      "pid": "docid-1",
-                                                      "publication_year": "1950",
-                                                      "title": "The Gulf: The Making of An American Sea",
-                                                    }
-                                                  }
+                                                <Overridable(LiteratureEdition)
+                                                  edition="1"
                                                 >
-                                                  <DocumentEdition
-                                                    metadata={
-                                                      Object {
-                                                        "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                                                        "abstract": "This is an abstract",
-                                                        "authors": Array [
-                                                          Object {
-                                                            "full_name": "Jack E. Davis",
-                                                          },
-                                                        ],
-                                                        "document_type": "BOOK",
-                                                        "edition": "1",
-                                                        "keywords": Object {
-                                                          "source": "X",
-                                                          "value": "Patata",
-                                                        },
-                                                        "languages": Array [
-                                                          "en",
-                                                        ],
-                                                        "pid": "docid-1",
-                                                        "publication_year": "1950",
-                                                        "title": "The Gulf: The Making of An American Sea",
-                                                      }
-                                                    }
+                                                  <LiteratureEdition
+                                                    edition="1"
                                                     withLabel={false}
                                                   >
                                                     ed. 1
-                                                  </DocumentEdition>
-                                                </Overridable(DocumentEdition)>
+                                                  </LiteratureEdition>
+                                                </Overridable(LiteratureEdition)>
                                                  - 
                                                 1950
                                                 )
-                                              </EditionTitleCmp>
+                                              </EditionYear>
                                             </div>
-                                          </DocumentTitle>
-                                        </Overridable(DocumentTitle)>
+                                          </LiteratureTitle>
+                                        </Overridable(LiteratureTitle)>
                                       </a>
                                     </LinkAnchor>
                                   </Link>

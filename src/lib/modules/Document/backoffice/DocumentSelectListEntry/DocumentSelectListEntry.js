@@ -1,7 +1,7 @@
-import DocumentTitle from '@modules/Document/DocumentTitle';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
-import React, { Component } from 'react';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Icon, Popup } from 'semantic-ui-react';
 
 export default class DocumentSelectListEntry extends Component {
@@ -20,13 +20,20 @@ export default class DocumentSelectListEntry extends Component {
               trigger={<Icon name="info circle" />}
             />
           )}
-          <DocumentTitle metadata={document.metadata} />
+          <LiteratureTitle
+            title={document.metadata.title}
+            edition={document.metadata.edition}
+            publicationYear={document.metadata.publication_year}
+          />
         </div>
         <div className="description">
           {description ? (
             description
           ) : (
-            <DocumentAuthors metadata={document.metadata} />
+            <DocumentAuthors
+              authors={document.metadata.authors}
+              hasOtherAuthors={document.metadata.other_authors}
+            />
           )}
         </div>
       </div>

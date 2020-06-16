@@ -1,16 +1,16 @@
 import { toShortDate } from '@api/date';
-import { CopyButton } from '@components/CopyButton';
 import { CreatedBy } from '@components/backoffice/ChangedBy';
-import DocumentTags from '@modules/Document/DocumentTags';
-import DocumentTitle from '@modules/Document/DocumentTitle';
-import DocumentAuthors from '@modules/Document/DocumentAuthors';
-import LiteratureCover from '@modules/Literature/LiteratureCover';
 import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { RestrictedAccessLabel } from '@components/backoffice/RestrictedAccessLabel';
+import { CopyButton } from '@components/CopyButton';
+import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import DocumentTags from '@modules/Document/DocumentTags';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Header, Icon } from 'semantic-ui-react';
 
@@ -42,14 +42,19 @@ export class DocumentHeader extends Component {
         title={
           <>
             <Header.Subheader>{data.metadata.document_type}</Header.Subheader>
-            <DocumentTitle metadata={data.metadata} />
+            <LiteratureTitle
+              title={data.metadata.title}
+              edition={data.metadata.edition}
+              publicationYear={data.metadata.publication_year}
+            />
           </>
         }
         subTitle={
           <DocumentAuthors
-            metadata={data.metadata}
+            authors={data.metadata.authors}
+            hasOtherAuthors={data.metadata.other_authors}
             prefix="by "
-            authorsLimit={10}
+            limit={10}
           />
         }
         pid={data.metadata.pid}

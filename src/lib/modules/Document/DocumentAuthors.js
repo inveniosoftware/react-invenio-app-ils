@@ -1,8 +1,9 @@
-import Overridable from 'react-overridable';
-import { List, Popup, Icon } from 'semantic-ui-react';
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import _isEmpty from 'lodash/isEmpty';
+import React, { Component } from 'react';
+import Overridable from 'react-overridable';
+import { Icon, List, Popup } from 'semantic-ui-react';
+
+const ET_AL_LABEL = 'et al.';
 
 class Roles extends Component {
   render() {
@@ -25,7 +26,7 @@ class Affiliations extends Component {
     const { affiliations } = this.props;
     return (
       <span>
-        Aff. :{' '}
+        Aff.:{' '}
         {affiliations
           .map(item => {
             return item.name;
@@ -42,11 +43,11 @@ Affiliations.propTypes = {
 
 class AlternativeNames extends Component {
   render() {
-    const { alternative_names } = this.props;
+    const { alternativeNames } = this.props;
     return (
       <>
         <br />
-        <span>Alter. names: {alternative_names.join(', ')}</span>
+        <span>Alter. names: {alternativeNames.join(', ')}</span>
         <br />
       </>
     );
@@ -54,7 +55,7 @@ class AlternativeNames extends Component {
 }
 
 AlternativeNames.propTypes = {
-  alternative_names: PropTypes.array.isRequired,
+  alternativeNames: PropTypes.array.isRequired,
 };
 
 class Identifiers extends Component {
@@ -64,11 +65,7 @@ class Identifiers extends Component {
       <>
         <span>
           Ids:{' '}
-          {identifiers
-            .map(item => {
-              return `${item.value} (${item.scheme})`;
-            })
-            .join(', ')}
+          {identifiers.map(item => `${item.value} (${item.scheme})`).join(', ')}
         </span>
         <br />
       </>
@@ -96,40 +93,34 @@ Type.propTypes = {
   type: PropTypes.string.isRequired,
 };
 
-class DocumentAuthors extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      expanded: false,
-    };
-  }
-
+class PopUpShowMoreFields extends Component {
   renderPopupContent = author => {
-    const { allFields } = this.props;
+    const { showAllFields } = this.props;
     return (
       <>
         {author.full_name}
         <br />
-        {author.roles ? <Roles roles={author.roles} /> : null}
-        {author.affiliations ? (
+        {author.roles && <Roles roles={author.roles} />}
+        {author.affiliations && (
           <Affiliations affiliations={author.affiliations} />
-        ) : null}
-        {allFields && (
+        )}
+        {showAllFields && (
           <>
-            {author.alternative_names ? (
-              <AlternativeNames alternative_names={author.alternative_names} />
-            ) : null}
-            {author.identifiers ? (
+            {author.alternative_names && (
+              <AlternativeNames alternativeNames={author.alternative_names} />
+            )}
+            {author.identifiers && (
               <Identifiers identifiers={author.identifiers} />
-            ) : null}
-            {author.type ? <Type type={author.type} /> : null}
+            )}
+            {author.type && <Type type={author.type} />}
           </>
         )}
       </>
     );
   };
 
-  renderPopup = author => {
+  render() {
+    const { author } = this.props;
     return (
       <>
         {' '}
@@ -141,74 +132,90 @@ class DocumentAuthors extends Component {
         />
       </>
     );
-  };
+  }
+}
 
-  toggleExpandedState = () => {
-    this.setState({ expanded: !this.state.expanded });
-  };
+PopUpShowMoreFields.propTypes = {
+  author: PropTypes.object.isRequired,
+  showAllFields: PropTypes.bool,
+};
+PopUpShowMoreFields.defaultProps = {
+  showAllFields: true,
+};
 
-  renderExpandButton = () => {
-    const { expanded } = this.state;
-    return (
-      <>
-        {' '}
-        <span className="button-show-more" onClick={this.toggleExpandedState}>
-          {expanded ? 'Show less' : 'et al.'}
-        </span>
-      </>
-    );
+class DocumentAuthors extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isExpanded: false,
+    };
+  }
+
+  toggleShowAllAuthors = () => {
+    const { isExpanded } = this.state;
+    this.setState({ isExpanded: !isExpanded });
   };
 
   render() {
     const {
-      metadata,
+      authors,
+      hasOtherAuthors,
+      limit,
       prefix,
-      otherAuthorsDisplay,
-      popupDisplay,
       delimiter,
-      authorsLimit,
-      scrollLimit,
       expandable,
+      scrollLimit,
+      withPopUpShowMoreFields,
+      showAllFieldsInPopUp,
       listItemAs,
     } = this.props;
-    const { expanded } = this.state;
-    const otherAuthors = otherAuthorsDisplay ? otherAuthorsDisplay : 'et al.';
+    const { isExpanded } = this.state;
 
-    let scrollableClass;
-    const { authors: docAuthors } = metadata;
-    let authors = docAuthors;
-
-    if (!_isEmpty(authors)) {
-      scrollableClass =
-        authors.length > scrollLimit && expanded ? 'expanded' : '';
-      if (authorsLimit && !expanded) {
-        authors = authors.slice(0, authorsLimit);
-      }
+    let displayedAuthors = authors;
+    if (!isExpanded) {
+      displayedAuthors = authors.slice(0, limit);
     }
+
+    const isShowingAllAuthors = displayedAuthors.length === authors.length;
+    const showAllAuthorsCmp =
+      !isShowingAllAuthors && expandable ? (
+        <>
+          {' '}
+          <span
+            className="button-show-more"
+            onClick={this.toggleShowAllAuthors}
+          >
+            {isExpanded ? 'Show less' : ET_AL_LABEL}
+          </span>
+        </>
+      ) : null;
+
+    const scrollableClass =
+      displayedAuthors.length > scrollLimit && isExpanded ? 'expanded' : '';
     return (
       <Overridable id="DocumentAuthors.layout" {...this.props}>
         <div className={`document-authors-list-wrapper ${scrollableClass}`}>
-          {prefix ? prefix + ' ' : null}
-          {authors ? (
-            <List horizontal className="document-authors-list" as={listItemAs}>
-              {authors.map((author, index) => (
-                <List.Item key={`Key${index}`}>
+          {prefix}
+          <List horizontal className="document-authors-list" as={listItemAs}>
+            {displayedAuthors.map((author, index) => {
+              const isLast = index === displayedAuthors.length - 1;
+              return (
+                <List.Item key={author.full_name}>
                   {author.full_name}
-                  {popupDisplay &&
-                    (!_isEmpty(author.roles) ||
-                      !_isEmpty(author.affiliations)) &&
-                    this.renderPopup(author)}
-                  {index !== authors.length - 1 ? delimiter : null}
+                  {withPopUpShowMoreFields && (
+                    <PopUpShowMoreFields
+                      author={author}
+                      showAllFields={showAllFieldsInPopUp}
+                    />
+                  )}
+                  {!isLast ? delimiter : null}
                 </List.Item>
-              ))}
-              {metadata.other_authors ? otherAuthors : null}
-            </List>
-          ) : null}
+              );
+            })}
+            {hasOtherAuthors && ET_AL_LABEL}
+          </List>
 
-          {authors &&
-            authorsLimit &&
-            authorsLimit < authors.length &&
-            (expandable ? this.renderExpandButton() : ' et al.')}
+          {showAllAuthorsCmp}
         </div>
       </Overridable>
     );
@@ -216,25 +223,28 @@ class DocumentAuthors extends Component {
 }
 
 DocumentAuthors.propTypes = {
-  metadata: PropTypes.object.isRequired,
+  authors: PropTypes.array.isRequired,
+  hasOtherAuthors: PropTypes.bool,
+  limit: PropTypes.number,
   prefix: PropTypes.string,
-  otherAuthorsDisplay: PropTypes.string,
-  listItemAs: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
   delimiter: PropTypes.string,
-  popupDisplay: PropTypes.bool,
   expandable: PropTypes.bool,
   scrollLimit: PropTypes.number,
-  authorsLimit: PropTypes.number,
-  allFields: PropTypes.bool,
+  withPopUpShowMoreFields: PropTypes.bool,
+  showAllFieldsInPopUp: PropTypes.bool,
+  listItemAs: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
 };
 
 DocumentAuthors.defaultProps = {
-  delimiter: '; ',
-  listItemAs: null,
-  otherAuthorsDisplay: null,
-  prefix: '',
+  hasOtherAuthors: false,
+  limit: 5,
+  prefix: null,
+  delimiter: ';',
+  expandable: false,
   scrollLimit: Infinity,
-  allFields: false,
+  withPopUpShowMoreFields: false,
+  showAllFieldsInPopUp: true,
+  listItemAs: null,
 };
 
 export default Overridable.component('DocumentAuthors', DocumentAuthors);

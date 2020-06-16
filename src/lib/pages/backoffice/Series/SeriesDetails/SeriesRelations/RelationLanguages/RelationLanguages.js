@@ -1,14 +1,14 @@
-import { Error } from '@components/Error';
-import { Loader } from '@components/Loader';
-import { SeriesLanguages } from '@modules/Series/SeriesLanguages';
 import { SeriesDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/SeriesDetailsLink';
 import { InfoMessage } from '@components/backoffice/InfoMessage';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { ExistingRelations } from '@modules/Relations/backoffice/components/ExistingRelations';
 import { RelationRemover } from '@modules/Relations/backoffice/components/RelationRemover';
-import DocumentTitle from '@modules/Document/DocumentTitle';
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { SeriesLanguages } from '@modules/Series/SeriesLanguages';
 import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { RelationLanguagesModal } from '../RelationLanguages/RelationLanguagesModal';
 
 export default class RelationLanguage extends Component {
@@ -20,7 +20,11 @@ export default class RelationLanguage extends Component {
   viewDetails = ({ row }) => {
     return (
       <SeriesDetailsLink pidValue={row.pid_value}>
-        <DocumentTitle metadata={row.record_metadata} />
+        <LiteratureTitle
+          title={row.record_metadata.title}
+          edition={row.record_metadata.edition}
+          publicationYear={row.record_metadata.publication_year}
+        />
       </SeriesDetailsLink>
     );
   };

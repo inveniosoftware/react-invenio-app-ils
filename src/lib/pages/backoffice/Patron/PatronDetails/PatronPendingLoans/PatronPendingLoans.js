@@ -1,15 +1,15 @@
 import { dateFormatter } from '@api/date';
+import { loanApi } from '@api/loans';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
-import DocumentTitle from '@modules/Document/DocumentTitle';
+import { invenioConfig } from '@config';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
+import { BackOfficeRoutes } from '@routes/urls';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { Loader } from '@components/Loader';
-import { Error } from '@components/Error';
-import { loanApi } from '@api/loans';
-import { invenioConfig } from '@config';
-import { BackOfficeRoutes } from '@routes/urls';
-import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 
 export default class PatronPendingLoans extends Component {
   componentDidMount() {
@@ -49,7 +49,11 @@ export default class PatronPendingLoans extends Component {
         to={BackOfficeRoutes.documentDetailsFor(row.metadata.document_pid)}
         data-test={row.metadata.pid}
       >
-        <DocumentTitle metadata={row.metadata.document} />
+        <LiteratureTitle
+          title={row.metadata.document.title}
+          edition={row.metadata.document.edition}
+          publicationYear={row.metadata.document.publication_year}
+        />
       </Link>
     );
   };
