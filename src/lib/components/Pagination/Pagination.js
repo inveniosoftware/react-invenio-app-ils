@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import { invenioConfig } from '@config';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Pagination as Paginator } from 'semantic-ui-react';
-import { invenioConfig } from '@config';
 
 class Pagination extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class Pagination extends Component {
     const { totalResults, currentPage, currentSize, onPageChange } = this.props;
     const pages = Math.ceil(totalResults / currentSize);
     return (
-      <div id="pagination">
+      <div className="pagination">
         <Paginator
           firstItem={this.showFirstAndLastNav}
           lastItem={this.showFirstAndLastNav}

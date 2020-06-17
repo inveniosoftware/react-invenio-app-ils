@@ -1,81 +1,19 @@
-import { toShortDate } from '@api/date';
 import { Error } from '@components/Error';
+import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
-import { Loader } from '@components/Loader';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Container, Header, Icon, Label, Popup } from 'semantic-ui-react';
+import { Container, Grid, Header, Message } from 'semantic-ui-react';
 import LoansList from '../LoansList';
-import LoansListItem from '../LoansListEntry';
-import { ExtendButton } from './ExtendButton';
-
-class LoansListEntry extends Component {
-  renderOverdueLabel = () => (
-    <h4>
-      Your loan is overdue. Please return the literature as soon as possible!
-    </h4>
-  );
-
-  renderReturnLabel = endDate => (
-    <h4>
-      Please return the literature before date{' '}
-      <Header size="large">{toShortDate(endDate)}</Header>
-    </h4>
-  );
-
-  renderOngoingLabel = startDate => (
-    <div className="pt-default">
-      <Label basic>
-        Loaned on
-        <Label.Detail>{toShortDate(startDate)}</Label.Detail>
-      </Label>
-    </div>
-  );
-
-  render() {
-    const { loan } = this.props;
-    const isLoanOverdue = loan.metadata.is_overdue;
-
-    const isIllBrwReq = loan.metadata.item_pid.type === 'illbid';
-    const IllBrwReqPopUp = isIllBrwReq ? (
-      <Popup
-        content="This loan involves third party library, please return on time"
-        trigger={<Icon name="exclamation circle" size="large" color="red" />}
-      />
-    ) : null;
-
-    return (
-      <LoansListItem
-        loan={loan}
-        extraItemProps={{
-          itemClass: isLoanOverdue ? 'bkg-danger' : null,
-          itemHeaderCmp: IllBrwReqPopUp,
-          itemMetaCmp: this.renderOngoingLabel(loan.metadata.start_date),
-          itemDescriptionCmp: isLoanOverdue
-            ? this.renderOverdueLabel()
-            : this.renderReturnLabel(loan.metadata.end_date),
-          itemExtraCmp: (
-            <ExtendButton
-              loan={loan}
-              extendLoan={() => {}}
-              onExtendSuccess={() => {}}
-            />
-          ),
-        }}
-      />
-    );
-  }
-}
-
-LoansListEntry.propTypes = {
-  loan: PropTypes.object.isRequired,
-};
+import LoansListEntry from './LoansListEntry';
 
 export default class PatronCurrentLoans extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activePage: props.initialPage,
+      isSuccessMessageVisible: false,
+      successMessage: '',
     };
   }
   componentDidMount() {
@@ -91,8 +29,17 @@ export default class PatronCurrentLoans extends Component {
     });
   }
 
+  showSuccessMessage = msg => {
+    this.setState({ isSuccessMessageVisible: true, successMessage: msg });
+  };
+
+  hideSuccessMessage = () => {
+    this.setState({ isSuccessMessageVisible: false, successMessage: '' });
+  };
+
   render() {
     const { error, isLoading, loans, rowsPerPage } = this.props;
+    const { isSuccessMessageVisible, successMessage } = this.state;
     const { activePage } = this.state;
     return (
       <Container className="spaced">
@@ -102,7 +49,22 @@ export default class PatronCurrentLoans extends Component {
           className="highlight"
           textAlign="center"
         />
-        <Loader isLoading={isLoading}>
+        {isSuccessMessageVisible && (
+          <Grid columns="3">
+            <Grid.Column width="4" />
+            <Grid.Column width="8">
+              <Message
+                positive
+                icon="check"
+                header="Success"
+                content={successMessage}
+                onDismiss={this.hideSuccessMessage}
+              />
+            </Grid.Column>
+            <Grid.Column width="4" />
+          </Grid>
+        )}
+        <ILSItemPlaceholder fluid isLoading={isLoading}>
           <Error error={error}>
             <LoansList
               activePage={activePage}
@@ -115,7 +77,15 @@ export default class PatronCurrentLoans extends Component {
                 );
               }}
               rowsPerPage={rowsPerPage}
-              renderListEntry={loan => <LoansListEntry loan={loan} />}
+              renderListEntry={loan => (
+                <LoansListEntry
+                  loan={loan}
+                  onSuccess={msg => {
+                    this.fetchPatronCurrentLoans();
+                    this.showSuccessMessage(msg);
+                  }}
+                />
+              )}
               noLoansCmp={
                 <InfoMessage
                   title="No ongoing loans"
@@ -124,7 +94,7 @@ export default class PatronCurrentLoans extends Component {
               }
             />
           </Error>
-        </Loader>
+        </ILSItemPlaceholder>
       </Container>
     );
   }

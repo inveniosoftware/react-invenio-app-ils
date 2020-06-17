@@ -1,17 +1,16 @@
+import { dateFormatter } from '@api/date';
+import { Error } from '@components/Error';
+import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
+import { InfoMessage } from '@components/InfoMessage';
+import { Pagination } from '@components/Pagination';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import { FrontSiteRoutes } from '@routes/urls';
+import _startCase from 'lodash/startCase';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import _startCase from 'lodash/startCase';
-import { Loader } from '@components/Loader';
-import { Error } from '@components/Error';
-import { ResultsTable } from '@components/ResultsTable/ResultsTable';
-import { Pagination } from '@components/Pagination';
-import { dateFormatter } from '@api/date';
-import { FrontSiteRoutes } from '@routes/urls';
-import { Header, Item } from 'semantic-ui-react';
-import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
-import { InfoMessage } from '@components/InfoMessage';
+import { Container, Header } from 'semantic-ui-react';
 
 class PatronPastDocumentRequests extends Component {
   constructor(props) {
@@ -20,27 +19,38 @@ class PatronPastDocumentRequests extends Component {
   }
 
   componentDidMount() {
-    const { fetchPatronDocumentRequests, patronPid } = this.props;
-    fetchPatronDocumentRequests(patronPid);
+    this.fetchPatronPastDocumentRequests();
   }
 
-  onPageChange = activePage => {
-    const { fetchPatronDocumentRequests, patronPid } = this.props;
-
-    fetchPatronDocumentRequests(patronPid, {
+  fetchPatronPastDocumentRequests() {
+    const {
+      fetchPatronPastDocumentRequests,
+      patronPid,
+      rowsPerPage,
+    } = this.props;
+    const { activePage } = this.state;
+    fetchPatronPastDocumentRequests(patronPid, {
       page: activePage,
+      size: rowsPerPage,
     });
-    this.setState({ activePage: activePage });
+  }
+
+  onPageChange = newPage => {
+    this.setState(
+      { activePage: newPage },
+      this.fetchPatronPastDocumentRequests
+    );
   };
 
   paginationComponent = () => {
-    const { isLoading, data } = this.props;
+    const { isLoading, documentRequests, rowsPerPage } = this.props;
     const { activePage } = this.state;
     return (
       <Pagination
         currentPage={activePage}
+        currentSize={rowsPerPage}
         loading={isLoading}
-        totalResults={data.total}
+        totalResults={documentRequests.total}
         onPageChange={this.onPageChange}
       />
     );
@@ -57,17 +67,7 @@ class PatronPastDocumentRequests extends Component {
     );
   };
 
-  renderLoader = props => {
-    return (
-      <>
-        <Item.Group>
-          <ILSItemPlaceholder fluid {...props} />
-        </Item.Group>
-      </>
-    );
-  };
-
-  renderEmpty = () => {
+  renderNoResults = () => {
     return (
       <InfoMessage
         title="No past requests for new literature"
@@ -77,7 +77,7 @@ class PatronPastDocumentRequests extends Component {
   };
 
   render() {
-    const { data, isLoading, error } = this.props;
+    const { documentRequests, isLoading, error, rowsPerPage } = this.props;
     const { activePage } = this.state;
     const columns = [
       { title: 'ID', field: 'metadata.pid' },
@@ -89,10 +89,11 @@ class PatronPastDocumentRequests extends Component {
       },
       { title: 'Created', field: 'created', formatter: dateFormatter },
     ];
+    console.log(rowsPerPage, error);
     return (
       <Overridable
         id="PatronPastDocumentRequests.layout"
-        data={data}
+        data={documentRequests}
         isLoading={isLoading}
         error={error}
         activePage={activePage}
@@ -104,20 +105,28 @@ class PatronPastDocumentRequests extends Component {
             className="highlight"
             textAlign="center"
           />
-          <Loader isLoading={isLoading} renderElement={this.renderLoader}>
+          <ILSItemPlaceholder fluid isLoading={isLoading}>
             <Error error={error}>
               <ResultsTable
-                data={data.hits}
+                data={documentRequests.hits}
                 columns={columns}
-                totalHitsCount={data.total}
+                totalHitsCount={documentRequests.total}
                 title=""
                 name="past literature requests"
-                paginationComponent={this.paginationComponent()}
                 currentPage={activePage}
-                renderEmptyResultsElement={this.renderEmpty}
+                renderEmptyResultsElement={this.renderNoResults}
               />
+              <Container textAlign="center">
+                <Pagination
+                  currentPage={activePage}
+                  currentSize={rowsPerPage}
+                  loading={isLoading}
+                  onPageChange={this.onPageChange}
+                  totalResults={documentRequests.total}
+                />
+              </Container>
             </Error>
-          </Loader>
+          </ILSItemPlaceholder>
         </>
       </Overridable>
     );
@@ -126,15 +135,16 @@ class PatronPastDocumentRequests extends Component {
 
 PatronPastDocumentRequests.propTypes = {
   patronPid: PropTypes.string.isRequired,
-  fetchPatronDocumentRequests: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
+  rowsPerPage: PropTypes.number,
+  /* REDUX */
+  documentRequests: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  error: PropTypes.object,
-  showMaxRows: PropTypes.number,
+  error: PropTypes.object.isRequired,
+  fetchPatronPastDocumentRequests: PropTypes.func.isRequired,
 };
 
 PatronPastDocumentRequests.defaultProps = {
-  error: {},
+  rowsPerPage: 5,
 };
 
 export default Overridable.component(

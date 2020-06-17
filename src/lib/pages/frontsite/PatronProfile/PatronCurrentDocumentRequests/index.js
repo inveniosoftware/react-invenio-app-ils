@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
-import { fetchPatronDocumentRequests } from './state/actions';
-import { rejectRequest } from '@modules/DocumentRequest/actions';
 import PatronCurrentDocumentRequestsComponent from './PatronCurrentDocumentRequests';
+import { fetchPatronDocumentRequests } from './state/actions';
 
 const mapStateToProps = state => ({
-  ...state.patronCurrentDocumentRequests,
+  documentRequests: state.patronCurrentDocumentRequests.data,
+  isLoading: state.patronCurrentDocumentRequests.isLoading,
+  error: state.patronCurrentDocumentRequests.error,
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchPatronDocumentRequests: (patronPid, optionalParams = {}) =>
     dispatch(fetchPatronDocumentRequests(patronPid, optionalParams)),
-  rejectRequest: (pid, data) => dispatch(rejectRequest(pid, data)),
 });
 
 export const PatronCurrentDocumentRequests = connect(

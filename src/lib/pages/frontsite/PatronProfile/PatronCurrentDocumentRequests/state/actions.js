@@ -1,28 +1,32 @@
 import { documentRequestApi } from '@api/documentRequests/documentRequest';
-import { sendErrorNotification } from '@components/Notifications';
+import { invenioConfig } from '@config';
 
 export const IS_LOADING = 'fetchPatronDocumentRequests/IS_LOADING';
 export const SUCCESS = 'fetchPatronDocumentRequests/SUCCESS';
 export const HAS_ERROR = 'fetchPatronDocumentRequests/HAS_ERROR';
 
-const selectQuery = (patronPid, page) => {
+const selectQuery = (patronPid, page, size) => {
   return documentRequestApi
     .query()
     .withPatronPid(patronPid)
-    .withPage(page)
     .withState('PENDING')
+    .withPage(page)
+    .withSize(size)
     .sortByNewest()
     .qs();
 };
 
-export const fetchPatronDocumentRequests = (patronPid, { page = 1 } = {}) => {
+export const fetchPatronDocumentRequests = (
+  patronPid,
+  { page = 1, size = invenioConfig.defaultResultsSize } = {}
+) => {
   return async dispatch => {
     dispatch({
       type: IS_LOADING,
     });
     try {
       const response = await documentRequestApi.list(
-        selectQuery(patronPid, page)
+        selectQuery(patronPid, page, size)
       );
       dispatch({
         type: SUCCESS,
@@ -33,7 +37,6 @@ export const fetchPatronDocumentRequests = (patronPid, { page = 1 } = {}) => {
         type: HAS_ERROR,
         payload: error,
       });
-      dispatch(sendErrorNotification(error));
     }
   };
 };

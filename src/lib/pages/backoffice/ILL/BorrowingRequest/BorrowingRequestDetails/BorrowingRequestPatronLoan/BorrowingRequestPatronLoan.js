@@ -1,14 +1,13 @@
 import { fromISO, toShortDate } from '@api/date';
+import { LoanIcon } from '@components/backoffice/icons';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { DatePicker } from '@components/DatePicker';
 import { invenioConfig } from '@config';
 import { getDisplayVal } from '@config/invenioConfig';
-import { MetadataTable } from '@components/backoffice/MetadataTable';
-import { LoanIcon } from '@components/backoffice/icons';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import { DateTime } from 'luxon';
-import { BorrowingRequestLoanExtension } from './BorrowingRequestLoanExtension';
 import { PropTypes } from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -22,6 +21,7 @@ import {
   Message,
   Modal,
 } from 'semantic-ui-react';
+import { BorrowingRequestLoanExtension } from './BorrowingRequestLoanExtension';
 
 class CreateLoanButton extends React.Component {
   render() {

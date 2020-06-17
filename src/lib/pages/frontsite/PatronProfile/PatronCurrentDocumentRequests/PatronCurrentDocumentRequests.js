@@ -1,52 +1,180 @@
 import { dateFormatter } from '@api/date';
+import { documentRequestApi } from '@api/documentRequests';
+import { delay, withCancel } from '@api/utils';
 import { Error } from '@components/Error';
+import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
-import { Loader } from '@components/Loader';
 import { Pagination } from '@components/Pagination';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
-import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
-import { invenioConfig, uiConfig } from '@config';
+import { invenioConfig } from '@config';
 import { FrontSiteRoutes } from '@routes/urls';
-import _get from 'lodash/get';
-import _has from 'lodash/has';
 import _startCase from 'lodash/startCase';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
-import { Button, Header, Item } from 'semantic-ui-react';
+import {
+  Button,
+  Container,
+  Grid,
+  Header,
+  Message,
+  Popup,
+} from 'semantic-ui-react';
 import PatronCancelModal from '../PatronCancelModal';
 
-class PatronCurrentDocumentRequests extends Component {
-  state = {
-    activePage: 1,
-    cancelModal: { isOpen: false, btnClasses: undefined, data: undefined },
-  };
-
-  componentDidMount() {
-    const { fetchPatronDocumentRequests, patronPid } = this.props;
-    fetchPatronDocumentRequests(patronPid);
+class ButtonCancelRequest extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: false,
+      cancelModalIsOpened: false,
+      cancelModalData: {},
+      errorMsgOpened: false,
+      errorMsg: '',
+    };
   }
 
-  onPageChange = activePage => {
-    const { fetchPatronDocumentRequests, patronPid } = this.props;
-    fetchPatronDocumentRequests(patronPid, {
-      page: activePage,
+  componentWillUnmount() {
+    this.cancellableCancelRequest && this.cancellableCancelRequest.cancel();
+  }
+
+  openModal = (docReqPid, docReqTitle) => {
+    this.setState({
+      isLoading: true,
+      cancelModalIsOpened: true,
+      cancelModalData: {
+        docReqPid: docReqPid,
+        docReqTitle: docReqTitle,
+      },
     });
-    this.setState({ activePage: activePage });
   };
 
-  paginationComponent = () => {
-    const { isLoading, data } = this.props;
-    const { activePage } = this.state;
+  closeCancelModal = () => {
+    this.setState({
+      isLoading: false,
+      cancelModalIsOpened: false,
+      cancelModalData: {},
+    });
+  };
+
+  async cancelRequest(docReqPid) {
+    const response = await documentRequestApi.reject(docReqPid, {
+      reject_reason: invenioConfig.documentRequests.rejectTypes.userCancel,
+    });
+    await delay();
+    return response;
+  }
+
+  triggerCancelRequest = async ({ docReqPid, docReqTitle }) => {
+    const { onSuccess } = this.props;
+    this.setState({
+      isLoading: true,
+      cancelModalIsOpened: false,
+      cancelModalData: {},
+    });
+
+    try {
+      this.cancellableCancelRequest = withCancel(this.cancelRequest(docReqPid));
+      await this.cancellableCancelRequest.promise;
+      this.setState({ isLoading: false });
+      onSuccess(`Your request for ${docReqTitle} has been cancelled.`);
+    } catch (error) {
+      this.setState({ isLoading: false });
+      this.showError(error.response.data.message);
+    }
+  };
+
+  showError = msg => {
+    this.setState({
+      errorMsgOpened: true,
+      errorMsg: (
+        <Message negative>
+          <Message.Header>Request failed!</Message.Header>
+          {msg}
+        </Message>
+      ),
+    });
+  };
+
+  hideError = () => {
+    this.setState({
+      errorMsgOpened: false,
+      errorMsg: '',
+    });
+  };
+
+  render() {
+    const { docReqPid, docReqTitle } = this.props;
+    const {
+      isLoading,
+      cancelModalIsOpened,
+      cancelModalData,
+      errorMsgOpened,
+      errorMsg,
+    } = this.state;
     return (
-      <Pagination
-        currentPage={activePage}
-        loading={isLoading}
-        totalResults={data.total}
-        onPageChange={this.onPageChange}
-      />
+      <>
+        <Popup
+          trigger={
+            <Button
+              size="small"
+              content="Cancel request"
+              loading={isLoading}
+              disabled={isLoading}
+              onClick={() => this.openModal(docReqPid, docReqTitle)}
+            />
+          }
+          content={errorMsg}
+          position="top center"
+          open={errorMsgOpened}
+          wide
+          onClick={this.hideError}
+        />
+        <PatronCancelModal
+          isOpened={cancelModalIsOpened}
+          data={cancelModalData}
+          headerContent="Are you sure you want to cancel your request?"
+          documentTitle={cancelModalData.docReqTitle || ''}
+          onClose={this.closeCancelModal}
+          onConfirm={this.triggerCancelRequest}
+        />
+      </>
     );
+  }
+}
+
+ButtonCancelRequest.propTypes = {
+  docReqPid: PropTypes.string.isRequired,
+  docReqTitle: PropTypes.string.isRequired,
+  onSuccess: PropTypes.func.isRequired,
+};
+
+class PatronCurrentDocumentRequests extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activePage: 1,
+      isSuccessMessageVisible: false,
+      successMessage: '',
+    };
+  }
+
+  componentDidMount() {
+    this.fetchPatronDocumentRequests();
+  }
+
+  fetchPatronDocumentRequests() {
+    const { fetchPatronDocumentRequests, patronPid, rowsPerPage } = this.props;
+    const { activePage } = this.state;
+    fetchPatronDocumentRequests(patronPid, {
+      page: activePage,
+      size: rowsPerPage,
+    });
+  }
+
+  onPageChange = newPage => {
+    this.setState({ activePage: newPage }, this.fetchPatronDocumentRequests);
   };
 
   libraryBookFormatter = ({ row }) => {
@@ -60,39 +188,12 @@ class PatronCurrentDocumentRequests extends Component {
     );
   };
 
-  renderLoader = props => {
-    return (
-      <Item.Group>
-        <ILSItemPlaceholder fluid {...props} />
-      </Item.Group>
-    );
-  };
-
   renderNoResults = () => {
     return (
       <InfoMessage
         title="No requests for new literature"
         message="You do not currently have any request for new literature."
       />
-    );
-  };
-
-  renderCancelButton = ({ row }) => {
-    return (
-      <Button
-        size="small"
-        onClick={e =>
-          this.setState({
-            cancelModal: {
-              isOpen: true,
-              btnClasses: e.target.classList,
-              data: row,
-            },
-          })
-        }
-      >
-        cancel
-      </Button>
     );
   };
 
@@ -109,51 +210,37 @@ class PatronCurrentDocumentRequests extends Component {
     {
       title: 'Actions',
       field: '',
-      formatter: this.renderCancelButton,
+      formatter: ({ row }) => (
+        <ButtonCancelRequest
+          docReqPid={row.metadata.pid}
+          docReqTitle={row.metadata.title}
+          onSuccess={msg => {
+            this.fetchPatronDocumentRequests();
+            this.showSuccessMessage(msg);
+          }}
+        />
+      ),
     },
   ];
 
-  onCancelRequestClick = () => {
-    const {
-      cancelModal: { data: row, btnClasses },
-    } = this.state;
-    const {
-      rejectRequest,
-      fetchPatronDocumentRequests,
-      patronPid,
-    } = this.props;
-    this.onCloseCancelModal();
-    btnClasses.add('disabled');
-    btnClasses.add('loading');
-
-    rejectRequest(row.id, {
-      reject_reason: invenioConfig.documentRequests.rejectTypes.userCancel,
-    });
-
-    setTimeout(() => {
-      fetchPatronDocumentRequests(patronPid).then(res => {
-        if (!_has(this.state, 'cancelModal.btnClasses.remove')) return;
-        btnClasses.remove('disabled');
-        btnClasses.remove('loading');
-      });
-    }, uiConfig.ES_DELAY);
+  showSuccessMessage = msg => {
+    this.setState({ isSuccessMessageVisible: true, successMessage: msg });
   };
 
-  onCloseCancelModal = () => {
-    this.setState({ cancelModal: { isOpen: false, data: undefined } });
+  hideSuccessMessage = () => {
+    this.setState({ isSuccessMessageVisible: false, successMessage: '' });
   };
 
   render() {
-    const { data, isLoading, error } = this.props;
-    const { activePage, cancelModal } = this.state;
+    const { documentRequests, isLoading, error, rowsPerPage } = this.props;
+    const { activePage, isSuccessMessageVisible, successMessage } = this.state;
     const columns = this.getColumns();
     return (
       <Overridable
         id="PatronCurrentDocumentRequests.layout"
-        data={data}
+        documentRequests={documentRequests}
         isLoading={isLoading}
         error={error}
-        cancelModal={cancelModal}
         activePage={activePage}
       >
         <>
@@ -163,28 +250,44 @@ class PatronCurrentDocumentRequests extends Component {
             className="highlight"
             textAlign="center"
           />
-          <Loader isLoading={isLoading} renderElement={this.renderLoader}>
+          {isSuccessMessageVisible && (
+            <Grid columns="3">
+              <Grid.Column width="4" />
+              <Grid.Column width="8">
+                <Message
+                  positive
+                  icon="check"
+                  header="Success"
+                  content={successMessage}
+                  onDismiss={this.hideSuccessMessage}
+                />
+              </Grid.Column>
+              <Grid.Column width="4" />
+            </Grid>
+          )}
+          <ILSItemPlaceholder fluid isLoading={isLoading}>
             <Error error={error}>
               <ResultsTable
                 unstackable
-                data={data.hits}
+                data={documentRequests.hits}
                 columns={columns}
-                totalHitsCount={data.total}
+                totalHitsCount={documentRequests.total}
                 title=""
-                name="book requests"
-                paginationComponent={this.paginationComponent()}
+                name="requests for new literature"
                 currentPage={activePage}
                 renderEmptyResultsElement={this.renderNoResults}
               />
-              <PatronCancelModal
-                open={cancelModal.isOpen}
-                headerContent="Are you sure you want to cancel your request?"
-                documentTitle={_get(cancelModal.data, 'metadata.title')}
-                onCloseModal={this.onCloseCancelModal}
-                onCancelAction={this.onCancelRequestClick}
-              />
+              <Container textAlign="center">
+                <Pagination
+                  currentPage={activePage}
+                  currentSize={rowsPerPage}
+                  loading={isLoading}
+                  onPageChange={this.onPageChange}
+                  totalResults={documentRequests.total}
+                />
+              </Container>
             </Error>
-          </Loader>
+          </ILSItemPlaceholder>
         </>
       </Overridable>
     );
@@ -193,17 +296,16 @@ class PatronCurrentDocumentRequests extends Component {
 
 PatronCurrentDocumentRequests.propTypes = {
   patronPid: PropTypes.string.isRequired,
-  fetchPatronDocumentRequests: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
+  rowsPerPage: PropTypes.number,
+  /* REDUX */
+  documentRequests: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  rejectRequest: PropTypes.func.isRequired,
-  error: PropTypes.object,
-  showMaxRows: PropTypes.number,
+  error: PropTypes.object.isRequired,
+  fetchPatronDocumentRequests: PropTypes.func.isRequired,
 };
 
 PatronCurrentDocumentRequests.defaultProps = {
-  showMaxRows: 5,
-  error: {},
+  rowsPerPage: 5,
 };
 
 export default Overridable.component(

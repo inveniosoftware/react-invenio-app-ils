@@ -1,5 +1,5 @@
-import { DateTime } from 'luxon';
 import _get from 'lodash/get';
+import { DateTime } from 'luxon';
 
 /**
  * Converts datetime JSON string to luxon Datetime object
@@ -51,5 +51,5 @@ export const toShortDate = date => {
  */
 export function dateFormatter({ col, row }, defaultValue = null) {
   const dateField = _get(row, col.field);
-  return dateField ? toShortDate(fromISO(dateField)) : defaultValue;
+  return dateField ? fromISO(dateField).toLocaleString() : defaultValue;
 }

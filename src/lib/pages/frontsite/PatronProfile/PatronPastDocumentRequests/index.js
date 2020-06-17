@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
-import { fetchPatronPastDocumentRequests } from './state/actions';
 import PatronPastDocumentRequestsComponent from './PatronPastDocumentRequests';
+import { fetchPatronPastDocumentRequests } from './state/actions';
 
 const mapStateToProps = state => ({
-  ...state.patronPastDocumentRequests,
+  documentRequests: state.patronPastDocumentRequests.data,
+  isLoading: state.patronPastDocumentRequests.isLoading,
+  error: state.patronPastDocumentRequests.error,
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPatronDocumentRequests: (patronPid, optionalParams = {}) =>
+  fetchPatronPastDocumentRequests: (patronPid, optionalParams = {}) =>
     dispatch(fetchPatronPastDocumentRequests(patronPid, optionalParams)),
 });
 

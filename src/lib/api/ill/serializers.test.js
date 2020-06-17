@@ -38,10 +38,14 @@ describe('Borrowing Request request/response serializers tests', () => {
         },
         document_pid: '1h23-ah34',
         expected_delivery_date: stringDate,
-        extension: extension,
+        patron_loan: {
+          extension: extension,
+          loan: {
+            end_date: stringDate,
+          },
+          pid: '3453-5hb43',
+        },
         library_pid: 'fsdf-324j',
-        loan_end_date: stringDate,
-        loan_pid: '3453-5hb43',
         notes: 'abc',
         patron_pid: '3',
         payment: payment,
@@ -71,13 +75,17 @@ describe('Borrowing Request request/response serializers tests', () => {
         },
         document_pid: '1h23-ah34',
         expected_delivery_date: objDate,
-        extension: {
-          ...extension,
-          request_date: objDate,
+        patron_loan: {
+          extension: {
+            ...extension,
+            request_date: objDate,
+          },
+          loan: {
+            end_date: objDate,
+          },
+          pid: '3453-5hb43',
         },
         library_pid: 'fsdf-324j',
-        loan_end_date: objDate,
-        loan_pid: '3453-5hb43',
         notes: 'abc',
         patron_pid: '3',
         payment: {
@@ -105,13 +113,14 @@ describe('Borrowing Request request/response serializers tests', () => {
       },
       document_pid: '1h23-ah34',
       expected_delivery_date: objDate,
-      extension: {
-        ...extension,
-        request_date: objDate,
+      patron_loan: {
+        extension: extension,
+        loan: {
+          end_date: objDate,
+        },
+        pid: '3453-5hb43',
       },
       library_pid: 'fsdf-324j',
-      loan_end_date: objDate,
-      loan_pid: '3453-5hb43',
       notes: 'abc',
       patron_pid: '3',
       payment: {
@@ -136,13 +145,17 @@ describe('Borrowing Request request/response serializers tests', () => {
       },
       document_pid: '1h23-ah34',
       expected_delivery_date: stringDate,
-      extension: {
-        ...extension,
-        request_date: stringDate,
+      patron_loan: {
+        extension: {
+          ...extension,
+          request_date: stringDate,
+        },
+        loan: {
+          end_date: stringDate,
+        },
+        pid: '3453-5hb43',
       },
       library_pid: 'fsdf-324j',
-      loan_end_date: stringDate,
-      loan_pid: '3453-5hb43',
       notes: 'abc',
       patron_pid: '3',
       payment: {

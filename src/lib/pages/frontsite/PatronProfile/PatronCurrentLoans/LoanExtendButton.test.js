@@ -3,15 +3,12 @@ import testData from '@testData/loans.json';
 import { mount } from 'enzyme';
 import { Settings } from 'luxon';
 import React from 'react';
-import ExtendButton from './ExtendButton';
+import { LoanExtendButton } from './LoanExtendButton';
 
 jest.mock('@config/invenioConfig');
 Settings.defaultZoneName = 'utc';
 const stringDate = fromISO('2020-01-01T11:05:00+01:00');
 const endDate = stringDate.plus({ months: 1 });
-const user = {
-  id: testData[0].patron_pid,
-};
 
 describe('Extend loan button tests', () => {
   let component;
@@ -32,12 +29,7 @@ describe('Extend loan button tests', () => {
     };
 
     const component = mount(
-      <ExtendButton
-        extendLoan={() => {}}
-        onExtendSuccess={() => {}}
-        loan={loan}
-        user={user}
-      />
+      <LoanExtendButton loan={loan} onSuccess={() => {}} onError={() => {}} />
     );
     expect(component).toMatchSnapshot();
   });
@@ -54,12 +46,7 @@ describe('Extend loan button tests', () => {
     };
 
     const component = mount(
-      <ExtendButton
-        extendLoan={() => {}}
-        onExtendSuccess={() => {}}
-        loan={loan}
-        user={user}
-      />
+      <LoanExtendButton loan={loan} onSuccess={() => {}} onError={() => {}} />
     );
     const btn = component.find('Button');
     expect(btn.props().disabled).toBe(true);
@@ -76,12 +63,7 @@ describe('Extend loan button tests', () => {
     };
 
     const component = mount(
-      <ExtendButton
-        extendLoan={() => {}}
-        onExtendSuccess={() => {}}
-        loan={loan}
-        user={user}
-      />
+      <LoanExtendButton loan={loan} onSuccess={() => {}} onError={() => {}} />
     );
     const btn = component.find('Button');
     expect(btn.props().disabled).toBe(true);
@@ -98,12 +80,7 @@ describe('Extend loan button tests', () => {
     };
 
     const component = mount(
-      <ExtendButton
-        extendLoan={() => {}}
-        onExtendSuccess={() => {}}
-        loan={loan}
-        user={user}
-      />
+      <LoanExtendButton loan={loan} onSuccess={() => {}} onError={() => {}} />
     );
 
     const btn = component.find('Button');

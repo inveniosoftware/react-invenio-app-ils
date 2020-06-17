@@ -17,7 +17,7 @@ import {
   ReactSearchKit,
   ResultsLoader,
   ResultsMultiLayout,
-  SearchBar
+  SearchBar,
 } from 'react-searchkit';
 import { Container, Grid, Header, Loader, Responsive } from 'semantic-ui-react';
 import LiteratureSearchMobile from './LiteratureSearchMobile';

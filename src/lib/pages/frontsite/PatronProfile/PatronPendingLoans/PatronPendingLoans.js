@@ -1,33 +1,180 @@
-import { toShortDate } from '@api/date';
+import { loanApi } from '@api/loans';
+import { delay, withCancel } from '@api/utils';
 import { Error } from '@components/Error';
+import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
-import { Loader } from '@components/Loader';
-import { uiConfig } from '@config';
-import _get from 'lodash/get';
 import _has from 'lodash/has';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Button, Container, Header, Label } from 'semantic-ui-react';
+import {
+  Button,
+  Container,
+  Grid,
+  Header,
+  Label,
+  Message,
+  Popup,
+} from 'semantic-ui-react';
 import LoansList from '../LoansList';
 import LoansListItem from '../LoansListEntry';
 import PatronCancelModal from '../PatronCancelModal';
+
+class ButtonCancelRequest extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: false,
+      cancelModalIsOpened: false,
+      cancelModalData: {},
+      errorMsgOpened: false,
+      errorMsg: '',
+    };
+  }
+
+  componentWillUnmount() {
+    this.cancellableCancelRequest && this.cancellableCancelRequest.cancel();
+  }
+
+  openModal = (cancelUrl, patronPid, documentPid, documentTitle) => {
+    this.setState({
+      isLoading: true,
+      cancelModalIsOpened: true,
+      cancelModalData: {
+        cancelUrl: cancelUrl,
+        patronPid: patronPid,
+        documentPid: documentPid,
+        documentTitle: documentTitle,
+      },
+    });
+  };
+
+  closeCancelModal = () => {
+    this.setState({
+      isLoading: false,
+      cancelModalIsOpened: false,
+      cancelModalData: {},
+    });
+  };
+
+  async cancelRequest(cancelUrl, patronPid, documentPid) {
+    const response = await loanApi.doAction(cancelUrl, documentPid, patronPid, {
+      cancelReason: 'USER_CANCEL',
+    });
+    await delay();
+    return response;
+  }
+
+  triggerCancelRequest = async ({
+    cancelUrl,
+    patronPid,
+    documentPid,
+    documentTitle,
+  }) => {
+    const { onSuccess } = this.props;
+    this.setState({
+      isLoading: true,
+      cancelModalIsOpened: false,
+      cancelModalData: {},
+    });
+
+    try {
+      this.cancellableCancelRequest = withCancel(
+        this.cancelRequest(cancelUrl, patronPid, documentPid)
+      );
+      await this.cancellableCancelRequest.promise;
+      this.setState({ isLoading: false });
+      onSuccess(`Your loan request for ${documentTitle} has been cancelled.`);
+    } catch (error) {
+      this.setState({ isLoading: false });
+      this.showError(error.response.data.message);
+    }
+  };
+
+  showError = msg => {
+    this.setState({
+      errorMsgOpened: true,
+      errorMsg: (
+        <Message negative>
+          <Message.Header>Request failed!</Message.Header>
+          {msg}
+        </Message>
+      ),
+    });
+  };
+
+  hideError = () => {
+    this.setState({
+      errorMsgOpened: false,
+      errorMsg: '',
+    });
+  };
+
+  render() {
+    const { cancelUrl, patronPid, documentPid, documentTitle } = this.props;
+    const {
+      isLoading,
+      cancelModalIsOpened,
+      cancelModalData,
+      errorMsgOpened,
+      errorMsg,
+    } = this.state;
+    return (
+      <>
+        <Popup
+          trigger={
+            <Button
+              size="small"
+              content="Cancel request"
+              loading={isLoading}
+              disabled={isLoading}
+              onClick={() =>
+                this.openModal(cancelUrl, patronPid, documentPid, documentTitle)
+              }
+            />
+          }
+          content={errorMsg}
+          position="top center"
+          open={errorMsgOpened}
+          wide
+          onClick={this.hideError}
+        />
+        <PatronCancelModal
+          isOpened={cancelModalIsOpened}
+          data={cancelModalData}
+          headerContent="Are you sure you want to cancel your loan request?"
+          documentTitle={cancelModalData.documentTitle || ''}
+          onClose={this.closeCancelModal}
+          onConfirm={this.triggerCancelRequest}
+        />
+      </>
+    );
+  }
+}
+
+ButtonCancelRequest.propTypes = {
+  cancelUrl: PropTypes.string.isRequired,
+  patronPid: PropTypes.string.isRequired,
+  documentPid: PropTypes.string.isRequired,
+  documentTitle: PropTypes.string.isRequired,
+  onSuccess: PropTypes.func.isRequired,
+};
 
 class LoansListEntry extends Component {
   renderRequestDetails = (startDate, endDate) => (
     <div className="pt-default">
       <Label basic>
         Requested on
-        <Label.Detail>{toShortDate(startDate)}</Label.Detail>
+        <Label.Detail>{startDate.toLocaleString()}</Label.Detail>
       </Label>
       <Label basic>
         Valid until
-        <Label.Detail>{toShortDate(endDate)}</Label.Detail>
+        <Label.Detail>{endDate.toLocaleString()}</Label.Detail>
       </Label>
     </div>
   );
 
   render() {
-    const { loan, onCancelClick } = this.props;
+    const { loan, onSuccess } = this.props;
     return (
       <LoansListItem
         loan={loan}
@@ -37,9 +184,13 @@ class LoansListEntry extends Component {
             loan.metadata.request_expire_date
           ),
           itemExtraCmp: _has(loan, 'availableActions.cancel') && (
-            <Button size="small" onClick={e => onCancelClick(e, loan)}>
-              Cancel request
-            </Button>
+            <ButtonCancelRequest
+              cancelUrl={loan.availableActions.cancel}
+              patronPid={loan.metadata.patron_pid}
+              documentPid={loan.metadata.document_pid}
+              documentTitle={loan.metadata.document.title}
+              onSuccess={onSuccess}
+            />
           ),
         }}
       />
@@ -49,7 +200,7 @@ class LoansListEntry extends Component {
 
 LoansListEntry.propTypes = {
   loan: PropTypes.object.isRequired,
-  onCancelClick: PropTypes.func.isRequired,
+  onSuccess: PropTypes.func.isRequired,
 };
 
 export default class PatronPendingLoans extends Component {
@@ -57,7 +208,8 @@ export default class PatronPendingLoans extends Component {
     super(props);
     this.state = {
       activePage: props.initialPage,
-      cancelModal: { isOpen: false, btnClasses: undefined, data: undefined },
+      isSuccessMessageVisible: false,
+      successMessage: '',
     };
   }
 
@@ -74,47 +226,17 @@ export default class PatronPendingLoans extends Component {
     });
   }
 
-  onShowCancelModal = (e, loan) => {
-    this.setState({
-      cancelModal: { isOpen: true, btnClasses: e.target.classList, data: loan },
-    });
+  showSuccessMessage = msg => {
+    this.setState({ isSuccessMessageVisible: true, successMessage: msg });
   };
 
-  onCloseCancelModal = () => {
-    this.setState({
-      cancelModal: { isOpen: false, data: undefined },
-    });
-  };
-
-  onCancelRequestClick = () => {
-    const {
-      cancelModal: { data: loan, btnClasses },
-    } = this.state;
-    const { initialPage, patronPid, performLoanAction } = this.props;
-    btnClasses.add('disabled');
-    btnClasses.add('loading');
-    this.onCloseCancelModal();
-    performLoanAction(
-      _get(loan, 'availableActions.cancel'),
-      _get(loan, 'metadata.document_pid'),
-      patronPid,
-      {
-        item_pid: _get(loan, 'metadata.item_pid'),
-        cancelReason: 'USER_CANCEL',
-      }
-    );
-    setTimeout(() => {
-      this.fetchPatronPendingLoans(initialPage).then(res => {
-        if (!_has(btnClasses, 'remove')) return;
-        btnClasses.remove('disabled');
-        btnClasses.remove('loading');
-      });
-    }, uiConfig.ES_DELAY);
+  hideSuccessMessage = () => {
+    this.setState({ isSuccessMessageVisible: false, successMessage: '' });
   };
 
   render() {
     const { error, isLoading, loans, rowsPerPage } = this.props;
-    const { activePage, cancelModal } = this.state;
+    const { activePage, isSuccessMessageVisible, successMessage } = this.state;
     return (
       <Container className="spaced">
         <Header
@@ -123,7 +245,22 @@ export default class PatronPendingLoans extends Component {
           className="highlight"
           textAlign="center"
         />
-        <Loader isLoading={isLoading} renderElement={this.renderLoader}>
+        {isSuccessMessageVisible && (
+          <Grid columns="3">
+            <Grid.Column width="4" />
+            <Grid.Column width="8">
+              <Message
+                positive
+                icon="check"
+                header="Success"
+                content={successMessage}
+                onDismiss={this.hideSuccessMessage}
+              />
+            </Grid.Column>
+            <Grid.Column width="4" />
+          </Grid>
+        )}
+        <ILSItemPlaceholder fluid isLoading={isLoading}>
           <Error error={error}>
             <LoansList
               activePage={activePage}
@@ -139,7 +276,10 @@ export default class PatronPendingLoans extends Component {
               renderListEntry={loan => (
                 <LoansListEntry
                   loan={loan}
-                  onCancelClick={this.onShowCancelModal}
+                  onSuccess={msg => {
+                    this.fetchPatronPendingLoans();
+                    this.showSuccessMessage(msg);
+                  }}
                 />
               )}
               noLoansCmp={
@@ -149,16 +289,8 @@ export default class PatronPendingLoans extends Component {
                 />
               }
             />
-            <PatronCancelModal
-              data={cancelModal.data}
-              open={cancelModal.isOpen}
-              headerContent="Are you sure you want to cancel your loan request?"
-              documentTitle={_get(cancelModal.data, 'metadata.document.title')}
-              onCloseModal={this.onCloseCancelModal}
-              onCancelAction={this.onCancelRequestClick}
-            />
           </Error>
-        </Loader>
+        </ILSItemPlaceholder>
       </Container>
     );
   }
@@ -173,7 +305,6 @@ PatronPendingLoans.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   error: PropTypes.object.isRequired,
   fetchPatronPendingLoans: PropTypes.func.isRequired,
-  performLoanAction: PropTypes.func.isRequired,
 };
 
 PatronPendingLoans.defaultProps = {

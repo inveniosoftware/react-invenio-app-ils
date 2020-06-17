@@ -18,7 +18,7 @@ export const borrowingRequestPatronLoanCreate = (
     });
 
     try {
-      const response = await borrowingRequestApi.patronLoanCreate(
+      const response = await borrowingRequestApi.createLoan(
         borrowingRequestPid,
         loanStartDate,
         loanEndDate
