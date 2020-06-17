@@ -1,9 +1,9 @@
 import { loanApi } from '@api/loans';
+import { delay } from '@api/utils';
 import {
-  sendSuccessNotification,
   sendErrorNotification,
+  sendSuccessNotification,
 } from '@components/Notifications';
-import { uiConfig } from '@config';
 
 export const ACTION_IS_LOADING = 'loanAction/IS_LOADING';
 export const ACTION_SUCCESS = 'loanAction/SUCCESS';
@@ -54,17 +54,18 @@ export const performLoanAction = (
           cancelReason: cancelReason,
         }
       );
+      await delay();
+
       dispatch({
         type: ACTION_SUCCESS,
         payload: response.data,
       });
+
       dispatch({
-        type: DETAILS_IS_LOADING,
+        type: DETAILS_SUCCESS,
+        payload: response.data,
       });
-      setTimeout(
-        () => dispatch(fetchLoanDetails(response.data.metadata.pid)),
-        uiConfig.ES_DELAY
-      );
+
       const loanPid = response.data.pid;
       dispatch(
         sendSuccessNotification(

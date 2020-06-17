@@ -1,13 +1,14 @@
-import _get from 'lodash/get';
-import _set from 'lodash/set';
 import { fromISO, toISODate } from '@api/date';
 import { recordResponseSerializer } from '@api/utils';
+import _get from 'lodash/get';
+import _set from 'lodash/set';
 
 const BrwReqSerializers = {
   DATE_FIELDS: [
     'expected_delivery_date',
-    'extension.request_date',
-    'loan_end_date',
+    'patron_loan.extension.request_date',
+    'patron_loan.loan.start_date',
+    'patron_loan.loan.end_date',
     'payment.debit_date',
     'received_date',
     'request_date',

@@ -1,16 +1,16 @@
 import {
+  ACTION_HAS_ERROR,
   ACTION_IS_LOADING,
   ACTION_SUCCESS,
-  ACTION_HAS_ERROR,
+  DETAILS_HAS_ERROR,
   DETAILS_IS_LOADING,
   DETAILS_SUCCESS,
-  DETAILS_HAS_ERROR,
 } from './actions';
 
 export const initialState = {
   data: {},
   error: {},
-  isLoading: true,
+  isLoading: false,
   hasError: false,
 };
 

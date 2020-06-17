@@ -116,13 +116,13 @@ export const rejectRequest = (pid, data) => {
   };
 };
 
-export const addProvider = (provDataPid, pid, pid_type) => {
+export const addProvider = (provDataPid, pid, pidType) => {
   return async dispatch => {
     try {
       const response = await documentRequestApi.addProvider(pid, {
         physical_item_provider: {
           pid: provDataPid,
-          pid_type: pid_type,
+          pid_type: pidType,
         },
       });
       dispatch({

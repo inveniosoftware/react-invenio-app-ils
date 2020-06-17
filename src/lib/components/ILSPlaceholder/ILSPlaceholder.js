@@ -1,7 +1,7 @@
 import { random } from 'lodash/number';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Item, Placeholder } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
 
 export class ILSParagraphPlaceholder extends Component {
   renderLines = () => {
@@ -31,12 +31,18 @@ export class ILSParagraphPlaceholder extends Component {
   };
 
   render() {
-    const { isLoading, linesNumber, lineLength, ...restParams } = this.props;
+    const {
+      isLoading,
+      linesNumber,
+      lineLength,
+      children,
+      ...restParams
+    } = this.props;
 
     return isLoading ? (
       <Placeholder {...restParams}>{this.renderLines()}</Placeholder>
     ) : (
-      this.props.children
+      children
     );
   }
 }
@@ -51,18 +57,19 @@ ILSParagraphPlaceholder.propTypes = {
 ILSParagraphPlaceholder.defaultProps = {
   isLoading: false,
   lineLength: null,
+  children: null,
 };
 
 export class ILSImagePlaceholder extends Component {
   render() {
-    const { isLoading, ...restParams } = this.props;
+    const { isLoading, children, ...restParams } = this.props;
     return isLoading ? (
       <Placeholder {...restParams}>
         <Placeholder.Image />
       </Placeholder>
-    ) : this.props.children ? (
-      this.props.children
-    ) : null;
+    ) : (
+      children
+    );
   }
 }
 
@@ -73,11 +80,12 @@ ILSImagePlaceholder.propTypes = {
 
 ILSImagePlaceholder.defaultProps = {
   isLoading: false,
+  children: null,
 };
 
 export class ILSHeaderPlaceholder extends Component {
   render() {
-    const { isLoading, ...restParams } = this.props;
+    const { isLoading, children, ...restParams } = this.props;
     return isLoading ? (
       <Placeholder {...restParams}>
         <Placeholder.Header>
@@ -85,9 +93,9 @@ export class ILSHeaderPlaceholder extends Component {
           <Placeholder.Line />
         </Placeholder.Header>
       </Placeholder>
-    ) : this.props.children ? (
-      this.props.children
-    ) : null;
+    ) : (
+      children
+    );
   }
 }
 
@@ -98,11 +106,12 @@ ILSHeaderPlaceholder.propTypes = {
 
 ILSHeaderPlaceholder.defaultProps = {
   isLoading: false,
+  children: null,
 };
 
 export class ILSItemPlaceholder extends Component {
   render() {
-    const { isLoading, ...restParams } = this.props;
+    const { isLoading, children, ...restParams } = this.props;
     return isLoading ? (
       <Item>
         <Item.Content>
@@ -115,9 +124,9 @@ export class ILSItemPlaceholder extends Component {
           </Item.Description>
         </Item.Content>
       </Item>
-    ) : this.props.children ? (
-      this.props.children
-    ) : null;
+    ) : (
+      children
+    );
   }
 }
 
@@ -128,4 +137,5 @@ ILSItemPlaceholder.propTypes = {
 
 ILSItemPlaceholder.defaultProps = {
   isLoading: false,
+  children: null,
 };

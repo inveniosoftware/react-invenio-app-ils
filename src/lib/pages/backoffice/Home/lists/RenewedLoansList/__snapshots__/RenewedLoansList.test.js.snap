@@ -1352,7 +1352,7 @@ exports[`RenewedLoansList tests should render loans 1`] = `
                               data-label="End date"
                               data-test="5-loan1"
                             >
-                              2018-07-28
+                              7/28/2018
                             </td>
                           </TableCell>
                           <TableCell
@@ -2165,7 +2165,7 @@ exports[`RenewedLoansList tests should render loans 1`] = `
                               data-label="End date"
                               data-test="5-loan2"
                             >
-                              2018-07-28
+                              7/28/2018
                             </td>
                           </TableCell>
                           <TableCell

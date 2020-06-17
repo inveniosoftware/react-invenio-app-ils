@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Extend loan button tests should match snapshot 1`] = `
-<ExtendButton
-  extendLoan={[Function]}
+<LoanExtendButton
   loan={
     Object {
       "availableActions": Object {
@@ -28,16 +27,12 @@ exports[`Extend loan button tests should match snapshot 1`] = `
       },
     }
   }
-  onExtendSuccess={[Function]}
-  user={
-    Object {
-      "id": "1",
-    }
-  }
+  onError={[Function]}
+  onSuccess={[Function]}
 >
   <Popup
     content="It is too early for extending the loan. You can request an extension from
-      January 25"
+    January 25."
     disabled={false}
     eventsEnabled={true}
     offset={0}
@@ -116,17 +111,18 @@ exports[`Extend loan button tests should match snapshot 1`] = `
   </Popup>
   <Button
     as="button"
-    color="purple"
+    color="blue"
     content="Request extension"
     disabled={true}
+    loading={false}
     onClick={[Function]}
-    size="mini"
+    size="small"
   >
     <Ref
       innerRef={
         Object {
           "current": <button
-            class="ui purple mini disabled button"
+            class="ui blue small disabled button"
             disabled=""
             tabindex="-1"
           >
@@ -139,7 +135,7 @@ exports[`Extend loan button tests should match snapshot 1`] = `
         innerRef={
           Object {
             "current": <button
-              class="ui purple mini disabled button"
+              class="ui blue small disabled button"
               disabled=""
               tabindex="-1"
             >
@@ -149,7 +145,7 @@ exports[`Extend loan button tests should match snapshot 1`] = `
         }
       >
         <button
-          className="ui purple mini disabled button"
+          className="ui blue small disabled button"
           disabled={true}
           onClick={[Function]}
           tabIndex={-1}
@@ -159,5 +155,5 @@ exports[`Extend loan button tests should match snapshot 1`] = `
       </RefFindNode>
     </Ref>
   </Button>
-</ExtendButton>
+</LoanExtendButton>
 `;

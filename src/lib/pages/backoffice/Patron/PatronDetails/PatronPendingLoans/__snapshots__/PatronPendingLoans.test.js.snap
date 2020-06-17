@@ -708,7 +708,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                   data-label="Request interest from"
                                   data-test="2-loan1"
                                 >
-                                  2018-06-28
+                                  6/28/2018
                                 </td>
                               </TableCell>
                               <TableCell
@@ -722,7 +722,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                   data-label="Request expires on"
                                   data-test="3-loan1"
                                 >
-                                  2019-06-28
+                                  6/28/2019
                                 </td>
                               </TableCell>
                             </tr>
@@ -848,7 +848,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                   data-label="Request interest from"
                                   data-test="2-loan2"
                                 >
-                                  2018-06-28
+                                  6/28/2018
                                 </td>
                               </TableCell>
                               <TableCell
@@ -862,7 +862,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                   data-label="Request expires on"
                                   data-test="3-loan2"
                                 >
-                                  2019-06-28
+                                  6/28/2019
                                 </td>
                               </TableCell>
                             </tr>
@@ -1654,7 +1654,7 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                   data-label="Request interest from"
                                   data-test="2-loan1"
                                 >
-                                  2018-06-28
+                                  6/28/2018
                                 </td>
                               </TableCell>
                               <TableCell
@@ -1668,7 +1668,7 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                   data-label="Request expires on"
                                   data-test="3-loan1"
                                 >
-                                  2019-06-28
+                                  6/28/2019
                                 </td>
                               </TableCell>
                             </tr>

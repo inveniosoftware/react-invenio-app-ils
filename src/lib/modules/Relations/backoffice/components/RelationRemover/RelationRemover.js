@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Button, Icon, Modal } from 'semantic-ui-react';
 
 export default class RelationRemover extends Component {
@@ -42,8 +42,8 @@ export default class RelationRemover extends Component {
           Are you sure you want to delete this relation?
         </Modal.Content>
         <Modal.Actions>
-          <Button onClick={() => this.handleClose()}>No, take me back</Button>
-          <Button negative onClick={() => this.handleDelete()}>
+          <Button onClick={this.handleClose}>No, take me back</Button>
+          <Button negative onClick={this.handleDelete}>
             Yes, I am sure
           </Button>
         </Modal.Actions>

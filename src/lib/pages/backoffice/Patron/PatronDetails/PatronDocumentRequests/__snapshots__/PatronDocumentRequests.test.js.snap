@@ -550,7 +550,7 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                                   data-label="Created on "
                                   data-test="4-documentRequest1"
                                 >
-                                  2018-01-01
+                                  1/1/2018
                                 </td>
                               </TableCell>
                             </tr>
@@ -649,7 +649,7 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                                   data-label="Created on "
                                   data-test="4-documentRequest2"
                                 >
-                                  2018-01-01
+                                  1/1/2018
                                 </td>
                               </TableCell>
                             </tr>
@@ -1313,7 +1313,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                   data-label="Created on "
                                   data-test="4-documentRequest1"
                                 >
-                                  2018-01-01
+                                  1/1/2018
                                 </td>
                               </TableCell>
                             </tr>

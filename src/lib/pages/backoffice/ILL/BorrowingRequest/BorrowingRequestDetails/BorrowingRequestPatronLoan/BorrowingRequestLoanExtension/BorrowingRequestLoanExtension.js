@@ -2,9 +2,9 @@ import { fromISO } from '@api/date';
 import { DatePicker } from '@components/DatePicker';
 import { InfoMessage } from '@components/InfoMessage';
 import { invenioConfig } from '@config/invenioConfig';
+import _isEmpty from 'lodash/isEmpty';
 import { PropTypes } from 'prop-types';
 import React, { Component } from 'react';
-import _isEmpty from 'lodash/isEmpty';
 import {
   Button,
   Container,
@@ -69,7 +69,7 @@ export default class BorrowingRequestLoanExtension extends Component {
         {!_isEmpty(extension) && extension.status && (
           <>
             The patron requested an extension for this loan on{' '}
-            <Label basic>{extension.request_date}</Label>
+            <Label basic>{extension.request_date.toLocaleString()}</Label>
             <Divider hidden />
             {invenioConfig.illBorrowingRequests.extensionPendingStatuses.includes(
               extension.status
@@ -80,7 +80,12 @@ export default class BorrowingRequestLoanExtension extends Component {
                     <Modal
                       open={modalOpen}
                       trigger={
-                        <Button positive onClick={this.handleOpenModal}>
+                        <Button
+                          positive
+                          onClick={this.handleOpenModal}
+                          loading={isLoading}
+                          disabled={isLoading}
+                        >
                           Accept extension
                         </Button>
                       }
@@ -88,7 +93,9 @@ export default class BorrowingRequestLoanExtension extends Component {
                       <Modal.Header>Accept extension</Modal.Header>
                       <Modal.Content>
                         Current loan end date:{' '}
-                        <Label basic>{patronLoan.loan.end_date}</Label>
+                        <Label basic size="large">
+                          {patronLoan.loan.end_date.toLocaleString()}
+                        </Label>
                         <Divider hidden />
                         <Form>
                           <Form.Group>
@@ -113,11 +120,8 @@ export default class BorrowingRequestLoanExtension extends Component {
                         </i>
                       </Modal.Content>
                       <Modal.Actions>
-                        <Button
-                          positive
-                          onClick={this.acceptHandler}
-                          loading={isLoading}
-                        >
+                        <Button onClick={this.handleCloseModal}>Close</Button>
+                        <Button positive onClick={this.acceptHandler}>
                           Accept extension
                         </Button>
                       </Modal.Actions>
@@ -128,6 +132,7 @@ export default class BorrowingRequestLoanExtension extends Component {
                       negative
                       onClick={this.declineHandler}
                       loading={isLoading}
+                      disabled={isLoading}
                     >
                       Decline extension
                     </Button>

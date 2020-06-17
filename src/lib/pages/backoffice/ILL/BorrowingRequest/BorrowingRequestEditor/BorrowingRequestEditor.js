@@ -1,10 +1,10 @@
 import { borrowingRequestApi } from '@api/ill';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
+import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { BorrowingRequestForm } from './BorrowingRequestForm/BorrowingRequestForm';
-import _get from 'lodash/get';
 
 export class BorrowingRequestEditor extends Component {
   state = {
@@ -21,7 +21,9 @@ export class BorrowingRequestEditor extends Component {
   }
 
   get initialData() {
-    const request = this.props.location.state || null;
+    const {
+      location: { state: request },
+    } = this.props;
     if (!request) return null;
     return {
       metadata: {
@@ -83,4 +85,13 @@ BorrowingRequestEditor.propTypes = {
       borrowingRequestPid: PropTypes.string,
     }),
   }).isRequired,
+  location: PropTypes.shape({
+    state: PropTypes.object,
+  }),
+};
+
+BorrowingRequestEditor.defaultProps = {
+  location: {
+    state: null,
+  },
 };
