@@ -113,5 +113,21 @@ Card Overrides - REACT-INVENIO-APP-ILS
       }
     }
   }
-}
 
+  .ui.card.install-card {
+    border-radius: 0;
+    padding: 1em;
+
+    .ui.message {
+      margin: 0.2em;
+    }
+
+    .ui.label {
+      margin-right: 0.7em;
+    }
+  }
+
+  .ui.cards.install-cards {
+    margin-bottom: 3em;
+  }
+}

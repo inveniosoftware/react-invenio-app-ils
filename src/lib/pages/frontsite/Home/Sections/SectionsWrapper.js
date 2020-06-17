@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import _isEmpty from 'lodash/isEmpty';
-import { DocumentCardGroup } from '@modules/Document/DocumentCardGroup';
-import SectionServices from './SectionServices';
-import { Container } from 'semantic-ui-react';
-import SectionTags from './SectionTags';
 import { documentApi } from '@api/documents';
+import { DocumentCardGroup } from '@modules/Document/DocumentCardGroup';
 import { FrontSiteRoutes } from '@routes/urls';
+import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Container } from 'semantic-ui-react';
+import { SectionInstallation } from './SectionInstallation';
+import { SectionServices } from './SectionServices';
+import SectionTags from './SectionTags';
 
 export default class SectionsWrapper extends Component {
   renderDefaultSections = () => {
     return (
       <Container fluid className="fs-landing-page-section-wrapper">
         <SectionServices />
+        <SectionInstallation />
         <Container fluid>
           <Container textAlign="center" className="fs-landing-page-section">
             <DocumentCardGroup

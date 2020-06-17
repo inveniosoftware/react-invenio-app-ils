@@ -53,6 +53,15 @@ List Overrides - REACT-INVENIO-APP-ILS
   }
 }
 
+/* FRONTSITE */
+@{fs-parent-selector} {
+  .ui.list {
+    .item.install-item {
+      margin-bottom: 1em;
+    }
+  }
+}
+
 /* BACKOFFICE */
 @{bo-parent-selector} {
   .ui.list {
