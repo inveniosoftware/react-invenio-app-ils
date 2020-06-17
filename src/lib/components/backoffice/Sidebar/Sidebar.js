@@ -8,7 +8,6 @@ import {
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Divider, Header, Icon, Label, Menu } from 'semantic-ui-react';
 import AdminMenu from './AdminMenu';

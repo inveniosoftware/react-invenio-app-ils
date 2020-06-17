@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Card, Container, Header, Icon } from 'semantic-ui-react';
 
-export default class SectionServices extends Component {
+export class SectionServices extends Component {
   render() {
     return (
       <Container fluid className="dot-background-container">
