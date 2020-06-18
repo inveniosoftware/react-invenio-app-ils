@@ -65,6 +65,7 @@ export default class CancelModal extends Component {
             content={buttonText}
             onClick={this.show}
             loading={isLoading}
+            disabled={isLoading}
           />
         }
         open={open}

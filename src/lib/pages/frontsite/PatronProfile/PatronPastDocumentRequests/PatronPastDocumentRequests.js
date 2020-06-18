@@ -89,7 +89,6 @@ class PatronPastDocumentRequests extends Component {
       },
       { title: 'Created', field: 'created', formatter: dateFormatter },
     ];
-    console.log(rowsPerPage, error);
     return (
       <Overridable
         id="PatronPastDocumentRequests.layout"

@@ -60,7 +60,7 @@ export const performLoanAction = (
         type: ACTION_SUCCESS,
         payload: response.data,
       });
-      dispatch(fetchLoanDetails(response.data.pid));
+      dispatch(fetchLoanDetails(response.data.metadata.pid));
       const loanPid = response.data.pid;
       dispatch(
         sendSuccessNotification(

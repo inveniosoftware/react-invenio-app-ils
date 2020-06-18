@@ -36,7 +36,12 @@ export default class LoanActions extends Component {
               isLoading={isLoading}
             />
           ) : (
-            <Button primary onClick={loanAction} loading={isLoading}>
+            <Button
+              primary
+              onClick={loanAction}
+              loading={isLoading}
+              disabled={isLoading}
+            >
               {action}
             </Button>
           )}

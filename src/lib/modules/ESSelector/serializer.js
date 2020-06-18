@@ -108,6 +108,7 @@ export const serializeLibrary = library => ({
   id: library.metadata.pid,
   key: library.metadata.pid,
   title: library.metadata.name,
+  metadata: library.metadata,
 });
 
 export const serializeVendor = vendor => ({
@@ -133,4 +134,5 @@ export const serializeBorrowingRequest = request => ({
   key: request.metadata.pid,
   pid: request.metadata.pid,
   title: request.metadata.pid,
+  metadata: request.metadata,
 });
