@@ -53,13 +53,20 @@ export default class CancelModal extends Component {
   };
 
   render() {
-    const { buttonText, cancelText, content, header } = this.props;
+    const { buttonText, cancelText, content, header, isLoading } = this.props;
     const { open, value, showPopup } = this.state;
     return (
       <Modal
         basic
         size="small"
-        trigger={<Button primary content={buttonText} onClick={this.show} />}
+        trigger={
+          <Button
+            primary
+            content={buttonText}
+            onClick={this.show}
+            loading={isLoading}
+          />
+        }
         open={open}
         onClose={this.hide}
       >
@@ -103,8 +110,10 @@ CancelModal.propTypes = {
   content: PropTypes.string.isRequired,
   header: PropTypes.string.isRequired,
   value: PropTypes.string,
+  isLoading: PropTypes.bool,
 };
 
 CancelModal.defaultProps = {
   value: '',
+  isLoading: false,
 };
