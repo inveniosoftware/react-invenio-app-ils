@@ -5,6 +5,7 @@ import LoanActionsComponent from './LoanActions';
 const mapStateToProps = state => ({
   error: state.loanDetails.error,
   loanDetails: state.loanDetails.data,
+  isLoading: state.loanActions.isLoading,
 });
 
 const mapDispatchToProps = dispatch => ({

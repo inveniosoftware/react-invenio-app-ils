@@ -9,7 +9,8 @@ import _isEmpty from 'lodash/isEmpty';
 
 export default class LoanActions extends Component {
   renderAvailableActions(pid, patronPid, documentPid, itemPid, actions = {}) {
-    const { performLoanAction } = this.props;
+    const { performLoanAction, isLoading } = this.props;
+
     // omit checkout because it must done in one of the available items
     if (!itemPid) {
       actions = omit(actions, 'checkout');
@@ -32,9 +33,10 @@ export default class LoanActions extends Component {
               cancelText="Cancel Loan"
               buttonText="cancel"
               action={cancelAction}
+              isLoading={isLoading}
             />
           ) : (
-            <Button primary onClick={loanAction}>
+            <Button primary onClick={loanAction} loading={isLoading}>
               {action}
             </Button>
           )}
@@ -89,4 +91,9 @@ export default class LoanActions extends Component {
 LoanActions.propTypes = {
   loanDetails: PropTypes.object.isRequired,
   performLoanAction: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool,
+};
+
+LoanActions.defaultProps = {
+  isLoading: false,
 };
