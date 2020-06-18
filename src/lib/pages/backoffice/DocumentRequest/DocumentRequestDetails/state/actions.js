@@ -163,7 +163,6 @@ export const removeProvider = (pid, provPid) => {
       const response = await documentRequestApi.removeProvider(pid, {
         physical_item_provider_pid: provPid,
       });
-      console.log('RES', response);
       dispatch({
         type: SUCCESS,
         payload: response.data,
@@ -183,7 +182,6 @@ export const removeDocument = (pid, documentPid) => {
       const response = await documentRequestApi.removeDocument(pid, {
         document_pid: documentPid,
       });
-      console.log('RES', response);
       dispatch({
         type: SUCCESS,
         payload: response.data,

@@ -15,7 +15,7 @@ import { Payment } from './Payment';
 
 const submitSerializer = values => {
   const submitValues = { ...values };
-  submitValues.library_pid = values.library.id;
+  submitValues.library_pid = values.library.pid;
   submitValues.document_pid = values.document.pid;
   submitValues.patron_pid = values.patron.pid;
   return submitValues;

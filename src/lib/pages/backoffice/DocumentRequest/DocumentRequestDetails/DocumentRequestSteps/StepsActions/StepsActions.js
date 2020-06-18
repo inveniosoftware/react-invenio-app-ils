@@ -13,7 +13,6 @@ const PROVIDERS = invenioConfig.documentRequests.physicalItemProviders;
 export default class StepsActions extends Component {
   render() {
     const { data, step, removeProvider, removeDocument } = this.props;
-    console.log(data);
     return (
       <>
         <DocumentSelection data={data} removeDocument={removeDocument} />
