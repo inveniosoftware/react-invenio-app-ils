@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.2 (released 2020-06-19)
+
+* npm publish fix
+
 Version 1.0.0-alpha.1 (released 2020-06-19)
 
 * patron can request extension for ILLs
