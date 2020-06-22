@@ -228,4 +228,4 @@ Sidebar.defaultProps = {
   },
 };
 
-export default withRouter(Sidebar);
+export default Overridable.component('Sidebar', Sidebar);

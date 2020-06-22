@@ -15,11 +15,6 @@
     "eject": "craco eject",
     "lint": "eslint src/lib/**/*.js",
     "format": "prettier --config ./.prettierrc --ignore-path ./.prettierignore --write \"**/*.js\"",
-    "edit-linked-package": "json -I -f ./dist/package.json -e 'this.module=\"esm/index.js\", this.main=\"cjs/index.js\"' ",
-    "prelink-dist": "cp package.json ./dist && npm run edit-linked-package",
-    "link-dist": "cd dist && npm link",
-    "postlink-dist": "cd dist && rm -rf node_modules",
-    "unlink-dist": "cd dist && npm unlink && rm package*",
     "watch": "NODE_ENV=production rollup --watch -c"
   },
   "dependencies": {},
