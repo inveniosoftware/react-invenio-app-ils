@@ -1,7 +1,6 @@
 import { documentApi } from '@api/documents';
 import { DocumentCardGroup } from '@modules/Document/DocumentCardGroup';
 import { FrontSiteRoutes } from '@routes/urls';
-import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
@@ -10,7 +9,8 @@ import { SectionServices } from './SectionServices';
 import SectionTags from './SectionTags';
 
 export default class SectionsWrapper extends Component {
-  renderDefaultSections = () => {
+  render() {
+    const { size } = this.props;
     return (
       <Container fluid className="fs-landing-page-section-wrapper">
         <SectionServices />
@@ -25,6 +25,7 @@ export default class SectionsWrapper extends Component {
                 .query()
                 .withDocumentType('BOOK')
                 .sortBy('mostrecent')
+                .withSize(size)
                 .qs()}
               viewAllUrl={FrontSiteRoutes.documentsListWithQuery(
                 '&sort=mostrecent&order=desc'
@@ -42,6 +43,7 @@ export default class SectionsWrapper extends Component {
               .query()
               .withDocumentType('BOOK')
               .sortBy('-mostloaned')
+              .withSize(size)
               .qs()}
             viewAllUrl={FrontSiteRoutes.documentsListWithQuery(
               '&sort=mostloaned&order=desc'
@@ -58,6 +60,7 @@ export default class SectionsWrapper extends Component {
               .withDocumentType('BOOK')
               .withEitems()
               .sortBy('-mostrecent')
+              .withSize(size)
               .qs()}
             viewAllUrl={FrontSiteRoutes.documentsListWithQuery(
               '&f=doctype%3ABOOK&f=medium%3AELECTRONIC_VERSION&sort=mostrecent&order=desc'
@@ -66,31 +69,13 @@ export default class SectionsWrapper extends Component {
         </Container>
       </Container>
     );
-  };
-
-  renderSections = () => {
-    const { sections } = this.props;
-    if (!_isEmpty(sections)) {
-      return (
-        <Container fluid className="fs-landing-page-section-wrapper">
-          {sections.map((Section, idx) => {
-            return <Section key={idx} className="fs-landing-page-section" />;
-          })}
-        </Container>
-      );
-    }
-    return this.renderDefaultSections();
-  };
-
-  render() {
-    return this.renderSections();
   }
 }
 
 SectionsWrapper.propTypes = {
-  sections: PropTypes.array,
+  size: PropTypes.number,
 };
 
 SectionsWrapper.defaultProps = {
-  sections: [],
+  size: 5,
 };

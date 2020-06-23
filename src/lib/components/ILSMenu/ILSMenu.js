@@ -102,6 +102,7 @@ class ILSMenu extends Component {
                   </Link>
                 </Menu.Item>
                 <Menu.Menu position="right">
+                  <Overridable id="ILSMenu.RightMenuItems" />
                   <Menu.Item>
                     {this.renderRightMenuItem(`${user.username}`)}
                   </Menu.Item>
@@ -128,6 +129,7 @@ class ILSMenu extends Component {
                   </Link>
                 </Menu.Item>
                 <Menu.Menu position="right">
+                  <Overridable id="ILSMenu.RightMenuItemsMobile" />
                   {this.renderRightMenuItem()}
                 </Menu.Menu>
               </Container>
