@@ -5,7 +5,6 @@ import { Login } from '@authentication/pages/Login';
 import { fetchUserProfile } from '@authentication/state/actions';
 import { NotFound } from '@components/NotFound';
 import { initConfig } from '@config';
-import history from '@history';
 import { AuthenticationRoutes } from '@routes/authentication/urls';
 import { BackOffice } from '@routes/backoffice';
 import { BackOfficeRoutes } from '@routes/backoffice/backofficeUrls';
@@ -13,7 +12,7 @@ import { FrontSite } from '@routes/frontsite';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect, Provider } from 'react-redux';
-import { Route, Router, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import store from './store';
 
 class FetchUserComponent extends Component {
@@ -50,27 +49,25 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <FetchUser>
-          <Router history={history}>
-            <Switch>
-              <Route exact path={AuthenticationRoutes.login}>
-                <Login />
-              </Route>
-              <AuthenticationGuard
-                path={AuthenticationRoutes.confirmEmail}
-                authorizedComponent={ConfirmEmail}
-              />
-              <AuthenticationGuard
-                path={BackOfficeRoutes.home}
-                authorizedComponent={BackOffice}
-                unAuthorizedComponent={UnAuthorized}
-                roles={['admin', 'librarian']}
-              />
-              <FrontSite {...this.props} />
-              <Route>
-                <NotFound />
-              </Route>
-            </Switch>
-          </Router>
+          <Switch>
+            <Route exact path={AuthenticationRoutes.login}>
+              <Login />
+            </Route>
+            <AuthenticationGuard
+              path={AuthenticationRoutes.confirmEmail}
+              authorizedComponent={ConfirmEmail}
+            />
+            <AuthenticationGuard
+              path={BackOfficeRoutes.home}
+              authorizedComponent={BackOffice}
+              unAuthorizedComponent={UnAuthorized}
+              roles={['admin', 'librarian']}
+            />
+            <FrontSite {...this.props} />
+            <Route>
+              <NotFound />
+            </Route>
+          </Switch>
         </FetchUser>
       </Provider>
     );

@@ -1,7 +1,7 @@
-import { http, apiConfig } from '@api/base';
-import { documentSerializer as serializer } from './serializer';
-import { prepareSumQuery } from '@api/utils';
+import { apiConfig, http } from '@api/base';
 import { add as addRelation, remove as removeRelation } from '@api/relations';
+import { prepareSumQuery } from '@api/utils';
+import { documentSerializer as serializer } from './serializer';
 
 const documentURL = '/documents/';
 
@@ -60,6 +60,7 @@ class QueryBuilder {
     this.availableItemsQuery = [];
     this.withPendingLoansQuery = [];
     this.withTagQuery = [];
+    this.size = '';
     this.withDocumentTypeQuery = [];
     this.withEitemsQuery = [];
     this.pendingOverdueQuery = [];
@@ -92,6 +93,11 @@ class QueryBuilder {
       throw TypeError('Tag argument missing');
     }
     this.withTagQuery.push(`tags:"${tag}"`);
+    return this;
+  }
+
+  withSize(size) {
+    if (size > 0) this.size = `&size=${size}`;
     return this;
   }
 
@@ -153,7 +159,7 @@ class QueryBuilder {
         this.withSeriesQuery
       )
       .join(' AND ');
-    return `${searchCriteria}${this.sortByQuery}`;
+    return `${searchCriteria}${this.sortByQuery}${this.size}`;
   }
 }
 

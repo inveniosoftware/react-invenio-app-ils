@@ -127,6 +127,19 @@ export class SectionInstallation extends Component {
                             </List>
                           </List.Item>
                           <List.Item className="install-item">
+                            Test ILS as a librarian by logging in with
+                            <List>
+                              <List.Item>
+                                <List.Header>
+                                  email: librarian@test.ch
+                                </List.Header>
+                              </List.Item>
+                              <List.Item>
+                                <List.Header>password: 123456</List.Header>
+                              </List.Item>
+                            </List>
+                          </List.Item>
+                          <List.Item className="install-item">
                             Test ILS as an admin by logging in with
                             <List>
                               <List.Item>
