@@ -1,4 +1,5 @@
 import { http, apiConfig } from '@api/base';
+import { prepareSumQuery } from '@api/utils';
 import { orderSerializer as serializer } from './serializers';
 
 const orderURL = '/acquisition/orders/';
@@ -45,6 +46,15 @@ class QueryBuilder {
     this.vendorQuery = [];
     this.vendorPidQuery = [];
     this.sortByQuery = '';
+    this.stateQuery = [];
+  }
+
+  withState(state) {
+    if (!state) {
+      throw TypeError('State argument missing');
+    }
+    this.stateQuery.push(`status:${prepareSumQuery(state)}`);
+    return this;
   }
 
   withPatron(patronPid) {
@@ -87,6 +97,7 @@ class QueryBuilder {
   qs() {
     const searchCriteria = this.patronQuery
       .concat(this.recipientQuery, this.vendorQuery, this.vendorPidQuery)
+      .concat(this.stateQuery)
       .join(' AND ');
     return `${searchCriteria}${this.sortByQuery}`;
   }
