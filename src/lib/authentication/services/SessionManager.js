@@ -25,7 +25,8 @@ class SessionManager {
       id: user['id'],
       roles: user['roles'] || [],
       username: user['username'],
-      locationPid: user['locationPid'],
+      fullName: user['full_name'],
+      locationPid: user['location_pid'],
     };
   }
 }
