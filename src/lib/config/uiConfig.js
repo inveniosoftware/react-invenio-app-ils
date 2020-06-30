@@ -1,20 +1,15 @@
 import _find from 'lodash/find';
 import _map from 'lodash/map';
 
-export const staticPages = [
-  { name: 'about', route: '/about', apiURL: '1' },
-  { name: 'contact', route: '/contact', apiURL: '2' },
-];
-
-export const getStaticPagesRoutes = () => {
+export const getStaticPagesRoutes = staticPages => {
   return _map(staticPages, 'route');
 };
 
-export const getStaticPageByRoute = path => {
+export const getStaticPageByRoute = (staticPages, path) => {
   return _find(staticPages, ['route', path]);
 };
 
-export const getStaticPageByName = name => {
+export const getStaticPageByName = (staticPages, name) => {
   return _find(staticPages, ['name', name]);
 };
 
@@ -32,4 +27,8 @@ export const uiConfig = {
       fields: {},
     },
   },
+  staticPages: [
+    { name: 'about', route: '/about', apiURL: '1' },
+    { name: 'contact', route: '/contact', apiURL: '2' },
+  ],
 };

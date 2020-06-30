@@ -13,6 +13,7 @@ export { add, remove } from '@api/relations';
 export { seriesApi } from '@api/series';
 export { circulationStatsApi, statsApi } from '@api/stats';
 export { vocabularyApi } from '@api/vocabularies';
+export { getStaticPageByName } from '@config/uiConfig';
 export { DocumentCardGroup } from '@modules/Document/DocumentCardGroup';
 export { FrontSiteRoutes } from '@routes/frontsite/frontsiteUrls';
 export { default as InvenioILSApp } from './App';
