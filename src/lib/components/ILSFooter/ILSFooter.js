@@ -1,4 +1,4 @@
-import { getStaticPageByName } from '@config/uiConfig';
+import { getStaticPageByName, uiConfig } from '@config/uiConfig';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
@@ -7,7 +7,7 @@ import { Container, Grid, Header, List } from 'semantic-ui-react';
 
 const FooterLayout = props => {
   return (
-    <Overridable id="Footer.layout" {...props}>
+    <Overridable id="Footer.layout">
       <footer>
         <Container fluid className="footer-upper">
           <Container>
@@ -16,10 +16,21 @@ const FooterLayout = props => {
                 <Header as="h4" content="More information" />
                 <List>
                   <List.Item>
-                    <Link to={getStaticPageByName('about').route}>About</Link>
+                    <Link
+                      to={
+                        getStaticPageByName(uiConfig.staticPages, 'about').route
+                      }
+                    >
+                      About
+                    </Link>
                   </List.Item>
                   <List.Item>
-                    <Link to={getStaticPageByName('contact').route}>
+                    <Link
+                      to={
+                        getStaticPageByName(uiConfig.staticPages, 'contact')
+                          .route
+                      }
+                    >
                       Contact
                     </Link>
                   </List.Item>

@@ -3,9 +3,9 @@ import { ILSMenu } from '@components/ILSMenu';
 import { NotFound } from '@components/NotFound';
 import { Notifications } from '@components/Notifications';
 import { getStaticPagesRoutes } from '@config/uiConfig';
-import { Home } from '@pages/frontsite/Home';
 import { DocumentRequestForm } from '@pages/frontsite/DocumentRequests';
 import { DocumentDetails } from '@pages/frontsite/Documents';
+import { Home } from '@pages/frontsite/Home';
 import LiteratureSearch from '@pages/frontsite/Literature/LiteratureSearch/LiteratureSearch';
 import { PatronProfile } from '@pages/frontsite/PatronProfile';
 import { SeriesDetails } from '@pages/frontsite/Series';
@@ -23,7 +23,8 @@ export default class FrontSite extends Component {
   };
 
   render() {
-    const staticPagesRoutes = getStaticPagesRoutes();
+    const { config } = this.props;
+    const staticPagesRoutes = getStaticPagesRoutes(config.uiConfig.staticPages);
     return (
       <div className="frontsite">
         <ILSMenu />
@@ -77,6 +78,7 @@ export default class FrontSite extends Component {
 
 FrontSite.propTypes = {
   customStaticPages: PropTypes.func,
+  config: PropTypes.object.isRequired,
 };
 
 FrontSite.defaultProps = {

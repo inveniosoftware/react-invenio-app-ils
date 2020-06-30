@@ -3,6 +3,7 @@ import {
   ILSHeaderPlaceholder,
   ILSParagraphPlaceholder,
 } from '@components/ILSPlaceholder';
+import { uiConfig } from '@config';
 import { getStaticPageByRoute } from '@config/uiConfig';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
@@ -13,7 +14,7 @@ import { Container, Header } from 'semantic-ui-react';
 class StaticPage extends Component {
   componentDidMount() {
     const { fetchStaticPageDetails, match } = this.props;
-    const staticPage = getStaticPageByRoute(match.path);
+    const staticPage = getStaticPageByRoute(uiConfig.staticPages, match.path);
     const staticPageID = staticPage['apiURL'];
     fetchStaticPageDetails(staticPageID);
   }

@@ -40,9 +40,9 @@ const mapDispatchToProps = dispatch => ({
 const FetchUser = connect(null, mapDispatchToProps)(FetchUserComponent);
 
 export default class App extends Component {
-  componentDidMount() {
-    const { config } = this.props;
-    initConfig(config);
+  constructor(props) {
+    super(props);
+    initConfig(props.config);
   }
 
   render() {
@@ -75,9 +75,5 @@ export default class App extends Component {
 }
 
 App.propTypes = {
-  config: PropTypes.object,
-};
-
-App.defaultProps = {
-  config: {},
+  config: PropTypes.object.isRequired,
 };
