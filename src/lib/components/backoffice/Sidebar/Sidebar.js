@@ -1,4 +1,5 @@
 import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
+import { authenticationService } from '@authentication/services/AuthenticationService';
 import {
   AcquisitionRoutes,
   BackOfficeRoutes,
@@ -15,7 +16,8 @@ import AdminMenu from './AdminMenu';
 class Sidebar extends Component {
   removeTrailingSlashes = path => path.replace(/\/+$/, '');
   render() {
-    const { location } = this.props;
+    const { location, user } = this.props;
+    const isAdmin = authenticationService.hasRoles(user, ['admin']);
     const activePath = this.removeTrailingSlashes(location.pathname);
     const overviewActive = activePath === BackOfficeRoutes.home;
     const borrowingRequestsActive = activePath.includes(
@@ -41,8 +43,10 @@ class Sidebar extends Component {
           <Header as="h3" className="bo-menu-header">
             <Icon name="user circle" color="grey" />
             <Header.Content>
-              John Doe
-              <Header.Subheader>Librarian</Header.Subheader>
+              {user.fullName}
+              <Header.Subheader>
+                {isAdmin ? 'Admin' : 'Librarian'}
+              </Header.Subheader>
             </Header.Content>
           </Header>
           <Divider />
@@ -219,6 +223,8 @@ Sidebar.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }),
+  /* REDUX */
+  user: PropTypes.object.isRequired,
 };
 
 Sidebar.defaultProps = {

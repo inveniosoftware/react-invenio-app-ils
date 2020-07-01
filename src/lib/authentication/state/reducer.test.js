@@ -21,7 +21,7 @@ describe('Authentication management reducer', () => {
       id: '1',
       roles: ['admin'],
       username: 'johndoe',
-      locationPid: '1',
+      location_pid: '1',
     };
     const action = {
       type: SUCCESS,

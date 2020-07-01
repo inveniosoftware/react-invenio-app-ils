@@ -1,4 +1,4 @@
-import { history } from '@history';
+import history from '@history';
 import React from 'react';
 import 'react-app-polyfill/ie11'; // For IE 11 support
 import ReactDOM from 'react-dom';

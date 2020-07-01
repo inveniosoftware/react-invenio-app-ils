@@ -1,7 +1,7 @@
 import { authenticationService } from '@authentication/services/AuthenticationService';
 import { sessionManager } from '@authentication/services/SessionManager';
-import { FrontSiteRoutes } from '@routes/urls';
 import { goTo } from '@history';
+import { FrontSiteRoutes } from '@routes/urls';
 
 export const IS_LOADING = 'fetchUserInfo/IS_LOADING';
 export const SUCCESS = 'fetchUserInfo/SUCCESS';
@@ -20,7 +20,7 @@ export const fetchUserProfile = () => {
       sessionManager.setUser(response.data);
       dispatch({
         type: SUCCESS,
-        payload: response.data,
+        payload: sessionManager.user,
       });
     } catch (error) {
       sessionManager.setAnonymous();

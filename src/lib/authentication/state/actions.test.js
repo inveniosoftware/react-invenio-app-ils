@@ -16,9 +16,9 @@ const mockResponse = {
     email: 'admin@test.ch',
     id: 3,
     last_login_at: '2020-01-13T07:01:01.442388',
-    locationPid: '1',
+    location_pid: '1',
     roles: ['admin'],
-    username: 'admin@test.ch',
+    username: 'admin',
   },
 };
 
@@ -34,6 +34,7 @@ const mockSessionSetUserConfirmed = jest.fn();
 sessionManager.setUser = mockSessionSetUser;
 sessionManager.setAnonymous = mockSessionSetAnonymous;
 sessionManager.setUserConfirmed = mockSessionSetUserConfirmed;
+sessionManager.user = mockResponse.data;
 
 let store;
 beforeEach(() => {

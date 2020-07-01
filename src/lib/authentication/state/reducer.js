@@ -1,9 +1,9 @@
 import {
-  IS_LOADING,
-  SUCCESS,
   IS_ANONYMOUS,
   IS_CONFIRMED,
   IS_CONFIRMED_LOADING,
+  IS_LOADING,
+  SUCCESS,
 } from './actions';
 
 export const initialState = {
@@ -23,10 +23,8 @@ export default (state = initialState, action) => {
         ...state,
         isLoading: false,
         data: {
+          ...action.payload,
           id: `${action.payload['id']}`,
-          roles: action.payload['roles'] || [],
-          username: action.payload['username'],
-          locationPid: action.payload['locationPid'],
         },
         isAnonymous: false,
       };
