@@ -153,9 +153,7 @@ export class DocumentForm extends Component {
         <Subjects />
         <InternalNotes />
         <Identifiers
-          vocabularies={{
-            scheme: invenioConfig.vocabularies.document.identifier.scheme,
-          }}
+          scheme={invenioConfig.vocabularies.document.identifier.scheme}
         />
         <AlternativeIdentifiers />
         <AlternativeTitles />
