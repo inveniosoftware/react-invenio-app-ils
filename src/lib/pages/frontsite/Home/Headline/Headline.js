@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
+import { FrontSiteRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Overridable from 'react-overridable';
+import { Link } from 'react-router-dom';
 import { Button, Container, Divider, Grid, Header } from 'semantic-ui-react';
 import { HomeSearchBar } from './HomeSearchBar';
-import { FrontSiteRoutes } from '@routes/urls';
-import { Link } from 'react-router-dom';
 
 const HeadlineLayout = props => {
-  const { headlineImage } = props;
+  const { backgroundImageURL } = props;
   return (
     <Overridable id="Home.Headline.render">
       <Container
         fluid
         className="fs-headline-section"
         style={{
-          backgroundImage: headlineImage ? `url(${headlineImage})` : null,
+          backgroundImage: backgroundImageURL
+            ? `url(${backgroundImageURL})`
+            : null,
         }}
       >
         <Container fluid className="fs-headline">
@@ -26,7 +28,8 @@ const HeadlineLayout = props => {
                     Integrated Library System
                   </Header>
                   <Header.Subheader className="fs-headline-subheader">
-                    Find books fast and easily.
+                    Literature catalogue, circulation, acquisition, interlibrary
+                    loans.
                   </Header.Subheader>
                 </Grid.Column>
               </Grid>
@@ -90,8 +93,8 @@ class Headline extends Component {
   }
 }
 
-Headline.propTypes = { headlineImage: PropTypes.string };
-Headline.defaultProps = { headlineImage: null };
+Headline.propTypes = { backgroundImageURL: PropTypes.string };
+Headline.defaultProps = { backgroundImageURL: null };
 HeadlineLayout.propTypes = Headline.propTypes;
 HeadlineLayout.defaultProps = Headline.defaultProps;
 

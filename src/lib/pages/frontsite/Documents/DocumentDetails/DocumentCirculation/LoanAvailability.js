@@ -1,7 +1,7 @@
 import { toShortDate } from '@api/date';
-import { List, Popup } from 'semantic-ui-react';
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { List, Popup } from 'semantic-ui-react';
 
 export class LoanAvailability extends Component {
   render() {
@@ -39,7 +39,7 @@ export class LoanAvailability extends Component {
         <List.Item>
           <List.Icon name="info" />
           <List.Content>
-            Long waiting queue. Contact us for more information.
+            Long waiting queue. Contact the library for more information.
           </List.Content>
         </List.Item>
       );

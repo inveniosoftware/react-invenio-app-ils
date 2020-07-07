@@ -15,6 +15,7 @@ export { circulationStatsApi, statsApi } from '@api/stats';
 export { vocabularyApi } from '@api/vocabularies';
 export { getStaticPageByName } from '@config/uiConfig';
 export { DocumentCardGroup } from '@modules/Document/DocumentCardGroup';
+export { Headline } from '@pages/frontsite/Home/Headline';
 export { FrontSiteRoutes } from '@routes/frontsite/frontsiteUrls';
 export { default as InvenioILSApp } from './App';
 export { default as history } from './history';

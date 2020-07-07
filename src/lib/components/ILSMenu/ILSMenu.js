@@ -92,14 +92,16 @@ class ILSMenu extends Component {
             >
               <Container>
                 <Menu.Item header>
-                  <Link to="/">
-                    <Image
-                      src={uiConfig.LOGO_SRC}
-                      size="tiny"
-                      centered
-                      alt="Logo"
-                    />
-                  </Link>
+                  <Overridable id="ILSMenu.Logo">
+                    <Link to="/">
+                      <Image
+                        src={uiConfig.LOGO_SRC}
+                        size="tiny"
+                        centered
+                        alt="Logo"
+                      />
+                    </Link>
+                  </Overridable>
                 </Menu.Item>
                 <Menu.Menu position="right">
                   <Overridable id="ILSMenu.RightMenuItems" />
@@ -119,14 +121,16 @@ class ILSMenu extends Component {
             >
               <Container>
                 <Menu.Item header>
-                  <Link to="/">
-                    <Image
-                      src={uiConfig.LOGO_SRC}
-                      size="tiny"
-                      centered
-                      alt="Logo"
-                    />
-                  </Link>
+                  <Overridable id="ILSMenu.LogoMobile">
+                    <Link to="/">
+                      <Image
+                        src={uiConfig.LOGO_SRC}
+                        size="tiny"
+                        centered
+                        alt="Logo"
+                      />
+                    </Link>
+                  </Overridable>
                 </Menu.Item>
                 <Menu.Menu position="right">
                   <Overridable id="ILSMenu.RightMenuItemsMobile" />

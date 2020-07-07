@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Headline } from './Headline';
 import Overridable from 'react-overridable';
+import { Headline } from './Headline';
 import { SectionsWrapper } from './Sections';
 
 const OverridableHome = ({ ...props }) => {
   return (
     <Overridable id="Home.layout" {...props}>
       <>
-        <Headline testProp="test" />
+        <Headline />
         <Overridable id="Home.content">
           <SectionsWrapper />
         </Overridable>

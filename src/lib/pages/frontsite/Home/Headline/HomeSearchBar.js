@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import { SearchBar } from '@components/SearchBar';
 import { goTo } from '@history';
 import { FrontSiteRoutes } from '@routes/urls';
-import { SearchBar } from '@components/SearchBar';
+import React, { Component } from 'react';
 
 export class HomeSearchBar extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ export class HomeSearchBar extends Component {
         currentQueryString={query}
         onInputChange={this.updateSearchQuery}
         executeSearch={this.onSearchExecute}
-        placeholder="Search for books, series, articles, publications..."
+        placeholder="Search for books, e-books, series, articles, publications..."
         className="fs-headline"
       />
     );

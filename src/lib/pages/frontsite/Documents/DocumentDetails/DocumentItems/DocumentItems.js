@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import _isEmpty from 'lodash/isEmpty';
 import _has from 'lodash/has';
+import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import {
   Accordion,
@@ -12,8 +12,8 @@ import {
   Label,
   List,
   Menu,
-  Segment,
   Message,
+  Segment,
 } from 'semantic-ui-react';
 import { default as DocumentItem } from './DocumentItem';
 
@@ -199,8 +199,8 @@ class DocumentItems extends Component {
       <Message>
         <Message.Header>No copies</Message.Header>
         <p>
-          There are no available copies in the library. Please, contact us for
-          more information.
+          There are no available copies in the library. Please, contact the
+          library for more information.
         </p>
       </Message>
     );
