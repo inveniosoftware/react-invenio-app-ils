@@ -21,21 +21,24 @@ export class DocumentInfo extends Component {
 
   renderKeywords() {
     const { metadata } = this.props;
+    const keywords = _get(metadata, 'keywords');
 
-    const keywordsValue = _get(metadata, 'keywords.value');
-    const keywordsSource = _get(metadata, 'keywords.source');
-    const keywords =
-      keywordsValue && keywordsSource
-        ? `${keywordsValue} (${keywordsSource})`
-        : keywordsValue
-        ? keywordsValue
-        : '';
-    return keywords ? (
+    return (
       <Table.Row>
         <Table.Cell>Keywords</Table.Cell>
-        <Table.Cell>{keywords}</Table.Cell>
+        <Table.Cell>
+          {keywords.map(entry => {
+            const keywordValue = _get(entry, 'value');
+            const keywordSource = _get(entry, 'source');
+            return keywordValue && keywordSource
+              ? `${keywordValue} (${keywordSource})`
+              : keywordValue
+              ? keywordValue
+              : '';
+          })}
+        </Table.Cell>
       </Table.Row>
-    ) : null;
+    );
   }
 
   renderSpecificIdentifiers(scheme) {
