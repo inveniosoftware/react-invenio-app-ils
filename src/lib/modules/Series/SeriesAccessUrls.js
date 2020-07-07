@@ -30,7 +30,7 @@ export class SeriesAccessUrls extends React.Component {
   render() {
     const { urls, truncate } = this.props;
     return urls ? (
-      <p>There are no access URLs.</p>
+      <p>There are no online resources for this series.</p>
     ) : (
       <List bulleted>
         {urls.map((url, index) => (

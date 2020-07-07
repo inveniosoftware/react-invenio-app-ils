@@ -9,9 +9,10 @@ export const SeriesAccess = ({ urls }) => {
       <Header as="h3">Access online</Header>
       <SeriesAccessUrls url={urls} truncate />
       <br />
-      It's not possible to loan an entire series but individual volumes can be
-      loaned from the library. Please see the list of available volumes and
-      periodical issues below.
+      It's not possible to loan an entire series, but you can loan individual
+      volumes.
+      <br />
+      Please see the list of available volumes and periodical issues below.
     </Segment>
   );
 };

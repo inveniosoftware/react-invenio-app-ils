@@ -205,10 +205,32 @@ class Sidebar extends Component {
             <>
               <Divider />
               <div className="center">
-                <Label color="blue">
-                  {process.env.REACT_APP_NAME.replace('@inveniosoftware/', '')}
-                  <Label.Detail>{process.env.REACT_APP_VERSION}</Label.Detail>
-                </Label>
+                <p>
+                  <Label color="blue">
+                    react-ils
+                    <Label.Detail>
+                      {process.env.REACT_APP_UI_ILS_VERSION}
+                    </Label.Detail>
+                  </Label>
+                </p>
+                <p>
+                  <Label color="blue">
+                    invenio-ils
+                    <Label.Detail>
+                      {process.env.REACT_APP_INVENIO_VERSION}
+                    </Label.Detail>
+                  </Label>
+                </p>
+                {process.env.REACT_APP_OVERLAY_VERSION && (
+                  <p>
+                    <Label color="blue">
+                      overlay
+                      <Label.Detail>
+                        {process.env.REACT_APP_OVERLAY_VERSION}
+                      </Label.Detail>
+                    </Label>
+                  </p>
+                )}
                 <Overridable id="Sidebar.otherVersions" />
               </div>
             </>
