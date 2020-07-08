@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.6 (released 2020-07-08)
+
+- enables overridability of home page background image
+- enhances the visualization of packages versions in the backoffice sidebar
+
 Version 1.0.0-alpha.5 (released 2020-07-01)
 
 - fetches the full user profile from REST APIs
