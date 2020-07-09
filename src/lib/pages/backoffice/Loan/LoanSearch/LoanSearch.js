@@ -15,7 +15,7 @@ import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { loanApi } from '@api/loans';
 import { BackOfficeRoutes } from '@routes/urls';
 import history from '@history';
-import LoanList from './LoanList';
+import { LoanList } from '@modules/Loan/backoffice/LoanList';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
 import SearchFooter from '@modules/SearchControls/SearchFooter';

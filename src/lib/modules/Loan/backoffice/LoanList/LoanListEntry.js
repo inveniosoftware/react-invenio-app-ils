@@ -12,18 +12,15 @@ import { LoanDates } from './LoanDates';
 
 export class LoanListEntry extends Component {
   render() {
-    const { loan } = this.props;
+    const { loan, target } = this.props;
 
     return (
       <Item>
         <Item.Content>
-          {loan.metadata.is_overdue && (
-            <Label color="red" ribbon>
-              Overdue
-            </Label>
-          )}
+          {loan.metadata.is_overdue && <Label color="red">Overdue</Label>}
           <Item.Header
             as={Link}
+            target={target}
             to={BackOfficeRoutes.loanDetailsFor(loan.metadata.pid)}
             data-test={`navigate-${loan.metadata.pid}`}
           >
@@ -33,6 +30,7 @@ export class LoanListEntry extends Component {
             <Grid.Column computer={6} largeScreen={5}>
               <label>Patron</label>{' '}
               <Link
+                target="_blank"
                 to={BackOfficeRoutes.patronDetailsFor(loan.metadata.patron_pid)}
               >
                 {loan.metadata.patron.name}
@@ -102,6 +100,7 @@ export class LoanListEntry extends Component {
             </Grid.Column>
             <Grid.Column computer={2} largeScreen={2} textAlign="right">
               <Link
+                target="_blank"
                 to={BackOfficeRoutes.documentDetailsFor(
                   loan.metadata.document_pid
                 )}
@@ -120,4 +119,9 @@ export class LoanListEntry extends Component {
 
 LoanListEntry.propTypes = {
   loan: PropTypes.object.isRequired,
+  target: PropTypes.string,
+};
+
+LoanListEntry.defaultProps = {
+  target: '',
 };

@@ -11,7 +11,7 @@ class Loader extends Component {
         {isLoading ? (
           <UILoader active size="huge" inline="centered" />
         ) : (
-          this.props.children
+          <>{this.props.children}</>
         )}
       </Overridable>
     );

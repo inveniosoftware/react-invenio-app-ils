@@ -7,11 +7,13 @@ import { LoanListEntry } from './LoanListEntry';
 
 export default class LoanList extends Component {
   renderListEntry = loan => {
-    const { renderListEntryElement } = this.props;
+    const { renderListEntryElement, target } = this.props;
     if (renderListEntryElement) {
       return renderListEntryElement(loan);
     }
-    return <LoanListEntry key={loan.metadata.pid} loan={loan} />;
+    return (
+      <LoanListEntry target={target} key={loan.metadata.pid} loan={loan} />
+    );
   };
 
   render() {
@@ -29,8 +31,10 @@ export default class LoanList extends Component {
 LoanList.propTypes = {
   hits: PropTypes.arrayOf(PropTypes.object),
   renderListEntryElement: PropTypes.func.isRequired,
+  target: PropTypes.string,
 };
 
 LoanList.defaultProps = {
   hits: [],
+  target: '',
 };

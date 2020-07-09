@@ -7,27 +7,26 @@ Site Overrides - REACT-INVENIO-APP-ILS
   height: 100%;
 }
 
-
 .center {
   text-align: center;
 }
 
 .ellipsis {
- white-space: nowrap;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.default-padding{
+.default-padding {
   padding: 1rem;
 }
 
-.pt-default{
- padding-top: 1em;
+.pt-default {
+  padding-top: 1em;
 }
 
-.pb-default{
- padding-bottom: 1em;
+.pb-default {
+  padding-bottom: 1em;
 }
 
 .no-border {
@@ -41,7 +40,6 @@ Site Overrides - REACT-INVENIO-APP-ILS
 .inline-block {
   display: inline-block;
 }
-
 
 .default-margin-top {
   margin-top: @defaultMarginValue !important;
@@ -117,12 +115,16 @@ form {
 
 a {
   &.alternative {
-    color: @altLinkColor
+    color: @altLinkColor;
   }
-  &.disabled{
+  &.disabled {
     cursor: default;
     color: @disabledTextColor;
   }
+}
+
+.menu-item-description {
+  font-size: 0.8em;
 }
 
 /* FRONTSITE */
@@ -139,7 +141,6 @@ a {
   a.primary {
     color: @fsPrimaryColor;
   }
-
 
   #notifications {
     z-index: 9999;
@@ -193,29 +194,29 @@ a {
   }
 
   .bo-content {
-    max-width: calc(~"100% - " @boSidebarWidth) !important;
+    max-width: calc(~'100% - ' @boSidebarWidth) !important;
     flex: 1;
     padding: 1.5em;
   }
 
-  .document-title{
+  .document-title {
     display: inline-block;
   }
 
-  .bo-details-header-status-labels{
+  .bo-details-header-status-labels {
     display: inline-block;
     margin-left: 1em;
   }
 }
 
 .generate-margins(@max, @direction, @alias, @i: 5) when (@i =< @max) {
-    .m@{alias}-@{i} {
-      margin-@{direction}: unit(@i, px) !important;
-    }
-    .generate-margins(@max, @direction, @alias, (@i + 5));
+  .m@{alias}-@{i} {
+    margin-@{direction}: unit(@i, px) !important;
   }
+  .generate-margins(@max, @direction, @alias, (@i + 5));
+}
 
-  .generate-margins(30, right, r);
-  .generate-margins(30, left, l);
-  .generate-margins(30, bottom, b);
-  .generate-margins(30, top, t);
+.generate-margins(30, right, r);
+.generate-margins(30, left, l);
+.generate-margins(30, bottom, b);
+.generate-margins(30, top, t);
