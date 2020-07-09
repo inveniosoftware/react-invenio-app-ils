@@ -15,7 +15,7 @@ import { itemApi } from '@api/items';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { BackOfficeRoutes } from '@routes/urls';
-import { ItemListEntry } from './ItemListEntry';
+import { ItemListEntry } from '@modules/Items/backoffice/ItemListEntry';
 import history from '@history';
 import { responseRejectInterceptor } from '@api/base';
 import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';

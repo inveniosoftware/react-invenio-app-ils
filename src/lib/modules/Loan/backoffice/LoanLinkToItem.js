@@ -9,7 +9,10 @@ export default class LoanLinkToItem extends Component {
     const { itemPid, children } = this.props;
     return (
       !_isEmpty(itemPid) && (
-        <Link to={DetailsRouteByPidTypeFor(itemPid.type)(itemPid.value)}>
+        <Link
+          target="_blank"
+          to={DetailsRouteByPidTypeFor(itemPid.type)(itemPid.value)}
+        >
           {children}
         </Link>
       )

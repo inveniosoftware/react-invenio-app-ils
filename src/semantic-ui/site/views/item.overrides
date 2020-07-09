@@ -130,6 +130,10 @@ Item Overrides - REACT-INVENIO-APP-ILS
         padding: 1em !important;
       }
 
+      &.bkg-yellow {
+        background-color: #fff4bd !important;
+      }
+
       .item-image-wrapper {
         text-align: center;
         margin-right: 1em;

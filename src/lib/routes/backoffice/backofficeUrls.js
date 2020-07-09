@@ -4,6 +4,7 @@ export const BackOfficeBase = '/backoffice';
 
 const BackOfficeRoutesList = {
   home: BackOfficeBase,
+  checkIn: `${BackOfficeBase}/checkin`,
   documentCreate: `${BackOfficeBase}/documents/create`,
   documentDetails: `${BackOfficeBase}/documents/:documentPid`,
   documentEdit: `${BackOfficeBase}/documents/:documentPid/edit`,

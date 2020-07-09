@@ -124,6 +124,7 @@ class QueryBuilder {
   constructor() {
     this.documentQuery = [];
     this.itemQuery = [];
+    this.barcodeQuery = [];
     this.overdueQuery = [];
     this.patronQuery = [];
     this.renewedCountQuery = [];
@@ -151,6 +152,14 @@ class QueryBuilder {
       throw TypeError('itemPid argument missing');
     }
     this.itemQuery.push(`item_pid.value:${prepareSumQuery(itemPid)}`);
+    return this;
+  }
+
+  withItemBarcode(itemBarcode) {
+    if (!itemBarcode || _isEmpty(itemBarcode)) {
+      throw TypeError('itemBarcode argument missing');
+    }
+    this.barcodeQuery.push(`item.barcode:"${prepareSumQuery(itemBarcode)}"`);
     return this;
   }
 
@@ -228,6 +237,7 @@ class QueryBuilder {
     const searchCriteria = this.documentQuery
       .concat(
         this.itemQuery,
+        this.barcodeQuery,
         this.patronQuery,
         this.stateQuery,
         this.overdueQuery,

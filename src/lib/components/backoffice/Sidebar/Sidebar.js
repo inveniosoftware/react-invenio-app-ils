@@ -37,6 +37,7 @@ class Sidebar extends Component {
     const patronsActive = activePath.includes(BackOfficeRoutes.patronsList);
     const seriesActive = activePath.includes(BackOfficeRoutes.seriesList);
     const statsActive = activePath.includes(BackOfficeRoutes.stats.home);
+    const checkInActive = activePath.includes(BackOfficeRoutes.checkIn);
     return (
       <Overridable id="Sidebar.layout">
         <>
@@ -53,6 +54,20 @@ class Sidebar extends Component {
           <Overridable id="Sidebar.Menu">
             <>
               <Menu text vertical className="bo-menu">
+                <Menu.Item>
+                  <Menu.Header>Actions</Menu.Header>
+                  <Menu.Menu>
+                    <Menu.Item
+                      as={Link}
+                      active={checkInActive}
+                      to={BackOfficeRoutes.checkIn}
+                    >
+                      Check-in
+                      <div className="menu-item-description">Return copies</div>
+                    </Menu.Item>
+                  </Menu.Menu>
+                </Menu.Item>
+
                 <Menu.Item>
                   <Menu.Header>Library</Menu.Header>
                   <Menu.Menu>
