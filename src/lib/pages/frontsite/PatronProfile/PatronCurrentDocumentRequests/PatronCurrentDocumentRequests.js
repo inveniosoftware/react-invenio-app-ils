@@ -207,6 +207,7 @@ class PatronCurrentDocumentRequests extends Component {
     { title: 'Created', field: 'created', formatter: dateFormatter },
     { title: 'Authors', field: 'metadata.authors' },
     { title: 'Publication year', field: 'metadata.publication_year' },
+    { title: 'Medium', field: 'metadata.medium' },
     {
       title: 'Actions',
       field: '',

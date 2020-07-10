@@ -28,7 +28,7 @@ export default class SearchMessage extends Component {
             Couldn't find the literature you were looking for?
           </Message.Header>
           Please fill in the {requestFormLink} to request a new literature from
-          the library.
+          the library. (Login required)
         </Message.Content>
       </Message>
     );
