@@ -39,6 +39,7 @@ export class VocabularyField extends React.Component {
   });
 
   fetchVocabularies = async serializer => {
+    const { label } = this.props;
     try {
       const response = await this.query();
       const options = response.data.hits.map(hit => serializer(hit));
@@ -48,9 +49,11 @@ export class VocabularyField extends React.Component {
       this.setState({
         // eslint-disable-next-line react/no-unused-state
         isloading: false,
-        options: [{ key: '', value: '', text: 'Failed to load vocabularies.' }],
+        options: [
+          { key: '', value: '', text: `Error loading values for ${label}.` },
+        ],
         error: {
-          content: 'Failed to load vocabularies.',
+          content: `Error loading values for ${label}.`,
           pointing: 'above',
         },
       });
@@ -112,4 +115,6 @@ VocabularyField.propTypes = {
 VocabularyField.defaultProps = {
   accordion: false,
   multiple: false,
+  label: '',
+  serializer: null,
 };

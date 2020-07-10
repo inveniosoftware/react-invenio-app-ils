@@ -1,18 +1,19 @@
 import { documentRequestApi } from '@api/documentRequests/documentRequest';
 import { delay } from '@api/utils';
 import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
+import { invenioConfig } from '@config';
 import { BaseForm } from '@forms/core/BaseForm';
 import { YearInputField } from '@forms/core/DateTimeFields';
 import { GroupField } from '@forms/core/GroupField';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
+import { VocabularyField } from '@forms/core/VocabularyField';
 import { goTo } from '@history';
 import { FrontSiteRoutes } from '@routes/urls';
 import { getIn } from 'formik';
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-
 import { Link } from 'react-router-dom';
 import { Container, Header, Segment } from 'semantic-ui-react';
 import * as Yup from 'yup';
@@ -69,12 +70,23 @@ class DocumentRequestForm extends Component {
         successSubmitMessage="Your book request has been sent to the library."
         createApiMethod={this.createDocumentRequest}
       >
-        <StringField
-          fieldPath="title"
-          label="Title"
-          placeholder="Title"
-          required
-        />
+        <GroupField>
+          <StringField
+            fieldPath="title"
+            label="Title"
+            placeholder="Title"
+            required
+            width={14}
+          />
+          <VocabularyField
+            type={invenioConfig.vocabularies.docReq.doc_req_medium}
+            fieldPath="medium"
+            label="Medium type"
+            placeholder="Select medium..."
+            required
+            width={4}
+          />
+        </GroupField>
         <StringField
           fieldPath="journal_title"
           label="Journal title"

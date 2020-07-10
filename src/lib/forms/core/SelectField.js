@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { FastField, Field, getIn } from 'formik';
-import { Form } from 'semantic-ui-react';
 import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Form } from 'semantic-ui-react';
 
 export class SelectField extends Component {
   renderError = (errors, name, value, direction = 'above') => {
@@ -72,7 +72,6 @@ export class SelectField extends Component {
       form: { values, setFieldValue, handleBlur, errors },
     } = props;
     const {
-      defaultValue,
       error,
       fieldPath,
       label,
@@ -82,7 +81,7 @@ export class SelectField extends Component {
       options,
       ...uiProps
     } = this.props;
-    const value = getIn(values, fieldPath, multiple ? [] : defaultValue);
+    const value = getIn(values, fieldPath, multiple ? [] : '');
     return (
       <Form.Dropdown
         fluid
@@ -97,7 +96,6 @@ export class SelectField extends Component {
           setFieldValue(fieldPath, data.value);
         }}
         onBlur={handleBlur}
-        value={value}
         error={error || this.renderError(errors, fieldPath, value)}
         options={this.getAllOptions(options, value)}
         renderLabel={this.renderLabel}
@@ -114,7 +112,6 @@ export class SelectField extends Component {
 }
 
 SelectField.propTypes = {
-  defaultValue: PropTypes.string,
   error: PropTypes.object,
   fieldPath: PropTypes.string.isRequired,
   loading: PropTypes.bool,
@@ -126,7 +123,6 @@ SelectField.propTypes = {
 };
 
 SelectField.defaultProps = {
-  defaultValue: '',
   multiple: false,
   optimized: false,
 };

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { FastField, Field, getIn } from 'formik';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
 
 export class StringField extends Component {
@@ -15,13 +15,13 @@ export class StringField extends Component {
   }
 
   renderFormField = props => {
-    const { fieldPath, inline, optimized, ...uiProps } = this.props;
+    const { fieldPath, inline, width, optimized, ...uiProps } = this.props;
     const {
       form: { values, handleChange, handleBlur, errors, status },
     } = props;
 
     return (
-      <Form.Field inline={inline}>
+      <Form.Field inline={inline} width={width}>
         <Form.Input
           fluid
           id={fieldPath}
@@ -47,9 +47,11 @@ StringField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   inline: PropTypes.bool,
   optimized: PropTypes.bool,
+  width: PropTypes.number,
 };
 
 StringField.defaultProps = {
   inline: false,
   optimized: true,
+  width: null,
 };
