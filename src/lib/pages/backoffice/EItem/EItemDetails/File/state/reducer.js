@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case IS_LOADING:
       return { ...state, isFilesLoading: true };
-    case SUCCESS:
+    case SUCCESS: {
       let fileAdded = false;
       const files = state.files.map(file => {
         if (file.key === action.payload.key) {
@@ -30,6 +30,7 @@ export default (state = initialState, action) => {
         files: files,
         isFilesLoading: false,
       };
+    }
     case HAS_ERROR:
       return {
         ...state,
