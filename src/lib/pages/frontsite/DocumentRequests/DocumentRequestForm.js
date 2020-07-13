@@ -79,7 +79,7 @@ class DocumentRequestForm extends Component {
             width={14}
           />
           <VocabularyField
-            type={invenioConfig.vocabularies.docReq.doc_req_medium}
+            type={invenioConfig.vocabularies.documentRequests.doc_req_medium}
             fieldPath="medium"
             label="Medium type"
             placeholder="Select medium..."
@@ -133,6 +133,31 @@ class DocumentRequestForm extends Component {
             fieldPath="publication_year"
             label="Publication Year"
             placeholder="Publication Year"
+          />
+        </GroupField>
+        <GroupField>
+          <VocabularyField
+            type={invenioConfig.vocabularies.documentRequests.doc_req_type}
+            fieldPath="request_type"
+            label="Request type"
+            placeholder="Select type..."
+            required
+            width={4}
+          />
+          <VocabularyField
+            type={
+              invenioConfig.vocabularies.documentRequests.doc_req_payment_method
+            }
+            fieldPath="payment_method"
+            label="Payment method"
+            placeholder="Select method..."
+            width={4}
+          />
+          <StringField
+            fieldPath="payment_info"
+            label="Payment information"
+            placeholder="Payment information"
+            width={8}
           />
         </GroupField>
         <TextField

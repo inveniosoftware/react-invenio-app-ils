@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { Grid } from 'semantic-ui-react';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { BackOfficeRoutes } from '@routes/urls';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Grid } from 'semantic-ui-react';
 
 export default class DocumentRequestMetadata extends Component {
   addRow(rows, name, value) {
@@ -28,6 +28,8 @@ export default class DocumentRequestMetadata extends Component {
     this.addRow(rows, 'Standard Number', data.metadata.standard_number);
     this.addRow(rows, 'ISBN', data.metadata.isbn);
     this.addRow(rows, 'ISSN', data.metadata.issn);
+    this.addRow(rows, 'Request Type', data.metadata.request_type);
+    this.addRow(rows, 'Payment method', data.metadata.payment_method);
     return rows;
   }
 
@@ -42,6 +44,7 @@ export default class DocumentRequestMetadata extends Component {
     this.addRow(rows, 'Medium', data.metadata.medium);
     this.addRow(rows, 'Note', data.metadata.note);
     this.addRow(rows, 'Reject Reason', data.metadata.reject_reason);
+    this.addRow(rows, 'Payment info', data.metadata.payment_info);
     return rows;
   }
 
