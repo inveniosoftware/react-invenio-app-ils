@@ -1,11 +1,10 @@
 import { addNotification } from '@components/Notifications';
 import { connect } from 'react-redux';
 import { uploadFile } from './state/actions';
-
 import UploadButtonComponent from './UploadButton';
 
 const mapStateToProps = state => ({
-  isFilesLoading: state.eitemDetails.isFilesLoading,
+  isFilesLoading: state.eitemDetailsFile.isFilesLoading,
   files: state.eitemDetails.files,
   eitem: state.eitemDetails.data,
 });

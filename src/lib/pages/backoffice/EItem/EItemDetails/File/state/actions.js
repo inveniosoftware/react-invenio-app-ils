@@ -5,6 +5,7 @@ import {
   DELETE_FILE,
   UPLOAD_IS_LOADING,
 } from '@pages/backoffice/EItem/EItemDetails/state/actions';
+import { fetchEItemDetails } from './../../state/actions';
 
 export const HAS_ERROR = 'upload/HAS_ERROR';
 export const SUCCESS = 'upload/SUCCESS';
@@ -22,6 +23,7 @@ export const uploadFile = (eitemPid, bucket, file) => {
         bucket = bucketResponse.data.metadata.bucket_id;
       }
       const response = await fileApi.upload(bucket, file);
+      dispatch(fetchEItemDetails(eitemPid));
       dispatch({
         type: SUCCESS,
         payload: response.data,

@@ -6,7 +6,6 @@ import { loanActionReducer, loanDetailsReducer } from '@modules/Loan/reducer';
 import patronCurrentBorrowingRequestsReducer from '@modules/Patron/PatronCurrentBorrowingRequests/reducer';
 import patronCurrentLoansReducer from '@modules/Patron/PatronCurrentLoans/reducer';
 import patronDocumentRequestsReducer from '@modules/Patron/PatronDocumentRequests/reducer';
-
 import patronPastBorrowingRequestsReducer from '@modules/Patron/PatronPastBorrowingRequests/reducer';
 import patronPastLoansReducer from '@modules/Patron/PatronPastLoans/reducer';
 import patronPendingLoansReducer from '@modules/Patron/PatronPendingLoans/reducer';
@@ -24,6 +23,7 @@ import {
   documentStatsReducer,
 } from '@pages/backoffice/Document/DocumentDetails/reducer';
 import { documentRequestDetailsReducer } from '@pages/backoffice/DocumentRequest/DocumentRequestDetails/reducer';
+import { eitemDetailsFileReducer } from '@pages/backoffice/EItem/EItemDetails/File/reducer';
 import { eitemDetailsReducer } from '@pages/backoffice/EItem/EItemDetails/reducer';
 import {
   documentCardReducer,
@@ -117,6 +117,7 @@ const rootReducer = combineReducers({
   itemDetails: itemDetailsReducer,
   itemPastLoans: itemPastLoansReducer,
   eitemDetails: eitemDetailsReducer,
+  eitemDetailsFile: eitemDetailsFileReducer,
   orderDetails: orderDetailsReducer,
   vendorDetails: vendorDetailsReducer,
   borrowingRequestDetails: borrowingRequestDetailsReducer,
