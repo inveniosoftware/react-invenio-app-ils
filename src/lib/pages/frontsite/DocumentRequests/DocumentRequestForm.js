@@ -79,7 +79,7 @@ class DocumentRequestForm extends Component {
             width={14}
           />
           <VocabularyField
-            type={invenioConfig.vocabularies.documentRequests.doc_req_medium}
+            type={invenioConfig.VOCABULARIES.documentRequests.doc_req_medium}
             fieldPath="medium"
             label="Medium type"
             placeholder="Select medium..."

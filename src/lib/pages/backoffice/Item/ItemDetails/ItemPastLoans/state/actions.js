@@ -11,7 +11,7 @@ export const fetchPastLoans = itemPid => {
     dispatch({
       type: IS_LOADING,
     });
-    const loanStates = invenioConfig.circulation.loanCompletedStates;
+    const loanStates = invenioConfig.CIRCULATION.loanCompletedStates;
     try {
       const response = await loanApi.list(
         loanApi

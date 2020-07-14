@@ -29,7 +29,8 @@ export class DocumentSearch extends Component {
       withCredentials: true,
     },
   });
-  searchConfig = getSearchConfig('documents');
+
+  searchConfig = getSearchConfig('DOCUMENTS');
 
   renderSearchBar = (_, queryString, onInputChange, executeSearch) => {
     const helperFields = [
@@ -86,7 +87,7 @@ export class DocumentSearch extends Component {
                 <ResultsLoader>
                   <Grid.Column width={3} className="search-aggregations">
                     <Header content="Filter by" />
-                    <SearchAggregationsCards modelName="documents" />
+                    <SearchAggregationsCards modelName="DOCUMENTS" />
                   </Grid.Column>
                   <Grid.Column width={13}>
                     <Grid columns={2}>
@@ -105,7 +106,7 @@ export class DocumentSearch extends Component {
                     <SearchEmptyResults extras={this.renderEmptyResultsExtra} />
                     <Error renderElement={this.renderError} />
                     <SearchControls
-                      modelName="documents"
+                      modelName="DOCUMENTS"
                       withLayoutSwitcher={false}
                     />
                     <ResultsList renderElement={this.renderDocumentList} />

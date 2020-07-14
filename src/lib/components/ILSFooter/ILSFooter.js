@@ -1,4 +1,4 @@
-import { getStaticPageByName, uiConfig } from '@config/uiConfig';
+import { getStaticPageByName } from '@config';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
@@ -16,21 +16,10 @@ const FooterLayout = props => {
                 <Header as="h4" content="More information" />
                 <List>
                   <List.Item>
-                    <Link
-                      to={
-                        getStaticPageByName(uiConfig.staticPages, 'about').route
-                      }
-                    >
-                      About
-                    </Link>
+                    <Link to={getStaticPageByName('about').route}>About</Link>
                   </List.Item>
                   <List.Item>
-                    <Link
-                      to={
-                        getStaticPageByName(uiConfig.staticPages, 'contact')
-                          .route
-                      }
-                    >
+                    <Link to={getStaticPageByName('contact').route}>
                       Contact
                     </Link>
                   </List.Item>

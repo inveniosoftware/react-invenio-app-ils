@@ -6,7 +6,7 @@ import { Icon, List } from 'semantic-ui-react';
 export class LoanDates extends Component {
   render() {
     const { loan } = this.props;
-    const isRequest = invenioConfig.circulation.loanRequestStates.includes(
+    const isRequest = invenioConfig.CIRCULATION.loanRequestStates.includes(
       loan.metadata.state
     );
     return isRequest ? (

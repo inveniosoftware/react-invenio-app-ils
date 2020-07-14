@@ -1,24 +1,26 @@
 import { http } from '@api/base';
 import { invenioConfig } from '@config';
+import _get from 'lodash/get';
 import _has from 'lodash/has';
 import { sessionManager } from './SessionManager';
 
 class AuthenticationService {
   loginWithOauthProvider = (nextUrl, providerUrl) => {
     sessionManager.setAnonymous();
-    const redirectOauthUrl = `${
-      invenioConfig.INVENIO_UI_URL
-    }${providerUrl}?next=${encodeURIComponent(nextUrl)}`;
+    const redirectOauthUrl = `${_get(
+      invenioConfig.APP,
+      'INVENIO_UI_URL'
+    )}${providerUrl}?next=${encodeURIComponent(nextUrl)}`;
     window.location = redirectOauthUrl;
   };
 
   loginWithLocalAccount = data => {
-    const loginUrl = `${invenioConfig.REST_ENDOINTS_BASE_URL}/login`;
+    const loginUrl = `${invenioConfig.APP.REST_ENDOINTS_BASE_URL}/login`;
     return http.post(loginUrl, data);
   };
 
   logout = () => {
-    const logoutUrl = `${invenioConfig.REST_ENDOINTS_BASE_URL}/logout`;
+    const logoutUrl = `${invenioConfig.APP.REST_ENDOINTS_BASE_URL}/logout`;
     return http.post(logoutUrl);
   };
 

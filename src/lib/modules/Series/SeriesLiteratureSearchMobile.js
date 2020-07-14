@@ -28,7 +28,7 @@ export class SeriesLiteratureSearchMobile extends React.Component {
               <Sticky context={this.stickyRef} offset={66}>
                 <SearchControlsMobile
                   ref={this.stickyRef}
-                  modelName="literature"
+                  modelName="LITERATURE"
                 />
               </Sticky>
               <Container textAlign="center">

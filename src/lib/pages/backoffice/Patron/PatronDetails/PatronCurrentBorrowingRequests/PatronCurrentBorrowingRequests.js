@@ -21,7 +21,7 @@ export default class PatronCurrentBorrowingRequests extends Component {
 
   seeAllButton = () => {
     const { patronDetails } = this.props;
-    const illConfig = invenioConfig.illBorrowingRequests;
+    const illConfig = invenioConfig.ILL_BORROWING_REQUESTS;
     const statuses = _difference(
       illConfig.orderedValidStatuses,
       illConfig.completedStatuses

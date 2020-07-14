@@ -1,4 +1,4 @@
-import { uiConfig } from '@config';
+import { invenioConfig } from '@config';
 import _keys from 'lodash/keys';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -8,14 +8,14 @@ export const SeriesMetadataExtensions = ({ extensions, showDivider }) => {
   return (
     <React.Fragment>
       {showDivider && (
-        <Divider horizontal>{uiConfig.extensions.series.label}</Divider>
+        <Divider horizontal>{invenioConfig.SERIES.extensions.label}</Divider>
       )}
       <Table definition>
         <Table.Body>
           {_keys(extensions).map(key => (
             <Table.Row key={key}>
               <Table.Cell width={4}>
-                {uiConfig.extensions.series.fields[key].label}
+                {invenioConfig.SERIES.extensions.fields[key].label}
               </Table.Cell>
               <Table.Cell>{extensions[key]}</Table.Cell>
             </Table.Row>

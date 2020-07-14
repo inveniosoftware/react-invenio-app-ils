@@ -3,7 +3,7 @@ import { LoanIcon } from '@components/backoffice/icons';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { DatePicker } from '@components/DatePicker';
 import { invenioConfig } from '@config';
-import { getDisplayVal } from '@config/invenioConfig';
+import { getDisplayVal } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
@@ -26,7 +26,7 @@ import { BorrowingRequestLoanExtension } from './BorrowingRequestLoanExtension';
 class CreateLoanButton extends React.Component {
   render() {
     const { brwReq, isLoading, onNewLoanClicked } = this.props;
-    const isCompleted = invenioConfig.illBorrowingRequests.completedStatuses.includes(
+    const isCompleted = invenioConfig.ILL_BORROWING_REQUESTS.completedStatuses.includes(
       brwReq.status
     );
     if (isCompleted) {
@@ -239,7 +239,7 @@ export default class BorrowingRequestPatronLoan extends React.Component {
         name: 'Status',
         value: loanStatus ? (
           <Label basic color="blue" size="tiny">
-            {getDisplayVal('circulation.statuses', loanStatus)}
+            {getDisplayVal('CIRCULATION.statuses', loanStatus)}
           </Label>
         ) : (
           '-'

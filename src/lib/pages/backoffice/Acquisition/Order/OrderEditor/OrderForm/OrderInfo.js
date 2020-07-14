@@ -33,7 +33,7 @@ export class OrderInfo extends Component {
             search
             label="Status"
             fieldPath="status"
-            options={invenioConfig.acqOrders.statuses}
+            options={invenioConfig.ACQ_ORDERS.statuses}
           />
           <StringField label="Cancel Reason" fieldPath="cancel_reason" />
         </GroupField>
@@ -56,14 +56,14 @@ export class OrderInfo extends Component {
           label="Total"
           fieldPath="grand_total"
           currencies={currencies}
-          defaultCurrency={invenioConfig.defaultCurrency}
+          defaultCurrency={invenioConfig.APP.defaultCurrency}
         />
         <PriceField
           label="Total Main Currency"
           fieldPath="grand_total_main_currency"
           currencies={currencies}
           canSelectCurrency={false}
-          defaultCurrency={invenioConfig.defaultCurrency}
+          defaultCurrency={invenioConfig.APP.defaultCurrency}
         />
         <DateInputField
           label="Received date"

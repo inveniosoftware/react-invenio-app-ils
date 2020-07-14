@@ -17,11 +17,11 @@ export class ResultsTable extends Component {
       paginationComponent,
       seeAllComponent,
       showAllResults,
-      showMaxRows,
       singleLine,
       totalHitsCount,
       headerActionComponent,
       renderEmptyResultsElement,
+      showMaxRows = invenioConfig.APP.defaultResultsSize,
       ...tableProps
     } = this.props;
 
@@ -129,7 +129,6 @@ ResultsTable.defaultProps = {
   paginationComponent: null,
   seeAllComponent: null,
   showAllResults: false,
-  showMaxRows: invenioConfig.defaultResultsSize,
   singleLine: true,
   subtitle: '',
   title: '',

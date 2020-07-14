@@ -133,13 +133,13 @@ exports[`DocumentMetadata tests should render the loan request form correctly 1`
           >
             <Checkbox
               checked={true}
-              key="DELIVERY"
-              label=""
+              key="PICKUP"
+              label="Pick it up at the library desk"
               name="deliveryMethodRadioGroup"
               onChange={[Function]}
               radio={true}
               type="checkbox"
-              value="DELIVERY"
+              value="PICKUP"
             >
               <div
                 className="ui checked radio checkbox"
@@ -158,7 +158,7 @@ exports[`DocumentMetadata tests should render the loan request form correctly 1`
                         readonly=""
                         tabindex="0"
                         type="checkbox"
-                        value="DELIVERY"
+                        value="PICKUP"
                       />,
                     }
                   }
@@ -173,7 +173,7 @@ exports[`DocumentMetadata tests should render the loan request form correctly 1`
                           readonly=""
                           tabindex="0"
                           type="checkbox"
-                          value="DELIVERY"
+                          value="PICKUP"
                         />,
                       }
                     }
@@ -185,38 +185,44 @@ exports[`DocumentMetadata tests should render the loan request form correctly 1`
                       readOnly={true}
                       tabIndex={0}
                       type="checkbox"
-                      value="DELIVERY"
+                      value="PICKUP"
                     />
                   </RefFindNode>
                 </Ref>
                 <Ref
                   innerRef={
                     Object {
-                      "current": <label />,
+                      "current": <label>
+                        Pick it up at the library desk
+                      </label>,
                     }
                   }
                 >
                   <RefFindNode
                     innerRef={
                       Object {
-                        "current": <label />,
+                        "current": <label>
+                          Pick it up at the library desk
+                        </label>,
                       }
                     }
                   >
-                    <label />
+                    <label>
+                      Pick it up at the library desk
+                    </label>
                   </RefFindNode>
                 </Ref>
               </div>
             </Checkbox>
             <Checkbox
               checked={false}
-              key="PICK UP"
-              label=""
+              key="DELIVERY"
+              label="Have it delivered to my office"
               name="deliveryMethodRadioGroup"
               onChange={[Function]}
               radio={true}
               type="checkbox"
-              value="PICK UP"
+              value="DELIVERY"
             >
               <div
                 className="ui radio checkbox"
@@ -234,7 +240,7 @@ exports[`DocumentMetadata tests should render the loan request form correctly 1`
                         readonly=""
                         tabindex="0"
                         type="checkbox"
-                        value="PICK UP"
+                        value="DELIVERY"
                       />,
                     }
                   }
@@ -248,7 +254,7 @@ exports[`DocumentMetadata tests should render the loan request form correctly 1`
                           readonly=""
                           tabindex="0"
                           type="checkbox"
-                          value="PICK UP"
+                          value="DELIVERY"
                         />,
                       }
                     }
@@ -260,25 +266,31 @@ exports[`DocumentMetadata tests should render the loan request form correctly 1`
                       readOnly={true}
                       tabIndex={0}
                       type="checkbox"
-                      value="PICK UP"
+                      value="DELIVERY"
                     />
                   </RefFindNode>
                 </Ref>
                 <Ref
                   innerRef={
                     Object {
-                      "current": <label />,
+                      "current": <label>
+                        Have it delivered to my office
+                      </label>,
                     }
                   }
                 >
                   <RefFindNode
                     innerRef={
                       Object {
-                        "current": <label />,
+                        "current": <label>
+                          Have it delivered to my office
+                        </label>,
                       }
                     }
                   >
-                    <label />
+                    <label>
+                      Have it delivered to my office
+                    </label>
                   </RefFindNode>
                 </Ref>
               </div>

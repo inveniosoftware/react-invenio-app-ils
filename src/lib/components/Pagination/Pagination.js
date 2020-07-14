@@ -11,7 +11,12 @@ class Pagination extends Component {
   }
 
   render() {
-    const { totalResults, currentPage, currentSize, onPageChange } = this.props;
+    const {
+      totalResults,
+      currentPage,
+      onPageChange,
+      currentSize = invenioConfig.APP.defaultResultsSize,
+    } = this.props;
     const pages = Math.ceil(totalResults / currentSize);
     return (
       <div className="pagination">
@@ -32,10 +37,6 @@ Pagination.propTypes = {
   currentSize: PropTypes.number,
   totalResults: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
-};
-
-Pagination.defaultProps = {
-  currentSize: invenioConfig.defaultResultsSize,
 };
 
 export default Overridable.component('Pagination', Pagination);

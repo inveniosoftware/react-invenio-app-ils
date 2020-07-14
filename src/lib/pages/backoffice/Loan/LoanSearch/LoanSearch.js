@@ -84,14 +84,14 @@ export class LoanSearch extends Component {
               <ResultsLoader>
                 <Grid.Column width={3} className="search-aggregations">
                   <Header content="Filter by" />
-                  <SearchAggregationsCards modelName="loans" />
+                  <SearchAggregationsCards modelName="LOANS" />
                   <SearchDateRange />
                 </Grid.Column>
                 <Grid.Column width={13}>
                   <SearchEmptyResults extras={this.renderEmptyResultsExtra} />
                   <Error renderElement={this.renderError} />
                   <SearchControls
-                    modelName="loans"
+                    modelName="LOANS"
                     withLayoutSwitcher={false}
                   />
                   <ResultsList renderElement={this.renderLoanList} />

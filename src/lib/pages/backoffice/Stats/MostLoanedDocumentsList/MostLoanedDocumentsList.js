@@ -10,7 +10,7 @@ import { circulationStatsApi } from '@api/stats/circulationStats';
 import { loanApi } from '@api/loans';
 import { DocumentList } from '@modules/Document/backoffice/DocumentList';
 import { ExportSearchResults } from '@components/backoffice/ExportSearchResults';
-import { invenioConfig } from '@config/invenioConfig';
+import { invenioConfig } from '@config';
 import {
   DocumentListEntry,
   DocumentStats,
@@ -136,8 +136,8 @@ export default class MostLoanedDocumentsList extends Component {
       .withDocPid(hit.metadata.pid)
       .withStartDate({ fromDate, toDate })
       .withState(
-        invenioConfig.circulation.loanActiveStates.concat(
-          invenioConfig.circulation.loanCompletedStates
+        invenioConfig.CIRCULATION.loanActiveStates.concat(
+          invenioConfig.CIRCULATION.loanCompletedStates
         )
       )
       .qs();

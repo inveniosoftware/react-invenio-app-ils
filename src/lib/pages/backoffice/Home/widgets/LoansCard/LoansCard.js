@@ -24,7 +24,7 @@ export default class LoansCard extends Component {
     const path = this.seeAllUrl(
       loanApi
         .query()
-        .withState(invenioConfig.circulation.loanRequestStates)
+        .withState(invenioConfig.CIRCULATION.loanRequestStates)
         .qs()
     );
     return <SeeAllButton fluid disabled to={path} />;

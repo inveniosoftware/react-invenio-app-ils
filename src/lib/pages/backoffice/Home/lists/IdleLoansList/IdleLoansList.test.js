@@ -5,7 +5,7 @@ import React from 'react';
 import IdleLoansList from './IdleLoansList';
 
 jest.mock('react-router-dom');
-jest.mock('@config/invenioConfig');
+jest.mock('@config');
 BackOfficeRoutes.loanDetailsFor = jest.fn(pid => `url/${pid}`);
 let mockViewDetails = jest.fn();
 

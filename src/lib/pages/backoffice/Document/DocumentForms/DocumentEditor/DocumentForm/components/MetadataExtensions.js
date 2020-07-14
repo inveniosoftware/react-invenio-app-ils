@@ -1,4 +1,4 @@
-import { uiConfig } from '@config';
+import { invenioConfig } from '@config';
 import { AccordionField } from '@forms/core/AccordionField';
 import { BooleanField } from '@forms/core/BooleanField';
 import { DateInputField } from '@forms/core/DateTimeFields/DateInputField';
@@ -26,24 +26,28 @@ const getFormComponent = fieldType => {
 };
 
 export const MetadataExtensions = ({ extensions }) => {
-  const { label, fields } = uiConfig.extensions.document;
+  const { label, fields } = invenioConfig.DOCUMENTS.extensions;
   const configDefaults = {};
   _keys(fields).map(key => (configDefaults[key] = fields[key]['default']));
   const allExtensions = _merge(configDefaults, extensions);
 
   let components = [];
   _forOwn(allExtensions, (value, key) => {
-    const componentType = uiConfig.extensions.document.fields[key].type;
+    const componentType = invenioConfig.DOCUMENTS.extensions.fields[key].type;
     const Component = getFormComponent(componentType);
 
     components.push(
       <Component
         fieldPath={`extensions.${key}`}
         key={key}
-        label={_get(uiConfig, `extensions.document.fields.${key}.label`, key)}
+        label={_get(
+          invenioConfig,
+          `extensions.document.fields.${key}.label`,
+          key
+        )}
         optimized
         required={_get(
-          uiConfig,
+          invenioConfig,
           `extensions.document.fields.${key}.isRequired`,
           false
         )}

@@ -22,7 +22,7 @@ export const fetchAvailableItems = documentPid => {
         itemApi
           .query()
           .withDocPid(documentPid)
-          .withStatus(invenioConfig.items.canCirculateStatuses)
+          .withStatus(invenioConfig.ITEMS.canCirculateStatuses)
           .availableForCheckout()
           .qs()
       );

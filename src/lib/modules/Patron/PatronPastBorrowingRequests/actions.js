@@ -10,7 +10,7 @@ const selectQuery = (patronPid, page = 1, size) => {
   return borrowingRequestApi
     .query()
     .withPatron(patronPid)
-    .withState(invenioConfig.illBorrowingRequests.completedStatuses)
+    .withState(invenioConfig.ILL_BORROWING_REQUESTS.completedStatuses)
     .withSize(size)
     .withPage(page)
     .qs();
@@ -19,7 +19,7 @@ const selectQuery = (patronPid, page = 1, size) => {
 export const fetchPatronPastBorrowingRequests = (
   patronPid,
   page,
-  size = invenioConfig.defaultResultsSize
+  size = invenioConfig.APP.defaultResultsSize
 ) => {
   return async dispatch => {
     dispatch({

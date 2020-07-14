@@ -12,14 +12,14 @@ export default class AdminMenu extends Component {
           <Menu text vertical className="bo-menu">
             <Menu.Item
               as="a"
-              href={`${invenioConfig.INVENIO_UI_URL}/admin`}
+              href={`${invenioConfig.APP.INVENIO_UI_URL}/admin`}
               target="_blank"
             >
               Admin panel
             </Menu.Item>
             <Menu.Item
               as="a"
-              href={`${invenioConfig.INVENIO_UI_URL}/admin/page`}
+              href={`${invenioConfig.APP.INVENIO_UI_URL}/admin/page`}
               target="_blank"
             >
               Static pages

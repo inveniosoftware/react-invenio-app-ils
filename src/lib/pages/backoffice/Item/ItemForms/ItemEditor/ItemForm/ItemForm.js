@@ -27,7 +27,7 @@ import { withCancel } from '@api/utils';
 export class ItemForm extends Component {
   constructor(props) {
     super(props);
-    this.config = invenioConfig.items;
+    this.config = invenioConfig.ITEMS;
     this.state = {
       // eslint-disable-next-line react/no-unused-state
       isLoading: true,
@@ -48,7 +48,7 @@ export class ItemForm extends Component {
   query = () => {
     const searchQuery = vocabularyApi
       .query()
-      .withType(invenioConfig.vocabularies.currencies)
+      .withType(invenioConfig.VOCABULARIES.currencies)
       .qs();
     return vocabularyApi.list(searchQuery);
   };
@@ -190,7 +190,7 @@ export class ItemForm extends Component {
             label="Price"
             fieldPath="price"
             currencies={currencies}
-            defaultCurrency={invenioConfig.defaultCurrency}
+            defaultCurrency={invenioConfig.APP.defaultCurrency}
           />
         )}
         <AccordionField

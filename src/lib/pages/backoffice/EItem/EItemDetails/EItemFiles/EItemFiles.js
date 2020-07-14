@@ -13,11 +13,6 @@ import React, { Component } from 'react';
 import { Header, Icon, Segment } from 'semantic-ui-react';
 
 export default class EItemFiles extends Component {
-  constructor(props) {
-    super(props);
-    this.maxFiles = invenioConfig.eitems.maxFiles;
-  }
-
   onDelete = row => {
     const { deleteFile } = this.props;
     deleteFile(row.bucket, row.key);
@@ -106,7 +101,7 @@ export default class EItemFiles extends Component {
                 data={files}
                 columns={this.tableColumns()}
                 totalHitsCount={files.length}
-                showMaxRows={this.maxFiles}
+                showMaxRows={invenioConfig.EITEMS.maxFiles}
                 renderEmptyResultsElement={() => (
                   <InfoMessage
                     content="Upload a file to attach it to this electronic item"

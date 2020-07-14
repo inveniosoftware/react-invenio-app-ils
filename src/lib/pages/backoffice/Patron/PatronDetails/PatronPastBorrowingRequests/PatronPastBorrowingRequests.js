@@ -25,7 +25,7 @@ export default class PatronPastBorrowingRequests extends Component {
       borrowingRequestApi
         .query()
         .withPatron(patronPid)
-        .withState(invenioConfig.illBorrowingRequests.completedStatuses)
+        .withState(invenioConfig.ILL_BORROWING_REQUESTS.completedStatuses)
         .qs()
     );
     return <SeeAllButton to={path} />;

@@ -13,7 +13,7 @@ export { add, remove } from '@api/relations';
 export { seriesApi } from '@api/series';
 export { circulationStatsApi, statsApi } from '@api/stats';
 export { vocabularyApi } from '@api/vocabularies';
-export { getStaticPageByName } from '@config/uiConfig';
+export { getStaticPageByName } from '@config';
 export { DocumentCardGroup } from '@modules/Document/DocumentCardGroup';
 export { Headline } from '@pages/frontsite/Home/Headline';
 export { FrontSiteRoutes } from '@routes/frontsite/frontsiteUrls';

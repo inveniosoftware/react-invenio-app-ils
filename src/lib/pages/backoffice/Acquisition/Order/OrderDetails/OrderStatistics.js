@@ -1,5 +1,5 @@
 import React from 'react';
-import { getDisplayVal } from '@config/invenioConfig';
+import { getDisplayVal } from '@config';
 import PropTypes from 'prop-types';
 import { Statistic } from 'semantic-ui-react';
 import { formatPrice } from '@api/utils';
@@ -52,7 +52,7 @@ export class OrderStatistics extends React.Component {
 
   renderStatus() {
     const { status } = this.props.order;
-    const humanReadableStatus = getDisplayVal('acqOrders.statuses', status);
+    const humanReadableStatus = getDisplayVal('ACQ_ORDERS.statuses', status);
     switch (status) {
       case 'CANCELLED':
         return this.renderStatusCancelled(humanReadableStatus);

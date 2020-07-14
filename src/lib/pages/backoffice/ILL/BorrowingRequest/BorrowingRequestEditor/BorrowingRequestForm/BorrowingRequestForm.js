@@ -63,7 +63,7 @@ export class BorrowingRequestForm extends Component {
   query = () => {
     const searchQuery = vocabularyApi
       .query()
-      .withType(invenioConfig.vocabularies.currencies)
+      .withType(invenioConfig.VOCABULARIES.currencies)
       .qs();
     return vocabularyApi.list(searchQuery);
   };

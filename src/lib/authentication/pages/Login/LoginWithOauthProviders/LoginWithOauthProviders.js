@@ -24,7 +24,7 @@ export class LoginWithOauthProviders extends Component {
   render() {
     const params = parseParams(window.location.search);
     this.checkIfOauthLoginResponse(params);
-    const { label, name, ...restProps } = invenioConfig.OAUTH_PROVIDERS[
+    const { label, name, ...restProps } = invenioConfig.APP.OAUTH_PROVIDERS[
       'github'
     ];
     return (

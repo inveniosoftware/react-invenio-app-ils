@@ -23,7 +23,7 @@ export default class OverdueLoansList extends Component {
       loanApi
         .query()
         .overdue()
-        .withState(invenioConfig.circulation.loanActiveStates)
+        .withState(invenioConfig.CIRCULATION.loanActiveStates)
         .qs()
     );
     return <SeeAllButton to={path} />;

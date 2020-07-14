@@ -35,7 +35,7 @@ export class OrderInfo extends Component {
           serializer={serializeLibrary}
         />
         <VocabularyField
-          type={invenioConfig.vocabularies.illBorrowingRequests.ill_item_type}
+          type={invenioConfig.VOCABULARIES.illBorrowingRequests.ill_item_type}
           fieldPath="type"
           label="Item type"
           placeholder="Select item type..."
@@ -71,7 +71,7 @@ export class OrderInfo extends Component {
             search
             label="Status"
             fieldPath="status"
-            options={invenioConfig.illBorrowingRequests.statuses}
+            options={invenioConfig.ILL_BORROWING_REQUESTS.statuses}
           />
           <StringField label="Cancel Reason" fieldPath="cancel_reason" />
         </GroupField>
@@ -100,14 +100,14 @@ export class OrderInfo extends Component {
             label="Total"
             fieldPath="total"
             currencies={currencies}
-            defaultCurrency={invenioConfig.defaultCurrency}
+            defaultCurrency={invenioConfig.APP.defaultCurrency}
           />
           <PriceField
             label="Total Main Currency"
             fieldPath="total_main_currency"
             currencies={currencies}
             canSelectCurrency={false}
-            defaultCurrency={invenioConfig.defaultCurrency}
+            defaultCurrency={invenioConfig.APP.defaultCurrency}
           />
         </GroupField>
 

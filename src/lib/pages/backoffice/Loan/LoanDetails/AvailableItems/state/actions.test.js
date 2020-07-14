@@ -4,7 +4,7 @@ import * as actions from './actions';
 import { initialState } from './reducer';
 import { itemApi } from '@api/items';
 
-jest.mock('@config/invenioConfig');
+jest.mock('@config');
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -78,7 +78,7 @@ describe('Available items tests', () => {
 
       store.dispatch(actions.fetchAvailableItems('1342'));
       expect(mockList).toHaveBeenCalledWith(
-        'document_pid:1342 AND status:(CAN_CIRCULATE) AND NOT circulation.state:(ITEM_ON_LOAN)'
+        'document_pid:1342 AND status:(CAN_CIRCULATE) AND NOT circulation.state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)'
       );
       expect(store.getActions()[0]).toEqual(expectedActions[0]);
     });
@@ -95,7 +95,7 @@ describe('Available items tests', () => {
 
       store.dispatch(actions.fetchAvailableItems('1342')).then(() => {
         expect(mockList).toHaveBeenCalledWith(
-          'document_pid:1342 AND status:(CAN_CIRCULATE) AND NOT circulation.state:(ITEM_ON_LOAN)'
+          'document_pid:1342 AND status:(CAN_CIRCULATE) AND NOT circulation.state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)'
         );
         const actions = store.getActions();
         expect(actions[1]).toEqual(expectedActions[0]);
@@ -115,7 +115,7 @@ describe('Available items tests', () => {
 
       store.dispatch(actions.fetchAvailableItems('456')).then(() => {
         expect(mockList).toHaveBeenCalledWith(
-          'document_pid:456 AND status:(CAN_CIRCULATE) AND NOT circulation.state:(ITEM_ON_LOAN)'
+          'document_pid:456 AND status:(CAN_CIRCULATE) AND NOT circulation.state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)'
         );
         const actions = store.getActions();
         expect(actions[1]).toEqual(expectedActions[0]);

@@ -86,7 +86,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
         >
           <SearchControls
             defaultLayout="grid"
-            modelName="literature"
+            modelName="LITERATURE"
             withLayoutSwitcher={true}
           />
           <Connect(ResultsMultiLayout)
@@ -99,7 +99,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
           maxWidth={991}
         >
           <SearchControlsMobile
-            modelName="literature"
+            modelName="LITERATURE"
             stickyRef={null}
           />
         </Responsive>

@@ -1,6 +1,6 @@
 import { RedirectToLoginButton } from '@authentication/components/RedirectToLoginButton';
 import { authenticationService } from '@authentication/services/AuthenticationService';
-import { uiConfig } from '@config';
+import { invenioConfig } from '@config';
 import { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -95,7 +95,7 @@ class ILSMenu extends Component {
                   <Overridable id="ILSMenu.Logo">
                     <Link to="/">
                       <Image
-                        src={uiConfig.LOGO_SRC}
+                        src={invenioConfig.APP.LOGO_SRC}
                         size="tiny"
                         centered
                         alt="Logo"
@@ -124,7 +124,7 @@ class ILSMenu extends Component {
                   <Overridable id="ILSMenu.LogoMobile">
                     <Link to="/">
                       <Image
-                        src={uiConfig.LOGO_SRC}
+                        src={invenioConfig.APP.LOGO_SRC}
                         size="tiny"
                         centered
                         alt="Logo"

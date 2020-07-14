@@ -29,7 +29,7 @@ class LiteratureSearchMobile extends Component {
                     <Sticky context={this.stickyRef} offset={66}>
                       <SearchControlsMobile
                         ref={this.stickyRef}
-                        modelName="documents"
+                        modelName="DOCUMENTS"
                       />
                     </Sticky>
                     <Container textAlign="center">

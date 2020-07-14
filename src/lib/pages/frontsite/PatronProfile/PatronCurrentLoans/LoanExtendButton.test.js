@@ -5,7 +5,7 @@ import { Settings } from 'luxon';
 import React from 'react';
 import { LoanExtendButton } from './LoanExtendButton';
 
-jest.mock('@config/invenioConfig');
+jest.mock('@config');
 Settings.defaultZoneName = 'utc';
 const stringDate = fromISO('2020-01-01T11:05:00+01:00');
 const endDate = stringDate.plus({ months: 1 });

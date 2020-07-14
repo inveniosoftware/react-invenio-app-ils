@@ -61,7 +61,7 @@ class AcqProvider extends Component {
       data: { metadata },
       addProvider,
     } = this.props;
-    const { acq } = invenioConfig.documentRequests.physicalItemProviders;
+    const { acq } = invenioConfig.DOCUMENT_REQUESTS.physicalItemProviders;
     addProvider(provData.pid, metadata.pid, acq.pid_type);
   };
 
@@ -115,7 +115,7 @@ class IllProvider extends Component {
       data: { metadata },
       addProvider,
     } = this.props;
-    const { ill } = invenioConfig.documentRequests.physicalItemProviders;
+    const { ill } = invenioConfig.DOCUMENT_REQUESTS.physicalItemProviders;
     addProvider(provData.pid, metadata.pid, ill.pid_type);
   };
 

@@ -1,4 +1,4 @@
-import { uiConfig } from '@config';
+import { invenioConfig } from '@config';
 import { Identifiers } from '@modules/Identifiers';
 import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
 import LiteratureRelations from '@modules/Literature/LiteratureRelations';
@@ -66,9 +66,12 @@ class SeriesMetadataTabs extends Component {
       },
     ];
     const { extensions = {} } = metadata;
-    if (!_isEmpty(extensions) && !_isEmpty(uiConfig.extensions.series.fields)) {
+    if (
+      !_isEmpty(extensions) &&
+      !_isEmpty(invenioConfig.SERIES.extensions.fields)
+    ) {
       panes.push({
-        menuItem: uiConfig.extensions.series.label,
+        menuItem: invenioConfig.SERIES.extensions.label,
         render: () => (
           <Tab.Pane>
             <Overridable

@@ -12,7 +12,7 @@ export class LicensesField extends React.Component {
         content={
           <VocabularyField
             multiple
-            type={invenioConfig.vocabularies.document.license}
+            type={invenioConfig.VOCABULARIES.document.license}
             fieldPath="licenses"
           />
         }

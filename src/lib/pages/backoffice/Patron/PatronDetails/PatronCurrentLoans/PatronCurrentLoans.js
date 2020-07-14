@@ -24,7 +24,7 @@ export default class PatronCurrentLoans extends Component {
       loanApi
         .query()
         .withPatronPid(patronPid)
-        .withState(invenioConfig.circulation.loanActiveStates)
+        .withState(invenioConfig.CIRCULATION.loanActiveStates)
         .sortByNewest()
         .qs()
     );

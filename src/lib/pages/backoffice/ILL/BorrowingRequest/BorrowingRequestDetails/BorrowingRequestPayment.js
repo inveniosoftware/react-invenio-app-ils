@@ -13,7 +13,7 @@ class Payment extends React.Component {
     const payment = brwReq.payment;
     const leftTable = [
       {
-        name: `Total (${invenioConfig.defaultCurrency})`,
+        name: `Total (${invenioConfig.APP.defaultCurrency})`,
         value: formatPrice(brwReq.total_main_currency),
       },
       {
@@ -40,7 +40,7 @@ class Payment extends React.Component {
     ];
     const rightTable = [
       {
-        name: `Debit cost (${invenioConfig.defaultCurrency})`,
+        name: `Debit cost (${invenioConfig.APP.defaultCurrency})`,
         value: formatPrice(payment.debit_cost_main_currency),
       },
       {

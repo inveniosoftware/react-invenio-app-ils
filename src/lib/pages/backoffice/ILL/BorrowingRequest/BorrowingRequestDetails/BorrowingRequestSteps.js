@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Icon, Segment, Step } from 'semantic-ui-react';
-import { getDisplayVal, invenioConfig } from '@config/invenioConfig';
+import { getDisplayVal } from '@config';
+import { invenioConfig } from '@config';
 import { LoanIcon } from '@components/backoffice/icons';
 
 class BorrowingRequestStep extends Component {
@@ -47,12 +48,12 @@ BorrowingRequestStep.defaultProps = {
 };
 
 const toLabel = status => {
-  return getDisplayVal('illBorrowingRequests.statuses', status);
+  return getDisplayVal('ILL_BORROWING_REQUESTS.statuses', status);
 };
 
 const isBefore = (currentStatus, status) => {
   const orderedStatuses =
-    invenioConfig.illBorrowingRequests.orderedValidStatuses;
+    invenioConfig.ILL_BORROWING_REQUESTS.orderedValidStatuses;
   return (
     orderedStatuses.indexOf(currentStatus) < orderedStatuses.indexOf(status)
   );

@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
 
-jest.mock('@config/invenioConfig');
+jest.mock('@config');
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

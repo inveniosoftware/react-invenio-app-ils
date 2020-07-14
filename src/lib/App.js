@@ -4,7 +4,7 @@ import { ConfirmEmail } from '@authentication/pages';
 import { Login } from '@authentication/pages/Login';
 import { fetchUserProfile } from '@authentication/state/actions';
 import { NotFound } from '@components/NotFound';
-import { initConfig } from '@config';
+import { invenioConfig } from '@config';
 import { AuthenticationRoutes } from '@routes/authentication/urls';
 import { BackOffice } from '@routes/backoffice';
 import { BackOfficeRoutes } from '@routes/backoffice/backofficeUrls';
@@ -42,7 +42,7 @@ const FetchUser = connect(null, mapDispatchToProps)(FetchUserComponent);
 export default class App extends Component {
   constructor(props) {
     super(props);
-    initConfig(props.config);
+    invenioConfig.setValue(props.config);
   }
 
   render() {
@@ -63,7 +63,7 @@ export default class App extends Component {
               unAuthorizedComponent={UnAuthorized}
               roles={['admin', 'librarian']}
             />
-            <FrontSite {...this.props} />
+            <FrontSite />
             <Route>
               <NotFound />
             </Route>
@@ -75,5 +75,9 @@ export default class App extends Component {
 }
 
 App.propTypes = {
-  config: PropTypes.object.isRequired,
+  config: PropTypes.object,
+};
+
+App.defaultProps = {
+  config: {},
 };

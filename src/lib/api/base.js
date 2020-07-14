@@ -1,10 +1,10 @@
-import { invenioConfig } from '@config/invenioConfig';
+import { invenioConfig } from '@config';
 import { goTo } from '@history';
 import { AuthenticationRoutes } from '@routes/urls';
 import axios from 'axios';
 
 const apiConfig = {
-  baseURL: invenioConfig.REST_ENDOINTS_BASE_URL,
+  baseURL: invenioConfig.APP.REST_ENDOINTS_BASE_URL,
   withCredentials: true,
 };
 

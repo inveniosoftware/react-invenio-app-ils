@@ -1,4 +1,4 @@
-import { uiConfig } from '@config';
+import { invenioConfig } from '@config';
 import { DocumentConference } from '@modules/Document/DocumentConference';
 import { DocumentInfo } from '@modules/Document/DocumentInfo';
 import { DocumentLinks } from '@modules/Document/DocumentLinks';
@@ -88,10 +88,10 @@ class DocumentMetadataTabs extends Component {
     const { extensions = {} } = metadata;
     if (
       !_isEmpty(extensions) &&
-      !_isEmpty(uiConfig.extensions.document.fields)
+      !_isEmpty(invenioConfig.DOCUMENTS.extensions.fields)
     ) {
       panes.push({
-        menuItem: uiConfig.extensions.document.label,
+        menuItem: invenioConfig.DOCUMENTS.extensions.label,
         render: () => (
           <Tab.Pane>
             <Overridable

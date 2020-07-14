@@ -35,7 +35,7 @@ export class EItemSearch extends Component {
       response: { reject: responseRejectInterceptor },
     },
   });
-  searchConfig = getSearchConfig('eitems');
+  searchConfig = getSearchConfig('EITEMS');
 
   renderSearchBar = (_, queryString, onInputChange, executeSearch) => {
     const helperFields = [
@@ -104,7 +104,7 @@ export class EItemSearch extends Component {
               <ResultsLoader>
                 <Grid.Column width={3} className="search-aggregations">
                   <Header content="Filter by" />
-                  <SearchAggregationsCards modelName="eitems" />
+                  <SearchAggregationsCards modelName="EITEMS" />
                 </Grid.Column>
                 <Grid.Column width={13}>
                   <Grid columns={2}>
@@ -123,7 +123,7 @@ export class EItemSearch extends Component {
                   <EmptyResults renderElement={this.renderEmptyResults} />
                   <Error renderElement={this.renderError} />
                   <SearchControls
-                    modelName="eitems"
+                    modelName="EITEMS"
                     withLayoutSwitcher={false}
                   />
                   <SearchEmptyResults extras={this.renderEmptyResultsExtra} />

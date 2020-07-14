@@ -27,7 +27,7 @@ export default class ItemMetadata extends Component {
           ? `Price (${_get(
               itemDetails,
               'metadata.price.currency',
-              invenioConfig.defaultCurrency
+              invenioConfig.APP.defaultCurrency
             )})`
           : 'Price',
         value: itemDetails.metadata.price

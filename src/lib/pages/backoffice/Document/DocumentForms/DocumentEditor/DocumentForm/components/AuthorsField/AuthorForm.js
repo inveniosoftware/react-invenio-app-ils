@@ -12,7 +12,7 @@ import React from 'react';
 export class AuthorForm extends React.Component {
   constructor(props) {
     super(props);
-    this.authorVocabularies = invenioConfig.vocabularies.document.author;
+    this.authorVocabularies = invenioConfig.VOCABULARIES.document.author;
   }
 
   renderAffiliation = ({ arrayPath, indexPath, ...arrayHelpers }) => {

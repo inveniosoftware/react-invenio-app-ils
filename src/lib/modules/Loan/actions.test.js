@@ -5,7 +5,7 @@ import { initialState } from './reducer';
 import { loanApi } from '@api/loans';
 import { sessionManager } from '@authentication/services/SessionManager';
 
-jest.mock('@config/invenioConfig');
+jest.mock('@config');
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

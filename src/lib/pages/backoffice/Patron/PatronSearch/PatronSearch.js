@@ -34,7 +34,7 @@ export class PatronSearch extends Component {
       response: { reject: responseRejectInterceptor },
     },
   });
-  searchConfig = getSearchConfig('patrons');
+  searchConfig = getSearchConfig('PATRONS');
 
   renderSearchBar = (_, queryString, onInputChange, executeSearch) => {
     const helperFields = [
@@ -107,7 +107,7 @@ export class PatronSearch extends Component {
             <ResultsLoader>
               <Grid.Column width={3}>
                 <Header content="Filter by" />
-                <SearchAggregationsCards modelName="patrons" />
+                <SearchAggregationsCards modelName="PATRONS" />
               </Grid.Column>
               <Grid.Column width={13}>
                 <Grid columns={1}>
@@ -120,7 +120,7 @@ export class PatronSearch extends Component {
                     <SearchEmptyResults />
                     <Error renderElement={this.renderError} />
                     <SearchControls
-                      modelName="patrons"
+                      modelName="PATRONS"
                       withLayoutSwitcher={false}
                     />
                     <ResultsList renderElement={this.renderResultsTable} />

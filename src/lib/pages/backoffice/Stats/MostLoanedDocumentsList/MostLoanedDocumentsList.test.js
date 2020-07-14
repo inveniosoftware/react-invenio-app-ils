@@ -9,7 +9,7 @@ import { MemoryRouter } from 'react-router';
 import * as testData from '@testData/documents.json';
 
 jest.mock('@components/backoffice/ExportSearchResults');
-jest.mock('@config/invenioConfig');
+jest.mock('@config');
 
 Settings.defaultZoneName = 'utc';
 const stringDate = fromISO('2018-01-01T11:05:00+01:00');
