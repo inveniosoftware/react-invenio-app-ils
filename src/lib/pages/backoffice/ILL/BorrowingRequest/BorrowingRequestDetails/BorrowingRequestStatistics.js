@@ -1,5 +1,5 @@
 import { toShortDate } from '@api/date';
-import { getDisplayVal } from '@config/invenioConfig';
+import { getDisplayVal } from '@config';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Statistic } from 'semantic-ui-react';
@@ -31,7 +31,7 @@ export class BorrowingRequestStatistics extends React.Component {
       brwReq: { status },
     } = this.props;
     const humanReadableStatus = getDisplayVal(
-      'illBorrowingRequests.statuses',
+      'ILL_BORROWING_REQUESTS.statuses',
       status
     );
     switch (status) {

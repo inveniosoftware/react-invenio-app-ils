@@ -58,8 +58,8 @@ export default class DocumentDeleteModal extends Component {
    * Used to create all the references for de
    */
   createRefProps(documentPid) {
-    const loanStates = invenioConfig.circulation.loanRequestStates.concat(
-      invenioConfig.circulation.loanActiveStates
+    const loanStates = invenioConfig.CIRCULATION.loanRequestStates.concat(
+      invenioConfig.CIRCULATION.loanActiveStates
     );
 
     const loanRefProps = {

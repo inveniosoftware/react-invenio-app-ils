@@ -1,4 +1,4 @@
-import { uiConfig } from '@config';
+import { invenioConfig } from '@config';
 import { DocumentConference } from '@modules/Document/DocumentConference';
 import { DocumentInfo } from '@modules/Document/DocumentInfo';
 import { DocumentTableOfContent } from '@modules/Document/DocumentTableOfContent';
@@ -113,17 +113,17 @@ class DocumentMetadataAccordion extends Component {
         </Accordion.Content>
 
         <Accordion.Title
-          active={activeIndex === uiConfig.extensions.document.label}
-          index={uiConfig.extensions.document.label}
+          active={activeIndex === invenioConfig.DOCUMENTS.extensions.label}
+          index={invenioConfig.DOCUMENTS.extensions.label}
           onClick={this.handleClick}
         >
           <Icon name="dropdown" />
-          {uiConfig.extensions.document.label}
+          {invenioConfig.DOCUMENTS.extensions.label}
         </Accordion.Title>
         {!_isEmpty(extensions) &&
-          _isEmpty(uiConfig.extensions.document.fields) && (
+          _isEmpty(invenioConfig.DOCUMENTS.extensions.fields) && (
             <Accordion.Content
-              active={activeIndex === uiConfig.extensions.document.label}
+              active={activeIndex === invenioConfig.DOCUMENTS.extensions.label}
             >
               <Overridable
                 id="DocumentMetadataTabs.Extensions.mobile"

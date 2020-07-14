@@ -16,7 +16,7 @@ export const fetchDocumentStats = ({ documentPid, fromDate, toDate }) => {
         loanApi
           .query()
           .withDocPid(documentPid)
-          .withState(invenioConfig.circulation.loanCompletedStates)
+          .withState(invenioConfig.CIRCULATION.loanCompletedStates)
           .withStartDate({
             fromDate: fromDate,
             toDate: toDate,

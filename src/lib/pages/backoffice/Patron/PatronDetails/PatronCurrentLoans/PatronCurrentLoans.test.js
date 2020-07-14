@@ -6,7 +6,7 @@ import PatronCurrentLoans from './PatronCurrentLoans';
 import testData from '@testData/loans.json';
 import _isEmpty from 'lodash/isEmpty';
 
-jest.mock('@config/invenioConfig');
+jest.mock('@config');
 BackOfficeRoutes.loanDetailsFor = jest.fn(pid => `url/${pid}`);
 let mockViewDetails = jest.fn();
 

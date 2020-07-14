@@ -3,7 +3,7 @@ import { DocumentDetailsLink } from '@components/backoffice/buttons/ViewDetailsB
 import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { LoanIcon, PatronIcon } from '@components/backoffice/icons';
 import { CopyButton } from '@components/CopyButton';
-import { getDisplayVal } from '@config/invenioConfig';
+import { getDisplayVal } from '@config';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import PropTypes from 'prop-types';
@@ -17,7 +17,7 @@ export default class LoanHeader extends Component {
     const labels = (
       <div className="bo-details-header-status-labels">
         <Label basic color="blue">
-          {getDisplayVal('circulation.statuses', data.metadata.state)}
+          {getDisplayVal('CIRCULATION.statuses', data.metadata.state)}
         </Label>
         {data.metadata.is_overdue && <Label color="red">Overdue</Label>}
         {data.metadata.item_pid && data.metadata.item_pid.type === 'illbid' && (

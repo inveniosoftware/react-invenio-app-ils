@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Overridable from 'react-overridable';
 import { Grid, List } from 'semantic-ui-react';
-import { getDisplayVal, invenioConfig } from '@config/invenioConfig';
+import { getDisplayVal } from '@config';
+import { invenioConfig } from '@config';
 
 class DocumentItem extends Component {
   render() {
@@ -22,26 +23,26 @@ class DocumentItem extends Component {
 
             <Grid.Column width={5}>
               <label>Status</label>{' '}
-              {invenioConfig.items.canCirculateStatuses.includes(item.status) &&
+              {invenioConfig.ITEMS.canCirculateStatuses.includes(item.status) &&
               !item.circulation ? (
                 <span className="success">On shelf</span>
-              ) : invenioConfig.items.canCirculateStatuses.includes(
+              ) : invenioConfig.ITEMS.canCirculateStatuses.includes(
                   item.status
                 ) && item.circulation ? (
                 <span className="danger"> On loan </span>
               ) : (
-                getDisplayVal('items.statuses', item.status)
+                getDisplayVal('ITEMS.statuses', item.status)
               )}
             </Grid.Column>
 
             <Grid.Column width={6}>
               <List.Description>
                 <label>Medium</label>{' '}
-                {getDisplayVal('items.mediums', item.medium)}
+                {getDisplayVal('ITEMS.mediums', item.medium)}
                 <br />
                 <label>Restrictions</label>{' '}
                 {getDisplayVal(
-                  'items.circulationRestrictions',
+                  'ITEMS.circulationRestrictions',
                   item.circulation_restriction
                 )}
               </List.Description>

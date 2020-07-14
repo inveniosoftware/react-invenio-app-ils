@@ -1,5 +1,5 @@
 import { toShortDate } from '@api/date';
-import { getDisplayVal } from '@config/invenioConfig';
+import { getDisplayVal } from '@config';
 import { ILLBorrowingRequestIcon } from '@components/backoffice/icons';
 import { BackOfficeRoutes, ILLRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
@@ -19,7 +19,7 @@ export default class BorrowingRequestListEntry extends Component {
       <>
         <Item.Description>
           <label>status </label>
-          {getDisplayVal('illBorrowingRequests.statuses', status)}
+          {getDisplayVal('ILL_BORROWING_REQUESTS.statuses', status)}
         </Item.Description>
         <Item.Description>
           <label>library </label>

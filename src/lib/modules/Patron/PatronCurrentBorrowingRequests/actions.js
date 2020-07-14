@@ -8,7 +8,7 @@ export const SUCCESS = 'fetchPatronCurrentBorrowingRequests/SUCCESS';
 export const HAS_ERROR = 'fetchPatronCurrentBorrowingRequests/HAS_ERROR';
 
 const selectQuery = (patronPid, page = 1, size) => {
-  const illConfig = invenioConfig.illBorrowingRequests;
+  const illConfig = invenioConfig.ILL_BORROWING_REQUESTS;
   const statuses = _difference(
     illConfig.orderedValidStatuses,
     illConfig.completedStatuses
@@ -25,7 +25,7 @@ const selectQuery = (patronPid, page = 1, size) => {
 export const fetchPatronCurrentBorrowingRequests = (
   patronPid,
   page,
-  size = invenioConfig.defaultResultsSize
+  size = invenioConfig.APP.defaultResultsSize
 ) => {
   return async dispatch => {
     dispatch({

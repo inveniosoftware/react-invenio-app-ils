@@ -7,7 +7,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import PatronPastBorrowingRequests from './PatronPastBorrowingRequests';
 
-jest.mock('@config/invenioConfig');
+jest.mock('@config');
 ILLRoutes.borrowingRequestDetailsFor = jest.fn(pid => `url/${pid}`);
 BackOfficeRoutes.documentDetailsFor = jest.fn(pid => `url/${pid}`);
 let mockViewDetails = jest.fn();

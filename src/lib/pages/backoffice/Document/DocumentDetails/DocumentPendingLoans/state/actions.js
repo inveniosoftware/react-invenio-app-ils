@@ -17,7 +17,7 @@ export const fetchPendingLoans = documentPid => {
         loanApi
           .query()
           .withDocPid(documentPid)
-          .withState(invenioConfig.circulation.loanRequestStates)
+          .withState(invenioConfig.CIRCULATION.loanRequestStates)
           .qs()
       );
 

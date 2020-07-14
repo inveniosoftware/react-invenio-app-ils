@@ -98,7 +98,7 @@ export class VendorSearch extends Component {
                     <SearchEmptyResults extras={this.renderEmptyResultsExtra} />
                     <Error renderElement={this.renderError} />
                     <SearchControls
-                      modelName="acqVendors"
+                      modelName="ACQ_VENDORS"
                       withLayoutSwitcher={false}
                     />
                     <ResultsList renderElement={this.renderVendorList} />

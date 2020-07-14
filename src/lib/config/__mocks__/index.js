@@ -1,6 +1,10 @@
-export const uiConfig = {
-  extensions: {
-    document: {
+import { defaultConfig, DEFAULT_APP_CONFIG } from '../defaultConfig';
+import _merge from 'lodash/merge';
+
+const mockExtensionsConfig = {
+  circulation: { maxExtensionsCount: 42 },
+  DOCUMENTS: {
+    extensions: {
       label: 'document',
       fields: {
         'fooObject:fooProp': {
@@ -15,7 +19,9 @@ export const uiConfig = {
         },
       },
     },
-    series: {
+  },
+  SERIES: {
+    extensions: {
       label: 'series',
       fields: {
         'fooObject:fooProp': {
@@ -31,4 +37,12 @@ export const uiConfig = {
       },
     },
   },
+};
+
+const mockConfig = _merge({}, defaultConfig, mockExtensionsConfig);
+
+export const invenioConfig = {
+  APP: { ...DEFAULT_APP_CONFIG },
+  ...mockConfig,
+  setValue: jest.fn(),
 };

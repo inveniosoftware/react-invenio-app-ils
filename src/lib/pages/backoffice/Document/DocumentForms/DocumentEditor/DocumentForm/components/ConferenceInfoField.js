@@ -10,7 +10,7 @@ import React from 'react';
 
 export class ConferenceInfoField extends React.Component {
   render() {
-    const conferenceConfig = invenioConfig.vocabularies.document.conferenceInfo;
+    const conferenceConfig = invenioConfig.VOCABULARIES.document.conferenceInfo;
     return (
       <AccordionField
         label="Conference Info"

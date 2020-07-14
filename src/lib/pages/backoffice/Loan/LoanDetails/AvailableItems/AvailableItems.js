@@ -133,10 +133,10 @@ export default class AvailableItems extends Component {
 
   rowActionButton = ({ row }) => {
     const { loan } = this.props;
-    const isRequested = invenioConfig.circulation.loanRequestStates.includes(
+    const isRequested = invenioConfig.CIRCULATION.loanRequestStates.includes(
       loan.metadata.state
     );
-    const isCompleted = invenioConfig.circulation.loanCompletedStates.includes(
+    const isCompleted = invenioConfig.CIRCULATION.loanCompletedStates.includes(
       loan.metadata.state
     );
 

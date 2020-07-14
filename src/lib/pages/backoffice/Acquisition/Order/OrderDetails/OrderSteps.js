@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Icon, Segment, Step } from 'semantic-ui-react';
-import { getDisplayVal, invenioConfig } from '@config/invenioConfig';
+import { getDisplayVal } from '@config';
+import { invenioConfig } from '@config';
 
 class OrderStep extends Component {
   render() {
@@ -42,11 +43,11 @@ OrderStep.defaultProps = {
 };
 
 const toLabel = status => {
-  return getDisplayVal('acqOrders.statuses', status);
+  return getDisplayVal('ACQ_ORDERS.statuses', status);
 };
 
 const isBefore = (currentStatus, status) => {
-  const orderedStatuses = invenioConfig.acqOrders.orderedValidStatuses;
+  const orderedStatuses = invenioConfig.ACQ_ORDERS.orderedValidStatuses;
   return (
     orderedStatuses.indexOf(currentStatus) < orderedStatuses.indexOf(status)
   );

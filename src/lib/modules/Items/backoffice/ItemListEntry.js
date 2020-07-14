@@ -1,5 +1,5 @@
 import { DocumentIcon, ItemIcon } from '@components/backoffice/icons';
-import { getDisplayVal } from '@config/invenioConfig';
+import { getDisplayVal } from '@config';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
@@ -103,7 +103,7 @@ export class ItemListEntry extends Component {
                       medium{' '}
                       <span className="ml-10">
                         <strong>
-                          {getDisplayVal('items.mediums', item.metadata.medium)}
+                          {getDisplayVal('ITEMS.mediums', item.metadata.medium)}
                         </strong>
                       </span>
                     </List.Content>

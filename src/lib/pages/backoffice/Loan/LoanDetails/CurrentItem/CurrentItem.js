@@ -22,10 +22,10 @@ export default class CurrentItem extends Component {
   };
 
   getTitle = loanState => {
-    const isRequest = invenioConfig.circulation.loanRequestStates.includes(
+    const isRequest = invenioConfig.CIRCULATION.loanRequestStates.includes(
       loanState
     );
-    const isActiveLoan = invenioConfig.circulation.loanActiveStates.includes(
+    const isActiveLoan = invenioConfig.CIRCULATION.loanActiveStates.includes(
       loanState
     );
     let title = 'Physical copy of this loan';

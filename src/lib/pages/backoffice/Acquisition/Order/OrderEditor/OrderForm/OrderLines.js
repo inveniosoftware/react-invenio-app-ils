@@ -39,13 +39,13 @@ export class OrderLines extends Component {
               label="Order Line Unit Price"
               fieldPath={`${arrayPath}.${indexPath}.unit_price`}
               currencies={currencies}
-              defaultCurrency={invenioConfig.defaultCurrency}
+              defaultCurrency={invenioConfig.APP.defaultCurrency}
             />
             <PriceField
               label="Order Line Total Price"
               fieldPath={`${arrayPath}.${indexPath}.total_price`}
               currencies={currencies}
-              defaultCurrency={invenioConfig.defaultCurrency}
+              defaultCurrency={invenioConfig.APP.defaultCurrency}
             />
           </GroupField>
 
@@ -62,7 +62,7 @@ export class OrderLines extends Component {
           />
           <GroupField widths="equal">
             <VocabularyField
-              type={invenioConfig.vocabularies.acqOrders.acq_recipient}
+              type={invenioConfig.VOCABULARIES.acqOrders.acq_recipient}
               fieldPath={`${arrayPath}.${indexPath}.recipient`}
               label="Recipient"
               placeholder="Select recipient..."
@@ -88,7 +88,7 @@ export class OrderLines extends Component {
               fieldPath={`${arrayPath}.${indexPath}.copies_received`}
             />
             <VocabularyField
-              type={invenioConfig.vocabularies.acqOrders.acq_medium}
+              type={invenioConfig.VOCABULARIES.acqOrders.acq_medium}
               fieldPath={`${arrayPath}.${indexPath}.medium`}
               label="Medium"
               placeholder="Select medium..."
@@ -122,7 +122,7 @@ export class OrderLines extends Component {
           <GroupField widths="equal">
             <VocabularyField
               type={
-                invenioConfig.vocabularies.acqOrders.acq_order_line_payment_mode
+                invenioConfig.VOCABULARIES.acqOrders.acq_order_line_payment_mode
               }
               fieldPath={`${arrayPath}.${indexPath}.payment_mode`}
               label="Payment mode"
@@ -130,7 +130,7 @@ export class OrderLines extends Component {
             />
             <VocabularyField
               type={
-                invenioConfig.vocabularies.acqOrders
+                invenioConfig.VOCABULARIES.acqOrders
                   .acq_order_line_purchase_type
               }
               fieldPath={`${arrayPath}.${indexPath}.purchase_type`}
@@ -158,8 +158,8 @@ export class OrderLines extends Component {
       <ArrayField
         fieldPath="resolved_order_lines"
         defaultNewValue={{
-          unit_price: { currency: invenioConfig.defaultCurrency },
-          total_price: { currency: invenioConfig.defaultCurrency },
+          unit_price: { currency: invenioConfig.APP.defaultCurrency },
+          total_price: { currency: invenioConfig.APP.defaultCurrency },
         }}
         renderArrayItem={this.renderArrayItem}
         addButtonLabel="Add new order line"

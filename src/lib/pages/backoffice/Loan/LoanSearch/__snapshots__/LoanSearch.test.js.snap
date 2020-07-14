@@ -23,7 +23,6 @@ exports[`LoansSearch ResultsTable tests should not render when empty results 1`]
   paginationComponent={null}
   seeAllComponent={null}
   showAllResults={false}
-  showMaxRows={15}
   singleLine={true}
   subtitle=""
   title=""
@@ -96,7 +95,6 @@ exports[`LoansSearch ResultsTable tests should render a list of results 1`] = `
   paginationComponent={null}
   seeAllComponent={null}
   showAllResults={false}
-  showMaxRows={15}
   singleLine={true}
   subtitle=""
   title=""

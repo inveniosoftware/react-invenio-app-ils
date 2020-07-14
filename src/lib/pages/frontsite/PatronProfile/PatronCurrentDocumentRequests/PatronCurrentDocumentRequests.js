@@ -60,7 +60,7 @@ class ButtonCancelRequest extends Component {
 
   async cancelRequest(docReqPid) {
     const response = await documentRequestApi.reject(docReqPid, {
-      reject_reason: invenioConfig.documentRequests.rejectTypes.userCancel,
+      reject_reason: invenioConfig.DOCUMENT_REQUESTS.rejectTypes.userCancel,
     });
     await delay();
     return response;

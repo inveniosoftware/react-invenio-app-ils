@@ -1,5 +1,5 @@
 import { InfoMessage } from '@components/backoffice/InfoMessage';
-import { uiConfig } from '@config';
+import { invenioConfig } from '@config';
 import { SeriesMetadataExtensions } from '@modules/Series/SeriesMetadataExtensions';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
@@ -75,9 +75,12 @@ export default class SeriesMetadataTabs extends Component {
       },
     ];
     const { extensions = {} } = series.metadata;
-    if (!_isEmpty(extensions) && !_isEmpty(uiConfig.extensionsseries.fields)) {
+    if (
+      !_isEmpty(extensions) &&
+      !_isEmpty(invenioConfig.SERIES.extensions.fields)
+    ) {
       panes.push({
-        menuItem: uiConfig.extensionsseries.label,
+        menuItem: invenioConfig.SERIES.extensions.label,
         render: () => (
           <Tab.Pane>
             <Overridable

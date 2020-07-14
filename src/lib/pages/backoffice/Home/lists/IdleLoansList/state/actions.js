@@ -17,7 +17,7 @@ export const fetchIdlePendingLoans = () => {
       const response = await loanApi.list(
         loanApi
           .query()
-          .withState(invenioConfig.circulation.loanRequestStates)
+          .withState(invenioConfig.CIRCULATION.loanRequestStates)
           .withUpdated({
             to: toShortDate(DateTime.local().minus({ days: 10 })),
           })

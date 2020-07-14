@@ -1,7 +1,7 @@
 import { toShortDate } from '@api/date';
 import { formatPrice } from '@api/utils';
 import { invenioConfig } from '@config';
-import { getDisplayVal } from '@config/invenioConfig';
+import { getDisplayVal } from '@config';
 import { AcquisitionOrderIcon } from '@components/backoffice/icons';
 import { AcquisitionRoutes, BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
@@ -26,7 +26,7 @@ export default class OrderListEntry extends Component {
         </Item.Description>
         <Item.Description>
           <label>status </label>
-          {getDisplayVal('acqOrders.statuses', order.metadata.status)}
+          {getDisplayVal('ACQ_ORDERS.statuses', order.metadata.status)}
         </Item.Description>
         <Item.Description>
           <label>vendor </label>
@@ -81,7 +81,7 @@ export default class OrderListEntry extends Component {
     if (renderMiddleColumn) {
       return renderMiddleColumn(order);
     }
-    const showMax = invenioConfig.acqOrders.maxShowOrderLines;
+    const showMax = invenioConfig.ACQ_ORDERS.maxShowOrderLines;
     const orderLines = order.metadata.order_lines;
     return (
       <List as="ol">

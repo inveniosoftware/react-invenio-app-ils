@@ -10,7 +10,7 @@ export class AlternativeIdentifiers extends Component {
         fieldPath="alternative_identifiers"
         label="Alternative Identifiers"
         schemeVocabularyType={
-          invenioConfig.vocabularies.document.alternativeIdentifier.scheme
+          invenioConfig.VOCABULARIES.document.alternativeIdentifier.scheme
         }
       />
     );

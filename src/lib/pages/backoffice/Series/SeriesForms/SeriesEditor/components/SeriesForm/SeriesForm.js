@@ -1,5 +1,4 @@
 import { seriesApi } from '@api/series';
-import { invenioConfig } from '@config';
 import {
   DeleteActionButton,
   LanguageField,
@@ -26,7 +25,7 @@ import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { AccessUrls } from './AccessUrls';
 import { SeriesMetadataExtensions } from './SeriesMetadataExtensions';
-import { uiConfig } from '@config';
+import { invenioConfig } from '@config';
 
 export class SeriesForm extends Component {
   prepareData = data => {
@@ -138,22 +137,23 @@ export class SeriesForm extends Component {
         <LanguageField
           multiple
           fieldPath="languages"
-          type={invenioConfig.vocabularies.language}
+          type={invenioConfig.VOCABULARIES.language}
         />
         <StringField label="Edition" fieldPath="edition" />
         <StringField fieldPath="publisher" label="Publisher" />
         <UrlsField />
         <AccessUrls />
         <Identifiers
-          scheme={invenioConfig.vocabularies.series.identifier.scheme}
+          scheme={invenioConfig.VOCABULARIES.series.identifier.scheme}
         />
         <TextField label="Notes" fieldPath="note" rows={5} optimized />
         <InternalNotes />
-        {!_isEmpty(extensions) && !_isEmpty(uiConfig.extensionsseries.fields) && (
-          <Overridable id="SeriesForm.Extensions" extensions={extensions}>
-            <SeriesMetadataExtensions extensions={extensions} />
-          </Overridable>
-        )}
+        {!_isEmpty(extensions) &&
+          !_isEmpty(invenioConfig.SERIES.extensions.fields) && (
+            <Overridable id="SeriesForm.Extensions" extensions={extensions}>
+              <SeriesMetadataExtensions extensions={extensions} />
+            </Overridable>
+          )}
       </BaseForm>
     );
   }

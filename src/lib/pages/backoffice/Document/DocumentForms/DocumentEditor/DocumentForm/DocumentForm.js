@@ -1,6 +1,6 @@
 import { documentRequestApi } from '@api/documentRequests';
 import { documentApi } from '@api/documents';
-import { invenioConfig, uiConfig } from '@config';
+import { invenioConfig } from '@config';
 import { UrlsField } from '@forms/components';
 import { BaseForm } from '@forms/core/BaseForm';
 import { BooleanField } from '@forms/core/BooleanField';
@@ -113,7 +113,7 @@ export class DocumentForm extends Component {
         <StringField label="Title" fieldPath="title" required optimized />
         <GroupField widths="equal">
           <SelectField
-            options={invenioConfig.documents.types}
+            options={invenioConfig.DOCUMENTS.types}
             fieldPath="document_type"
             label="Document type"
           />
@@ -147,13 +147,13 @@ export class DocumentForm extends Component {
         <TableOfContent />
         <TagsField
           fieldPath="tags"
-          type={invenioConfig.vocabularies.document.tags}
+          type={invenioConfig.VOCABULARIES.document.tags}
         />
         <UrlsField />
         <Subjects />
         <InternalNotes />
         <Identifiers
-          scheme={invenioConfig.vocabularies.document.identifier.scheme}
+          scheme={invenioConfig.VOCABULARIES.document.identifier.scheme}
         />
         <AlternativeIdentifiers />
         <AlternativeTitles />
@@ -162,7 +162,7 @@ export class DocumentForm extends Component {
         <Imprint />
         <Keywords />
         {!_isEmpty(extensions) &&
-          !_isEmpty(uiConfig.extensions.document.fields) && (
+          !_isEmpty(invenioConfig.DOCUMENTS.extensions.fields) && (
             <Overridable id="DocumentForm.Extensions" extensions={extensions}>
               <MetadataExtensions extensions={extensions} />
             </Overridable>

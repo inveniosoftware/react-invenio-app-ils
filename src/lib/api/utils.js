@@ -1,4 +1,4 @@
-import { invenioConfig, uiConfig } from '@config';
+import { invenioConfig } from '@config';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import _set from 'lodash/set';
@@ -80,9 +80,10 @@ export const formatPrice = (price, includeCurrency = true) => {
           maximumFractionDigits: 2,
         };
 
-  return new Intl.NumberFormat(invenioConfig.i18n.priceLocale, options).format(
-    price.value
-  );
+  return new Intl.NumberFormat(
+    invenioConfig.APP.i18n.priceLocale,
+    options
+  ).format(price.value);
 };
 
 export const recordResponseSerializer = (hit, customSerializer = null) => {
@@ -143,5 +144,7 @@ export const withCancel = promise => {
  * @returns the delayed promise
  */
 export const delay = async () => {
-  return await new Promise(resolve => setTimeout(resolve, uiConfig.ES_DELAY));
+  return await new Promise(resolve =>
+    setTimeout(resolve, invenioConfig.APP.ES_DELAY)
+  );
 };

@@ -20,7 +20,7 @@ export class DocumentEItems extends Component {
         <Header as="h3">Access online</Header>
         <DocumentLinks
           eitems={eitems}
-          showMaxLinks={invenioConfig.documents.frontsiteMaxLinks}
+          showMaxLinks={invenioConfig.DOCUMENTS.frontsiteMaxLinks}
           onShowAll={this.showAll}
         />
         <Divider horizontal>Or</Divider>

@@ -1,7 +1,7 @@
 import { fromISO } from '@api/date';
 import { DatePicker } from '@components/DatePicker';
 import { InfoMessage } from '@components/InfoMessage';
-import { invenioConfig } from '@config/invenioConfig';
+import { invenioConfig } from '@config';
 import _isEmpty from 'lodash/isEmpty';
 import { PropTypes } from 'prop-types';
 import React, { Component } from 'react';
@@ -71,7 +71,7 @@ export default class BorrowingRequestLoanExtension extends Component {
             The patron requested an extension for this loan on{' '}
             <Label basic>{extension.request_date.toLocaleString()}</Label>
             <Divider hidden />
-            {invenioConfig.illBorrowingRequests.extensionPendingStatuses.includes(
+            {invenioConfig.ILL_BORROWING_REQUESTS.extensionPendingStatuses.includes(
               extension.status
             ) && (
               <Grid>
@@ -140,7 +140,7 @@ export default class BorrowingRequestLoanExtension extends Component {
                 </Grid.Row>
               </Grid>
             )}
-            {invenioConfig.illBorrowingRequests.extensionDeclinedStatuses.includes(
+            {invenioConfig.ILL_BORROWING_REQUESTS.extensionDeclinedStatuses.includes(
               extension.status
             ) && (
               <InfoMessage

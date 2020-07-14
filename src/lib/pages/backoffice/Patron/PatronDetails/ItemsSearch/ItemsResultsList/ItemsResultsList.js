@@ -48,9 +48,9 @@ export default class ItemsResultsList extends Component {
       ? row.metadata.circulation.state
       : null;
 
-    return !invenioConfig.circulation.loanActiveStates.includes(
+    return !invenioConfig.CIRCULATION.loanActiveStates.includes(
       circulationStatus
-    ) && invenioConfig.items.canCirculateStatuses.includes(row.metadata.status)
+    ) && invenioConfig.ITEMS.canCirculateStatuses.includes(row.metadata.status)
       ? buttonCheckout
       : this.renderForceCheckoutModal(row);
   };

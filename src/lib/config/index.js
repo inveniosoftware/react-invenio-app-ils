@@ -1,20 +1,71 @@
+import _assign from 'lodash/assign';
+import _capitalize from 'lodash/capitalize';
+import _find from 'lodash/find';
 import _get from 'lodash/get';
+import _map from 'lodash/map';
 import _merge from 'lodash/merge';
-import { invenioConfig } from './invenioConfig';
-import { searchConfig } from './searchConfig';
-import { uiConfig } from './uiConfig';
+import { defaultConfig, APP_CONFIG } from './defaultConfig';
 
-export function initConfig(config) {
-  _merge(invenioConfig, _get(config, 'invenioConfig'));
-  Object.freeze(invenioConfig);
+class Config {
+  APP = APP_CONFIG;
 
-  _merge(uiConfig, _get(config, 'uiConfig'));
-  Object.freeze(uiConfig);
+  constructor() {
+    this.setValue(defaultConfig);
+  }
 
-  _merge(searchConfig, _get(config, 'searchConfig'));
-  Object.freeze(searchConfig);
+  setValue = newConfig => {
+    _assign(this, _merge({}, this, newConfig));
+  };
 }
 
-export { invenioConfig } from './invenioConfig';
-export { getSearchConfig } from './searchConfig';
-export { uiConfig } from './uiConfig';
+export const invenioConfig = new Config();
+
+export const getSearchConfig = (modelName, extraOptions = {}) => {
+  const config = invenioConfig[modelName].search;
+  const result = {
+    FILTERS: config.filters,
+    RESULTS_PER_PAGE: [
+      {
+        text: '15',
+        value: 15,
+      },
+      {
+        text: '30',
+        value: 30,
+      },
+      {
+        text: '60',
+        value: 60,
+      },
+    ],
+    SORT_BY: config.sortBy.values.map(sortField => {
+      return {
+        text: sortField.title,
+        value: sortField.field,
+        defaultValue: sortField.default_order,
+      };
+    }),
+    SORT_BY_ON_EMPTY_QUERY: config.sortBy.onEmptyQuery,
+    SORT_ORDER: config.sortOrder.map(sortField => {
+      return { text: _capitalize(sortField), value: sortField };
+    }),
+  };
+  return _merge(result, extraOptions);
+};
+
+export function getDisplayVal(configField, value) {
+  return _get(invenioConfig, configField).find(entry => entry.value === value)
+    .text;
+}
+
+export const getStaticPagesRoutes = () => {
+  return _map(invenioConfig.APP.staticPages, 'route');
+};
+
+export const getStaticPageByRoute = path => {
+  return _find(invenioConfig.APP.staticPages, ['route', path]);
+};
+
+export const getStaticPageByName = name => {
+  return _find(invenioConfig.APP.staticPages, ['name', name]);
+};

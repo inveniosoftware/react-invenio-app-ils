@@ -8,7 +8,7 @@ import {
 } from '@components/backoffice/icons';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { invenioConfig } from '@config';
-import { getDisplayVal } from '@config/invenioConfig';
+import { getDisplayVal } from '@config';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import LoanLinkToItem from '@modules/Loan/backoffice/LoanLinkToItem';
 import _isEmpty from 'lodash/isEmpty';
@@ -27,7 +27,7 @@ export default class LoanMetadata extends Component {
 
   getDelivery(delivery) {
     if (delivery && 'method' in delivery) {
-      return invenioConfig.circulation.deliveryMethods[delivery.method];
+      return invenioConfig.CIRCULATION.deliveryMethods[delivery.method];
     }
     return 'NOT PROVIDED';
   }
@@ -38,7 +38,7 @@ export default class LoanMetadata extends Component {
         name: 'State',
         value: (
           <Label basic color="blue" size="tiny">
-            {getDisplayVal('circulation.statuses', data.metadata.state)}
+            {getDisplayVal('CIRCULATION.statuses', data.metadata.state)}
           </Label>
         ),
       },
@@ -107,7 +107,7 @@ export default class LoanMetadata extends Component {
       },
     ];
     if (
-      invenioConfig.circulation.loanRequestStates.includes(data.metadata.state)
+      invenioConfig.CIRCULATION.loanRequestStates.includes(data.metadata.state)
     ) {
       rows.push(
         {

@@ -4,7 +4,7 @@ import * as actions from './actions';
 import { initialState } from './reducer';
 import { loanApi } from '@api/loans';
 
-jest.mock('@config/invenioConfig');
+jest.mock('@config');
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

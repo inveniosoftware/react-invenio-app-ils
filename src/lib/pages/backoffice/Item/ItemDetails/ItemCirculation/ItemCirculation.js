@@ -88,7 +88,7 @@ class ItemStatusMessageNotOnLoan extends Component {
   render() {
     const { status } = this.props;
 
-    const canCirculate = invenioConfig.items.canCirculateStatuses.includes(
+    const canCirculate = invenioConfig.ITEMS.canCirculateStatuses.includes(
       status
     );
     let title,
@@ -101,7 +101,7 @@ class ItemStatusMessageNotOnLoan extends Component {
       content = 'This physical copy is currently available for loan';
     } else {
       warning = true;
-      const forReferenceOnly = invenioConfig.items.referenceStatuses.includes(
+      const forReferenceOnly = invenioConfig.ITEMS.referenceStatuses.includes(
         status
       );
       title = forReferenceOnly
@@ -135,7 +135,7 @@ export default class ItemCirculation extends Component {
   hasActiveLoan = circulationState => {
     return (
       circulationState &&
-      invenioConfig.circulation.loanActiveStates.includes(circulationState)
+      invenioConfig.CIRCULATION.loanActiveStates.includes(circulationState)
     );
   };
 

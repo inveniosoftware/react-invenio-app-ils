@@ -83,7 +83,10 @@ export class AuthorsField extends React.Component {
 
   renderAuthors = authors => {
     const { fieldPath } = this.props;
-    if (authors && authors.length > invenioConfig.authors.maxDisplay) {
+    if (
+      authors &&
+      authors.length > invenioConfig.LITERATURE.authors.maxDisplay
+    ) {
       return (
         <AuthorSearchField
           authors={authors}

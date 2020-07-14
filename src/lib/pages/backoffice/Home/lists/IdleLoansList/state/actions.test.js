@@ -6,7 +6,7 @@ import { loanApi } from '@api/loans';
 import { toShortDate } from '@api/date';
 import { DateTime } from 'luxon';
 
-jest.mock('@config/invenioConfig');
+jest.mock('@config');
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 

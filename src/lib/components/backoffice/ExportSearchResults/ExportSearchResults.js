@@ -6,7 +6,7 @@ import {
   InvenioRequestSerializer,
   withState as withSearchState,
 } from 'react-searchkit';
-import { invenioConfig } from '@config/invenioConfig';
+import { invenioConfig } from '@config';
 
 /** Simple component rendering a small dialog to choose format of results to export. */
 class ExportDialog extends Component {
@@ -31,7 +31,10 @@ class ExportDialog extends Component {
   }
 
   render() {
-    const { max, onExportClick } = this.props;
+    const {
+      onExportClick,
+      max = invenioConfig.APP.MAX_RESULTS_WINDOW,
+    } = this.props;
     const { currentFormat } = this.state;
     return (
       <Popup
@@ -86,10 +89,6 @@ class ExportDialog extends Component {
 ExportDialog.propTypes = {
   onExportClick: PropTypes.func.isRequired,
   max: PropTypes.number,
-};
-
-ExportDialog.defaultProps = {
-  max: invenioConfig.max_results_window,
 };
 
 /** Wrapper component to export search results retrieved using ReactSearchKit */

@@ -33,7 +33,7 @@ export class ItemSearch extends Component {
       response: { reject: responseRejectInterceptor },
     },
   });
-  searchConfig = getSearchConfig('items');
+  searchConfig = getSearchConfig('ITEMS');
 
   renderSearchBar = (_, queryString, onInputChange, executeSearch) => {
     const helperFields = [
@@ -102,7 +102,7 @@ export class ItemSearch extends Component {
                 <ResultsLoader>
                   <Grid.Column width={3} className="search-aggregations">
                     <Header content="Filter by" />
-                    <SearchAggregationsCards modelName="items" />
+                    <SearchAggregationsCards modelName="ITEMS" />
                   </Grid.Column>
                   <Grid.Column width={13}>
                     <Grid columns={2}>
@@ -121,7 +121,7 @@ export class ItemSearch extends Component {
                     <SearchEmptyResults extras={this.renderEmptyResultsExtra} />
                     <Error renderElement={this.renderError} />
                     <SearchControls
-                      modelName="items"
+                      modelName="ITEMS"
                       withLayoutSwitcher={false}
                     />
                     <ResultsList renderElement={this.renderItemList} />

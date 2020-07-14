@@ -17,7 +17,7 @@ export const fetchOverdueLoans = () => {
         loanApi
           .query()
           .overdue()
-          .withState(invenioConfig.circulation.loanActiveStates)
+          .withState(invenioConfig.CIRCULATION.loanActiveStates)
           .qs()
       );
 

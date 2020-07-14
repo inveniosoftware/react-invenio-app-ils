@@ -4,7 +4,7 @@ import LoanRequestForm from './LoanRequestForm';
 import * as testData from '@testData/documents.json';
 import { DateTime } from 'luxon';
 
-jest.mock('@config/invenioConfig');
+jest.mock('@config');
 
 describe('DocumentMetadata tests', () => {
   let component;

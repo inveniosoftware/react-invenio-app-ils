@@ -1,4 +1,4 @@
-import { uiConfig } from '@config';
+import { invenioConfig } from '@config';
 import { DocumentMetadataExtensions } from '@modules/Document/DocumentMetadataExtensions';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
@@ -89,10 +89,10 @@ export default class DocumentMetadata extends Component {
     const { extensions = {} } = document.metadata;
     if (
       !_isEmpty(extensions) &&
-      !_isEmpty(uiConfig.extensions.document.fields)
+      !_isEmpty(invenioConfig.DOCUMENTS.extensions.fields)
     ) {
       panes.push({
-        menuItem: uiConfig.extensions.document.label,
+        menuItem: invenioConfig.DOCUMENTS.extensions.label,
         render: () => (
           <Tab.Pane>
             <Overridable

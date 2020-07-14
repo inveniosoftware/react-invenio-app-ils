@@ -8,8 +8,6 @@ import { STEPS } from '../Steps';
 import { invenioConfig } from '@config';
 import PropTypes from 'prop-types';
 
-const PROVIDERS = invenioConfig.documentRequests.physicalItemProviders;
-
 export default class StepsActions extends Component {
   render() {
     const { data, step, removeProvider, removeDocument } = this.props;
@@ -32,14 +30,15 @@ StepsActions.propTypes = {
 };
 
 const ProviderLink = ({ provider }) => {
-  if (provider.pid_type === PROVIDERS.acq.pid_type) {
+  const { physicalItemProviders } = invenioConfig.DOCUMENT_REQUESTS;
+  if (provider.pid_type === physicalItemProviders.acq.pid_type) {
     return (
       <Link to={AcquisitionRoutes.orderDetailsFor(provider.pid)}>
         {provider.pid}
       </Link>
     );
   }
-  if (provider.pid_type === PROVIDERS.ill.pid_type) {
+  if (provider.pid_type === physicalItemProviders.ill.pid_type) {
     return (
       <Link to={ILLRoutes.borrowingRequestDetailsFor(provider.pid)}>
         {provider.pid}
@@ -54,10 +53,11 @@ ProviderLink.propTypes = {
 };
 
 const ProviderHeader = ({ provider }) => {
+  const { physicalItemProviders } = invenioConfig.DOCUMENT_REQUESTS;
   let header = '';
-  if (provider.pid_type === PROVIDERS.acq.pid_type)
+  if (provider.pid_type === physicalItemProviders.acq.pid_type)
     header = 'Acquisition Order';
-  if (provider.pid_type === PROVIDERS.ill.pid_type)
+  if (provider.pid_type === physicalItemProviders.ill.pid_type)
     header = 'ILL Borrow Request';
 
   return (

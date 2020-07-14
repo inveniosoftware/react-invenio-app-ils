@@ -33,7 +33,7 @@ export default class ItemActionMenu extends Component {
             loanApi
               .query()
               .withItemPid(itemPid)
-              .withState(invenioConfig.circulation.loanActiveStates)
+              .withState(invenioConfig.CIRCULATION.loanActiveStates)
               .qs()
           ),
       },
@@ -52,10 +52,10 @@ export default class ItemActionMenu extends Component {
         labelPosition="left"
         size="small"
         disabled={
-          invenioConfig.circulation.loanActiveStates.includes(
+          invenioConfig.CIRCULATION.loanActiveStates.includes(
             metadata.circulation.state
           ) ||
-          !invenioConfig.items.canCirculateStatuses.includes(metadata.status)
+          !invenioConfig.ITEMS.canCirculateStatuses.includes(metadata.status)
         }
       >
         <LoanIcon />

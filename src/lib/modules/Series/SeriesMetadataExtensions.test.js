@@ -2,7 +2,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { SeriesMetadataExtensions } from './SeriesMetadataExtensions';
 
-jest.mock('@config/uiConfig');
+jest.mock('@config');
 
 describe('SeriesMetadataExtensions tests', () => {
   let component;

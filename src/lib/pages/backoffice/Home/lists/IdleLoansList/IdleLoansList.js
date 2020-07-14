@@ -22,7 +22,7 @@ export default class IdleLoansList extends Component {
     const path = BackOfficeRoutes.loansListWithQuery(
       loanApi
         .query()
-        .withState(invenioConfig.circulation.loanRequestStates)
+        .withState(invenioConfig.CIRCULATION.loanRequestStates)
         .withUpdated({ to: toShortDate(DateTime.local().minus({ days: 10 })) })
         .qs()
     );

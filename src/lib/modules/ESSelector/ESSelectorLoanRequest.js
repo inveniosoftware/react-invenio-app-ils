@@ -26,13 +26,13 @@ export default class ESSelectorLoanRequest extends Component {
 
     // init delivery method
     this.withDeliveryMethod = !_isEmpty(
-      invenioConfig.circulation.deliveryMethods
+      invenioConfig.CIRCULATION.deliveryMethods
     );
     this.deliveryMethods = this.withDeliveryMethod
-      ? Object.keys(invenioConfig.circulation.deliveryMethods).map(key => ({
+      ? Object.keys(invenioConfig.CIRCULATION.deliveryMethods).map(key => ({
           key: key,
           value: key,
-          text: invenioConfig.circulation.deliveryMethods[key],
+          text: invenioConfig.CIRCULATION.deliveryMethods[key],
         }))
       : [];
     this.state['deliveryMethod'] = this.withDeliveryMethod
@@ -77,7 +77,7 @@ export default class ESSelectorLoanRequest extends Component {
     const today = DateTime.local();
     const initialDate = new DateTime(today.plus({ days: 10 }));
     const max = new DateTime(
-      today.plus({ days: invenioConfig.circulation.requestDuration })
+      today.plus({ days: invenioConfig.CIRCULATION.requestDuration })
     );
     return (
       <div>

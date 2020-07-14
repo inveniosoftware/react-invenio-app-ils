@@ -5,7 +5,7 @@ import ItemPastLoans from './ItemPastLoans';
 import testData from '@testData/loans.json';
 
 jest.mock('react-router-dom');
-jest.mock('@config/invenioConfig');
+jest.mock('@config');
 BackOfficeRoutes.loanDetailsFor = jest.fn(pid => `url/${pid}`);
 
 const data = {

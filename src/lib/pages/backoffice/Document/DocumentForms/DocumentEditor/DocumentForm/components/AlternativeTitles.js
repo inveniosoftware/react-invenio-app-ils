@@ -31,11 +31,11 @@ export class AlternativeTitles extends Component {
         />
         <LanguageField
           fieldPath={`${arrayPath}.${indexPath}.language`}
-          type={invenioConfig.vocabularies.document.alternativeTitle.language}
+          type={invenioConfig.VOCABULARIES.document.alternativeTitle.language}
           optimized
         />
         <VocabularyField
-          type={invenioConfig.vocabularies.document.alternativeTitle.type}
+          type={invenioConfig.VOCABULARIES.document.alternativeTitle.type}
           fieldPath={`${arrayPath}.${indexPath}.type`}
           label="Type"
         />

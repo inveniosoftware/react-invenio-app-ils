@@ -12,7 +12,7 @@ export class PaymentInformation extends React.Component {
     const payment = order.payment;
     const leftTable = [
       {
-        name: `Total (${invenioConfig.defaultCurrency})`,
+        name: `Total (${invenioConfig.APP.defaultCurrency})`,
         value: formatPrice(order.grand_total_main_currency),
       },
       {
@@ -39,7 +39,7 @@ export class PaymentInformation extends React.Component {
     ];
     const rightTable = [
       {
-        name: `Debit cost (${invenioConfig.defaultCurrency})`,
+        name: `Debit cost (${invenioConfig.APP.defaultCurrency})`,
         value: formatPrice(payment.debit_cost_main_currency),
       },
       {

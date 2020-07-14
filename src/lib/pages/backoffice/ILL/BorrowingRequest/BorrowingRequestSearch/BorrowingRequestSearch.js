@@ -87,7 +87,7 @@ export class BorrowingRequestSearch extends Component {
               <ResultsLoader>
                 <Grid.Column width={3} className="search-aggregations">
                   <Header content="Filter by" />
-                  <SearchAggregationsCards modelName="illBorrowingRequests" />
+                  <SearchAggregationsCards modelName="ILL_BORROWING_REQUESTS" />
                 </Grid.Column>
                 <Grid.Column width={13}>
                   <Grid columns={2}>
@@ -106,7 +106,7 @@ export class BorrowingRequestSearch extends Component {
                   <SearchEmptyResults extras={this.renderEmptyResultsExtra} />
                   <Error renderElement={this.renderError} />
                   <SearchControls
-                    modelName="illBorrowingRequests"
+                    modelName="ILL_BORROWING_REQUESTS"
                     withLayoutSwitcher={false}
                   />
                   <ResultsList

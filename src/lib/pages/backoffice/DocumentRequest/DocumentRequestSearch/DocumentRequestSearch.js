@@ -32,7 +32,7 @@ export class DocumentRequestSearch extends Component {
     },
   });
 
-  searchConfig = getSearchConfig('documentRequests');
+  searchConfig = getSearchConfig('DOCUMENT_REQUESTS');
 
   renderSearchBar = (_, queryString, onInputChange, executeSearch) => {
     const helperFields = [
@@ -80,7 +80,7 @@ export class DocumentRequestSearch extends Component {
               <ResultsLoader>
                 <Grid.Column width={3} className="search-aggregations">
                   <Header content="Filter by" />
-                  <SearchAggregationsCards modelName="documentRequests" />
+                  <SearchAggregationsCards modelName="DOCUMENT_REQUESTS" />
                 </Grid.Column>
                 <Grid.Column width={13}>
                   <Grid columns={2}>
@@ -94,7 +94,7 @@ export class DocumentRequestSearch extends Component {
                   <SearchEmptyResults />
                   <Error renderElement={this.renderError} />
                   <SearchControls
-                    modelName="documentRequests"
+                    modelName="DOCUMENT_REQUESTS"
                     withLayoutSwitcher={false}
                   />
                   <ResultsList renderElement={this.renderResultsList} />

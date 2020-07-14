@@ -27,7 +27,7 @@ export class VocabularyField extends React.Component {
     const searchQuery = vocabularyApi
       .query()
       .withType(type)
-      .withSize(invenioConfig.max_results_window)
+      .withSize(invenioConfig.APP.MAX_RESULTS_WINDOW)
       .qs();
     return vocabularyApi.list(searchQuery);
   };

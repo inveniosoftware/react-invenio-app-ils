@@ -34,7 +34,7 @@ export class SeriesSearch extends Component {
       response: { reject: responseRejectInterceptor },
     },
   });
-  searchConfig = getSearchConfig('series');
+  searchConfig = getSearchConfig('SERIES');
 
   renderSearchBar = (_, queryString, onInputChange, executeSearch) => {
     const helperFields = [
@@ -92,7 +92,7 @@ export class SeriesSearch extends Component {
               <ResultsLoader>
                 <Grid.Column width={3} className="search-aggregations">
                   <Header content="Filter by" />
-                  <SearchAggregationsCards modelName="series" />
+                  <SearchAggregationsCards modelName="SERIES" />
                 </Grid.Column>
                 <Grid.Column width={13}>
                   <Grid columns={2}>
@@ -111,7 +111,7 @@ export class SeriesSearch extends Component {
                   <SearchEmptyResults extras={this.renderEmptyResultsExtra} />
                   <Error renderElement={this.renderError} />
                   <SearchControls
-                    modelName="series"
+                    modelName="SERIES"
                     withLayoutSwitcher={false}
                   />
                   <ResultsList renderElement={this.renderSeriesList} />

@@ -10,7 +10,7 @@ const selectQuery = (patronPid, page, size) => {
   return loanApi
     .query()
     .withPatronPid(patronPid)
-    .withState(invenioConfig.circulation.loanActiveStates)
+    .withState(invenioConfig.CIRCULATION.loanActiveStates)
     .withPage(page)
     .withSize(size)
     .sortByNewest()
@@ -19,7 +19,7 @@ const selectQuery = (patronPid, page, size) => {
 
 export const fetchPatronCurrentLoans = (
   patronPid,
-  { page = 1, size = invenioConfig.defaultResultsSize } = {}
+  { page = 1, size = invenioConfig.APP.defaultResultsSize } = {}
 ) => {
   return async dispatch => {
     dispatch({

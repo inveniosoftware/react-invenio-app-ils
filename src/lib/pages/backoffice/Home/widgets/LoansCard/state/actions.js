@@ -16,7 +16,7 @@ export const fetchPendingLoans = () => {
       const response = await loanApi.count(
         loanApi
           .query()
-          .withState(invenioConfig.circulation.loanRequestStates)
+          .withState(invenioConfig.CIRCULATION.loanRequestStates)
           .qs()
       );
 

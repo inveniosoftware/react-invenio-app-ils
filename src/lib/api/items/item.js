@@ -61,7 +61,7 @@ class QueryBuilder {
   }
 
   availableForCheckout() {
-    const states = invenioConfig.circulation.loanActiveStates;
+    const states = invenioConfig.CIRCULATION.loanActiveStates;
     this.availableForCheckoutQuery.push(
       `NOT circulation.state:${prepareSumQuery(states)}`
     );

@@ -7,8 +7,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Icon, Popup } from 'semantic-ui-react';
 
-const CONFIG_EXPIRE_DAYS = invenioConfig.circulation.loanWillExpireDays;
-
 const INFO_MESSAGES = {
   SUCCESS: documentTitle =>
     `Your loan for "${documentTitle}" has been extended.`,
@@ -16,7 +14,7 @@ const INFO_MESSAGES = {
   TOO_EARLY: reqDate =>
     `It is too early for extending the loan. You can request an extension from
     ${reqDate
-      .minus({ days: CONFIG_EXPIRE_DAYS })
+      .minus({ days: invenioConfig.CIRCULATION.loanWillExpireDays })
       .toLocaleString({ month: 'long', day: 'numeric' })}.`,
   MAX_EXTENSIONS:
     'You have reached the max number of extensions for this loan!',
@@ -61,7 +59,7 @@ class LoanExtendButton extends Component {
   validateMaxExtensions(loan) {
     return (
       _get(loan, 'metadata.extension_count', 0) <=
-      invenioConfig.circulation.extensionsMaxCount
+      invenioConfig.CIRCULATION.extensionsMaxCount
     );
   }
 
@@ -69,9 +67,9 @@ class LoanExtendButton extends Component {
     const hasExtendAction = _has(loan, 'availableActions.extend');
     if (!hasExtendAction)
       return { isValid: false, msg: INFO_MESSAGES.MISSING_ACTION_URL };
-
+    const { loanWillExpireDays } = invenioConfig.CIRCULATION;
     const isTooEarly =
-      loan.metadata.end_date.diffNow('days').days > CONFIG_EXPIRE_DAYS;
+      loan.metadata.end_date.diffNow('days').days > loanWillExpireDays;
     if (isTooEarly) {
       return {
         isValid: false,
@@ -81,7 +79,7 @@ class LoanExtendButton extends Component {
 
     const maxExtensionsReached =
       _get(loan, 'metadata.extension_count', 0) >
-      invenioConfig.circulation.extensionsMaxCount;
+      invenioConfig.CIRCULATION.extensionsMaxCount;
     if (maxExtensionsReached)
       return {
         isValid: false,

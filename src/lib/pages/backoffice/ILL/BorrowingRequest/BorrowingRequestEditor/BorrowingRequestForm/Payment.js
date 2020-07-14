@@ -18,14 +18,14 @@ export class Payment extends Component {
             label="Debit Cost"
             fieldPath="payment.debit_cost"
             currencies={currencies}
-            defaultCurrency={invenioConfig.defaultCurrency}
+            defaultCurrency={invenioConfig.APP.defaultCurrency}
           />
           <PriceField
             label="Debit Cost in Main Currency"
             fieldPath="payment.debit_cost_main_currency"
             currencies={currencies}
             canSelectCurrency={false}
-            defaultCurrency={invenioConfig.defaultCurrency}
+            defaultCurrency={invenioConfig.APP.defaultCurrency}
           />
           <DateInputField
             label="Debit Date"
@@ -36,7 +36,7 @@ export class Payment extends Component {
 
         <VocabularyField
           type={
-            invenioConfig.vocabularies.illBorrowingRequests.ill_payment_mode
+            invenioConfig.VOCABULARIES.illBorrowingRequests.ill_payment_mode
           }
           fieldPath="payment.mode"
           label="Payment mode"

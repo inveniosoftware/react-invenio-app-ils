@@ -5,7 +5,7 @@ import DocumentPendingLoans from './DocumentPendingLoans';
 import testData from '@testData/loans.json';
 
 jest.mock('react-router-dom');
-jest.mock('@config/invenioConfig');
+jest.mock('@config');
 
 BackOfficeRoutes.loanDetailsFor = jest.fn(pid => `loan/${pid}`);
 BackOfficeRoutes.patronDetailsFor = jest.fn(pid => `patron/${pid}`);

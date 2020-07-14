@@ -1,4 +1,4 @@
-import { uiConfig } from '@config';
+import { invenioConfig } from '@config';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Message } from 'semantic-ui-react';
@@ -44,7 +44,7 @@ export const SuccessMessage = ({ id, header, content, removeNotification }) => (
     icon="check"
     header={header}
     content={content}
-    autoDismiss={uiConfig.SUCCESS_AUTO_DISMISS_SECONDS * 1000}
+    autoDismiss={invenioConfig.APP.SUCCESS_AUTO_DISMISS_SECONDS * 1000}
     onDismiss={() => removeNotification(id)}
   />
 );

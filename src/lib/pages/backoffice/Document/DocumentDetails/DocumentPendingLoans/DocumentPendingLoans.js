@@ -27,7 +27,7 @@ export default class DocumentPendingLoans extends Component {
       loanApi
         .query()
         .withDocPid(pid)
-        .withState(invenioConfig.circulation.loanRequestStates)
+        .withState(invenioConfig.CIRCULATION.loanRequestStates)
         .qs()
     );
     return <SeeAllButton to={path} />;
