@@ -8,7 +8,7 @@ import { RelationRemover } from '@modules/Relations/backoffice/components/Relati
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { RelationOtherModal } from '../RelationOther/RelationOtherModal';
+import { RelationOtherModal } from './RelationOtherModal';
 
 export default class RelationOther extends Component {
   constructor(props) {

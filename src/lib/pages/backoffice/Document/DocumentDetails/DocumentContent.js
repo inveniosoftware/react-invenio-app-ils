@@ -2,8 +2,10 @@ import { DocumentEItems } from '@pages/backoffice/Document/DocumentDetails/Docum
 import { DocumentItems } from '@pages/backoffice/Document/DocumentDetails/DocumentItems';
 import { DocumentPendingLoans } from '@pages/backoffice/Document/DocumentDetails/DocumentPendingLoans';
 import { DocumentStats } from '@pages/backoffice/Document/DocumentDetails/DocumentStats';
-import DocumentSeries from '@pages/backoffice/Document/DocumentDetails/DocumentRelations/DocumentSeries';
-import DocumentSiblings from '@pages/backoffice/Document/DocumentDetails/DocumentRelations/DocumentSiblings';
+import {
+  DocumentSeries,
+  DocumentSiblings,
+} from '@pages/backoffice/Document/DocumentDetails/DocumentRelations';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Accordion } from 'semantic-ui-react';
@@ -95,5 +97,5 @@ export class DocumentContent extends Component {
 }
 
 DocumentContent.propTypes = {
-  anchors: PropTypes.array.isRequired,
+  anchors: PropTypes.object.isRequired,
 };

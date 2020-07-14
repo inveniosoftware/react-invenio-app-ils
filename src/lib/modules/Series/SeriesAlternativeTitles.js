@@ -39,7 +39,7 @@ export const SeriesAlternativeTitles = ({ alternativeTitles }) => {
         <Table definition>
           <Table.Body>
             {alternativeTitles.map(title => (
-              <AlternativeTitle title={title} key={title} />
+              <AlternativeTitle title={title} key={title.type} />
             ))}
           </Table.Body>
         </Table>

@@ -75,5 +75,5 @@ export default class DocumentSummary extends Component {
 
 DocumentSummary.propTypes = {
   document: PropTypes.object.isRequired,
-  anchors: PropTypes.array.isRequired,
+  anchors: PropTypes.object.isRequired,
 };

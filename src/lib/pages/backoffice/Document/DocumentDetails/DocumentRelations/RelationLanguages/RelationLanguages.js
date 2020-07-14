@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { RelationLanguagesModal } from './RelationLanguagesModal';
 
-export default class RelationLanguage extends Component {
+export default class RelationLanguages extends Component {
   constructor(props) {
     super(props);
     this.relationType = 'language';
@@ -85,7 +85,7 @@ export default class RelationLanguage extends Component {
   }
 }
 
-RelationLanguage.propTypes = {
+RelationLanguages.propTypes = {
   relations: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   documentDetails: PropTypes.object.isRequired,
@@ -93,7 +93,7 @@ RelationLanguage.propTypes = {
   error: PropTypes.object,
 };
 
-RelationLanguage.defaultProps = {
+RelationLanguages.defaultProps = {
   showMaxRows: 3,
   error: null,
 };
