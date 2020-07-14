@@ -22,9 +22,7 @@ export default class LiteratureRelations extends Component {
 
   renderMultiparts = () => {
     const relations = _get(this.relations, 'multipart_monograph', []);
-    if (!relations.length) {
-      return null;
-    }
+    if (!relations.length) return null;
 
     const cmp = relations.map(rel => {
       const volume = _get(rel, 'volume');
@@ -42,9 +40,7 @@ export default class LiteratureRelations extends Component {
 
   renderSerials = () => {
     const relations = _get(this.relations, 'serial', []);
-    if (!relations.length) {
-      return null;
-    }
+    if (!relations.length) return null;
 
     const items = relations.map(rel => {
       const volume = _get(rel, 'volume');
@@ -70,13 +66,12 @@ export default class LiteratureRelations extends Component {
 
   renderLanguages = () => {
     const relations = _get(this.relations, 'language', []);
-    if (!relations.length) {
-      return null;
-    }
-
+    if (!relations.length) return null;
     const items = relations.map(rel => (
       <Link key={rel.pid_value} to={this.getLinkTo(rel)}>
-        {rel.record_metadata.languages.join(' ')}
+        {rel.record_metadata.languages
+          ? rel.record_metadata.languages.join(' ')
+          : rel.record_metadata.mode_of_issuance}
       </Link>
     ));
 
@@ -93,16 +88,16 @@ export default class LiteratureRelations extends Component {
 
   renderEditions = () => {
     const relations = _get(this.relations, 'edition', []);
-    if (!relations.length) {
-      return null;
-    }
+    if (!relations.length) return null;
 
     const items = relations.map(rel => {
       const edition = rel.record_metadata.edition;
       return (
-        <Link key={rel.pid_value} to={this.getLinkTo(rel)}>
-          <LiteratureEdition edition={edition} />
-        </Link>
+        edition && (
+          <Link key={rel.pid_value} to={this.getLinkTo(rel)}>
+            <LiteratureEdition edition={edition} />
+          </Link>
+        )
       );
     });
 
@@ -118,21 +113,17 @@ export default class LiteratureRelations extends Component {
   };
 
   render() {
-    if (!_isEmpty(this.relations)) {
-      return (
-        <>
-          <Divider horizontal>Related</Divider>
-          <List>
-            {this.renderMultiparts()}
-            {this.renderSerials()}
-            {this.renderLanguages()}
-            {this.renderEditions()}
-          </List>
-        </>
-      );
-    } else {
-      return null;
-    }
+    return !_isEmpty(this.relations) ? (
+      <>
+        <Divider horizontal>Related</Divider>
+        <List>
+          {this.renderMultiparts()}
+          {this.renderSerials()}
+          {this.renderLanguages()}
+          {this.renderEditions()}
+        </List>
+      </>
+    ) : null;
   }
 }
 

@@ -11,8 +11,8 @@ class SeriesSequences extends Component {
     return (
       <>
         <List>
-          {sequences.map((sequence, idx) => (
-            <List.Item key={idx}>
+          {sequences.map(sequence => (
+            <List.Item key={sequence.pid_value}>
               <List.Content>
                 <Link to={FrontSiteRoutes.seriesDetailsFor(sequence.pid_value)}>
                   {sequence.record_metadata.title}
@@ -27,20 +27,19 @@ class SeriesSequences extends Component {
 
   render() {
     const { relations } = this.props;
-
     const sequenceRelations = _get(relations, 'sequence', []);
     const hasSequenceRelations = sequenceRelations.length > 0;
+    if (!hasSequenceRelations) return null;
 
-    const continuations = sequenceRelations.filter(
-      rel => rel.relation_order === 'is_continued_by'
-    );
-    const hasContinuations = continuations.length > 0;
     const predecessors = sequenceRelations.filter(
       rel => rel.relation_order === 'continues'
     );
     const hasPredecessors = predecessors.length > 0;
 
-    if (!hasSequenceRelations) return null;
+    const continuations = sequenceRelations.filter(
+      rel => rel.relation_order === 'is_continued_by'
+    );
+    const hasContinuations = continuations.length > 0;
 
     return (
       <Segment>

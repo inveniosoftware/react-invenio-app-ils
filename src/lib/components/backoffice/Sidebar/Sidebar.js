@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
-import { Divider, Header, Icon, Label, Menu } from 'semantic-ui-react';
+import { Divider, Header, Icon, Label, List, Menu } from 'semantic-ui-react';
 import AdminMenu from './AdminMenu';
 
 class Sidebar extends Component {
@@ -202,38 +202,35 @@ class Sidebar extends Component {
             loginComponent={() => null}
           />
           <Overridable id="Sidebar.versions">
-            <>
-              <Divider />
-              <div className="center">
-                <p>
+            <List divided selection>
+              <List.Item>
+                <Label color="blue">
+                  react-ils
+                  <Label.Detail>
+                    {process.env.REACT_APP_UI_ILS_VERSION}
+                  </Label.Detail>
+                </Label>
+              </List.Item>
+              <List.Item>
+                <Label color="blue">
+                  invenio-ils
+                  <Label.Detail>
+                    {process.env.REACT_APP_INVENIO_VERSION}
+                  </Label.Detail>
+                </Label>
+              </List.Item>
+              {process.env.REACT_APP_OVERLAY_VERSION && (
+                <List.Item>
                   <Label color="blue">
-                    react-ils
+                    overlay
                     <Label.Detail>
-                      {process.env.REACT_APP_UI_ILS_VERSION}
+                      {process.env.REACT_APP_OVERLAY_VERSION}
                     </Label.Detail>
                   </Label>
-                </p>
-                <p>
-                  <Label color="blue">
-                    invenio-ils
-                    <Label.Detail>
-                      {process.env.REACT_APP_INVENIO_VERSION}
-                    </Label.Detail>
-                  </Label>
-                </p>
-                {process.env.REACT_APP_OVERLAY_VERSION && (
-                  <p>
-                    <Label color="blue">
-                      overlay
-                      <Label.Detail>
-                        {process.env.REACT_APP_OVERLAY_VERSION}
-                      </Label.Detail>
-                    </Label>
-                  </p>
-                )}
-                <Overridable id="Sidebar.otherVersions" />
-              </div>
-            </>
+                </List.Item>
+              )}
+              <Overridable id="Sidebar.otherVersions" />
+            </List>
           </Overridable>
         </>
       </Overridable>

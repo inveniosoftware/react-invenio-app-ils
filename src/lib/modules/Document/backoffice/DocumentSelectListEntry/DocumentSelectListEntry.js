@@ -42,11 +42,12 @@ export default class DocumentSelectListEntry extends Component {
 }
 
 DocumentSelectListEntry.propTypes = {
-  disabled: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
   document: PropTypes.object.isRequired,
   description: PropTypes.node,
 };
 
 DocumentSelectListEntry.defaultProps = {
+  disabled: false,
   description: null,
 };

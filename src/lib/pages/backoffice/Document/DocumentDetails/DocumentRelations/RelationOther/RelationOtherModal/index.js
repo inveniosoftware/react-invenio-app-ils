@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
-import RelationEditionModalComponent from './RelationEditionModal';
+import RelationOtherModalComponent from './RelationOtherModal';
 
 const mapStateToProps = state => ({
+  documentDetails: state.documentDetails.data,
   error: state.recordRelations.error,
   isLoading: state.recordRelations.isLoading,
   relations: state.recordRelations.data,
 });
 
-export const RelationEditionModal = connect(
+export const RelationOtherModal = connect(
   mapStateToProps,
   null
-)(RelationEditionModalComponent);
+)(RelationOtherModalComponent);

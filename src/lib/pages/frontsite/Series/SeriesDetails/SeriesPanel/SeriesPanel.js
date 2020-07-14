@@ -8,6 +8,7 @@ import { SeriesAccess } from '@modules/Series/SeriesAccess';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { SeriesTitle } from '@modules/Series/SeriesTitle';
 import _get from 'lodash/get';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
@@ -34,10 +35,12 @@ class SeriesPanel extends Component {
                 </Grid.Column>
                 <Grid.Column width={6}>
                   <ILSHeaderPlaceholder isLoading={isLoading}>
-                    <SeriesTitle
-                      title={series.metadata.title}
-                      modeOfIssuance={series.metadata.mode_of_issuance}
-                    />
+                    {!_isEmpty(series.metadata) && (
+                      <SeriesTitle
+                        title={series.metadata.title}
+                        modeOfIssuance={series.metadata.mode_of_issuance}
+                      />
+                    )}
                   </ILSHeaderPlaceholder>
                   <ILSParagraphPlaceholder
                     linesNumber={1}
@@ -61,7 +64,9 @@ class SeriesPanel extends Component {
                 </Grid.Column>
                 <Grid.Column width={5}>
                   <SeriesAccess urls={series.metadata.access_urls} />
-                  <SeriesSequences relations={series.metadata.relations} />
+                  {!_isEmpty(series.metadata.relations) && (
+                    <SeriesSequences relations={series.metadata.relations} />
+                  )}
                 </Grid.Column>
               </Grid.Row>
             </Grid>
