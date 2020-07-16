@@ -1,21 +1,21 @@
 import { loanApi } from '@api/loans';
 import { patronApi } from '@api/patrons';
 import { recordToPidType } from '@api/utils';
-import { ESSelectorModal } from '@modules/ESSelector';
-import { serializePatron } from '@modules/ESSelector/serializer';
-import { invenioConfig } from '@config';
-import { goTo } from '@history';
-import { LoanIcon } from '@components/backoffice/icons';
 import { EditButton } from '@components/backoffice/buttons/EditButton';
-import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
 import {
   ScrollingMenu,
   ScrollingMenuItem,
 } from '@components/backoffice/buttons/ScrollingMenu';
+import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
 import { DeleteButton } from '@components/backoffice/DeleteRecordModal/DeleteButton';
+import { LoanIcon } from '@components/backoffice/icons';
+import { invenioConfig } from '@config';
+import { goTo } from '@history';
+import { ESSelectorModal } from '@modules/ESSelector';
+import { serializePatron } from '@modules/ESSelector/serializer';
 import { BackOfficeRoutes } from '@routes/urls';
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Button, Divider } from 'semantic-ui-react';
 
 export default class ItemActionMenu extends Component {
@@ -123,6 +123,7 @@ export default class ItemActionMenu extends Component {
         <ScrollingMenu offset={offset}>
           <ScrollingMenuItem label="Circulation" elementId="circulation" />
           <ScrollingMenuItem label="Metadata" elementId="metadata" />
+          <ScrollingMenuItem label="Loans request" elementId="loans-request" />
           <ScrollingMenuItem label="Loans history" elementId="loans-history" />
         </ScrollingMenu>
       </div>

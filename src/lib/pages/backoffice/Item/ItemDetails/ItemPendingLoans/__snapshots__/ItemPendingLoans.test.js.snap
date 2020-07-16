@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemPendingLoans tests should render show a message with no requested loans 1`] = `
+<ItemPendingLoans
+  data={
+    Object {
+      "hits": Array [],
+      "total": 0,
+    }
+  }
+  error={Object {}}
+  fetchPendingLoans={[Function]}
+  isLoading={false}
+  isPendingLoansLoading={false}
+  itemDetails={
+    Object {
+      "metadata": Object {
+        "document_pid": 111,
+        "pid": 222,
+      },
+      "pid": 222,
+    }
+  }
+  performCheckoutAction={[Function]}
+  showMaxPendingLoans={5}
+>
+  <Overridable(Loader)
+    isLoading={false}
+  >
+    <Loader
+      isLoading={false}
+    >
+      <Overridable
+        id="Loader.layout"
+        isLoading={false}
+      >
+        <Error
+          error={Object {}}
+        >
+          <Header
+            as="h3"
+            attached="top"
+            id="loans-request"
+          >
+            <h3
+              className="ui top attached header"
+              id="loans-request"
+            >
+              Loans request
+            </h3>
+          </Header>
+          <Segment
+            attached="bottom"
+            className="bo-metadata-segment no-padding"
+          >
+            <div
+              className="ui bottom attached segment bo-metadata-segment no-padding"
+            >
+              <ResultsTable
+                columns={
+                  Array [
+                    Object {
+                      "field": "metadata.pid",
+                      "formatter": [Function],
+                      "title": "ID",
+                    },
+                    Object {
+                      "field": "metadata.patron.name",
+                      "formatter": [Function],
+                      "title": "Patron ID",
+                    },
+                    Object {
+                      "field": "metadata.state",
+                      "title": "State",
+                    },
+                    Object {
+                      "field": "metadata.request_start_date",
+                      "formatter": [Function],
+                      "title": "Request start date",
+                    },
+                    Object {
+                      "field": "metadata.request_expire_date",
+                      "formatter": [Function],
+                      "title": "Request end date",
+                    },
+                    Object {
+                      "field": "",
+                      "formatter": [Function],
+                      "title": "Actions",
+                    },
+                  ]
+                }
+                currentPage={1}
+                data={Array []}
+                fixed={false}
+                headerActionComponent={null}
+                name="loans"
+                paginationComponent={null}
+                renderEmptyResultsElement={[Function]}
+                seeAllComponent={
+                  <SeeAllButton
+                    disabled={false}
+                    fluid={false}
+                    to="/backoffice/loans?q=(document_pid:111 AND state:(PENDING))"
+                  />
+                }
+                showAllResults={false}
+                showMaxRows={5}
+                singleLine={true}
+                subtitle=""
+                title=""
+                totalHitsCount={0}
+              >
+                <Message
+                  data-test="no-results"
+                  icon={true}
+                  info={true}
+                >
+                  <div
+                    className="ui icon info message"
+                    data-test="no-results"
+                  >
+                    <MessageContent>
+                      <div
+                        className="content"
+                      >
+                        <MessageHeader>
+                          <div
+                            className="header"
+                          >
+                            No loans requests
+                          </div>
+                        </MessageHeader>
+                        There are no loans requests for this item.
+                      </div>
+                    </MessageContent>
+                  </div>
+                </Message>
+              </ResultsTable>
+            </div>
+          </Segment>
+        </Error>
+      </Overridable>
+    </Loader>
+  </Overridable(Loader)>
+</ItemPendingLoans>
+`;

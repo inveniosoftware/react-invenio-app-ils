@@ -4,6 +4,7 @@ import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
+import { fetchItemDetails } from './../../pages/backoffice/Item/ItemDetails/state/actions';
 
 export const ACTION_IS_LOADING = 'loanAction/IS_LOADING';
 export const ACTION_SUCCESS = 'loanAction/SUCCESS';
@@ -38,7 +39,7 @@ export const performLoanAction = (
   actionURL,
   documentPid,
   patronPid,
-  { itemPid = null, cancelReason = null } = {}
+  { itemPid = null, cancelReason = null, shouldFetchItemDetails = null } = {}
 ) => {
   return async dispatch => {
     dispatch({
@@ -60,7 +61,9 @@ export const performLoanAction = (
         type: ACTION_SUCCESS,
         payload: response.data,
       });
-      dispatch(fetchLoanDetails(response.data.metadata.pid));
+      shouldFetchItemDetails
+        ? dispatch(fetchItemDetails(itemPid.value))
+        : dispatch(fetchLoanDetails(response.data.metadata.pid));
       const loanPid = response.data.pid;
       dispatch(
         sendSuccessNotification(
