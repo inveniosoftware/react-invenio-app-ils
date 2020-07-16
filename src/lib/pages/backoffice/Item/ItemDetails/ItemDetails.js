@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Container, Divider, Grid, Ref, Sticky } from 'semantic-ui-react';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Container, Divider, Grid, Ref, Sticky } from 'semantic-ui-react';
 import { ItemActionMenu } from './ItemActionMenu';
 import { ItemCirculation } from './ItemCirculation';
+import { ItemHeader } from './ItemHeader';
 import { ItemMetadata } from './ItemMetadata';
 import { ItemPastLoans } from './ItemPastLoans';
-
-import { ItemHeader } from './ItemHeader';
+import { ItemPendingLoans } from './ItemPendingLoans';
 
 export default class ItemDetails extends Component {
   constructor(props) {
@@ -53,6 +53,7 @@ export default class ItemDetails extends Component {
                         <Container className="spaced">
                           <ItemCirculation />
                           <ItemMetadata />
+                          <ItemPendingLoans />
                           <ItemPastLoans />
                         </Container>
                       </Container>
