@@ -61,6 +61,24 @@ class DocumentRequestForm extends Component {
 
   renderForm() {
     const { data } = this.state;
+    const {
+      title,
+      medium,
+      journalTitle,
+      authors,
+      isbn,
+      issn,
+      edition,
+      volume,
+      issue,
+      standardNumber,
+      page,
+      publicationYear,
+      requestType,
+      paymentMethod,
+      paymentInfo,
+      notes,
+    } = this.props;
     return (
       <BaseForm
         initialValues={data}
@@ -73,97 +91,105 @@ class DocumentRequestForm extends Component {
         <GroupField>
           <StringField
             fieldPath="title"
-            label="Title"
-            placeholder="Title"
+            label={title.label}
+            placeholder={title.placeholder}
             required
             width={14}
           />
           <VocabularyField
             type={invenioConfig.VOCABULARIES.documentRequests.doc_req_medium}
             fieldPath="medium"
-            label="Medium type"
-            placeholder="Select medium..."
+            label={medium.label}
+            placeholder={medium.placeholder}
             required
             width={4}
           />
         </GroupField>
         <StringField
           fieldPath="journal_title"
-          label="Journal title"
-          placeholder="Journal title"
+          label={journalTitle.label}
+          placeholder={journalTitle.placeholder}
         />
         <StringField
           fieldPath="authors"
-          label="Authors"
-          placeholder="Authors"
+          label={authors.label}
+          placeholder={authors.placeholder}
         />
         <GroupField widths="equal">
-          <StringField fieldPath="isbn" label="ISBN" placeholder="ISBN" />
-          <StringField fieldPath="issn" label="ISSN" placeholder="ISSN" />
+          <StringField
+            fieldPath="isbn"
+            label={isbn.label}
+            placeholder={isbn.placeholder}
+          />
+          <StringField
+            fieldPath="issn"
+            label={issn.label}
+            placeholder={issn.placeholder}
+          />
         </GroupField>
         <GroupField widths="equal">
           <StringField
             fieldPath="edition"
-            label="Edition"
-            placeholder="Edition number"
+            label={edition.label}
+            placeholder={edition.placeholder}
           />
           <StringField
             fieldPath="volume"
-            label="Volume"
-            placeholder="Volume number"
+            label={volume.label}
+            placeholder={volume.placeholder}
           />
           <StringField
             fieldPath="issue"
-            label="Issue"
-            placeholder="Issue number"
+            label={issue.label}
+            placeholder={issue.placeholder}
           />
           <StringField
             fieldPath="standard_number"
-            label="Standard number"
-            placeholder="Standard number"
+            label={standardNumber.label}
+            placeholder={standardNumber.placeholder}
           />
         </GroupField>
         <GroupField widths="equal">
           <StringField
             fieldPath="page"
-            label="Page"
-            placeholder="Page number"
+            label={page.label}
+            placeholder={page.placeholder}
           />
           <YearInputField
             fieldPath="publication_year"
-            label="Publication Year"
-            placeholder="Publication Year"
+            label={publicationYear.label}
+            placeholder={publicationYear.placeholder}
           />
         </GroupField>
         <GroupField>
           <VocabularyField
-            type={invenioConfig.vocabularies.documentRequests.doc_req_type}
+            type={invenioConfig.VOCABULARIES.documentRequests.doc_req_type}
             fieldPath="request_type"
-            label="Request type"
-            placeholder="Select type..."
+            label={requestType.label}
+            placeholder={requestType.placeholder}
             required
             width={4}
           />
           <VocabularyField
             type={
-              invenioConfig.vocabularies.documentRequests.doc_req_payment_method
+              invenioConfig.VOCABULARIES.documentRequests.doc_req_payment_method
             }
             fieldPath="payment_method"
-            label="Payment method"
-            placeholder="Select method..."
+            label={paymentMethod.label}
+            placeholder={paymentMethod.placeholder}
             width={4}
           />
           <StringField
             fieldPath="payment_info"
-            label="Payment information"
-            placeholder="Payment information"
+            label={paymentInfo.label}
+            placeholder={paymentInfo.placeholder}
             width={8}
           />
         </GroupField>
         <TextField
           fieldPath="note"
-          label="Note"
-          placeholder="Notes for the library"
+          label={notes.label}
+          placeholder={notes.placeholder}
           rows={5}
         />
       </BaseForm>
@@ -201,6 +227,89 @@ class DocumentRequestForm extends Component {
 
 DocumentRequestForm.propTypes = {
   user: PropTypes.object.isRequired,
+  title: PropTypes.object,
+  medium: PropTypes.object,
+  journalTitle: PropTypes.object,
+  authors: PropTypes.object,
+  isbn: PropTypes.object,
+  issn: PropTypes.object,
+  edition: PropTypes.object,
+  volume: PropTypes.object,
+  issue: PropTypes.object,
+  standardNumber: PropTypes.object,
+  page: PropTypes.object,
+  publicationYear: PropTypes.object,
+  requestType: PropTypes.object,
+  paymentMethod: PropTypes.object,
+  paymentInfo: PropTypes.object,
+  notes: PropTypes.object,
+};
+
+DocumentRequestForm.defaultProps = {
+  title: {
+    label: 'Title',
+    placeholder: 'Title',
+  },
+  medium: {
+    label: 'Medium type',
+    placeholder: 'Select medium ...',
+  },
+  journalTitle: {
+    label: 'Journal title',
+    placeholder: 'Journal title',
+  },
+  authors: {
+    label: 'Authors',
+    placeholder: 'Authors',
+  },
+  isbn: {
+    label: 'ISBN',
+    placeholder: 'ISBN',
+  },
+  issn: {
+    label: 'ISSN',
+    placeholder: 'ISSN',
+  },
+  edition: {
+    label: 'Edition',
+    placeholder: 'Edition number',
+  },
+  volume: {
+    label: 'Volume',
+    placeholder: 'Volume number',
+  },
+  issue: {
+    label: 'Issue',
+    placeholder: 'Issue number',
+  },
+  standardNumber: {
+    label: 'Standard number',
+    placeholder: 'Standard number',
+  },
+  page: {
+    label: 'Page',
+    placeholder: 'Page number',
+  },
+  publicationYear: {
+    label: 'Publication Year',
+    placeholder: 'Publication Year',
+  },
+  requestType: {
+    label: 'Request type',
+    placeholder: 'Select type...',
+  },
+  paymentMethod: {
+    label: 'Payment method',
+    placeholder: 'Select method...',
+  },
+  paymentInfo: {
+    label: 'Payment information',
+    placeholder: 'Payment information',
+  },
+  notes: {
+    label: 'Notes',
+    placeholder: 'Notes for the library',
+  },
 };
 
 export default Overridable.component(
