@@ -98,7 +98,7 @@ export const checkoutItem = (
         </p>
       );
       dispatch(sendSuccessNotification('Success!', linkToLoan));
-      dispatch(fetchItemDetails(itemPid));
+      dispatch(fetchItemDetails(itemPid.value));
     } catch (error) {
       dispatch({
         type: HAS_ERROR,
