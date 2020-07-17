@@ -9,6 +9,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Header, Item, Label, List } from 'semantic-ui-react';
 import { LoanDates } from './LoanDates';
+import Overridable from 'react-overridable';
 
 export class LoanListEntry extends Component {
   render() {
@@ -71,8 +72,17 @@ export class LoanListEntry extends Component {
                 </List.Item>
               </List>
             </Grid.Column>
-            <Grid.Column width={2}>
+            <Grid.Column width={2} textAlign="center">
               <OverdueLoanSendMailModal loan={loan} />
+              <Overridable
+                id="LoanListEntry.DeliveryIcon"
+                deliveryMethod={
+                  loan.metadata.delivery ? loan.metadata.delivery.method : null
+                }
+                showName
+                asListItem
+                loanState={loan.metadata.state}
+              />
             </Grid.Column>
             <Grid.Column computer={3} largeScreen={3}>
               {!_isEmpty(loan.metadata.item_pid) && (
@@ -125,3 +135,5 @@ LoanListEntry.propTypes = {
 LoanListEntry.defaultProps = {
   target: '',
 };
+
+export default Overridable.component('LoanListEntry', LoanListEntry);

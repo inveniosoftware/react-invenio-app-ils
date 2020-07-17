@@ -15,8 +15,9 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Grid, Icon, Label } from 'semantic-ui-react';
+import Overridable from 'react-overridable';
 
-export default class LoanMetadata extends Component {
+export class LoanMetadata extends Component {
   getPickupLocation(metadata) {
     return metadata.pickup_location_pid && metadata.pickup_location ? (
       <LocationsLink locationPid={metadata.pickup_location_pid}>
@@ -27,7 +28,15 @@ export default class LoanMetadata extends Component {
 
   getDelivery(delivery) {
     if (delivery && 'method' in delivery) {
-      return invenioConfig.CIRCULATION.deliveryMethods[delivery.method];
+      return (
+        <>
+          {invenioConfig.CIRCULATION.deliveryMethods[delivery.method]}{' '}
+          <Overridable
+            id="LoanMetadata.DeliveryIcon"
+            deliveryMethod={delivery.method}
+          />
+        </>
+      );
     }
     return 'NOT PROVIDED';
   }
@@ -166,3 +175,5 @@ export default class LoanMetadata extends Component {
 LoanMetadata.propTypes = {
   loanDetails: PropTypes.object.isRequired,
 };
+
+export default Overridable.component('LoanMetadata', LoanMetadata);

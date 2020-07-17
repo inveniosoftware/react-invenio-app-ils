@@ -2,6 +2,7 @@ import { documentApi } from '@api/documents';
 import { loanApi } from '@api/loans';
 import { toShortDate } from '@api/date';
 import { delay } from '@api/utils';
+import PropTypes from 'prop-types';
 import {
   sendErrorNotification,
   sendSuccessNotification,
@@ -9,8 +10,9 @@ import {
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
 import { DateTime } from 'luxon';
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Overridable from 'react-overridable';
 
 export const IS_LOADING = 'fetchDocumentDetails/IS_LOADING';
 export const SUCCESS = 'fetchDocumentDetails/SUCCESS';
@@ -125,15 +127,15 @@ export const requestLoanForPatron = (
       });
       await delay();
       const loanPid = response.data.pid;
-      const linkToLoan = (
-        <p>
-          The loan {loanPid} has been requested.{' '}
-          <Link to={BackOfficeRoutes.loanDetailsFor(loanPid)}>
-            You can now view the loan details.
-          </Link>
-        </p>
+      dispatch(
+        sendSuccessNotification(
+          'Success!',
+          <RequestForPatronMessage
+            deliveryMethod={deliveryMethod}
+            loanPid={loanPid}
+          />
+        )
       );
-      dispatch(sendSuccessNotification('Success!', linkToLoan));
       dispatch(fetchDocumentDetails(documentPid));
     } catch (error) {
       dispatch({
@@ -144,3 +146,34 @@ export const requestLoanForPatron = (
     }
   };
 };
+
+export class RequestForPatronMessage extends Component {
+  render() {
+    const { deliveryMethod, loanPid } = this.props;
+    return (
+      <p>
+        The loan {loanPid} has been requested.{' '}
+        <Link to={BackOfficeRoutes.loanDetailsFor(loanPid)}>
+          You can now view the loan details.
+        </Link>
+        <br />
+        <Overridable
+          id="RequestForPatronMessage.DeliveryIcon"
+          deliveryMethod={deliveryMethod}
+          showName
+          asListItem
+        />
+      </p>
+    );
+  }
+}
+
+RequestForPatronMessage.propTypes = {
+  deliveryMethod: PropTypes.string.isRequired,
+  loanPid: PropTypes.string.isRequired,
+};
+
+export default Overridable.component(
+  'RequestForPatronMessage',
+  RequestForPatronMessage
+);
