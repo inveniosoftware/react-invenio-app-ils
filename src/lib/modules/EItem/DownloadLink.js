@@ -20,5 +20,6 @@ DownloadLink.propTypes = {
 };
 
 DownloadLink.defaultProps = {
+  children: null,
   content: null,
 };

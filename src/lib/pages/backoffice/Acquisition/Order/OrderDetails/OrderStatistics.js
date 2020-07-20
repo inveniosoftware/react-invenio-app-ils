@@ -51,7 +51,9 @@ export class OrderStatistics extends React.Component {
   }
 
   renderStatus() {
-    const { status } = this.props.order;
+    const {
+      order: { status },
+    } = this.props;
     const humanReadableStatus = getDisplayVal('ACQ_ORDERS.statuses', status);
     switch (status) {
       case 'CANCELLED':

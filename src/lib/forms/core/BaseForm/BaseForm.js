@@ -140,3 +140,7 @@ BaseForm.propTypes = {
     })
   ),
 };
+
+BaseForm.defaultProps = {
+  children: null,
+};

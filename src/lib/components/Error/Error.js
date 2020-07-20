@@ -18,13 +18,13 @@ export const shouldShowErrorPage = error => {
 };
 
 export class Error extends Component {
-  state = {
-    error: null,
-    info: null,
-  };
-
   constructor(props) {
     super(props);
+
+    this.state = {
+      error: null,
+      info: null,
+    };
 
     if (props.boundary) {
       // NOTE: componentDidCatch is React internal and if it finds it it makes
@@ -65,7 +65,8 @@ export class Error extends Component {
       ? FallbackComponent
       : DefaultFallbackComponent;
 
-    if (boundary && this.state.error) {
+    const { error: stateError } = this.state;
+    if (boundary && stateError) {
       return <Fallback {...this.state} />;
     } else if (!_isEmpty(error) && shouldShowErrorPage(error)) {
       return this.renderErrorMessage(error);
@@ -81,4 +82,8 @@ Error.propTypes = {
   boundary: PropTypes.bool,
   children: PropTypes.node,
   FallbackComponent: PropTypes.elementType,
+};
+
+Error.defaultProps = {
+  children: null,
 };

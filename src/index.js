@@ -7,13 +7,8 @@ import { Router } from 'react-router-dom';
 import 'semantic-ui-less/semantic.less';
 import { InvenioILSApp } from './lib';
 
+const config = {};
 const overriddenCmps = {};
-
-const config = {
-  authors: {
-    maxDisplay: 42,
-  },
-};
 
 ReactDOM.render(
   <Router history={history}>

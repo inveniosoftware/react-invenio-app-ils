@@ -5,11 +5,15 @@ import { List } from 'semantic-ui-react';
 
 class DocumentToc extends Component {
   render() {
-    const { table_of_content } = this.props.document.metadata;
+    const {
+      document: {
+        metadata: { table_of_content: tableOfContent },
+      },
+    } = this.props;
     return (
       <Overridable id="DocumentToc.layout" {...this.props}>
         <List ordered>
-          {table_of_content.map((entry, index) => (
+          {tableOfContent.map((entry, index) => (
             <List.Item key={index}>{entry}</List.Item>
           ))}
         </List>

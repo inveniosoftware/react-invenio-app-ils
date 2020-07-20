@@ -12,7 +12,10 @@ import _isEmpty from 'lodash/isEmpty';
 export default class ItemsResultsList extends Component {
   state = { isModalOpen: false };
 
-  toggleModal = () => this.setState({ isModalOpen: !this.state.isModalOpen });
+  toggleModal = () => {
+    const { isModalOpen } = this.state;
+    this.setState({ isModalOpen: !isModalOpen });
+  };
 
   onClickCheckoutHandler = async (
     documentPid,

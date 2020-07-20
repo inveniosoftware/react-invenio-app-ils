@@ -44,6 +44,7 @@ EmailLink.defaultProps = {
   bcc: null,
   body: null,
   cc: null,
+  children: null,
   subject: null,
   asButton: false,
 };

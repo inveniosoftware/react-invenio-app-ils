@@ -25,5 +25,6 @@ InfoMessage.propTypes = {
 };
 
 InfoMessage.defaultProps = {
+  children: null,
   content: '',
 };

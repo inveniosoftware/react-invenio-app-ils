@@ -20,3 +20,7 @@ InfoPopup.propTypes = {
   children: PropTypes.node,
   message: PropTypes.node.isRequired,
 };
+
+InfoPopup.defaultProps = {
+  children: null,
+};

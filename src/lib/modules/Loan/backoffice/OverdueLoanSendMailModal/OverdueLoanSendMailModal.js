@@ -8,7 +8,10 @@ import _isEmpty from 'lodash/isEmpty';
 export default class OverdueLoanSendMailModal extends Component {
   state = { isModalOpen: false };
 
-  toggle = () => this.setState({ isModalOpen: !this.state.isModalOpen });
+  toggle = () => {
+    const { isModalOpen } = this.state;
+    this.setState({ isModalOpen: !isModalOpen });
+  };
 
   sendMail = async () => {
     const { loan, sendOverdueLoansMailReminder } = this.props;

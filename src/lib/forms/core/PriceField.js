@@ -31,6 +31,10 @@ DropdownField.propTypes = {
   children: PropTypes.node,
 };
 
+DropdownField.defaultProps = {
+  children: null,
+};
+
 export class PriceField extends Component {
   renderError(errors, name, direction = 'above') {
     const error = errors[name];

@@ -25,5 +25,6 @@ ShowMoreContent.propTypes = {
 };
 
 ShowMoreContent.defaultProps = {
+  children: null,
   content: null,
 };

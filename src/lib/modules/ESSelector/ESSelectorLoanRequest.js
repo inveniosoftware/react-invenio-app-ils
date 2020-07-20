@@ -42,7 +42,10 @@ export default class ESSelectorLoanRequest extends Component {
 
   onSelectionsUpdate = selections => this.setState({ selections });
 
-  toggle = () => this.setState({ visible: !this.state.visible });
+  toggle = () => {
+    const { visible } = this.state;
+    this.setState({ visible: !visible });
+  };
 
   save = () => {
     const { onSave } = this.props;
