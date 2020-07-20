@@ -14,7 +14,10 @@ export default class DeleteRecordModal extends Component {
     this.state = { isModalOpen: false };
   }
 
-  toggleModal = () => this.setState({ isModalOpen: !this.state.isModalOpen });
+  toggleModal = () => {
+    const { isModalOpen } = this.state;
+    this.setState({ isModalOpen: !isModalOpen });
+  };
 
   handleDeleteClick() {
     const { onDelete } = this.props;

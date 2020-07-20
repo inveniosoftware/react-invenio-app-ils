@@ -47,7 +47,8 @@ export class AuthorSearchField extends React.Component {
 
   onFocus = () => {
     // Trigger a search to update in case an author was modified
-    this.onSearchChange(null, { value: this.state.value });
+    const { value } = this.state;
+    this.onSearchChange(null, { value: value });
   };
 
   onResultSelect = (e, { result }) => {

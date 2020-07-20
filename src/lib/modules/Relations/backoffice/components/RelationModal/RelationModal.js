@@ -48,6 +48,7 @@ export default class RelationModal extends Component {
 
   render() {
     const {
+      children,
       disabled,
       triggerButtonContent,
       modalHeader,
@@ -86,7 +87,7 @@ export default class RelationModal extends Component {
       >
         <Modal.Header>{modalHeader}</Modal.Header>
 
-        {this.props.children}
+        {children}
 
         <Modal.Actions>
           <Button onClick={() => this.toggle()}>Cancel</Button>
@@ -121,6 +122,7 @@ RelationModal.propTypes = {
 };
 
 RelationModal.defaultProps = {
+  children: null,
   extraRelationField: {},
   disabled: false,
   isLoading: false,

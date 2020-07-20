@@ -56,15 +56,17 @@ export default class RelationOtherModal extends Component {
   };
 
   getSummaryDescription = () => {
+    const { relationOrder } = this.state;
     let iconName;
     let label;
-    if (this.state.relationOrder === this.ORDER_CONTINUES.order) {
+    if (relationOrder === this.ORDER_CONTINUES.order) {
       iconName = 'arrow left';
       label = this.ORDER_CONTINUES.label;
-    } else if (this.state.relationOrder === this.ORDER_IS_CONTINUED_BY.order) {
+    } else if (relationOrder === this.ORDER_IS_CONTINUED_BY.order) {
       iconName = 'arrow right';
       label = this.ORDER_IS_CONTINUED_BY.label;
     } else {
+      // eslint-disable-next-line react/jsx-no-useless-fragment
       return <></>; // do not return null otherwise a default cmp will be rendered.
     }
 

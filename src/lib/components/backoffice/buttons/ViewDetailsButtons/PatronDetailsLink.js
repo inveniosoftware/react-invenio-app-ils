@@ -22,3 +22,7 @@ PatronDetailsLink.propTypes = {
   patronPid: PropTypes.string.isRequired,
   children: PropTypes.node,
 };
+
+PatronDetailsLink.defaultProps = {
+  children: null,
+};

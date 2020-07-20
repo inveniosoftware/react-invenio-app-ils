@@ -29,5 +29,6 @@ LoanLinkToItem.propTypes = {
 };
 
 LoanLinkToItem.defaultProps = {
+  children: null,
   itemPid: {},
 };

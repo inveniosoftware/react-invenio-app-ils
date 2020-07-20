@@ -22,3 +22,7 @@ LocationsLink.propTypes = {
   locationPid: PropTypes.string.isRequired,
   children: PropTypes.node,
 };
+
+LocationsLink.defaultProps = {
+  children: null,
+};

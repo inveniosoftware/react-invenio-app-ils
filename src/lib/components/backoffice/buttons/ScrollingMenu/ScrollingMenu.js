@@ -37,5 +37,6 @@ ScrollingMenuItem.propTypes = {
 };
 
 ScrollingMenuItem.defaultProps = {
+  children: null,
   offset: 0,
 };

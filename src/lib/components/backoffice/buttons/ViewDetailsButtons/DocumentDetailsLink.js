@@ -22,3 +22,7 @@ DocumentDetailsLink.propTypes = {
   pidValue: PropTypes.string.isRequired,
   children: PropTypes.node,
 };
+
+DocumentDetailsLink.defaultProps = {
+  children: null,
+};

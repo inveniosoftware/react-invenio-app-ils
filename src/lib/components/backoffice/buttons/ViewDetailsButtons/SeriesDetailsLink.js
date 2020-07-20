@@ -22,3 +22,7 @@ SeriesDetailsLink.propTypes = {
   pidValue: PropTypes.string.isRequired,
   children: PropTypes.node,
 };
+
+SeriesDetailsLink.defaultProps = {
+  children: null,
+};

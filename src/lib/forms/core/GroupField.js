@@ -69,4 +69,5 @@ GroupField.propTypes = {
 
 GroupField.defaultProps = {
   border: false,
+  children: null,
 };

@@ -22,3 +22,7 @@ ItemDetailsLink.propTypes = {
   itemPid: PropTypes.string.isRequired,
   children: PropTypes.node,
 };
+
+ItemDetailsLink.defaultProps = {
+  children: null,
+};

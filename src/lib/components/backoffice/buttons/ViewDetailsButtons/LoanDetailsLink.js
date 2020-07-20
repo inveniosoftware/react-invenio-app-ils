@@ -22,3 +22,7 @@ LoanDetailsLink.propTypes = {
   loanPid: PropTypes.string.isRequired,
   children: PropTypes.node,
 };
+
+LoanDetailsLink.defaultProps = {
+  children: null,
+};

@@ -4,7 +4,7 @@ import { Grid, Header } from 'semantic-ui-react';
 
 export class DetailsHeader extends React.Component {
   render() {
-    const { icon, image, subTitle, title, recordInfo } = this.props;
+    const { children, icon, image, subTitle, title, recordInfo } = this.props;
     return (
       <Grid columns={2}>
         {image && <Grid.Column width={1}>{image}</Grid.Column>}
@@ -16,7 +16,7 @@ export class DetailsHeader extends React.Component {
               <Header.Subheader>{subTitle}</Header.Subheader>
             </Header.Content>
           </Header>
-          {this.props.children}
+          {children}
         </Grid.Column>
         <Grid.Column width={4} floated="right" textAlign="right">
           {recordInfo}
@@ -40,4 +40,5 @@ DetailsHeader.defaultProps = {
   icon: null,
   subTitle: null,
   recordInfo: null,
+  children: null,
 };

@@ -22,3 +22,7 @@ BorrowingRequestDetailsLink.propTypes = {
   brwPid: PropTypes.string.isRequired,
   children: PropTypes.node,
 };
+
+BorrowingRequestDetailsLink.defaultProps = {
+  children: null,
+};

@@ -32,6 +32,7 @@ DownloadButton.propTypes = {
 };
 
 DownloadButton.defaultProps = {
+  children: null,
   text: 'Download',
   fluid: false,
   disabled: false,
