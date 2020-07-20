@@ -31,7 +31,7 @@ exports[`SearchControls tests should load the SearchControls component 1`] = `
               label={[Function]}
             />
             <SearchResultsPerPage
-              modelName="documents"
+              modelName="DOCUMENTS"
             />
           </GridColumn>
         </Grid>
@@ -59,10 +59,10 @@ exports[`SearchControls tests should load the SearchControls component 1`] = `
           className="sort-by-filters"
         >
           <SearchSortBy
-            modelName="documents"
+            modelName="DOCUMENTS"
           />
           <SearchSortOrder
-            modelName="documents"
+            modelName="DOCUMENTS"
           />
         </div>
       </GridColumn>
@@ -86,7 +86,7 @@ exports[`SearchControls tests should load the SearchControls component 1`] = `
     maxWidth={991}
   >
     <SearchControlsMobile
-      modelName="documents"
+      modelName="DOCUMENTS"
       stickyRef={null}
     />
   </Responsive>
