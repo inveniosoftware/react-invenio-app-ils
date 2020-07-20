@@ -1,5 +1,11 @@
 # Changes
 
+Version 1.0.0-alpha.7 (released 2020-07-20)
+
+- automatic check-in feature
+- improved configuration object
+- bugfixes
+
 Version 1.0.0-alpha.6 (released 2020-07-08)
 
 - enables overridability of home page background image
