@@ -35,7 +35,7 @@ describe('SearchControls tests', () => {
   });
 
   it('should load the SearchControls component', () => {
-    const component = shallow(<SearchControls modelName={'documents'} />);
+    const component = shallow(<SearchControls modelName="DOCUMENTS" />);
     expect(component).toMatchSnapshot();
   });
 });
