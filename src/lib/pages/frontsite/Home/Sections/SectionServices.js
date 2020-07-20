@@ -15,7 +15,7 @@ export class SectionServices extends Component {
               Our services
             </Header>
             <Card.Group itemsPerRow={4} stackable>
-              <Card className="advert-card">
+              <Card className="info-card">
                 <Card.Content>
                   <Card.Header className="advert">
                     <Icon name="book" /> Circulation
@@ -29,7 +29,7 @@ export class SectionServices extends Component {
                   Catalog
                 </Button>
               </Card>
-              <Card className="advert-card">
+              <Card className="info-card">
                 <Card.Content>
                   <Card.Header className="advert">
                     <Icon name="boxes" /> Acquisition
@@ -44,7 +44,7 @@ export class SectionServices extends Component {
                   Request purchase
                 </Button>
               </Card>
-              <Card className="advert-card">
+              <Card className="info-card">
                 <Card.Content>
                   <Card.Header className="advert">
                     <Icon name="warehouse" /> Interlibrary loan
@@ -59,7 +59,7 @@ export class SectionServices extends Component {
                   Request ILL
                 </Button>
               </Card>
-              <Card className="advert-card">
+              <Card className="info-card">
                 <Card.Content>
                   <Card.Header className="advert">
                     <Icon name="desktop" /> Read online

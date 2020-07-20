@@ -76,7 +76,7 @@ Card Overrides - REACT-INVENIO-APP-ILS
   }
 
 
-  .ui.card.advert-card {
+  .ui.card.info-card {
     background-color: @fsSecondaryColor;
     border-radius: 0;
     padding: 1em;
