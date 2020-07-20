@@ -5,6 +5,7 @@ List Overrides - REACT-INVENIO-APP-ILS
 /* GLOBAL */
 .document-authors-list-wrapper {
   width: 100%;
+  margin-bottom: 1rem;
 
   &.expanded {
     max-height: 5em;
