@@ -21,7 +21,7 @@ export class DocumentTitle extends Component {
     return (
       <>
         {metadata.document_type}
-        <Header as="h2" className="item-title">
+        <Header as="h2" className="document-title">
           {metadata.title}
           {this.subtitle()}
         </Header>

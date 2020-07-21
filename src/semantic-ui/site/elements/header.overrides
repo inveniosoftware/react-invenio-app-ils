@@ -48,7 +48,7 @@ Header Overrides - REACT-INVENIO-APP-ILS
 
     }
 
-    &.item-title {
+    &.document-title {
       margin-bottom: 0;
     }
   }

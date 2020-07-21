@@ -6,7 +6,7 @@ import _isEmpty from 'lodash/isEmpty';
 export const SeriesTitle = ({ title, subtitle, modeOfIssuance }) => (
   <>
     {modeOfIssuance.toUpperCase()}
-    <Header as="h2" className="item-title">
+    <Header as="h2" className="document-title">
       {title}
       {!_isEmpty(subtitle) && <Header.Subheader>{subtitle}</Header.Subheader>}
     </Header>
