@@ -711,6 +711,8 @@ export const defaultConfig = {
       type: 'document_type',
     },
     documentRequests: {
+      doc_req_type: 'doc_req_type',
+      doc_req_payment_method: 'doc_req_payment_method',
       doc_req_medium: 'doc_req_medium',
     },
     series: {
