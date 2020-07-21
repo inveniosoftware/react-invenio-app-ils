@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.8 (released 2020-07-21)
+
+- frontsite document details bugfix
+
 Version 1.0.0-alpha.7 (released 2020-07-20)
 
 - automatic check-in feature
