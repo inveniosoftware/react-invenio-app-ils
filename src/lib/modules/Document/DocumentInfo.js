@@ -21,7 +21,7 @@ export class DocumentInfo extends Component {
 
   renderKeywords() {
     const { metadata } = this.props;
-    const keywords = _get(metadata, 'keywords');
+    const keywords = _get(metadata, 'keywords', []);
 
     return (
       <Table.Row>
@@ -36,6 +36,7 @@ export class DocumentInfo extends Component {
               ? keywordValue
               : '';
           })}
+          {keywords.length < 1 && 'No keywords provided.'}
         </Table.Cell>
       </Table.Row>
     );
