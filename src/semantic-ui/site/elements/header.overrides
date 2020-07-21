@@ -46,7 +46,11 @@ Header Overrides - REACT-INVENIO-APP-ILS
           background-color: @fsPrimaryColor;
         }
 
-      }
+    }
+
+    &.document-title {
+      margin-bottom: 0;
+    }
   }
 
   .header.sub.fs-headline-subheader {

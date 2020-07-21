@@ -38,6 +38,14 @@ class SeriesPanel extends Component {
                     {!_isEmpty(series.metadata) && (
                       <SeriesTitle
                         title={series.metadata.title}
+                        subtitle={
+                          !_isEmpty(series.metadata.alternative_titles)
+                            ? series.metadata.alternative_titles
+                                .filter(e => e.type === 'SUBTITLE')
+                                .map(e => e.value)
+                                .find(() => true)
+                            : null
+                        }
                         modeOfIssuance={series.metadata.mode_of_issuance}
                       />
                     )}
