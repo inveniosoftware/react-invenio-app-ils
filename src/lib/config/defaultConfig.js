@@ -77,7 +77,7 @@ export const defaultConfig = {
             default_order: 'desc',
             field: 'mostrecent',
             order: 1,
-            title: 'Newest',
+            title: 'Recently added',
           },
           {
             default_order: 'desc',
@@ -181,7 +181,7 @@ export const defaultConfig = {
     search: {
       filters: [
         {
-          title: 'Document types',
+          title: 'Literature types',
           field: 'document_type',
           aggName: 'doctype',
         },
@@ -223,7 +223,7 @@ export const defaultConfig = {
             default_order: 'desc',
             field: 'mostrecent',
             order: 1,
-            title: 'Newest',
+            title: 'Recently added',
           },
           {
             default_order: 'asc',
@@ -284,7 +284,7 @@ export const defaultConfig = {
             default_order: 'desc',
             field: 'mostrecent',
             order: 1,
-            title: 'Newest',
+            title: 'Recently added',
           },
           {
             default_order: 'asc',
@@ -313,7 +313,7 @@ export const defaultConfig = {
           {
             field: 'mostrecent',
             order: 1,
-            title: 'Newest',
+            title: 'Recently added',
             default_order: 'desc',
           },
           {
@@ -367,7 +367,7 @@ export const defaultConfig = {
             default_order: 'desc',
             field: 'mostrecent',
             order: 1,
-            title: 'Newest',
+            title: 'Recently added',
           },
           {
             default_order: 'desc',
@@ -483,7 +483,7 @@ export const defaultConfig = {
             default_order: 'desc',
             field: 'mostrecent',
             order: 1,
-            title: 'Newest',
+            title: 'Recently added',
           },
           {
             default_order: 'asc',
@@ -511,7 +511,7 @@ export const defaultConfig = {
             default_order: 'desc',
             field: 'mostrecent',
             order: 1,
-            title: 'Newest',
+            title: 'Recently added',
           },
           {
             default_order: 'asc',
@@ -585,7 +585,7 @@ export const defaultConfig = {
           {
             field: 'mostrecent',
             order: 4,
-            title: 'Newest',
+            title: 'Recently added',
             default_order: 'desc',
           },
           {
@@ -634,7 +634,7 @@ export const defaultConfig = {
           {
             field: 'mostrecent',
             order: 1,
-            title: 'Newest',
+            title: 'Recently added',
             default_order: 'desc',
           },
           {

@@ -81,7 +81,7 @@ class SeriesPanel extends Component {
           </div>
         </Responsive>
         <Responsive {...Responsive.onlyMobile}>
-          <SeriesPanelMobile />
+          <SeriesPanelMobile series={series} isLoading={isLoading} />
         </Responsive>
       </>
     );

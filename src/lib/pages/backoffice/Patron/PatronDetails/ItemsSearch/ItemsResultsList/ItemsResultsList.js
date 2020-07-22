@@ -150,10 +150,6 @@ export default class ItemsResultsList extends Component {
           <Icon name="search" />
           Found no items matching this barcode.
         </Header>
-        <p>
-          HINT: Check if the physical copy is not already on loan by someone
-          else.
-        </p>
         <Segment.Inline>
           <Button primary onClick={() => clearSearchQuery()}>
             Clear search phrase
