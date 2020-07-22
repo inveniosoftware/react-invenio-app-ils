@@ -63,11 +63,13 @@ export default class AvailableItems extends Component {
   }
 
   checkoutItemButton(item, loan) {
-    const { performCheckoutAction } = this.props;
+    const { performCheckoutAction, isActionLoading } = this.props;
     return (
       <Button
         size="mini"
         color="teal"
+        loading={isActionLoading}
+        disabled={isActionLoading}
         onClick={() => {
           const checkoutUrl = loan.availableActions.checkout;
           const patronPid = loan.metadata.patron_pid;
@@ -181,10 +183,12 @@ AvailableItems.propTypes = {
   fetchAvailableItems: PropTypes.func.isRequired,
   performCheckoutAction: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
+  isActionLoading: PropTypes.bool,
   error: PropTypes.object,
 };
 
 AvailableItems.defaultProps = {
   isLoading: false,
+  isActionLoading: false,
   error: {},
 };

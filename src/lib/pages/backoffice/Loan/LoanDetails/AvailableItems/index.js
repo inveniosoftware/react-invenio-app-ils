@@ -7,6 +7,7 @@ const mapStateToProps = state => ({
   data: state.availableItems.data,
   error: state.availableItems.error,
   isLoading: state.availableItems.isLoading,
+  isActionLoading: state.loanActions.isLoading,
   hasError: state.availableItems.hasError,
 });
 
