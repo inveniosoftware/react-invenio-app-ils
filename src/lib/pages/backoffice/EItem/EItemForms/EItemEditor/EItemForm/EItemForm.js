@@ -1,4 +1,5 @@
 import { documentApi } from '@api/documents';
+import { invenioConfig } from '@config';
 import { eItemApi } from '@api/eitems';
 import { UrlsField } from '@forms/components/UrlsField';
 import { BaseForm } from '@forms/core/BaseForm';
@@ -13,6 +14,7 @@ import pick from 'lodash/pick';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import eitemSubmitSerializer from './eitemSubmitSerializer';
+import { Identifiers } from '@pages/backoffice/Document/DocumentForms/DocumentEditor/DocumentForm/components';
 
 export class EItemForm extends Component {
   prepareData = data => {
@@ -25,6 +27,7 @@ export class EItemForm extends Component {
       'internal_notes',
       'open_access',
       'urls',
+      'identifiers',
     ]);
   };
 
@@ -70,6 +73,9 @@ export class EItemForm extends Component {
         <BooleanField toggle label="Open access" fieldPath="open_access" />
         <UrlsField />
         <TextField label="Internal notes" fieldPath="internal_notes" rows={5} />
+        <Identifiers
+          scheme={invenioConfig.VOCABULARIES.document.identifier.scheme}
+        />
       </BaseForm>
     );
   }
