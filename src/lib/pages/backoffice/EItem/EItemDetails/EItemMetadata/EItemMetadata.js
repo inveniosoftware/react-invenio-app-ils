@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import ShowMore from 'react-show-more';
 import { Grid, Header, Segment } from 'semantic-ui-react';
+import { IdentifierRows } from '@modules/Identifiers';
 
 export default class EItemMetadata extends Component {
   render() {
@@ -18,6 +19,12 @@ export default class EItemMetadata extends Component {
       {
         name: 'Available urls',
         value: <UrlList urls={eitemDetails.metadata.urls} />,
+      },
+      {
+        name: 'Identifiers',
+        value: eitemDetails.metadata.identifiers && (
+          <IdentifierRows identifiers={eitemDetails.metadata.identifiers} />
+        ),
       },
     ];
 
