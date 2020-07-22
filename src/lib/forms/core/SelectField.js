@@ -98,6 +98,7 @@ export class SelectField extends Component {
         onBlur={handleBlur}
         error={error || this.renderError(errors, fieldPath, value)}
         options={this.getAllOptions(options, value)}
+        value={value}
         renderLabel={this.renderLabel}
         {...uiProps}
       />

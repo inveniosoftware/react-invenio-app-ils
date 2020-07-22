@@ -115,7 +115,7 @@ export class DocumentForm extends Component {
           <SelectField
             options={invenioConfig.DOCUMENTS.types}
             fieldPath="document_type"
-            label="Document type"
+            label="Literature types"
           />
           <StringField label="Edition" fieldPath="edition" optimized />
           <StringField

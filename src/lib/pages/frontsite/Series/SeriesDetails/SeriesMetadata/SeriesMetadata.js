@@ -14,7 +14,7 @@ class SeriesMetadata extends Component {
           <SeriesMetadataTabs metadata={series.metadata} />
         </Responsive>
         <Responsive {...Responsive.onlyMobile}>
-          <SeriesMetadataAccordion />
+          <SeriesMetadataAccordion metadata={series.metadata} />
         </Responsive>
       </Container>
     );
