@@ -18,7 +18,9 @@ export class LocationEditor extends Component {
 
   componentDidMount() {
     const {
-      match: { params: locationPid },
+      match: {
+        params: { locationPid },
+      },
     } = this.props;
     if (locationPid) {
       this.fetchLocation(locationPid);

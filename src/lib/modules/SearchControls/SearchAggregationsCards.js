@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox, Label, List } from 'semantic-ui-react';
 import { getSearchConfig } from '@config';
+import _get from 'lodash/get';
 
 /**
  * Component wrapping BucketAggregation to provide custom display for
@@ -12,7 +13,7 @@ import { getSearchConfig } from '@config';
  * it will display the label mapped for current bucket key
  */
 export default class SearchAggregationsCards extends Component {
-  _renderValueElement = (
+  _renderValueElement = labels => (
     bucket,
     isSelected,
     onFilterClicked,
@@ -20,6 +21,11 @@ export default class SearchAggregationsCards extends Component {
   ) => {
     const childAggCmps = getChildAggCmps(bucket);
     const key = bucket.key_as_string ? bucket.key_as_string : bucket.key;
+    const text = _get(
+      labels.find(e => e.value === key),
+      'text',
+      key
+    );
     return (
       <List.Item key={bucket.key}>
         <List.Content floated="right">
@@ -27,7 +33,7 @@ export default class SearchAggregationsCards extends Component {
         </List.Content>
         <List.Content>
           <Checkbox
-            label={key}
+            label={text}
             value={key}
             onClick={() => onFilterClicked(key)}
             checked={isSelected}
@@ -50,7 +56,9 @@ export default class SearchAggregationsCards extends Component {
           key={filter.field}
           title={filter.title}
           agg={{ field: filter.field, aggName: filter.aggName }}
-          renderValueElement={this._renderValueElement}
+          renderValueElement={this._renderValueElement(
+            _get(filter, 'labels', [])
+          )}
         />
       );
     });

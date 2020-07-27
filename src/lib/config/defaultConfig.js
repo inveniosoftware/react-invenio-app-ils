@@ -3,6 +3,7 @@ import {
   DEFAULT_CURRENCY,
   ILL_BORROWING_REQUESTS_STATUSES,
   ITEM_MEDIUMS,
+  DOCUMENT_RELATIONS,
 } from './common';
 
 export const APP_CONFIG = {
@@ -172,18 +173,18 @@ export const defaultConfig = {
       fields: {},
     },
     frontsiteMaxLinks: 5, // maximum number of links to show on details page
-    types: [
-      { value: 'BOOK', text: 'Book' },
-      { value: 'PROCEEDING', text: 'Proceeding' },
-      { value: 'STANDARD', text: 'Standard' },
-      { value: 'PERIODICAL_ISSUE', text: 'Periodical issue' },
-    ],
     search: {
       filters: [
         {
           title: 'Document types',
           field: 'document_type',
           aggName: 'doctype',
+          labels: [
+            { value: 'BOOK', text: 'Book' },
+            { value: 'PROCEEDING', text: 'Proceeding' },
+            { value: 'STANDARD', text: 'Standard' },
+            { value: 'PERIODICAL_ISSUE', text: 'Periodical issue' },
+          ],
         },
         {
           title: 'Availability',
@@ -201,19 +202,15 @@ export const defaultConfig = {
           aggName: 'language',
         },
         {
-          title: 'Relations',
+          title: 'Related content',
           field: 'relations',
           aggName: 'relation',
+          labels: DOCUMENT_RELATIONS,
         },
         {
           title: 'Medium',
           field: 'stock.mediums',
           aggName: 'medium',
-        },
-        {
-          title: 'Restricted',
-          field: 'restricted',
-          aggName: 'access',
         },
       ],
       sortBy: {
@@ -626,6 +623,7 @@ export const defaultConfig = {
           title: 'Relations',
           field: 'relations',
           aggName: 'relation',
+          labels: DOCUMENT_RELATIONS,
         },
       ],
       sortBy: {

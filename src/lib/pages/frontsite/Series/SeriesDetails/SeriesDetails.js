@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import { Container, Grid, Icon, Responsive } from 'semantic-ui-react';
 import { SeriesMetadata } from './SeriesMetadata';
 import SeriesPanel from './SeriesPanel/SeriesPanel';
+import { NotFound } from '@components/NotFound';
 
 const SeriesDetailsLayout = ({ error, isLoading, series }) => {
   const breadcrumbs = () => [
@@ -133,8 +134,11 @@ class SeriesDetails extends React.Component {
   };
 
   render() {
-    const { error, isLoading, series } = this.props;
+    const { hasError, error, isLoading, series } = this.props;
     const { searchQuery } = this.state;
+    if (hasError && error.response.status === 404) {
+      return <NotFound />;
+    }
     return (
       <>
         <Container fluid className="literature-search-container">
@@ -171,6 +175,7 @@ SeriesDetails.propTypes = {
       seriesPid: PropTypes.string,
     }),
   }).isRequired,
+  hasError: PropTypes.bool.isRequired,
   error: PropTypes.object,
 };
 
