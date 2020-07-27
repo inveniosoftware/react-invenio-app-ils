@@ -16,6 +16,7 @@ import { Container, Grid, Icon, Responsive } from 'semantic-ui-react';
 import { DocumentItems } from './DocumentItems';
 import { DocumentMetadata } from './DocumentMetadata';
 import DocumentPanel from './DocumentPanel/DocumentPanel';
+import { NotFound } from '@components/NotFound';
 
 const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
   const breadcrumbs = () => [
@@ -156,8 +157,11 @@ class DocumentDetails extends Component {
   };
 
   render() {
-    const { isLoading, error, documentDetails } = this.props;
+    const { isLoading, hasError, error, documentDetails } = this.props;
     const { searchQuery } = this.state;
+    if (hasError && error.response.status === 404) {
+      return <NotFound />;
+    }
     return (
       <>
         <Overridable
@@ -194,6 +198,7 @@ DocumentDetails.propTypes = {
   fetchDocumentsDetails: PropTypes.func.isRequired,
   documentDetails: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  hasError: PropTypes.bool.isRequired,
   error: PropTypes.object,
   match: PropTypes.shape({
     params: PropTypes.shape({

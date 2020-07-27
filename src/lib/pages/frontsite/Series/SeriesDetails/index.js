@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
   isLoading: state.seriesDetailsFront.isLoading,
   series: state.seriesDetailsFront.data,
   hasError: state.seriesDetailsFront.hasError,
+  error: state.seriesDetailsFront.error,
 });
 
 export const SeriesDetails = connect(

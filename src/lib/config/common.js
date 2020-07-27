@@ -27,3 +27,12 @@ export const ITEM_MEDIUMS = [
   { value: 'PAPERBACK', text: 'Paperback' },
   { value: 'HARDCOVER', text: 'Hardcover' },
 ];
+
+export const DOCUMENT_RELATIONS = [
+  { value: 'edition', text: 'By edition' },
+  { value: 'multipart_monograph', text: 'By series (completed)' },
+  { value: 'serial', text: 'By series (periodic)' },
+  { value: 'language', text: 'By language' },
+  { value: 'previous', text: 'By predecessors' },
+  { value: 'next', text: 'By continuation' },
+];
