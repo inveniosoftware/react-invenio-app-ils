@@ -33,16 +33,20 @@ export default class ItemsSearch extends Component {
   };
 
   onPasteHandler = async event => {
-    const { checkoutItem, patronDetails, items: hits } = this.props;
+    const { checkoutItem, patronDetails } = this.props;
     let queryString = event.clipboardData.getData('Text');
 
     if (queryString) {
       await this.executeSearch(queryString);
+      const {
+        items: { hits },
+      } = this.props;
 
       const hasOneHit =
         !_isEmpty(hits) &&
         hits.length === 1 &&
         hits[0].metadata.status === 'CAN_CIRCULATE';
+
       if (hasOneHit) {
         const documentPid = hits[0].metadata.document.pid;
         const itemPid = {

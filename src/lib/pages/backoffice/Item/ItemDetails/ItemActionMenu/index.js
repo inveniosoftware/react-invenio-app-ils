@@ -7,6 +7,7 @@ const mapStateToProps = state => ({
   isLoading: state.itemDetails.isLoading,
   error: state.itemDetails.error,
   item: state.itemDetails.data,
+  checkOutitemList: state.checkOut.itemList,
 });
 
 const mapDispatchToProps = dispatch => ({

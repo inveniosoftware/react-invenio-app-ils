@@ -30,11 +30,12 @@ export default class LoanList extends Component {
 
 LoanList.propTypes = {
   hits: PropTypes.arrayOf(PropTypes.object),
-  renderListEntryElement: PropTypes.func.isRequired,
+  renderListEntryElement: PropTypes.func,
   target: PropTypes.string,
 };
 
 LoanList.defaultProps = {
   hits: [],
+  renderListEntryElement: null,
   target: '',
 };

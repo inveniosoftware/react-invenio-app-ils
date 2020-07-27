@@ -649,6 +649,10 @@ export const defaultConfig = {
     },
   },
   PATRONS: {
+    patronUniqueID: {
+      field: 'pid',
+      label: 'Scan ID',
+    },
     search: {
       filters: [],
       sortBy: {

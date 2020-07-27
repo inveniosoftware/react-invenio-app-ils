@@ -5,8 +5,6 @@ export function serializeResponse(hit) {
   if (!_isEmpty(hit)) {
     result['user_pid'] = hit.id.toString();
     result['links'] = hit.links;
-    result['email'] = hit.email;
-    result['active'] = hit.active;
     if (!_isEmpty(hit.metadata)) {
       result['metadata'] = hit.metadata;
     }

@@ -38,6 +38,8 @@ class Sidebar extends Component {
     const seriesActive = activePath.includes(BackOfficeRoutes.seriesList);
     const statsActive = activePath.includes(BackOfficeRoutes.stats.home);
     const checkInActive = activePath.includes(BackOfficeRoutes.checkIn);
+    const checkOutActive = activePath.includes(BackOfficeRoutes.checkOut);
+
     return (
       <Overridable id="Sidebar.layout">
         <>
@@ -65,9 +67,16 @@ class Sidebar extends Component {
                       Check-in
                       <div className="menu-item-description">Return copies</div>
                     </Menu.Item>
+                    <Menu.Item
+                      as={Link}
+                      active={checkOutActive}
+                      to={BackOfficeRoutes.checkOut}
+                    >
+                      Check-out
+                      <div className="menu-item-description">Create loan</div>
+                    </Menu.Item>
                   </Menu.Menu>
                 </Menu.Item>
-
                 <Menu.Item>
                   <Menu.Header>Library</Menu.Header>
                   <Menu.Menu>
