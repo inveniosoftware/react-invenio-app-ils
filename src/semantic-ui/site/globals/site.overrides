@@ -129,8 +129,16 @@ a {
 
 /* FRONTSITE */
 
+@media only screen and (max-width: @largestMobileScreen) {
+  .frontsite{
+    .auth-page {
+      padding-top: 2em;
+      padding-bottom: 2em;
+    }
+  }
+}
+
 @{fs-parent-selector} {
-  height: 100%;
   display: flex;
   flex-direction: column;
 

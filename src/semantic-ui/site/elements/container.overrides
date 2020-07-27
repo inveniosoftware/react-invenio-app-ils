@@ -39,6 +39,15 @@ Container Overrides - REACT-INVENIO-APP-ILS
   }
 }
 
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.container {
+    &.auth-page {
+      > .container {
+        flex: auto;
+      }
+    }
+  }
+}
 
 .ui.container {
   &.error-page{
