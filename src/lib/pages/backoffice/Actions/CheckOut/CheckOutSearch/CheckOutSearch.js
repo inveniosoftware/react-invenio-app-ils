@@ -9,11 +9,10 @@ export default class CheckOutSearch extends Component {
   };
 
   executeSearchAndClearInput = async query => {
-    const { checkOutSearch, queryString, clearSearch } = this.props;
+    const { checkOutSearch, queryString } = this.props;
     query = query || queryString;
     if (query.trim() === '') return;
     await checkOutSearch(query);
-    clearSearch();
   };
 
   onPasteHandler = async event => {
@@ -45,5 +44,4 @@ CheckOutSearch.propTypes = {
   updateQueryString: PropTypes.func.isRequired,
   queryString: PropTypes.string.isRequired,
   checkOutSearch: PropTypes.func.isRequired,
-  clearSearch: PropTypes.func.isRequired,
 };

@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
   itemList: state.checkOut.itemList,
   patronList: state.checkOut.patronList,
   isLoading: state.checkOut.isLoading,
+  resultMessage: state.checkOut.resultMessage,
 });
 
 export const CheckOutResults = connect(

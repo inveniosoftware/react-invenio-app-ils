@@ -2,6 +2,7 @@ import { http, apiConfig } from '@api/base';
 import { serializer } from './serializer';
 import { invenioConfig } from '@config';
 import { prepareSumQuery } from '@api/utils';
+import _forOwn from 'lodash/forOwn';
 
 const listUrl = '/patrons/';
 // Here we use a different url to access Patron details
@@ -30,9 +31,6 @@ const list = async (queryText, wildcard = true) => {
 class QueryBuilder {
   constructor() {
     this.patronQuery = [];
-    this.emailQuery = [];
-    this.nameQuery = [];
-    this.patronUniqueIDQuery = [];
   }
 
   withEmail(email, wildcard = false) {
@@ -51,12 +49,19 @@ class QueryBuilder {
     return this;
   }
 
-  withPatronUniqueID(patronID) {
-    if (!patronID) {
-      throw TypeError('Patron Unique ID argument missing');
+  withPid(pid) {
+    if (!pid) {
+      throw TypeError('PID argument is missing');
     }
-    this.patronQuery.push(
-      `${invenioConfig.PATRONS.patronUniqueID.field}:${patronID}`
+    this.patronQuery.push(`pid:${pid}`);
+    return this;
+  }
+  withCustomField(term) {
+    if (!term) {
+      throw TypeError('Custom field term argument is missing');
+    }
+    _forOwn(invenioConfig.PATRONS.customFields, (value, key) =>
+      this.patronQuery.push(`${value.field}:${term}`)
     );
     return this;
   }

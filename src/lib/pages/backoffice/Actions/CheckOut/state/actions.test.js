@@ -21,11 +21,12 @@ describe('Check Out tests', () => {
     await store.dispatch(actions.updateQueryString('New query'));
     expect(store.getActions()[0]).toEqual(expectedAction);
   });
-  it('should dispatch an action to clear search', async () => {
+  it('should dispatch an action updating the result message', async () => {
     const expectedAction = {
-      type: actions.CLEAR_SEARCH,
+      type: actions.UPDATE_RESULT_MESSAGE,
+      payload: 'No results found',
     };
-    await store.dispatch(actions.clearSearch());
+    await store.dispatch(actions.updateResultMessage('No results found'));
     expect(store.getActions()[0]).toEqual(expectedAction);
   });
   it('should dispatch an action to clear results', async () => {

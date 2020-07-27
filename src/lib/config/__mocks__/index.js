@@ -37,6 +37,14 @@ const mockExtensionsConfig = {
       },
     },
   },
+  PATRONS: {
+    customFields: {
+      mockField: {
+        field: 'test-pid',
+        label: 'Test Label',
+      },
+    },
+  },
 };
 
 const mockConfig = _merge({}, defaultConfig, mockExtensionsConfig);

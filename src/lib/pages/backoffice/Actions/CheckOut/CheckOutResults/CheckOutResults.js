@@ -1,7 +1,7 @@
 import { Loader } from '@components/Loader';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Header, Segment } from 'semantic-ui-react';
+import { Icon, Header, Segment } from 'semantic-ui-react';
 import { ItemList } from './ItemList';
 import { PatronList } from './PatronList';
 
@@ -17,19 +17,19 @@ export default class CheckOutResults extends Component {
    * (exceptional case) we display them so librarian can choose.
    */
   render() {
-    const { itemList, isLoading, patronList } = this.props;
+    const { itemList, isLoading, patronList, resultMessage } = this.props;
     const hasMoreThanOneItem = itemList.length > 1;
-    const hasPatrons = patronList.length > 1;
-    const hasResults = hasMoreThanOneItem || hasPatrons;
+    const hasMoreThanOnePatrons = patronList.length > 1;
 
     return (
       <Loader isLoading={isLoading}>
-        {hasPatrons && <PatronList patrons={patronList} />}
+        {hasMoreThanOnePatrons && <PatronList patrons={patronList} />}
         {hasMoreThanOneItem && <ItemList items={itemList} />}
-        {!hasResults && (
-          <Segment placeholder>
-            <Header textAlign="center">
-              Insert patron id/email or physical copy barcode
+        {!hasMoreThanOneItem && !hasMoreThanOnePatrons && (
+          <Segment placeholder textAlign="center">
+            <Header icon>
+              <Icon name="search" />
+              {resultMessage}
             </Header>
           </Segment>
         )}
@@ -41,6 +41,7 @@ export default class CheckOutResults extends Component {
 CheckOutResults.propTypes = {
   clearResults: PropTypes.func.isRequired,
   patronList: PropTypes.arrayOf(PropTypes.object),
+  resultMessage: PropTypes.string.isRequired,
   itemList: PropTypes.arrayOf(PropTypes.object),
   isLoading: PropTypes.bool,
 };

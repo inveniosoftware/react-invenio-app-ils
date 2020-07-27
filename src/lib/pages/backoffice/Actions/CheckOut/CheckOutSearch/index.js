@@ -1,15 +1,10 @@
 import { connect } from 'react-redux';
 import CheckOutSearchComponent from './CheckOutSearch';
-import {
-  checkOutSearch,
-  clearSearch,
-  updateQueryString,
-} from '../state/actions';
+import { checkOutSearch, updateQueryString } from '../state/actions';
 
 const mapDispatchToProps = dispatch => ({
   checkOutSearch: term => dispatch(checkOutSearch(term)),
   updateQueryString: qs => dispatch(updateQueryString(qs)),
-  clearSearch: () => dispatch(clearSearch()),
 });
 
 const mapStateToProps = state => ({

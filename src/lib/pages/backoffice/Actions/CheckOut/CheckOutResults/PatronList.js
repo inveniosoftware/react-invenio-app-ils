@@ -1,6 +1,7 @@
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { invenioConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';
+import _forOwn from 'lodash/forOwn';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -26,15 +27,18 @@ viewDetails.propTypes = {
 
 export const PatronList = ({ patrons }) => {
   const columns = [
-    {
-      title: invenioConfig.PATRONS.patronUniqueID.label,
-      field: `metadata.${invenioConfig.PATRONS.patronUniqueID.field}`,
-      formatter: viewDetails,
-    },
     { title: 'Name', field: 'metadata.name', formatter: viewDetails },
     { title: 'E-mail', field: 'metadata.email' },
     { title: '#ID', field: 'metadata.id' },
   ];
+
+  _forOwn(invenioConfig.PATRONS.customFields, (value, key) =>
+    columns.push({
+      title: value.label,
+      field: `metadata.${value.field}`,
+      formatter: viewDetails,
+    })
+  );
 
   return (
     <>

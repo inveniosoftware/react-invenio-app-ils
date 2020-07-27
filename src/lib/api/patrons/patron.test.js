@@ -1,6 +1,8 @@
 import { patronApi } from './patron';
 import { invenioConfig } from '@config';
 
+jest.mock('@config');
+
 describe('Patron query builder tests', () => {
   it('should build query string with patron name', () => {
     const query = patronApi
@@ -34,25 +36,27 @@ describe('Patron query builder tests', () => {
     expect(query).toEqual('(email:test*)');
   });
 
-  it('should build query string with configured patron unique ID', () => {
+  it('should build query string with configured custom fields', () => {
+    const mockValue = 'TestID';
     const query = patronApi
       .query()
-      .withPatronUniqueID('UniqueID')
+      .withCustomField(mockValue)
       .qs();
     expect(query).toEqual(
-      `(${invenioConfig.PATRONS.patronUniqueID.field}:UniqueID)`
+      `(${invenioConfig.PATRONS.customFields.mockField.field}:${mockValue})`
     );
   });
 
   it('should build a query with combination of params', () => {
+    const term = 'Vader';
     const query = patronApi
       .query()
-      .withName('Vader', true)
-      .withEmail('Vader', true)
-      .withPatronUniqueID('Vader')
+      .withName(term, true)
+      .withEmail(term, true)
+      .withCustomField(term)
       .qs();
     expect(query).toEqual(
-      `(name:Vader* OR email:Vader* OR ${invenioConfig.PATRONS.patronUniqueID.field}:Vader)`
+      `(name:${term}* OR email:${term}* OR ${invenioConfig.PATRONS.customFields.mockField.field}:${term})`
     );
   });
 

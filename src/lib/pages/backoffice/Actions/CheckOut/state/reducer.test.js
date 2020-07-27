@@ -1,12 +1,12 @@
 import reducer, { initialState } from './reducer';
 import {
-  CLEAR_SEARCH,
   CLEAR_RESULTS,
   QUERY_STRING_UPDATE,
   SEARCH_IS_LOADING,
   SEARCH_HAS_ERROR,
   SEARCH_PATRON_SUCCESS,
   SEARCH_ITEM_SUCCESS,
+  UPDATE_RESULT_MESSAGE,
 } from './actions';
 import _clone from 'lodash/clone';
 
@@ -19,17 +19,6 @@ beforeEach(async () => {
 describe('Check Out reducer', () => {
   it('should have initial state', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
-  });
-
-  it('should clear search query on CLEAR_SEARCH action', () => {
-    inputState.queryString = 'A sample query';
-    const action = {
-      type: CLEAR_SEARCH,
-    };
-    expect(reducer(inputState, action)).toEqual({
-      ...inputState,
-      queryString: '',
-    });
   });
 
   it('should clear search results on CLEAR_RESULTS action', () => {
@@ -52,7 +41,18 @@ describe('Check Out reducer', () => {
     };
     expect(reducer(inputState, action)).toEqual({
       ...inputState,
-      queryString: 'updated query',
+      queryString: action.payload,
+    });
+  });
+
+  it('should updat search query on UPDATE_RESULT_MESSAGE action', () => {
+    const action = {
+      type: UPDATE_RESULT_MESSAGE,
+      payload: 'There are no results',
+    };
+    expect(reducer(inputState, action)).toEqual({
+      ...inputState,
+      resultMessage: action.payload,
     });
   });
 
@@ -100,7 +100,7 @@ describe('Check Out reducer', () => {
     expect(reducer(inputState, action)).toEqual({
       ...inputState,
       isLoading: false,
-      itemList: [{ pid: 'item-pid' }],
+      itemList: action.payload,
       error: {},
     });
   });

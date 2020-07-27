@@ -1,20 +1,16 @@
 import { itemApi } from '@api/items';
 import { patronApi } from '@api/patrons';
-import {
-  addNotification,
-  sendErrorNotification,
-} from '@components/Notifications';
-import { invenioConfig } from '@config';
+import { sendErrorNotification } from '@components/Notifications';
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
 
-export const CLEAR_SEARCH = 'checkOutSearch/CLEAR_SEARCH';
 export const CLEAR_RESULTS = 'checkOutSearch/CLEAR_RESULTS';
 export const QUERY_STRING_UPDATE = 'checkOutSearch/QUERY_STRING_UPDATE';
-export const SEARCH_IS_LOADING = 'checkOutSearch/SEARCH_IS_LOADING';
 export const SEARCH_HAS_ERROR = 'checkOutSearch/SEARCH_HAS_ERROR';
-export const SEARCH_PATRON_SUCCESS = 'checkOutSearch/SEARCH_PATRON_SUCCESS  ';
+export const SEARCH_IS_LOADING = 'checkOutSearch/SEARCH_IS_LOADING';
 export const SEARCH_ITEM_SUCCESS = 'checkOutSearch/SEARCH_ITEM_SUCCESS  ';
+export const SEARCH_PATRON_SUCCESS = 'checkOutSearch/SEARCH_PATRON_SUCCESS  ';
+export const UPDATE_RESULT_MESSAGE = 'checkOutSearch/UPDATE_RESULT_MESSAGE';
 
 export const updateQueryString = queryString => {
   return dispatch => {
@@ -25,10 +21,11 @@ export const updateQueryString = queryString => {
   };
 };
 
-export const clearSearch = () => {
+export const updateResultMessage = message => {
   return dispatch => {
     dispatch({
-      type: CLEAR_SEARCH,
+      type: UPDATE_RESULT_MESSAGE,
+      payload: message,
     });
   };
 };
@@ -45,9 +42,10 @@ const searchPatrons = async (dispatch, term) => {
   const response = await patronApi.list(
     patronApi
       .query()
+      .withPid(term, true)
       .withEmail(term, true)
       .withName(term, true)
-      .withPatronUniqueID(term)
+      .withCustomField(term)
       .qs(),
     false
   );
@@ -75,23 +73,6 @@ const searchItems = async (dispatch, term) => {
   return response.data.hits;
 };
 
-const handleError = (dispatch, term, error) => {
-  if (!error.response) {
-    dispatch(
-      addNotification(
-        'Error',
-        `${term} did not match any patron ${invenioConfig.PATRONS.patronUniqueID.label}, or any physical copy barcode.`,
-        'error'
-      )
-    );
-  }
-  dispatch({
-    type: SEARCH_HAS_ERROR,
-    payload: error,
-  });
-  dispatch(sendErrorNotification('Error'));
-};
-
 export const checkOutSearch = term => {
   return async dispatch => {
     dispatch({
@@ -111,9 +92,18 @@ export const checkOutSearch = term => {
         return goTo(BackOfficeRoutes.itemDetailsFor(items[0].metadata.pid));
       }
 
-      if (patrons.length === 0 && items.length === 0) throw Error('No match');
+      if (items.length === 0 && patrons.length === 0) {
+        dispatch({
+          type: UPDATE_RESULT_MESSAGE,
+          payload: `There is no patron with id/email, or physical copy with barcode matching ${term}`,
+        });
+      }
     } catch (error) {
-      handleError(dispatch, term, error);
+      dispatch({
+        type: SEARCH_HAS_ERROR,
+        payload: error,
+      });
+      dispatch(sendErrorNotification('Error'));
     }
   };
 };
