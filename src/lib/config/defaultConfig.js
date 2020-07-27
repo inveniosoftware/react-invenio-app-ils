@@ -20,6 +20,8 @@ export const APP_CONFIG = {
       name: 'gihub',
       baseUrl: '/api/oauth/login/github',
       icon: 'github',
+      semanticUiColor: 'black',
+      className: '',
     },
   },
   REST_ENDOINTS_BASE_URL: process.env.REACT_APP_INVENIO_REST_ENDPOINTS_BASE_URL,
