@@ -6,7 +6,7 @@ import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Header, Icon, Modal, Segment } from 'semantic-ui-react';
+import { Button, Header, Icon, Modal, Segment, Popup } from 'semantic-ui-react';
 import _isEmpty from 'lodash/isEmpty';
 
 export default class ItemsResultsList extends Component {
@@ -28,7 +28,7 @@ export default class ItemsResultsList extends Component {
     const { patronPid } = this.props;
     const buttonCheckout = (
       <Button
-        content="Checkout"
+        content="Check out"
         onClick={() => {
           const itemPid = {
             type: recordToPidType(row),
@@ -52,56 +52,74 @@ export default class ItemsResultsList extends Component {
       circulationStatus
     ) && invenioConfig.ITEMS.canCirculateStatuses.includes(row.metadata.status)
       ? buttonCheckout
-      : this.renderForceCheckoutModal(row);
+      : this.renderForceCheckoutModal(
+          row,
+          invenioConfig.CIRCULATION.loanActiveStates.includes(circulationStatus)
+        );
   };
 
-  renderForceCheckoutModal = item => {
+  renderForceCheckoutModal = (item, isItemOnLoan) => {
     const { isModalOpen } = this.state;
     const { patronPid } = this.props;
     const itemPid = {
       type: recordToPidType(item),
       value: item.metadata.pid,
     };
+
     return (
-      <Modal
-        trigger={
-          <Button color="yellow" onClick={this.toggleModal}>
-            Force Checkout
-          </Button>
-        }
-        open={isModalOpen}
-        onClose={this.toggleModal}
-        closeIcon
-      >
-        <Header
-          icon="exclamation triangle"
-          content="Force Checkout of Missing Item"
-        />
-        <Modal.Content>
-          <p>
-            You are creating a loan for a missing item, would you like to
-            continue?
-          </p>
-        </Modal.Content>
-        <Modal.Actions>
-          <Button color="red" onClick={this.toggleModal}>
-            <Icon name="remove" /> No
-          </Button>
-          <Button
-            color="green"
-            onClick={() =>
-              this.onClickCheckoutHandler(
-                item.metadata.document_pid,
-                itemPid,
-                patronPid,
-                true
-              )
+      <>
+        <Modal
+          trigger={
+            <Button
+              color="yellow"
+              onClick={this.toggleModal}
+              disabled={isItemOnLoan}
+            >
+              Force Checkout
+            </Button>
+          }
+          open={isModalOpen}
+          onClose={this.toggleModal}
+          closeIcon
+        >
+          <Header
+            icon="exclamation triangle"
+            content="Force Check out of Missing Item"
+          />
+          <Modal.Content>
+            <p>
+              You are creating a loan for a physical copy that cannot circulate.
+              Are you sure?
+            </p>
+          </Modal.Content>
+          <Modal.Actions>
+            <Button color="red" onClick={this.toggleModal}>
+              <Icon name="remove" /> No
+            </Button>
+            <Button
+              color="green"
+              onClick={() =>
+                this.onClickCheckoutHandler(
+                  item.metadata.document_pid,
+                  itemPid,
+                  patronPid,
+                  true
+                )
+              }
+            >
+              <Icon name="checkmark" /> Yes
+            </Button>
+          </Modal.Actions>
+        </Modal>
+        {isItemOnLoan && (
+          <Popup
+            content="Physical copy is already on loan. To check out this copy, first cancel the current loan."
+            trigger={
+              <Icon name="question circle" color="yellow" size="large" />
             }
-          >
-            <Icon name="checkmark" /> Yes
-          </Button>
-        </Modal.Actions>
-      </Modal>
+          />
+        )}
+      </>
     );
   };
 
