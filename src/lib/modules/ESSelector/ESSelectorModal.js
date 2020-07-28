@@ -31,7 +31,7 @@ export default class ESSelectorModal extends Component {
       saveButtonContent,
       trigger,
     } = this.props;
-    const { visible } = this.state;
+    const { visible, selections } = this.state;
     const modalTrigger = React.cloneElement(trigger, {
       onClick: this.toggle,
     });
@@ -60,6 +60,7 @@ export default class ESSelectorModal extends Component {
           </Button>
           <Button
             positive
+            disabled={!selections || selections.length === 0}
             icon="checkmark"
             labelPosition="left"
             content={saveButtonContent}
@@ -76,6 +77,7 @@ ESSelectorModal.propTypes = {
   title: PropTypes.string,
   size: PropTypes.string,
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  isSelectionRequired: PropTypes.bool,
   initialSelections: PropTypes.array,
   onSelectResult: PropTypes.func,
   onSave: PropTypes.func,
@@ -89,6 +91,7 @@ ESSelectorModal.defaultProps = {
   title: '',
   selectorComponent: ESSelector,
   content: null,
+  isSelectionRequired: true,
   initialSelections: [],
   onSelectResult: null,
   onSave: null,

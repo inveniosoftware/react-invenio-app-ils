@@ -19,7 +19,6 @@ export const ILL_BORROWING_REQUESTS_STATUSES = [
 
 export const ITEM_MEDIUMS = [
   { value: 'NOT_SPECIFIED', text: 'Not specified' },
-  { value: 'ONLINE', text: 'Online' },
   { value: 'PAPER', text: 'Paper' },
   { value: 'CDROM', text: 'CD-ROM' },
   { value: 'DVD', text: 'DVD' },

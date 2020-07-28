@@ -86,7 +86,7 @@ export default class LoanActions extends Component {
         <InfoMessage
           fluid
           header="No actions available."
-          content={"The loan can't be changed in it's current state."}
+          content={"The loan can't be changed in its current state."}
         />
       );
     }

@@ -12,7 +12,7 @@ export class DocumentInfo extends Component {
       return (
         <Table.Row>
           <Table.Cell>Languages</Table.Cell>
-          <Table.Cell>{metadata.languages.map(lang => lang + ', ')}</Table.Cell>
+          <Table.Cell>{metadata.languages.join(', ')}</Table.Cell>
         </Table.Row>
       );
     }
