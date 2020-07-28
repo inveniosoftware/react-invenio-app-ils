@@ -52,7 +52,7 @@ export const defaultConfig = {
         },
         {
           title: 'Vendor',
-          field: 'vendor.name.keyword',
+          field: 'vendor.name',
           aggName: 'vendor',
         },
         {
@@ -130,7 +130,7 @@ export const defaultConfig = {
           },
           {
             default_order: 'asc',
-            field: 'name.keyword',
+            field: 'name',
             order: 2,
             title: 'Name',
           },
@@ -243,6 +243,12 @@ export const defaultConfig = {
             order: 5,
             title: 'Publication year',
           },
+          {
+            default_order: 'asc',
+            field: 'title',
+            order: 6,
+            title: 'Title',
+          },
         ],
       },
       sortOrder: ['asc', 'desc'],
@@ -316,6 +322,12 @@ export const defaultConfig = {
             title: 'Best match',
             default_order: 'asc',
           },
+          {
+            field: 'title',
+            order: 3,
+            title: 'Title',
+            default_order: 'asc',
+          },
         ],
       },
       sortOrder: ['asc', 'desc'],
@@ -340,7 +352,7 @@ export const defaultConfig = {
         },
         {
           title: 'Library',
-          field: 'library.name.keyword',
+          field: 'library.name',
           aggName: 'library',
         },
         {
@@ -412,7 +424,7 @@ export const defaultConfig = {
           },
           {
             default_order: 'asc',
-            field: 'name.keyword',
+            field: 'name',
             order: 2,
             title: 'Name',
           },
@@ -484,6 +496,12 @@ export const defaultConfig = {
             field: 'bestmatch',
             order: 2,
             title: 'Best match',
+          },
+          {
+            default_order: 'asc',
+            field: 'title',
+            order: 3,
+            title: 'Title',
           },
         ],
       },
@@ -636,6 +654,12 @@ export const defaultConfig = {
             field: 'bestmatch',
             order: 2,
             title: 'Best match',
+            default_order: 'asc',
+          },
+          {
+            field: 'title',
+            order: 3,
+            title: 'Title',
             default_order: 'asc',
           },
         ],
