@@ -1,5 +1,16 @@
 # Changes
 
+Version 1.0.0-alpha.9 (released 2020-07-28)
+
+- fix document request config
+- display loan request to item details page
+- display document subtitle
+- add loading state to loan checkout
+- add states to loan requests
+- add identifiers to e-items
+- add checkout page to backoffice
+- add npm start:secure for development with https
+
 Version 1.0.0-alpha.8 (released 2020-07-21)
 
 - frontsite document details bugfix
