@@ -1,39 +1,42 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Container, Statistic } from 'semantic-ui-react';
+import { Container, Loader, Statistic } from 'semantic-ui-react';
 
 export default class PatronOverview extends Component {
+  renderStatistic(stat, quantifiableLabel) {
+    const {
+      isLoading,
+      data: { total },
+    } = stat;
+    return (
+      <Statistic>
+        <Statistic.Value>
+          {isLoading ? <Loader active inline /> : total}
+        </Statistic.Value>
+        <Statistic.Label>
+          {isLoading ? <>&nbsp;</> : quantifiableLabel(total !== 1)}
+        </Statistic.Label>
+      </Statistic>
+    );
+  }
+
   render() {
     const { currentLoans, loanRequests, documentRequests } = this.props;
-    const loansCount = currentLoans.data.total || 0;
-    const loansTextPlural = loansCount !== 1;
-
-    const loanRequestsCount = loanRequests.data.total || 0;
-    const loanRequestsTextPlural = loanRequestsCount !== 1;
-
-    const docRequestsCount = documentRequests.data.total || 0;
-    const docRequestsTextPlural = docRequestsCount !== 1;
     return (
       <Container className="spaced">
         <Statistic.Group widths="three" size="small">
-          <Statistic>
-            <Statistic.Value>{loansCount}</Statistic.Value>
-            <Statistic.Label>
-              ongoing loan{loansTextPlural && 's'}
-            </Statistic.Label>
-          </Statistic>
-          <Statistic>
-            <Statistic.Value>{loanRequestsCount}</Statistic.Value>
-            <Statistic.Label>
-              loan request{loanRequestsTextPlural && 's'}
-            </Statistic.Label>
-          </Statistic>
-          <Statistic>
-            <Statistic.Value>{docRequestsCount}</Statistic.Value>
-            <Statistic.Label>
-              Request{docRequestsTextPlural && 's'} for new literature
-            </Statistic.Label>
-          </Statistic>
+          {this.renderStatistic(
+            currentLoans,
+            isPlural => `ongoing loan${isPlural ? 's' : ''}`
+          )}
+          {this.renderStatistic(
+            loanRequests,
+            isPlural => `loan request${isPlural ? 's' : ''}`
+          )}
+          {this.renderStatistic(
+            documentRequests,
+            isPlural => `Request${isPlural ? 's' : ''} for new literature`
+          )}
         </Statistic.Group>
       </Container>
     );
