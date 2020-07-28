@@ -18,6 +18,7 @@ export default class ItemsSearch extends Component {
       clearSearchBar,
     } = this.props;
     queryString = queryString || propsQueryString;
+    if (queryString.trim() === '') return;
     await checkin(queryString);
     clearSearchBar();
   };

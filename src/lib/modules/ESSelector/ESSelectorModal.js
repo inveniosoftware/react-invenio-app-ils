@@ -4,14 +4,21 @@ import { Button, Modal } from 'semantic-ui-react';
 import ESSelector from './ESSelector';
 
 export default class ESSelectorModal extends Component {
-  state = {
-    selections: [],
-    visible: false,
-  };
+  constructor(props) {
+    super(props);
+    const { modalOpened } = this.props;
+    this.state = {
+      selections: [],
+      visible: modalOpened,
+    };
+  }
 
   onSelectionsUpdate = selections => this.setState({ selections });
 
-  toggle = () => this.setState({ visible: !this.state.visible });
+  toggle = () => {
+    const { visible } = this.state;
+    this.setState({ visible: !visible });
+  };
 
   save = () => {
     const { onSave } = this.props;
@@ -79,6 +86,7 @@ ESSelectorModal.propTypes = {
   initialSelections: PropTypes.array,
   onSelectResult: PropTypes.func,
   onSave: PropTypes.func,
+  modalOpened: PropTypes.bool,
   selectorComponent: PropTypes.elementType,
   saveButtonContent: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
@@ -88,6 +96,7 @@ ESSelectorModal.defaultProps = {
   saveButtonContent: 'Save',
   title: '',
   selectorComponent: ESSelector,
+  modalOpened: false,
   content: null,
   initialSelections: [],
   onSelectResult: null,

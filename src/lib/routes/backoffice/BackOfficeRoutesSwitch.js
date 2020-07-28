@@ -5,6 +5,7 @@ import { BackOfficeRoutes, AcquisitionRoutes, ILLRoutes } from '@routes/urls';
 import { BorrowingRequestDetails } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails';
 import { BorrowingRequestEditor } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestEditor/BorrowingRequestEditor';
 import { BorrowingRequestSearch } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestSearch/BorrowingRequestSearch';
+import { CheckOut } from '@pages/backoffice/Actions/CheckOut/CheckOut';
 import { DocumentDetails } from '@pages/backoffice/Document/DocumentDetails';
 import { DocumentEditor } from '@pages/backoffice/Document/DocumentForms';
 import { DocumentSearch } from '@pages/backoffice/Document/DocumentSearch';
@@ -252,6 +253,7 @@ export default class BackOfficeRoutesSwitch extends Component {
         />
         <Route exact path={BackOfficeRoutes.stats.home} component={Stats} />
         <Route exact path={BackOfficeRoutes.checkIn} component={CheckIn} />
+        <Route exact path={BackOfficeRoutes.checkOut} component={CheckOut} />
         <Route>
           <NotFound />
         </Route>

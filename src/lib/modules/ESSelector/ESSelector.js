@@ -134,6 +134,7 @@ class ESSelector extends Component {
       minCharacters,
       serializer,
       onSearchChange,
+      onResults,
     } = this.props;
     const { selections } = this.state;
     return (
@@ -148,6 +149,7 @@ class ESSelector extends Component {
           minCharacters={minCharacters}
           placeholder={placeholder}
           serializer={serializer}
+          onResults={onResults}
           onSelect={this.onSelectResult}
           onSearchChange={onSearchChange}
           ref={element => (this.searchRef = element)}
@@ -173,6 +175,7 @@ ESSelector.propTypes = {
   placeholder: PropTypes.string,
   query: PropTypes.func.isRequired,
   onSearchChange: PropTypes.func,
+  onResults: PropTypes.func,
   onSelectResult: PropTypes.func,
   onSelectionsUpdate: PropTypes.func,
   onRemoveSelection: PropTypes.func,
@@ -181,8 +184,8 @@ ESSelector.propTypes = {
   serializer: PropTypes.func,
   id: PropTypes.string,
   name: PropTypes.string,
-  selectionInfoText: PropTypes.func,
-  emptySelectionInfoText: PropTypes.func,
+  selectionInfoText: PropTypes.string,
+  emptySelectionInfoText: PropTypes.string,
 };
 
 ESSelector.defaultProps = {
@@ -192,6 +195,7 @@ ESSelector.defaultProps = {
   onSelectionsUpdate: () => {},
   emptySelectionInfoText: null,
   selectionInfoText: null,
+  onResults: null,
 };
 
 export default Overridable.component('ESSelector', ESSelector);

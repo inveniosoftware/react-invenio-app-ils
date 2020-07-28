@@ -59,6 +59,7 @@ import {
   seriesRelationsReducer,
 } from '@pages/backoffice/Series/SeriesDetails/reducer';
 import { itemsCheckInReducer } from '@pages/backoffice/Actions/CheckIn/reducer';
+import { checkOutReducer } from '@pages/backoffice/Actions/CheckOut/reducer';
 import { mostLoanedDocumentsReducer } from '@pages/backoffice/Stats/reducer';
 import { loanRequestFormReducer } from '@pages/frontsite/Documents/DocumentDetails/LoanRequestForm/reducer';
 import { documentDetailsFrontReducer } from '@pages/frontsite/Documents/DocumentDetails/reducer';
@@ -130,6 +131,7 @@ const rootReducer = combineReducers({
   statsMostLoanedDocuments: mostLoanedDocumentsReducer,
   borrowingRequestLoanExtension: borrowingRequestLoanExtensionReducer,
   itemsCheckIn: itemsCheckInReducer,
+  checkOut: checkOutReducer,
 });
 
 const composeEnhancers = composeWithDevTools({

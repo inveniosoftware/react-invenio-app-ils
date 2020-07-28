@@ -649,6 +649,7 @@ export const defaultConfig = {
     },
   },
   PATRONS: {
+    customFields: {},
     search: {
       filters: [],
       sortBy: {

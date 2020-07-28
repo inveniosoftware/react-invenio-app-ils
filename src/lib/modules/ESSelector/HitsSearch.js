@@ -38,6 +38,12 @@ export class HitsSearch extends Component {
     }
   }
 
+  componentDidMount() {
+    if (this.searchInputRef) {
+      this.searchInputRef.focus();
+    }
+  }
+
   clear = () => this.setState(initialState);
 
   onSelectResult = (event, { result }) => {
@@ -119,12 +125,6 @@ export class HitsSearch extends Component {
     this.setState({ isLoading: true, value: value, query: value, open: true });
     this.search(value);
   };
-
-  componentDidMount() {
-    if (this.searchInputRef) {
-      this.searchInputRef.focus();
-    }
-  }
 
   renderResults = ({ id, title, description, extra, ...props }) => {
     const { resultRenderer } = this.props;

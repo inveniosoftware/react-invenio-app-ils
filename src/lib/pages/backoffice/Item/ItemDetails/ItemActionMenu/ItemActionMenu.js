@@ -17,8 +17,33 @@ import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Divider } from 'semantic-ui-react';
+import _first from 'lodash/first';
+import _get from 'lodash/get';
 
 export default class ItemActionMenu extends Component {
+  checkOutDisabled() {
+    const {
+      item: { metadata },
+    } = this.props;
+    return (
+      invenioConfig.CIRCULATION.loanActiveStates.includes(
+        metadata.circulation.state
+      ) || !invenioConfig.ITEMS.canCirculateStatuses.includes(metadata.status)
+    );
+  }
+
+  hasCheckOutItem() {
+    const {
+      checkOutitemList,
+      item: { metadata },
+    } = this.props;
+    const firstItem = _first(checkOutitemList);
+    return (
+      !this.checkOutDisabled() &&
+      _get(firstItem, 'metadata.barcode') === metadata.barcode
+    );
+  }
+
   handleOnRefClick(loanPid) {
     goTo(BackOfficeRoutes.loanDetailsFor(loanPid));
   }
@@ -41,9 +66,6 @@ export default class ItemActionMenu extends Component {
   }
 
   checkoutItemButton = () => {
-    const {
-      item: { metadata },
-    } = this.props;
     return (
       <Button
         positive
@@ -51,12 +73,7 @@ export default class ItemActionMenu extends Component {
         fluid
         labelPosition="left"
         size="small"
-        disabled={
-          invenioConfig.CIRCULATION.loanActiveStates.includes(
-            metadata.circulation.state
-          ) ||
-          !invenioConfig.ITEMS.canCirculateStatuses.includes(metadata.status)
-        }
+        disabled={this.checkOutDisabled()}
       >
         <LoanIcon />
         Checkout this copy
@@ -90,8 +107,14 @@ export default class ItemActionMenu extends Component {
     checkoutItem(documentPid, itemPid, patronPid);
   };
 
+  onResults = results => {
+    if (!this.hasCheckOutItem() || results.length !== 1) return;
+    this.checkoutItem(results);
+  };
+
   render() {
     const { item, deleteItem, offset } = this.props;
+    const hasCheckOutItem = this.hasCheckOutItem();
 
     return (
       <div className="bo-action-menu">
@@ -109,11 +132,15 @@ export default class ItemActionMenu extends Component {
         />
         <Divider horizontal> Circulation </Divider>
         <ESSelectorModal
+          modalOpened={hasCheckOutItem}
+          autoSelect={hasCheckOutItem}
+          minCharacters={hasCheckOutItem ? 1 : 3}
+          onResults={this.onResults}
           trigger={this.checkoutItemButton()}
           query={patronApi.list}
           serializer={serializePatron}
           title={`You are about to checkout the physical copy with barcode ${item.metadata.barcode}.`}
-          content="Search for the patron to whom the loan should be created:"
+          content="Insert patron id/email to create a loan:"
           selectionInfoText="The loan will be created for the following patron:"
           emptySelectionInfoText="No patron selected yet"
           onSave={this.checkoutItem}
@@ -136,8 +163,10 @@ ItemActionMenu.propTypes = {
   offset: PropTypes.number,
   deleteItem: PropTypes.func.isRequired,
   checkoutItem: PropTypes.func.isRequired,
+  checkOutitemList: PropTypes.arrayOf(PropTypes.object),
 };
 
 ItemActionMenu.defaultProps = {
   offset: 0,
+  checkOutitemList: [],
 };

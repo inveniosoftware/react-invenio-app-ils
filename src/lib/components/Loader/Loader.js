@@ -5,13 +5,14 @@ import PropTypes from 'prop-types';
 
 class Loader extends Component {
   render() {
-    const { isLoading } = this.props;
+    const { isLoading, children } = this.props;
     return (
       <Overridable id="Loader.layout" {...this.props}>
         {isLoading ? (
           <UILoader active size="huge" inline="centered" />
         ) : (
-          <>{this.props.children}</>
+          // eslint-disable-next-line react/jsx-no-useless-fragment
+          <>{children}</>
         )}
       </Overridable>
     );
