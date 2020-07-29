@@ -7,6 +7,7 @@ import { invenioConfig } from '@config';
 import { DateTime } from 'luxon';
 import { toShortDate } from '@api/date';
 import _isEmpty from 'lodash/isEmpty';
+import { LoanInformationBullets } from '../DocumentCirculation/LoanInformationBullets';
 
 class LoanRequestForm extends Component {
   constructor(props) {
@@ -110,28 +111,42 @@ class LoanRequestForm extends Component {
   };
 
   render() {
-    const { error, hasError, isSuccessful } = this.props;
+    const { document, lastLoan, error, hasError, isSuccessful } = this.props;
     return (
       <Form>
-        {this.renderDeliveryMethodSelector()}
-        {this.renderOptionalRequestExpirationDate()}
-        {hasError && (
-          <Message
-            negative
-            header="Error"
-            content={error.response.data.message}
-          />
-        )}
         {isSuccessful && (
           <Message
             positive
-            header="Success"
-            content="You have requested to loan this book."
+            icon="check"
+            header="Request created"
+            content="Your request to loan this literature was created."
           />
         )}
-        <Form.Button type="button" primary fluid onClick={this.handleSubmit}>
-          Request
-        </Form.Button>
+        {!isSuccessful && (
+          <>
+            <LoanInformationBullets
+              circulation={document.metadata.circulation}
+              lastLoan={lastLoan}
+            />
+            {this.renderDeliveryMethodSelector()}
+            {this.renderOptionalRequestExpirationDate()}
+            {hasError && (
+              <Message
+                negative
+                header="Error"
+                content={error.response.data.message}
+              />
+            )}
+            <Form.Button
+              type="button"
+              primary
+              fluid
+              onClick={this.handleSubmit}
+            >
+              Request
+            </Form.Button>
+          </>
+        )}
       </Form>
     );
   }
@@ -141,10 +156,15 @@ LoanRequestForm.propTypes = {
   requestLoanForDocument: PropTypes.func.isRequired,
   initializeState: PropTypes.func.isRequired,
   document: PropTypes.object.isRequired,
+  lastLoan: PropTypes.string,
   /* redux */
   error: PropTypes.object.isRequired,
   hasError: PropTypes.bool.isRequired,
   isSuccessful: PropTypes.bool.isRequired,
+};
+
+LoanRequestForm.defaultProps = {
+  lastLoan: null,
 };
 
 export default Overridable.component('LoanRequestForm', LoanRequestForm);
