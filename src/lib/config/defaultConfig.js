@@ -4,6 +4,7 @@ import {
   ILL_BORROWING_REQUESTS_STATUSES,
   ITEM_MEDIUMS,
   DOCUMENT_RELATIONS,
+  DOCUMENT_TYPES,
 } from './common';
 
 export const APP_CONFIG = {
@@ -173,18 +174,14 @@ export const defaultConfig = {
       fields: {},
     },
     frontsiteMaxLinks: 5, // maximum number of links to show on details page
+    types: DOCUMENT_TYPES,
     search: {
       filters: [
         {
           title: 'Literature types',
           field: 'document_type',
           aggName: 'doctype',
-          labels: [
-            { value: 'BOOK', text: 'Book' },
-            { value: 'PROCEEDING', text: 'Proceeding' },
-            { value: 'STANDARD', text: 'Standard' },
-            { value: 'PERIODICAL_ISSUE', text: 'Periodical issue' },
-          ],
+          labels: DOCUMENT_TYPES,
         },
         {
           title: 'Availability',

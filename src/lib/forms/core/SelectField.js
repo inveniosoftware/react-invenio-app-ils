@@ -119,7 +119,7 @@ SelectField.propTypes = {
   multiple: PropTypes.bool,
   optimized: PropTypes.bool,
   required: PropTypes.bool,
-  options: PropTypes.array,
+  options: PropTypes.array.isRequired,
   label: PropTypes.string,
 };
 
