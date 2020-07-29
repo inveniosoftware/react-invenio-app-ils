@@ -2,8 +2,9 @@
 Table Overrides - REACT-INVENIO-APP-ILS
 *******************************/
 
-.bo-relations-tab, .bo-metadata-tab, .bo-metadata-segment {
-
+.bo-relations-tab,
+.bo-metadata-tab,
+.bo-metadata-segment {
   .ui.table {
     width: calc(~'100% + 2em');
     margin-left: -1em;
@@ -20,28 +21,28 @@ Table Overrides - REACT-INVENIO-APP-ILS
         border-bottom: 1px solid @internalBorderColor;
 
         .pagination {
-          margin-top: .5em;
-          margin-bottom: .5em;
+          margin-top: 0.5em;
+          margin-bottom: 0.5em;
         }
       }
     }
   }
 }
 
-.bo-metadata-segment{
-  &.no-padding{
+.bo-metadata-segment {
+  &.no-padding {
     padding-top: 0;
     padding-bottom: 0;
   }
 }
 
-
-@{fs-parent-selector}, @{bo-parent-selector} {
+@{fs-parent-selector},
+@{bo-parent-selector} {
   .ui.table {
     border: 0;
 
-    .results-table-compact-summary{
-     margin: 0.5em;
+    .results-table-compact-summary {
+      margin: 0.5em;
     }
 
     tr {
@@ -53,7 +54,6 @@ Table Overrides - REACT-INVENIO-APP-ILS
     &.definition {
       td:nth-child(2) {
         border-left: 0;
-
       }
 
       tr {
@@ -65,12 +65,9 @@ Table Overrides - REACT-INVENIO-APP-ILS
   }
 }
 
-
 @media only screen and (max-width: @largestMobileScreen) {
-
-  table {
+  table:not(.ui.popup.transition) {
     border: 0;
-
 
     & thead {
       display: none;
@@ -79,13 +76,13 @@ Table Overrides - REACT-INVENIO-APP-ILS
     & tr {
       border-bottom: 1px solid @fsBorderColor;
       display: block;
-      margin-bottom: .625em;
+      margin-bottom: 0.625em;
     }
 
     & td {
       border-bottom: 1px solid @fsBorderColor;
       display: block;
-      font-size: .8em;
+      font-size: 0.8em;
       text-align: right;
 
       &:before {
@@ -96,11 +93,11 @@ Table Overrides - REACT-INVENIO-APP-ILS
         margin-right: 0.5em;
       }
 
-      &[data-label="Actions"]:before {
+      &[data-label='Actions']:before {
         content: ' ';
       }
 
-      &[data-label="Actions"] {
+      &[data-label='Actions'] {
         text-align: center !important;
       }
 
