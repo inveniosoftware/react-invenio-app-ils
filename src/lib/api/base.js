@@ -10,10 +10,12 @@ const apiConfig = {
   xsrfHeaderName: 'HTTP_X_CSRFTOKEN',
 };
 
-const URLS_NOT_TO_REDIRECT_IF_UNAUTHORIZED = ['/me'];
+const URLS_NOT_TO_REDIRECT_IF_UNAUTHORIZED = ['/me', '/me/loans'];
 
 const urlShouldNotRedirect = url => {
-  return URLS_NOT_TO_REDIRECT_IF_UNAUTHORIZED.some(val => url.endsWith(val));
+  return URLS_NOT_TO_REDIRECT_IF_UNAUTHORIZED.some(val =>
+    url.split('?', 1)[0].endsWith(val)
+  );
 };
 
 const http = axios.create(apiConfig);

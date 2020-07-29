@@ -2,32 +2,102 @@ import { RedirectToLoginButton } from '@authentication/components/RedirectToLogi
 import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
 import { ILSImagePlaceholder } from '@components/ILSPlaceholder';
 import Overridable from 'react-overridable';
-import { LoanAvailability } from './LoanAvailability';
 import { DocumentEItems } from './DocumentEItems';
-
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Header, List, Segment } from 'semantic-ui-react';
+import { Button, Header, Segment } from 'semantic-ui-react';
 import { LoanRequestForm } from '../LoanRequestForm';
-import _isEmpty from 'lodash/isEmpty';
+import { InfoMessage } from '@components/InfoMessage';
+import { FrontSiteRoutes } from '@routes/urls';
+import { Link } from 'react-router-dom';
+import { LoanInformationBullets } from './LoanInformationBullets';
 
 class DocumentCirculation extends Component {
+  componentDidMount() {
+    const {
+      fetchLoans,
+      documentDetails: { documentPid },
+    } = this.props;
+    fetchLoans(documentPid);
+  }
+
   loginToLoan = () => {
-    return <RedirectToLoginButton content="Sign in to loan" fluid positive />;
+    const {
+      documentDetails: {
+        metadata: { circulation },
+      },
+    } = this.props;
+    return (
+      <>
+        <LoanInformationBullets circulation={circulation} />
+        <RedirectToLoginButton content="Sign in to loan" fluid positive />
+      </>
+    );
   };
 
   renderLoanRequestForm = () => {
-    const { documentDetails } = this.props;
-    return <LoanRequestForm document={documentDetails} />;
+    const {
+      documentDetails,
+      loans: { last_loan: lastLoan },
+    } = this.props;
+    return <LoanRequestForm document={documentDetails} lastLoan={lastLoan} />;
+  };
+
+  myLoansButton = () => {
+    return (
+      <Link to={FrontSiteRoutes.patronProfile}>
+        <Button fluid>View your loans</Button>
+      </Link>
+    );
+  };
+
+  renderRequestable = () => {
+    return (
+      <AuthenticationGuard
+        authorizedComponent={this.renderLoanRequestForm}
+        loginComponent={this.loginToLoan}
+      />
+    );
+  };
+
+  renderPendingRequest = () => {
+    return (
+      <>
+        <InfoMessage message="You have requested a loan for this literature." />
+        {this.myLoansButton()}
+      </>
+    );
+  };
+
+  renderOnLoan = () => {
+    const message = (
+      <>
+        You have an ongoing loan for this literature. You may request an
+        extension on <Link to={FrontSiteRoutes.patronProfile}>Your loans</Link>{' '}
+        page.
+      </>
+    );
+    return (
+      <>
+        <InfoMessage message={message} />
+        {this.myLoansButton()}
+      </>
+    );
   };
 
   render() {
     const {
       documentDetails,
       isLoading,
+      loans,
       loanRequestIsLoading,
       showTab,
     } = this.props;
+    const {
+      has_active_loan: userHasActiveLoan,
+      is_requested: userHasPendingRequest,
+    } = loans;
+    const hasNeither = !userHasPendingRequest && !userHasActiveLoan;
     return (
       <Segment
         loading={loanRequestIsLoading}
@@ -39,17 +109,11 @@ class DocumentCirculation extends Component {
             showTab={showTab}
           />
           <Header as="h3" content="Request loan" />
-          <List>
-            {!_isEmpty(documentDetails.metadata.circulation) && (
-              <LoanAvailability
-                circulation={documentDetails.metadata.circulation}
-              />
-            )}
-          </List>
-          <AuthenticationGuard
-            authorizedComponent={this.renderLoanRequestForm}
-            loginComponent={this.loginToLoan}
-          />
+          {hasNeither
+            ? this.renderRequestable()
+            : userHasPendingRequest
+            ? this.renderPendingRequest()
+            : this.renderOnLoan()}
         </ILSImagePlaceholder>
       </Segment>
     );
@@ -60,6 +124,8 @@ DocumentCirculation.propTypes = {
   documentDetails: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   showTab: PropTypes.func.isRequired,
+  fetchLoans: PropTypes.func.isRequired,
+  loans: PropTypes.object.isRequired,
   loanRequestIsLoading: PropTypes.bool,
 };
 

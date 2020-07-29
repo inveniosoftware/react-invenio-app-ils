@@ -1,7 +1,6 @@
 import { http } from '@api/base';
 import { invenioConfig } from '@config';
 import _get from 'lodash/get';
-import _has from 'lodash/has';
 import { sessionManager } from './SessionManager';
 
 class AuthenticationService {
@@ -22,14 +21,6 @@ class AuthenticationService {
   logout = () => {
     const logoutUrl = `${invenioConfig.APP.REST_ENDOINTS_BASE_URL}/logout`;
     return http.post(logoutUrl);
-  };
-
-  fetchProfile = async () => {
-    const res = await http.get('/me');
-    if (_has(res, 'data.id')) {
-      res.data.id = res.data.id.toString();
-    }
-    return res;
   };
 
   confirmUser = token => {

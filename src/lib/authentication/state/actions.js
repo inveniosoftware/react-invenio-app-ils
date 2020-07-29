@@ -1,4 +1,5 @@
 import { authenticationService } from '@authentication/services/AuthenticationService';
+import { userApi } from '@api/users/user';
 import { sessionManager } from '@authentication/services/SessionManager';
 import { goTo } from '@history';
 import { FrontSiteRoutes } from '@routes/urls';
@@ -16,7 +17,7 @@ export const fetchUserProfile = () => {
       type: IS_LOADING,
     });
     try {
-      const response = await authenticationService.fetchProfile();
+      const response = await userApi.get();
       sessionManager.setUser(response.data);
       dispatch({
         type: SUCCESS,

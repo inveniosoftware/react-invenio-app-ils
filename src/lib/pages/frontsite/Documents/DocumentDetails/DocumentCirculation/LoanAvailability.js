@@ -1,4 +1,4 @@
-import { toShortDate } from '@api/date';
+import { fromISO } from '@api/date';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { List, Popup } from 'semantic-ui-react';
@@ -11,7 +11,7 @@ export class LoanAvailability extends Component {
         <List.Item>
           <Popup
             content="Calculated based on current library stock"
-            trigger={<List.Icon name="info" />}
+            trigger={<List.Icon name="info circle" />}
           />
           <List.Content
             className={
@@ -27,10 +27,15 @@ export class LoanAvailability extends Component {
     } else if (circulation.next_available_date) {
       return (
         <List.Item>
-          <List.Icon name="info" />
+          <List.Icon name="info circle" />
           <List.Content>
             Available for loan from{' '}
-            <b>{toShortDate(circulation.next_available_date)}</b>
+            <b>
+              {fromISO(circulation.next_available_date).toLocaleString({
+                month: 'long',
+                day: 'numeric',
+              })}
+            </b>
           </List.Content>
         </List.Item>
       );

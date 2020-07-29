@@ -157,7 +157,15 @@ class DocumentDetails extends Component {
   };
 
   render() {
-    const { isLoading, hasError, error, documentDetails } = this.props;
+    const {
+      isLoading,
+      hasError,
+      error,
+      documentDetails,
+      match: {
+        params: { documentPid },
+      },
+    } = this.props;
     const { searchQuery } = this.state;
     if (hasError && error.response.status === 404) {
       return <NotFound />;
@@ -186,7 +194,7 @@ class DocumentDetails extends Component {
           {...{
             error,
             isLoading,
-            documentDetails,
+            documentDetails: { ...documentDetails, documentPid },
           }}
         />
       </>

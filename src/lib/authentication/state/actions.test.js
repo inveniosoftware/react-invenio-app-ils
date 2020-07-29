@@ -1,4 +1,5 @@
 import { authenticationService } from '@authentication/services/AuthenticationService';
+import { userApi } from '@api/users/user';
 import { sessionManager } from '@authentication/services/SessionManager';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -25,7 +26,7 @@ const mockResponse = {
 const mockFetchProfile = jest.fn();
 const mockConfirmUser = jest.fn();
 authenticationService.confirmUser = mockConfirmUser;
-authenticationService.fetchProfile = mockFetchProfile;
+userApi.get = mockFetchProfile;
 
 const mockSessionSetUser = jest.fn();
 const mockSessionSetAnonymous = jest.fn();

@@ -50,6 +50,7 @@ describe('DocumentMetadata tests', () => {
     component = mount(
       <LoanRequestForm
         document={document}
+        lastLoan={null}
         requestLoanForDocument={mockRequestLoanForDocument}
         initializeState={() => {}}
         error={{}}
@@ -62,8 +63,8 @@ describe('DocumentMetadata tests', () => {
 
     const fields = component
       .find('LoanRequestForm')
-      .find('DateInput')
-      .filterWhere(element => element.prop('data-test') === '');
+      .find('Message')
+      .filterWhere(element => element.prop('positive'));
     expect(fields).toHaveLength(1);
   });
 });
