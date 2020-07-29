@@ -36,3 +36,10 @@ export const DOCUMENT_RELATIONS = [
   { value: 'previous', text: 'By predecessors' },
   { value: 'next', text: 'By continuation' },
 ];
+
+export const DOCUMENT_TYPES = [
+  { value: 'BOOK', text: 'Book' },
+  { value: 'PROCEEDING', text: 'Proceeding' },
+  { value: 'STANDARD', text: 'Standard' },
+  { value: 'PERIODICAL_ISSUE', text: 'Periodical issue' },
+];
