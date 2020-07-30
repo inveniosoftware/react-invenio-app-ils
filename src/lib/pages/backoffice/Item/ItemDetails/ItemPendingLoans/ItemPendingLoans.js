@@ -78,7 +78,7 @@ export default class ItemPendingLoans extends Component {
     return (
       <Button
         size="mini"
-        color="teal"
+        color="blue"
         loading={isPendingLoansLoading}
         disabled={
           invenioConfig.CIRCULATION.loanActiveStates.includes(
