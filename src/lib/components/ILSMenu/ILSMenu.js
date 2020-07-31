@@ -93,14 +93,16 @@ class ILSMenu extends Component {
               <Container>
                 <Menu.Item header>
                   <Overridable id="ILSMenu.Logo">
-                    <Link to="/">
-                      <Image
-                        src={invenioConfig.APP.LOGO_SRC}
-                        size="tiny"
-                        centered
-                        alt="Logo"
-                      />
-                    </Link>
+                    {invenioConfig.APP.LOGO_SRC && (
+                      <Link to="/">
+                        <Image
+                          src={invenioConfig.APP.LOGO_SRC}
+                          size="tiny"
+                          centered
+                          alt="Logo"
+                        />
+                      </Link>
+                    )}
                   </Overridable>
                 </Menu.Item>
                 <Menu.Menu position="right">
@@ -122,14 +124,16 @@ class ILSMenu extends Component {
               <Container>
                 <Menu.Item header>
                   <Overridable id="ILSMenu.LogoMobile">
-                    <Link to="/">
-                      <Image
-                        src={invenioConfig.APP.LOGO_SRC}
-                        size="tiny"
-                        centered
-                        alt="Logo"
-                      />
-                    </Link>
+                    {invenioConfig.APP.LOGO_SRC && (
+                      <Link to="/">
+                        <Image
+                          src={invenioConfig.APP.LOGO_SRC}
+                          size="tiny"
+                          centered
+                          alt="Logo"
+                        />
+                      </Link>
+                    )}
                   </Overridable>
                 </Menu.Item>
                 <Menu.Menu position="right">
