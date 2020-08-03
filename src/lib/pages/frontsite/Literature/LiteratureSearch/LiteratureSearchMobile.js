@@ -5,9 +5,8 @@ import SearchPagination from '@modules/SearchControls/SearchPagination';
 import React, { Component, createRef } from 'react';
 import Overridable from 'react-overridable';
 import { Container, Ref, Sticky } from 'semantic-ui-react';
-import { ResultsLoader, Error } from 'react-searchkit';
+import { ResultsLoader, Error, ResultsGrid } from 'react-searchkit';
 import SearchMessage from './SearchMessage/SearchMessage';
-import LiteratureSearchResultsGrid from '@modules/Literature/LiteratureSearchResultsGrid';
 
 class LiteratureSearchMobile extends Component {
   stickyRef = createRef();
@@ -40,8 +39,7 @@ class LiteratureSearchMobile extends Component {
 
                 <Overridable id="LiteratureSearchMobile.Body">
                   <Container className="fs-search-body" textAlign="center">
-                    <LiteratureSearchResultsGrid />
-
+                    <ResultsGrid overridableId="mobile" />
                     <Overridable id="LiteratureSearchMobile.Footer">
                       <Container fluid className="search-results-footer">
                         <SearchFooter />

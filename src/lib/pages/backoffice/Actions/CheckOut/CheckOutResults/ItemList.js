@@ -10,7 +10,7 @@ export const ItemList = ({ items }) => (
       <Item.Group divided className="bo-item-search">
         {items.map(item => (
           <ItemListEntry
-            item={item}
+            record={item}
             key={item.id}
             withPendingLoans={item.has_pending_loans}
             target="_blank"

@@ -13,43 +13,20 @@ describe('LoansSearch SearchBar tests', () => {
   it('should render the current query string', () => {
     component = mount(
       <SearchBar
-        currentQueryString={currentQueryString}
-        onInputChange={() => {}}
-        executeSearch={() => {}}
+        queryString={currentQueryString}
+        updateQueryString={() => {}}
         placeholder="Search"
       />
     );
     expect(component).toMatchSnapshot();
   });
 
-  it('should call onInputChange when the query string changes', () => {
-    const newQueryString = 'Less: A Novel';
-    const mockedOnInputChange = jest.fn();
-    component = mount(
-      <SearchBar
-        currentQueryString={currentQueryString}
-        onInputChange={mockedOnInputChange}
-        executeSearch={() => {}}
-        placeholder="Search"
-      />
-    );
-
-    const input = component.find('Input').find('input');
-    const event = { target: { value: newQueryString } };
-    input.simulate('change', event);
-    expect(mockedOnInputChange).toHaveBeenCalledWith(
-      newQueryString,
-      expect.objectContaining(event)
-    );
-  });
-
   it('should call executeSearch on key `enter` pressed only', () => {
     const mockedExecuteSearch = jest.fn();
     component = mount(
       <SearchBar
-        currentQueryString={currentQueryString}
-        onInputChange={() => {}}
-        executeSearch={mockedExecuteSearch}
+        queryString={currentQueryString}
+        updateQueryString={mockedExecuteSearch}
         placeholder="Search"
       />
     );
@@ -68,9 +45,8 @@ describe('LoansSearch SearchBar tests', () => {
     const mockedExecuteSearch = jest.fn();
     component = mount(
       <SearchBar
-        currentQueryString={currentQueryString}
-        onInputChange={() => {}}
-        executeSearch={mockedExecuteSearch}
+        queryString={currentQueryString}
+        updateQueryString={mockedExecuteSearch}
         placeholder="Search"
       />
     );
@@ -87,7 +63,7 @@ describe('LoansSearch SearchBar tests', () => {
       {
         name: 'author',
         field: 'authors.full_name',
-        defaultValue: '"Doe, John"',
+        defaultValue: 'Doe, John',
       },
       {
         name: 'created',
@@ -95,12 +71,10 @@ describe('LoansSearch SearchBar tests', () => {
       },
     ];
     const mockedExecuteSearch = jest.fn();
-    const mockedOnInputChange = jest.fn();
     component = mount(
       <SearchBar
-        currentQueryString=""
-        onInputChange={mockedOnInputChange}
-        executeSearch={mockedExecuteSearch}
+        queryString=""
+        updateQueryString={mockedExecuteSearch}
         placeholder="Search"
         queryHelperFields={helperFields}
       />

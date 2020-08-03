@@ -48,7 +48,7 @@ export class SeriesListEntry extends Component {
   };
 
   renderRelations = () => {
-    const { series } = this.props;
+    const { record: series } = this.props;
     // create queryString to find all MM or Series related to this series
     const partOfMMQuery = _get(
       series,
@@ -91,7 +91,7 @@ export class SeriesListEntry extends Component {
   };
 
   render() {
-    const { series } = this.props;
+    const { record: series } = this.props;
     const identifier = _isEmpty(series.metadata.identifiers)
       ? null
       : series.metadata.identifiers[0];
@@ -139,7 +139,7 @@ export class SeriesListEntry extends Component {
 }
 
 SeriesListEntry.propTypes = {
-  series: PropTypes.object.isRequired,
+  record: PropTypes.object.isRequired,
   renderMiddleColumn: PropTypes.func,
   renderRightColumn: PropTypes.func,
 };

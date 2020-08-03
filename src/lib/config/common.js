@@ -2,38 +2,41 @@
 
 export const DEFAULT_CURRENCY = 'CHF';
 
+// label key is used for labeling bucket values
+// text key is used for semantic ui dropdown options display
+
 export const ACQ_ORDER_STATUSES = [
-  { value: 'CANCELLED', text: 'Cancelled' },
-  { value: 'RECEIVED', text: 'Received' },
-  { value: 'ORDERED', text: 'Ordered' },
-  { value: 'PENDING', text: 'Pending' },
+  { value: 'CANCELLED', text: 'Cancelled', label: 'Cancelled' },
+  { value: 'RECEIVED', text: 'Received', label: 'Received' },
+  { value: 'ORDERED', text: 'Ordered', label: 'Ordered' },
+  { value: 'PENDING', text: 'Pending', label: 'Pending' },
 ];
 
 export const ILL_BORROWING_REQUESTS_STATUSES = [
-  { value: 'CANCELLED', text: 'Cancelled' },
-  { value: 'PENDING', text: 'Pending' },
-  { value: 'REQUESTED', text: 'Requested' },
-  { value: 'ON_LOAN', text: 'On loan' },
-  { value: 'RETURNED', text: 'Returned' },
+  { value: 'CANCELLED', text: 'Cancelled', label: 'Cancelled' },
+  { value: 'PENDING', text: 'Pending', label: 'Pending' },
+  { value: 'REQUESTED', text: 'Requested', label: 'Requested' },
+  { value: 'ON_LOAN', text: 'On loan', label: 'On loan' },
+  { value: 'RETURNED', text: 'Returned', label: 'Returned' },
 ];
 
 export const ITEM_MEDIUMS = [
-  { value: 'NOT_SPECIFIED', text: 'Not specified' },
-  { value: 'PAPER', text: 'Paper' },
-  { value: 'CDROM', text: 'CD-ROM' },
-  { value: 'DVD', text: 'DVD' },
-  { value: 'VHS', text: 'VHS' },
-  { value: 'PAPERBACK', text: 'Paperback' },
-  { value: 'HARDCOVER', text: 'Hardcover' },
+  { value: 'NOT_SPECIFIED', text: 'Not specified', label: 'Not specified' },
+  { value: 'PAPER', text: 'Paper', label: 'Paper' },
+  { value: 'CDROM', text: 'CD-ROM', label: 'CD-ROM' },
+  { value: 'DVD', text: 'DVD', label: 'DVD' },
+  { value: 'VHS', text: 'VHS', label: 'VHS' },
+  { value: 'PAPERBACK', text: 'Paperback', label: 'Paperback' },
+  { value: 'HARDCOVER', text: 'Hardcover', label: 'Hardcover' },
 ];
 
 export const DOCUMENT_RELATIONS = [
-  { value: 'edition', text: 'By edition' },
-  { value: 'multipart_monograph', text: 'By series (completed)' },
-  { value: 'serial', text: 'By series (periodic)' },
-  { value: 'language', text: 'By language' },
-  { value: 'previous', text: 'By predecessors' },
-  { value: 'next', text: 'By continuation' },
+  { value: 'edition', label: 'By edition' },
+  { value: 'multipart_monograph', label: 'By series (completed)' },
+  { value: 'serial', label: 'By series (periodic)' },
+  { value: 'language', label: 'By language' },
+  { value: 'previous', label: 'By predecessors' },
+  { value: 'next', label: 'By continuation' },
 ];
 
 export const DOCUMENT_TYPES = [

@@ -1,85 +1,96 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Overridable from 'react-overridable';
 import { Input } from 'semantic-ui-react';
 import { QueryBuildHelper } from './QueryBuildHelper';
 
 class SearchBar extends Component {
+  constructor(props) {
+    super(props);
+    const { queryString } = this.props;
+    this.state = {
+      currentValue: queryString || '',
+    };
+  }
+
   componentDidMount() {
     if (this.searchInput) {
       this.searchInput.focus();
     }
   }
 
-  onChangeHandler = (e, { value }, onInputChange) => {
-    onInputChange(value, e);
+  onInputChange = queryString => {
+    this.setState({
+      currentValue: queryString,
+    });
   };
 
-  onKeyPressHandler = (event, executeSearch) => {
+  onKeyPressHandler = event => {
     if (event.key === 'Enter') {
-      executeSearch();
+      this.executeSearch();
     }
+  };
+
+  executeSearch = () => {
+    const { updateQueryString } = this.props;
+    const { currentValue } = this.state;
+    updateQueryString(currentValue);
   };
 
   render() {
     const {
-      currentQueryString,
-      onInputChange,
-      executeSearch,
+      queryString,
+      updateQueryString,
       placeholder,
       queryHelperFields,
       buttonColor,
       ...otherProps
     } = this.props;
+    const { currentValue } = this.state;
     return (
-      <Overridable id="SearchBar.layout" {...this.props}>
-        <>
-          <Input
-            action={{
-              color: buttonColor,
-              icon: 'search',
-              onClick: executeSearch,
-            }}
-            size="big"
-            fluid
-            placeholder={placeholder}
-            onChange={(e, { value }) =>
-              this.onChangeHandler(e, { value }, onInputChange)
-            }
-            value={currentQueryString}
-            onKeyPress={event => this.onKeyPressHandler(event, executeSearch)}
-            ref={input => {
-              this.searchInput = input;
-            }}
-            {...otherProps}
-            className={`${otherProps.className} ils-searchbar`}
+      <>
+        <Input
+          action={{
+            color: buttonColor,
+            icon: 'search',
+            onClick: this.executeSearch,
+          }}
+          size="big"
+          fluid
+          placeholder={placeholder}
+          onChange={(e, { value }) => this.onInputChange(value)}
+          value={currentValue}
+          onKeyPress={event => this.onKeyPressHandler(event)}
+          ref={input => {
+            this.searchInput = input;
+          }}
+          {...otherProps}
+          className={`${otherProps.className} ils-searchbar`}
+        />
+        {queryHelperFields.length > 0 && (
+          <QueryBuildHelper
+            fields={queryHelperFields}
+            currentQueryString={queryString}
+            updateQueryString={this.onInputChange}
           />
-          {queryHelperFields.length > 0 && (
-            <QueryBuildHelper
-              fields={queryHelperFields}
-              currentQueryString={currentQueryString}
-              updateQueryString={onInputChange}
-            />
-          )}
-        </>
-      </Overridable>
+        )}
+      </>
     );
   }
 }
 
 SearchBar.propTypes = {
-  currentQueryString: PropTypes.string,
-  onInputChange: PropTypes.func.isRequired,
-  executeSearch: PropTypes.func.isRequired,
-  placeholder: PropTypes.string.isRequired,
+  queryString: PropTypes.string,
+  updateQueryString: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
   queryHelperFields: PropTypes.array,
   buttonColor: PropTypes.string,
 };
 
 SearchBar.defaultProps = {
-  currentQueryString: '',
+  queryString: '',
   queryHelperFields: [],
   buttonColor: null,
+  placeholder: 'Search for books, series, articles, publications...',
 };
 
-export default Overridable.component('SearchBar', SearchBar);
+export default SearchBar;

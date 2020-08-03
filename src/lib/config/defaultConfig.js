@@ -305,6 +305,10 @@ export const defaultConfig = {
           title: 'Open access',
           field: 'open_access',
           aggName: 'access',
+          labels: [
+            { value: 0, label: 'No' },
+            { value: 1, label: 'Yes' },
+          ],
         },
       ],
       sortBy: {
@@ -635,7 +639,7 @@ export const defaultConfig = {
           aggName: 'language',
         },
         {
-          title: 'Relations',
+          title: 'Related content',
           field: 'relations',
           aggName: 'relation',
           labels: DOCUMENT_RELATIONS,

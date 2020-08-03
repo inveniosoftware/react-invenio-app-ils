@@ -7,7 +7,6 @@ import {
 } from '@components/Notifications';
 import { toShortDate } from '@api/date';
 
-export const QUERY_STRING_UPDATE = 'itemsSearch/QUERY_STRING_UPDATE';
 export const LOAN_IS_LOADING = 'itemLoansSearch/IS_LOADING';
 export const LOAN_SUCCESS = 'itemLoansSearch/SUCCESS';
 export const LOAN_HAS_ERROR = 'itemLoansSearch/HAS_ERROR';
@@ -16,16 +15,6 @@ export const CHECKIN_IS_LOADING = 'itemCheckin/IS_LOADING';
 export const CHECKIN_SUCCESS = 'itemCheckin/SUCCESS';
 export const CHECKIN_HAS_ERROR = 'itemCheckin/HAS_ERROR';
 export const CLEAR = 'itemCheckin/CLEAR';
-export const CLEAR_SEARCH = 'itemCheckin/CLEAR_SEARCH';
-
-export const updateQueryString = queryString => {
-  return dispatch => {
-    dispatch({
-      type: QUERY_STRING_UPDATE,
-      queryString: queryString,
-    });
-  };
-};
 
 export const checkin = barcode => {
   return async dispatch => {
@@ -135,14 +124,6 @@ export const clearResults = () => {
   return dispatch => {
     dispatch({
       type: CLEAR,
-    });
-  };
-};
-
-export const clearSearchBar = () => {
-  return dispatch => {
-    dispatch({
-      type: CLEAR_SEARCH,
     });
   };
 };

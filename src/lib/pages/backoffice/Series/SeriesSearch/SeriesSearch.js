@@ -1,7 +1,9 @@
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
-import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
+import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
+import { SeriesListEntry } from './SeriesListEntry';
+import { OverridableContext } from 'react-overridable';
 import SeriesList from './SeriesList';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -12,10 +14,10 @@ import {
   ResultsList,
   ResultsLoader,
   Error,
+  EmptyResults,
   InvenioSearchApi,
 } from 'react-searchkit';
 import { Error as IlsError } from '@components/Error';
-import { SearchBar as SeriesSearchBar } from '@components/SearchBar';
 import { seriesApi } from '@api/series/series';
 import { responseRejectInterceptor } from '@api/base';
 import { getSearchConfig } from '@config';
@@ -35,29 +37,6 @@ export class SeriesSearch extends Component {
     },
   });
   searchConfig = getSearchConfig('SERIES');
-
-  renderSearchBar = (_, queryString, onInputChange, executeSearch) => {
-    const helperFields = [
-      {
-        name: 'author',
-        field: 'authors.full_name',
-        defaultValue: '"Doe, John"',
-      },
-      {
-        name: 'created',
-        field: '_created',
-      },
-    ];
-    return (
-      <SeriesSearchBar
-        currentQueryString={queryString}
-        onInputChange={onInputChange}
-        executeSearch={executeSearch}
-        placeholder="Search for series"
-        queryHelperFields={helperFields}
-      />
-    );
-  };
 
   viewDetails = ({ row }) => {
     return (
@@ -80,47 +59,69 @@ export class SeriesSearch extends Component {
   };
 
   render() {
+    const helperFields = [
+      {
+        name: 'author',
+        field: 'authors.full_name',
+        defaultValue: '"Doe, John"',
+      },
+      {
+        name: 'created',
+        field: '_created',
+      },
+    ];
     return (
       <>
         <Header as="h2">Series</Header>
-        <ReactSearchKit searchApi={this.searchApi} history={history}>
-          <Container fluid className="spaced">
-            <SearchBar renderElement={this.renderSearchBar} />
-          </Container>
-          <Grid>
-            <Grid.Row columns={2}>
-              <ResultsLoader>
-                <Grid.Column width={3} className="search-aggregations">
-                  <Header content="Filter by" />
-                  <SearchAggregationsCards modelName="SERIES" />
-                </Grid.Column>
-                <Grid.Column width={13}>
-                  <Grid columns={2}>
-                    <Grid.Column width={8}>
-                      <NewButton
-                        text="New series"
-                        to={BackOfficeRoutes.seriesCreate}
-                      />
+        <OverridableContext.Provider
+          value={{
+            ...SearchControlsOverridesMap,
+          }}
+        >
+          <ReactSearchKit searchApi={this.searchApi} history={history}>
+            <>
+              <Container fluid className="spaced">
+                <SearchBar
+                  placeholder="Search for series"
+                  queryHelperFields={helperFields}
+                />
+              </Container>
+              <Grid>
+                <Grid.Row columns={2}>
+                  <ResultsLoader>
+                    <Grid.Column width={3} className="search-aggregations">
+                      <Header content="Filter by" />
+                      <SearchAggregationsCards modelName="SERIES" />
                     </Grid.Column>
-                    <Grid.Column width={8} textAlign="right">
-                      <ExportReactSearchKitResults
-                        exportBaseUrl={seriesApi.searchBaseURL}
+                    <Grid.Column width={13}>
+                      <Grid columns={2}>
+                        <Grid.Column width={8}>
+                          <NewButton
+                            text="New series"
+                            to={BackOfficeRoutes.seriesCreate}
+                          />
+                        </Grid.Column>
+                        <Grid.Column width={8} textAlign="right">
+                          <ExportReactSearchKitResults
+                            exportBaseUrl={seriesApi.searchBaseURL}
+                          />
+                        </Grid.Column>
+                      </Grid>
+                      <EmptyResults />
+                      <Error />
+                      <SearchControls
+                        modelName="SERIES"
+                        withLayoutSwitcher={false}
                       />
+                      <ResultsList ListEntryElement={SeriesListEntry} />
+                      <SearchFooter />
                     </Grid.Column>
-                  </Grid>
-                  <SearchEmptyResults extras={this.renderEmptyResultsExtra} />
-                  <Error renderElement={this.renderError} />
-                  <SearchControls
-                    modelName="SERIES"
-                    withLayoutSwitcher={false}
-                  />
-                  <ResultsList renderElement={this.renderSeriesList} />
-                  <SearchFooter />
-                </Grid.Column>
-              </ResultsLoader>
-            </Grid.Row>
-          </Grid>
-        </ReactSearchKit>
+                  </ResultsLoader>
+                </Grid.Row>
+              </Grid>
+            </>
+          </ReactSearchKit>
+        </OverridableContext.Provider>
       </>
     );
   }

@@ -1,6 +1,5 @@
 import {
   CLEAR_RESULTS,
-  QUERY_STRING_UPDATE,
   SEARCH_HAS_ERROR,
   SEARCH_IS_LOADING,
   SEARCH_ITEM_SUCCESS,
@@ -22,8 +21,6 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case CLEAR_RESULTS:
       return { ...state, queryString: '', itemList: [], patronList: [] };
-    case QUERY_STRING_UPDATE:
-      return { ...state, queryString: action.payload };
     case SEARCH_HAS_ERROR:
       return {
         ...state,

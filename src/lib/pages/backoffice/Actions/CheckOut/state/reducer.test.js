@@ -1,7 +1,6 @@
 import reducer, { initialState } from './reducer';
 import {
   CLEAR_RESULTS,
-  QUERY_STRING_UPDATE,
   SEARCH_IS_LOADING,
   SEARCH_HAS_ERROR,
   SEARCH_PATRON_SUCCESS,
@@ -31,17 +30,6 @@ describe('Check Out reducer', () => {
       ...inputState,
       itemList: [],
       patronList: [],
-    });
-  });
-
-  it('should updat search query on QUERY_STRING_UPDATE action', () => {
-    const action = {
-      type: QUERY_STRING_UPDATE,
-      payload: 'updated query',
-    };
-    expect(reducer(inputState, action)).toEqual({
-      ...inputState,
-      queryString: action.payload,
     });
   });
 

@@ -10,7 +10,7 @@ import { Grid, Icon, Item, List } from 'semantic-ui-react';
 
 export default class EItemListEntry extends Component {
   render() {
-    const { eitem } = this.props;
+    const { record: eitem } = this.props;
 
     return (
       <Item>
@@ -93,5 +93,5 @@ export default class EItemListEntry extends Component {
 }
 
 EItemListEntry.propTypes = {
-  eitem: PropTypes.object.isRequired,
+  record: PropTypes.object.isRequired,
 };

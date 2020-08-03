@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 export class DocumentRequestListEntry extends Component {
   render() {
-    const { documentRequest } = this.props;
+    const { record: documentRequest } = this.props;
 
     return (
       <Item>
@@ -104,5 +104,5 @@ export class DocumentRequestListEntry extends Component {
 }
 
 DocumentRequestListEntry.propTypes = {
-  documentRequest: PropTypes.object.isRequired,
+  record: PropTypes.object.isRequired,
 };

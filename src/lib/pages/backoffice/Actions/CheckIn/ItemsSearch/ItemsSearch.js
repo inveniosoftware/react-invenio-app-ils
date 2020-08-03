@@ -1,63 +1,71 @@
 import { SearchBar } from '@components/SearchBar';
+import { LoanListEntry } from '@modules/Loan/backoffice/LoanList/LoanListEntry';
+import SearchResultsList from '@modules/SearchControls/SearchResultsList';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import _isEmpty from 'lodash/isEmpty';
-import { LoanList } from '@modules/Loan/backoffice/LoanList';
 import { Header } from 'semantic-ui-react';
 
 export default class ItemsSearch extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { queryString: '' };
+  }
+
   onInputChange = queryString => {
-    const { updateQueryString } = this.props;
-    updateQueryString(queryString);
+    this.setState({
+      queryString: queryString,
+    });
   };
 
-  executeSearchAndClearInput = async queryString => {
-    const {
-      queryString: propsQueryString,
-      checkin,
-      clearSearchBar,
-    } = this.props;
-    queryString = queryString || propsQueryString;
+  executeCheckinAndClearInput = async queryString => {
+    const { checkin } = this.props;
     if (queryString.trim() === '') return;
     await checkin(queryString);
-    clearSearchBar();
+    this.setState({ queryString: '' });
   };
 
-  onPasteHandler = async event => {
+  onPasteHandler = event => {
     const queryString = (event.clipboardData || window.clipboardData).getData(
       'text'
     );
-    this.executeSearchAndClearInput(queryString);
+    this.executeCheckinAndClearInput(queryString);
   };
 
-  onSearchClickHandler = () => {
-    this.executeSearchAndClearInput();
-  };
-
-  onKeyPressHandler = () => {
-    this.executeSearchAndClearInput();
+  onKeyPressHandler = event => {
+    const { queryString } = this.state;
+    if (event.key === 'Enter') {
+      this.executeCheckinAndClearInput(queryString);
+    }
   };
 
   render() {
-    const { queryString, loans } = this.props;
+    const { loans } = this.props;
+    const { queryString } = this.state;
     return (
       <>
         <SearchBar
           action={{
             icon: 'search',
-            onClick: this.onSearchClickHandler,
+            onClick: () => this.executeCheckinAndClearInput(queryString),
           }}
-          currentQueryString={queryString}
-          onInputChange={this.onInputChange}
-          executeSearch={this.onKeyPressHandler}
+          queryString={queryString}
+          updateQueryString={this.executeCheckinAndClearInput}
           placeholder="Scan physical copy barcode to check-in..."
           onPaste={this.onPasteHandler}
+          onChange={(e, { value }) => this.onInputChange(value)}
+          value={queryString}
+          onKeyPress={event => this.onKeyPressHandler(event)}
         />
 
         {!_isEmpty(loans) ? (
           <>
             <Header as="h3">Choose the loan to check-in:</Header>
-            <LoanList target="_blank" hits={loans.hits} />
+            <SearchResultsList
+              results={loans.hits}
+              ListEntryElement={LoanListEntry}
+              target="_blank"
+            />
           </>
         ) : null}
       </>
@@ -66,11 +74,8 @@ export default class ItemsSearch extends Component {
 }
 
 ItemsSearch.propTypes = {
-  updateQueryString: PropTypes.func.isRequired,
-  queryString: PropTypes.string.isRequired,
   loans: PropTypes.object,
   checkin: PropTypes.func.isRequired,
-  clearSearchBar: PropTypes.func.isRequired,
 };
 
 ItemsSearch.defaultProps = {

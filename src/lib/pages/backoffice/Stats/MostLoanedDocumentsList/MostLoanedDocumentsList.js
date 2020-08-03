@@ -1,3 +1,4 @@
+import SearchResultsList from '@modules/SearchControls/SearchResultsList';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Qs from 'qs';
@@ -8,7 +9,6 @@ import { Error } from '@components/Error';
 import { BackOfficeRoutes } from '@routes/urls';
 import { circulationStatsApi } from '@api/stats/circulationStats';
 import { loanApi } from '@api/loans';
-import { DocumentList } from '@modules/Document/backoffice/DocumentList';
 import { ExportSearchResults } from '@components/backoffice/ExportSearchResults';
 import { invenioConfig } from '@config';
 import {
@@ -144,16 +144,6 @@ export default class MostLoanedDocumentsList extends Component {
     return BackOfficeRoutes.loansListWithQuery(query);
   };
 
-  renderListEntryElement = document => {
-    return (
-      <DocumentListEntry
-        key={document.metadata.pid}
-        document={document}
-        renderMiddleColumn={doc => <DocumentStats metadata={doc.metadata} />}
-      />
-    );
-  };
-
   render() {
     const { data, isLoading, error } = this.props;
     const { fromDate, toDate } = this.state;
@@ -169,9 +159,12 @@ export default class MostLoanedDocumentsList extends Component {
         <Grid.Column>
           <Loader isLoading={isLoading}>
             <Error error={error}>
-              <DocumentList
-                hits={hitsWithLinks}
-                renderListEntryElement={this.renderListEntryElement}
+              <SearchResultsList
+                results={hitsWithLinks}
+                ListEntryElement={DocumentListEntry}
+                renderMiddleColumn={doc => (
+                  <DocumentStats metadata={doc.metadata} />
+                )}
               />
             </Error>
           </Loader>

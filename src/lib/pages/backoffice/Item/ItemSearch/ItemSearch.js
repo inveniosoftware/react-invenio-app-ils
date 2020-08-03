@@ -1,5 +1,8 @@
+import { ItemListEntry } from '@modules/Items/backoffice';
+import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
 import React, { Component } from 'react';
-import { Grid, Item, Header, Container } from 'semantic-ui-react';
+import { OverridableContext } from 'react-overridable';
+import { Grid, Header, Container } from 'semantic-ui-react';
 import {
   ReactSearchKit,
   SearchBar,
@@ -7,18 +10,16 @@ import {
   ResultsLoader,
   Error,
   InvenioSearchApi,
+  EmptyResults,
 } from 'react-searchkit';
 import { getSearchConfig } from '@config';
 import { Error as IlsError } from '@components/Error';
-import { SearchBar as ItemsSearchBar } from '@components/SearchBar';
 import { itemApi } from '@api/items';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { BackOfficeRoutes } from '@routes/urls';
-import { ItemListEntry } from '@modules/Items/backoffice/ItemListEntry';
 import history from '@history';
 import { responseRejectInterceptor } from '@api/base';
-import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
@@ -35,7 +36,11 @@ export class ItemSearch extends Component {
   });
   searchConfig = getSearchConfig('ITEMS');
 
-  renderSearchBar = (_, queryString, onInputChange, executeSearch) => {
+  renderError = error => {
+    return <IlsError error={error} />;
+  };
+
+  render() {
     const helperFields = [
       {
         name: 'Barcode',
@@ -58,80 +63,67 @@ export class ItemSearch extends Component {
       },
     ];
     return (
-      <ItemsSearchBar
-        currentQueryString={queryString}
-        onInputChange={onInputChange}
-        executeSearch={executeSearch}
-        placeholder="Search for physical copies..."
-        queryHelperFields={helperFields}
-      />
-    );
-  };
-
-  renderError = error => {
-    return <IlsError error={error} />;
-  };
-
-  renderItemList = results => {
-    const entries = results.map(res => (
-      <ItemListEntry item={res} key={res.id} />
-    ));
-    return (
-      <Item.Group divided className="bo-item-search">
-        {entries}
-      </Item.Group>
-    );
-  };
-
-  renderEmptyResultsExtra = () => {
-    return <NewButton text="Add item" to={BackOfficeRoutes.itemCreate} />;
-  };
-
-  render() {
-    return (
       <>
         <Header as="h2">Physical copies</Header>
-        <ReactSearchKit searchApi={this.searchApi} history={history}>
-          <Container fluid className="spaced">
-            <SearchBar renderElement={this.renderSearchBar} />
-          </Container>
+        <OverridableContext.Provider
+          value={{
+            ...SearchControlsOverridesMap,
+          }}
+        >
+          <ReactSearchKit searchApi={this.searchApi} history={history}>
+            <>
+              <Container fluid className="spaced">
+                <SearchBar
+                  placeholder="Search for physical copies..."
+                  queryHelperFields={helperFields}
+                />
+              </Container>
 
-          <Container fluid className="bo-search-body">
-            <Grid>
-              <Grid.Row columns={2}>
-                <ResultsLoader>
-                  <Grid.Column width={3} className="search-aggregations">
-                    <Header content="Filter by" />
-                    <SearchAggregationsCards modelName="ITEMS" />
-                  </Grid.Column>
-                  <Grid.Column width={13}>
-                    <Grid columns={2}>
-                      <Grid.Column width={8}>
-                        <NewButton
-                          text="Add physical copy"
-                          to={BackOfficeRoutes.itemCreate}
-                        />
+              <Container fluid className="bo-search-body">
+                <Grid>
+                  <Grid.Row columns={2}>
+                    <ResultsLoader>
+                      <Grid.Column width={3} className="search-aggregations">
+                        <Header content="Filter by" />
+                        <SearchAggregationsCards modelName="ITEMS" />
                       </Grid.Column>
-                      <Grid.Column width={8} textAlign="right">
-                        <ExportReactSearchKitResults
-                          exportBaseUrl={itemApi.searchBaseURL}
+                      <Grid.Column width={13}>
+                        <Grid columns={2}>
+                          <Grid.Column width={8}>
+                            <NewButton
+                              text="Add physical copy"
+                              to={BackOfficeRoutes.itemCreate}
+                            />
+                          </Grid.Column>
+                          <Grid.Column width={8} textAlign="right">
+                            <ExportReactSearchKitResults
+                              exportBaseUrl={itemApi.searchBaseURL}
+                            />
+                          </Grid.Column>
+                        </Grid>
+                        <EmptyResults
+                          extraContent={
+                            <NewButton
+                              text="Add item"
+                              to={BackOfficeRoutes.itemCreate}
+                            />
+                          }
                         />
+                        <Error />
+                        <SearchControls
+                          modelName="ITEMS"
+                          withLayoutSwitcher={false}
+                        />
+                        <ResultsList ListEntryElement={ItemListEntry} />
+                        <SearchFooter />
                       </Grid.Column>
-                    </Grid>
-                    <SearchEmptyResults extras={this.renderEmptyResultsExtra} />
-                    <Error renderElement={this.renderError} />
-                    <SearchControls
-                      modelName="ITEMS"
-                      withLayoutSwitcher={false}
-                    />
-                    <ResultsList renderElement={this.renderItemList} />
-                    <SearchFooter />
-                  </Grid.Column>
-                </ResultsLoader>
-              </Grid.Row>
-            </Grid>
-          </Container>
-        </ReactSearchKit>
+                    </ResultsLoader>
+                  </Grid.Row>
+                </Grid>
+              </Container>
+            </>
+          </ReactSearchKit>
+        </OverridableContext.Provider>
       </>
     );
   }

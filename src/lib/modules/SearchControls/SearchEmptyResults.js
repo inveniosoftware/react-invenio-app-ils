@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { EmptyResults } from 'react-searchkit';
 import { Header, Icon, Segment } from 'semantic-ui-react';
 import ClearButton from '@modules/SearchControls/ClearButton';
 
 export default class SearchEmptyResults extends Component {
-  renderEmptyResults = (queryString, resetQuery) => {
-    const { extras } = this.props;
+  render() {
+    const { queryString, resetQuery, extraContent } = this.props;
     const currentSearch = `Current search "${queryString}"`;
     return (
       <Segment placeholder textAlign="center">
@@ -18,24 +17,22 @@ export default class SearchEmptyResults extends Component {
           <>
             <div className="empty-results-current">{currentSearch}</div>
             <Segment.Inline>
-              <ClearButton clickHandler={resetQuery} />
-              {extras()}
+              <ClearButton clickHandler={resetQuery} /> {extraContent}
             </Segment.Inline>
           </>
         )}
       </Segment>
     );
-  };
-
-  render() {
-    return <EmptyResults renderElement={this.renderEmptyResults} />;
   }
 }
 
 SearchEmptyResults.propTypes = {
-  extras: PropTypes.func,
+  queryString: PropTypes.string,
+  resetQuery: PropTypes.func.isRequired,
+  extraContent: PropTypes.node,
 };
 
 SearchEmptyResults.defaultProps = {
-  extras: () => {},
+  queryString: '',
+  extraContent: null,
 };

@@ -66,13 +66,17 @@ export default class DocumentListEntry extends Component {
   renderImage = () => {
     const { volume } = this.props;
     const image = (
-      <LiteratureCover
-        asItem
-        isRestricted={_get(this, 'metadata.restricted', false)}
-        linkTo={FrontSiteRoutes.documentDetailsFor(this.metadata.pid)}
-        size="small"
-        url={_get(this, 'metadata.cover_metadata.urls.medium')}
-      />
+      <Item.Image
+        floated="left"
+        as={Link}
+        to={FrontSiteRoutes.documentDetailsFor(this.metadata.pid)}
+      >
+        <LiteratureCover
+          isRestricted={_get(this, 'metadata.restricted', false)}
+          size="small"
+          url={_get(this, 'metadata.cover_metadata.urls.medium')}
+        />
+      </Item.Image>
     );
 
     if (volume) {
@@ -110,7 +114,9 @@ export default class DocumentListEntry extends Component {
             />
           </Item.Meta>
           <Item.Description>
-            <Truncate lines={3}>{this.metadata.abstract}</Truncate>
+            <Truncate lines={2} ellipsis="... ">
+              {this.metadata.abstract}
+            </Truncate>
           </Item.Description>
           <Item.Meta>
             <Grid>

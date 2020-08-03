@@ -29,7 +29,7 @@ export default class DocumentListEntry extends Component {
   };
 
   renderRelations = () => {
-    const { document } = this.props;
+    const { record: document } = this.props;
     // create queryString to find all MM or Series related to this document
     const partOfMMQuery = _get(
       document,
@@ -81,7 +81,7 @@ export default class DocumentListEntry extends Component {
   };
 
   render() {
-    const { document } = this.props;
+    const { record: document } = this.props;
     return (
       <Item>
         <div className="item-image-wrapper">
@@ -146,7 +146,7 @@ export default class DocumentListEntry extends Component {
 }
 
 DocumentListEntry.propTypes = {
-  document: PropTypes.object.isRequired,
+  record: PropTypes.object.isRequired,
   renderMiddleColumn: PropTypes.func,
   renderRightColumn: PropTypes.func,
 };

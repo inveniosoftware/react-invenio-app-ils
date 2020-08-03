@@ -1,16 +1,17 @@
 import { orderApi } from '@api/acquisition';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
-import { Error as IlsError } from '@components/Error';
-import { SearchBar as OrdersSearchBar } from '@components/SearchBar';
 import history from '@history';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
-import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
+import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import { AcquisitionRoutes } from '@routes/urls';
+import { OrderListEntry } from '@pages/backoffice/Acquisition/Order/OrderSearch/OrderList';
 import React, { Component } from 'react';
+import { OverridableContext } from 'react-overridable';
 import {
+  EmptyResults,
   Error,
   InvenioSearchApi,
   ReactSearchKit,
@@ -19,7 +20,6 @@ import {
   SearchBar,
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
-import { OrderList } from './OrderList';
 
 class OrderResponseSerializer {
   serialize(results) {
@@ -45,7 +45,7 @@ export class OrderSearch extends Component {
     },
   });
 
-  renderSearchBar = (_, queryString, onInputChange, executeSearch) => {
+  render() {
     const helperFields = [
       {
         name: 'vendor',
@@ -64,72 +64,66 @@ export class OrderSearch extends Component {
       },
     ];
     return (
-      <OrdersSearchBar
-        currentQueryString={queryString}
-        onInputChange={onInputChange}
-        executeSearch={executeSearch}
-        placeholder="Search for orders"
-        queryHelperFields={helperFields}
-      />
-    );
-  };
-
-  renderEmptyResultsExtra = () => {
-    return <NewButton text="Add order" to={AcquisitionRoutes.orderCreate} />;
-  };
-
-  renderError = error => {
-    return <IlsError error={error} />;
-  };
-
-  renderOrderList = results => {
-    return <OrderList hits={results} />;
-  };
-
-  render() {
-    return (
       <>
         <Header as="h2">Purchase Orders</Header>
-        <ReactSearchKit searchApi={this.searchApi} history={history}>
-          <Container fluid className="spaced">
-            <SearchBar renderElement={this.renderSearchBar} />
-          </Container>
-          <Container fluid className="bo-search-body">
-            <Grid>
-              <Grid.Row columns={2}>
-                <ResultsLoader>
-                  <Grid.Column width={3} className="search-aggregations">
-                    <Header content="Filter by" />
-                    <SearchAggregationsCards modelName="ACQ_ORDERS" />
-                  </Grid.Column>
-                  <Grid.Column width={13}>
-                    <Grid columns={2}>
-                      <Grid.Column width={8}>
-                        <NewButton
-                          text="Add order"
-                          to={AcquisitionRoutes.orderCreate}
-                        />
+        <OverridableContext.Provider
+          value={{
+            ...SearchControlsOverridesMap,
+          }}
+        >
+          <ReactSearchKit searchApi={this.searchApi} history={history}>
+            <>
+              <Container fluid className="spaced">
+                <SearchBar
+                  placeholder="Search for orders..."
+                  queryHelperFields={helperFields}
+                />
+              </Container>
+              <Container fluid className="bo-search-body">
+                <Grid>
+                  <Grid.Row columns={2}>
+                    <ResultsLoader>
+                      <Grid.Column width={3} className="search-aggregations">
+                        <Header content="Filter by" />
+                        <SearchAggregationsCards modelName="ACQ_ORDERS" />
                       </Grid.Column>
-                      <Grid.Column width={8} textAlign="right">
-                        <ExportReactSearchKitResults
-                          exportBaseUrl={orderApi.searchBaseURL}
+                      <Grid.Column width={13}>
+                        <Grid columns={2}>
+                          <Grid.Column width={8}>
+                            <NewButton
+                              text="Add order"
+                              to={AcquisitionRoutes.orderCreate}
+                            />
+                          </Grid.Column>
+                          <Grid.Column width={8} textAlign="right">
+                            <ExportReactSearchKitResults
+                              exportBaseUrl={orderApi.searchBaseURL}
+                            />
+                          </Grid.Column>
+                        </Grid>
+                        <EmptyResults
+                          extraContent={
+                            <NewButton
+                              text="Add order"
+                              to={AcquisitionRoutes.orderCreate}
+                            />
+                          }
                         />
+                        <Error />
+                        <SearchControls
+                          modelName="ACQ_ORDERS"
+                          withLayoutSwitcher={false}
+                        />
+                        <ResultsList ListEntryElement={OrderListEntry} />
+                        <SearchFooter />
                       </Grid.Column>
-                    </Grid>
-                    <SearchEmptyResults extras={this.renderEmptyResultsExtra} />
-                    <Error renderElement={this.renderError} />
-                    <SearchControls
-                      modelName="ACQ_ORDERS"
-                      withLayoutSwitcher={false}
-                    />
-                    <ResultsList renderElement={this.renderOrderList} />
-                    <SearchFooter />
-                  </Grid.Column>
-                </ResultsLoader>
-              </Grid.Row>
-            </Grid>
-          </Container>
-        </ReactSearchKit>
+                    </ResultsLoader>
+                  </Grid.Row>
+                </Grid>
+              </Container>
+            </>
+          </ReactSearchKit>
+        </OverridableContext.Provider>
       </>
     );
   }

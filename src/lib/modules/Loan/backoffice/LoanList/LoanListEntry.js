@@ -13,7 +13,7 @@ import Overridable from 'react-overridable';
 
 export class LoanListEntry extends Component {
   render() {
-    const { loan, target } = this.props;
+    const { record: loan, target } = this.props;
 
     return (
       <Item>
@@ -128,7 +128,7 @@ export class LoanListEntry extends Component {
 }
 
 LoanListEntry.propTypes = {
-  loan: PropTypes.object.isRequired,
+  record: PropTypes.object.isRequired,
   target: PropTypes.string,
 };
 

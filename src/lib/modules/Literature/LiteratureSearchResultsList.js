@@ -1,34 +1,37 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Item } from 'semantic-ui-react';
 import { DocumentListEntry } from '@modules/Document/DocumentListEntry';
 import SeriesListEntry from '@modules/Series/SeriesListEntry';
-import { ResultsList } from 'react-searchkit';
 import { recordToPidType } from '@api/utils';
+import PropTypes from 'prop-types';
 
-export default class LiteratureSearchResultsList extends Component {
-  renderResultsList = results => {
-    return results.length ? (
-      <Item.Group>
-        {results.map(result => {
-          return recordToPidType(result) === 'docid' ? (
-            <DocumentListEntry
-              key={result.metadata.pid}
-              data-test={result.metadata.pid}
-              metadata={result.metadata}
-            />
-          ) : (
-            <SeriesListEntry
-              key={result.metadata.pid}
-              data-test={result.metadata.pid}
-              metadata={result.metadata}
-            />
-          );
-        })}
-      </Item.Group>
-    ) : null;
-  };
+export const LiteratureSearchResultsList = ({ results, overridableId }) => {
+  return results && results.length ? (
+    <Item.Group>
+      {results.map(result => {
+        return recordToPidType(result) === 'docid' ? (
+          <DocumentListEntry
+            key={result.metadata.pid}
+            data-test={result.metadata.pid}
+            metadata={result.metadata}
+          />
+        ) : (
+          <SeriesListEntry
+            key={result.metadata.pid}
+            data-test={result.metadata.pid}
+            metadata={result.metadata}
+          />
+        );
+      })}
+    </Item.Group>
+  ) : null;
+};
 
-  render() {
-    return <ResultsList renderElement={this.renderResultsList} />;
-  }
-}
+LiteratureSearchResultsList.propTypes = {
+  results: PropTypes.array.isRequired,
+  overridableId: PropTypes.string,
+};
+
+LiteratureSearchResultsList.defaultProps = {
+  overridableId: '',
+};

@@ -20,14 +20,14 @@ exports[`SearchControls tests should load the SearchControls component 1`] = `
           <GridColumn
             width={6}
           >
-            <Connect(LayoutSwitcher)
+            <Connect(Overridable(LayoutSwitcher))
               defaultLayout="grid"
             />
           </GridColumn>
           <GridColumn
             width={10}
           >
-            <Connect(Count)
+            <Connect(Overridable(Count))
               label={[Function]}
             />
             <SearchResultsPerPage
