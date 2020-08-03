@@ -94,13 +94,6 @@ SeriesDetailsLayout.defaultProps = {
 };
 
 class SeriesDetails extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchQuery: '',
-    };
-  }
-
   componentDidMount() {
     const { match } = this.props;
     this.fetchSeriesDetails(match.params.seriesPid);
@@ -123,19 +116,17 @@ class SeriesDetails extends React.Component {
     fetchSeriesDetails(seriesPid);
   }
 
-  onSearchClick = () => {
-    const { searchQuery } = this.state;
+  /**
+   * It replaces the updateSearchQuery behaviour of react-searchkit
+   * @param searchQuery current search phrase
+   */
+  onSearchClick = searchQuery => {
     const query = encodeURIComponent(searchQuery);
     goTo(FrontSiteRoutes.documentsListWithQuery(query));
   };
 
-  onSearchInputChange = (value, event) => {
-    this.setState({ searchQuery: event.target.value });
-  };
-
   render() {
     const { hasError, error, isLoading, series } = this.props;
-    const { searchQuery } = this.state;
     if (hasError && error.response.status === 404) {
       return <NotFound />;
     }
@@ -144,18 +135,10 @@ class SeriesDetails extends React.Component {
         <Container fluid className="literature-search-container">
           <Overridable
             id="SeriesDetails.top"
-            searchQuery={searchQuery}
-            currentQueryString={searchQuery}
-            onInputChange={this.onSearchInputChange}
             executeSearch={this.onSearchClick}
           >
             <Container>
-              <SearchBar
-                currentQueryString={searchQuery}
-                onInputChange={this.onSearchInputChange}
-                executeSearch={this.onSearchClick}
-                placeholder="Search for literatures..."
-              />
+              <SearchBar updateQueryString={this.onSearchClick} />
             </Container>
           </Overridable>
         </Container>

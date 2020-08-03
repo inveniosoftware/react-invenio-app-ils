@@ -136,39 +136,44 @@ export default class OrderListEntry extends Component {
   };
 
   render() {
-    const { order } = this.props;
+    const { record } = this.props;
     return (
       <Item>
         <Item.Content>
           <Item.Header
             as={Link}
-            to={AcquisitionRoutes.orderDetailsFor(order.metadata.pid)}
-            data-test={`navigate-${order.metadata.pid}`}
+            to={AcquisitionRoutes.orderDetailsFor(record.metadata.pid)}
+            data-test={`navigate-${record.metadata.pid}`}
           >
             <AcquisitionOrderIcon />
-            Order: {order.metadata.pid}
+            Order: {record.metadata.pid}
           </Item.Header>
           <Grid highlight={3}>
             <Grid.Column computer={5} largeScreen={5}>
-              {this.renderLeftColumn(order)}
+              {this.renderLeftColumn(record)}
             </Grid.Column>
             <Grid.Column computer={6} largeScreen={6}>
-              {this.renderMiddleColumn(order)}
+              {this.renderMiddleColumn(record)}
             </Grid.Column>
             <Grid.Column width={1} />
             <Grid.Column computer={3} largeScreen={3}>
-              {this.renderRightColumn(order)}
+              {this.renderRightColumn(record)}
             </Grid.Column>
           </Grid>
         </Item.Content>
-        <div className="pid-field">#{order.metadata.pid}</div>
+        <div className="pid-field">#{record.metadata.pid}</div>
       </Item>
     );
   }
 }
 
 OrderListEntry.propTypes = {
-  order: PropTypes.object.isRequired,
+  record: PropTypes.object.isRequired,
   renderMiddleColumn: PropTypes.func,
   renderRightColumn: PropTypes.func,
+};
+
+OrderListEntry.defaultProps = {
+  renderMiddleColumn: null,
+  renderRightColumn: null,
 };

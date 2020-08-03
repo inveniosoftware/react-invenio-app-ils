@@ -2,12 +2,29 @@
 
 exports[`should render correctly 1`] = `
 <Item>
-  <Overridable(LiteratureCover)
-    asItem={true}
-    isRestricted={false}
-    linkTo="/literature/13"
-    size="small"
-  />
+  <ItemImage
+    as={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "Link",
+        "propTypes": Object {
+          "innerRef": [Function],
+          "onClick": [Function],
+          "replace": [Function],
+          "target": [Function],
+          "to": [Function],
+        },
+        "render": [Function],
+      }
+    }
+    floated="left"
+    to="/literature/13"
+  >
+    <Overridable(LiteratureCover)
+      isRestricted={false}
+      size="small"
+    />
+  </ItemImage>
   <ItemContent>
     <ItemMeta>
       BOOK
@@ -46,8 +63,8 @@ exports[`should render correctly 1`] = `
     </ItemMeta>
     <ItemDescription>
       <Truncate
-        ellipsis="…"
-        lines={3}
+        ellipsis="... "
+        lines={2}
         trimWhitespace={false}
         width={0}
       >

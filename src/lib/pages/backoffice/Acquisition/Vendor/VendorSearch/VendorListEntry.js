@@ -65,7 +65,7 @@ export default class VendorListEntry extends Component {
 
   renderAddress = () => {
     const {
-      vendor: {
+      record: {
         metadata: { address },
       },
     } = this.props;
@@ -87,17 +87,17 @@ export default class VendorListEntry extends Component {
   };
 
   render() {
-    const { vendor } = this.props;
+    const { record } = this.props;
     return (
       <Item>
         <Item.Content>
           <Item.Header
             as={Link}
-            to={AcquisitionRoutes.vendorDetailsFor(vendor.metadata.pid)}
-            data-test={`navigate-${vendor.metadata.pid}`}
+            to={AcquisitionRoutes.vendorDetailsFor(record.metadata.pid)}
+            data-test={`navigate-${record.metadata.pid}`}
           >
             <AcquisitionVendorIcon />
-            {vendor.metadata.name}
+            {record.metadata.name}
           </Item.Header>
           <Item.Meta>Address:</Item.Meta>
           <Grid highlight={3}>
@@ -105,22 +105,22 @@ export default class VendorListEntry extends Component {
               {this.renderAddress()}
             </Grid.Column>
             <Grid.Column computer={4} largeScreen={4}>
-              {this.renderMiddleColumn(vendor)}
+              {this.renderMiddleColumn(record)}
             </Grid.Column>
             <Grid.Column width={1} />
             <Grid.Column computer={2} largeScreen={2}>
-              {this.renderRightColumn(vendor)}
+              {this.renderRightColumn(record)}
             </Grid.Column>
           </Grid>
         </Item.Content>
-        <div className="pid-field">#{vendor.metadata.pid}</div>
+        <div className="pid-field">#{record.metadata.pid}</div>
       </Item>
     );
   }
 }
 
 VendorListEntry.propTypes = {
-  vendor: PropTypes.object.isRequired,
+  record: PropTypes.object.isRequired,
   renderMiddleColumn: PropTypes.func,
   renderRightColumn: PropTypes.func,
 };

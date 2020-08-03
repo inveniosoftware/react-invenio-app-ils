@@ -13,14 +13,6 @@ beforeEach(() => {
 });
 
 describe('Check Out tests', () => {
-  it('should dispatch an action updating the query', async () => {
-    const expectedAction = {
-      type: actions.QUERY_STRING_UPDATE,
-      payload: 'New query',
-    };
-    await store.dispatch(actions.updateQueryString('New query'));
-    expect(store.getActions()[0]).toEqual(expectedAction);
-  });
   it('should dispatch an action updating the result message', async () => {
     const expectedAction = {
       type: actions.UPDATE_RESULT_MESSAGE,

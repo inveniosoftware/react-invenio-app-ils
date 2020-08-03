@@ -5,21 +5,11 @@ import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
 
 export const CLEAR_RESULTS = 'checkOutSearch/CLEAR_RESULTS';
-export const QUERY_STRING_UPDATE = 'checkOutSearch/QUERY_STRING_UPDATE';
 export const SEARCH_HAS_ERROR = 'checkOutSearch/SEARCH_HAS_ERROR';
 export const SEARCH_IS_LOADING = 'checkOutSearch/SEARCH_IS_LOADING';
 export const SEARCH_ITEM_SUCCESS = 'checkOutSearch/SEARCH_ITEM_SUCCESS  ';
 export const SEARCH_PATRON_SUCCESS = 'checkOutSearch/SEARCH_PATRON_SUCCESS  ';
 export const UPDATE_RESULT_MESSAGE = 'checkOutSearch/UPDATE_RESULT_MESSAGE';
-
-export const updateQueryString = queryString => {
-  return dispatch => {
-    dispatch({
-      type: QUERY_STRING_UPDATE,
-      payload: queryString,
-    });
-  };
-};
 
 export const updateResultMessage = message => {
   return dispatch => {

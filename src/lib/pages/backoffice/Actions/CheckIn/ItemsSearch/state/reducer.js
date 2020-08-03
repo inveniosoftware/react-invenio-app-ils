@@ -1,5 +1,4 @@
 import {
-  QUERY_STRING_UPDATE,
   LOAN_IS_LOADING,
   LOAN_SUCCESS,
   LOAN_HAS_ERROR,
@@ -8,7 +7,6 @@ import {
   CHECKIN_SUCCESS,
   CHECKIN_HAS_ERROR,
   CLEAR,
-  CLEAR_SEARCH,
 } from './actions';
 
 export const initialState = {
@@ -22,8 +20,6 @@ export const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case QUERY_STRING_UPDATE:
-      return { ...state, itemCheckInQueryString: action.queryString, data: {} };
     case LOAN_IS_LOADING:
       return { ...state, isLoading: true };
     case LOAN_SUCCESS:
@@ -66,9 +62,7 @@ export default (state = initialState, action) => {
         hasError: true,
       };
     case CLEAR:
-      return { ...state, items: [], data: {}, itemCheckInQueryString: '' };
-    case CLEAR_SEARCH:
-      return { ...state, itemCheckInQueryString: '' };
+      return { ...state, items: [], data: {} };
     default:
       return state;
   }

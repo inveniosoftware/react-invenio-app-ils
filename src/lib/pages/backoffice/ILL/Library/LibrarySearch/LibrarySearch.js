@@ -1,15 +1,16 @@
 import { libraryApi } from '@api/ill';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
-import { Error as IlsError } from '@components/Error';
-import { SearchBar as LibrarySearchBar } from '@components/SearchBar';
 import history from '@history';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
-import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
+import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import { ILLRoutes } from '@routes/urls';
+import { LibraryListEntry } from './LibraryList';
 import React, { Component } from 'react';
+import { OverridableContext } from 'react-overridable';
 import {
+  EmptyResults,
   Error,
   InvenioSearchApi,
   ReactSearchKit,
@@ -18,7 +19,6 @@ import {
   SearchBar,
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
-import { LibraryList } from './LibraryList';
 
 export class LibrarySearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -28,7 +28,7 @@ export class LibrarySearch extends Component {
     },
   });
 
-  renderSearchBar = (_, queryString, onInputChange, executeSearch) => {
+  render() {
     const helperFields = [
       {
         name: 'name',
@@ -47,68 +47,62 @@ export class LibrarySearch extends Component {
       },
     ];
     return (
-      <LibrarySearchBar
-        currentQueryString={queryString}
-        onInputChange={onInputChange}
-        executeSearch={executeSearch}
-        placeholder="Search for libaries"
-        queryHelperFields={helperFields}
-      />
-    );
-  };
-
-  renderEmptyResultsExtra = () => {
-    return <NewButton text="Add library" to={ILLRoutes.libraryCreate} />;
-  };
-
-  renderError = error => {
-    return <IlsError error={error} />;
-  };
-
-  renderLibraryList = results => {
-    return <LibraryList hits={results} />;
-  };
-
-  render() {
-    return (
       <>
         <Header as="h2">Libraries</Header>
-        <ReactSearchKit searchApi={this.searchApi} history={history}>
-          <Container fluid className="spaced">
-            <SearchBar renderElement={this.renderSearchBar} />
-          </Container>
-          <Container fluid className="bo-search-body">
-            <Grid>
-              <Grid.Row columns={2}>
-                <ResultsLoader>
-                  <Grid.Column width={16}>
-                    <Grid columns={2}>
-                      <Grid.Column width={8}>
-                        <NewButton
-                          text="Add library"
-                          to={ILLRoutes.libraryCreate}
+        <OverridableContext.Provider
+          value={{
+            ...SearchControlsOverridesMap,
+          }}
+        >
+          <ReactSearchKit searchApi={this.searchApi} history={history}>
+            <>
+              <Container fluid className="spaced">
+                <SearchBar
+                  queryHelperFields={helperFields}
+                  placeholder="Search for libaries..."
+                />
+              </Container>
+              <Container fluid className="bo-search-body">
+                <Grid>
+                  <Grid.Row columns={2}>
+                    <ResultsLoader>
+                      <Grid.Column width={16}>
+                        <Grid columns={2}>
+                          <Grid.Column width={8}>
+                            <NewButton
+                              text="Add library"
+                              to={ILLRoutes.libraryCreate}
+                            />
+                          </Grid.Column>
+                          <Grid.Column width={8} textAlign="right">
+                            <ExportReactSearchKitResults
+                              exportBaseUrl={libraryApi.searchBaseURL}
+                            />
+                          </Grid.Column>
+                        </Grid>
+                        <EmptyResults
+                          extraContent={
+                            <NewButton
+                              text="Add library"
+                              to={ILLRoutes.libraryCreate}
+                            />
+                          }
                         />
-                      </Grid.Column>
-                      <Grid.Column width={8} textAlign="right">
-                        <ExportReactSearchKitResults
-                          exportBaseUrl={libraryApi.searchBaseURL}
+                        <Error />
+                        <SearchControls
+                          modelName="ILL_LIBRARIES"
+                          withLayoutSwitcher={false}
                         />
+                        <ResultsList ListEntryElement={LibraryListEntry} />
+                        <SearchFooter />
                       </Grid.Column>
-                    </Grid>
-                    <SearchEmptyResults extras={this.renderEmptyResultsExtra} />
-                    <Error renderElement={this.renderError} />
-                    <SearchControls
-                      modelName="ILL_LIBRARIES"
-                      withLayoutSwitcher={false}
-                    />
-                    <ResultsList renderElement={this.renderLibraryList} />
-                    <SearchFooter />
-                  </Grid.Column>
-                </ResultsLoader>
-              </Grid.Row>
-            </Grid>
-          </Container>
-        </ReactSearchKit>
+                    </ResultsLoader>
+                  </Grid.Row>
+                </Grid>
+              </Container>
+            </>
+          </ReactSearchKit>
+        </OverridableContext.Provider>
       </>
     );
   }

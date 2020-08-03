@@ -1,12 +1,10 @@
 import { Error as IlsError } from '@components/Error';
-import LiteratureSearchResultsGrid from '@modules/Literature/LiteratureSearchResultsGrid';
 import { SearchControlsMobile } from '@modules/SearchControls/SearchControlsMobile';
 import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import SearchPagination from '@modules/SearchControls/SearchPagination';
-import PropTypes from 'prop-types';
 import React from 'react';
-import { Error, ResultsLoader } from 'react-searchkit';
+import { Error, ResultsGrid, ResultsLoader } from 'react-searchkit';
 import { Container, Ref, Sticky } from 'semantic-ui-react';
 
 export class SeriesLiteratureSearchMobile extends React.Component {
@@ -17,7 +15,6 @@ export class SeriesLiteratureSearchMobile extends React.Component {
   };
 
   render() {
-    const { metadata } = this.props;
     return (
       <Container fluid className="grid-documents-search">
         <ResultsLoader>
@@ -35,7 +32,7 @@ export class SeriesLiteratureSearchMobile extends React.Component {
                 <SearchPagination />
               </Container>
               <Container className="fs-search-body" textAlign="center">
-                <LiteratureSearchResultsGrid metadata={metadata} />
+                <ResultsGrid overridableId="series_mobile" />
                 <Container fluid className="search-results-footer">
                   <SearchFooter />
                 </Container>
@@ -48,6 +45,4 @@ export class SeriesLiteratureSearchMobile extends React.Component {
   }
 }
 
-SeriesLiteratureSearchMobile.propTypes = {
-  metadata: PropTypes.object.isRequired,
-};
+SeriesLiteratureSearchMobile.propTypes = {};

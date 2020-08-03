@@ -57,7 +57,12 @@ export class ItemListEntry extends Component {
   };
 
   render() {
-    const { item, withPendingLoans, showPreviousLoan, target } = this.props;
+    const {
+      record: item,
+      withPendingLoans,
+      showPreviousLoan,
+      target,
+    } = this.props;
     const classes = withPendingLoans ? 'bkg-yellow' : '';
     return (
       <Item className={classes}>
@@ -170,7 +175,7 @@ export class ItemListEntry extends Component {
 }
 
 ItemListEntry.propTypes = {
-  item: PropTypes.object.isRequired,
+  record: PropTypes.object.isRequired,
   withPendingLoans: PropTypes.bool,
   showPreviousLoan: PropTypes.bool,
   target: PropTypes.string,

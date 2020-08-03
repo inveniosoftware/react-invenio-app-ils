@@ -15,7 +15,7 @@ export default class CheckedInItems extends Component {
     const entries = items.map(item => {
       return (
         <ItemListEntry
-          item={item}
+          record={item}
           key={item.id}
           withPendingLoans={item.has_pending_loans}
           showPreviousLoan

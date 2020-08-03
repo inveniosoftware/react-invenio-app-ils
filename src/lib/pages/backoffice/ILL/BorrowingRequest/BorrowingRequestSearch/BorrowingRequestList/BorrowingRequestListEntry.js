@@ -118,7 +118,9 @@ export default class BorrowingRequestListEntry extends Component {
   };
 
   render() {
-    const { brwReqMetadata } = this.props;
+    const {
+      record: { metadata: brwReqMetadata },
+    } = this.props;
     return (
       <Item>
         <Item.Content>
@@ -150,7 +152,7 @@ export default class BorrowingRequestListEntry extends Component {
 }
 
 BorrowingRequestListEntry.propTypes = {
-  brwReqMetadata: PropTypes.object.isRequired,
+  record: PropTypes.object.isRequired,
   renderMiddleColumn: PropTypes.func,
   renderRightColumn: PropTypes.func,
 };

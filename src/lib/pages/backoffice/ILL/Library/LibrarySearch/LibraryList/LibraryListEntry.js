@@ -66,7 +66,9 @@ export default class LibraryListEntry extends Component {
 
   renderAddress = () => {
     const {
-      libraryMetadata: { address },
+      record: {
+        metadata: { address },
+      },
     } = this.props;
     if (!address) return null;
 
@@ -85,7 +87,9 @@ export default class LibraryListEntry extends Component {
   };
 
   render() {
-    const { libraryMetadata } = this.props;
+    const {
+      record: { metadata: libraryMetadata },
+    } = this.props;
     return (
       <Item>
         <Item.Content>
@@ -118,7 +122,7 @@ export default class LibraryListEntry extends Component {
 }
 
 LibraryListEntry.propTypes = {
-  libraryMetadata: PropTypes.object.isRequired,
+  record: PropTypes.object.isRequired,
   renderMiddleColumn: PropTypes.func,
   renderRightColumn: PropTypes.func,
 };

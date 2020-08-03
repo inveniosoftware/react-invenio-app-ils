@@ -3,45 +3,58 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 export default class CheckOutSearch extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { queryString: '' };
+  }
+
   onInputChange = queryString => {
-    const { updateQueryString } = this.props;
-    updateQueryString(queryString);
+    this.setState({
+      queryString: queryString,
+    });
   };
 
-  executeSearchAndClearInput = async query => {
-    const { checkOutSearch, queryString } = this.props;
-    query = query || queryString;
+  executeCheckoutAndClearInput = async query => {
+    const { checkOutSearch } = this.props;
     if (query.trim() === '') return;
     await checkOutSearch(query);
+    this.setState({ queryString: '' });
   };
 
   onPasteHandler = async event => {
     const queryString = (event.clipboardData || window.clipboardData).getData(
       'text'
     );
-    this.executeSearchAndClearInput(queryString);
+    this.executeCheckoutAndClearInput(queryString);
+  };
+
+  onKeyPressHandler = event => {
+    const { queryString } = this.state;
+    if (event.key === 'Enter') {
+      this.executeCheckoutAndClearInput(queryString);
+    }
   };
 
   render() {
-    const { queryString } = this.props;
+    const { queryString } = this.state;
     return (
       <SearchBar
         action={{
           icon: 'search',
-          onClick: this.executeSearchAndClearInput,
+          onClick: () => this.executeCheckoutAndClearInput(queryString),
         }}
-        currentQueryString={queryString}
-        onInputChange={this.onInputChange}
-        executeSearch={this.executeSearchAndClearInput}
+        queryString={queryString}
+        onChange={(e, { value }) => this.onInputChange(value)}
+        updateQueryString={this.executeCheckoutAndClearInput}
         placeholder="Insert patron id/email or physical copy barcode to start check-out..."
         onPaste={this.onPasteHandler}
+        value={queryString}
+        onKeyPress={event => this.onKeyPressHandler(event)}
       />
     );
   }
 }
 
 CheckOutSearch.propTypes = {
-  updateQueryString: PropTypes.func.isRequired,
-  queryString: PropTypes.string.isRequired,
   checkOutSearch: PropTypes.func.isRequired,
 };
