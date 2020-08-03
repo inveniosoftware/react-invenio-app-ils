@@ -1,4 +1,4 @@
-import { FrontSiteRoutes } from '@routes/urls';
+import { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -8,7 +8,7 @@ import { Label } from 'semantic-ui-react';
 
 class DocumentTags extends Component {
   render() {
-    const { metadata, ...uiProps } = this.props;
+    const { metadata, isBackOffice, ...uiProps } = this.props;
 
     if (_isEmpty(metadata.tags)) return null;
 
@@ -18,9 +18,15 @@ class DocumentTags extends Component {
           {metadata.tags.map(tag => (
             <Label className="highlighted" key={tag} {...uiProps}>
               <Link
-                to={FrontSiteRoutes.documentsListWithQuery(
-                  `&sort=mostrecent&order=desc&f=tag%3A${tag}`
-                )}
+                to={
+                  isBackOffice
+                    ? BackOfficeRoutes.documentsListWithQuery(
+                        `&sort=mostrecent&order=desc&f=tag%3A${tag}`
+                      )
+                    : FrontSiteRoutes.documentsListWithQuery(
+                        `&sort=mostrecent&order=desc&f=tag%3A${tag}`
+                      )
+                }
               >
                 {tag}
               </Link>
@@ -34,6 +40,7 @@ class DocumentTags extends Component {
 
 DocumentTags.propTypes = {
   metadata: PropTypes.object.isRequired,
+  isBackOffice: PropTypes.bool.isRequired,
 };
 
 export default Overridable.component('DocumentTags', DocumentTags);
