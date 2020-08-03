@@ -41,7 +41,9 @@ export class DocumentMetadataGeneral extends Component {
       },
       {
         name: 'Tags',
-        value: <DocumentTags size="mini" metadata={document.metadata} />,
+        value: (
+          <DocumentTags isBackOffice size="mini" metadata={document.metadata} />
+        ),
       },
       {
         name: 'Edition',

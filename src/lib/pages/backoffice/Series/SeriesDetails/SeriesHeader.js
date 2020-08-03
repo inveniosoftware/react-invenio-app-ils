@@ -61,7 +61,7 @@ export class SeriesHeader extends Component {
         }
         recordInfo={recordInfo}
       >
-        <DocumentTags metadata={data.metadata} />
+        <DocumentTags isBackOffice metadata={data.metadata} />
       </DetailsHeader>
     );
   }
