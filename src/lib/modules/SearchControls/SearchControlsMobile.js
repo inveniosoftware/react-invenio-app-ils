@@ -1,13 +1,12 @@
-import { Count } from 'react-searchkit';
+import { BucketAggregation, Count, SortBy } from 'react-searchkit';
 import React, { Component } from 'react';
-import { Container, Dropdown, Menu, Sticky } from 'semantic-ui-react';
+import { Grid, Container, Menu, Sticky } from 'semantic-ui-react';
 import SearchResultsPerPage from './SearchResultsPerPage';
 import SearchAggregationsMenu from './SearchAggregationsMenu';
-import SearchSortBy from './SearchSortBy';
 import SearchSortOrder from './SearchSortOrder';
 import PropTypes from 'prop-types';
 import { getSearchConfig } from '@config';
-import _isEmpty from 'lodash/isEmpty';
+import find from 'lodash/find';
 
 export class SearchControlsMobile extends Component {
   renderCount = totalResults => {
@@ -17,34 +16,66 @@ export class SearchControlsMobile extends Component {
   };
 
   render() {
-    const { stickyRef, modelName } = this.props;
+    const { stickyRef, modelName, withSortOrder } = this.props;
     const searchConfig = getSearchConfig(modelName);
+    const loanFilter = find(
+      searchConfig.FILTERS,
+      o => o.aggName === 'availability'
+    );
     return (
       <Container fluid className="mobile-search-controls">
         <Sticky context={stickyRef} offset={66}>
           <Container fluid className="fs-search-controls-mobile">
             <Menu fluid borderless>
-              <Menu.Item header>
-                <Count renderElement={this.renderCount} />
+              <Menu.Item>
+                <BucketAggregation
+                  key={loanFilter.field}
+                  title={loanFilter.title}
+                  agg={{ field: loanFilter.field, aggName: loanFilter.aggName }}
+                  overridableId="available-for-loan"
+                />
               </Menu.Item>
-              <Menu.Menu>
-                <Dropdown
-                  text="Filter"
-                  size="small"
-                  pointing
-                  className="link item"
-                  disabled={_isEmpty(searchConfig.FILTERS)}
-                >
-                  <Dropdown.Menu>
-                    <SearchAggregationsMenu modelName={modelName} />
-                  </Dropdown.Menu>
-                </Dropdown>
-                <SearchSortBy modelName={modelName} />
-                <SearchSortOrder modelName={modelName} />
-              </Menu.Menu>
+              <SearchAggregationsMenu modelName={modelName} />
+              {searchConfig.SORT_BY.length > 0 ? (
+                <SortBy
+                  values={searchConfig.SORT_BY}
+                  defaultValue={searchConfig.SORT_BY[0].value}
+                  defaultValueOnEmptyString={
+                    searchConfig.SORT_BY_ON_EMPTY_QUERY
+                  }
+                  overridableId="mobile"
+                />
+              ) : null}
+              {withSortOrder && <SearchSortOrder modelName={modelName} />}
             </Menu>
             <Container>
-              <SearchResultsPerPage modelName={modelName} />
+              <Grid columns={2}>
+                <Grid.Column width={8} className="vertical-align-content">
+                  <div>
+                    <Count
+                      label={cmp => (
+                        <div className="mobile-count">{cmp} results found</div>
+                      )}
+                    />
+                  </div>
+                </Grid.Column>
+                <Grid.Column
+                  width={8}
+                  className="vertical-align-content"
+                  textAlign="right"
+                >
+                  <div>
+                    <SearchResultsPerPage
+                      modelName={modelName}
+                      label={cmp => (
+                        <div className="mobile-results-page">
+                          {cmp} results per page
+                        </div>
+                      )}
+                    />
+                  </div>
+                </Grid.Column>
+              </Grid>
             </Container>
           </Container>
         </Sticky>
@@ -56,8 +87,10 @@ export class SearchControlsMobile extends Component {
 SearchControlsMobile.propTypes = {
   modelName: PropTypes.string.isRequired,
   stickyRef: PropTypes.object,
+  withSortOrder: PropTypes.bool,
 };
 
 SearchControlsMobile.defaultProps = {
   stickyRef: null,
+  withSortOrder: true,
 };

@@ -18,6 +18,7 @@ exports[`SearchControls tests should load the SearchControls component 1`] = `
           columns={2}
         >
           <GridColumn
+            className="layout-switcher"
             width={6}
           >
             <Connect(Overridable(LayoutSwitcher))
@@ -88,6 +89,7 @@ exports[`SearchControls tests should load the SearchControls component 1`] = `
     <SearchControlsMobile
       modelName="DOCUMENTS"
       stickyRef={null}
+      withSortOrder={true}
     />
   </Responsive>
 </Fragment>

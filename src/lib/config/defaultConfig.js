@@ -521,7 +521,40 @@ export const defaultConfig = {
       maxDisplay: 5,
     },
     search: {
-      filters: [],
+      filters: [
+        {
+          title: 'Literature types',
+          field: 'document_type',
+          aggName: 'doctype',
+          labels: DOCUMENT_TYPES,
+        },
+        {
+          title: 'Availability',
+          field: 'circulation.has_items_for_loan',
+          aggName: 'availability',
+        },
+        {
+          title: 'Tags',
+          field: 'tags',
+          aggName: 'tag',
+        },
+        {
+          title: 'Languages',
+          field: 'languages',
+          aggName: 'language',
+        },
+        {
+          title: 'Related content',
+          field: 'relations',
+          aggName: 'relation',
+          labels: DOCUMENT_RELATIONS,
+        },
+        {
+          title: 'Medium',
+          field: 'stock.mediums',
+          aggName: 'medium',
+        },
+      ],
       sortBy: {
         onEmptyQuery: 'mostrecent',
         values: [
@@ -551,9 +584,27 @@ export const defaultConfig = {
           },
           {
             default_order: 'desc',
-            field: 'publication_year',
+            field: '-publication_year',
             order: 5,
-            title: 'Publication year',
+            title: 'Publication year [oldest] ',
+          },
+          {
+            default_order: 'asc',
+            field: 'publication_year',
+            order: 6,
+            title: 'Publication year [newest]',
+          },
+          {
+            default_order: 'asc',
+            field: 'title',
+            order: 7,
+            title: 'Title [A-Z]',
+          },
+          {
+            default_order: 'desc',
+            field: '-title',
+            order: 8,
+            title: 'Title [Z-A]',
           },
         ],
       },

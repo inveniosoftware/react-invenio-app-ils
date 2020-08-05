@@ -11,12 +11,19 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
   <ContextProvider
     value={
       Object {
+        "BucketAggregation.element.available-for-loan": [Function],
+        "BucketAggregation.element.menu": [Function],
+        "BucketAggregationValues.element.available-for-loan": [Function],
         "BucketAggregationValues.element.card": [Function],
         "EmptyResults.element": [Function],
         "Error.element": [Function],
         "ResultsGrid": [Function],
         "ResultsList": [Function],
         "SearchBar": [Function],
+        "SortBy.element.desktop": [Function],
+        "SortBy.element.mobile": [Function],
+        "SortOrder.element.desktop": [Function],
+        "SortOrder.element.mobile": [Function],
       }
     }
   >
@@ -91,6 +98,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
               defaultLayout="grid"
               modelName="LITERATURE"
               withLayoutSwitcher={true}
+              withSortOrder={true}
             />
             <Connect(Overridable(ResultsMultiLayout)) />
           </Responsive>
@@ -101,6 +109,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
             <SearchControlsMobile
               modelName="LITERATURE"
               stickyRef={null}
+              withSortOrder={true}
             />
           </Responsive>
           <SearchFooter />
