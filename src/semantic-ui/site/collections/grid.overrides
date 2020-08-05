@@ -16,5 +16,10 @@ Grid Overrides - REACT-INVENIO-APP-ILS
       max-height: 60vh;
     }
   }
+  .layout-switcher{
+    .ui.menu{
+      box-shadow: none;
+    }
+  }
 }
 

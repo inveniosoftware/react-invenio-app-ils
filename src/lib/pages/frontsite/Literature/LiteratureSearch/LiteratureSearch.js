@@ -69,12 +69,15 @@ class LiteratureSearch extends Component {
                     <ResultsLoader renderElement={this.renderLoader}>
                       <Grid.Column width={3} className="search-aggregations">
                         <Header content="Filter by" />
-                        <SearchAggregationsCards modelName="DOCUMENTS" />
+                        <SearchAggregationsCards modelName="LITERATURE" />
                       </Grid.Column>
                       <Grid.Column width={13} className="search-results">
                         <EmptyResults />
                         <Error />
-                        <SearchControls modelName="DOCUMENTS" />
+                        <SearchControls
+                          modelName="LITERATURE"
+                          withSortOrder={false}
+                        />
                         <ResultsMultiLayout />
                         <Container fluid className="search-results-footer">
                           <SearchFooter />

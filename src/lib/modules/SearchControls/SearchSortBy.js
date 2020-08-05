@@ -1,44 +1,10 @@
 import React, { Component } from 'react';
 import { SortBy } from 'react-searchkit';
 import PropTypes from 'prop-types';
-import { Dropdown, Responsive } from 'semantic-ui-react';
+import { Responsive } from 'semantic-ui-react';
 import { getSearchConfig } from '@config';
 
 export default class SearchSortBy extends Component {
-  renderMobileElement = (currentSortBy, options, onValueChange) => {
-    return (
-      <Dropdown text="Sort by" size="small" pointing className="link item">
-        <Dropdown.Menu>
-          <Dropdown.Header icon="sort" content="Sort by" />
-          {options.map((element, index) => {
-            return (
-              <Dropdown.Item
-                key={index}
-                value={element.value}
-                text={element.text}
-                onClick={(e, { value }) => onValueChange(value)}
-              />
-            );
-          })}
-        </Dropdown.Menu>
-      </Dropdown>
-    );
-  };
-
-  renderSortBy = (currentSortBy, options, onValueChange) => {
-    const _options = options.map((element, index) => {
-      return { key: index, text: element.text, value: element.value };
-    });
-    return (
-      <Dropdown
-        selection
-        options={_options}
-        value={currentSortBy}
-        onChange={(e, { value }) => onValueChange(value)}
-      />
-    );
-  };
-
   render() {
     const { modelName } = this.props;
     const searchConfig = getSearchConfig(modelName);
@@ -51,7 +17,7 @@ export default class SearchSortBy extends Component {
               values={searchConfig.SORT_BY}
               defaultValue={searchConfig.SORT_BY[0].value}
               defaultValueOnEmptyString={searchConfig.SORT_BY_ON_EMPTY_QUERY}
-              renderElement={this.renderSortBy}
+              overridableId="desktop"
             />
           ) : null}
         </Responsive>
@@ -61,7 +27,7 @@ export default class SearchSortBy extends Component {
               values={searchConfig.SORT_BY}
               defaultValue={searchConfig.SORT_BY[0].value}
               defaultValueOnEmptyString={searchConfig.SORT_BY_ON_EMPTY_QUERY}
-              renderElement={this.renderMobileElement}
+              overridableId="mobile"
             />
           ) : null}
         </Responsive>

@@ -10,7 +10,12 @@ import SearchPagination from './SearchPagination';
 
 export class SearchControls extends Component {
   render() {
-    const { withLayoutSwitcher, defaultLayout, modelName } = this.props;
+    const {
+      withLayoutSwitcher,
+      defaultLayout,
+      modelName,
+      withSortOrder,
+    } = this.props;
     return (
       <>
         <Responsive {...Responsive.onlyComputer}>
@@ -18,7 +23,7 @@ export class SearchControls extends Component {
             <Grid.Column largeScreen={5} computer={6}>
               <Grid columns={2}>
                 {withLayoutSwitcher && (
-                  <Grid.Column width={6}>
+                  <Grid.Column width={6} className="layout-switcher">
                     <LayoutSwitcher defaultLayout={defaultLayout} />
                   </Grid.Column>
                 )}
@@ -46,7 +51,7 @@ export class SearchControls extends Component {
             >
               <div className="sort-by-filters">
                 <SearchSortBy modelName={modelName} />
-                <SearchSortOrder modelName={modelName} />
+                {withSortOrder && <SearchSortOrder modelName={modelName} />}
               </div>
             </Grid.Column>
           </Grid>
@@ -59,7 +64,10 @@ export class SearchControls extends Component {
           </Grid>
         </Responsive>
         <Responsive maxWidth={Responsive.onlyTablet.maxWidth}>
-          <SearchControlsMobile modelName={modelName} />
+          <SearchControlsMobile
+            modelName={modelName}
+            withSortOrder={withSortOrder}
+          />
         </Responsive>
       </>
     );
@@ -70,9 +78,11 @@ SearchControls.propTypes = {
   modelName: PropTypes.string.isRequired,
   withLayoutSwitcher: PropTypes.bool,
   defaultLayout: PropTypes.oneOf(['grid', 'list']),
+  withSortOrder: PropTypes.bool,
 };
 
 SearchControls.defaultProps = {
   withLayoutSwitcher: true,
   defaultLayout: 'grid',
+  withSortOrder: true,
 };

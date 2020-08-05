@@ -1,11 +1,15 @@
 import { SearchControlsMobile } from '@modules/SearchControls/SearchControlsMobile';
-import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import SearchPagination from '@modules/SearchControls/SearchPagination';
 import React, { Component, createRef } from 'react';
 import Overridable from 'react-overridable';
 import { Container, Ref, Sticky } from 'semantic-ui-react';
-import { ResultsLoader, Error, ResultsGrid } from 'react-searchkit';
+import {
+  EmptyResults,
+  ResultsLoader,
+  Error,
+  ResultsGrid,
+} from 'react-searchkit';
 import SearchMessage from './SearchMessage/SearchMessage';
 
 class LiteratureSearchMobile extends Component {
@@ -19,7 +23,7 @@ class LiteratureSearchMobile extends Component {
       >
         <Container fluid className="grid-documents-search">
           <ResultsLoader>
-            <SearchEmptyResults />
+            <EmptyResults />
             <Error />
             <Ref innerRef={this.stickyRef}>
               <Container fluid>
@@ -28,7 +32,8 @@ class LiteratureSearchMobile extends Component {
                     <Sticky context={this.stickyRef} offset={66}>
                       <SearchControlsMobile
                         ref={this.stickyRef}
-                        modelName="DOCUMENTS"
+                        modelName="LITERATURE"
+                        withSortOrder={false}
                       />
                     </Sticky>
                     <Container textAlign="center">

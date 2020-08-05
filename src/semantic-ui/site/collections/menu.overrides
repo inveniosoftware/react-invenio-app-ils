@@ -76,6 +76,9 @@ Menu Overrides - REACT-INVENIO-APP-ILS
     .ui.menu {
       margin: 0 0 0.5em 0;
       box-shadow: none;
+      .item.mobile-sort-by{
+        padding:0;
+      }
     }
 
     margin-bottom: @defaultMarginValue*2;

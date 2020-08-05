@@ -127,6 +127,12 @@ a {
   font-size: 0.8em;
 }
 
+.vertical-align-content{
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* FRONTSITE */
 
 @media only screen and (max-width: @largestMobileScreen) {
@@ -138,7 +144,8 @@ a {
   }
 }
 
-@{fs-parent-selector} {
+.frontsite {
+  height: 100%;
   display: flex;
   flex-direction: column;
 
@@ -174,11 +181,20 @@ a {
   span.secondary {
     color: @fsSecondaryColor;
   }
+
+  .mobile-results-page {
+      .ui.compact.dropdown{
+        font-size: 15px;
+      }
+  }
+  .mobile-count{
+    line-height: 2em;
+  }
 }
 
 /* BACKOFFICE */
 
-@{bo-parent-selector} {
+.backoffice {
   display: flex;
   width: 100%;
 

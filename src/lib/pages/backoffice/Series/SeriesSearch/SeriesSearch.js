@@ -4,7 +4,6 @@ import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchContro
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import { SeriesListEntry } from './SeriesListEntry';
 import { OverridableContext } from 'react-overridable';
-import SeriesList from './SeriesList';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Grid, Header, Container } from 'semantic-ui-react';
@@ -17,7 +16,6 @@ import {
   EmptyResults,
   InvenioSearchApi,
 } from 'react-searchkit';
-import { Error as IlsError } from '@components/Error';
 import { seriesApi } from '@api/series/series';
 import { responseRejectInterceptor } from '@api/base';
 import { getSearchConfig } from '@config';
@@ -48,14 +46,6 @@ export class SeriesSearch extends Component {
         data-test={row.metadata.pid}
       />
     );
-  };
-
-  renderSeriesList = results => {
-    return <SeriesList hits={results} />;
-  };
-
-  renderError = error => {
-    return <IlsError error={error} />;
   };
 
   render() {
