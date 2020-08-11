@@ -116,6 +116,7 @@ export class DocumentForm extends Component {
             options={invenioConfig.DOCUMENTS.types}
             fieldPath="document_type"
             label="Literature types"
+            required
           />
           <StringField label="Edition" fieldPath="edition" optimized />
           <StringField

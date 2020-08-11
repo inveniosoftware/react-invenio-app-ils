@@ -1,12 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { FastField, Field, getIn } from 'formik';
-import cloneDeep from 'lodash/cloneDeep';
-import { AuthorForm } from './AuthorForm';
-import { SubForm } from '@forms/core/SubForm';
+import { invenioConfig } from '@config';
 import { GroupField } from '@forms/core/GroupField';
 import { ObjectListField } from '@forms/core/ObjectListField';
-import { invenioConfig } from '@config';
+import { SubForm } from '@forms/core/SubForm';
+import { FastField, Field, getIn } from 'formik';
+import cloneDeep from 'lodash/cloneDeep';
+import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { AuthorForm } from './AuthorForm';
 import { AuthorSearchField } from './AuthorSearchField';
 
 export class AuthorsField extends React.Component {
@@ -14,6 +15,10 @@ export class AuthorsField extends React.Component {
     activeIndex: null,
     showForm: false,
   };
+
+  componentDidMount() {
+    this.onAuthorChange(0);
+  }
 
   onRemove = (values, index, setFieldValue) => {
     this.setState({ showForm: false });
@@ -68,6 +73,7 @@ export class AuthorsField extends React.Component {
           initialErrors={errors}
           initialStatus={errors}
           removeButtonText="Remove author"
+          notRemovable={_isEmpty(authors) || activeIndex === authors.length}
           submitButtonText="Save author"
           onSubmit={(values, actions) =>
             this.onSubmit(values, activeIndex, setFieldValue)

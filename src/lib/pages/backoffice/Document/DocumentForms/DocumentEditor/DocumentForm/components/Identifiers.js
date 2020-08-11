@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { ObjectArrayField } from '@forms/core/ObjectArrayField';
 import { StringField } from '@forms/core/StringField';
 import { VocabularyField } from '@forms/core/VocabularyField';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 export class Identifiers extends Component {
   render() {
@@ -13,9 +13,9 @@ export class Identifiers extends Component {
         fieldPath="identifiers"
         label="Identifiers"
         defaultNewValue={{
-          scheme: '',
-          value: '',
-          material: '',
+          scheme: undefined,
+          value: undefined,
+          material: undefined,
         }}
         objects={[
           {

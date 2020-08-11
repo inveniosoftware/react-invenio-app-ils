@@ -45,7 +45,11 @@ export class AccessUrls extends Component {
         content={
           <ArrayField
             fieldPath="access_urls"
-            defaultNewValue={{ url: '', description: '', open_access: true }}
+            defaultNewValue={{
+              url: undefined,
+              description: undefined,
+              open_access: true,
+            }}
             renderArrayItem={this.renderFormField.bind(this)}
             addButtonLabel="Add new access url"
           />

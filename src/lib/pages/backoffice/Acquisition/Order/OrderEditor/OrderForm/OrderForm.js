@@ -9,6 +9,7 @@ import { goTo } from '@history';
 import { AcquisitionRoutes } from '@routes/urls';
 import { getIn } from 'formik';
 import _has from 'lodash/has';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Grid, Header, Segment } from 'semantic-ui-react';
@@ -18,20 +19,26 @@ import { Payment } from './Payment';
 
 const orderSubmitSerializer = values => {
   const submitValues = { ...values };
-  submitValues.vendor_pid = values.vendor.pid;
-  submitValues.order_lines = values.resolved_order_lines.map(line => {
-    if (line.document) {
-      line.document_pid = _has(line.document, 'id')
-        ? line.document.id
-        : line.document.pid;
-    }
-    if (line.patron) {
-      line.patron_pid = _has(line.patron, 'id')
-        ? line.patron.id
-        : line.patron.pid;
-    }
-    return line;
-  });
+
+  _isEmpty(values.vendor)
+    ? (submitValues.vendor_pid = undefined)
+    : (submitValues.vendor_pid = values.vendor.pid);
+  _isEmpty(values.order_lines)
+    ? (submitValues.order_lines = undefined)
+    : (submitValues.order_lines = values.order_lines.map(line => {
+        if (line.document) {
+          line.document_pid = _has(line.document, 'id')
+            ? line.document.id
+            : line.document.pid;
+        }
+        if (line.patron) {
+          line.patron_pid = _has(line.patron, 'id')
+            ? line.patron.id
+            : line.patron.pid;
+        }
+        return line;
+      }));
+
   return submitValues;
 };
 
@@ -135,7 +142,8 @@ export class OrderForm extends Component {
 
   render() {
     const { currencies, isLoading } = this.state;
-    const { successSubmitMessage, data, title, pid } = this.props;
+    const { successSubmitMessage, data, title, pid, isCreate } = this.props;
+
     return (
       <BaseForm
         initialValues={data ? data.metadata : this.getDefaultValues()}
@@ -171,7 +179,7 @@ export class OrderForm extends Component {
 
         <Header dividing>Order lines</Header>
         <Loader isLoading={isLoading}>
-          <OrderLines currencies={currencies} />
+          <OrderLines isCreate={isCreate} currencies={currencies} />
         </Loader>
       </BaseForm>
     );
@@ -183,6 +191,7 @@ OrderForm.propTypes = {
   successSubmitMessage: PropTypes.string,
   title: PropTypes.string,
   pid: PropTypes.string,
+  isCreate: PropTypes.bool,
 };
 
 OrderForm.defaultProps = {
@@ -190,4 +199,5 @@ OrderForm.defaultProps = {
   successSubmitMessage: null,
   title: null,
   pid: null,
+  isCreate: false,
 };

@@ -81,6 +81,7 @@ export class OrderEditor extends Component {
         title="Create new acquisition order"
         successSubmitMessage="The order was successfully created."
         data={this.documentRequest}
+        isCreate
       />
     );
   }

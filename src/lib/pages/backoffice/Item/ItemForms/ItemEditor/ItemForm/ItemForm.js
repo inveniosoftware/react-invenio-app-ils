@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { getIn } from 'formik';
-import pick from 'lodash/pick';
+import { documentApi } from '@api/documents';
+import { itemApi } from '@api/items';
+import { internalLocationApi } from '@api/locations';
+import { withCancel } from '@api/utils';
+import { vocabularyApi } from '@api/vocabularies';
+import { invenioConfig } from '@config';
+import { AccordionField } from '@forms/core/AccordionField';
 import { BaseForm } from '@forms/core/BaseForm';
+import { GroupField } from '@forms/core/GroupField';
+import { PriceField } from '@forms/core/PriceField';
+import { SelectField } from '@forms/core/SelectField';
+import { SelectorField } from '@forms/core/SelectorField';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
-import { SelectField } from '@forms/core/SelectField';
-import { GroupField } from '@forms/core/GroupField';
-import { SelectorField } from '@forms/core/SelectorField';
-import { AccordionField } from '@forms/core/AccordionField';
-import { PriceField } from '@forms/core/PriceField';
-import { BackOfficeRoutes } from '@routes/urls';
 import { goTo } from '@history';
-import itemSubmitSerializer from './itemSubmitSerializer';
-import { invenioConfig } from '@config';
-import { documentApi } from '@api/documents';
-import { internalLocationApi } from '@api/locations';
-import { itemApi } from '@api/items';
-import { vocabularyApi } from '@api/vocabularies';
 import {
   serializeDocument,
   serializeInternalLocation,
 } from '@modules/ESSelector/serializer';
-import { withCancel } from '@api/utils';
+import { BackOfficeRoutes } from '@routes/urls';
+import { getIn } from 'formik';
+import pick from 'lodash/pick';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import itemSubmitSerializer from './itemSubmitSerializer';
 
 export class ItemForm extends Component {
   constructor(props) {
@@ -96,7 +96,7 @@ export class ItemForm extends Component {
       'internal_location',
       'internal_notes',
       'isbn',
-      'legayc_id',
+      'legacy_id',
       'legacy_library_id',
       'medium',
       'number_of_pages',

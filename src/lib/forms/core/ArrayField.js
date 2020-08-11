@@ -1,9 +1,16 @@
-import React, { Component } from 'react';
+import { FieldArray, getIn } from 'formik';
 import PropTypes from 'prop-types';
-import { getIn, FieldArray } from 'formik';
-import { Form, Button, Icon } from 'semantic-ui-react';
+import React, { Component } from 'react';
+import { Button, Form, Icon } from 'semantic-ui-react';
 
 export class ArrayField extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstItemCreated: false,
+    };
+  }
+
   renderFormField = props => {
     const {
       form: { values },
@@ -15,8 +22,16 @@ export class ArrayField extends Component {
       defaultNewValue,
       label,
       renderArrayItem,
+      startWithItem,
       ...uiProps
     } = this.props;
+
+    const { firstItemCreated } = this.state;
+    if (startWithItem && !firstItemCreated) {
+      this.setState({ firstItemCreated: !firstItemCreated });
+      arrayHelpers.push(defaultNewValue);
+    }
+
     return (
       <Form.Field {...uiProps}>
         <label>{label}</label>
@@ -56,9 +71,11 @@ ArrayField.propTypes = {
   defaultNewValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
     .isRequired,
   renderArrayItem: PropTypes.func.isRequired,
+  startWithItem: PropTypes.bool,
 };
 
 ArrayField.defaultProps = {
   label: '',
   addButtonLabel: 'Add new row',
+  startWithItem: false,
 };

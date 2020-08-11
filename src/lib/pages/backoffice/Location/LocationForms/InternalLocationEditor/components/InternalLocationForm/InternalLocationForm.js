@@ -1,13 +1,14 @@
-import { locationApi } from '@api/locations/location';
 import { internalLocationApi } from '@api/locations';
+import { locationApi } from '@api/locations/location';
 import { delay } from '@api/utils';
-import { serializeLocation } from '@modules/ESSelector/serializer';
 import { BaseForm } from '@forms/core/BaseForm';
 import { SelectorField } from '@forms/core/SelectorField';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
 import { goTo } from '@history';
+import { serializeLocation } from '@modules/ESSelector/serializer';
 import { BackOfficeRoutes } from '@routes/urls';
+import _isEmpty from 'lodash/isEmpty';
 import pick from 'lodash/pick';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -30,16 +31,16 @@ export class InternalLocationForm extends Component {
   };
 
   createInternalLocation = async data => {
-    const response = internalLocationApi.create(data);
-    await delay();
-    return response;
+    return internalLocationApi.create(data);
   };
 
   successCallback = () => goTo(BackOfficeRoutes.locationsList);
 
   submitSerializer = values => {
     const submitValues = { ...values };
-    submitValues.location_pid = values.location.pid;
+    _isEmpty(values.location)
+      ? (submitValues.location_pid = undefined)
+      : (submitValues.location_pid = values.location.pid);
     delete submitValues.location;
     return submitValues;
   };

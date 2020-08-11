@@ -38,7 +38,7 @@ export class SelectField extends Component {
       options = [
         {
           key: '',
-          value: '',
+          value: undefined,
           text: '-',
         },
         ...options,

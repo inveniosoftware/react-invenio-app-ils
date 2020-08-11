@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Formik } from 'formik';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
 
 export class SubForm extends Component {
@@ -15,6 +15,7 @@ export class SubForm extends Component {
       basePath,
       submitButtonText,
       onRemove,
+      notRemovable,
     } = this.props;
     return (
       <Formik
@@ -35,7 +36,13 @@ export class SubForm extends Component {
               content={submitButtonText}
             />
             {onRemove && (
-              <Button negative type="button" icon="trash" onClick={onRemove} />
+              <Button
+                negative
+                disabled={notRemovable}
+                type="button"
+                icon="trash"
+                onClick={onRemove}
+              />
             )}
           </>
         )}
@@ -54,6 +61,7 @@ SubForm.propTypes = {
   initialStatus: PropTypes.string,
   validationSchema: PropTypes.object,
   render: PropTypes.func,
+  notRemovable: PropTypes.bool,
 };
 
 SubForm.defaultProps = {
@@ -62,4 +70,5 @@ SubForm.defaultProps = {
   onRemove: null,
   initialErrors: null,
   initialStatus: null,
+  notRemovable: false,
 };

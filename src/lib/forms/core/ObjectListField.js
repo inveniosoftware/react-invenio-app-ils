@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Field, getIn } from 'formik';
-import { Form, List, Icon } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Form, Icon, List } from 'semantic-ui-react';
 import { ErrorIcon } from './ErrorIcon';
 
 export class ObjectListField extends Component {
@@ -41,7 +41,7 @@ export class ObjectListField extends Component {
     const { activeIndex } = this.state;
 
     return (
-      <Form.Field className="object-list-field">
+      <Form.Field className="object-list-field" required>
         <label>Authors</label>
         <List horizontal divided relaxed>
           {items.map((item, index) => (
@@ -60,7 +60,7 @@ export class ObjectListField extends Component {
 
           <List.Item
             as="a"
-            active={activeIndex === items.length}
+            active={items.length === 0 || activeIndex === items.length}
             onClick={() => this.onItemClick(null, items.length)}
           >
             <List.Content>

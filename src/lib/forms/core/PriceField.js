@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { FastField, Field, getIn } from 'formik';
-import { Form, Dropdown, Input, Label } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Dropdown, Form, Input, Label } from 'semantic-ui-react';
 
 // Wrapped Dropdown so we submit the selected value of the dropdown with the form
 const DropdownField = ({
@@ -93,7 +93,7 @@ export class PriceField extends Component {
           name={`${fieldPath}.value`}
           onChange={handleChange}
           onBlur={handleBlur}
-          value={getIn(values, `${fieldPath}.value`, '')}
+          value={getIn(values, `${fieldPath}.value`, undefined)}
           error={this.renderError(status || errors, fieldPath)}
           {...uiProps}
         />

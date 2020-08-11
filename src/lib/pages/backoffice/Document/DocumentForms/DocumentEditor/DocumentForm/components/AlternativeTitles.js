@@ -51,7 +51,11 @@ export class AlternativeTitles extends Component {
         content={
           <ArrayField
             fieldPath="alternative_titles"
-            defaultNewValue={{ value: '', source: '', language: '' }}
+            defaultNewValue={{
+              value: undefined,
+              source: undefined,
+              language: undefined,
+            }}
             renderArrayItem={this.renderFormField}
             addButtonLabel="Add new title"
           />

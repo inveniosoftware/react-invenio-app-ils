@@ -33,7 +33,7 @@ export class UrlsField extends Component {
         content={
           <ArrayField
             fieldPath="urls"
-            defaultNewValue={{ value: '', description: '' }}
+            defaultNewValue={{ value: undefined, description: undefined }}
             renderArrayItem={this.renderFormField}
             addButtonLabel="Add new url"
           />

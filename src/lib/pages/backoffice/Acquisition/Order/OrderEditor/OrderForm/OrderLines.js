@@ -2,14 +2,14 @@ import { documentApi } from '@api/documents';
 import { patronApi } from '@api/patrons';
 import { invenioConfig } from '@config';
 import { DeleteActionButton } from '@forms/components/DeleteActionButton';
-import { GroupField } from '@forms/core/GroupField';
-import { PriceField } from '@forms/core/PriceField';
 import { ArrayField } from '@forms/core/ArrayField';
 import { BooleanField } from '@forms/core/BooleanField';
-import { VocabularyField } from '@forms/core/VocabularyField';
+import { GroupField } from '@forms/core/GroupField';
+import { PriceField } from '@forms/core/PriceField';
 import { SelectorField } from '@forms/core/SelectorField';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
+import { VocabularyField } from '@forms/core/VocabularyField';
 import {
   serializeDocument,
   serializePatron,
@@ -28,10 +28,12 @@ export class OrderLines extends Component {
           grouped
           widths="equal"
           action={
-            <DeleteActionButton
-              size="large"
-              onClick={() => arrayHelpers.remove(indexPath)}
-            />
+            indexPath === 0 ? null : (
+              <DeleteActionButton
+                size="large"
+                onClick={() => arrayHelpers.remove(indexPath)}
+              />
+            )
           }
         >
           <GroupField widths="equal">
@@ -154,15 +156,17 @@ export class OrderLines extends Component {
   };
 
   render() {
+    const { isCreate } = this.props;
     return (
       <ArrayField
-        fieldPath="resolved_order_lines"
+        fieldPath="order_lines"
         defaultNewValue={{
           unit_price: { currency: invenioConfig.APP.defaultCurrency },
           total_price: { currency: invenioConfig.APP.defaultCurrency },
         }}
         renderArrayItem={this.renderArrayItem}
         addButtonLabel="Add new order line"
+        startWithItem={isCreate}
       />
     );
   }
@@ -170,4 +174,9 @@ export class OrderLines extends Component {
 
 OrderLines.propTypes = {
   currencies: PropTypes.array.isRequired,
+  isCreate: PropTypes.bool,
+};
+
+OrderLines.defaultProps = {
+  isCreate: false,
 };
