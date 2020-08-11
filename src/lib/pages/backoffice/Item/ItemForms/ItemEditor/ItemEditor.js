@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
-import { ItemForm } from './ItemForm';
+import { Loader } from '@components/Loader';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { ItemForm } from './ItemForm';
 
 export class ItemEditor extends Component {
   componentDidMount() {
@@ -22,7 +22,12 @@ export class ItemEditor extends Component {
         },
       };
     }
-    return null;
+    return {
+      metadata: {
+        document: undefined,
+        document_pid: undefined,
+      },
+    };
   }
 
   renderEditForm = pid => {

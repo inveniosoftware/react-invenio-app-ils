@@ -28,7 +28,7 @@ export class StringField extends Component {
           name={fieldPath}
           onChange={handleChange}
           onBlur={handleBlur}
-          value={getIn(values, fieldPath, '')}
+          value={getIn(values, fieldPath, undefined)}
           error={this.renderError(status || errors, fieldPath)}
           {...uiProps}
         />

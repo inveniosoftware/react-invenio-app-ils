@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { ErrorMessage } from '@forms/core/ErrorMessage';
 import { Formik, getIn } from 'formik';
 import _isEmpty from 'lodash/isEmpty';
-import { Form, Button, Header } from 'semantic-ui-react';
-import { ErrorMessage } from '@forms/core/ErrorMessage';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Button, Form, Header } from 'semantic-ui-react';
+import { removeEmptyValues } from './RecordSerializer';
 
 export class BaseForm extends Component {
   submitSerializer = values => {
@@ -63,6 +64,7 @@ export class BaseForm extends Component {
     if (values) {
       values._submitButton = buttonName;
     }
+    removeEmptyValues(values);
     submitForm();
   };
 
@@ -75,9 +77,6 @@ export class BaseForm extends Component {
         name={name}
         disabled={isSubmitting}
         type="button"
-        onClick={(event, button) =>
-          this.submitForm(event, button.name, submitForm, values)
-        }
         {...props}
       />
     ));

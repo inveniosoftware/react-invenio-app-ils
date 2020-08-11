@@ -7,6 +7,7 @@ import { BaseForm } from '@forms/core/BaseForm';
 import { goTo } from '@history';
 import { ILLRoutes } from '@routes/urls';
 import { getIn } from 'formik';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, Segment } from 'semantic-ui-react';
@@ -15,9 +16,16 @@ import { Payment } from './Payment';
 
 const submitSerializer = values => {
   const submitValues = { ...values };
-  submitValues.library_pid = values.library.pid;
-  submitValues.document_pid = values.document.pid;
-  submitValues.patron_pid = values.patron.pid;
+  _isEmpty(values.library)
+    ? (submitValues.library_pid = undefined)
+    : (submitValues.library_pid = values.library.pid);
+  _isEmpty(values.document)
+    ? (submitValues.document_pid = undefined)
+    : (submitValues.document_pid = values.document.pid);
+  _isEmpty(values.patron)
+    ? (submitValues.patron_pid = undefined)
+    : (submitValues.patron_pid = values.patron.pid);
+
   return submitValues;
 };
 

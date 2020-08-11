@@ -1,7 +1,7 @@
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Loader } from '@components/Loader';
-import { Error } from '@components/Error';
 import { SeriesForm } from './components';
 
 export class SeriesEditor extends Component {
@@ -33,6 +33,24 @@ export class SeriesEditor extends Component {
     );
   };
 
+  renderCreateForm = () => {
+    const { error } = this.props;
+    const data = {
+      metadata: {
+        extensions: undefined,
+      },
+    };
+    return (
+      <Error error={error}>
+        <SeriesForm
+          data={data}
+          title="Create new series"
+          successSubmitMessage="The series was successfully created."
+        />
+      </Error>
+    );
+  };
+
   render() {
     const {
       match: {
@@ -40,14 +58,9 @@ export class SeriesEditor extends Component {
       },
     } = this.props;
     const isEditForm = !!seriesPid;
-    return isEditForm ? (
-      this.renderEditForm(seriesPid)
-    ) : (
-      <SeriesForm
-        title="Create new series"
-        successSubmitMessage="The series was successfully created."
-      />
-    );
+    return isEditForm
+      ? this.renderEditForm(seriesPid)
+      : this.renderCreateForm();
   }
 }
 
