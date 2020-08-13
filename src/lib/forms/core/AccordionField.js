@@ -7,14 +7,6 @@ import { ErrorIcon } from './ErrorIcon';
 export class AccordionField extends Component {
   state = { active: false };
 
-  iconActive = (
-    <Icon name="angle down" size="large" style={{ float: 'right' }} />
-  );
-
-  iconInactive = (
-    <Icon name="angle right" size="large" style={{ float: 'right' }} />
-  );
-
   handleClick = showContent => {
     this.setState({ active: !showContent });
   };
@@ -41,13 +33,17 @@ export class AccordionField extends Component {
     const hasError = status ? this.hasError(status) : this.hasError(errors);
 
     return (
-      <Accordion fluid index={0}>
+      <Accordion styled fluid index={0}>
+        <Accordion.Title
+          as="label"
+          onClick={() => this.handleClick(active)}
+          active={active}
+        >
+          <Icon name="dropdown" />
+          {hasError && <ErrorIcon />}
+          <label>{label}</label>
+        </Accordion.Title>
         <Form.Field required={required}>
-          <Accordion.Title as="label" onClick={() => this.handleClick(active)}>
-            {hasError && <ErrorIcon />}
-            <label>{label}</label>
-            <span>{active ? this.iconActive : this.iconInactive}</span>
-          </Accordion.Title>
           <Accordion.Content active={active}>
             {active && content}
           </Accordion.Content>
