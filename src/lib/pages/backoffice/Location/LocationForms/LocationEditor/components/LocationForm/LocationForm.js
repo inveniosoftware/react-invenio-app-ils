@@ -1,6 +1,7 @@
 import { locationApi } from '@api/locations/location';
 import { delay } from '@api/utils';
 import { BaseForm } from '@forms/core/BaseForm';
+import { GroupField } from '@forms/core/GroupField';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
 import { goTo } from '@history';
@@ -8,6 +9,7 @@ import { BackOfficeRoutes } from '@routes/urls';
 import pick from 'lodash/pick';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Header, Segment } from 'semantic-ui-react';
 
 export class LocationForm extends Component {
   prepareData = data => {
@@ -47,11 +49,20 @@ export class LocationForm extends Component {
         title={title}
         pid={pid ? pid : undefined}
       >
-        <StringField label="Name" fieldPath="name" required />
-        <StringField label="Address" fieldPath="address" />
-        <StringField label="Email" fieldPath="email" />
-        <StringField label="Phone" fieldPath="phone" />
-        <TextField label="Notes" fieldPath="notes" rows={5} />
+        <Header as="h3" attached="top">
+          Basic information
+        </Header>
+        <Segment attached>
+          <GroupField>
+            <StringField label="Name" fieldPath="name" required />
+            <StringField label="Phone" fieldPath="phone" />
+          </GroupField>
+          <GroupField>
+            <StringField label="Email" fieldPath="email" />
+            <StringField label="Address" fieldPath="address" />
+          </GroupField>
+          <TextField label="Notes" fieldPath="notes" rows={5} />
+        </Segment>
       </BaseForm>
     );
   }

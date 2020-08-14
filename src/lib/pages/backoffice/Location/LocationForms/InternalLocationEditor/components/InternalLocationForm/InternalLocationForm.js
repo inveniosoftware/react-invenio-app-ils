@@ -2,6 +2,7 @@ import { internalLocationApi } from '@api/locations';
 import { locationApi } from '@api/locations/location';
 import { delay } from '@api/utils';
 import { BaseForm } from '@forms/core/BaseForm';
+import { GroupField } from '@forms/core/GroupField';
 import { SelectorField } from '@forms/core/SelectorField';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
@@ -12,6 +13,7 @@ import _isEmpty from 'lodash/isEmpty';
 import pick from 'lodash/pick';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Header, Segment } from 'semantic-ui-react';
 
 export class InternalLocationForm extends Component {
   prepareData = data => {
@@ -65,20 +67,30 @@ export class InternalLocationForm extends Component {
         pid={pid ? pid : undefined}
         submitSerializer={this.submitSerializer}
       >
-        <StringField label="Name" fieldPath="name" required />
-        <SelectorField
-          required
-          emptyHeader="No location selected"
-          emptyDescription="Please select a location."
-          fieldPath="location"
-          errorPath="location_pid"
-          label="Location"
-          placeholder="Search for a location..."
-          query={locationApi.list}
-          serializer={serializeLocation}
-        />
-        <StringField label="Physical Location" fieldPath="physical_location" />
-        <TextField label="Notes" fieldPath="notes" rows={5} />
+        <Header as="h3" attached="top">
+          Basic information
+        </Header>
+        <Segment attached>
+          <StringField label="Name" fieldPath="name" required />
+          <GroupField>
+            <SelectorField
+              required
+              emptyHeader="No location selected"
+              emptyDescription="Please select a location."
+              fieldPath="location"
+              errorPath="location_pid"
+              label="Location"
+              placeholder="Search for a location..."
+              query={locationApi.list}
+              serializer={serializeLocation}
+            />
+            <StringField
+              label="Physical Location"
+              fieldPath="physical_location"
+            />
+          </GroupField>
+          <TextField label="Notes" fieldPath="notes" rows={5} />
+        </Segment>
       </BaseForm>
     );
   }
