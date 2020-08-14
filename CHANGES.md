@@ -1,5 +1,15 @@
 # Changes
 
+Version 1.0.0-alpha.10 (released 2020-08-14)
+
+- improve UX of the backoffice forms
+- fix form validation
+- add feauture checkout by scan
+- fix layout issues in login page
+- disable force checkout for items on loan
+- upgrade react-searchkit components
+- add sort by title option in search
+
 Version 1.0.0-alpha.9 (released 2020-07-28)
 
 - fix document request config
