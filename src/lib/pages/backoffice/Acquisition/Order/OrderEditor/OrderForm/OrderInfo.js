@@ -50,26 +50,28 @@ export class OrderInfo extends Component {
             fieldPath="expected_delivery_date"
             optimized
           />
+          <DateInputField
+            label="Received date"
+            fieldPath="received_date"
+            optimized
+          />
         </GroupField>
 
-        <PriceField
-          label="Total"
-          fieldPath="grand_total"
-          currencies={currencies}
-          defaultCurrency={invenioConfig.APP.defaultCurrency}
-        />
-        <PriceField
-          label="Total Main Currency"
-          fieldPath="grand_total_main_currency"
-          currencies={currencies}
-          canSelectCurrency={false}
-          defaultCurrency={invenioConfig.APP.defaultCurrency}
-        />
-        <DateInputField
-          label="Received date"
-          fieldPath="received_date"
-          optimized
-        />
+        <GroupField widths="equal">
+          <PriceField
+            label="Total"
+            fieldPath="grand_total"
+            currencies={currencies}
+            defaultCurrency={invenioConfig.APP.defaultCurrency}
+          />
+          <PriceField
+            label="Total Main Currency"
+            fieldPath="grand_total_main_currency"
+            currencies={currencies}
+            canSelectCurrency={false}
+            defaultCurrency={invenioConfig.APP.defaultCurrency}
+          />
+        </GroupField>
 
         <TextField label="Notes" fieldPath="notes" rows={3} />
       </>
