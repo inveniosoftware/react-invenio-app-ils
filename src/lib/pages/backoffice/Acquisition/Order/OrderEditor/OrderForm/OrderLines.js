@@ -16,79 +16,39 @@ import {
 } from '@modules/ESSelector/serializer';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Segment } from 'semantic-ui-react';
+import { Segment, Divider, Grid } from 'semantic-ui-react';
 
 export class OrderLines extends Component {
   renderArrayItem = ({ arrayPath, indexPath, ...arrayHelpers }) => {
     const { currencies } = this.props;
     return (
-      <Segment raised>
-        <GroupField
-          border
-          grouped
-          widths="equal"
-          action={
-            indexPath === 0 ? null : (
-              <DeleteActionButton
-                size="large"
-                onClick={() => arrayHelpers.remove(indexPath)}
-              />
-            )
-          }
-        >
-          <GroupField widths="equal">
-            <PriceField
-              label="Order Line Unit Price"
-              fieldPath={`${arrayPath}.${indexPath}.unit_price`}
-              currencies={currencies}
-              defaultCurrency={invenioConfig.APP.defaultCurrency}
+      <GroupField
+        grouped
+        widths="equal"
+        action={
+          indexPath === 0 ? null : (
+            <DeleteActionButton
+              size="large"
+              onClick={() => arrayHelpers.remove(indexPath)}
             />
-            <PriceField
-              label="Order Line Total Price"
-              fieldPath={`${arrayPath}.${indexPath}.total_price`}
-              currencies={currencies}
-              defaultCurrency={invenioConfig.APP.defaultCurrency}
-            />
-          </GroupField>
-
-          <SelectorField
-            required
-            emptyHeader="No document selected"
-            emptyDescription="Please select a document."
-            fieldPath={`${arrayPath}.${indexPath}.document`}
-            errorPath={`${arrayPath}.${indexPath}.document_pid`}
-            label="Document"
-            placeholder="Search for a document..."
-            query={documentApi.list}
-            serializer={serializeDocument}
-          />
-          <GroupField widths="equal">
-            <VocabularyField
-              type={invenioConfig.VOCABULARIES.acqOrders.acq_recipient}
-              fieldPath={`${arrayPath}.${indexPath}.recipient`}
-              label="Recipient"
-              placeholder="Select recipient..."
+          )
+        }
+      >
+        <Grid columns="equal">
+          <Grid.Column>
+            <SelectorField
               required
+              emptyHeader="No document selected"
+              emptyDescription="Please select a document."
+              fieldPath={`${arrayPath}.${indexPath}.document`}
+              errorPath={`${arrayPath}.${indexPath}.document_pid`}
+              label="Document"
+              placeholder="Search for a document..."
+              query={documentApi.list}
+              serializer={serializeDocument}
             />
-
-            <StringField
-              label="ID for inter-departmental transaction"
-              fieldPath={`${arrayPath}.${indexPath}.inter_departmental_transaction_id`}
-            />
-          </GroupField>
-
-          <GroupField widths="equal">
-            <StringField
-              label="Copies Ordered"
-              type="number"
-              fieldPath={`${arrayPath}.${indexPath}.copies_ordered`}
-              required
-            />
-            <StringField
-              label="Copies Received"
-              type="number"
-              fieldPath={`${arrayPath}.${indexPath}.copies_received`}
-            />
+          </Grid.Column>
+          <Grid.Column>
             <VocabularyField
               type={invenioConfig.VOCABULARIES.acqOrders.acq_medium}
               fieldPath={`${arrayPath}.${indexPath}.medium`}
@@ -96,20 +56,60 @@ export class OrderLines extends Component {
               placeholder="Select medium..."
               required
             />
-          </GroupField>
+          </Grid.Column>
+          <Grid.Column>
+            <StringField
+              label="Copies Ordered"
+              type="number"
+              fieldPath={`${arrayPath}.${indexPath}.copies_ordered`}
+              required
+            />
+          </Grid.Column>
+          <Grid.Column>
+            <StringField
+              label="Copies Received"
+              type="number"
+              fieldPath={`${arrayPath}.${indexPath}.copies_received`}
+            />
+          </Grid.Column>
+        </Grid>
 
-          <GroupField widths="equal">
-            <BooleanField
-              label="Donation"
-              fieldPath={`${arrayPath}.${indexPath}.is_donation`}
-              toggle
+        <Grid columns="equal">
+          <Grid.Column>
+            <PriceField
+              label="Order Line Unit Price"
+              fieldPath={`${arrayPath}.${indexPath}.unit_price`}
+              currencies={currencies}
+              defaultCurrency={invenioConfig.APP.defaultCurrency}
             />
-            <BooleanField
-              label="Patron Suggestion"
-              fieldPath={`${arrayPath}.${indexPath}.is_patron_suggestion`}
-              toggle
+          </Grid.Column>
+          <Grid.Column>
+            <PriceField
+              label="Order Line Total Price"
+              fieldPath={`${arrayPath}.${indexPath}.total_price`}
+              currencies={currencies}
+              defaultCurrency={invenioConfig.APP.defaultCurrency}
             />
-          </GroupField>
+          </Grid.Column>
+          <Grid.Column>
+            <StringField
+              label="ID for inter-departmental transaction"
+              fieldPath={`${arrayPath}.${indexPath}.inter_departmental_transaction_id`}
+            />
+          </Grid.Column>
+        </Grid>
+
+        <GroupField widths="equal">
+          <BooleanField
+            label="Donation"
+            fieldPath={`${arrayPath}.${indexPath}.is_donation`}
+            toggle
+          />
+          <BooleanField
+            label="Patron Suggestion"
+            fieldPath={`${arrayPath}.${indexPath}.is_patron_suggestion`}
+            toggle
+          />
           <SelectorField
             emptyHeader="No patron selected"
             emptyDescription="Please select a patron."
@@ -120,8 +120,19 @@ export class OrderLines extends Component {
             query={patronApi.list}
             serializer={serializePatron}
           />
+        </GroupField>
 
-          <GroupField widths="equal">
+        <Grid columns="equal">
+          <Grid.Column>
+            <VocabularyField
+              type={invenioConfig.VOCABULARIES.acqOrders.acq_recipient}
+              fieldPath={`${arrayPath}.${indexPath}.recipient`}
+              label="Recipient"
+              placeholder="Select recipient..."
+              required
+            />
+          </Grid.Column>
+          <Grid.Column>
             <VocabularyField
               type={
                 invenioConfig.VOCABULARIES.acqOrders.acq_order_line_payment_mode
@@ -130,6 +141,8 @@ export class OrderLines extends Component {
               label="Payment mode"
               placeholder="Select payment mode..."
             />
+          </Grid.Column>
+          <Grid.Column>
             <VocabularyField
               type={
                 invenioConfig.VOCABULARIES.acqOrders
@@ -139,35 +152,40 @@ export class OrderLines extends Component {
               label="Purchase Type"
               placeholder="Select purchase type..."
             />
+          </Grid.Column>
+          <Grid.Column>
             <StringField
               label="Budget code"
               fieldPath={`${arrayPath}.${indexPath}.budget_code`}
             />
-          </GroupField>
+          </Grid.Column>
+        </Grid>
 
-          <TextField
-            label="Notes"
-            fieldPath={`${arrayPath}.${indexPath}.notes`}
-            rows={3}
-          />
-        </GroupField>
-      </Segment>
+        <TextField
+          label="Notes"
+          fieldPath={`${arrayPath}.${indexPath}.notes`}
+          rows={3}
+        />
+        <Divider section />
+      </GroupField>
     );
   };
 
   render() {
     const { isCreate } = this.props;
     return (
-      <ArrayField
-        fieldPath="order_lines"
-        defaultNewValue={{
-          unit_price: { currency: invenioConfig.APP.defaultCurrency },
-          total_price: { currency: invenioConfig.APP.defaultCurrency },
-        }}
-        renderArrayItem={this.renderArrayItem}
-        addButtonLabel="Add new order line"
-        startWithItem={isCreate}
-      />
+      <Segment attached>
+        <ArrayField
+          fieldPath="order_lines"
+          defaultNewValue={{
+            unit_price: { currency: invenioConfig.APP.defaultCurrency },
+            total_price: { currency: invenioConfig.APP.defaultCurrency },
+          }}
+          renderArrayItem={this.renderArrayItem}
+          addButtonLabel="Add new order line"
+          startWithItem={isCreate}
+        />
+      </Segment>
     );
   }
 }

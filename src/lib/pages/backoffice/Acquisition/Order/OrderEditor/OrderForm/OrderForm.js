@@ -157,18 +157,22 @@ export class OrderForm extends Component {
         buttons={this.buttons}
       >
         <Grid columns="equal">
-          <Grid.Row stretched>
+          <Grid.Row>
             <Grid.Column>
-              <Segment raised>
-                <Header dividing>Order information</Header>
+              <Header attached="top" as="h3">
+                Order information
+              </Header>
+              <Segment attached>
                 <Loader isLoading={isLoading}>
                   <OrderInfo currencies={currencies} />
                 </Loader>
               </Segment>
             </Grid.Column>
             <Grid.Column>
-              <Segment raised>
-                <Header dividing>Payment information</Header>
+              <Header attached="top" as="h3">
+                Payment information
+              </Header>
+              <Segment attached>
                 <Loader isLoading={isLoading}>
                   <Payment currencies={currencies} />
                 </Loader>
@@ -177,8 +181,10 @@ export class OrderForm extends Component {
           </Grid.Row>
         </Grid>
 
-        <Header dividing>Order lines</Header>
         <Loader isLoading={isLoading}>
+          <Header attached="top" as="h3">
+            Order lines
+          </Header>
           <OrderLines isCreate={isCreate} currencies={currencies} />
         </Loader>
       </BaseForm>
