@@ -1,4 +1,5 @@
 import { FieldArray, getIn } from 'formik';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Form, Icon } from 'semantic-ui-react';
@@ -27,7 +28,7 @@ export class ArrayField extends Component {
     } = this.props;
 
     const { firstItemCreated } = this.state;
-    if (startWithItem && !firstItemCreated) {
+    if (_isEmpty(values[fieldPath]) && startWithItem && !firstItemCreated) {
       this.setState({ firstItemCreated: !firstItemCreated });
       arrayHelpers.push(defaultNewValue);
     }

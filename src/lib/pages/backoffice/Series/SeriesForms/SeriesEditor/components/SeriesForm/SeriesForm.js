@@ -1,4 +1,5 @@
 import { seriesApi } from '@api/series';
+import { invenioConfig } from '@config';
 import {
   DeleteActionButton,
   LanguageField,
@@ -25,7 +26,6 @@ import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { AccessUrls } from './AccessUrls';
 import { SeriesMetadataExtensions } from './SeriesMetadataExtensions';
-import { invenioConfig } from '@config';
 
 export class SeriesForm extends Component {
   prepareData = data => {
@@ -103,11 +103,7 @@ export class SeriesForm extends Component {
         pid={pid}
       >
         <StringField label="Title" fieldPath="title" required />
-        <StringField
-          label="Abbreviated title"
-          fieldPath="abbreviated_title"
-          required
-        />
+        <StringField label="Abbreviated title" fieldPath="abbreviated_title" />
         <AlternativeTitles />
         <SelectField
           required

@@ -8,6 +8,7 @@ import { StringField } from '@forms/core/StringField';
 import { VocabularyField } from '@forms/core/VocabularyField';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Divider, Grid } from 'semantic-ui-react';
 
 export class AuthorForm extends React.Component {
   constructor(props) {
@@ -47,16 +48,18 @@ export class AuthorForm extends React.Component {
 
   renderAlternativeName = ({ arrayPath, indexPath, ...arrayHelpers }) => {
     return (
-      <GroupField basic>
+      <GroupField
+        basic
+        border
+        action={
+          <DeleteActionButton onClick={() => arrayHelpers.remove(indexPath)} />
+        }
+      >
         <StringField
+          required
+          fluid
           label="Alternative name"
           fieldPath={`${arrayPath}.${indexPath}`}
-          action={
-            <DeleteActionButton
-              icon="trash"
-              onClick={() => arrayHelpers.remove(indexPath)}
-            />
-          }
         />
       </GroupField>
     );
@@ -84,55 +87,64 @@ export class AuthorForm extends React.Component {
             required
             fieldPath={`${basePath}.full_name`}
             label="Full name"
+            width={6}
           />
           <VocabularyField
             type={this.authorVocabularies.type}
             fieldPath={`${basePath}.type`}
             label="Type"
             placeholder="Select an author type..."
+            width={2}
+          />
+          <VocabularyField
+            multiple
+            type={this.authorVocabularies.roles.type}
+            fieldPath={`${basePath}.roles`}
+            label="Role"
+            placeholder="Select an author role..."
+            width={3}
           />
         </GroupField>
-        <AccordionField
-          label="Affiliations"
-          fieldPath="affiliations"
-          content={
-            <ArrayField
-              fieldPath={`${basePath}.affiliations`}
-              defaultNewValue={{ name: '', identifiers: [] }}
-              renderArrayItem={this.renderAffiliation}
-              addButtonLabel="Add affiliation"
-            />
-          }
-        />
-        <AccordionField
-          label="Alternative Names"
-          fieldPath="alternative_names"
-          content={
-            <ArrayField
-              fieldPath={`${basePath}.alternative_names`}
-              defaultNewValue=""
-              renderArrayItem={this.renderAlternativeName}
-              addButtonLabel="Add alternative name"
-            />
-          }
-        />
-        <IdentifiersField
-          accordion
-          fieldPath={`${basePath}.identifiers`}
-          schemeVocabularyType={this.authorVocabularies.identifier.scheme}
-        />
-        <AccordionField
-          label="Roles"
-          fieldPath={`${basePath}.roles`}
-          content={
-            <ArrayField
-              fieldPath={`${basePath}.roles`}
-              defaultNewValue=""
-              renderArrayItem={this.renderRole}
-              addButtonLabel="Add role"
-            />
-          }
-        />
+        <Divider />
+        <Grid stretched columns="equal" divided>
+          <Grid.Row className="no-padding ">
+            <Grid.Column>
+              <AccordionField
+                label="Affiliations"
+                fieldPath="affiliations"
+                content={
+                  <ArrayField
+                    fieldPath={`${basePath}.affiliations`}
+                    defaultNewValue={{ name: '', identifiers: [] }}
+                    renderArrayItem={this.renderAffiliation}
+                    addButtonLabel="Add affiliation"
+                  />
+                }
+              />
+            </Grid.Column>
+            <Grid.Column>
+              <IdentifiersField
+                accordion
+                fieldPath={`${basePath}.identifiers`}
+                schemeVocabularyType={this.authorVocabularies.identifier.scheme}
+              />
+            </Grid.Column>
+            <Grid.Column>
+              <AccordionField
+                label="Alternative Names"
+                fieldPath="alternative_names"
+                content={
+                  <ArrayField
+                    fieldPath={`${basePath}.alternative_names`}
+                    defaultNewValue=""
+                    renderArrayItem={this.renderAlternativeName}
+                    addButtonLabel="Add alternative name"
+                  />
+                }
+              />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </GroupField>
     );
   }

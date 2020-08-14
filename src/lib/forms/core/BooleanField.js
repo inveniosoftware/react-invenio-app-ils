@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { FastField, Field, getIn } from 'formik';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
 
 export class BooleanField extends Component {
@@ -22,7 +22,6 @@ export class BooleanField extends Component {
     const value = getIn(values, fieldPath, false);
     return (
       <Form.Group inline>
-        <label htmlFor={fieldPath}>{label}</label>
         <Form.Checkbox
           id={fieldPath}
           name={fieldPath}
@@ -32,6 +31,7 @@ export class BooleanField extends Component {
           error={this.renderError(errors, fieldPath)}
           {...uiProps}
         />
+        <label htmlFor={fieldPath}>{label}</label>
       </Form.Group>
     );
   };

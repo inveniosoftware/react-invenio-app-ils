@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Search, Form } from 'semantic-ui-react';
 import debounce from 'lodash/debounce';
 import escapeRegExp from 'lodash/escapeRegExp';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Form, Search } from 'semantic-ui-react';
 
 export class AuthorSearchField extends React.Component {
   constructor(props) {

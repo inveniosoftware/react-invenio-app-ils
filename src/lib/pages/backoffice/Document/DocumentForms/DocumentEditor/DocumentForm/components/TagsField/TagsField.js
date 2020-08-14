@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { VocabularyField } from '@forms/core/VocabularyField';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 export class TagsField extends Component {
   render() {
     const { type, fieldPath, label, placeholder } = this.props;
     return (
       <VocabularyField
-        accordion
         multiple
         type={type}
         fieldPath={fieldPath}

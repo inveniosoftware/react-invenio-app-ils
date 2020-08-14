@@ -8,16 +8,20 @@ import React, { Component } from 'react';
 export class TableOfContent extends Component {
   renderFormField({ arrayPath, indexPath, ...arrayHelpers }) {
     return (
-      <GroupField basic>
+      <GroupField
+        border
+        widths="equal"
+        action={
+          <DeleteActionButton
+            size="large"
+            onClick={() => arrayHelpers.remove(indexPath)}
+          />
+        }
+      >
         <StringField
+          label={`Chapter ${indexPath + 1}`}
           fieldPath={`${arrayPath}.${indexPath}`}
           optimized
-          action={
-            <DeleteActionButton
-              icon="trash"
-              onClick={() => arrayHelpers.remove(indexPath)}
-            />
-          }
         />
       </GroupField>
     );

@@ -23,6 +23,7 @@ export class Identifiers extends Component {
             element: VocabularyField,
             props: {
               type: scheme,
+              required: true,
               label: 'Scheme',
             },
           },

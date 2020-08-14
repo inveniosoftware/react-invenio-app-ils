@@ -64,7 +64,7 @@ export class AuthorsField extends React.Component {
         [activeIndex]: getIn(authors, activeIndex, {}),
       },
     };
-
+    const { isCreate } = this.props;
     return (
       <GroupField border grouped>
         <SubForm
@@ -80,7 +80,11 @@ export class AuthorsField extends React.Component {
           }
           onRemove={() => this.onRemove(values, activeIndex, setFieldValue)}
           render={(basePath, errors) => (
-            <AuthorForm basePath={basePath} errors={errors} />
+            <AuthorForm
+              isCreate={isCreate}
+              basePath={basePath}
+              errors={errors}
+            />
           )}
         />
       </GroupField>
@@ -136,8 +140,10 @@ export class AuthorsField extends React.Component {
 AuthorsField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   optimized: PropTypes.bool,
+  isCreate: PropTypes.bool,
 };
 
 AuthorsField.defaultProps = {
   optimized: false,
+  isCreate: false,
 };
