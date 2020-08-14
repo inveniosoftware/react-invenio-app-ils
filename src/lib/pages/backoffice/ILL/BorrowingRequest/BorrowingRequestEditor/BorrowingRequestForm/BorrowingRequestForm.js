@@ -135,14 +135,18 @@ export class BorrowingRequestForm extends Component {
         submitSerializer={submitSerializer}
         buttons={this.buttons}
       >
-        <Segment raised>
-          <Header dividing>Order information</Header>
+        <Header as="h3" attached="top">
+          Order information
+        </Header>
+        <Segment attached>
           <Loader isLoading={isLoading}>
             <OrderInfo currencies={currencies} />
           </Loader>
         </Segment>
-        <Segment raised>
-          <Header dividing>Payment information</Header>
+        <Header as="h3" attached="top">
+          Payment information
+        </Header>
+        <Segment attached>
           <Loader isLoading={isLoading}>
             <Payment currencies={currencies} />
           </Loader>
