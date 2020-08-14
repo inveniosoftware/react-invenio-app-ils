@@ -1,10 +1,10 @@
+import { documentApi } from '@api/documents';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Loader } from '@components/Loader';
-import { Error } from '@components/Error';
-import { documentApi } from '@api/documents';
 import { DocumentForm } from './DocumentForm';
-import _get from 'lodash/get';
 
 export class DocumentEditor extends Component {
   constructor(props) {
@@ -78,6 +78,7 @@ export class DocumentEditor extends Component {
       this.renderEditForm(documentPid)
     ) : (
       <DocumentForm
+        isCreate
         title="Create new document"
         successSubmitMessage="The document was successfully created."
         data={this.documentRequest}

@@ -18,7 +18,7 @@ export class AccessUrls extends Component {
           <DeleteActionButton onClick={() => arrayHelpers.remove(indexPath)} />
         }
       >
-        <StringField label="Url" fieldPath={`${objectPath}.value`} />
+        <StringField required label="Url" fieldPath={`${objectPath}.value`} />
         <StringField
           label="Description"
           fieldPath={`${objectPath}.description`}

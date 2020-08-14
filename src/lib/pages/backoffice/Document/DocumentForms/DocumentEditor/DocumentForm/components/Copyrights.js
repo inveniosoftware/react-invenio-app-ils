@@ -1,9 +1,9 @@
 import { DeleteActionButton } from '@forms/components/DeleteActionButton';
 import { AccordionField } from '@forms/core/AccordionField';
 import { ArrayField } from '@forms/core/ArrayField';
+import { YearInputField } from '@forms/core/DateTimeFields';
 import { GroupField } from '@forms/core/GroupField';
 import { StringField } from '@forms/core/StringField';
-import { YearInputField } from '@forms/core/DateTimeFields';
 import React, { Component } from 'react';
 
 export class Copyrights extends Component {
@@ -12,7 +12,6 @@ export class Copyrights extends Component {
       <GroupField
         border
         grouped
-        widths="equal"
         action={
           <DeleteActionButton
             size="large"
@@ -31,19 +30,20 @@ export class Copyrights extends Component {
             fieldPath={`${arrayPath}.${indexPath}.statement`}
             optimized
           />
-          <StringField
-            label="Copyright notice URL"
-            fieldPath={`${arrayPath}.${indexPath}.url`}
-            optimized
-          />
-        </GroupField>
-        <GroupField widths="equal">
           <YearInputField
             label="Year"
             mode="year"
             fieldPath={`${arrayPath}.${indexPath}.year`}
             optimized
           />
+        </GroupField>
+        <GroupField>
+          <StringField
+            label="Copyright notice URL"
+            fieldPath={`${arrayPath}.${indexPath}.url`}
+            optimized
+          />
+
           <StringField
             label="Refers to material"
             fieldPath={`${arrayPath}.${indexPath}.material`}

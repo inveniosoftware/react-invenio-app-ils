@@ -42,7 +42,6 @@ export class ObjectListField extends Component {
 
     return (
       <Form.Field className="object-list-field" required>
-        <label>Authors</label>
         <List horizontal divided relaxed>
           {items.map((item, index) => (
             <List.Item
@@ -64,7 +63,7 @@ export class ObjectListField extends Component {
             onClick={() => this.onItemClick(null, items.length)}
           >
             <List.Content>
-              <Icon name="add" />
+              <Icon name="id card" />
               New author
             </List.Content>
           </List.Item>

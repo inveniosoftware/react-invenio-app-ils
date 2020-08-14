@@ -11,7 +11,7 @@ export class IdentifiersField extends Component {
       {
         key: 'scheme',
         element: VocabularyField,
-        props: { type: schemeVocabularyType, label: 'Scheme' },
+        props: { type: schemeVocabularyType, label: 'Scheme', required: true },
       },
       {
         key: 'value',

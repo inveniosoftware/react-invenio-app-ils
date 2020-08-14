@@ -13,6 +13,7 @@ export class AlternativeTitles extends Component {
     return (
       <GroupField
         border
+        grouped
         widths="equal"
         action={
           <DeleteActionButton onClick={() => arrayHelpers.remove(indexPath)} />
@@ -24,21 +25,24 @@ export class AlternativeTitles extends Component {
           fieldPath={`${arrayPath}.${indexPath}.value`}
           optimized
         />
-        <StringField
-          label="Source of the title"
-          fieldPath={`${arrayPath}.${indexPath}.source`}
-          optimized
-        />
-        <LanguageField
-          fieldPath={`${arrayPath}.${indexPath}.language`}
-          type={invenioConfig.VOCABULARIES.document.alternativeTitle.language}
-          optimized
-        />
-        <VocabularyField
-          type={invenioConfig.VOCABULARIES.document.alternativeTitle.type}
-          fieldPath={`${arrayPath}.${indexPath}.type`}
-          label="Type"
-        />
+
+        <GroupField widths="equal">
+          <StringField
+            label="Source of the title"
+            fieldPath={`${arrayPath}.${indexPath}.source`}
+            optimized
+          />
+          <LanguageField
+            fieldPath={`${arrayPath}.${indexPath}.language`}
+            type={invenioConfig.VOCABULARIES.document.alternativeTitle.language}
+            optimized
+          />
+          <VocabularyField
+            type={invenioConfig.VOCABULARIES.document.alternativeTitle.type}
+            fieldPath={`${arrayPath}.${indexPath}.type`}
+            label="Type"
+          />
+        </GroupField>
       </GroupField>
     );
   }

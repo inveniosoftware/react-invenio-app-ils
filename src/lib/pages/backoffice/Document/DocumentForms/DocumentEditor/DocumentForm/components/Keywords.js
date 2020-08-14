@@ -16,18 +16,14 @@ export class Keywords extends Component {
           <DeleteActionButton onClick={() => arrayHelpers.remove(indexPath)} />
         }
       >
-        <StringField
-          required
-          fluid
-          label="Keyword"
-          fieldPath={`${path}.value`}
-        />
-        <StringField
-          required
-          fluid
-          label="Keyword source"
-          fieldPath={`${path}.source`}
-        />
+        <GroupField widths="equal">
+          <StringField fluid label="Keyword" fieldPath={`${path}.value`} />
+          <StringField
+            fluid
+            label="Keyword source"
+            fieldPath={`${path}.source`}
+          />
+        </GroupField>
       </GroupField>
     );
   };

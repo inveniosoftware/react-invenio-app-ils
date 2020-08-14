@@ -11,12 +11,13 @@ export class UrlsField extends Component {
     return (
       <GroupField
         border
+        grouped
         widths="equal"
         action={
           <DeleteActionButton onClick={() => arrayHelpers.remove(indexPath)} />
         }
       >
-        <StringField label="Url" fieldPath={`${objectPath}.value`} />
+        <StringField required label="Url" fieldPath={`${objectPath}.value`} />
         <StringField
           label="Description"
           fieldPath={`${objectPath}.description`}
