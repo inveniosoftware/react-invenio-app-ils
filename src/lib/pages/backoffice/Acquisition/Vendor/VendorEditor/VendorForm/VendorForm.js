@@ -1,5 +1,6 @@
 import { vendorApi } from '@api/acquisition';
 import { BaseForm } from '@forms/core/BaseForm';
+import { GroupField } from '@forms/core/GroupField';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
 import { goTo } from '@history';
@@ -7,7 +8,7 @@ import { AcquisitionRoutes } from '@routes/urls';
 import { getIn } from 'formik';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Segment } from 'semantic-ui-react';
+import { Header, Segment } from 'semantic-ui-react';
 
 export class VendorForm extends Component {
   get buttons() {
@@ -58,11 +59,18 @@ export class VendorForm extends Component {
         pid={pid}
         buttons={this.buttons}
       >
-        <Segment raised>
-          <StringField label="Name" fieldPath="name" required />
-          <StringField label="Address" fieldPath="address" />
-          <StringField label="Email" fieldPath="email" />
-          <StringField label="Phone" fieldPath="phone" />
+        <Header as="h3" attached="top">
+          Basic information
+        </Header>
+        <Segment attached>
+          <GroupField>
+            <StringField label="Name" fieldPath="name" required />
+            <StringField label="Phone" fieldPath="phone" />
+          </GroupField>
+          <GroupField>
+            <StringField label="Email" fieldPath="email" />
+            <StringField label="Address" fieldPath="address" />
+          </GroupField>
           <TextField label="Notes" fieldPath="notes" rows={5} />
         </Segment>
       </BaseForm>
