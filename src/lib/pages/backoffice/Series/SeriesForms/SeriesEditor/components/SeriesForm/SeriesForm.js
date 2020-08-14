@@ -26,6 +26,7 @@ import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { AccessUrls } from './AccessUrls';
 import { SeriesMetadataExtensions } from './SeriesMetadataExtensions';
+import { Segment, Header, Grid } from 'semantic-ui-react';
 
 export class SeriesForm extends Component {
   prepareData = data => {
@@ -102,48 +103,101 @@ export class SeriesForm extends Component {
         title={title}
         pid={pid}
       >
-        <StringField label="Title" fieldPath="title" required />
-        <StringField label="Abbreviated title" fieldPath="abbreviated_title" />
-        <AlternativeTitles />
-        <SelectField
-          required
-          search
-          label="Mode of issuance"
-          fieldPath="mode_of_issuance"
-          options={[
-            {
-              text: 'MULTIPART MONOGRAPH',
-              value: 'MULTIPART_MONOGRAPH',
-            },
-            {
-              text: 'SERIAL',
-              value: 'SERIAL',
-            },
-          ]}
-        />
-        <StringField label="Publication year" fieldPath="publication_year" />
-        <TextField label="Abstract" fieldPath="abstract" rows={10} />
-        <ArrayField
-          fieldPath="authors"
-          label="Authors"
-          defaultNewValue=""
-          renderArrayItem={this.renderAuthorsField}
-          addButtonLabel="Add new author"
-        />
-        <LanguageField
-          multiple
-          fieldPath="languages"
-          type={invenioConfig.VOCABULARIES.language}
-        />
-        <StringField label="Edition" fieldPath="edition" />
-        <StringField fieldPath="publisher" label="Publisher" />
-        <UrlsField />
-        <AccessUrls />
-        <Identifiers
-          scheme={invenioConfig.VOCABULARIES.series.identifier.scheme}
-        />
-        <TextField label="Notes" fieldPath="note" rows={5} optimized />
-        <InternalNotes />
+        <Header as="h3" attached="top">
+          Basic Info
+        </Header>
+        <Segment attached>
+          <StringField label="Title" fieldPath="title" required />
+          <GroupField widths="equal">
+            <StringField
+              label="Abbreviated title"
+              fieldPath="abbreviated_title"
+            />
+            <SelectField
+              required
+              search
+              label="Mode of issuance"
+              fieldPath="mode_of_issuance"
+              options={[
+                {
+                  text: 'MULTIPART MONOGRAPH',
+                  value: 'MULTIPART_MONOGRAPH',
+                },
+                {
+                  text: 'SERIAL',
+                  value: 'SERIAL',
+                },
+              ]}
+            />
+            <LanguageField
+              multiple
+              fieldPath="languages"
+              type={invenioConfig.VOCABULARIES.language}
+            />
+          </GroupField>
+          <ArrayField
+            fieldPath="authors"
+            label="Authors"
+            defaultNewValue=""
+            renderArrayItem={this.renderAuthorsField}
+            addButtonLabel="Add new author"
+          />
+
+          <Identifiers
+            scheme={invenioConfig.VOCABULARIES.series.identifier.scheme}
+          />
+        </Segment>
+        <Header as="h3" attached="top">
+          Publication
+        </Header>
+        <Segment attached>
+          <GroupField widths="equal">
+            <StringField label="Edition" fieldPath="edition" />
+            <StringField
+              label="Publication year"
+              fieldPath="publication_year"
+            />
+            <StringField fieldPath="publisher" label="Publisher" />
+          </GroupField>
+        </Segment>
+        <Header as="h3" attached="top">
+          URLs
+        </Header>
+        <Segment attached>
+          <UrlsField />
+          <AccessUrls />
+        </Segment>
+
+        <Segment basic>
+          <Grid columns={3} stackable>
+            <Grid.Column width="4">
+              <Header as="h3" attached="top">
+                Content
+              </Header>
+              <Segment attached>
+                <TextField label="Abstract" fieldPath="abstract" rows={10} />
+              </Segment>
+            </Grid.Column>
+            <Grid.Column width="4">
+              <Header as="h3" attached="top">
+                Notes
+              </Header>
+              <Segment attached>
+                <TextField label="Notes" fieldPath="note" rows={5} optimized />
+                <InternalNotes />
+              </Segment>
+            </Grid.Column>
+            <Grid.Column width="8">
+              <Header as="h3" attached="top">
+                Additional Info
+              </Header>
+              <Segment attached>
+                <AlternativeTitles />
+              </Segment>
+            </Grid.Column>
+          </Grid>
+        </Segment>
+
         {!_isEmpty(extensions) &&
           !_isEmpty(invenioConfig.SERIES.extensions.fields) && (
             <Overridable id="SeriesForm.Extensions" extensions={extensions}>
