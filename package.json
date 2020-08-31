@@ -9,8 +9,7 @@
     "dist"
   ],
   "scripts": {
-    "start": "craco start",
-    "start:secure": "HTTPS=true craco start",
+    "start": "HTTPS=true craco start",
     "build": "rimraf dist && NODE_ENV=production rollup -c",
     "test": "craco test",
     "eject": "craco eject",
