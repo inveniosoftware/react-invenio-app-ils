@@ -4,7 +4,7 @@ import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { RestrictedAccessLabel } from '@components/backoffice/RestrictedAccessLabel';
 import { CopyButton } from '@components/CopyButton';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
-import DocumentTags from '@modules/Document/DocumentTags';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
@@ -66,7 +66,7 @@ export class DocumentHeader extends Component {
         }
         recordInfo={recordInfo}
       >
-        <DocumentTags isBackOffice metadata={data.metadata} />
+        <LiteratureTags isBackOffice tags={data.metadata.tags} />
       </DetailsHeader>
     );
   }

@@ -1,5 +1,5 @@
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
-import DocumentTags from '@modules/Document/DocumentTags';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureEdition from '@modules/Literature/LiteratureEdition';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
@@ -28,7 +28,7 @@ export class SeriesListEntry extends Component {
     }
     return (
       <>
-        <DocumentLanguages metadata={series.metadata} withLabel />
+        <DocumentLanguages languages={series.metadata.languages} withLabel />
         {series.metadata.edition && (
           <>
             <br />
@@ -129,7 +129,7 @@ export class SeriesListEntry extends Component {
             </Grid.Column>
           </Grid>
           <Item.Extra>
-            <DocumentTags isBackOffice metadata={series.metadata} />
+            <LiteratureTags isBackOffice tags={series.metadata.tags} />
           </Item.Extra>
         </Item.Content>
         <div className="pid-field">#{series.metadata.pid}</div>

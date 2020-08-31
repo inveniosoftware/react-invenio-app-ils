@@ -8,6 +8,8 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container, Divider } from 'semantic-ui-react';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
+import LiteratureKeywords from '@modules/Literature/LiteratureKeywords';
 
 export default class SeriesMetadata extends Component {
   prepareData = () => {
@@ -28,6 +30,20 @@ export default class SeriesMetadata extends Component {
       {
         name: 'Publication Year',
         value: seriesDetails.metadata.publication_year,
+      },
+      {
+        name: 'Keywords',
+        value: <LiteratureKeywords keywords={seriesDetails.keywords} />,
+      },
+      {
+        name: 'Tags',
+        value: (
+          <LiteratureTags
+            isBackOffice
+            size="mini"
+            tags={seriesDetails.metadata.tags}
+          />
+        ),
       },
       {
         name: 'Mode of Issuance',

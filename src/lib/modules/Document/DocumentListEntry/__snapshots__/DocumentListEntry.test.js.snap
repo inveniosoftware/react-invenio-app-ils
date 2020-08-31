@@ -94,35 +94,10 @@ exports[`should render correctly 1`] = `
                   Languages: 
                 </span>
                 <Overridable(DocumentLanguages)
-                  metadata={
-                    Object {
-                      "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-                      "abstract": "This is an abstract",
-                      "authors": Array [
-                        Object {
-                          "full_name": "Jack E. Davis",
-                        },
-                      ],
-                      "circulation": Object {
-                        "has_items_for_loan": 0,
-                      },
-                      "document_type": "BOOK",
-                      "edition": "1",
-                      "eitems": Object {
-                        "hits": Array [],
-                        "total": 0,
-                      },
-                      "keywords": Object {
-                        "source": "X",
-                        "value": "Patata",
-                      },
-                      "languages": Array [
-                        "en",
-                      ],
-                      "pid": "13",
-                      "publication_year": "1950",
-                      "title": "The Gulf: The Making of An American Sea",
-                    }
+                  languages={
+                    Array [
+                      "en",
+                    ]
                   }
                 />
               </ListContent>
@@ -132,38 +107,7 @@ exports[`should render correctly 1`] = `
       </Grid>
     </ItemMeta>
     <ItemExtra>
-      <Overridable(DocumentTags)
-        metadata={
-          Object {
-            "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-            "abstract": "This is an abstract",
-            "authors": Array [
-              Object {
-                "full_name": "Jack E. Davis",
-              },
-            ],
-            "circulation": Object {
-              "has_items_for_loan": 0,
-            },
-            "document_type": "BOOK",
-            "edition": "1",
-            "eitems": Object {
-              "hits": Array [],
-              "total": 0,
-            },
-            "keywords": Object {
-              "source": "X",
-              "value": "Patata",
-            },
-            "languages": Array [
-              "en",
-            ],
-            "pid": "13",
-            "publication_year": "1950",
-            "title": "The Gulf: The Making of An American Sea",
-          }
-        }
-      />
+      <Overridable(LiteratureTags) />
     </ItemExtra>
   </ItemContent>
 </Item>

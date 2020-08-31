@@ -31,7 +31,7 @@ export default class RelationOtherModal extends Component {
     const description = (
       <>
         <label>languages:</label>{' '}
-        <DocumentLanguages metadata={option.metadata} />
+        <DocumentLanguages languages={option.metadata.languages} />
       </>
     );
     return (

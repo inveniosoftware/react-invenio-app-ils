@@ -1,6 +1,6 @@
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
-import DocumentTags from '@modules/Document/DocumentTags';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
@@ -135,7 +135,7 @@ export default class DocumentListEntry extends Component {
                   <List.Item>
                     <List.Content>
                       <span>Languages: </span>
-                      <DocumentLanguages metadata={this.metadata} />
+                      <DocumentLanguages languages={this.metadata.languages} />
                     </List.Content>
                   </List.Item>
                 </List>
@@ -143,7 +143,7 @@ export default class DocumentListEntry extends Component {
             </Grid>
           </Item.Meta>
           <Item.Extra>
-            <DocumentTags metadata={this.metadata} />
+            <LiteratureTags tags={this.metadata.tags} />
           </Item.Extra>
         </Item.Content>
       </Item>

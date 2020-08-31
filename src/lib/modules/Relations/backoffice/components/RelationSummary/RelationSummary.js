@@ -28,7 +28,9 @@ export default class RelationSummary extends Component {
                   <>
                     <Icon size="big" name="language" />
                     <Label size="tiny" className="ml-10">
-                      <DocumentLanguages metadata={currentReferrer.metadata} />
+                      <DocumentLanguages
+                        languages={currentReferrer.metadata.languages}
+                      />
                     </Label>
                   </>
                 }

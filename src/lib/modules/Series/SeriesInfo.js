@@ -5,6 +5,7 @@ import { SeriesModeOfIssuance } from '@modules/Series/SeriesModeOfIssuance';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Divider, Table } from 'semantic-ui-react';
+import LiteratureKeywords from '@modules/Literature/LiteratureKeywords';
 
 export const SeriesInfo = ({ metadata }) => {
   return (
@@ -55,6 +56,14 @@ export const SeriesInfo = ({ metadata }) => {
               includeSchemes={['ISBN', 'ISSN']}
               identifiers={metadata.identifiers}
             />
+          )}
+          {metadata.keywords && (
+            <Table.Row>
+              <Table.Cell>Keywords</Table.Cell>
+              <Table.Cell>
+                <LiteratureKeywords keywords={metadata.keywords} />
+              </Table.Cell>
+            </Table.Row>
           )}
         </Table.Body>
       </Table>

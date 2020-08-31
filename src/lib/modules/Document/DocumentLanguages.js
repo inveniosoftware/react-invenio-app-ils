@@ -2,25 +2,23 @@ import React from 'react';
 import Overridable from 'react-overridable';
 import { List } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import _get from 'lodash/get';
 
-const DocumentLanguages = ({ metadata, separator, withLabel, listItemAs }) => {
-  const languages = _get(metadata, 'languages', []);
-  if (!languages.length) {
+const DocumentLanguages = ({ languages, separator, withLabel, listItemAs }) => {
+  if (!languages || !languages.length) {
     return null;
   }
 
   return (
     <Overridable
       id="DocumentLanguages.layout"
-      {...{ metadata, separator, withLabel, listItemAs }}
+      {...{ languages, separator, withLabel, listItemAs }}
     >
       <>
         {withLabel && <label>languages </label>}
         <List horizontal className="document-languages-list">
           {languages.map((language, index) => {
             const separatorCmp =
-              index < metadata.languages.length - 1 ? separator : null;
+              index < languages.length - 1 ? separator : null;
             return (
               <List.Item as={listItemAs} key={`Key${index}`}>
                 {language.toUpperCase()}
@@ -35,13 +33,14 @@ const DocumentLanguages = ({ metadata, separator, withLabel, listItemAs }) => {
 };
 
 DocumentLanguages.propTypes = {
-  metadata: PropTypes.object.isRequired,
+  languages: PropTypes.array,
   listItemAs: PropTypes.string,
   separator: PropTypes.string,
   withLabel: PropTypes.bool,
 };
 
 DocumentLanguages.defaultProps = {
+  languages: [],
   listItemAs: '',
   separator: ', ',
   withLabel: false,
