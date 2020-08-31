@@ -2,7 +2,7 @@ import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { UrlList } from '@components/backoffice/UrlList';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
-import DocumentTags from '@modules/Document/DocumentTags';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 import { BackOfficeRoutes } from '@routes/urls';
 import get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Divider, Header } from 'semantic-ui-react';
+import LiteratureKeywords from '@modules/Literature/LiteratureKeywords';
 
 export class DocumentMetadataGeneral extends Component {
   prepareGeneral = () => {
@@ -35,14 +36,16 @@ export class DocumentMetadataGeneral extends Component {
       { name: 'Publication year', value: document.metadata.publication_year },
       {
         name: 'Keywords',
-        value: document.metadata.keywords
-          ? `${document.metadata.keywords.value} (${document.metadata.keywords.source})`
-          : null,
+        value: <LiteratureKeywords keywords={document.metadata.keywords} />,
       },
       {
         name: 'Tags',
         value: (
-          <DocumentTags isBackOffice size="mini" metadata={document.metadata} />
+          <LiteratureTags
+            isBackOffice
+            size="mini"
+            tags={document.metadata.tags}
+          />
         ),
       },
       {
@@ -51,7 +54,7 @@ export class DocumentMetadataGeneral extends Component {
       },
       {
         name: 'Languages',
-        value: <DocumentLanguages metadata={document.metadata} />,
+        value: <DocumentLanguages languages={document.metadata.languages} />,
       },
       {
         name: 'Urls',

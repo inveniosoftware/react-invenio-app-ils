@@ -2,7 +2,7 @@ import { toShortDate } from '@api/date';
 import { CreatedBy } from '@components/backoffice/ChangedBy';
 import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { CopyButton } from '@components/CopyButton';
-import DocumentTags from '@modules/Document/DocumentTags';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
@@ -61,7 +61,7 @@ export class SeriesHeader extends Component {
         }
         recordInfo={recordInfo}
       >
-        <DocumentTags isBackOffice metadata={data.metadata} />
+        <LiteratureTags isBackOffice tags={data.metadata.tags} />
       </DetailsHeader>
     );
   }

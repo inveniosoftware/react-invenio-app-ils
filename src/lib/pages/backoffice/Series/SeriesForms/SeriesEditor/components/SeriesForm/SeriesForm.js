@@ -15,6 +15,8 @@ import { goTo } from '@history';
 import {
   AlternativeTitles,
   Identifiers,
+  Keywords,
+  TagsField,
 } from '@pages/backoffice/Document/DocumentForms/DocumentEditor/DocumentForm/components';
 import { InternalNotes } from '@pages/backoffice/Document/DocumentForms/DocumentEditor/DocumentForm/components/InternalNotes';
 import { BackOfficeRoutes } from '@routes/urls';
@@ -41,11 +43,13 @@ export class SeriesForm extends Component {
       'identifiers',
       'internal_notes',
       'issn',
+      'keywords',
       'languages',
       'mode_of_issuance',
       'note',
       'publication_year',
       'publisher',
+      'tags',
       'title',
       'urls',
     ]);
@@ -176,6 +180,11 @@ export class SeriesForm extends Component {
               </Header>
               <Segment attached>
                 <TextField label="Abstract" fieldPath="abstract" rows={10} />
+                <TagsField
+                  fieldPath="tags"
+                  type={invenioConfig.VOCABULARIES.document.tags}
+                />
+                <Keywords />
               </Segment>
             </Grid.Column>
             <Grid.Column width="4">

@@ -1,9 +1,9 @@
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import { IdentifierRows } from '@modules/Identifiers';
-import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Divider, Table } from 'semantic-ui-react';
+import LiteratureKeywords from '@modules/Literature/LiteratureKeywords';
 
 export class DocumentInfo extends Component {
   renderLanguages() {
@@ -21,22 +21,11 @@ export class DocumentInfo extends Component {
 
   renderKeywords() {
     const { metadata } = this.props;
-    const keywords = _get(metadata, 'keywords', []);
-
     return (
       <Table.Row>
         <Table.Cell>Keywords</Table.Cell>
         <Table.Cell>
-          {keywords.map(entry => {
-            const keywordValue = _get(entry, 'value');
-            const keywordSource = _get(entry, 'source');
-            return keywordValue && keywordSource
-              ? `${keywordValue} (${keywordSource})`
-              : keywordValue
-              ? keywordValue
-              : '';
-          })}
-          {keywords.length < 1 && 'No keywords provided.'}
+          <LiteratureKeywords keywords={metadata.keywords} />
         </Table.Cell>
       </Table.Row>
     );

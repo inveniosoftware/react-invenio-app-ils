@@ -5,7 +5,7 @@ import { Error } from '@components/Error';
 import { ILSParagraphPlaceholder } from '@components/ILSPlaceholder';
 import { SearchBar } from '@components/SearchBar';
 import { goTo } from '@history';
-import DocumentTags from '@modules/Document/DocumentTags';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 import { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
 import _get from 'lodash/get';
@@ -76,7 +76,7 @@ const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
         <Container className="document-tags spaced">
           <Responsive minWidth={Responsive.onlyTablet.minWidth}>
             <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
-              <DocumentTags metadata={documentDetails.metadata} />
+              <LiteratureTags tags={documentDetails.metadata.tags} />
             </ILSParagraphPlaceholder>
           </Responsive>
         </Container>

@@ -4,7 +4,7 @@ import {
 } from '@components/ILSPlaceholder';
 import { ShowMoreContent } from '@components/ShowMoreContent';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
-import DocumentTags from '@modules/Document/DocumentTags';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
@@ -47,7 +47,7 @@ class DocumentPanelMobile extends Component {
                   />
                 </ILSParagraphPlaceholder>
                 <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
-                  <DocumentTags metadata={doc.metadata} />
+                  <LiteratureTags tags={doc.metadata.tags} />
                 </ILSParagraphPlaceholder>
               </Grid.Column>
             </Grid.Row>

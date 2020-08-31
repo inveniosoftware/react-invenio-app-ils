@@ -6,16 +6,16 @@ import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Label } from 'semantic-ui-react';
 
-class DocumentTags extends Component {
+class LiteratureTags extends Component {
   render() {
-    const { metadata, isBackOffice, ...uiProps } = this.props;
+    const { tags, isBackOffice, ...uiProps } = this.props;
 
-    if (_isEmpty(metadata.tags)) return null;
+    if (_isEmpty(tags)) return null;
 
     return (
-      <Overridable id="DocumentTags.layout" {...this.props}>
+      <Overridable id="LiteratureTags.layout" {...this.props}>
         <>
-          {metadata.tags.map(tag => (
+          {tags.map(tag => (
             <Label className="highlighted" key={tag} {...uiProps}>
               <Link
                 to={
@@ -38,9 +38,13 @@ class DocumentTags extends Component {
   }
 }
 
-DocumentTags.propTypes = {
-  metadata: PropTypes.object.isRequired,
+LiteratureTags.propTypes = {
+  tags: PropTypes.array,
   isBackOffice: PropTypes.bool.isRequired,
 };
 
-export default Overridable.component('DocumentTags', DocumentTags);
+LiteratureTags.defaultProps = {
+  tags: [],
+};
+
+export default Overridable.component('LiteratureTags', LiteratureTags);

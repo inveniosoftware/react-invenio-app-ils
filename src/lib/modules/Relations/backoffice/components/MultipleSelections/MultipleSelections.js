@@ -18,7 +18,7 @@ export default class MultipleSelections extends Component {
               <>
                 <Icon size="big" name="language" />
                 <Label className="ml-10">
-                  <DocumentLanguages metadata={selection.metadata} />
+                  <DocumentLanguages languages={selection.metadata.languages} />
                 </Label>
               </>
             }

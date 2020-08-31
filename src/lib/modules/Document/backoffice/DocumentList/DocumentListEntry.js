@@ -1,6 +1,6 @@
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
-import DocumentTags from '@modules/Document/DocumentTags';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureEdition from '@modules/Literature/LiteratureEdition';
 import { BackOfficeRoutes } from '@routes/urls';
@@ -115,7 +115,7 @@ export default class DocumentListEntry extends Component {
                 />
               </Item.Meta>
               <DocumentLanguages
-                metadata={document.metadata}
+                languages={document.metadata.languages}
                 prefix={<label>languages </label>}
               />
               <Item.Description>
@@ -136,7 +136,7 @@ export default class DocumentListEntry extends Component {
             </Grid.Column>
           </Grid>
           <Item.Extra>
-            <DocumentTags isBackOffice metadata={document.metadata} />
+            <LiteratureTags isBackOffice tags={document.metadata.tags} />
           </Item.Extra>
         </Item.Content>
         <div className="pid-field discrete">#{document.metadata.pid}</div>

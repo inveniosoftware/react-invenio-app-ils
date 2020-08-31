@@ -16,6 +16,7 @@ import { SeriesMetadata } from './SeriesMetadata';
 import SeriesPanel from './SeriesPanel/SeriesPanel';
 import { NotFound } from '@components/HttpErrors';
 import _get from 'lodash/get';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 
 const SeriesDetailsLayout = ({ error, isLoading, series }) => {
   const breadcrumbs = () => [
@@ -59,6 +60,13 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
           </ILSParagraphPlaceholder>
 
           <SeriesPanel isLoading={isLoading} series={series} />
+        </Container>
+        <Container className="series-tags spaced">
+          <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+            <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
+              <LiteratureTags tags={series.metadata.tags} />
+            </ILSParagraphPlaceholder>
+          </Responsive>
         </Container>
         <Responsive minWidth={Responsive.onlyComputer.minWidth}>
           <Container className="items-locations spaced">

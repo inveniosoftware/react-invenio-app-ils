@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Grid, Header } from 'semantic-ui-react';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 
 class SeriesPanelMobile extends Component {
   render() {
@@ -40,6 +41,9 @@ class SeriesPanelMobile extends Component {
                   itemProps={{ as: 'h4' }}
                   authors={series.metadata.authors}
                 />
+              </ILSParagraphPlaceholder>
+              <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
+                <LiteratureTags tags={series.metadata.tags} />
               </ILSParagraphPlaceholder>
             </Grid.Column>
           </Grid.Row>

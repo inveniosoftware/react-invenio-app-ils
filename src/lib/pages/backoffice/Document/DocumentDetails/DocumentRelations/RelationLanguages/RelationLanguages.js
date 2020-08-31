@@ -45,7 +45,7 @@ export default class RelationLanguages extends Component {
   };
 
   languagesFormatter = ({ row }) => {
-    return <DocumentLanguages metadata={row.record_metadata} />;
+    return <DocumentLanguages languages={row.record_metadata.languages} />;
   };
 
   render() {
