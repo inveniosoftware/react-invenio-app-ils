@@ -1,4 +1,4 @@
-import { NotFound } from '@components/NotFound';
+import { NotFound } from '@components/HttpErrors';
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { BackOfficeRoutes, AcquisitionRoutes, ILLRoutes } from '@routes/urls';

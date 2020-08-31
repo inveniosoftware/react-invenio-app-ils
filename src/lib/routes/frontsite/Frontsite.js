@@ -1,6 +1,6 @@
 import { ILSFooter } from '@components/ILSFooter';
 import { ILSMenu } from '@components/ILSMenu';
-import { NotFound } from '@components/NotFound';
+import { NotFound } from '@components/HttpErrors';
 import { Notifications } from '@components/Notifications';
 import { getStaticPagesRoutes } from '@config';
 import { DocumentRequestForm } from '@pages/frontsite/DocumentRequests';

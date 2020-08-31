@@ -3,7 +3,7 @@ import { UnAuthorized } from '@authentication/components/UnAuthorized';
 import { ConfirmEmail } from '@authentication/pages';
 import { Login } from '@authentication/pages/Login';
 import { fetchUserProfile } from '@authentication/state/actions';
-import { NotFound } from '@components/NotFound';
+import { NotFound } from '@components/HttpErrors';
 import { invenioConfig } from '@config';
 import { AuthenticationRoutes } from '@routes/authentication/urls';
 import { BackOffice } from '@routes/backoffice';
