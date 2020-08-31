@@ -8,6 +8,7 @@ import { goTo } from '@history';
 import DocumentTags from '@modules/Document/DocumentTags';
 import { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
+import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
@@ -16,7 +17,7 @@ import { Container, Grid, Icon, Responsive } from 'semantic-ui-react';
 import { DocumentItems } from './DocumentItems';
 import { DocumentMetadata } from './DocumentMetadata';
 import DocumentPanel from './DocumentPanel/DocumentPanel';
-import { NotFound } from '@components/NotFound';
+import { NotFound } from '@components/HttpErrors';
 
 const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
   const breadcrumbs = () => [
@@ -160,7 +161,7 @@ class DocumentDetails extends Component {
         params: { documentPid },
       },
     } = this.props;
-    if (hasError && error.response.status === 404) {
+    if (hasError && _get(error, 'response.status') === 404) {
       return <NotFound />;
     }
     return (

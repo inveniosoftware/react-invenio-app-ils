@@ -14,7 +14,8 @@ import { Link } from 'react-router-dom';
 import { Container, Grid, Icon, Responsive } from 'semantic-ui-react';
 import { SeriesMetadata } from './SeriesMetadata';
 import SeriesPanel from './SeriesPanel/SeriesPanel';
-import { NotFound } from '@components/NotFound';
+import { NotFound } from '@components/HttpErrors';
+import _get from 'lodash/get';
 
 const SeriesDetailsLayout = ({ error, isLoading, series }) => {
   const breadcrumbs = () => [
@@ -127,7 +128,7 @@ class SeriesDetails extends React.Component {
 
   render() {
     const { hasError, error, isLoading, series } = this.props;
-    if (hasError && error.response.status === 404) {
+    if (hasError && _get(error, 'response.status') === 404) {
       return <NotFound />;
     }
     return (
