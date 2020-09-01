@@ -46,6 +46,7 @@ exports[`SeriesCard tests should go to book details when clicking on a book 1`] 
       >
         <LiteratureCover
           asItem={false}
+          isLoading={false}
           isRestricted={false}
           linkTo={null}
           size="small"
@@ -54,6 +55,7 @@ exports[`SeriesCard tests should go to book details when clicking on a book 1`] 
           <Overridable
             asItem={false}
             id="LiteratureCover.placeholder"
+            isLoading={false}
             isRestricted={false}
             linkTo={null}
             size="small"
@@ -211,6 +213,7 @@ exports[`SeriesCard tests should render the SeriesCard 1`] = `
       >
         <LiteratureCover
           asItem={false}
+          isLoading={false}
           isRestricted={false}
           linkTo={null}
           size="small"
@@ -219,6 +222,7 @@ exports[`SeriesCard tests should render the SeriesCard 1`] = `
           <Overridable
             asItem={false}
             id="LiteratureCover.placeholder"
+            isLoading={false}
             isRestricted={false}
             linkTo={null}
             size="small"

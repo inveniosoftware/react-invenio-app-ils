@@ -171,12 +171,13 @@ class DocumentAuthors extends Component {
     } = this.props;
     const { isExpanded } = this.state;
 
-    let displayedAuthors = authors;
+    const allAuthors = authors ? authors : [];
+    let displayedAuthors = allAuthors;
     if (!isExpanded) {
-      displayedAuthors = authors.slice(0, limit);
+      displayedAuthors = allAuthors.slice(0, limit);
     }
 
-    const isShowingAllAuthors = displayedAuthors.length === authors.length;
+    const isShowingAllAuthors = displayedAuthors.length === allAuthors.length;
     const showAllAuthorsCmp =
       !isShowingAllAuthors && expandable ? (
         <>

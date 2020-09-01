@@ -115,15 +115,17 @@ class PatronPastDocumentRequests extends Component {
                 currentPage={activePage}
                 renderEmptyResultsElement={this.renderNoResults}
               />
-              <Container textAlign="center">
-                <Pagination
-                  currentPage={activePage}
-                  currentSize={rowsPerPage}
-                  loading={isLoading}
-                  onPageChange={this.onPageChange}
-                  totalResults={documentRequests.total}
-                />
-              </Container>
+              {documentRequests.total > 0 && (
+                <Container textAlign="center">
+                  <Pagination
+                    currentPage={activePage}
+                    currentSize={rowsPerPage}
+                    loading={isLoading}
+                    onPageChange={this.onPageChange}
+                    totalResults={documentRequests.total}
+                  />
+                </Container>
+              )}
             </Error>
           </ILSItemPlaceholder>
         </>

@@ -105,6 +105,7 @@ class ExportSearchResultsWithState extends Component {
 
     // append the `format` param
     const params = Qs.parse(queryString);
+    params['page'] = 1; // Start from the first page
     params['format'] = format;
     const args = Qs.stringify(params);
 

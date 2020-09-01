@@ -17,21 +17,31 @@ class LiteratureCover extends Component {
   };
 
   render() {
-    const { asItem, isRestricted, linkTo, size, url, ...uiProps } = this.props;
+    const {
+      asItem,
+      isRestricted,
+      linkTo,
+      size,
+      url,
+      isLoading,
+      ...uiProps
+    } = this.props;
     const Cmp = asItem ? Item.Image : Image;
     const link = linkTo ? { as: Link, to: linkTo } : {};
     return url ? (
       <Overridable id="LiteratureCover.layout" {...this.props}>
-        <Cmp
-          centered
-          disabled={isRestricted}
-          label={this.getLabel(isRestricted)}
-          {...link}
-          onError={e => (e.target.style.display = 'none')}
-          src={url}
-          size={size}
-          {...uiProps}
-        />
+        {!isLoading && (
+          <Cmp
+            centered
+            disabled={isRestricted}
+            label={this.getLabel(isRestricted)}
+            {...link}
+            onError={e => (e.target.style.display = 'none')}
+            src={url}
+            size={size}
+            {...uiProps}
+          />
+        )}
       </Overridable>
     ) : (
       <Overridable id="LiteratureCover.placeholder" {...this.props}>
@@ -49,6 +59,7 @@ LiteratureCover.propTypes = {
   linkTo: PropTypes.string,
   size: PropTypes.string,
   url: PropTypes.string,
+  isLoading: PropTypes.bool,
 };
 
 LiteratureCover.defaultProps = {
@@ -57,6 +68,7 @@ LiteratureCover.defaultProps = {
   linkTo: null,
   size: 'large',
   url: null,
+  isLoading: false,
 };
 
 export default Overridable.component('LiteratureCover', LiteratureCover);

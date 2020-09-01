@@ -34,6 +34,7 @@ class DocumentPanel extends Component {
                   <Grid.Column>
                     <LiteratureCover
                       url={_get(doc, 'metadata.cover_metadata.urls.large')}
+                      isLoading={isLoading}
                     />
                   </Grid.Column>
                   <Grid.Column>

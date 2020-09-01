@@ -5,7 +5,7 @@ import { Menu } from 'semantic-ui-react';
 export default class ScrollingMenuItem extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeItem: props.children[0].elementId };
+    this.state = { activeItem: props.children[0].props.elementId };
   }
 
   setActiveLink = elementId => {
