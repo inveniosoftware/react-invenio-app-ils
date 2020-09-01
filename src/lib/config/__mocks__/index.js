@@ -1,5 +1,5 @@
-import { defaultConfig, DEFAULT_APP_CONFIG } from '../defaultConfig';
 import _merge from 'lodash/merge';
+import { APP_CONFIG, RECORDS_CONFIG } from '../defaultConfig';
 
 const mockExtensionsConfig = {
   circulation: { maxExtensionsCount: 42 },
@@ -47,10 +47,10 @@ const mockExtensionsConfig = {
   },
 };
 
-const mockConfig = _merge({}, defaultConfig, mockExtensionsConfig);
+const mockConfig = _merge({}, RECORDS_CONFIG, mockExtensionsConfig);
 
 export const invenioConfig = {
-  APP: { ...DEFAULT_APP_CONFIG },
+  APP: { ...APP_CONFIG },
   ...mockConfig,
-  setValue: jest.fn(),
+  merge: jest.fn(),
 };

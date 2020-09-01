@@ -91,18 +91,24 @@ const RightCol = () => (
       <Icon name="users" size="massive" />
     </Header>
     <p>Choose your preferred method to sign in</p>
-    {invenioConfig.APP.ENABLE_OAUTH_LOGIN
-      ? Object.keys(invenioConfig.APP.OAUTH_PROVIDERS).map(provider => {
-          return (
-            <p key={provider}>
-              <LoginWithOauthProviders provider={provider} />
-            </p>
-          );
-        })
-      : null}
+    {invenioConfig.APP.ENABLE_OAUTH_LOGIN &&
+      Object.keys(invenioConfig.APP.OAUTH_PROVIDERS)
+        .filter(
+          providerName =>
+            invenioConfig.APP.OAUTH_PROVIDERS[providerName].enabled
+        )
+        .map(providerName => (
+          <LoginWithOauthProviders
+            key={providerName}
+            providerName={providerName}
+          />
+        ))}
+    {invenioConfig.APP.ENABLE_OAUTH_LOGIN &&
+      invenioConfig.APP.ENABLE_LOCAL_ACCOUNT_LOGIN && (
+        <Divider horizontal>Or</Divider>
+      )}
     {invenioConfig.APP.ENABLE_LOCAL_ACCOUNT_LOGIN && (
       <>
-        <Divider horizontal>Or</Divider>
         <LoginWithLocalAccount />
         <Container fluid>
           <p>Forgot your password? Recover {notImplementedPopup}.</p>

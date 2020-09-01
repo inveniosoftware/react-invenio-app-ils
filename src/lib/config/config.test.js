@@ -15,6 +15,6 @@ describe('Config override tests', () => {
       circulation: { extensionsMaxCount: 42 },
     };
     shallow(<InvenioILSApp config={config} />);
-    expect(invenioConfig.setValue).toHaveBeenCalledWith(config);
+    expect(invenioConfig.merge).toHaveBeenCalledWith(config);
   });
 });
