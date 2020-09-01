@@ -6,7 +6,8 @@ export class SearchSortOrderElementMobile extends Component {
   constructor(props) {
     super(props);
     const { currentSortOrder, options, onValueChange } = this.props;
-    options.map((element, index) => {
+    this.buttons = {};
+    options.forEach((element, index) => {
       this.buttons[element.value] = (
         <Button
           icon
@@ -27,7 +28,6 @@ export class SearchSortOrderElementMobile extends Component {
           />
         </Button>
       );
-      return this.buttons;
     });
   }
 

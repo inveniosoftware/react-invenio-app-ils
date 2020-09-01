@@ -132,6 +132,7 @@ class ESSelector extends Component {
       delay,
       alwaysWildcard,
       minCharacters,
+      focus,
       serializer,
       onSearchChange,
       onResults,
@@ -148,6 +149,7 @@ class ESSelector extends Component {
           alwaysWildcard={alwaysWildcard}
           minCharacters={minCharacters}
           placeholder={placeholder}
+          focus={focus}
           serializer={serializer}
           onResults={onResults}
           onSelect={this.onSelectResult}
@@ -186,6 +188,7 @@ ESSelector.propTypes = {
   name: PropTypes.string,
   selectionInfoText: PropTypes.string,
   emptySelectionInfoText: PropTypes.string,
+  focus: PropTypes.bool,
 };
 
 ESSelector.defaultProps = {
@@ -196,6 +199,7 @@ ESSelector.defaultProps = {
   emptySelectionInfoText: null,
   selectionInfoText: null,
   onResults: null,
+  focus: false,
 };
 
 export default Overridable.component('ESSelector', ESSelector);

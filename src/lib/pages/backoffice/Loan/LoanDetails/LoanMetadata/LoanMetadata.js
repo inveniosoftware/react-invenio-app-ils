@@ -109,6 +109,7 @@ export class LoanMetadata extends Component {
 
   prepareRightData(data) {
     const { cancel_reason: reason, state } = data.metadata;
+    const toShortDateOpt = date => (isFinite(date) ? toShortDate(date) : '-');
     const rows = [
       {
         name: 'Transaction date',
@@ -132,13 +133,13 @@ export class LoanMetadata extends Component {
       rows.push(
         {
           name: 'Start date',
-          value: toShortDate(data.metadata.start_date),
+          value: toShortDateOpt(data.metadata.start_date),
         },
         {
           name: 'End date',
           value: (
             <>
-              {toShortDate(data.metadata.end_date)}
+              {toShortDateOpt(data.metadata.end_date)}
               {data.metadata.is_overdue && <Icon name="warning" />}
             </>
           ),

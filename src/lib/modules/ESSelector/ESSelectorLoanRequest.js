@@ -115,7 +115,7 @@ export default class ESSelectorLoanRequest extends Component {
 
   render() {
     const { title, content, selectorComponent, size, trigger } = this.props;
-    const { visible, missingPatron } = this.state;
+    const { visible, missingPatron, selections } = this.state;
     const modalTrigger = React.cloneElement(trigger, {
       onClick: this.toggle,
     });
@@ -157,7 +157,9 @@ export default class ESSelectorLoanRequest extends Component {
                 <Button color="black" onClick={this.toggle}>
                   Close
                 </Button>
-                <Button onClick={this.save}>Request</Button>
+                <Button onClick={this.save} disabled={_isEmpty(selections)}>
+                  Request
+                </Button>
               </Modal.Actions>
             </Segment>
           </Segment.Group>

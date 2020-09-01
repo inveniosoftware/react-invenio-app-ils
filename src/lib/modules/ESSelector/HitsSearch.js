@@ -38,11 +38,12 @@ export class HitsSearch extends Component {
     }
   }
 
-  componentDidMount() {
-    if (this.searchInputRef) {
+  componentDidMount = () => {
+    const { focus } = this.props;
+    if (focus && this.searchInputRef) {
       this.searchInputRef.focus();
     }
-  }
+  };
 
   clear = () => this.setState(initialState);
 
@@ -201,6 +202,7 @@ HitsSearch.propTypes = {
   onSelect: PropTypes.func,
   open: PropTypes.bool,
   query: PropTypes.func.isRequired,
+  focus: PropTypes.bool,
 };
 
 HitsSearch.defaultProps = {

@@ -86,12 +86,16 @@ class CreateLoan extends React.Component {
   constructor(props) {
     super(props);
     this.today = toShortDate(DateTime.local());
-    this.state = {
+    this.state = this.initialState();
+  }
+
+  initialState = () => {
+    return {
       modalOpen: false,
       startDate: this.today,
       endDate: '',
     };
-  }
+  };
 
   handleStartDateChange = value => {
     this.setState({ startDate: value });
@@ -106,7 +110,7 @@ class CreateLoan extends React.Component {
   };
 
   handleCloseModal = () => {
-    this.setState({ modalOpen: false });
+    this.setState(this.initialState());
   };
 
   isSelectionValid = () => {

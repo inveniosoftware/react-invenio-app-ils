@@ -86,7 +86,8 @@ export default class ItemPendingLoans extends Component {
           ) ||
           !invenioConfig.ITEMS.canCirculateStatuses.includes(
             itemDetails.metadata.status
-          )
+          ) ||
+          isPendingLoansLoading
         }
         onClick={() =>
           performCheckoutAction(
