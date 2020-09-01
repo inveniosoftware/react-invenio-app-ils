@@ -1,8 +1,8 @@
+import { documentRequestApi } from '@api/documentRequests';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import { documentRequestApi } from '@api/documentRequests';
 
 jest.mock('@config');
 
@@ -46,7 +46,7 @@ describe('Patron document requests tests', () => {
 
       await store.dispatch(actions.fetchPatronDocumentRequests(2));
       expect(mockFetchPatronDocumentRequests).toHaveBeenCalledWith(
-        '(patron_pid:2 AND state:PENDING)&sort=-mostrecent&page=1'
+        '(patron_pid:2 AND state:PENDING)&sort=-mostrecent&size=15&page=1'
       );
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
@@ -61,7 +61,7 @@ describe('Patron document requests tests', () => {
 
       await store.dispatch(actions.fetchPatronDocumentRequests(2));
       expect(mockFetchPatronDocumentRequests).toHaveBeenCalledWith(
-        '(patron_pid:2 AND state:PENDING)&sort=-mostrecent&page=1'
+        '(patron_pid:2 AND state:PENDING)&sort=-mostrecent&size=15&page=1'
       );
       expect(store.getActions()[1]).toEqual(expectedAction);
     });
@@ -76,7 +76,7 @@ describe('Patron document requests tests', () => {
 
       await store.dispatch(actions.fetchPatronDocumentRequests(2));
       expect(mockFetchPatronDocumentRequests).toHaveBeenCalledWith(
-        '(patron_pid:2 AND state:PENDING)&sort=-mostrecent&page=1'
+        '(patron_pid:2 AND state:PENDING)&sort=-mostrecent&size=15&page=1'
       );
       expect(store.getActions()[1]).toEqual(expectedAction);
     });
@@ -90,7 +90,7 @@ describe('Patron document requests tests', () => {
 
       await store.dispatch(actions.fetchPatronDocumentRequests(2));
       expect(mockFetchPatronDocumentRequests).toHaveBeenCalledWith(
-        '(patron_pid:2 AND state:PENDING)&sort=-mostrecent&page=1'
+        '(patron_pid:2 AND state:PENDING)&sort=-mostrecent&size=15&page=1'
       );
       expect(store.getActions()[0]).toEqual(expectedAction);
     });

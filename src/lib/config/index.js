@@ -1,20 +1,19 @@
-import _assign from 'lodash/assign';
 import _capitalize from 'lodash/capitalize';
 import _find from 'lodash/find';
 import _get from 'lodash/get';
 import _map from 'lodash/map';
 import _merge from 'lodash/merge';
-import { defaultConfig, APP_CONFIG } from './defaultConfig';
+import { APP_CONFIG, RECORDS_CONFIG } from './defaultConfig';
 
 class Config {
-  APP = APP_CONFIG;
-
   constructor() {
-    this.setValue(defaultConfig);
+    this.APP = APP_CONFIG;
+    Object.assign(this, { ...RECORDS_CONFIG });
   }
 
-  setValue = newConfig => {
-    _assign(this, _merge({}, this, newConfig));
+  merge = newConfig => {
+    Object.assign(this, _merge(this, newConfig));
+    Object.freeze(this);
   };
 }
 

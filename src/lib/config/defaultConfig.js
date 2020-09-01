@@ -1,10 +1,10 @@
 import {
   ACQ_ORDER_STATUSES,
   DEFAULT_CURRENCY,
-  ILL_BORROWING_REQUESTS_STATUSES,
-  ITEM_MEDIUMS,
   DOCUMENT_RELATIONS,
   DOCUMENT_TYPES,
+  ILL_BORROWING_REQUESTS_STATUSES,
+  ITEM_MEDIUMS,
 } from './common';
 
 export const APP_CONFIG = {
@@ -16,9 +16,10 @@ export const APP_CONFIG = {
   MAX_RESULTS_WINDOW: 10000,
   OAUTH_PROVIDERS: {
     github: {
+      enabled: true,
       label: 'Sign in with GitHub',
       name: 'gihub',
-      baseUrl: '/api/oauth/login/github',
+      url: '/api/oauth/login/github',
       icon: 'github',
       semanticUiColor: 'black',
       className: '',
@@ -39,7 +40,7 @@ export const APP_CONFIG = {
   supportEmail: 'info@inveniosoftware.org',
 };
 
-export const defaultConfig = {
+export const RECORDS_CONFIG = {
   ACQ_ORDERS: {
     maxShowOrderLines: 3,
     orderedValidStatuses: ['PENDING', 'ORDERED', 'RECEIVED'],

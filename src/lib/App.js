@@ -42,7 +42,7 @@ const FetchUser = connect(null, mapDispatchToProps)(FetchUserComponent);
 export default class App extends Component {
   constructor(props) {
     super(props);
-    invenioConfig.setValue(props.config);
+    invenioConfig.merge(props.config);
   }
 
   render() {

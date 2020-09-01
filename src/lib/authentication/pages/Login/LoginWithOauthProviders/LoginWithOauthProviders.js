@@ -22,28 +22,31 @@ export class LoginWithOauthProviders extends Component {
   };
 
   render() {
-    const { provider } = this.props;
+    const { providerName } = this.props;
     const params = parseParams(window.location.search);
     this.checkIfOauthLoginResponse(params);
     const {
+      enabled,
       label,
       name,
       className,
       semanticUiColor,
       ...restProps
-    } = invenioConfig.APP.OAUTH_PROVIDERS[provider];
+    } = invenioConfig.APP.OAUTH_PROVIDERS[providerName];
     return (
       <Overridable id="LoginWithOauth.layout" {...this.props}>
         <Container fluid>
-          <LoginWithOauthButton
-            key={name}
-            content={label}
-            name={name}
-            nextUrl={params.next || FrontSiteRoutes.home}
-            color={semanticUiColor}
-            className={className}
-            {...restProps}
-          />
+          <div className="pb-default">
+            <LoginWithOauthButton
+              key={name}
+              content={label}
+              name={name}
+              nextUrl={params.next || FrontSiteRoutes.home}
+              color={semanticUiColor}
+              className={className}
+              {...restProps}
+            />
+          </div>
         </Container>
       </Overridable>
     );
@@ -54,7 +57,7 @@ LoginWithOauthProviders.propTypes = {
   /* Redux */
   sendErrorNotification: PropTypes.func.isRequired,
   clearNotifications: PropTypes.func.isRequired,
-  provider: PropTypes.string.isRequired,
+  providerName: PropTypes.string.isRequired,
 };
 
 export default Overridable.component('LoginWithOauth', LoginWithOauthProviders);

@@ -1,8 +1,8 @@
+import { loanApi } from '@api/loans';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import { loanApi } from '@api/loans';
 
 jest.mock('@config');
 const middlewares = [thunk];
@@ -45,7 +45,7 @@ describe('Patron loans tests', () => {
 
       store.dispatch(actions.fetchPatronPendingLoans(2)).then(() => {
         expect(mockFetchUserLoan).toHaveBeenCalledWith(
-          '(patron_pid:2 AND state:(PENDING))&sort=-mostrecent&page=1'
+          '(patron_pid:2 AND state:(PENDING))&sort=-mostrecent&size=15&page=1'
         );
         const actions = store.getActions();
         expect(actions[0]).toEqual(expectedAction);
@@ -63,7 +63,7 @@ describe('Patron loans tests', () => {
 
       store.dispatch(actions.fetchPatronPendingLoans(2)).then(() => {
         expect(mockFetchUserLoan).toHaveBeenCalledWith(
-          '(patron_pid:2 AND state:(PENDING))&sort=-mostrecent&page=1'
+          '(patron_pid:2 AND state:(PENDING))&sort=-mostrecent&size=15&page=1'
         );
         const actions = store.getActions();
         expect(actions[1]).toEqual(expectedAction);
@@ -81,7 +81,7 @@ describe('Patron loans tests', () => {
 
       store.dispatch(actions.fetchPatronPendingLoans(2)).then(() => {
         expect(mockFetchUserLoan).toHaveBeenCalledWith(
-          '(patron_pid:2 AND state:(PENDING))&sort=-mostrecent&page=1'
+          '(patron_pid:2 AND state:(PENDING))&sort=-mostrecent&size=15&page=1'
         );
         const actions = store.getActions();
         expect(actions[1]).toEqual(expectedAction);
