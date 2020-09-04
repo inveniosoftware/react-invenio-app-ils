@@ -73,6 +73,7 @@ import { staticPageReducer } from '@pages/frontsite/StaticPage/reducer';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+import { loanUpdateDatesReducer } from '@pages/backoffice/Loan/LoanDetails/LoanUpdateDates/reducer';
 
 const rootReducer = combineReducers({
   authenticationManagement: authenticationReducer,
@@ -102,6 +103,7 @@ const rootReducer = combineReducers({
   overdueLoanSendMailModal: overdueLoanSendMailModalReducer,
   loanDetails: loanDetailsReducer,
   loanActions: loanActionReducer,
+  loanUpdateDates: loanUpdateDatesReducer,
   availableItems: availableItemsReducer,
   documentRequestDetails: documentRequestDetailsReducer,
   locations: locationListReducer,
