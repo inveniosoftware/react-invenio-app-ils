@@ -62,7 +62,7 @@ export default class LoanDetails extends Component {
                     </Grid.Column>
                     <Grid.Column width={3}>
                       <Sticky context={this.menuRef} offset={200}>
-                        <LoanActionMenu offset={-200} />
+                        <LoanActionMenu loan={data} offset={-200} />
                       </Sticky>
                     </Grid.Column>
                   </Grid>

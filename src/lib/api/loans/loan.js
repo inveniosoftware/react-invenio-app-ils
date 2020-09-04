@@ -14,6 +14,7 @@ const apiPaths = {
   list: '/circulation/loans/',
   request: '/circulation/loans/request',
   replaceItem: '/circulation/loans/:loanPid/replace-item',
+  updateDates: '/circulation/loans/:loanPid/update-dates',
 };
 
 const get = async loanPid => {
@@ -276,6 +277,34 @@ const count = async query => {
   return response;
 };
 
+const updateDates = async (
+  loanPid,
+  {
+    startDate = null,
+    endDate = null,
+    requestStartDate = null,
+    requestExpireDate = null,
+  } = {}
+) => {
+  const payload = {};
+  if (startDate) {
+    payload.start_date = startDate;
+  }
+  if (endDate) {
+    payload.end_date = endDate;
+  }
+  if (requestStartDate) {
+    payload.request_start_date = requestStartDate;
+  }
+  if (requestExpireDate) {
+    payload.request_expire_date = requestExpireDate;
+  }
+  const path = generatePath(apiPaths.updateDates, {
+    loanPid: loanPid,
+  });
+  return await http.post(path, payload);
+};
+
 export const loanApi = {
   searchBaseURL: `${apiConfig.baseURL}${apiPaths.list}`,
   assignItemToLoan: assignItemToLoan,
@@ -288,4 +317,5 @@ export const loanApi = {
   doCheckout: doCheckout,
   sendOverdueLoansMailReminder: sendOverdueLoansMailReminder,
   serializer: serializer,
+  updateDates: updateDates,
 };
