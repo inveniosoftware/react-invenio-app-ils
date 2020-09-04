@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.11 (released 2020-09-04)
+
+- add enabled attribute in oauth
+- make npm start runs on HTTPS by default
+
 Version 1.0.0-alpha.10 (released 2020-08-14)
 
 - improve UX of the backoffice forms
