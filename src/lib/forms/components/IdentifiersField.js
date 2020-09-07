@@ -16,7 +16,7 @@ export class IdentifiersField extends Component {
       {
         key: 'value',
         element: StringField,
-        props: { inline: true, label: 'Value', required: true },
+        props: { label: 'Value', required: true },
       },
     ];
   };

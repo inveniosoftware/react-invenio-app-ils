@@ -9,7 +9,13 @@ export default class MetadataTable extends Component {
     return rows.map(row => (
       <Table.Row key={row.name}>
         <Table.Cell width={labelWidth}>{row.name}</Table.Cell>
-        <Table.Cell>{row.value}</Table.Cell>
+        <Table.Cell>
+          {typeof row.value == 'boolean'
+            ? row.value
+              ? 'Yes'
+              : 'No'
+            : row.value}
+        </Table.Cell>
       </Table.Row>
     ));
   }

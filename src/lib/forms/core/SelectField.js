@@ -79,29 +79,32 @@ export class SelectField extends Component {
       multiple,
       optimized,
       options,
+      width,
       ...uiProps
     } = this.props;
     const value = getIn(values, fieldPath, multiple ? [] : '');
     return (
-      <Form.Dropdown
-        fluid
-        selection
-        searchInput={{ id: fieldPath }}
-        label={{ children: label, htmlFor: fieldPath }}
-        loading={loading}
-        multiple={multiple}
-        id={fieldPath}
-        name={fieldPath}
-        onChange={(event, data) => {
-          setFieldValue(fieldPath, data.value);
-        }}
-        onBlur={handleBlur}
-        error={error || this.renderError(errors, fieldPath, value)}
-        options={this.getAllOptions(options, value)}
-        value={value}
-        renderLabel={this.renderLabel}
-        {...uiProps}
-      />
+      <Form.Field width={width}>
+        <Form.Dropdown
+          fluid
+          selection
+          searchInput={{ id: fieldPath }}
+          label={{ children: label, htmlFor: fieldPath }}
+          loading={loading}
+          multiple={multiple}
+          id={fieldPath}
+          name={fieldPath}
+          onChange={(event, data) => {
+            setFieldValue(fieldPath, data.value);
+          }}
+          onBlur={handleBlur}
+          error={error || this.renderError(errors, fieldPath, value)}
+          options={this.getAllOptions(options, value)}
+          value={value}
+          renderLabel={this.renderLabel}
+          {...uiProps}
+        />
+      </Form.Field>
     );
   };
 
@@ -121,9 +124,15 @@ SelectField.propTypes = {
   required: PropTypes.bool,
   options: PropTypes.array.isRequired,
   label: PropTypes.string,
+  width: PropTypes.number,
 };
 
 SelectField.defaultProps = {
   multiple: false,
   optimized: false,
+  error: null,
+  loading: false,
+  required: false,
+  label: '',
+  width: 16,
 };

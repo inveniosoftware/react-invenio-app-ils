@@ -83,10 +83,12 @@ export class InternalLocationForm extends Component {
               placeholder="Search for a location..."
               query={locationApi.list}
               serializer={serializeLocation}
+              width={8}
             />
             <StringField
               label="Physical Location"
               fieldPath="physical_location"
+              width={8}
             />
           </GroupField>
           <TextField label="Notes" fieldPath="notes" rows={5} />

@@ -1,7 +1,9 @@
 import { MetadataTable } from '@components/backoffice/MetadataTable';
-import capitalize from 'lodash/capitalize';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Divider, Header } from 'semantic-ui-react';
+import { List } from 'semantic-ui-react';
+import { InfoMessage } from '@components/backoffice/InfoMessage';
 
 export class DocumentCopyrights extends Component {
   renderCopyrights() {
@@ -12,15 +14,61 @@ export class DocumentCopyrights extends Component {
     } = this.props;
     const rows = [];
     if (copyrights) {
-      for (const [key, val] of Object.entries(copyrights)) {
-        rows.push({ name: capitalize(key), value: val });
-      }
+      copyrights.forEach(element => {
+        rows.push({ name: element.holder, value: element.year });
+      });
     }
     return rows;
   }
 
+  renderLicenses = () => {
+    const {
+      document: {
+        metadata: { licenses },
+      },
+    } = this.props;
+    return (
+      <List bulleted>
+        {licenses.map((entry, index) => (
+          <List.Item key={index}>{entry}</List.Item>
+        ))}
+      </List>
+    );
+  };
+
   render() {
-    return <MetadataTable rows={this.renderCopyrights()} />;
+    const {
+      document: {
+        metadata: { licenses, copyrights },
+      },
+    } = this.props;
+    if (copyrights || licenses) {
+      return (
+        <>
+          {copyrights && (
+            <>
+              <Header as="h3">Copyrights</Header>
+              <MetadataTable rows={this.renderCopyrights()} />
+            </>
+          )}
+          {copyrights && licenses && <Divider />}
+
+          {licenses && (
+            <>
+              <Header as="h3">Licenses</Header>
+              {this.renderLicenses()}
+            </>
+          )}
+        </>
+      );
+    } else {
+      return (
+        <InfoMessage
+          header="No stored copyrights nor licenses."
+          content="Edit document to add copyrights or licenses"
+        />
+      );
+    }
   }
 }
 

@@ -119,6 +119,7 @@ export class OrderLines extends Component {
             placeholder="Search for a patron..."
             query={patronApi.list}
             serializer={serializePatron}
+            width={10}
           />
         </GroupField>
 

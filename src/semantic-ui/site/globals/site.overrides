@@ -127,6 +127,10 @@ a {
   font-size: 0.8em;
 }
 
+.custom-year-margin {
+  margin: 0em !important;
+}
+
 .vertical-align-content{
   display: flex !important;
   flex-direction: column;

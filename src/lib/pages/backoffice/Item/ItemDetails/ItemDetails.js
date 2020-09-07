@@ -8,6 +8,8 @@ import { ItemCirculation } from './ItemCirculation';
 import { ItemHeader } from './ItemHeader';
 import { ItemMetadata } from './ItemMetadata';
 import { ItemPastLoans } from './ItemPastLoans';
+import { ItemContent } from './ItemContent';
+import { ItemCataloging } from './ItemCataloging';
 import { ItemPendingLoans } from './ItemPendingLoans';
 
 export default class ItemDetails extends Component {
@@ -53,6 +55,8 @@ export default class ItemDetails extends Component {
                         <Container className="spaced">
                           <ItemCirculation />
                           <ItemMetadata />
+                          <ItemContent />
+                          <ItemCataloging />
                           <ItemPendingLoans />
                           <ItemPastLoans />
                         </Container>

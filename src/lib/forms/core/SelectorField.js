@@ -81,6 +81,7 @@ export class SelectorField extends Component {
       serializer,
       renderGroup,
       renderSelection,
+      width,
       ...selectorProps
     } = this.props;
     const selections = [];
@@ -101,7 +102,7 @@ export class SelectorField extends Component {
     const placeholderText =
       !multiple && selections.length > 0 ? selections[0].title : placeholder;
     return (
-      <Form.Field required={required} error={hasFieldError}>
+      <Form.Field required={required} error={hasFieldError} width={width}>
         {label && <label htmlFor={fieldPath}>{label}</label>}
         {hasFieldError && !_isEmpty(error) && (
           <Label prompt pointing="below">
@@ -146,10 +147,18 @@ SelectorField.propTypes = {
   required: PropTypes.bool,
   multiple: PropTypes.bool,
   placeholder: PropTypes.string,
+  width: PropTypes.number,
 };
 
 SelectorField.defaultProps = {
   emptyHeader: 'Nothing selected',
   emptyDescription: 'Please select a value before saving.',
   optimized: false,
+  width: 16,
+  placeholder: '',
+  multiple: false,
+  required: false,
+  renderSelection: null,
+  renderGroup: null,
+  label: '',
 };

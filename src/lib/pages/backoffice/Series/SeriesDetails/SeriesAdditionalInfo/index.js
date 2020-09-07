@@ -1,0 +1,1 @@
+export { SeriesAdditionalInfo } from './SeriesAdditionalInfo';

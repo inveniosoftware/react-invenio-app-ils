@@ -87,14 +87,12 @@ export class AuthorForm extends React.Component {
             required
             fieldPath={`${basePath}.full_name`}
             label="Full name"
-            width={6}
           />
           <VocabularyField
             type={this.authorVocabularies.type}
             fieldPath={`${basePath}.type`}
             label="Type"
             placeholder="Select an author type..."
-            width={2}
           />
           <VocabularyField
             multiple
@@ -102,7 +100,6 @@ export class AuthorForm extends React.Component {
             fieldPath={`${basePath}.roles`}
             label="Role"
             placeholder="Select an author role..."
-            width={3}
           />
         </GroupField>
         <Divider />

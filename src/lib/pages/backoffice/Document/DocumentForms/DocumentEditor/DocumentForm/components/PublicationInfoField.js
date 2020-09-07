@@ -1,10 +1,10 @@
 import { DeleteActionButton } from '@forms/components/DeleteActionButton';
 import { AccordionField } from '@forms/core/AccordionField';
 import { ArrayField } from '@forms/core/ArrayField';
+import { YearInputField } from '@forms/core/DateTimeFields';
 import { GroupField } from '@forms/core/GroupField';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
-import { YearInputField } from '@forms/core/DateTimeFields';
 import React from 'react';
 
 export class PublicationInfoField extends React.Component {
@@ -50,6 +50,7 @@ export class PublicationInfoField extends React.Component {
             fieldPath={`${objectPath}.year`}
             label="Year"
             optimized
+            className="custom-year-margin"
           />
         </GroupField>
         <TextField fieldPath={`${objectPath}.note`} label="Note" optimized />

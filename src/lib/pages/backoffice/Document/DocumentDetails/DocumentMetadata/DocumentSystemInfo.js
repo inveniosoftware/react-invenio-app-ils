@@ -43,20 +43,10 @@ export class DocumentSystemInfo extends Component {
       value: <UpdatedBy metadata={document.metadata} />,
     });
 
-    rows.push(
-      {
-        name: 'Curated',
-        value: document.metadata.curated,
-      },
-      {
-        name: 'Source',
-        value: document.metadata.source,
-      },
-      {
-        name: 'Internal notes',
-        value: this.renderInternalNotes(),
-      }
-    );
+    rows.push({
+      name: 'Source',
+      value: document.metadata.source,
+    });
 
     return rows;
   };
