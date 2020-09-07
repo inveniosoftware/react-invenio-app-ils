@@ -68,6 +68,7 @@ export class VocabularyField extends React.Component {
       multiple,
       serializer,
       type,
+      width,
       ...uiProps
     } = this.props;
     const { isLoading, options, error } = this.state;
@@ -82,6 +83,7 @@ export class VocabularyField extends React.Component {
         multiple={multiple}
         error={error}
         options={options}
+        width={width}
         loading={isLoading}
         upward={false}
         noResultsMessage={noResultsMessage}
@@ -110,6 +112,7 @@ VocabularyField.propTypes = {
   multiple: PropTypes.bool,
   serializer: PropTypes.func,
   type: PropTypes.string.isRequired,
+  width: PropTypes.number,
 };
 
 VocabularyField.defaultProps = {
@@ -117,4 +120,5 @@ VocabularyField.defaultProps = {
   multiple: false,
   label: '',
   serializer: null,
+  width: 16,
 };

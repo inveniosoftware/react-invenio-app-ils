@@ -13,23 +13,25 @@ export class OrderInformation extends React.Component {
   render() {
     const { order } = this.props;
     const leftTable = [
-      { name: 'Status', value: order.status },
+      { name: 'Vendor', value: order.vendor.name },
       { name: 'Ordered at', value: this.dateOrDefault(order.order_date) },
-      { name: 'Delivered on', value: this.dateOrDefault(order.received_date) },
       {
         name: 'Expected delivery',
         value: this.dateOrDefault(order.expected_delivery_date),
       },
-    ];
-    const rightTable = [
-      { name: 'Vendor', value: order.vendor.name },
-      { name: 'Funds', value: order.funds ? order.funds.join(', ') : null },
-      { name: 'Created by', value: <CreatedBy metadata={order} /> },
-      { name: 'Updated by', value: <UpdatedBy metadata={order} /> },
+      { name: 'Delivered on', value: this.dateOrDefault(order.received_date) },
       { name: 'Notes', value: order.notes },
     ];
+    const rightTable = [
+      { name: 'Status', value: order.status },
+      { name: 'Created by', value: <CreatedBy metadata={order} /> },
+      { name: 'Updated by', value: <UpdatedBy metadata={order} /> },
+    ];
     order.status === 'CANCELLED' &&
-      rightTable.push({ name: 'Cancel reason', value: order.cancel_reason });
+      rightTable.splice(1, 0, {
+        name: 'Cancel reason',
+        value: order.cancel_reason,
+      });
     return (
       <Grid columns={2} id="order-info">
         <Grid.Row>

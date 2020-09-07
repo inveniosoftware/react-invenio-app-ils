@@ -108,7 +108,7 @@ export class SeriesForm extends Component {
         pid={pid}
       >
         <Header as="h3" attached="top">
-          Basic Info
+          Basic Information
         </Header>
         <Segment attached>
           <StringField label="Title" fieldPath="title" required />
@@ -198,7 +198,7 @@ export class SeriesForm extends Component {
             </Grid.Column>
             <Grid.Column width="8">
               <Header as="h3" attached="top">
-                Additional Info
+                Additional Information
               </Header>
               <Segment attached>
                 <AlternativeTitles />

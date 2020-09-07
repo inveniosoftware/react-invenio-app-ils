@@ -1,49 +1,21 @@
-import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
-import { UrlList } from '@components/backoffice/UrlList';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { SeriesLanguages } from '@modules/Series/SeriesLanguages';
-import get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { groupedSchemeValueList } from '@components/backoffice/utils';
 import { Container, Divider } from 'semantic-ui-react';
-import LiteratureTags from '@modules/Literature/LiteratureTags';
-import LiteratureKeywords from '@modules/Literature/LiteratureKeywords';
 
 export default class SeriesMetadata extends Component {
   prepareData = () => {
     const { seriesDetails } = this.props;
-
-    const urls = get(this.props, 'seriesDetails.metadata.urls', []);
 
     return [
       { name: 'Title', value: seriesDetails.metadata.title },
       {
         name: 'Title abbreviation',
         value: seriesDetails.metadata.abbreviated_title,
-      },
-      {
-        name: 'Authors',
-        value: <SeriesAuthors authors={seriesDetails.metadata.authors} />,
-      },
-      {
-        name: 'Publication Year',
-        value: seriesDetails.metadata.publication_year,
-      },
-      {
-        name: 'Keywords',
-        value: <LiteratureKeywords keywords={seriesDetails.keywords} />,
-      },
-      {
-        name: 'Tags',
-        value: (
-          <LiteratureTags
-            isBackOffice
-            size="mini"
-            tags={seriesDetails.metadata.tags}
-          />
-        ),
       },
       {
         name: 'Mode of Issuance',
@@ -53,39 +25,27 @@ export default class SeriesMetadata extends Component {
         name: 'Languages',
         value: <SeriesLanguages languages={seriesDetails.metadata.languages} />,
       },
-      { name: 'Publisher', value: seriesDetails.metadata.publisher },
-      { name: 'Urls', value: <UrlList urls={urls} /> },
+      {
+        name: 'Authors',
+        value: <SeriesAuthors authors={seriesDetails.metadata.authors} />,
+      },
     ];
   };
 
   render() {
     const { seriesDetails: series } = this.props;
     const rows = this.prepareData();
-    const columns = [
-      {
-        title: 'URL',
-        field: 'url',
-      },
-      {
-        title: 'Description',
-        field: 'description',
-      },
-      { title: 'Open access', field: 'open_access' },
-      { title: 'Restrictions', field: 'access_restriction' },
-    ];
-
-    const hasAccessUrls = !_isEmpty(series.metadata.access_urls);
+    const hasIdentifiers = !_isEmpty(series.metadata.identifiers);
 
     return (
       <Container fluid className="series-metadata">
         <MetadataTable rows={rows} />
 
-        {hasAccessUrls && (
+        {hasIdentifiers && (
           <>
-            <Divider horizontal>Access URLS</Divider>
-            <ResultsTable
-              columns={columns}
-              data={series.metadata.access_urls}
+            <Divider horizontal>Identifiers</Divider>
+            <MetadataTable
+              rows={groupedSchemeValueList(series.metadata.identifiers)}
             />
           </>
         )}

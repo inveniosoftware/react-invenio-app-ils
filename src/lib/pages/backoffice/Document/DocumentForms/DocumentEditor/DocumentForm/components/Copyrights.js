@@ -35,6 +35,7 @@ export class Copyrights extends Component {
             mode="year"
             fieldPath={`${arrayPath}.${indexPath}.year`}
             optimized
+            className="custom-year-margin"
           />
         </GroupField>
         <GroupField>

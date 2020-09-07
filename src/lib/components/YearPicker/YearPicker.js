@@ -1,7 +1,7 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { YearInput } from 'semantic-ui-calendar-react';
-import PropTypes from 'prop-types';
 
 class YearPicker extends Component {
   constructor(props) {
@@ -18,10 +18,19 @@ class YearPicker extends Component {
   };
 
   render() {
-    const { initialYear, error, label, id, name, placeholder } = this.props;
+    const {
+      initialYear,
+      error,
+      label,
+      id,
+      name,
+      placeholder,
+      className,
+    } = this.props;
     const { selectedYear } = this.state;
     return (
       <YearInput
+        className={className}
         autoComplete="off"
         clearable
         closable
@@ -49,6 +58,7 @@ YearPicker.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
+  className: PropTypes.string,
 };
 
 YearPicker.defaultProps = {
@@ -56,6 +66,10 @@ YearPicker.defaultProps = {
   defaultValue: '',
   placeholder: '',
   name: 'selectedYear',
+  error: null,
+  id: '',
+  label: '',
+  className: '',
 };
 
 export default Overridable.component('YearPicker', YearPicker);

@@ -1,14 +1,16 @@
-import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { invenioConfig } from '@config';
 import { SeriesMetadataExtensions } from '@modules/Series/SeriesMetadataExtensions';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import ShowMore from 'react-show-more';
-import { Header, Tab } from 'semantic-ui-react';
-import { SeriesIdentifiers } from '../SeriesIdentifiers';
+import { Tab } from 'semantic-ui-react';
+import { SeriesUrls } from '../SeriesUrls';
+import { SeriesPublication } from '../SeriesPublication';
 import { SeriesSystemInfo } from '../SeriesSystemInfo';
+import { SeriesAdditionalInfo } from '../SeriesAdditionalInfo';
+import { SeriesNotes } from '../SeriesNotes';
+import { SeriesContent } from '../SeriesContent';
 import { SeriesMetadata } from './';
 
 export default class SeriesMetadataTabs extends Component {
@@ -16,7 +18,7 @@ export default class SeriesMetadataTabs extends Component {
     const { series } = this.props;
     const panes = [
       {
-        menuItem: 'Metadata',
+        menuItem: 'Basic',
         render: () => (
           <Tab.Pane attached="bottom">
             <SeriesMetadata seriesDetails={series} />
@@ -24,10 +26,18 @@ export default class SeriesMetadataTabs extends Component {
         ),
       },
       {
-        menuItem: 'Identifiers',
+        menuItem: 'Publication',
         render: () => (
           <Tab.Pane>
-            <SeriesIdentifiers series={series} />
+            <SeriesPublication seriesDetails={series} />
+          </Tab.Pane>
+        ),
+      },
+      {
+        menuItem: 'Urls',
+        render: () => (
+          <Tab.Pane>
+            <SeriesUrls series={series} />
           </Tab.Pane>
         ),
       },
@@ -35,15 +45,7 @@ export default class SeriesMetadataTabs extends Component {
         menuItem: 'Contents',
         render: () => (
           <Tab.Pane>
-            <Header as="h5">Abstract </Header>
-            <ShowMore
-              lines={10}
-              more="Show more"
-              less="Show less"
-              anchorClass="button-show-more"
-            >
-              {series.metadata.abstract}
-            </ShowMore>
+            <SeriesContent series={series} />
           </Tab.Pane>
         ),
       },
@@ -51,22 +53,20 @@ export default class SeriesMetadataTabs extends Component {
         menuItem: 'Notes',
         render: () => (
           <Tab.Pane>
-            <Header as="h3">Public note</Header>
-            <p>
-              {series.metadata.note ? (
-                series.metadata.note
-              ) : (
-                <InfoMessage
-                  header="No public notes."
-                  content="Edit document to add a note"
-                />
-              )}
-            </p>
+            <SeriesNotes series={series} />
           </Tab.Pane>
         ),
       },
       {
-        menuItem: 'System info',
+        menuItem: 'Other',
+        render: () => (
+          <Tab.Pane>
+            <SeriesAdditionalInfo series={series} />
+          </Tab.Pane>
+        ),
+      },
+      {
+        menuItem: 'System',
         render: () => (
           <Tab.Pane>
             <SeriesSystemInfo series={series} />

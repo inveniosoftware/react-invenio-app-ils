@@ -9,6 +9,9 @@ export default class ResultsTableBody extends Component {
     if ('formatter' in col && _isFunction(col.formatter)) {
       return col.formatter({ col: col, row: row, rowIndex: rowIndex });
     }
+    if (typeof row[col.field] === 'boolean') {
+      return row[col.field] ? 'Yes' : 'No';
+    }
     return _get(row, col.field) || '-';
   };
 

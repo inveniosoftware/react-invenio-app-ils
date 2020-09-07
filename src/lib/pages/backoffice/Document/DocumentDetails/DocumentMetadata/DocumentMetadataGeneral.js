@@ -2,15 +2,14 @@ import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { UrlList } from '@components/backoffice/UrlList';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
-import LiteratureTags from '@modules/Literature/LiteratureTags';
 import { BackOfficeRoutes } from '@routes/urls';
 import get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Divider, Header } from 'semantic-ui-react';
-import LiteratureKeywords from '@modules/Literature/LiteratureKeywords';
+import { Container, Divider } from 'semantic-ui-react';
+import { groupedSchemeValueList } from '@components/backoffice/utils';
 
 export class DocumentMetadataGeneral extends Component {
   prepareGeneral = () => {
@@ -19,6 +18,12 @@ export class DocumentMetadataGeneral extends Component {
 
     const rows = [
       { name: 'Title', value: document.metadata.title },
+      { name: 'Publication year', value: document.metadata.publication_year },
+      {
+        name: 'Edition',
+        value: document.metadata.edition,
+      },
+      { name: 'Number of pages', value: document.metadata.number_of_pages },
       {
         name: 'Authors',
         value: (
@@ -32,25 +37,6 @@ export class DocumentMetadataGeneral extends Component {
             expandable
           />
         ),
-      },
-      { name: 'Publication year', value: document.metadata.publication_year },
-      {
-        name: 'Keywords',
-        value: <LiteratureKeywords keywords={document.metadata.keywords} />,
-      },
-      {
-        name: 'Tags',
-        value: (
-          <LiteratureTags
-            isBackOffice
-            size="mini"
-            tags={document.metadata.tags}
-          />
-        ),
-      },
-      {
-        name: 'Edition',
-        value: document.metadata.edition,
       },
       {
         name: 'Languages',
@@ -76,28 +62,21 @@ export class DocumentMetadataGeneral extends Component {
     return rows;
   };
 
-  prepareImprintInfo = () => {
-    const { document } = this.props;
-
-    return [
-      { name: 'Publisher', value: document.metadata.imprint.publisher },
-      { name: 'Date', value: document.metadata.imprint.date },
-      { name: 'Place', value: document.metadata.imprint.place },
-      { name: 'Reprint date', value: document.metadata.imprint.reprint_date },
-    ];
-  };
-
   render() {
     const { document } = this.props;
+    const identifiers = groupedSchemeValueList(document.metadata.identifiers);
+    const alternativeIdentifiers = groupedSchemeValueList(
+      document.metadata.alternative_identifiers
+    );
     return (
       <Container fluid>
         <MetadataTable rows={this.prepareGeneral()} />
 
-        {!_isEmpty(document.metadata.imprint) && (
+        {(!_isEmpty(document.metadata.identifiers) ||
+          !_isEmpty(document.metadata.alternative_identifiers)) && (
           <>
-            <Divider />
-            <Header as="h3">Imprint</Header>
-            <MetadataTable rows={this.prepareImprintInfo()} />
+            <Divider horizontal>Identifiers</Divider>
+            <MetadataTable rows={identifiers.concat(alternativeIdentifiers)} />
           </>
         )}
       </Container>

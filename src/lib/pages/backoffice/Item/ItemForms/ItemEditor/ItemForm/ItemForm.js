@@ -162,6 +162,7 @@ export class ItemForm extends Component {
               placeholder="Search for a document..."
               query={documentApi.list}
               serializer={serializeDocument}
+              width={8}
             />
             <SelectField
               required
@@ -169,6 +170,7 @@ export class ItemForm extends Component {
               label="Medium"
               fieldPath="medium"
               options={this.config.mediums}
+              width={8}
             />
           </GroupField>
           <GroupField widths="2">
@@ -182,8 +184,9 @@ export class ItemForm extends Component {
               placeholder="Search for an internal location..."
               query={internalLocationApi.list}
               serializer={serializeInternalLocation}
+              width={8}
             />
-            <StringField label="Shelf" fieldPath="shelf" />
+            <StringField label="Shelf" fieldPath="shelf" width={8} />
           </GroupField>
           <GroupField widths="equal">
             <SelectField

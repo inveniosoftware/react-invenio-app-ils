@@ -1,0 +1,1 @@
+export { SeriesPublication } from './SeriesPublication';

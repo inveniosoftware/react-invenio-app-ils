@@ -1,8 +1,8 @@
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { CopyButton } from '@components/CopyButton';
 import { EmailLink } from '@components/EmailLink';
-import { MetadataTable } from '@components/backoffice/MetadataTable';
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { Grid } from 'semantic-ui-react';
 
 export class VendorInformation extends React.Component {
@@ -19,11 +19,11 @@ export class VendorInformation extends React.Component {
           </span>
         ),
       },
-      { name: 'Phone', value: vendor.phone },
+      { name: 'Notes', value: vendor.notes },
     ];
     const rightTable = [
+      { name: 'Phone', value: vendor.phone },
       { name: 'Address', value: vendor.address },
-      { name: 'Notes', value: vendor.notes },
     ];
     return (
       <Grid columns={2} id="vendor-info">

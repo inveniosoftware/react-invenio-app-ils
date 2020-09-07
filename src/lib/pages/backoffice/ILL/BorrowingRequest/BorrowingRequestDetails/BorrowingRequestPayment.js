@@ -36,7 +36,7 @@ class Payment extends React.Component {
         ),
         value: payment.internal_purchase_requisition_id,
       },
-      { name: 'Budget code', value: payment.budget_code },
+      { name: 'Note', value: payment.debit_note },
     ];
     const rightTable = [
       {
@@ -54,7 +54,7 @@ class Payment extends React.Component {
         name: 'Debit date',
         value: payment.debit_date ? toShortDate(payment.debit_date) : '-',
       },
-      { name: 'Note', value: payment.debit_note },
+      { name: 'Budget code', value: payment.budget_code },
     ];
     return (
       <Grid columns={2}>
