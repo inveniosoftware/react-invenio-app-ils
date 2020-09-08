@@ -3,6 +3,7 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
+import _isEqual from 'lodash/isEqual';
 
 export class SelectField extends Component {
   renderError = (errors, name, value, direction = 'above') => {
@@ -11,7 +12,7 @@ export class SelectField extends Component {
     if (!Array.isArray(value)) {
       if (
         !_isEmpty(options) &&
-        !options.find(o => o.value === value) &&
+        !options.find(o => _isEqual(o.value, value)) &&
         !_isEmpty(value)
       ) {
         error = `The current value "${value}" is invalid, please select another value.`;
