@@ -1,17 +1,1 @@
-import { connect } from 'react-redux';
-import {
-  addNotification,
-  clearNotifications,
-} from '@components/Notifications/actions';
-import LoginWithOauthProvidersComponent from './LoginWithOauthProviders';
-
-const mapDispatchToProps = dispatch => ({
-  sendErrorNotification: (title, content) =>
-    dispatch(addNotification(title, content, 'error')),
-  clearNotifications: () => dispatch(clearNotifications()),
-});
-
-export const LoginWithOauthProviders = connect(
-  null,
-  mapDispatchToProps
-)(LoginWithOauthProvidersComponent);
+export { LoginWithOauthProviders } from './LoginWithOauthProviders';

@@ -78,7 +78,7 @@ const LeftCol = () => (
   </Grid.Column>
 );
 
-const RightCol = () => (
+const RightCol = ({ hasError, errorMessage, errorHeader }) => (
   <Grid.Column
     mobile={16}
     tablet={8}
@@ -109,7 +109,11 @@ const RightCol = () => (
       )}
     {invenioConfig.APP.ENABLE_LOCAL_ACCOUNT_LOGIN && (
       <>
-        <LoginWithLocalAccount />
+        <LoginWithLocalAccount
+          hasError={hasError}
+          errorHeader={errorHeader}
+          errorMessage={errorMessage}
+        />
         <Container fluid>
           <p>Forgot your password? Recover {notImplementedPopup}.</p>
         </Container>
@@ -122,7 +126,14 @@ const RightCol = () => (
   </Grid.Column>
 );
 
-const LoginLayout = ({ backgroundImage, showLogo, ...props }) => {
+const LoginLayout = ({
+  hasError,
+  errorHeader,
+  errorMessage,
+  backgroundImage,
+  showLogo,
+  ...props
+}) => {
   return (
     <Overridable
       id="Login.layout"
@@ -160,7 +171,11 @@ const LoginLayout = ({ backgroundImage, showLogo, ...props }) => {
                 >
                   <Grid.Row>
                     <LeftCol />
-                    <RightCol />
+                    <RightCol
+                      hasError={hasError}
+                      errorHeader={errorHeader}
+                      errorMessage={errorMessage}
+                    />
                   </Grid.Row>
                 </Grid>
                 <Link className="alternative" to={FrontSiteRoutes.home}>
@@ -177,34 +192,58 @@ const LoginLayout = ({ backgroundImage, showLogo, ...props }) => {
 };
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasError: false,
+      errorHeader: '',
+      errorMessage: '',
+    };
+  }
+
   componentDidMount() {
     this.showNotificationIfSessionExpired();
   }
 
   showNotificationIfSessionExpired = () => {
     const params = parseParams(window.location.search);
-    const { sendErrorNotification } = this.props;
-    if ('sessionExpired' in params) {
-      sendErrorNotification(
-        'Session Error',
-        'You are either not signed in or your session has expired. Please sign in again.'
-      );
+    const { hasError } = this.state;
+
+    if ('sessionExpired' in params && !hasError) {
+      this.setState({
+        hasError: true,
+        errorHeader: 'Session Error',
+        errorMessage:
+          'You are either not signed in or your session has expired. Please sign in again.',
+      });
     }
   };
 
   redirectIfAlreadyLoggedIn = () => {
-    const { isLoading, isAnonymous, clearNotifications } = this.props;
+    const { isLoading, isAnonymous } = this.props;
     const params = parseParams(window.location.search);
     if (!isLoading && !isAnonymous) {
       if (!('sessionExpired' in params)) {
-        clearNotifications();
+        this.setState({
+          hasError: false,
+          errorHeader: '',
+          errorMessage: '',
+        });
         goTo(params.next || FrontSiteRoutes.home);
       }
     }
   };
   render() {
+    const { hasError, errorHeader, errorMessage } = this.state;
     this.redirectIfAlreadyLoggedIn();
-    return <LoginLayout {...this.props} />;
+    return (
+      <LoginLayout
+        hasError={hasError}
+        errorHeader={errorHeader}
+        errorMessage={errorMessage}
+        {...this.props}
+      />
+    );
   }
 }
 
@@ -223,6 +262,18 @@ Login.defaultProps = {
   backgroundImage: null,
   showLogo: true,
   user: {},
+};
+
+RightCol.propTypes = {
+  hasError: PropTypes.bool,
+  errorHeader: PropTypes.string,
+  errorMessage: PropTypes.string,
+};
+
+RightCol.defaultProps = {
+  hasError: false,
+  errorHeader: '',
+  errorMessage: '',
 };
 
 LoginLayout.propTypes = Login.propTypes;

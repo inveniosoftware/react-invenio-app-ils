@@ -9,9 +9,16 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import { Container } from 'semantic-ui-react';
+import { Container, Message } from 'semantic-ui-react';
 
-const LoginWithLocalAccountLayout = ({ data, buttons, onSubmit }) => {
+const LoginWithLocalAccountLayout = ({
+  errorHeader,
+  errorMessage,
+  hasError,
+  data,
+  buttons,
+  onSubmit,
+}) => {
   return (
     <Overridable
       id="LoginWithLocalAccount.layout"
@@ -41,6 +48,9 @@ const LoginWithLocalAccountLayout = ({ data, buttons, onSubmit }) => {
             iconPosition="left"
             required
           />
+          {hasError && (
+            <Message negative header={errorHeader} content={errorMessage} />
+          )}
         </BaseForm>
       </Container>
     </Overridable>
@@ -99,14 +109,14 @@ class LoginWithLocalAccount extends Component {
   };
 
   onSuccess = () => {
-    const { fetchUserProfile, clearNotifications } = this.props;
+    const { fetchUserProfile } = this.props;
     const params = parseParams(window.location.search);
     fetchUserProfile();
-    clearNotifications();
     goTo(params.next || FrontSiteRoutes.home);
   };
 
   render() {
+    const { hasError, errorHeader, errorMessage } = this.props;
     const { data } = this.state;
     return (
       <LoginWithLocalAccountLayout
@@ -114,6 +124,9 @@ class LoginWithLocalAccount extends Component {
         data={data}
         buttons={this.buttons}
         onSubmit={this.onSubmit}
+        errorHeader={errorHeader}
+        errorMessage={errorMessage}
+        hasError={hasError}
       />
     );
   }
@@ -123,12 +136,30 @@ LoginWithLocalAccount.propTypes = {
   /* Redux */
   fetchUserProfile: PropTypes.func.isRequired,
   clearNotifications: PropTypes.func.isRequired,
+  hasError: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  errorHeader: PropTypes.string,
+};
+
+LoginWithLocalAccount.defaultProps = {
+  hasError: false,
+  errorHeader: '',
+  errorMessage: '',
 };
 
 LoginWithLocalAccountLayout.propTypes = {
   data: PropTypes.object.isRequired,
   onSubmit: PropTypes.func.isRequired,
   buttons: PropTypes.array.isRequired,
+  hasError: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  errorHeader: PropTypes.string,
+};
+
+LoginWithLocalAccountLayout.defaultProps = {
+  hasError: false,
+  errorHeader: '',
+  errorMessage: '',
 };
 
 export default Overridable.component(
