@@ -9,20 +9,39 @@ import Overridable from 'react-overridable';
 import { Container } from 'semantic-ui-react';
 
 export class LoginWithOauthProviders extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasError: false,
+      errorMessage: '',
+    };
+  }
+
   checkIfOauthLoginResponse = params => {
     const isOauthResponse = 'code' in params;
-    const { clearNotifications, sendErrorNotification } = this.props;
+    const { hasError } = this.state;
     if (!isOauthResponse) return;
     if (params.code === 200) {
-      clearNotifications();
+      if (hasError) {
+        this.setState({
+          hasError: false,
+          errorMessage: '',
+        });
+      }
       goTo(params.next_url);
     } else {
-      sendErrorNotification('Login failed.', params.message);
+      if (!hasError) {
+        this.setState({
+          hasError: true,
+          errorMessage: params.message,
+        });
+      }
     }
   };
 
   render() {
     const { providerName } = this.props;
+    const { hasError, errorMessage } = this.state;
     const params = parseParams(window.location.search);
     this.checkIfOauthLoginResponse(params);
     const {
@@ -44,6 +63,8 @@ export class LoginWithOauthProviders extends Component {
               nextUrl={params.next || FrontSiteRoutes.home}
               color={semanticUiColor}
               className={className}
+              hasError={hasError}
+              errorMessage={errorMessage}
               {...restProps}
             />
           </div>
@@ -55,7 +76,6 @@ export class LoginWithOauthProviders extends Component {
 
 LoginWithOauthProviders.propTypes = {
   /* Redux */
-  sendErrorNotification: PropTypes.func.isRequired,
   clearNotifications: PropTypes.func.isRequired,
   providerName: PropTypes.string.isRequired,
 };
