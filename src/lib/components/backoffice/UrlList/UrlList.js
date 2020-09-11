@@ -24,5 +24,9 @@ export class UrlList extends Component {
 }
 
 UrlList.propTypes = {
-  urls: PropTypes.array.isRequired,
+  urls: PropTypes.array,
+};
+
+UrlList.defaultProps = {
+  urls: null,
 };

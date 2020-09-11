@@ -9,7 +9,8 @@ import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Icon, Item } from 'semantic-ui-react';
+import { Grid, Item } from 'semantic-ui-react';
+import { SeriesIcon } from '@components/backoffice/icons';
 
 export class RelationListEntry extends Component {
   render() {
@@ -29,7 +30,7 @@ export class RelationListEntry extends Component {
           url={_get(record, 'metadata.cover_metadata.urls.medium')}
         />
       ) : (
-        <Icon name="clone outline" size="huge" color="grey" />
+        <SeriesIcon size="huge" color="grey" />
       );
     return (
       <Item className="relation-list-entry">

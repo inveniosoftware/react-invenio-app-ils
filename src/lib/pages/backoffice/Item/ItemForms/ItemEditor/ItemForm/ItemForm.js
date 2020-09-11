@@ -24,6 +24,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import itemSubmitSerializer from './itemSubmitSerializer';
 import { Segment, Header } from 'semantic-ui-react';
+import { DocumentIcon } from '@components/backoffice/icons';
+import { InternalLocationIcon } from '@components/backoffice/icons/Icons';
 
 export class ItemForm extends Component {
   constructor(props) {
@@ -160,6 +162,7 @@ export class ItemForm extends Component {
               errorPath="document_pid"
               label="Document"
               placeholder="Search for a document..."
+              icon={<DocumentIcon />}
               query={documentApi.list}
               serializer={serializeDocument}
               width={8}
@@ -182,6 +185,7 @@ export class ItemForm extends Component {
               errorPath="internal_location_pid"
               label="Internal location"
               placeholder="Search for an internal location..."
+              icon={<InternalLocationIcon />}
               query={internalLocationApi.list}
               serializer={serializeInternalLocation}
               width={8}
@@ -276,11 +280,12 @@ ItemForm.propTypes = {
   data: PropTypes.object,
   successSubmitMessage: PropTypes.string,
   title: PropTypes.string,
-  pid: PropTypes.string.isRequired,
+  pid: PropTypes.string,
 };
 
 ItemForm.defaultProps = {
   data: null,
   successSubmitMessage: null,
   title: null,
+  pid: null,
 };

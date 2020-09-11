@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Overridable from 'react-overridable';
-import { List, Container, Icon } from 'semantic-ui-react';
+import { List, Container, Icon, Label, Popup } from 'semantic-ui-react';
 import _isEmpty from 'lodash/isEmpty';
 import { HitsSearch } from './HitsSearch';
 import find from 'lodash/find';
@@ -74,19 +74,26 @@ class ESSelector extends Component {
   };
 
   renderSelection = (selection, removeSelection) => {
-    const { renderSelection } = this.props;
+    const { renderSelection, icon } = this.props;
     if (renderSelection) return renderSelection;
+
+    const label = (
+      <Label>
+        {icon}
+        {selection.title}
+        <Label.Detail>{selection.description}</Label.Detail>
+        <Icon name="delete" onClick={() => removeSelection(selection)} />
+      </Label>
+    );
 
     return (
       <List.Item key={selection.id}>
-        <List.Icon name="angle right" size="small" verticalAlign="middle" />
-        <List.Content onClick={() => removeSelection(selection)}>
-          <List.Header as="a">
-            <span className="extra">{selection.extra}</span>
-            {selection.title}
-            <Icon name="delete" />
-          </List.Header>
-          <List.Description as="a">{selection.description}</List.Description>
+        <List.Content>
+          {selection.extra ? (
+            <Popup content={selection.extra} trigger={label} />
+          ) : (
+            label
+          )}
         </List.Content>
       </List.Item>
     );
@@ -98,7 +105,7 @@ class ESSelector extends Component {
 
     return (
       <Container className="result-selections">
-        <List divided relaxed>
+        <List>
           {selections.map(selection =>
             renderSelection(selection, removeSelection)
           )}
@@ -186,6 +193,7 @@ ESSelector.propTypes = {
   serializer: PropTypes.func,
   id: PropTypes.string,
   name: PropTypes.string,
+  icon: PropTypes.any,
   selectionInfoText: PropTypes.string,
   emptySelectionInfoText: PropTypes.string,
   focus: PropTypes.bool,
@@ -195,6 +203,7 @@ ESSelector.defaultProps = {
   delay: 250,
   initialSelections: [],
   minCharacters: 3,
+  icon: null,
   onSelectionsUpdate: () => {},
   emptySelectionInfoText: null,
   selectionInfoText: null,

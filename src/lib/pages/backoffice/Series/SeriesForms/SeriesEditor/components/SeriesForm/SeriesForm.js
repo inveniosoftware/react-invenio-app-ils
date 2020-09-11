@@ -221,5 +221,9 @@ export class SeriesForm extends Component {
 SeriesForm.propTypes = {
   data: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
-  pid: PropTypes.string.isRequired,
+  pid: PropTypes.string,
+};
+
+SeriesForm.defaultProps = {
+  pid: null,
 };

@@ -66,3 +66,15 @@ export class ILLLibraryIcon extends Component {
     return <Icon name="boxes" />;
   }
 }
+
+export class InternalLocationIcon extends Component {
+  render() {
+    return <Icon name="map" />;
+  }
+}
+
+export class LibraryIcon extends Component {
+  render() {
+    return <Icon name="university" />;
+  }
+}

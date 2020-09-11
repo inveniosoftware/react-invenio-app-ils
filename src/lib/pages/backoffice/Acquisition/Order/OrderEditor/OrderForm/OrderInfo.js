@@ -10,6 +10,7 @@ import { TextField } from '@forms/core/TextField';
 import { serializeVendor } from '@modules/ESSelector/serializer';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { AcquisitionVendorIcon } from '@components/backoffice/icons';
 
 export class OrderInfo extends Component {
   render() {
@@ -24,6 +25,7 @@ export class OrderInfo extends Component {
           errorPath="vendor_pid"
           label="Vendor"
           placeholder="Search for a vendor..."
+          icon={<AcquisitionVendorIcon />}
           query={vendorApi.list}
           serializer={serializeVendor}
         />

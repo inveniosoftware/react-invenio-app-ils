@@ -16,6 +16,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Grid, Header, Segment } from 'semantic-ui-react';
 import eitemSubmitSerializer from './eitemSubmitSerializer';
+import { DocumentIcon } from '@components/backoffice/icons';
 
 export class EItemForm extends Component {
   prepareData = data => {
@@ -74,6 +75,7 @@ export class EItemForm extends Component {
                   errorPath="document_pid"
                   label="Document"
                   placeholder="Search for a document..."
+                  icon={<DocumentIcon />}
                   query={documentApi.list}
                   serializer={serializeDocument}
                 />
@@ -135,11 +137,12 @@ EItemForm.propTypes = {
   data: PropTypes.object,
   successSubmitMessage: PropTypes.string,
   title: PropTypes.string,
-  pid: PropTypes.string.isRequired,
+  pid: PropTypes.string,
 };
 
 EItemForm.defaultProps = {
   data: null,
   successSubmitMessage: null,
   title: null,
+  pid: null,
 };
