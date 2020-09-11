@@ -10,6 +10,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Header, Icon, Item, List } from 'semantic-ui-react';
 import DocumentCirculation from './DocumentCirculation';
+import { EItemIcon } from '@components/backoffice/icons';
 
 export default class DocumentListEntry extends Component {
   renderMiddleColumn = document => {
@@ -70,7 +71,7 @@ export default class DocumentListEntry extends Component {
           {document.metadata.eitems.total > 0 ? (
             <List.Item>
               <List.Content floated="right">
-                <Icon name="desktop" />
+                <EItemIcon />
               </List.Content>
               <List.Content>Has electronic items</List.Content>
             </List.Item>

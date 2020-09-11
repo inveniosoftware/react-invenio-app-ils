@@ -262,5 +262,9 @@ Container Overrides - REACT-INVENIO-APP-ILS
     &.details-header {
       padding-bottom: 1em;
     }
+
+    &.result-selections {
+      margin-top: .5em;
+    }
   }
 }

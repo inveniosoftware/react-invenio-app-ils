@@ -40,11 +40,12 @@ class LiteratureTags extends Component {
 
 LiteratureTags.propTypes = {
   tags: PropTypes.array,
-  isBackOffice: PropTypes.bool.isRequired,
+  isBackOffice: PropTypes.bool,
 };
 
 LiteratureTags.defaultProps = {
   tags: [],
+  isBackOffice: true,
 };
 
 export default Overridable.component('LiteratureTags', LiteratureTags);

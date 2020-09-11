@@ -17,6 +17,7 @@ import {
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Segment, Divider, Grid } from 'semantic-ui-react';
+import { DocumentIcon, PatronIcon } from '@components/backoffice/icons';
 
 export class OrderLines extends Component {
   renderArrayItem = ({ arrayPath, indexPath, ...arrayHelpers }) => {
@@ -44,6 +45,7 @@ export class OrderLines extends Component {
               errorPath={`${arrayPath}.${indexPath}.document_pid`}
               label="Document"
               placeholder="Search for a document..."
+              icon={<DocumentIcon />}
               query={documentApi.list}
               serializer={serializeDocument}
             />
@@ -117,6 +119,7 @@ export class OrderLines extends Component {
             errorPath={`${arrayPath}.${indexPath}.patron_pid`}
             label="Patron"
             placeholder="Search for a patron..."
+            icon={<PatronIcon />}
             query={patronApi.list}
             serializer={serializePatron}
             width={10}

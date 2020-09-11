@@ -37,13 +37,18 @@ class DocumentCard extends Component {
   render() {
     const { data } = this.props;
     const { metadata } = data;
+    const url = FrontSiteRoutes.documentDetailsFor(metadata.pid);
     return (
       <Overridable id="DocumentCard.layout" {...this.props}>
         <Card
           link
           centered
           className="fs-book-card"
-          onClick={() => goTo(FrontSiteRoutes.documentDetailsFor(metadata.pid))}
+          href={url}
+          onClick={e => {
+            e.preventDefault();
+            goTo(url);
+          }}
           data-test={metadata.pid}
         >
           <Card.Meta className="discrete">{metadata.document_type}</Card.Meta>

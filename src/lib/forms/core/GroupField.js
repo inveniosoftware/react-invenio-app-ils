@@ -62,7 +62,7 @@ export class GroupField extends React.Component {
 GroupField.propTypes = {
   border: PropTypes.bool,
   fieldPath: PropTypes.string,
-  action: PropTypes.func,
+  action: PropTypes.node,
   children: PropTypes.node,
   basic: PropTypes.bool,
 };

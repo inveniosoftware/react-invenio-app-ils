@@ -15,6 +15,11 @@ import {
   Message,
   Segment,
 } from 'semantic-ui-react';
+import {
+  InternalLocationIcon,
+  LibraryIcon,
+  PatronIcon,
+} from '@components/backoffice/icons/Icons';
 
 class ItemStatusMessageOnLoan extends Component {
   render() {
@@ -24,7 +29,7 @@ class ItemStatusMessageOnLoan extends Component {
       {
         name: (
           <>
-            <Icon name="user" /> Patron{' '}
+            <PatronIcon /> Patron{' '}
           </>
         ),
         value: (
@@ -189,7 +194,7 @@ export default class ItemCirculation extends Component {
                 to={BackOfficeRoutes.locationsList}
                 size="small"
               >
-                <Icon name="university" />
+                <InternalLocationIcon />
 
                 <Header.Content>
                   {metadata.internal_location.name}
@@ -206,7 +211,7 @@ export default class ItemCirculation extends Component {
                 to={BackOfficeRoutes.locationsList}
                 size="small"
               >
-                <Icon name="map" />
+                <LibraryIcon />
                 <Header.Content>
                   {metadata.internal_location.location.name}
                   <Header.Subheader>Location</Header.Subheader>

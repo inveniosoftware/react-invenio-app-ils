@@ -73,6 +73,7 @@ export class SelectorField extends Component {
       errorPath,
       emptyHeader,
       emptyDescription,
+      icon,
       label,
       required,
       multiple,
@@ -121,6 +122,7 @@ export class SelectorField extends Component {
           }
           serializer={serializer}
           placeholder={placeholderText}
+          icon={icon}
           {...selectorProps}
         />
       </Form.Field>
@@ -139,6 +141,7 @@ SelectorField.propTypes = {
   emptyHeader: PropTypes.string,
   errorPath: PropTypes.string.isRequired,
   fieldPath: PropTypes.string.isRequired,
+  icon: PropTypes.any,
   label: PropTypes.string,
   optimized: PropTypes.bool,
   serializer: PropTypes.func.isRequired,
@@ -161,4 +164,5 @@ SelectorField.defaultProps = {
   renderSelection: null,
   renderGroup: null,
   label: '',
+  icon: null,
 };

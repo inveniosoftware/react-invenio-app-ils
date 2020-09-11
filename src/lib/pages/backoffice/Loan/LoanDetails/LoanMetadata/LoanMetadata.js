@@ -52,12 +52,8 @@ export class LoanMetadata extends Component {
         ),
       },
       {
-        name: (
-          <>
-            <DocumentIcon />
-            Document
-          </>
-        ),
+        name: 'Document',
+        icon: <DocumentIcon />,
         value: (
           <LiteratureTitle
             title={data.metadata.document.title}
@@ -67,12 +63,8 @@ export class LoanMetadata extends Component {
         ),
       },
       {
-        name: (
-          <>
-            <ItemIcon />
-            Physical copy
-          </>
-        ),
+        name: 'Physical copy',
+        icon: <ItemIcon />,
         value: data.metadata.item_pid ? (
           <LoanLinkToItem itemPid={data.metadata.item_pid}>
             {data.metadata.item_pid && data.metadata.item_pid.type === 'illbid'
@@ -84,12 +76,8 @@ export class LoanMetadata extends Component {
         ),
       },
       {
-        name: (
-          <>
-            <PatronIcon />
-            Patron
-          </>
-        ),
+        name: 'Patron',
+        icon: <PatronIcon />,
         value: (
           <PatronDetailsLink patronPid={data.metadata.patron_pid}>
             {data.metadata.patron.name}

@@ -20,6 +20,10 @@ import {
   Step,
 } from 'semantic-ui-react';
 import { STEPS } from '../Steps';
+import {
+  AcquisitionOrderIcon,
+  ILLBorrowingRequestIcon,
+} from '@components/backoffice/icons';
 
 export const ProviderStep = ({ step }) => (
   <Step active={step === STEPS.provider} disabled={step === STEPS.document}>
@@ -76,6 +80,7 @@ class AcqProvider extends Component {
         <Grid columns={2} padded>
           <Grid.Column>
             <ESSelector
+              icon={<AcquisitionOrderIcon />}
               onSelectResult={this.onSelectResult}
               query={() =>
                 orderApi.list(
@@ -130,6 +135,7 @@ class IllProvider extends Component {
         <Grid columns={2} padded>
           <Grid.Column>
             <ESSelector
+              icon={<ILLBorrowingRequestIcon />}
               onSelectResult={this.onSelectResult}
               query={() =>
                 borrowingRequestApi.list(

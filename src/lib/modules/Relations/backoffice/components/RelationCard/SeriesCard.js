@@ -3,8 +3,9 @@ import { BackOfficeRoutes } from '@routes/urls';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Card, Icon } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import _isEmpty from 'lodash/isEmpty';
+import { SeriesIcon } from '@components/backoffice/icons';
 
 export default class SeriesCard extends Component {
   render() {
@@ -16,7 +17,7 @@ export default class SeriesCard extends Component {
           {actions}
           {data.metadata.document_type || data.metadata.mode_of_issuance}
         </Card.Meta>
-        <Icon name="clone outline" size="huge" color="grey" />
+        <SeriesIcon size="huge" color="grey" />
         <Card.Content>
           <Card.Header as={Link} to={linkTo} target="_blank">
             {data.metadata.title}

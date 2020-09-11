@@ -8,7 +8,8 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Icon } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
+import { SeriesIcon } from '@components/backoffice/icons';
 
 export class DocumentCard extends Component {
   render() {
@@ -26,7 +27,7 @@ export class DocumentCard extends Component {
             url={_get(data, 'metadata.cover_metadata.urls.medium')}
           />
         ) : (
-          <Icon name="clone outline" size="huge" color="grey" />
+          <SeriesIcon size="huge" color="grey" />
         )}
         <Card.Content>
           <Card.Header as={Link} to={linkTo} target="_blank">

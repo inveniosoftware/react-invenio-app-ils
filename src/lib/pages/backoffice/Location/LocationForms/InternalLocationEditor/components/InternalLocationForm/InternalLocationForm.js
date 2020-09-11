@@ -14,6 +14,7 @@ import pick from 'lodash/pick';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, Segment } from 'semantic-ui-react';
+import { InternalLocationIcon } from '@components/backoffice/icons/Icons';
 
 export class InternalLocationForm extends Component {
   prepareData = data => {
@@ -81,6 +82,7 @@ export class InternalLocationForm extends Component {
               errorPath="location_pid"
               label="Location"
               placeholder="Search for a location..."
+              icon={<InternalLocationIcon />}
               query={locationApi.list}
               serializer={serializeLocation}
               width={8}

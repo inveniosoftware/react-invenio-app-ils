@@ -21,7 +21,7 @@ export class DocumentBasicMetadata extends Component {
               <Grid stretched columns="equal">
                 <Grid.Row className="no-padding ">
                   <Grid.Column width={8}>
-                    <GroupField noBottomMargin widths="equal">
+                    <GroupField widths="equal">
                       <StringField
                         label="Publication year"
                         fieldPath="publication_year"

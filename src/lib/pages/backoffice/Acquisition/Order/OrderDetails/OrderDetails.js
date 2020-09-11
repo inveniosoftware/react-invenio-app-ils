@@ -189,7 +189,7 @@ export default class OrderDetails extends React.Component {
 
   render() {
     const { isLoading, error, data } = this.props;
-
+    const metadata = data.metadata || {};
     return (
       <div ref={this.headerRef}>
         <Container fluid>
@@ -208,16 +208,16 @@ export default class OrderDetails extends React.Component {
                     <Grid.Column width={13}>
                       <Container className="spaced">
                         <Container className="spaced">
-                          <OrderStatistics order={data.metadata} />
+                          <OrderStatistics order={metadata} />
                           <br />
-                          <OrderSteps order={data.metadata} />
+                          <OrderSteps order={metadata} />
                         </Container>
-                        <OrderPanels data={data.metadata} />
+                        <OrderPanels data={metadata} />
                       </Container>
                     </Grid.Column>
                     <Grid.Column width={3}>
                       <Sticky context={this.menuRef} offset={150}>
-                        <ActionMenu data={data.metadata} offset={-150} />
+                        <ActionMenu data={metadata} offset={-150} />
                       </Sticky>
                     </Grid.Column>
                   </Grid>

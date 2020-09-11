@@ -17,6 +17,8 @@ import {
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
+import { DocumentIcon, PatronIcon } from '@components/backoffice/icons';
+import { LibraryIcon } from '@components/backoffice/icons/Icons';
 
 export class OrderInfo extends Component {
   render() {
@@ -33,6 +35,7 @@ export class OrderInfo extends Component {
               errorPath="document_pid"
               label="Document"
               placeholder="Search for a document..."
+              icon={<DocumentIcon />}
               query={documentApi.list}
               serializer={serializeDocument}
             />
@@ -46,6 +49,7 @@ export class OrderInfo extends Component {
               errorPath="patron_pid"
               label="Patron"
               placeholder="Search for a patron..."
+              icon={<PatronIcon />}
               query={patronApi.list}
               serializer={serializePatron}
             />
@@ -59,6 +63,7 @@ export class OrderInfo extends Component {
               errorPath="library_pid"
               label="Library"
               placeholder="Search for a library..."
+              icon={<LibraryIcon />}
               query={libraryApi.list}
               serializer={serializeLibrary}
             />
