@@ -4,7 +4,7 @@ import { Loader } from '@components/Loader';
 import { SearchBar } from '@components/SearchBar';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Container, Grid, Header, Icon, Segment } from 'semantic-ui-react';
+import { Container, Grid } from 'semantic-ui-react';
 import { ItemsResultsList } from './ItemsResultsList';
 import _isEmpty from 'lodash/isEmpty';
 
@@ -16,27 +16,29 @@ export default class ItemsSearch extends Component {
     // but we need altered behaviour for the paste action
     // and in this way the state from before update is preserved
     // eslint-disable-next-line react/no-unused-state
-    this.state = { prevSearchQuery: '' };
+    this.state = { prevSearchQuery: '', executedSearch: false };
   }
 
-  onInputChange = queryString => {
-    const { updateQueryString } = this.props;
-    updateQueryString(queryString);
+  componentWillUnmount = () => {
+    const { clearResults } = this.props;
+    clearResults();
   };
 
   executeSearch = queryString => {
     const { queryString: propsQueryString, fetchItems } = this.props;
     queryString = queryString || propsQueryString;
     // eslint-disable-next-line react/no-unused-state
-    this.setState({ prevSearchQuery: queryString });
-    return fetchItems(queryString);
+    this.setState({ prevSearchQuery: queryString, executedSearch: true });
+    fetchItems(queryString);
   };
 
   onPasteHandler = async event => {
     const { checkoutItem, patronDetails } = this.props;
+    const { prevSearchQuery } = this.state;
     let queryString = event.clipboardData.getData('Text');
+    const sameQueryString = prevSearchQuery === queryString;
 
-    if (queryString) {
+    if (queryString && !sameQueryString) {
       await this.executeSearch(queryString);
       const {
         items: { hits },
@@ -53,15 +55,16 @@ export default class ItemsSearch extends Component {
           type: recordToPidType(hits[0]),
           value: hits[0].metadata.pid,
         };
-        checkoutItem(documentPid, itemPid, patronDetails.user_pid, true);
+        await checkoutItem(documentPid, itemPid, patronDetails.user_pid, true);
       }
       // eslint-disable-next-line react/no-unused-state
-      this.setState({ prevSearchQuery: '' });
+      this.setState({ prevSearchQuery: '', executedSearch: true });
     }
   };
 
   onKeyPressHandler = e => {
     const { queryString } = this.props;
+    this.setState({ executedSearch: false });
     if (e.key === 'Enter' && queryString) {
       this.executeSearch();
     }
@@ -70,14 +73,16 @@ export default class ItemsSearch extends Component {
   onSearchClickHandler = event => this.executeSearch();
 
   renderResultsList = results => {
-    const { patronDetails } = this.props;
-    const { clearResults } = this.props;
+    const { patronDetails, clearResults, isLoadingSearch } = this.props;
+    const { executedSearch } = this.state;
     return (
       <div className="results-list">
         <ItemsResultsList
           patronPid={patronDetails.user_pid}
           clearResults={clearResults}
           results={results}
+          isLoading={isLoadingSearch}
+          executedSearch={executedSearch}
           clearSearchQuery={this.clearSearchQuery}
         />
       </div>
@@ -92,22 +97,15 @@ export default class ItemsSearch extends Component {
     clearResults();
   };
 
-  renderSearchPrompt = () => {
-    return (
-      <Segment placeholder textAlign="center">
-        <Header icon>
-          <Icon name="search" />
-          No barcode provided.
-        </Header>
-        <div className="empty-results-current">
-          Type or paste the barcode to search for items
-        </div>
-      </Segment>
-    );
-  };
-
   render() {
-    const { items, isLoading, error, queryString } = this.props;
+    const {
+      items,
+      isLoading,
+      error,
+      queryString,
+      updateQueryString,
+    } = this.props;
+
     return (
       <>
         <Container className="search-bar spaced">
@@ -117,8 +115,10 @@ export default class ItemsSearch extends Component {
               onClick: this.onSearchClickHandler,
             }}
             currentQueryString={queryString}
-            onInputChange={this.onInputChange}
+            updateQueryOnChange
             executeSearch={this.executeSearch}
+            onKeyPressHandler={this.onKeyPressHandler}
+            updateQueryString={updateQueryString}
             placeholder="Type or paste to search for physical copies..."
             onPaste={e => {
               this.onPasteHandler(e);
@@ -130,7 +130,7 @@ export default class ItemsSearch extends Component {
             <Loader isLoading={isLoading}>
               <Error error={error}>
                 {_isEmpty(queryString) && _isEmpty(items)
-                  ? this.renderSearchPrompt()
+                  ? null
                   : this.renderResultsList(items)}
               </Error>
             </Loader>
@@ -149,12 +149,14 @@ ItemsSearch.propTypes = {
   clearResults: PropTypes.func.isRequired,
   checkoutItem: PropTypes.func.isRequired,
   patronDetails: PropTypes.object.isRequired,
+  isLoadingSearch: PropTypes.bool,
   isLoading: PropTypes.bool,
   error: PropTypes.object,
 };
 
 ItemsSearch.defaultProps = {
   items: null,
+  isLoadingSearch: false,
   isLoading: false,
   error: null,
 };

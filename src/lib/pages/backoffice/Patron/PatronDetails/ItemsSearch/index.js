@@ -18,6 +18,7 @@ const mapStateToProps = state => ({
   error: state.itemsSearchInput.error,
   hasError: state.itemsSearchInput.hasError,
   isLoading: state.patronDetails.isLoading,
+  isLoadingSearch: state.patronItemsSearch.isLoading,
   items: state.itemsSearchInput.data,
   patronDetails: state.patronDetails.data,
   queryString: state.itemsSearchInput.itemCheckoutQueryString,

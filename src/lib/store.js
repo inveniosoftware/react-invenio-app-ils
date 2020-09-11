@@ -15,6 +15,7 @@ import {
 } from '@modules/Relations/backoffice/reducer';
 import orderDetailsReducer from '@pages/backoffice/Acquisition/Order/OrderDetails/state/reducer';
 import vendorDetailsReducer from '@pages/backoffice/Acquisition/Vendor/VendorDetails/state/reducer';
+import patronItemsSearchReducer from '@pages/backoffice/Patron/PatronDetails/ItemsSearch/state/reducer';
 import {
   documentDetailsReducer,
   documentEItems,
@@ -125,6 +126,7 @@ const rootReducer = combineReducers({
   eitemDetails: eitemDetailsReducer,
   eitemDetailsFile: eitemDetailsFileReducer,
   orderDetails: orderDetailsReducer,
+  patronItemsSearch: patronItemsSearchReducer,
   vendorDetails: vendorDetailsReducer,
   borrowingRequestDetails: borrowingRequestDetailsReducer,
   borrowingRequestPatronLoanCreate: borrowingRequestPatronLoanCreateReducer,

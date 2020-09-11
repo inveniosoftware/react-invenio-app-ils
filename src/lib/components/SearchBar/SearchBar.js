@@ -19,6 +19,10 @@ class SearchBar extends Component {
   }
 
   onInputChange = queryString => {
+    const { updateQueryOnChange, updateQueryString } = this.props;
+    if (updateQueryOnChange) {
+      updateQueryString(queryString);
+    }
     this.setState({
       currentValue: queryString,
     });
@@ -43,6 +47,8 @@ class SearchBar extends Component {
       placeholder,
       queryHelperFields,
       buttonColor,
+      onKeyPressHandler,
+      updateQueryOnChange,
       ...otherProps
     } = this.props;
     const { currentValue } = this.state;
@@ -59,7 +65,11 @@ class SearchBar extends Component {
           placeholder={placeholder}
           onChange={(e, { value }) => this.onInputChange(value)}
           value={currentValue}
-          onKeyPress={event => this.onKeyPressHandler(event)}
+          onKeyPress={event =>
+            onKeyPressHandler
+              ? onKeyPressHandler(event)
+              : this.onKeyPressHandler(event)
+          }
           ref={input => {
             this.searchInput = input;
           }}
@@ -84,13 +94,17 @@ SearchBar.propTypes = {
   placeholder: PropTypes.string,
   queryHelperFields: PropTypes.array,
   buttonColor: PropTypes.string,
+  updateQueryOnChange: PropTypes.bool,
+  onKeyPressHandler: PropTypes.func,
 };
 
 SearchBar.defaultProps = {
   queryString: '',
+  updateQueryOnChange: false,
   queryHelperFields: [],
   buttonColor: null,
   placeholder: 'Search for books, series, articles, publications...',
+  onKeyPressHandler: null,
 };
 
 export default SearchBar;
