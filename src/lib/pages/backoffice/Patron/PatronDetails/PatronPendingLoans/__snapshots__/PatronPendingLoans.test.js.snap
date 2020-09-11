@@ -659,6 +659,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                           title="The Gulf: The Making of An American Sea"
                                         >
                                           <LiteratureTitle
+                                            displayInlineBlock={false}
                                             edition="1"
                                             publicationYear="1950"
                                             showOnlyTitle={false}
@@ -799,6 +800,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                           title="The Gulf: The Making of An American Sea"
                                         >
                                           <LiteratureTitle
+                                            displayInlineBlock={false}
                                             edition="1"
                                             publicationYear="1950"
                                             showOnlyTitle={false}
@@ -1605,6 +1607,7 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                           title="The Gulf: The Making of An American Sea"
                                         >
                                           <LiteratureTitle
+                                            displayInlineBlock={false}
                                             edition="1"
                                             publicationYear="1950"
                                             showOnlyTitle={false}
