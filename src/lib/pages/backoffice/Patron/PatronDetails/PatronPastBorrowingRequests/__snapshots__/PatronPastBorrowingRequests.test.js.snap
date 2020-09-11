@@ -716,6 +716,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                           title="The Gulf: The Making of An American Sea"
                                         >
                                           <LiteratureTitle
+                                            displayInlineBlock={false}
                                             edition="1"
                                             publicationYear="1950"
                                             showOnlyTitle={false}
@@ -917,6 +918,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                           title="The Gulf: The Making of An American Sea"
                                         >
                                           <LiteratureTitle
+                                            displayInlineBlock={false}
                                             edition="1"
                                             publicationYear="1950"
                                             showOnlyTitle={false}
@@ -1849,6 +1851,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                                           title="The Gulf: The Making of An American Sea"
                                         >
                                           <LiteratureTitle
+                                            displayInlineBlock={false}
                                             edition="1"
                                             publicationYear="1950"
                                             showOnlyTitle={false}

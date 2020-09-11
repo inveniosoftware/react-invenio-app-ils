@@ -46,10 +46,14 @@ class LiteratureTitle extends Component {
       publicationYear,
       showOnlyTitle,
       truncate,
+      displayInlineBlock,
     } = this.props;
-
+    let className = 'document-title';
+    if (displayInlineBlock) {
+      className = className.concat(' display-inline-block');
+    }
     const cmp = (
-      <div className="document-title">
+      <div className={className}>
         {title}{' '}
         {!showOnlyTitle && (
           <EditionYear edition={edition} publicationYear={publicationYear} />
@@ -73,6 +77,7 @@ LiteratureTitle.propTypes = {
   publicationYear: PropTypes.string,
   showOnlyTitle: PropTypes.bool,
   truncate: PropTypes.bool,
+  displayInlineBlock: PropTypes.bool,
 };
 
 LiteratureTitle.defaultProps = {
@@ -80,6 +85,7 @@ LiteratureTitle.defaultProps = {
   publicationYear: null,
   showOnlyTitle: false,
   truncate: false,
+  displayInlineBlock: false,
 };
 
 export default Overridable.component('LiteratureTitle', LiteratureTitle);

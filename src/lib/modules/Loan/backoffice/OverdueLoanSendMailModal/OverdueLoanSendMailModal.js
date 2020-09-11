@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Header, Modal, Button, Icon } from 'semantic-ui-react';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 
 export default class OverdueLoanSendMailModal extends Component {
   state = { isModalOpen: false };
@@ -48,20 +49,21 @@ export default class OverdueLoanSendMailModal extends Component {
         <Modal.Content>
           <Modal.Description>
             <Header>
+              {'Loan on '}
               <Link
-                to={BackOfficeRoutes.loanDetailsFor(loan.metadata.pid)}
+                to={BackOfficeRoutes.documentDetailsFor(
+                  loan.metadata.document.pid
+                )}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Loan
-              </Link>
-              {' on '}
-              <Link
-                to={BackOfficeRoutes.itemDetailsFor(loan.metadata.item_pid)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Item
+                <LiteratureTitle
+                  className="overdue-modal-text"
+                  title={loan.metadata.document.title}
+                  edition={loan.metadata.document.edition}
+                  publicationYear={loan.metadata.document.publication_year}
+                  displayInlineBlock
+                />
               </Link>
               {' is overdue!'}
             </Header>
@@ -75,7 +77,7 @@ export default class OverdueLoanSendMailModal extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Patron
+                  {loan.metadata.patron.name}
                 </Link>
               </strong>
               !

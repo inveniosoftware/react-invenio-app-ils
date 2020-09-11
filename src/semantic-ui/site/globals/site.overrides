@@ -237,6 +237,10 @@ a {
   }
 }
 
+.display-inline-block {
+  display: inline-block;
+}
+
 .generate-margins(@max, @direction, @alias, @i: 5) when (@i =< @max) {
   .m@{alias}-@{i} {
     margin-@{direction}: unit(@i, px) !important;
