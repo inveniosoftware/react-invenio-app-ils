@@ -6,7 +6,7 @@ import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Header, Icon, Modal, Segment, Popup } from 'semantic-ui-react';
+import { Button, Header, Icon, Modal, Message, Popup } from 'semantic-ui-react';
 import _isEmpty from 'lodash/isEmpty';
 
 export default class ItemsResultsList extends Component {
@@ -138,7 +138,12 @@ export default class ItemsResultsList extends Component {
   };
 
   render() {
-    const { results, checkoutIsLoading, clearSearchQuery } = this.props;
+    const {
+      results,
+      checkoutIsLoading,
+      executedSearch,
+      isLoading,
+    } = this.props;
     const columns = [
       {
         title: 'Barcode',
@@ -155,7 +160,9 @@ export default class ItemsResultsList extends Component {
       },
     ];
 
-    return !_isEmpty(results.hits) ? (
+    return isLoading && executedSearch ? (
+      <Loader isLoading={isLoading} />
+    ) : !_isEmpty(results.hits) ? (
       <Loader isLoading={checkoutIsLoading}>
         <p>Found {results.hits.length} item(s).</p>
         <ResultsTable
@@ -165,19 +172,13 @@ export default class ItemsResultsList extends Component {
           name="items"
         />
       </Loader>
-    ) : (
-      <Segment placeholder textAlign="center">
-        <Header icon>
-          <Icon name="search" />
-          Found no items matching this barcode.
-        </Header>
-        <Segment.Inline>
-          <Button primary onClick={() => clearSearchQuery()}>
-            Clear search phrase
-          </Button>
-        </Segment.Inline>
-      </Segment>
-    );
+    ) : executedSearch ? (
+      <Message
+        error
+        header="Found no physical copies for this barcode."
+        content="Please try again"
+      />
+    ) : null;
   }
 }
 
@@ -185,10 +186,13 @@ ItemsResultsList.propTypes = {
   results: PropTypes.object.isRequired,
   checkoutItem: PropTypes.func.isRequired,
   patronPid: PropTypes.string.isRequired,
-  clearSearchQuery: PropTypes.func.isRequired,
   checkoutIsLoading: PropTypes.bool,
+  executedSearch: PropTypes.bool,
+  isLoading: PropTypes.bool,
 };
 
 ItemsResultsList.defaultProps = {
   checkoutIsLoading: false,
+  isLoading: false,
+  executedSearch: false,
 };

@@ -3,6 +3,7 @@
 exports[`LoansSearch SearchBar tests should render search bar with query helper 1`] = `
 <SearchBar
   buttonColor={null}
+  onKeyPressHandler={null}
   placeholder="Search"
   queryHelperFields={
     Array [
@@ -18,6 +19,7 @@ exports[`LoansSearch SearchBar tests should render search bar with query helper 
     ]
   }
   queryString=""
+  updateQueryOnChange={false}
   updateQueryString={[MockFunction]}
 >
   <Input
@@ -184,9 +186,11 @@ exports[`LoansSearch SearchBar tests should render search bar with query helper 
 exports[`LoansSearch SearchBar tests should render the current query string 1`] = `
 <SearchBar
   buttonColor={null}
+  onKeyPressHandler={null}
   placeholder="Search"
   queryHelperFields={Array []}
   queryString="The Gulf: The Making of An American Sea"
+  updateQueryOnChange={false}
   updateQueryString={[Function]}
 >
   <Input
