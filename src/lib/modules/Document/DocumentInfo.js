@@ -1,5 +1,4 @@
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
-import { IdentifierRows } from '@modules/Identifiers';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Divider, Table } from 'semantic-ui-react';
@@ -29,19 +28,6 @@ export class DocumentInfo extends Component {
         </Table.Cell>
       </Table.Row>
     );
-  }
-
-  renderSpecificIdentifiers(scheme) {
-    const { metadata } = this.props;
-
-    const identifiers = metadata.identifiers
-      ? metadata.identifiers.filter(identifier => identifier.scheme === scheme)
-      : [];
-
-    if (identifiers.length > 0) {
-      return <IdentifierRows identifiers={identifiers} />;
-    }
-    return null;
   }
 
   render() {
@@ -75,8 +61,6 @@ export class DocumentInfo extends Component {
             </Table.Row>
             {this.renderLanguages()}
             {this.renderKeywords()}
-            {this.renderSpecificIdentifiers('ISBN')}
-            {this.renderSpecificIdentifiers('DOI')}
           </Table.Body>
         </Table>
       </>
