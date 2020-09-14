@@ -1,4 +1,3 @@
-import { IdentifierRows } from '@modules/Identifiers';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { SeriesLanguages } from '@modules/Series/SeriesLanguages';
 import { SeriesModeOfIssuance } from '@modules/Series/SeriesModeOfIssuance';
@@ -50,12 +49,6 @@ export const SeriesInfo = ({ metadata }) => {
                 <SeriesLanguages languages={metadata.languages} />
               </Table.Cell>
             </Table.Row>
-          )}
-          {metadata.identifiers && (
-            <IdentifierRows
-              includeSchemes={['ISBN', 'ISSN']}
-              identifiers={metadata.identifiers}
-            />
           )}
           {metadata.keywords && (
             <Table.Row>
