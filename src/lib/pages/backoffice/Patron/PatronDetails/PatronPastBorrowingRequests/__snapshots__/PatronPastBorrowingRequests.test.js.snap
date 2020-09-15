@@ -716,15 +716,15 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                           title="The Gulf: The Making of An American Sea"
                                         >
                                           <LiteratureTitle
-                                            displayInlineBlock={false}
                                             edition="1"
+                                            extraCSS=""
                                             publicationYear="1950"
                                             showOnlyTitle={false}
                                             title="The Gulf: The Making of An American Sea"
                                             truncate={false}
                                           >
                                             <div
-                                              className="document-title"
+                                              className="document-title "
                                             >
                                               The Gulf: The Making of An American Sea
                                                
@@ -918,15 +918,15 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                           title="The Gulf: The Making of An American Sea"
                                         >
                                           <LiteratureTitle
-                                            displayInlineBlock={false}
                                             edition="1"
+                                            extraCSS=""
                                             publicationYear="1950"
                                             showOnlyTitle={false}
                                             title="The Gulf: The Making of An American Sea"
                                             truncate={false}
                                           >
                                             <div
-                                              className="document-title"
+                                              className="document-title "
                                             >
                                               The Gulf: The Making of An American Sea
                                                
@@ -1851,15 +1851,15 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                                           title="The Gulf: The Making of An American Sea"
                                         >
                                           <LiteratureTitle
-                                            displayInlineBlock={false}
                                             edition="1"
+                                            extraCSS=""
                                             publicationYear="1950"
                                             showOnlyTitle={false}
                                             title="The Gulf: The Making of An American Sea"
                                             truncate={false}
                                           >
                                             <div
-                                              className="document-title"
+                                              className="document-title "
                                             >
                                               The Gulf: The Making of An American Sea
                                                

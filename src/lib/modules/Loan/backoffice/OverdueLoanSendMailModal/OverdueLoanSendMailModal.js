@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Header, Modal, Button, Icon } from 'semantic-ui-react';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
-import LiteratureTitle from '@modules/Literature/LiteratureTitle';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Button, Icon, Modal } from 'semantic-ui-react';
 
 export default class OverdueLoanSendMailModal extends Component {
   state = { isModalOpen: false };
@@ -45,30 +45,31 @@ export default class OverdueLoanSendMailModal extends Component {
     if (!loan.metadata.is_overdue || _isEmpty(loan.metadata.item)) return null;
     return (
       <Modal trigger={this.renderTrigger()} open={isModalOpen}>
-        <Modal.Header>Email notification</Modal.Header>
+        <Modal.Header>E-mail reminder</Modal.Header>
         <Modal.Content>
           <Modal.Description>
-            <Header>
-              {'Loan on '}
-              <Link
-                to={BackOfficeRoutes.documentDetailsFor(
-                  loan.metadata.document.pid
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <LiteratureTitle
-                  className="overdue-modal-text"
-                  title={loan.metadata.document.title}
-                  edition={loan.metadata.document.edition}
-                  publicationYear={loan.metadata.document.publication_year}
-                  displayInlineBlock
-                />
-              </Link>
-              {' is overdue!'}
-            </Header>
             <p>
-              {'An email reminder will be sent to '}
+              {'The loan for the literature '}
+              <strong>
+                <Link
+                  to={BackOfficeRoutes.documentDetailsFor(
+                    loan.metadata.document.pid
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <LiteratureTitle
+                    title={loan.metadata.document.title}
+                    edition={loan.metadata.document.edition}
+                    publicationYear={loan.metadata.document.publication_year}
+                    extraCSS="display-inline-block"
+                  />
+                </Link>
+              </strong>
+              {' is overdue.'}
+            </p>
+            <p>
+              {'Do you want to send a reminder e-mail to '}
               <strong>
                 <Link
                   to={BackOfficeRoutes.patronDetailsFor(
@@ -80,7 +81,7 @@ export default class OverdueLoanSendMailModal extends Component {
                   {loan.metadata.patron.name}
                 </Link>
               </strong>
-              !
+              ?
             </p>
           </Modal.Description>
         </Modal.Content>
