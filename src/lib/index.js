@@ -13,7 +13,13 @@ export { add, remove } from '@api/relations';
 export { seriesApi } from '@api/series';
 export { circulationStatsApi, statsApi } from '@api/stats';
 export { vocabularyApi } from '@api/vocabularies';
-export { getStaticPageByName } from '@config';
+export {
+  getSearchConfig,
+  getStaticPageByName,
+  getStaticPageByRoute,
+  getStaticPagesRoutes,
+  invenioConfig,
+} from '@config';
 export { DocumentCardGroup } from '@modules/Document/DocumentCardGroup';
 export { DocumentRequestForm } from '@pages/frontsite/DocumentRequests';
 export { Headline } from '@pages/frontsite/Home/Headline';
