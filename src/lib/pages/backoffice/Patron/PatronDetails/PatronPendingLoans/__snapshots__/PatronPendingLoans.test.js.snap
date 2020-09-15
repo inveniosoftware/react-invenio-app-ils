@@ -659,15 +659,15 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                           title="The Gulf: The Making of An American Sea"
                                         >
                                           <LiteratureTitle
-                                            displayInlineBlock={false}
                                             edition="1"
+                                            extraCSS=""
                                             publicationYear="1950"
                                             showOnlyTitle={false}
                                             title="The Gulf: The Making of An American Sea"
                                             truncate={false}
                                           >
                                             <div
-                                              className="document-title"
+                                              className="document-title "
                                             >
                                               The Gulf: The Making of An American Sea
                                                
@@ -800,15 +800,15 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                           title="The Gulf: The Making of An American Sea"
                                         >
                                           <LiteratureTitle
-                                            displayInlineBlock={false}
                                             edition="1"
+                                            extraCSS=""
                                             publicationYear="1950"
                                             showOnlyTitle={false}
                                             title="The Gulf: The Making of An American Sea"
                                             truncate={false}
                                           >
                                             <div
-                                              className="document-title"
+                                              className="document-title "
                                             >
                                               The Gulf: The Making of An American Sea
                                                
@@ -1607,15 +1607,15 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                           title="The Gulf: The Making of An American Sea"
                                         >
                                           <LiteratureTitle
-                                            displayInlineBlock={false}
                                             edition="1"
+                                            extraCSS=""
                                             publicationYear="1950"
                                             showOnlyTitle={false}
                                             title="The Gulf: The Making of An American Sea"
                                             truncate={false}
                                           >
                                             <div
-                                              className="document-title"
+                                              className="document-title "
                                             >
                                               The Gulf: The Making of An American Sea
                                                
