@@ -1,5 +1,12 @@
 # Changes
 
+Version 1.0.0-alpha.12 (released 2020-09-16)
+
+- add error pages
+- allow edition of loans start and end dates
+- fix error message layout in login page
+- bug fixes
+
 Version 1.0.0-alpha.11 (released 2020-09-04)
 
 - add enabled attribute in oauth
