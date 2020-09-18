@@ -83,7 +83,7 @@ export class EItemForm extends Component {
               <Grid.Column width={8}>
                 <BooleanField
                   toggle
-                  label="Open access"
+                  rightLabel="Open access"
                   fieldPath="open_access"
                 />
               </Grid.Column>

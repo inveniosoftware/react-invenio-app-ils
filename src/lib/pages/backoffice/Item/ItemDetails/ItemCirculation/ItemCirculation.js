@@ -17,9 +17,9 @@ import {
 } from 'semantic-ui-react';
 import {
   InternalLocationIcon,
-  LibraryIcon,
+  LocationIcon,
   PatronIcon,
-} from '@components/backoffice/icons/Icons';
+} from '@components/backoffice/icons';
 
 class ItemStatusMessageOnLoan extends Component {
   render() {
@@ -211,7 +211,7 @@ export default class ItemCirculation extends Component {
                 to={BackOfficeRoutes.locationsList}
                 size="small"
               >
-                <LibraryIcon />
+                <LocationIcon />
                 <Header.Content>
                   {metadata.internal_location.location.name}
                   <Header.Subheader>Location</Header.Subheader>

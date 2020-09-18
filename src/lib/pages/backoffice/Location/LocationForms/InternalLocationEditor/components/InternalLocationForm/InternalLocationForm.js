@@ -14,7 +14,7 @@ import pick from 'lodash/pick';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, Segment } from 'semantic-ui-react';
-import { InternalLocationIcon } from '@components/backoffice/icons/Icons';
+import { InternalLocationIcon } from '@components/backoffice/icons';
 
 export class InternalLocationForm extends Component {
   prepareData = data => {

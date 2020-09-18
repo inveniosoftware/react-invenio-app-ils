@@ -1,7 +1,27 @@
 import _isEmpty from 'lodash/isEmpty';
 import { fromISO } from '@api/date';
+import _get from 'lodash/get';
+import { toISODate } from '@api/date';
+import _set from 'lodash/set';
 
-export function serializeInternalLocationResponse(hit) {
+const LocationRequestSerializers = {
+  DATE_FIELDS: ['start_date', 'end_date'],
+  requestSerializer: function(data) {
+    LocationRequestSerializers.DATE_FIELDS.forEach(field => {
+      if (!_isEmpty(data['opening_exceptions'])) {
+        data['opening_exceptions'].forEach(elem => {
+          const dateObj = _get(elem, field);
+          if (dateObj && typeof dateObj === 'object') {
+            _set(elem, field, toISODate(dateObj));
+          }
+        });
+      }
+    });
+    return data;
+  },
+};
+
+function serializeInternalLocationResponse(hit) {
   let result = {};
   if (!_isEmpty(hit)) {
     result['id'] = hit.id;
@@ -18,7 +38,7 @@ export function serializeInternalLocationResponse(hit) {
   return result;
 }
 
-export function serializeLocationResponse(hit) {
+function serializeLocationResponse(hit) {
   let result = {};
   if (!_isEmpty(hit)) {
     result['id'] = hit.id;
@@ -41,4 +61,5 @@ export const internalLocationSerializer = {
 
 export const locationSerializer = {
   fromJSON: serializeLocationResponse,
+  toJSON: LocationRequestSerializers.requestSerializer,
 };

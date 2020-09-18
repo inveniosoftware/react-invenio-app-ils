@@ -26,6 +26,7 @@ const BackOfficeRoutesList = {
   loansList: `${BackOfficeBase}/loans`,
   locationsCreate: `${BackOfficeBase}/locations/create`,
   locationsEdit: `${BackOfficeBase}/locations/:locationPid/edit`,
+  locationsDetails: `${BackOfficeBase}/locations/:locationPid`,
   locationsList: `${BackOfficeBase}/locations`,
   patronDetails: `${BackOfficeBase}/patrons/:patronPid`,
   patronsList: `${BackOfficeBase}/patrons`,
@@ -73,6 +74,10 @@ export const BackOfficeRouteGenerators = {
     }),
   locationsEditFor: locationPid =>
     generatePath(BackOfficeRoutesList.locationsEdit, {
+      locationPid: locationPid,
+    }),
+  locationsDetailsFor: locationPid =>
+    generatePath(BackOfficeRoutesList.locationsDetails, {
       locationPid: locationPid,
     }),
   patronDetailsFor: patronPid =>

@@ -8,6 +8,7 @@ const FrontSiteRoutesList = {
   documentsList: `${FrontSiteBase}search`,
   documentDetails: `${FrontSiteBase}literature/:documentPid`,
   documentRequestForm: `${FrontSiteBase}request`,
+  openingHours: `${FrontSiteBase}opening-hours`,
   seriesDetails: `${FrontSiteBase}series/:seriesPid`,
 };
 

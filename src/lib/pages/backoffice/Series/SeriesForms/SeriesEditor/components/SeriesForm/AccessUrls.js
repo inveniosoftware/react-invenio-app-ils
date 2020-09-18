@@ -26,7 +26,7 @@ export class AccessUrls extends Component {
         <BooleanField
           toggle
           fieldPath={`${objectPath}.open_access`}
-          label="Open Access"
+          rightLabel="Open Access"
         />
         <VocabularyField
           type="series_url_access_restriction"

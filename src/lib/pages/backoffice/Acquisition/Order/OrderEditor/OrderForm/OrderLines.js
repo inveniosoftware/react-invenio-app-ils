@@ -103,12 +103,12 @@ export class OrderLines extends Component {
 
         <GroupField widths="equal">
           <BooleanField
-            label="Donation"
+            rightLabel="Donation"
             fieldPath={`${arrayPath}.${indexPath}.is_donation`}
             toggle
           />
           <BooleanField
-            label="Patron Suggestion"
+            rightLabel="Patron Suggestion"
             fieldPath={`${arrayPath}.${indexPath}.is_patron_suggestion`}
             toggle
           />

@@ -73,7 +73,7 @@ export class DocumentBasicMetadata extends Component {
               </Header>
               <Segment attached>
                 <BooleanField
-                  label="Restricted"
+                  rightLabel="Restricted"
                   fieldPath="restricted"
                   toggle
                 />
@@ -95,7 +95,7 @@ export class DocumentBasicMetadata extends Component {
                     </Grid.Column>
                     <Grid.Column width={5}>
                       <BooleanField
-                        label="Other authors"
+                        rightLabel="Other authors"
                         fieldPath="other_authors"
                         toggle
                       />

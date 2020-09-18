@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Checkbox, Form, Message } from 'semantic-ui-react';
-import { DatePicker } from '@components/DatePicker';
 import PropTypes from 'prop-types';
 import { invenioConfig } from '@config';
 import { DateTime } from 'luxon';
 import { toShortDate } from '@api/date';
 import _isEmpty from 'lodash/isEmpty';
 import { LoanInformationBullets } from '../DocumentCirculation/LoanInformationBullets';
+import { LocationDatePicker } from '@modules/Location';
+import { sessionManager } from '@authentication/services/SessionManager';
 
 class LoanRequestForm extends Component {
   constructor(props) {
@@ -99,7 +100,8 @@ class LoanRequestForm extends Component {
     return (
       <Form.Field>
         <label>Do you require it before a certain date? (optional)</label>
-        <DatePicker
+        <LocationDatePicker
+          locationPid={sessionManager.user.locationPid}
           initialDate={toShortDate(initialDate)}
           minDate={toShortDate(today)}
           maxDate={toShortDate(max)}

@@ -15,13 +15,20 @@ export class BooleanField extends Component {
   }
 
   renderFormField = props => {
-    const { fieldPath, label, optimized, ...uiProps } = this.props;
+    const {
+      fieldPath,
+      leftLabel,
+      rightLabel,
+      optimized,
+      ...uiProps
+    } = this.props;
     const {
       form: { values, handleBlur, errors, setFieldValue },
     } = props;
     const value = getIn(values, fieldPath, false);
     return (
       <Form.Group inline>
+        <label htmlFor={fieldPath}>{leftLabel}</label>
         <Form.Checkbox
           id={fieldPath}
           name={fieldPath}
@@ -31,7 +38,7 @@ export class BooleanField extends Component {
           error={this.renderError(errors, fieldPath)}
           {...uiProps}
         />
-        <label htmlFor={fieldPath}>{label}</label>
+        <label htmlFor={fieldPath}>{rightLabel}</label>
       </Form.Group>
     );
   };
@@ -44,11 +51,13 @@ export class BooleanField extends Component {
 
 BooleanField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
-  label: PropTypes.string,
+  leftLabel: PropTypes.string,
+  rightLabel: PropTypes.string,
   optimized: PropTypes.bool,
 };
 
 BooleanField.defaultProps = {
-  label: '',
+  leftLabel: '',
+  rightLabel: '',
   optimized: false,
 };
