@@ -18,7 +18,7 @@ export class DocumentCurationCatalog extends Component {
             </Grid.Column>
             <Grid.Column width={5}>
               <BooleanField
-                label="Document is curated"
+                rightLabel="Document is curated"
                 fieldPath="curated"
                 toggle
               />

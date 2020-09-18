@@ -1,7 +1,6 @@
 import { fromISO, toShortDate } from '@api/date';
 import { LoanIcon } from '@components/backoffice/icons';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
-import { DatePicker } from '@components/DatePicker';
 import { invenioConfig } from '@config';
 import { getDisplayVal } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';
@@ -22,6 +21,7 @@ import {
   Modal,
 } from 'semantic-ui-react';
 import { BorrowingRequestLoanExtension } from './BorrowingRequestLoanExtension';
+import { LocationDatePicker } from '@modules/Location';
 
 class CreateLoanButton extends React.Component {
   render() {
@@ -134,6 +134,10 @@ class CreateLoan extends React.Component {
   render() {
     const { brwReq, isLoading, hasError, error } = this.props;
     const { modalOpen } = this.state;
+    const today = DateTime.local();
+    const max = new DateTime(
+      today.plus({ days: invenioConfig.CIRCULATION.requestDuration })
+    );
     return (
       <>
         <CreateLoanButton
@@ -160,9 +164,11 @@ class CreateLoan extends React.Component {
               <Form.Group>
                 <Form.Field inline required>
                   <label>Start date</label>
-                  <DatePicker
-                    minDate={this.today}
+                  <LocationDatePicker
+                    locationPid={brwReq.patron.location_pid}
                     defaultValue={this.today}
+                    minDate={this.today}
+                    maxDate={toShortDate(max)}
                     placeholder="Start date"
                     handleDateChange={value =>
                       this.handleStartDateChange(value)
@@ -171,9 +177,10 @@ class CreateLoan extends React.Component {
                 </Form.Field>
                 <Form.Field inline required>
                   <label>End date</label>
-                  <DatePicker
+                  <LocationDatePicker
+                    locationPid={brwReq.patron.location_pid}
                     minDate={this.today}
-                    defaultValue={this.endDate}
+                    maxDate={toShortDate(max)}
                     placeholder="End date"
                     handleDateChange={value => this.handleEndDateChange(value)}
                   />

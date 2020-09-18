@@ -1,4 +1,3 @@
-import { locationApi } from '@api/locations/location';
 import { delay } from '@api/utils';
 import { BaseForm } from '@forms/core/BaseForm';
 import { GroupField } from '@forms/core/GroupField';
@@ -9,26 +8,102 @@ import { BackOfficeRoutes } from '@routes/urls';
 import pick from 'lodash/pick';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Closures } from './Closures';
 import { Header, Segment } from 'semantic-ui-react';
+import { locationApi } from '@api/locations/location';
 
 export class LocationForm extends Component {
   prepareData = data => {
-    return pick(data, ['name', 'address', 'email', 'phone', 'notes']);
+    return pick(data, [
+      'name',
+      'address',
+      'email',
+      'phone',
+      'notes',
+      'opening_weekdays',
+      'opening_exceptions',
+    ]);
+  };
+
+  prepareDataForCreation = () => {
+    const defaultTimes = [
+      { start_time: '08:00', end_time: '12:00' },
+      { start_time: '13:00', end_time: '18:00' },
+    ];
+    return {
+      opening_weekdays: [
+        {
+          weekday: 'monday',
+          is_open: true,
+          times: defaultTimes,
+        },
+        {
+          weekday: 'tuesday',
+          is_open: true,
+          times: defaultTimes,
+        },
+        {
+          weekday: 'wednesday',
+          is_open: true,
+          times: defaultTimes,
+        },
+        {
+          weekday: 'thursday',
+          is_open: true,
+          times: defaultTimes,
+        },
+        {
+          weekday: 'friday',
+          is_open: true,
+          times: defaultTimes,
+        },
+        {
+          weekday: 'saturday',
+          is_open: false,
+        },
+        {
+          weekday: 'sunday',
+          is_open: false,
+        },
+      ],
+      opening_exceptions: [],
+    };
+  };
+
+  processData = data => {
+    data['opening_weekdays'].forEach(element => {
+      if (!element['is_open']) {
+        delete element['times'];
+      }
+    });
+    if (data['opening_exceptions'] === undefined) {
+      data['opening_exceptions'] = [];
+    } else {
+      data['opening_exceptions'].forEach(element => {
+        if (element['is_open'] === undefined) {
+          element['is_open'] = false;
+        }
+      });
+    }
+    return data;
   };
 
   updateLocation = async (pid, data) => {
+    data = this.processData(data);
     const response = await locationApi.update(pid, data);
     await delay();
     return response;
   };
 
   createLocation = async data => {
+    data = this.processData(data);
     const response = await locationApi.create(data);
     await delay();
     return response;
   };
 
-  successCallback = () => goTo(BackOfficeRoutes.locationsList);
+  successCallback = result =>
+    goTo(BackOfficeRoutes.locationsDetailsFor(result.data.pid));
 
   render() {
     const {
@@ -40,7 +115,9 @@ export class LocationForm extends Component {
     return (
       <BaseForm
         initialValues={
-          formInitialData ? this.prepareData(formInitialData.metadata) : {}
+          formInitialData
+            ? this.prepareData(formInitialData.metadata)
+            : this.prepareDataForCreation()
         }
         editApiMethod={this.updateLocation}
         createApiMethod={this.createLocation}
@@ -62,6 +139,7 @@ export class LocationForm extends Component {
             <StringField label="Address" fieldPath="address" />
           </GroupField>
           <TextField label="Notes" fieldPath="notes" rows={5} />
+          <Closures />
         </Segment>
       </BaseForm>
     );

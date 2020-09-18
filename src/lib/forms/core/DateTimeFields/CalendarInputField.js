@@ -9,8 +9,7 @@ export class CalendarInputField extends React.Component {
       form: { values, errors, setFieldValue },
     } = props;
     const value = getIn(values, fieldPath, '');
-    const error = getIn(errors, fieldPath, null);
-
+    const error = errors && fieldPath in errors ? errors[fieldPath] : null;
     const onChange = (value, name) => {
       setFieldValue(name, value);
     };

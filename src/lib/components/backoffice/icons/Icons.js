@@ -73,7 +73,7 @@ export class InternalLocationIcon extends Component {
   }
 }
 
-export class LibraryIcon extends Component {
+export class LocationIcon extends Component {
   render() {
     return <Icon name="university" />;
   }

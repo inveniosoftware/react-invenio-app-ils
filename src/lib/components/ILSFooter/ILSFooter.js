@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Header, List } from 'semantic-ui-react';
+import { FrontSiteRoutes } from '@routes/urls';
 
 const FooterLayout = props => {
   return (
@@ -22,6 +23,9 @@ const FooterLayout = props => {
                     <Link to={getStaticPageByName('contact').route}>
                       Contact
                     </Link>
+                  </List.Item>
+                  <List.Item>
+                    <Link to={FrontSiteRoutes.openingHours}>Opening hours</Link>
                   </List.Item>
                 </List>
               </Grid.Column>

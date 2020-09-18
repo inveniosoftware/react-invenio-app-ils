@@ -7,6 +7,7 @@ import { DocumentRequestForm } from '@pages/frontsite/DocumentRequests';
 import { DocumentDetails } from '@pages/frontsite/Documents';
 import { Home } from '@pages/frontsite/Home';
 import LiteratureSearch from '@pages/frontsite/Literature/LiteratureSearch/LiteratureSearch';
+import { OpeningHours } from '@pages/frontsite/OpeningHours';
 import { PatronProfile } from '@pages/frontsite/PatronProfile';
 import { SeriesDetails } from '@pages/frontsite/Series';
 import { StaticPage } from '@pages/frontsite/StaticPage';
@@ -59,6 +60,11 @@ export default class FrontSite extends Component {
               exact
               path={FrontSiteRoutes.patronProfile}
               component={PatronProfile}
+            />
+            <Route
+              exact
+              path={FrontSiteRoutes.openingHours}
+              component={OpeningHours}
             />
             {staticPagesRoutes.map(route => (
               <Route key={route} exact path={route} component={StaticPage} />

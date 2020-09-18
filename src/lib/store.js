@@ -48,6 +48,7 @@ import {
   internalLocationListReducer,
   locationListReducer,
 } from '@pages/backoffice/Location/LocationList/reducer';
+import locationDetailsReducer from '@pages/backoffice/Location/LocationDetails/state/locationDetailsReducer';
 import {
   itemsSearchByBarcodeReducer,
   patronDetailsReducer,
@@ -108,6 +109,7 @@ const rootReducer = combineReducers({
   availableItems: availableItemsReducer,
   documentRequestDetails: documentRequestDetailsReducer,
   locations: locationListReducer,
+  LocationDetails: locationDetailsReducer,
   internalLocations: internalLocationListReducer,
   deleteRecordModal: deleteRecordModalReducer,
   recordRelationsSelections: relationSelectorReducer,

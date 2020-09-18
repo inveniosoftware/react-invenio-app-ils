@@ -1,5 +1,4 @@
 import { toShortDate } from '@api/date';
-import { DatePicker } from '@components/DatePicker';
 import { invenioConfig } from '@config';
 import _isEmpty from 'lodash/isEmpty';
 import { DateTime } from 'luxon';
@@ -7,6 +6,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Form, Header, Modal, Segment } from 'semantic-ui-react';
 import ESSelector from './ESSelector';
+import { LocationDatePicker } from '@modules/Location';
 
 export const PatronSearchInputContext = React.createContext({
   patronSelectionError: 'false',
@@ -44,7 +44,7 @@ export default class ESSelectorLoanRequest extends Component {
 
   toggle = () => {
     const { visible } = this.state;
-    this.setState({ visible: !visible });
+    this.setState({ visible: !visible, selections: [] });
   };
 
   save = () => {
@@ -77,17 +77,23 @@ export default class ESSelectorLoanRequest extends Component {
   };
 
   renderOptionalRequestExpirationDate = () => {
+    const { selections } = this.state;
+    // eslint-disable-next-line no-unused-vars
+    const locationPid = selections.length
+      ? selections[0].metadata.location_pid
+      : null;
     const today = DateTime.local();
-    const initialDate = new DateTime(today.plus({ days: 10 }));
     const max = new DateTime(
       today.plus({ days: invenioConfig.CIRCULATION.requestDuration })
     );
+    const disabled = _isEmpty(selections);
     return (
       <div>
         <Segment.Inline>
           <div>Optionally, select a limit date for your request</div>
-          <DatePicker
-            initialDate={toShortDate(initialDate)}
+          <LocationDatePicker
+            locationPid={locationPid}
+            disabledInput={disabled}
             minDate={toShortDate(today)}
             maxDate={toShortDate(max)}
             placeholder="Request limit date"

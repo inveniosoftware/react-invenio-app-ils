@@ -12,6 +12,7 @@ import { Button } from 'semantic-ui-react';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { BackOfficeRoutes } from '@routes/urls';
 import { goTo } from '@history';
+import _get from 'lodash/get';
 
 export default class LocationList extends Component {
   constructor(props) {
@@ -62,8 +63,20 @@ export default class LocationList extends Component {
       <NewButton text="New location" to={BackOfficeRoutes.locationsCreate} />
     );
 
+    const viewDetails = ({ row, col }) => {
+      return (
+        <Link
+          as={Link}
+          to={BackOfficeRoutes.locationsDetailsFor(row.metadata.pid)}
+          icon="info"
+        >
+          {_get(row, col.field)}
+        </Link>
+      );
+    };
+
     const columns = [
-      { title: 'ID', field: 'metadata.pid' },
+      { title: 'ID', field: 'metadata.pid', formatter: viewDetails },
       { title: 'Name', field: 'metadata.name' },
       { title: 'Address', field: 'metadata.address' },
       { title: 'Email', field: 'metadata.email' },

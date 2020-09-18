@@ -24,8 +24,10 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import itemSubmitSerializer from './itemSubmitSerializer';
 import { Segment, Header } from 'semantic-ui-react';
-import { DocumentIcon } from '@components/backoffice/icons';
-import { InternalLocationIcon } from '@components/backoffice/icons/Icons';
+import {
+  DocumentIcon,
+  InternalLocationIcon,
+} from '@components/backoffice/icons';
 
 export class ItemForm extends Component {
   constructor(props) {

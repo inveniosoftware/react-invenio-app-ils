@@ -29,6 +29,7 @@ import { LoanDetails } from '@pages/backoffice/Loan/LoanDetails';
 import { LoanSearch } from '@pages/backoffice/Loan/LoanSearch';
 import { LocationEditor } from '@pages/backoffice/Location/LocationForms';
 import { LocationList } from '@pages/backoffice/Location/LocationList';
+import { LocationDetails } from '@pages/backoffice/Location/LocationDetails';
 import { OrderDetails } from '@pages/backoffice/Acquisition/Order/OrderDetails';
 import { OrderEditor } from '@pages/backoffice/Acquisition/Order/OrderEditor';
 import { OrderSearch } from '@pages/backoffice/Acquisition/Order/OrderSearch';
@@ -136,6 +137,11 @@ export default class BackOfficeRoutesSwitch extends Component {
           exact
           path={BackOfficeRoutes.locationsEdit}
           component={LocationEditor}
+        />
+        <Route
+          exact
+          path={BackOfficeRoutes.locationsDetails}
+          component={LocationDetails}
         />
         {/*/!* patrons *!/*/}
         <Route
