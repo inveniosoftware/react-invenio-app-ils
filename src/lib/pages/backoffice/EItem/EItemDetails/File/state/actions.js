@@ -36,7 +36,7 @@ export const uploadFile = (eitemPid, bucket, file) => {
       dispatch(
         sendSuccessNotification(
           'Success!',
-          'The file needs some seconds to be displayed to the frontsite.'
+          'The uploaded file will be available to users in a few seconds.'
         )
       );
     } catch (error) {
