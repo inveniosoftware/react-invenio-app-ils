@@ -2,6 +2,7 @@ import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import Overridable from 'react-overridable';
 import {
   Container,
   Divider,
@@ -13,14 +14,14 @@ import {
 } from 'semantic-ui-react';
 import { ItemsCheckout } from './ItemsCheckout';
 import { ItemsSearch } from './ItemsSearch';
+import { PatronActionMenu } from './PatronActionMenu';
+import { PatronCurrentBorrowingRequests } from './PatronCurrentBorrowingRequests';
 import { PatronCurrentLoans } from './PatronCurrentLoans';
 import { PatronDocumentRequests } from './PatronDocumentRequests';
-import { PatronPendingLoans } from './PatronPendingLoans';
-import { PatronActionMenu } from './PatronActionMenu';
 import { PatronHeader } from './PatronHeader';
-import { PatronPastLoans } from './PatronPastLoans';
-import { PatronCurrentBorrowingRequests } from './PatronCurrentBorrowingRequests';
 import { PatronPastBorrowingRequests } from './PatronPastBorrowingRequests';
+import { PatronPastLoans } from './PatronPastLoans';
+import { PatronPendingLoans } from './PatronPendingLoans';
 
 export default class PatronDetails extends Component {
   constructor(props) {
@@ -63,6 +64,11 @@ export default class PatronDetails extends Component {
                   <Grid columns={2}>
                     <Grid.Column width={13}>
                       <Container className="spaced">
+                        <Overridable
+                          id="Backoffice.PatronDetails.Metadata"
+                          patron={data}
+                        />
+
                         <Header attached="top" as="h3">
                           Checkout
                         </Header>
@@ -75,68 +81,71 @@ export default class PatronDetails extends Component {
                           <ItemsSearch />
                         </Segment>
 
-                        <Container className="spaced">
-                          <Header attached="top" as="h3">
-                            Ongoing loans
-                          </Header>
-                          <Segment
-                            attached
-                            id="ongoing-loans"
-                            className="bo-metadata-segment no-padding"
-                          >
-                            <PatronCurrentLoans />
-                          </Segment>
-                          <Header attached="top" as="h3">
-                            Pending loans requests
-                          </Header>
-                          <Segment
-                            attached
-                            id="loan-requests"
-                            className="bo-metadata-segment no-padding"
-                          >
-                            <PatronPendingLoans />
-                          </Segment>
-                          <Header attached="top" as="h3">
-                            Ongoing interlibrary loans
-                          </Header>
-                          <Segment
-                            attached
-                            id="ongoing-borrowing-requests"
-                            className="bo-metadata-segment no-padding"
-                          >
-                            <PatronCurrentBorrowingRequests />
-                          </Segment>
-                          <Header attached="top" as="h3">
-                            Requests for new literature
-                          </Header>
-                          <Segment
-                            attached
-                            id="literature-requests"
-                            className="bo-metadata-segment no-padding"
-                          >
-                            <PatronDocumentRequests />
-                          </Segment>
-                          <Header attached="top" as="h3">
-                            Loans history
-                          </Header>
-                          <Segment
-                            attached
-                            id="loans-history"
-                            className="bo-metadata-segment no-padding"
-                          >
-                            <PatronPastLoans />
-                          </Segment>
-                          <Header attached="top" as="h3">
-                            Interlibrary loans history
-                          </Header>
-                          <Segment
-                            attached
-                            id="borrowing-requests-history"
-                            className="bo-metadata-segment no-padding"
-                          >
-                            <PatronPastBorrowingRequests />
-                          </Segment>
-                        </Container>
+                        <Header attached="top" as="h3">
+                          Ongoing loans
+                        </Header>
+                        <Segment
+                          attached
+                          id="ongoing-loans"
+                          className="bo-metadata-segment no-padding"
+                        >
+                          <PatronCurrentLoans />
+                        </Segment>
+
+                        <Header attached="top" as="h3">
+                          Pending loans requests
+                        </Header>
+                        <Segment
+                          attached
+                          id="loan-requests"
+                          className="bo-metadata-segment no-padding"
+                        >
+                          <PatronPendingLoans />
+                        </Segment>
+
+                        <Header attached="top" as="h3">
+                          Ongoing interlibrary loans
+                        </Header>
+                        <Segment
+                          attached
+                          id="ongoing-borrowing-requests"
+                          className="bo-metadata-segment no-padding"
+                        >
+                          <PatronCurrentBorrowingRequests />
+                        </Segment>
+
+                        <Header attached="top" as="h3">
+                          Requests for new literature
+                        </Header>
+                        <Segment
+                          attached
+                          id="literature-requests"
+                          className="bo-metadata-segment no-padding"
+                        >
+                          <PatronDocumentRequests />
+                        </Segment>
+
+                        <Header attached="top" as="h3">
+                          Loans history
+                        </Header>
+                        <Segment
+                          attached
+                          id="loans-history"
+                          className="bo-metadata-segment no-padding"
+                        >
+                          <PatronPastLoans />
+                        </Segment>
+
+                        <Header attached="top" as="h3">
+                          Interlibrary loans history
+                        </Header>
+                        <Segment
+                          attached
+                          id="borrowing-requests-history"
+                          className="bo-metadata-segment no-padding"
+                        >
+                          <PatronPastBorrowingRequests />
+                        </Segment>
                       </Container>
                     </Grid.Column>
                     <Grid.Column width={3}>

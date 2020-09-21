@@ -76,16 +76,14 @@ export default class ItemsSearch extends Component {
     const { patronDetails, clearResults, isLoadingSearch } = this.props;
     const { executedSearch } = this.state;
     return (
-      <div className="results-list">
-        <ItemsResultsList
-          patronPid={patronDetails.user_pid}
-          clearResults={clearResults}
-          results={results}
-          isLoading={isLoadingSearch}
-          executedSearch={executedSearch}
-          clearSearchQuery={this.clearSearchQuery}
-        />
-      </div>
+      <ItemsResultsList
+        patronPid={patronDetails.user_pid}
+        clearResults={clearResults}
+        results={results}
+        isLoading={isLoadingSearch}
+        executedSearch={executedSearch}
+        clearSearchQuery={this.clearSearchQuery}
+      />
     );
   };
 
@@ -105,10 +103,9 @@ export default class ItemsSearch extends Component {
       queryString,
       updateQueryString,
     } = this.props;
-
     return (
       <>
-        <Container className="search-bar spaced">
+        <Container className="spaced">
           <SearchBar
             action={{
               icon: 'search',
@@ -120,12 +117,10 @@ export default class ItemsSearch extends Component {
             onKeyPressHandler={this.onKeyPressHandler}
             updateQueryString={updateQueryString}
             placeholder="Type or paste to search for physical copies..."
-            onPaste={e => {
-              this.onPasteHandler(e);
-            }}
+            onPaste={e => this.onPasteHandler(e)}
           />
         </Container>
-        <Grid columns={1} stackable relaxed className="items-search-container">
+        <Grid columns={1} stackable relaxed>
           <Grid.Column width={16}>
             <Loader isLoading={isLoading}>
               <Error error={error}>
@@ -142,21 +137,21 @@ export default class ItemsSearch extends Component {
 }
 
 ItemsSearch.propTypes = {
-  updateQueryString: PropTypes.func.isRequired,
-  queryString: PropTypes.string.isRequired,
-  items: PropTypes.object,
-  fetchItems: PropTypes.func.isRequired,
-  clearResults: PropTypes.func.isRequired,
   checkoutItem: PropTypes.func.isRequired,
-  patronDetails: PropTypes.object.isRequired,
-  isLoadingSearch: PropTypes.bool,
-  isLoading: PropTypes.bool,
+  clearResults: PropTypes.func.isRequired,
   error: PropTypes.object,
+  fetchItems: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool,
+  isLoadingSearch: PropTypes.bool,
+  items: PropTypes.object,
+  patronDetails: PropTypes.object.isRequired,
+  queryString: PropTypes.string.isRequired,
+  updateQueryString: PropTypes.func.isRequired,
 };
 
 ItemsSearch.defaultProps = {
-  items: null,
-  isLoadingSearch: false,
-  isLoading: false,
   error: null,
+  isLoading: false,
+  isLoadingSearch: false,
+  items: null,
 };

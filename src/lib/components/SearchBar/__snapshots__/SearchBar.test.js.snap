@@ -3,6 +3,8 @@
 exports[`LoansSearch SearchBar tests should render search bar with query helper 1`] = `
 <SearchBar
   buttonColor={null}
+  currentQueryString={null}
+  executeSearch={null}
   onKeyPressHandler={null}
   placeholder="Search"
   queryHelperFields={
@@ -186,6 +188,8 @@ exports[`LoansSearch SearchBar tests should render search bar with query helper 
 exports[`LoansSearch SearchBar tests should render the current query string 1`] = `
 <SearchBar
   buttonColor={null}
+  currentQueryString={null}
+  executeSearch={null}
   onKeyPressHandler={null}
   placeholder="Search"
   queryHelperFields={Array []}
