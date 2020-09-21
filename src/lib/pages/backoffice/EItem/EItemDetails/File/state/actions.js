@@ -1,6 +1,10 @@
 import { eItemApi } from '@api/eitems/eitem';
 import { fileApi } from '@api/files/file';
-import { sendErrorNotification } from '@components/Notifications';
+import {
+  sendErrorNotification,
+  sendSuccessNotification,
+} from '@components/Notifications';
+import { delay } from '@api/utils';
 import {
   DELETE_FILE,
   UPLOAD_IS_LOADING,
@@ -20,6 +24,7 @@ export const uploadFile = (eitemPid, bucket, file) => {
     try {
       if (!bucket) {
         const bucketResponse = await eItemApi.bucket(eitemPid);
+        await delay();
         bucket = bucketResponse.data.metadata.bucket_id;
       }
       const response = await fileApi.upload(bucket, file);
@@ -28,6 +33,12 @@ export const uploadFile = (eitemPid, bucket, file) => {
         type: SUCCESS,
         payload: response.data,
       });
+      dispatch(
+        sendSuccessNotification(
+          'Success!',
+          'The uploaded file will be available to users in a few seconds.'
+        )
+      );
     } catch (error) {
       dispatch({
         type: HAS_ERROR,
