@@ -13,6 +13,8 @@ export { add, remove } from '@api/relations';
 export { seriesApi } from '@api/series';
 export { circulationStatsApi, statsApi } from '@api/stats';
 export { vocabularyApi } from '@api/vocabularies';
+export { ScrollingMenuItem } from '@components/backoffice/buttons/ScrollingMenu';
+export { MetadataTable } from '@components/backoffice/MetadataTable';
 export {
   getSearchConfig,
   getStaticPageByName,

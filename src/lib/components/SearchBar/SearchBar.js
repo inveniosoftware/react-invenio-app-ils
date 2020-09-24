@@ -42,13 +42,15 @@ class SearchBar extends Component {
 
   render() {
     const {
-      queryString,
-      updateQueryString,
+      buttonColor,
+      currentQueryString,
+      executeSearch: parentSearch,
+      onKeyPressHandler,
       placeholder,
       queryHelperFields,
-      buttonColor,
-      onKeyPressHandler,
+      queryString,
       updateQueryOnChange,
+      updateQueryString,
       ...otherProps
     } = this.props;
     const { currentValue } = this.state;
@@ -58,7 +60,7 @@ class SearchBar extends Component {
           action={{
             color: buttonColor,
             icon: 'search',
-            onClick: this.executeSearch,
+            onClick: parentSearch || this.executeSearch,
           }}
           size="big"
           fluid
@@ -79,7 +81,7 @@ class SearchBar extends Component {
         {queryHelperFields.length > 0 && (
           <QueryBuildHelper
             fields={queryHelperFields}
-            currentQueryString={queryString}
+            currentQueryString={currentQueryString || queryString}
             updateQueryString={this.onInputChange}
           />
         )}
@@ -89,22 +91,26 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-  queryString: PropTypes.string,
-  updateQueryString: PropTypes.func.isRequired,
+  buttonColor: PropTypes.string,
+  executeSearch: PropTypes.func,
+  currentQueryString: PropTypes.string,
+  onKeyPressHandler: PropTypes.func,
   placeholder: PropTypes.string,
   queryHelperFields: PropTypes.array,
-  buttonColor: PropTypes.string,
+  queryString: PropTypes.string,
   updateQueryOnChange: PropTypes.bool,
-  onKeyPressHandler: PropTypes.func,
+  updateQueryString: PropTypes.func.isRequired,
 };
 
 SearchBar.defaultProps = {
+  buttonColor: null,
+  currentQueryString: null,
+  executeSearch: null,
+  onKeyPressHandler: null,
+  placeholder: 'Search for books, series, articles, publications...',
+  queryHelperFields: [],
   queryString: '',
   updateQueryOnChange: false,
-  queryHelperFields: [],
-  buttonColor: null,
-  placeholder: 'Search for books, series, articles, publications...',
-  onKeyPressHandler: null,
 };
 
 export default SearchBar;

@@ -2,8 +2,9 @@ import {
   ScrollingMenu,
   ScrollingMenuItem,
 } from '@components/backoffice/buttons/ScrollingMenu';
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import Overridable from 'react-overridable';
 
 export default class PatronActionMenu extends Component {
   render() {
@@ -11,6 +12,7 @@ export default class PatronActionMenu extends Component {
     return (
       <div className="bo-action-menu">
         <ScrollingMenu offset={offset}>
+          <Overridable id="Backoffice.PatronDetails.Metadata.ActionMenuItem" />
           <ScrollingMenuItem label="Checkout" elementId="patron-checkout" />
           <ScrollingMenuItem label="Ongoing loans" elementId="ongoing-loans" />
           <ScrollingMenuItem
