@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { AuthorForm } from './AuthorForm';
 import { AuthorSearchField } from './AuthorSearchField';
+import { Message } from 'semantic-ui-react';
 
 export class AuthorsField extends React.Component {
   state = {
@@ -21,7 +22,7 @@ export class AuthorsField extends React.Component {
   }
 
   onRemove = (values, index, setFieldValue) => {
-    this.setState({ showForm: false });
+    this.setState({ showForm: false, activeIndex: null });
     setFieldValue(
       'authors',
       values.authors.filter((_, i) => i !== index)
@@ -29,7 +30,7 @@ export class AuthorsField extends React.Component {
   };
 
   onSubmit = (values, index, setFieldValue) => {
-    this.setState({ showForm: false });
+    this.setState({ showForm: false, activeIndex: null });
     for (const key in values.authors) {
       setFieldValue(`authors.${key}`, values.authors[key]);
     }
@@ -79,7 +80,7 @@ export class AuthorsField extends React.Component {
             this.onSubmit(values, activeIndex, setFieldValue)
           }
           onRemove={() => this.onRemove(values, activeIndex, setFieldValue)}
-          render={(basePath, errors) => (
+          render={basePath => (
             <AuthorForm
               isCreate={isCreate}
               basePath={basePath}
@@ -93,6 +94,8 @@ export class AuthorsField extends React.Component {
 
   renderAuthors = authors => {
     const { fieldPath } = this.props;
+    const { activeIndex } = this.state;
+
     if (
       authors &&
       authors.length > invenioConfig.LITERATURE.authors.maxDisplay
@@ -112,6 +115,7 @@ export class AuthorsField extends React.Component {
         fieldPath={fieldPath}
         keyField="full_name"
         onItemChange={this.onAuthorChange}
+        activeIndex={activeIndex}
       />
     );
   };
@@ -121,9 +125,17 @@ export class AuthorsField extends React.Component {
       form: { values, setFieldValue, errors },
     } = props;
     const { showForm } = this.state;
+    const error = errors ? 'authors' in errors : false;
 
     return (
       <>
+        {error ? (
+          <Message
+            negative
+            header="Authors are required."
+            content="Please enter and save at least 1 author."
+          />
+        ) : null}
         {this.renderAuthors(values.authors)}
         {showForm && this.renderSubForm(values, errors, setFieldValue)}
       </>
