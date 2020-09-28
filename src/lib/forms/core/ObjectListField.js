@@ -5,18 +5,12 @@ import { Form, Icon, List } from 'semantic-ui-react';
 import { ErrorIcon } from './ErrorIcon';
 
 export class ObjectListField extends Component {
-  state = {
-    activeIndex: null,
-  };
-
   onItemClick = (item, index) => {
-    const { onItemChange } = this.props;
-    const { activeIndex } = this.state;
+    const { onItemChange, activeIndex } = this.props;
     if (index === activeIndex) {
       index = null;
       item = null;
     }
-    this.setState({ activeIndex: index });
     if (onItemChange) {
       onItemChange(index, item);
     }
@@ -33,13 +27,11 @@ export class ObjectListField extends Component {
   };
 
   renderFormField = props => {
-    const { fieldPath, keyField } = this.props;
+    const { fieldPath, keyField, activeIndex } = this.props;
     const {
       form: { errors, values },
     } = props;
     const items = getIn(values, fieldPath, []);
-    const { activeIndex } = this.state;
-
     return (
       <Form.Field className="object-list-field" required>
         <List horizontal divided relaxed>
@@ -59,7 +51,7 @@ export class ObjectListField extends Component {
 
           <List.Item
             as="a"
-            active={items.length === 0 || activeIndex === items.length}
+            active={activeIndex === items.length}
             onClick={() => this.onItemClick(null, items.length)}
           >
             <List.Content>
@@ -80,6 +72,7 @@ export class ObjectListField extends Component {
 
 ObjectListField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
-  onItemChange: PropTypes.func,
-  keyField: PropTypes.string,
+  onItemChange: PropTypes.func.isRequired,
+  keyField: PropTypes.string.isRequired,
+  activeIndex: PropTypes.number.isRequired,
 };
