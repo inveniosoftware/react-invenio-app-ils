@@ -6,8 +6,8 @@ import _isEmpty from 'lodash/isEmpty';
 
 export class DocumentPublicationInfo extends Component {
   render() {
-    const { publication, documentType } = this.props;
-    if (_isEmpty(publication)) {
+    const { publications, documentType } = this.props;
+    if (_isEmpty(publications)) {
       return (
         <InfoMessage
           title="No publication information available."
@@ -17,50 +17,55 @@ export class DocumentPublicationInfo extends Component {
     }
     return (
       <>
-        <Divider horizontal>Publication infromation</Divider>
+        <Divider horizontal>Publication information</Divider>
         This {documentType.toLowerCase()} was published in:
-        <Table definition>
-          <Table.Body>
-            <Table.Row>
-              <Table.Cell>Journal</Table.Cell>
-              <Table.Cell>{publication.journal_title}</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Issue</Table.Cell>
-              <Table.Cell>{publication.journal_issue}</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Volume</Table.Cell>
-              <Table.Cell>{publication.journal_volume}</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Article ID</Table.Cell>
-              <Table.Cell>{publication.artid}</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Pages</Table.Cell>
-              <Table.Cell>{publication.pages}</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Publication year</Table.Cell>
-              <Table.Cell>{publication.year}</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Note</Table.Cell>
-              <Table.Cell>{publication.note}</Table.Cell>
-            </Table.Row>
-          </Table.Body>
-        </Table>
+        {publications.map((publication, idx) => (
+          <>
+            {idx > 0 && <Divider horizontal />}
+            <Table definition key={publication.journal_title}>
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell width={4}>Journal</Table.Cell>
+                  <Table.Cell>{publication.journal_title}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Issue</Table.Cell>
+                  <Table.Cell>{publication.journal_issue}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Volume</Table.Cell>
+                  <Table.Cell>{publication.journal_volume}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Article ID</Table.Cell>
+                  <Table.Cell>{publication.artid}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Pages</Table.Cell>
+                  <Table.Cell>{publication.pages}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Publication year</Table.Cell>
+                  <Table.Cell>{publication.year}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Note</Table.Cell>
+                  <Table.Cell>{publication.note}</Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table>
+          </>
+        ))}
       </>
     );
   }
 }
 
 DocumentPublicationInfo.propTypes = {
-  publication: PropTypes.object,
+  publications: PropTypes.array,
   documentType: PropTypes.string.isRequired,
 };
 
 DocumentPublicationInfo.defaultProps = {
-  publication: {},
+  publications: {},
 };

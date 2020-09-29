@@ -24,7 +24,7 @@ export class DocumentInfo extends Component {
       <Table.Row>
         <Table.Cell>Keywords</Table.Cell>
         <Table.Cell>
-          <LiteratureKeywords keywords={metadata.keywords} />
+          <LiteratureKeywords keywords={metadata.keywords} separator=", " />
         </Table.Cell>
       </Table.Row>
     );

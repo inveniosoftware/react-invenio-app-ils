@@ -53,7 +53,7 @@ class DocumentMetadataTabs extends Component {
         menuItem: 'Publications',
         render: () => (
           <DocumentPublicationInfo
-            publication={metadata.publication_info}
+            publications={metadata.publication_info}
             documentType={metadata.document_type}
           />
         ),
@@ -126,6 +126,7 @@ class DocumentMetadataTabs extends Component {
         panes={this.renderTabPanes()}
         onTabChange={this.onTabChange}
         id="document-metadata-tabs"
+        className="document-metadata-tabs"
       />
     );
   }
