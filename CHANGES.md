@@ -1,5 +1,12 @@
 # Changes
 
+Version 1.0.0-alpha.13 (released 2020-09-30)
+
+- add success notification on file upload on e-items
+- allow to override Patron metadata information in backoffice
+- fix to authors fields
+- integrate the location closures module
+
 Version 1.0.0-alpha.12 (released 2020-09-16)
 
 - add error pages
