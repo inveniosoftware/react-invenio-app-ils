@@ -5,6 +5,7 @@ import { Error } from '@components/Error';
 import { ILSParagraphPlaceholder } from '@components/ILSPlaceholder';
 import { SearchBar } from '@components/SearchBar';
 import { goTo } from '@history';
+import { DocumentStats } from '@modules/Document/DocumentStats';
 import LiteratureTags from '@modules/Literature/LiteratureTags';
 import { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
@@ -92,6 +93,11 @@ const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
             </ILSParagraphPlaceholder>
           </Container>
         </Container>
+        <Container textAlign="center">
+          {!_isEmpty(documentDetails.metadata) && (
+            <DocumentStats document={documentDetails} />
+          )}
+        </Container>
       </Error>
     </Overridable>
   );
@@ -152,15 +158,7 @@ class DocumentDetails extends Component {
   };
 
   render() {
-    const {
-      isLoading,
-      hasError,
-      error,
-      documentDetails,
-      match: {
-        params: { documentPid },
-      },
-    } = this.props;
+    const { isLoading, hasError, error, documentDetails } = this.props;
     if (hasError && _get(error, 'response.status') === 404) {
       return <NotFound />;
     }
@@ -180,7 +178,7 @@ class DocumentDetails extends Component {
           {...{
             error,
             isLoading,
-            documentDetails: { ...documentDetails, documentPid },
+            documentDetails,
           }}
         />
       </>
