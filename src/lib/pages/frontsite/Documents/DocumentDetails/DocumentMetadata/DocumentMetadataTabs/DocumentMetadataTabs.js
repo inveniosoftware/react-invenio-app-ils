@@ -2,6 +2,7 @@ import { invenioConfig } from '@config';
 import { DocumentConference } from '@modules/Document/DocumentConference';
 import { DocumentInfo } from '@modules/Document/DocumentInfo';
 import { DocumentLinks } from '@modules/Document/DocumentLinks';
+import { DocumentPublicationInfo } from '@modules/Document/DocumentPublicationInfo';
 import { DocumentTableOfContent } from '@modules/Document/DocumentTableOfContent';
 import { Identifiers } from '@modules/Identifiers';
 import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
@@ -50,7 +51,12 @@ class DocumentMetadataTabs extends Component {
       },
       {
         menuItem: 'Publications',
-        render: () => <Tab.Pane>We wait for the schema!</Tab.Pane>,
+        render: () => (
+          <DocumentPublicationInfo
+            publication={metadata.publication_info}
+            documentType={metadata.document_type}
+          />
+        ),
       },
       {
         menuItem: 'Conference',

@@ -69,9 +69,6 @@ export class PublicationInfoField extends React.Component {
             defaultNewValue={{
               artid: '',
               journal_issue: '',
-              journal_record: {
-                $ref: '',
-              },
               journal_title: '',
               journal_volume: '',
               note: '',
