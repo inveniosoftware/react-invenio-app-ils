@@ -54,6 +54,20 @@ List Overrides - REACT-INVENIO-APP-ILS
   }
 }
 
+.search-aggregations {
+  .ui.list{
+    .item:hover{
+      label {
+        font-weight: 600;
+      }
+      .ui.label{
+        font-weight: 600;
+        color: black;
+      }
+    }
+  }
+}
+
 /* FRONTSITE */
 @{fs-parent-selector} {
   .ui.list {
