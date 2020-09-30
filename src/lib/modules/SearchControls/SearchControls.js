@@ -20,7 +20,7 @@ export class SearchControls extends Component {
       <>
         <Responsive {...Responsive.onlyComputer}>
           <Grid columns={3} className="search-controls">
-            <Grid.Column largeScreen={5} computer={6}>
+            <Grid.Column largeScreen={4} computer={4}>
               <Grid columns={2}>
                 {withLayoutSwitcher && (
                   <Grid.Column width={6} className="layout-switcher">
@@ -35,7 +35,7 @@ export class SearchControls extends Component {
             </Grid.Column>
             <Grid.Column
               largeScreen={6}
-              computer={4}
+              computer={6}
               textAlign="center"
               className="search-pagination-column"
             >
@@ -46,7 +46,7 @@ export class SearchControls extends Component {
             <Grid.Column
               textAlign="right"
               largeScreen={5}
-              computer={6}
+              computer={5}
               className="search-sort-options-column"
             >
               <div className="sort-by-filters">

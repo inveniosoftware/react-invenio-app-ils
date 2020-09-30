@@ -10,8 +10,8 @@ export class DocumentPublicationInfo extends Component {
     if (_isEmpty(publications)) {
       return (
         <InfoMessage
-          title="No publication information available."
-          message="This literature has not been published in any journal."
+          title="Journal publication"
+          message="No publication information for this literature."
         />
       );
     }
@@ -24,34 +24,48 @@ export class DocumentPublicationInfo extends Component {
             {idx > 0 && <Divider horizontal />}
             <Table definition key={publication.journal_title}>
               <Table.Body>
-                <Table.Row>
-                  <Table.Cell width={4}>Journal</Table.Cell>
-                  <Table.Cell>{publication.journal_title}</Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>Issue</Table.Cell>
-                  <Table.Cell>{publication.journal_issue}</Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>Volume</Table.Cell>
-                  <Table.Cell>{publication.journal_volume}</Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>Article ID</Table.Cell>
-                  <Table.Cell>{publication.artid}</Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>Pages</Table.Cell>
-                  <Table.Cell>{publication.pages}</Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>Publication year</Table.Cell>
-                  <Table.Cell>{publication.year}</Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>Note</Table.Cell>
-                  <Table.Cell>{publication.note}</Table.Cell>
-                </Table.Row>
+                {!_isEmpty(publication.journal_title) && (
+                  <Table.Row>
+                    <Table.Cell width={4}>Journal</Table.Cell>
+                    <Table.Cell>{publication.journal_title}</Table.Cell>
+                  </Table.Row>
+                )}
+                {!_isEmpty(publication.journal_issue) && (
+                  <Table.Row>
+                    <Table.Cell>Issue</Table.Cell>
+                    <Table.Cell>{publication.journal_issue}</Table.Cell>
+                  </Table.Row>
+                )}
+                {!_isEmpty(publication.journal_volume) && (
+                  <Table.Row>
+                    <Table.Cell>Volume</Table.Cell>
+                    <Table.Cell>{publication.journal_volume}</Table.Cell>
+                  </Table.Row>
+                )}
+                {!_isEmpty(publication.artid) && (
+                  <Table.Row>
+                    <Table.Cell>Article ID</Table.Cell>
+                    <Table.Cell>{publication.artid}</Table.Cell>
+                  </Table.Row>
+                )}
+                {!_isEmpty(publication.pages) && (
+                  <Table.Row>
+                    <Table.Cell>Pages</Table.Cell>
+                    <Table.Cell>{publication.pages}</Table.Cell>
+                  </Table.Row>
+                )}
+                {!_isEmpty(publication.year) && (
+                  <Table.Row>
+                    <Table.Cell>Publication year</Table.Cell>
+                    <Table.Cell>{publication.year}</Table.Cell>
+                  </Table.Row>
+                )}
+                {!_isEmpty(publication.note) && (
+                  <Table.Row>
+                    <Table.Cell>Note</Table.Cell>
+                    <Table.Cell>{publication.note}</Table.Cell>
+                  </Table.Row>
+                )}
               </Table.Body>
             </Table>
           </>

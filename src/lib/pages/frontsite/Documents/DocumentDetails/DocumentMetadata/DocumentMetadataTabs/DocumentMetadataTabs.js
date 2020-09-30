@@ -125,7 +125,7 @@ class DocumentMetadataTabs extends Component {
         menu={{ secondary: true, pointing: true }}
         panes={this.renderTabPanes()}
         onTabChange={this.onTabChange}
-        id="document-metadata-tabs"
+        id="document-metadata-section"
         className="document-metadata-tabs"
       />
     );
