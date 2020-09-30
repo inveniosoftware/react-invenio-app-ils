@@ -31,7 +31,7 @@ export class SelectField extends Component {
   };
 
   getAllOptions = (options, values) => {
-    const { required, loading } = this.props;
+    const { required, loading, multiple } = this.props;
     if (!Array.isArray(values)) {
       values = [values];
     }
@@ -41,6 +41,7 @@ export class SelectField extends Component {
           key: '',
           value: undefined,
           text: '-',
+          disabled: multiple,
         },
         ...options,
       ];

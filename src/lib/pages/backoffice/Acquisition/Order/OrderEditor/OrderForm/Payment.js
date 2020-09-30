@@ -5,26 +5,22 @@ import { PriceField } from '@forms/core/PriceField';
 import { VocabularyField } from '@forms/core/VocabularyField';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Funds } from './Funds';
 
 export class Payment extends Component {
   render() {
-    const { currencies } = this.props;
     return (
       <>
         <GroupField widths="equal">
           <PriceField
             label="Debit Cost"
             fieldPath="payment.debit_cost"
-            currencies={currencies}
             defaultCurrency={invenioConfig.APP.defaultCurrency}
           />
           <PriceField
             label="Debit Cost in Main Currency"
             fieldPath="payment.debit_cost_main_currency"
-            currencies={currencies}
             canSelectCurrency={false}
             defaultCurrency={invenioConfig.APP.defaultCurrency}
           />
@@ -53,7 +49,3 @@ export class Payment extends Component {
     );
   }
 }
-
-Payment.propTypes = {
-  currencies: PropTypes.array.isRequired,
-};

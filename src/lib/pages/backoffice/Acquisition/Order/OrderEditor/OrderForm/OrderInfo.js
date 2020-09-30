@@ -8,13 +8,11 @@ import { SelectorField } from '@forms/core/SelectorField';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
 import { serializeVendor } from '@modules/ESSelector/serializer';
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { AcquisitionVendorIcon } from '@components/backoffice/icons';
 
 export class OrderInfo extends Component {
   render() {
-    const { currencies } = this.props;
     return (
       <>
         <SelectorField
@@ -63,13 +61,11 @@ export class OrderInfo extends Component {
           <PriceField
             label="Total"
             fieldPath="grand_total"
-            currencies={currencies}
             defaultCurrency={invenioConfig.APP.defaultCurrency}
           />
           <PriceField
             label="Total Main Currency"
             fieldPath="grand_total_main_currency"
-            currencies={currencies}
             canSelectCurrency={false}
             defaultCurrency={invenioConfig.APP.defaultCurrency}
           />
@@ -80,7 +76,3 @@ export class OrderInfo extends Component {
     );
   }
 }
-
-OrderInfo.propTypes = {
-  currencies: PropTypes.array.isRequired,
-};

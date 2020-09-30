@@ -47,11 +47,7 @@ export class VocabularyField extends React.Component {
       this.setState({ isLoading: false, options: options, error: null });
     } catch (error) {
       this.setState({
-        // eslint-disable-next-line react/no-unused-state
-        isloading: false,
-        options: [
-          { key: '', value: '', text: `Error loading values for ${label}.` },
-        ],
+        isLoading: false,
         error: {
           content: `Error loading values for ${label}.`,
           pointing: 'above',
