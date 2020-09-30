@@ -1,8 +1,6 @@
 import { documentApi } from '@api/documents';
 import { itemApi } from '@api/items';
 import { internalLocationApi } from '@api/locations';
-import { withCancel } from '@api/utils';
-import { vocabularyApi } from '@api/vocabularies';
 import { invenioConfig } from '@config';
 import { AccordionField } from '@forms/core/AccordionField';
 import { BaseForm } from '@forms/core/BaseForm';
@@ -33,61 +31,13 @@ export class ItemForm extends Component {
   constructor(props) {
     super(props);
     this.config = invenioConfig.ITEMS;
-    this.state = {
-      // eslint-disable-next-line react/no-unused-state
-      isLoading: true,
-      currencies: [],
-      // eslint-disable-next-line react/no-unused-state
-      error: null,
-    };
   }
-
-  componentDidMount() {
-    this.fetchCurrencies();
-  }
-
-  componentWillUnmount() {
-    this.cancellableFetchData && this.cancellableFetchData.cancel();
-  }
-
-  query = () => {
-    const searchQuery = vocabularyApi
-      .query()
-      .withType(invenioConfig.VOCABULARIES.currencies)
-      .qs();
-    return vocabularyApi.list(searchQuery);
-  };
 
   serializer = hit => ({
     key: hit.metadata.key,
     value: hit.metadata.key,
     text: hit.metadata.key,
   });
-
-  fetchCurrencies = async () => {
-    this.cancellableFetchData = withCancel(this.query());
-    try {
-      const response = await this.cancellableFetchData.promise;
-      const currencies = response.data.hits.map(hit => this.serializer(hit));
-      // eslint-disable-next-line react/no-unused-state
-      this.setState({ isLoading: false, currencies: currencies, error: null });
-    } catch (error) {
-      if (error !== 'UNMOUNTED') {
-        this.setState({
-          // eslint-disable-next-line react/no-unused-state
-          isloading: false,
-          currencies: [
-            { key: '', value: '', text: 'Failed to load currencies.' },
-          ],
-          // eslint-disable-next-line react/no-unused-state
-          error: {
-            content: 'Failed to load currencies.',
-            pointing: 'above',
-          },
-        });
-      }
-    }
-  };
 
   prepareData = data => {
     return pick(data, [
@@ -133,7 +83,6 @@ export class ItemForm extends Component {
       pid,
     } = this.props;
     const initialValues = data ? this.prepareData(metadata) : {};
-    const { currencies } = this.state;
     return (
       <BaseForm
         initialValues={{
@@ -256,14 +205,11 @@ export class ItemForm extends Component {
           </GroupField>
           <GroupField widths="equal">
             <StringField label="Acquisition Pid" fieldPath="acquisition_pid" />
-            {currencies.length > 0 && (
-              <PriceField
-                label="Price"
-                fieldPath="price"
-                currencies={currencies}
-                defaultCurrency={invenioConfig.APP.defaultCurrency}
-              />
-            )}
+            <PriceField
+              label="Price"
+              fieldPath="price"
+              defaultCurrency={invenioConfig.APP.defaultCurrency}
+            />
           </GroupField>
           <GroupField widths="equal">
             <TextField

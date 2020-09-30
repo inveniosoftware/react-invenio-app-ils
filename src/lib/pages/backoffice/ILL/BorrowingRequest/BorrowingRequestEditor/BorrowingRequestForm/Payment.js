@@ -4,13 +4,11 @@ import { PriceField } from '@forms/core/PriceField';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
 import { VocabularyField } from '@forms/core/VocabularyField';
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
 
 export class Payment extends Component {
   render() {
-    const { currencies } = this.props;
     return (
       <Grid columns="equal">
         <Grid.Row>
@@ -29,7 +27,6 @@ export class Payment extends Component {
             <PriceField
               label="Debit Cost"
               fieldPath="payment.debit_cost"
-              currencies={currencies}
               defaultCurrency={invenioConfig.APP.defaultCurrency}
             />
           </Grid.Column>
@@ -37,7 +34,6 @@ export class Payment extends Component {
             <PriceField
               label="Debit Cost in Main Currency"
               fieldPath="payment.debit_cost_main_currency"
-              currencies={currencies}
               canSelectCurrency={false}
               defaultCurrency={invenioConfig.APP.defaultCurrency}
             />
@@ -74,7 +70,3 @@ export class Payment extends Component {
     );
   }
 }
-
-Payment.propTypes = {
-  currencies: PropTypes.array.isRequired,
-};

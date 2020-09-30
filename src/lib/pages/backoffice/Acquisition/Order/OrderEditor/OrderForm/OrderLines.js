@@ -21,7 +21,6 @@ import { DocumentIcon, PatronIcon } from '@components/backoffice/icons';
 
 export class OrderLines extends Component {
   renderArrayItem = ({ arrayPath, indexPath, ...arrayHelpers }) => {
-    const { currencies } = this.props;
     return (
       <GroupField
         grouped
@@ -81,7 +80,6 @@ export class OrderLines extends Component {
             <PriceField
               label="Order Line Unit Price"
               fieldPath={`${arrayPath}.${indexPath}.unit_price`}
-              currencies={currencies}
               defaultCurrency={invenioConfig.APP.defaultCurrency}
             />
           </Grid.Column>
@@ -89,7 +87,6 @@ export class OrderLines extends Component {
             <PriceField
               label="Order Line Total Price"
               fieldPath={`${arrayPath}.${indexPath}.total_price`}
-              currencies={currencies}
               defaultCurrency={invenioConfig.APP.defaultCurrency}
             />
           </Grid.Column>
@@ -195,7 +192,6 @@ export class OrderLines extends Component {
 }
 
 OrderLines.propTypes = {
-  currencies: PropTypes.array.isRequired,
   isCreate: PropTypes.bool,
 };
 

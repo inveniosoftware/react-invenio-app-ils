@@ -14,7 +14,6 @@ import {
   serializeLibrary,
   serializePatron,
 } from '@modules/ESSelector/serializer';
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
 import {
@@ -25,7 +24,6 @@ import {
 
 export class OrderInfo extends Component {
   render() {
-    const { currencies } = this.props;
     return (
       <Grid columns="equal">
         <Grid.Row>
@@ -129,7 +127,6 @@ export class OrderInfo extends Component {
             <PriceField
               label="Total"
               fieldPath="total"
-              currencies={currencies}
               defaultCurrency={invenioConfig.APP.defaultCurrency}
             />
           </Grid.Column>
@@ -137,7 +134,6 @@ export class OrderInfo extends Component {
             <PriceField
               label="Total Main Currency"
               fieldPath="total_main_currency"
-              currencies={currencies}
               canSelectCurrency={false}
               defaultCurrency={invenioConfig.APP.defaultCurrency}
             />
@@ -152,7 +148,3 @@ export class OrderInfo extends Component {
     );
   }
 }
-
-OrderInfo.propTypes = {
-  currencies: PropTypes.array.isRequired,
-};
