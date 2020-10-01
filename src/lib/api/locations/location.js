@@ -14,15 +14,13 @@ const del = async locationPid => {
 };
 
 const create = async data => {
-  const payload = serializer.toJSON(data);
-  const resp = await http.post(`${locationURL}`, payload);
+  const resp = await http.post(`${locationURL}`, data);
   resp.data = serializer.fromJSON(resp.data);
   return resp;
 };
 
 const update = async (locationPid, data) => {
-  const payload = serializer.toJSON(data);
-  const response = await http.put(`${locationURL}${locationPid}`, payload);
+  const response = await http.put(`${locationURL}${locationPid}`, data);
   response.data = serializer.fromJSON(response.data);
   return response;
 };

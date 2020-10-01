@@ -75,7 +75,7 @@ exports[`SeriesSearch ResultsTable tests should render a list of results 1`] = `
   data={
     Array [
       Object {
-        "created": "2018-01-01T10:05:00.000Z",
+        "created": "2018-01-01T11:05:00+01:00",
         "id": "3",
         "metadata": Object {
           "abstract": "This is an abstract",
@@ -91,7 +91,7 @@ exports[`SeriesSearch ResultsTable tests should render a list of results 1`] = `
           "title": "This is a title",
         },
         "pid": "3",
-        "updated": "2018-01-01T10:05:00.000Z",
+        "updated": "2018-01-01T11:05:00+01:00",
       },
     ]
   }
@@ -205,7 +205,7 @@ exports[`SeriesSearch ResultsTable tests should render a list of results 1`] = `
         rows={
           Array [
             Object {
-              "created": "2018-01-01T10:05:00.000Z",
+              "created": "2018-01-01T11:05:00+01:00",
               "id": "3",
               "metadata": Object {
                 "abstract": "This is an abstract",
@@ -221,7 +221,7 @@ exports[`SeriesSearch ResultsTable tests should render a list of results 1`] = `
                 "title": "This is a title",
               },
               "pid": "3",
-              "updated": "2018-01-01T10:05:00.000Z",
+              "updated": "2018-01-01T11:05:00+01:00",
             },
           ]
         }

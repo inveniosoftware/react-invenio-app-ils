@@ -9,6 +9,7 @@ import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { DateTime } from 'luxon';
 
 export class EItemHeader extends Component {
   render() {
@@ -18,7 +19,8 @@ export class EItemHeader extends Component {
         <label className="muted">Electronic copy</label> {data.metadata.pid}{' '}
         <CopyButton text={data.metadata.pid} />
         <br />
-        <label className="muted">Created on</label> {toShortDate(data.created)}
+        <label className="muted">Created on</label>{' '}
+        {toShortDate(DateTime.fromISO(data.created))}
         <br />
         <Link
           to={BackOfficeRoutes.documentDetailsFor(data.metadata.document_pid)}

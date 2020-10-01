@@ -1,13 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Settings } from 'luxon';
-import { fromISO } from '@api/date';
 import { BackOfficeRoutes } from '@routes/urls';
 import { BrowserRouter } from 'react-router-dom';
 import PatronDocumentRequests from './PatronDocumentRequests';
 
 Settings.defaultZoneName = 'utc';
-const stringDate = fromISO('2018-01-01T11:05:00+01:00');
+const stringDate = '2018-01-01T11:05:00+01:00';
 
 BackOfficeRoutes.documentRequestDetailsFor = jest.fn(pid => `url/${pid}`);
 

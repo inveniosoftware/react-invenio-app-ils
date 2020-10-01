@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Header, Icon } from 'semantic-ui-react';
+import { DateTime } from 'luxon';
 
 export class SeriesHeader extends Component {
   render() {
@@ -28,7 +29,8 @@ export class SeriesHeader extends Component {
           </>
         )}
         <br />
-        <label className="muted">Created on</label> {toShortDate(data.created)}
+        <label className="muted">Created on</label>{' '}
+        {toShortDate(DateTime.fromISO(data.created))}
         <br />
         <Link to={FrontSiteRoutes.seriesDetailsFor(data.metadata.pid)}>
           public view <Icon name="linkify" />

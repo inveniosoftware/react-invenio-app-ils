@@ -1,4 +1,3 @@
-import { toShortDate } from '@api/date';
 import { CreatedBy, UpdatedBy } from '@components/backoffice/ChangedBy';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { PropTypes } from 'prop-types';
@@ -6,20 +5,16 @@ import React from 'react';
 import { Grid } from 'semantic-ui-react';
 
 export class OrderInformation extends React.Component {
-  dateOrDefault = value => {
-    return value ? toShortDate(value) : '-';
-  };
-
   render() {
     const { order } = this.props;
     const leftTable = [
       { name: 'Vendor', value: order.vendor.name },
-      { name: 'Ordered at', value: this.dateOrDefault(order.order_date) },
+      { name: 'Ordered at', value: order.order_date },
       {
         name: 'Expected delivery',
-        value: this.dateOrDefault(order.expected_delivery_date),
+        value: order.expected_delivery_date,
       },
-      { name: 'Delivered on', value: this.dateOrDefault(order.received_date) },
+      { name: 'Delivered on', value: order.received_date },
       { name: 'Notes', value: order.notes },
     ];
     const rightTable = [

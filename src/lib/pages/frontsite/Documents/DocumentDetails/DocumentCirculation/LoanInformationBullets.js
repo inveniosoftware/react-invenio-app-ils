@@ -1,9 +1,9 @@
-import { fromISO } from '@api/date';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { List } from 'semantic-ui-react';
 import _isEmpty from 'lodash/isEmpty';
 import { LoanAvailability } from './LoanAvailability';
+import { DateTime } from 'luxon';
 
 export class LoanInformationBullets extends Component {
   render() {
@@ -16,7 +16,7 @@ export class LoanInformationBullets extends Component {
             <List.Content>
               You loaned this literature on{' '}
               <b>
-                {fromISO(lastLoan).toLocaleString({
+                {DateTime.fromISO(lastLoan).toLocaleString({
                   month: 'long',
                   year: 'numeric',
                 })}

@@ -5,7 +5,6 @@ import {
   sendSuccessNotification,
   addNotification,
 } from '@components/Notifications';
-import { toShortDate } from '@api/date';
 
 export const LOAN_IS_LOADING = 'itemLoansSearch/IS_LOADING';
 export const LOAN_SUCCESS = 'itemLoansSearch/SUCCESS';
@@ -32,12 +31,6 @@ export const checkin = barcode => {
       );
 
       if (response.data.hits.length > 1) {
-        response.data.hits.map(item => {
-          item.metadata.start_date = toShortDate(item.metadata.start_date);
-          item.metadata.end_date = toShortDate(item.metadata.end_date);
-          return item;
-        });
-
         dispatch({
           type: MULTIPLE_LOAN_RESULTS,
           payload: response.data,

@@ -1,4 +1,3 @@
-import { fromISO } from '@api/date';
 import { BackOfficeRoutes } from '@routes/urls';
 import * as testData from '@testData/documents';
 import * as testSeries from '@testData/series';
@@ -9,7 +8,7 @@ import SeriesDocuments from './SeriesDocuments';
 
 jest.mock('react-router-dom');
 Settings.defaultZoneName = 'utc';
-const stringDate = fromISO('2018-01-01T11:05:00+01:00');
+const stringDate = '2018-01-01T11:05:00+01:00';
 BackOfficeRoutes.documentDetailsFor = jest.fn(pid => `url/${pid}`);
 let mockViewDetails = jest.fn();
 

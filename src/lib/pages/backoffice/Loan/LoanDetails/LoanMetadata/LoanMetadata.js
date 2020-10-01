@@ -1,4 +1,4 @@
-import { toShortDate, toShortDateTime } from '@api/date';
+import { toShortDateTime } from '@api/date';
 import { LocationsLink } from '@components/backoffice/buttons/ViewDetailsButtons/LocationsLink';
 import { PatronDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/PatronDetailsLink';
 import {
@@ -16,6 +16,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Grid, Icon, Label } from 'semantic-ui-react';
 import Overridable from 'react-overridable';
+import { DateTime } from 'luxon';
 
 export class LoanMetadata extends Component {
   getPickupLocation(metadata) {
@@ -97,11 +98,12 @@ export class LoanMetadata extends Component {
 
   prepareRightData(data) {
     const { cancel_reason: reason, state } = data.metadata;
-    const toShortDateOpt = date => (isFinite(date) ? toShortDate(date) : '-');
     const rows = [
       {
         name: 'Transaction date',
-        value: toShortDateTime(data.metadata.transaction_date),
+        value: toShortDateTime(
+          DateTime.fromISO(data.metadata.transaction_date)
+        ),
       },
     ];
     if (
@@ -110,24 +112,24 @@ export class LoanMetadata extends Component {
       rows.push(
         {
           name: 'Period of interest starts',
-          value: toShortDateTime(data.metadata.request_start_date),
+          value: data.metadata.request_start_date,
         },
         {
           name: 'Period of interest ends',
-          value: toShortDate(data.metadata.request_expire_date),
+          value: data.metadata.request_expire_date,
         }
       );
     } else {
       rows.push(
         {
           name: 'Start date',
-          value: toShortDateOpt(data.metadata.start_date),
+          value: data.metadata.start_date,
         },
         {
           name: 'End date',
           value: (
             <>
-              {toShortDateOpt(data.metadata.end_date)}
+              {data.metadata.end_date}
               {data.metadata.is_overdue && <Icon name="warning" />}
             </>
           ),

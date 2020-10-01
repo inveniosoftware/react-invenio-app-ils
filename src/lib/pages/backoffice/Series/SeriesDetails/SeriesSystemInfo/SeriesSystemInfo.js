@@ -3,6 +3,7 @@ import { CreatedBy, UpdatedBy } from '@components/backoffice/ChangedBy';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { DateTime } from 'luxon';
 
 export class SeriesSystemInfo extends Component {
   prepareData = () => {
@@ -10,11 +11,11 @@ export class SeriesSystemInfo extends Component {
     let rows = [
       {
         name: 'Created',
-        value: toShortDateTime(series.created),
+        value: toShortDateTime(DateTime.fromISO(series.created)),
       },
       {
         name: 'Last updated',
-        value: toShortDateTime(series.updated),
+        value: toShortDateTime(DateTime.fromISO(series.updated)),
       },
     ];
 

@@ -1,4 +1,4 @@
-import { fromISO, toShortDate } from '@api/date';
+import { toShortDate } from '@api/date';
 import { LoanIcon } from '@components/backoffice/icons';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { invenioConfig } from '@config';
@@ -115,14 +115,16 @@ class CreateLoan extends React.Component {
 
   isSelectionValid = () => {
     const { startDate, endDate } = this.state;
-    return startDate && endDate && fromISO(startDate) < fromISO(endDate);
+    return (
+      startDate &&
+      endDate &&
+      DateTime.fromISO(startDate) < DateTime.fromISO(endDate)
+    );
   };
 
   handleCreateLoan = () => {
-    const { startDate: sd, endDate: ed } = this.state;
+    const { startDate, endDate } = this.state;
     const { borrowingRequestPatronLoanCreate, brwReq } = this.props;
-    const startDate = fromISO(sd);
-    const endDate = fromISO(ed);
     borrowingRequestPatronLoanCreate(brwReq.pid, startDate, endDate);
     this.handleCloseModal();
   };
@@ -260,11 +262,11 @@ export default class BorrowingRequestPatronLoan extends React.Component {
     const rightTable = [
       {
         name: 'Start date',
-        value: loanStartDate ? toShortDate(loanStartDate) : '-',
+        value: loanStartDate ? loanStartDate : '-',
       },
       {
         name: 'End date',
-        value: loanEndDate ? toShortDate(loanEndDate) : '-',
+        value: loanEndDate ? loanEndDate : '-',
       },
     ];
     return (

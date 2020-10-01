@@ -1,11 +1,9 @@
-import { fromISO } from '@api/date';
 import { orderSerializer, vendorSerializer } from './serializers';
 
 const stringDateTime = '2018-01-01T11:05:00+01:00';
 
 describe('Order request/response serializers tests', () => {
   const stringDate = '2018-11-22';
-  const objDate = fromISO(stringDate);
   const price = {
     value: 10.5,
     currency: 'CHF',
@@ -66,7 +64,7 @@ describe('Order request/response serializers tests', () => {
     });
 
     expect(serialized).toEqual({
-      created: fromISO(stringDateTime),
+      created: stringDateTime,
       id: 123,
       links: 'test',
       metadata: {
@@ -76,71 +74,23 @@ describe('Order request/response serializers tests', () => {
           type: 'user_id',
           value: '1',
         },
-        received_date: objDate,
-        expected_delivery_date: objDate,
+        received_date: stringDate,
+        expected_delivery_date: stringDate,
         funds: ['abc'],
         grand_total: price,
         grand_total_main_currency: price,
         notes: 'abc',
-        order_date: objDate,
+        order_date: stringDate,
         order_lines: orderLines,
         payment: {
           ...payment,
-          debit_date: objDate,
+          debit_date: stringDate,
         },
         status: 'RECEIVED',
         vendor_pid: '1',
       },
       pid: '123',
-      updated: fromISO(stringDateTime),
-    });
-  });
-
-  it('should serialize all fields for the request', () => {
-    const serialized = orderSerializer.toJSON({
-      pid: '123',
-      cancel_reason: 'abc',
-      created_by: {
-        type: 'user_id',
-        value: '1',
-      },
-      received_date: objDate,
-      expected_delivery_date: objDate,
-      funds: ['abc'],
-      grand_total: price,
-      grand_total_main_currency: price,
-      notes: 'abc',
-      order_date: objDate,
-      order_lines: orderLines,
-      payment: {
-        ...payment,
-        debit_date: objDate,
-      },
-      status: 'RECEIVED',
-      vendor_pid: '1',
-    });
-
-    expect(serialized).toEqual({
-      pid: '123',
-      cancel_reason: 'abc',
-      created_by: {
-        type: 'user_id',
-        value: '1',
-      },
-      received_date: stringDate,
-      expected_delivery_date: stringDate,
-      funds: ['abc'],
-      grand_total: price,
-      grand_total_main_currency: price,
-      notes: 'abc',
-      order_date: stringDate,
-      order_lines: orderLines,
-      payment: {
-        ...payment,
-        debit_date: stringDate,
-      },
-      status: 'RECEIVED',
-      vendor_pid: '1',
+      updated: stringDateTime,
     });
   });
 });
@@ -163,7 +113,7 @@ describe('Vendor response serializer tests', () => {
     });
 
     expect(serialized).toEqual({
-      created: fromISO(stringDateTime),
+      created: stringDateTime,
       id: 123,
       links: 'test',
       metadata: {
@@ -175,7 +125,7 @@ describe('Vendor response serializer tests', () => {
         notes: 'Test',
       },
       pid: '123',
-      updated: fromISO(stringDateTime),
+      updated: stringDateTime,
     });
   });
 });

@@ -1,4 +1,3 @@
-import { fromISO } from '@api/date';
 import { serializer } from './serializer';
 
 const stringDate = '2018-01-01T11:05:00+01:00';
@@ -14,8 +13,8 @@ describe('Series object serialization', () => {
 
     expect(serialized).toEqual({
       id: 123,
-      created: fromISO(stringDate),
-      updated: fromISO(stringDate),
+      created: stringDate,
+      updated: stringDate,
     });
   });
 
@@ -36,8 +35,8 @@ describe('Series object serialization', () => {
     expect(serialized).toEqual({
       pid: '123',
       id: 123,
-      updated: fromISO(stringDate),
-      created: fromISO(stringDate),
+      updated: stringDate,
+      created: stringDate,
       links: 'test',
       metadata: {
         pid: '123',

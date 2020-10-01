@@ -1,4 +1,3 @@
-import { fromISO, toShortDate } from '@api/date';
 import { DatePicker } from '@components/DatePicker';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
@@ -34,10 +33,10 @@ export class DateInputField extends React.Component {
           name={fieldPath}
           placeholder={placeholder}
           error={props.error}
-          defaultValue={toShortDate(props.value)}
+          defaultValue={props.value}
           handleBlur={props.form.handleBlur}
           handleDateChange={(value, name) => {
-            props.onChange(fromISO(value), name);
+            props.onChange(value, name);
             this.cleanValueIfEmpty(value, props);
           }}
         />
@@ -67,4 +66,5 @@ DateInputField.propTypes = {
 DateInputField.defaultProps = {
   label: '',
   placeholder: '',
+  required: false,
 };

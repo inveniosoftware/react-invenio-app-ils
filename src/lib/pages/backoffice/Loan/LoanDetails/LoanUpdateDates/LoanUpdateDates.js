@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Divider, Form, Icon, Message, Modal } from 'semantic-ui-react';
 import { DatePicker } from '@components/DatePicker';
-import { fromISO, toShortDate } from '@api/date';
+import { toShortDate } from '@api/date';
 import { DateTime } from 'luxon';
 import { PropTypes } from 'prop-types';
 import { invenioConfig } from '@config';
@@ -59,14 +59,13 @@ export default class LoanUpdateDates extends Component {
     const {
       loan: { metadata },
     } = this.props;
-    const createDate = str => (str ? toShortDate(str) : null);
     this.setState({
       modalOpen: true,
       // Reset form state when modal is opened
-      startDate: createDate(metadata.start_date),
-      endDate: createDate(metadata.end_date),
-      requestStartDate: createDate(metadata.request_start_date),
-      requestExpireDate: createDate(metadata.request_expire_date),
+      startDate: metadata.start_date,
+      endDate: metadata.end_date,
+      requestStartDate: metadata.request_start_date,
+      requestExpireDate: metadata.request_expire_date,
     });
   };
 
@@ -86,7 +85,7 @@ export default class LoanUpdateDates extends Component {
     const active = this.isActiveOrCompleted();
     const start = active ? startDate : requestStartDate;
     const end = active ? endDate : requestExpireDate;
-    return start && end && fromISO(start) < fromISO(end);
+    return start && end && DateTime.fromISO(start) < DateTime.fromISO(end);
   };
 
   handleUpdateLoanDates = () => {

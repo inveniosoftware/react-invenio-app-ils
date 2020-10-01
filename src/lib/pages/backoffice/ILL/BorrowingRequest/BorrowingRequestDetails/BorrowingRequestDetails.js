@@ -1,4 +1,3 @@
-import { toShortDate } from '@api/date';
 import { CopyButton } from '@components/CopyButton';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
@@ -65,7 +64,7 @@ class BorrowingRequestHeader extends React.Component {
         )}
         <br />
         <label>Request date</label>{' '}
-        {brwReq.request_date ? toShortDate(brwReq.request_date) : '-'}
+        {brwReq.request_date ? brwReq.request_date : '-'}
       </>
     );
     return (
