@@ -53,8 +53,14 @@ Header Overrides - REACT-INVENIO-APP-ILS
     }
   }
 
-  .header.sub.fs-headline-subheader {
-    color: white;
+  .header.sub {
+    &.fs-headline-subheader {
+      color: white;
+    }
+
+    &:before {
+      background-color: inherit;
+    }
   }
 
   .ui.container.footer-lower {
@@ -92,5 +98,10 @@ Header Overrides - REACT-INVENIO-APP-ILS
       .sub.header {
         text-transform: uppercase;
       }
-    }}
+    }
+  }
+
+  .header.sub:before {
+    background-color: inherit;
+  }
 }
