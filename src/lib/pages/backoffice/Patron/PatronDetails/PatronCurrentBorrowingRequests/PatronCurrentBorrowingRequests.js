@@ -58,6 +58,8 @@ export default class PatronCurrentBorrowingRequests extends Component {
           title={row.metadata.document.title}
           edition={row.metadata.document.edition}
           publicationYear={row.metadata.document.publication_year}
+          truncate
+          width={300}
         />
       </Link>
     );

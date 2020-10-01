@@ -17,7 +17,9 @@
     "format": "prettier --config ./.prettierrc --ignore-path ./.prettierignore --write \"**/*.js\"",
     "watch": "NODE_ENV=production rollup --watch -c"
   },
-  "dependencies": {},
+  "dependencies": {
+    "jest-canvas-mock": "^2.3.0"
+  },
   "peerDependencies": {
     "@babel/runtime": "^7.9.2",
     "axios": "^0.19.2",

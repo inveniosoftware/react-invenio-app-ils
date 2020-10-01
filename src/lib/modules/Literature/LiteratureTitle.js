@@ -47,6 +47,7 @@ class LiteratureTitle extends Component {
       showOnlyTitle,
       truncate,
       extraCSS,
+      width,
     } = this.props;
     const cmp = (
       <div className={`document-title ${extraCSS}`}>
@@ -58,7 +59,7 @@ class LiteratureTitle extends Component {
     );
 
     return truncate ? (
-      <Truncate lines={2} ellipsis="... ">
+      <Truncate lines={2} width={width} ellipsis="... ">
         {cmp}
       </Truncate>
     ) : (
@@ -73,6 +74,7 @@ LiteratureTitle.propTypes = {
   publicationYear: PropTypes.string,
   showOnlyTitle: PropTypes.bool,
   truncate: PropTypes.bool,
+  width: PropTypes.number,
   extraCSS: PropTypes.string,
 };
 
@@ -82,6 +84,7 @@ LiteratureTitle.defaultProps = {
   showOnlyTitle: false,
   truncate: false,
   extraCSS: '',
+  width: 0,
 };
 
 export default Overridable.component('LiteratureTitle', LiteratureTitle);
