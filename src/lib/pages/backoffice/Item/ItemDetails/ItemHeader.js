@@ -8,9 +8,41 @@ import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Header } from 'semantic-ui-react';
+import { Header, Label } from 'semantic-ui-react';
+import { invenioConfig } from '@config';
 
 export class ItemHeader extends Component {
+  statusLabel = () => {
+    const { data } = this.props;
+    let status = { value: 'on-shelf', text: 'On shelf' };
+    if (
+      invenioConfig.ITEMS.canCirculateStatuses.includes(data.metadata.status)
+    ) {
+      if (
+        invenioConfig.CIRCULATION.loanActiveStates.includes(
+          data.metadata.circulation.state
+        )
+      ) {
+        status = invenioConfig.CIRCULATION.statuses.find(
+          x => x.value === data.metadata.circulation.state
+        );
+      }
+    } else {
+      status = invenioConfig.ITEMS.statuses.find(
+        x => x.value === data.metadata.status
+      );
+    }
+    const lowercaseDashed = value => {
+      value = value.toLowerCase().replace(/_/g, '-');
+      return value;
+    };
+    return (
+      <Label className={`item-status-${lowercaseDashed(status.value)}`}>
+        {status.text}
+      </Label>
+    );
+  };
+
   render() {
     const { data } = this.props;
     const recordInfo = (
@@ -40,6 +72,7 @@ export class ItemHeader extends Component {
               showOnlyTitle
               truncate
             />
+            {this.statusLabel()}
           </>
         }
         subTitle={

@@ -144,21 +144,12 @@ export default class ItemCirculation extends Component {
     );
   };
 
-  statusLabel = circulationState => {
-    return (
-      this.hasActiveLoan(circulationState) && (
-        <Label color="purple">ON LOAN</Label>
-      )
-    );
-  };
-
   render() {
     const {
       data: { metadata },
     } = this.props;
 
     const circulationState = _get(metadata, 'circulation.state');
-    const cmpItemStatusLabel = this.statusLabel(circulationState);
     const cmpItemStatusMessage = this.hasActiveLoan(circulationState) ? (
       <ItemStatusMessageOnLoan circulation={metadata.circulation} />
     ) : (
@@ -168,7 +159,7 @@ export default class ItemCirculation extends Component {
     return (
       <>
         <Header as="h3" attached="top">
-          Circulation {cmpItemStatusLabel}
+          Circulation
           <Label basic color="black" size="small">
             <Icon name="hourglass half" />
             {metadata.circulation_restriction}
