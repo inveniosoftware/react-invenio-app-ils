@@ -101,13 +101,14 @@ export class LocationDatePicker extends Component {
 }
 
 LocationDatePicker.propTypes = {
-  locationPid: PropTypes.string.isRequired,
-  handleDateChange: PropTypes.func.isRequired,
-  minDate: PropTypes.string.isRequired,
-  maxDate: PropTypes.string.isRequired,
   defaultValue: PropTypes.string,
+  handleDateChange: PropTypes.func.isRequired,
+  locationPid: PropTypes.string,
+  maxDate: PropTypes.string.isRequired,
+  minDate: PropTypes.string.isRequired,
 };
 
 LocationDatePicker.defaultProps = {
   defaultValue: '',
+  locationPid: null,
 };
