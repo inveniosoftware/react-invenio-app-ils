@@ -8,8 +8,8 @@ import { SortByElement } from './overridden/SearchSortByElement';
 import { SortByElementMobile } from './overridden/SearchSortByElementMobile';
 import SearchResultsList from './SearchResultsList';
 import SearchEmptyResults from './SearchEmptyResults';
-import { Error as IlsError } from '@components/Error';
 import { CardBucketAggregationValueElementOverrides } from './overridden/CardBucketAggregationValueElement';
+import { SearchError } from '@modules/SearchControls/SearchError';
 
 export const SearchControlsOverridesMap = {
   'BucketAggregationValues.element.card': CardBucketAggregationValueElementOverrides,
@@ -18,7 +18,7 @@ export const SearchControlsOverridesMap = {
   'BucketAggregationValues.element.available-for-loan': AvailableLoanBucketAggregationValues,
   SearchBar: SearchBar,
   'EmptyResults.element': SearchEmptyResults,
-  'Error.element': IlsError,
+  'Error.element': SearchError,
   ResultsList: SearchResultsList,
   'SortBy.element.mobile': SortByElementMobile,
   'SortBy.element.desktop': SortByElement,

@@ -1,20 +1,31 @@
-import { Header, Icon, Segment } from 'semantic-ui-react';
 import React from 'react';
 import PropTypes from 'prop-types';
+import _get from 'lodash/get';
+import { EmailLink } from '@components/EmailLink';
+import { invenioConfig } from '@config';
+import { SearchMessage } from '@modules/SearchControls/SearchMessage';
 
 export const SearchError = ({ error }) => {
-  return (
-    <Segment placeholder textAlign="center">
-      <Header icon>
-        <Icon name="warning" />
-        Oups! Something went wrong while fetching results.
-      </Header>
-      <Header.Subheader>
-        Please try again later. If the problem persists, contact the technical
-        support.
-      </Header.Subheader>
-    </Segment>
-  );
+  if (_get(error, 'response.status') === 400) {
+    return (
+      <SearchMessage title="Unrecognized search query." icon="question">
+        The query you entered was not recognized.
+      </SearchMessage> // When implemented, add link to documentation
+    );
+  } else {
+    return (
+      <SearchMessage
+        title="Something went wrong while fetching results."
+        icon="warning"
+      >
+        Please try again later. If the problem persists,{' '}
+        <EmailLink email={invenioConfig.APP.supportEmail}>
+          contact the technical support
+        </EmailLink>
+        .
+      </SearchMessage>
+    );
+  }
 };
 
 SearchError.propTypes = {
