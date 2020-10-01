@@ -33,7 +33,12 @@ describe('HitsSearch tests', () => {
     };
 
     component = mount(
-      <HitsSearch delay={0} query={mockedApi} serializer={serializer} />
+      <HitsSearch
+        delay={0}
+        query={mockedApi}
+        serializer={serializer}
+        alwaysWildcard={false}
+      />
     );
     component.find('input').simulate('change', {
       target: { value: 'test' },

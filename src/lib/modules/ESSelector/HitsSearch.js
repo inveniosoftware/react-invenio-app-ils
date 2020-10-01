@@ -75,10 +75,11 @@ export class HitsSearch extends Component {
     } = this.props;
 
     const deb = debounce(async searchQuery => {
+      let results, hasError;
       try {
         const queryString = alwaysWildcard ? searchQuery + '*' : searchQuery;
         const response = await queryFunc(queryString);
-        let results = [];
+        results = [];
 
         if (serializer) {
           for (let hit of response.data.hits) {
@@ -91,23 +92,21 @@ export class HitsSearch extends Component {
           results = response.data.hits;
         }
 
-        const { value, query } = this.state;
-        if (value !== query) {
-          this.onSearchChange(null, { value: value });
-        }
-
-        this.setState({
-          isLoading: false,
-          hasError: false,
-          results: results,
-        });
+        hasError = false;
       } catch (error) {
-        this.setState({
-          isLoading: false,
-          hasError: true,
-          results: [serializeError(error)],
-        });
+        results = [serializeError(error)];
+        hasError = true;
       }
+
+      this.setState(({ value }) =>
+        value === searchQuery
+          ? {
+              isLoading: false,
+              hasError,
+              results,
+            }
+          : {}
+      );
     }, delay);
 
     return deb(searchQuery);
@@ -119,12 +118,23 @@ export class HitsSearch extends Component {
       onSearchChange(value);
     }
     if (value.length < minCharacters) {
-      this.setState({ value });
+      this.setState({ value, open: false });
       return;
     }
 
-    this.setState({ isLoading: true, value: value, query: value, open: true });
+    this.setState({ isLoading: true, value: value, results: [], open: true });
     this.search(value);
+  };
+
+  onFocus = (event, { value }) => {
+    const { minCharacters } = this.props;
+    if (value.length >= minCharacters) {
+      this.setState({ open: true });
+    }
+  };
+
+  onBlur = () => {
+    this.setState({ open: false });
   };
 
   renderResults = ({ id, title, description, extra, ...props }) => {
@@ -175,6 +185,8 @@ export class HitsSearch extends Component {
         minCharacters={minCharacters}
         onResultSelect={this.onSelectResult}
         onSearchChange={this.onSearchChange}
+        onBlur={this.onBlur}
+        onFocus={this.onFocus}
         noResultsMessage={this.renderNoResults()}
         results={results}
         value={propsValue || value}
@@ -206,6 +218,7 @@ HitsSearch.propTypes = {
 };
 
 HitsSearch.defaultProps = {
+  alwaysWildcard: true,
   minCharacters: 3,
   delay: 250,
 };
