@@ -88,19 +88,17 @@ export default class ESSelectorLoanRequest extends Component {
     );
     const disabled = _isEmpty(selections);
     return (
-      <div>
-        <Segment.Inline>
-          <div>Optionally, select a limit date for your request</div>
-          <LocationDatePicker
-            locationPid={locationPid}
-            disabledInput={disabled}
-            minDate={toShortDate(today)}
-            maxDate={toShortDate(max)}
-            placeholder="Request limit date"
-            handleDateChange={this.handleRequestEndDateChange}
-          />
-        </Segment.Inline>
-      </div>
+      <Form.Field>
+        <label>Optionally, select a limit date for your request</label>
+        <LocationDatePicker
+          locationPid={locationPid}
+          disabledInput={disabled}
+          minDate={toShortDate(today)}
+          maxDate={toShortDate(max)}
+          placeholder="Request limit date"
+          handleDateChange={this.handleRequestEndDateChange}
+        />
+      </Form.Field>
     );
   };
 

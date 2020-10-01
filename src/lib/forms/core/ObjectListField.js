@@ -74,5 +74,9 @@ ObjectListField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   onItemChange: PropTypes.func.isRequired,
   keyField: PropTypes.string.isRequired,
-  activeIndex: PropTypes.number.isRequired,
+  activeIndex: PropTypes.number,
+};
+
+ObjectListField.defaultProps = {
+  activeIndex: null,
 };

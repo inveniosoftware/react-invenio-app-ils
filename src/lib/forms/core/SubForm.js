@@ -53,22 +53,24 @@ export class SubForm extends Component {
 
 SubForm.propTypes = {
   basePath: PropTypes.string.isRequired,
+  initialErrors: PropTypes.object,
+  initialStatus: PropTypes.object,
   initialValues: PropTypes.object,
+  notRemovable: PropTypes.bool,
   onRemove: PropTypes.func,
   onSubmit: PropTypes.func.isRequired,
-  submitButtonText: PropTypes.string,
-  initialErrors: PropTypes.array,
-  initialStatus: PropTypes.string,
-  validationSchema: PropTypes.object,
   render: PropTypes.func,
-  notRemovable: PropTypes.bool,
+  submitButtonText: PropTypes.string,
+  validationSchema: PropTypes.object,
 };
 
 SubForm.defaultProps = {
-  submitButtonText: 'Save',
-  initialValues: null,
-  onRemove: null,
   initialErrors: null,
   initialStatus: null,
+  initialValues: null,
   notRemovable: false,
+  onRemove: null,
+  render: null,
+  submitButtonText: 'Save',
+  validationSchema: null,
 };
