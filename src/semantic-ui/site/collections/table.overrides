@@ -38,6 +38,13 @@ Table Overrides - REACT-INVENIO-APP-ILS
 
 @{fs-parent-selector},
 @{bo-parent-selector} {
+
+  .document-metadata-tabs{
+    .ui.table{
+      background: transparent;
+    }
+  }
+
   .ui.table {
     border: 0;
 

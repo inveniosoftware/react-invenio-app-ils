@@ -27,7 +27,7 @@ export class DocumentStats extends Component {
     const pidType = recordToPidType(document);
     try {
       this.cancellableFetchStats = withCancel(
-        statsApi.recordStats(pidType, document.pid)
+        statsApi.recordStats(pidType, document.metadata.pid)
       );
       const response = await this.cancellableFetchStats.promise;
       const views = _get(response.data, 'views', {
@@ -56,10 +56,10 @@ export class DocumentStats extends Component {
                 <Icon name="eye" />
               </Table.Cell>
               <Table.Cell>
-                Views <strong>{views.count}</strong>
+                Views: <strong>{views.count}</strong>
               </Table.Cell>
               <Table.Cell>
-                Unique Views <strong>{views.unique_count}</strong>
+                Unique Views: <strong>{views.unique_count}</strong>
               </Table.Cell>
             </Table.Row>
 
@@ -69,10 +69,10 @@ export class DocumentStats extends Component {
                   <Icon name="download" />
                 </Table.Cell>
                 <Table.Cell>
-                  Downloads <strong>{downloads.count}</strong>
+                  Downloads: <strong>{downloads.count}</strong>
                 </Table.Cell>
                 <Table.Cell>
-                  Unique Downloads <strong>{downloads.unique_count}</strong>
+                  Unique Downloads: <strong>{downloads.unique_count}</strong>
                 </Table.Cell>
               </Table.Row>
             )}

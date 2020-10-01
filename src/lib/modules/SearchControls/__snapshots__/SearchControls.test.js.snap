@@ -11,8 +11,8 @@ exports[`SearchControls tests should load the SearchControls component 1`] = `
       columns={3}
     >
       <GridColumn
-        computer={6}
-        largeScreen={5}
+        computer={4}
+        largeScreen={4}
       >
         <Grid
           columns={2}
@@ -39,7 +39,7 @@ exports[`SearchControls tests should load the SearchControls component 1`] = `
       </GridColumn>
       <GridColumn
         className="search-pagination-column"
-        computer={4}
+        computer={6}
         largeScreen={6}
         textAlign="center"
       >
@@ -52,7 +52,7 @@ exports[`SearchControls tests should load the SearchControls component 1`] = `
       </GridColumn>
       <GridColumn
         className="search-sort-options-column"
-        computer={6}
+        computer={5}
         largeScreen={5}
         textAlign="right"
       >

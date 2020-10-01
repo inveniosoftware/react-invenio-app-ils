@@ -8,7 +8,7 @@ export class DocumentEItems extends Component {
   showAll = () => {
     const { showTab } = this.props;
     showTab(5);
-    const element = document.getElementById('document-metadata-tabs');
+    const element = document.getElementById('document-metadata-section');
     element.scrollIntoView({ behavior: 'smooth' });
   };
 

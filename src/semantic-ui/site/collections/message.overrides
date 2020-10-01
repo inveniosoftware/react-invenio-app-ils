@@ -5,6 +5,7 @@ Message Overrides - REACT-INVENIO-APP-ILS
 .frontsite {
   .ui.message.document-stats-message {
     margin-top: 2em;
+    margin-bottom: 2em;
     padding: 0;
   }
 }
