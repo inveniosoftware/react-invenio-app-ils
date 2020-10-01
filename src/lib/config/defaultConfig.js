@@ -159,15 +159,30 @@ export const RECORDS_CONFIG = {
     loanRequestStates: ['PENDING'],
     requestDuration: 60,
     statuses: [
-      { value: 'ITEM_RETURNED', text: 'Item returned' },
-      { value: 'ITEM_AT_DESK', text: 'Item at desk' },
-      { value: 'ITEM_ON_LOAN', text: 'Item on loan' },
+      {
+        value: 'ITEM_RETURNED',
+        text: 'Item returned',
+      },
+      {
+        value: 'ITEM_AT_DESK',
+        text: 'Item at desk',
+      },
+      {
+        value: 'ITEM_ON_LOAN',
+        text: 'Item on loan',
+      },
       {
         value: 'ITEM_IN_TRANSIT_FOR_PICKUP',
         text: 'Item in transit for pickup',
       },
-      { value: 'ITEM_IN_TRANSIT_TO_HOUSE', text: 'Item in transit to house' },
-      { value: 'CANCELLED', text: 'Cancelled' },
+      {
+        value: 'ITEM_IN_TRANSIT_TO_HOUSE',
+        text: 'Item in transit to house',
+      },
+      {
+        value: 'CANCELLED',
+        text: 'Cancelled',
+      },
       { value: 'PENDING', text: 'Pending' },
     ],
   },
@@ -450,10 +465,19 @@ export const RECORDS_CONFIG = {
     ],
     mediums: ITEM_MEDIUMS,
     statuses: [
-      { value: 'CAN_CIRCULATE', text: 'Can circulate' },
-      { value: 'FOR_REFERENCE_ONLY', text: 'For reference only' },
+      {
+        value: 'CAN_CIRCULATE',
+        text: 'Can circulate',
+      },
+      {
+        value: 'FOR_REFERENCE_ONLY',
+        text: 'For reference only',
+      },
       { value: 'MISSING', text: 'Missing' },
-      { value: 'IN_BINDING', text: 'In binding' },
+      {
+        value: 'IN_BINDING',
+        text: 'In binding',
+      },
       { value: 'SCANNING', text: 'Scanning' },
     ],
     search: {
