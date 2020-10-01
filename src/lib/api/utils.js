@@ -2,7 +2,6 @@ import { invenioConfig } from '@config';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import _set from 'lodash/set';
-import { fromISO } from './date';
 
 export const prepareDateQuery = (field, date, dateFrom, dateTo) => {
   if (
@@ -95,7 +94,7 @@ export const recordResponseSerializer = (hit, customSerializer = null) => {
     DATETIME_FIELDS.forEach(field => {
       const datetimeStr = _get(hit, field);
       if (datetimeStr) {
-        _set(result, field, fromISO(datetimeStr));
+        _set(result, field, datetimeStr);
       }
     });
 

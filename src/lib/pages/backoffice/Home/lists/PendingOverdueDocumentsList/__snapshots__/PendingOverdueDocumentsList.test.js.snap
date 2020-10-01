@@ -63,7 +63,7 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
     Object {
       "hits": Array [
         Object {
-          "created": "2018-01-01T10:05:00.000Z",
+          "created": "2018-01-01T11:05:00+01:00",
           "id": 1,
           "metadata": Object {
             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
@@ -87,10 +87,10 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
             "title": "The Gulf: The Making of An American Sea",
           },
           "pid": "document1",
-          "updated": "2018-01-01T10:05:00.000Z",
+          "updated": "2018-01-01T11:05:00+01:00",
         },
         Object {
-          "created": "2018-01-01T10:05:00.000Z",
+          "created": "2018-01-01T11:05:00+01:00",
           "id": 2,
           "metadata": Object {
             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
@@ -113,7 +113,7 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
             "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
           },
           "pid": "document2",
-          "updated": "2018-01-01T10:05:00.000Z",
+          "updated": "2018-01-01T11:05:00+01:00",
         },
       ],
       "total": 2,
@@ -167,7 +167,7 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
             data={
               Array [
                 Object {
-                  "created": "2018-01-01T10:05:00.000Z",
+                  "created": "2018-01-01T11:05:00+01:00",
                   "id": 1,
                   "metadata": Object {
                     "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
@@ -191,10 +191,10 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
                     "title": "The Gulf: The Making of An American Sea",
                   },
                   "pid": "document1",
-                  "updated": "2018-01-01T10:05:00.000Z",
+                  "updated": "2018-01-01T11:05:00+01:00",
                 },
                 Object {
-                  "created": "2018-01-01T10:05:00.000Z",
+                  "created": "2018-01-01T11:05:00+01:00",
                   "id": 2,
                   "metadata": Object {
                     "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
@@ -217,7 +217,7 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
                     "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
                   },
                   "pid": "document2",
-                  "updated": "2018-01-01T10:05:00.000Z",
+                  "updated": "2018-01-01T11:05:00+01:00",
                 },
               ]
             }
@@ -455,7 +455,7 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
                   rows={
                     Array [
                       Object {
-                        "created": "2018-01-01T10:05:00.000Z",
+                        "created": "2018-01-01T11:05:00+01:00",
                         "id": 1,
                         "metadata": Object {
                           "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
@@ -479,10 +479,10 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
                           "title": "The Gulf: The Making of An American Sea",
                         },
                         "pid": "document1",
-                        "updated": "2018-01-01T10:05:00.000Z",
+                        "updated": "2018-01-01T11:05:00+01:00",
                       },
                       Object {
-                        "created": "2018-01-01T10:05:00.000Z",
+                        "created": "2018-01-01T11:05:00+01:00",
                         "id": 2,
                         "metadata": Object {
                           "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
@@ -505,7 +505,7 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
                           "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
                         },
                         "pid": "document2",
-                        "updated": "2018-01-01T10:05:00.000Z",
+                        "updated": "2018-01-01T11:05:00+01:00",
                       },
                     ]
                   }

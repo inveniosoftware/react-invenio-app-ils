@@ -1,4 +1,4 @@
-import { fromISO } from '@api/date';
+import { DateTime } from 'luxon';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { List, Popup } from 'semantic-ui-react';
@@ -31,10 +31,12 @@ export class LoanAvailability extends Component {
           <List.Content>
             Available for loan from{' '}
             <b>
-              {fromISO(circulation.next_available_date).toLocaleString({
-                month: 'long',
-                day: 'numeric',
-              })}
+              {DateTime.fromISO(circulation.next_available_date).toLocaleString(
+                {
+                  month: 'long',
+                  day: 'numeric',
+                }
+              )}
             </b>
           </List.Content>
         </List.Item>

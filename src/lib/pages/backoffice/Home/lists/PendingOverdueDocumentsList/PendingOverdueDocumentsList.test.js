@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Settings } from 'luxon';
-import { fromISO } from '@api/date';
 import { BackOfficeRoutes } from '@routes/urls';
 import PendingOverdueDocumentsList from './PendingOverdueDocumentsList';
 import * as testData from '@testData/documents.json';
@@ -12,7 +11,7 @@ let mockViewDetails = jest.fn();
 BackOfficeRoutes.documentDetailsFor = jest.fn(pid => `url/${pid}`);
 
 Settings.defaultZoneName = 'utc';
-const stringDate = fromISO('2018-01-01T11:05:00+01:00');
+const stringDate = '2018-01-01T11:05:00+01:00';
 
 describe('PendingOverdueDocumentsList tests', () => {
   let component;

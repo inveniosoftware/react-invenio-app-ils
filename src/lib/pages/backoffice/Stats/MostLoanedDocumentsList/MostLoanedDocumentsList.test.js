@@ -2,9 +2,6 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Settings } from 'luxon';
 import MostLoanedDocumentsList from './MostLoanedDocumentsList';
-import { fromISO } from '@api/date';
-import history from '@history';
-import { BackOfficeRoutes } from '@routes/urls';
 import { MemoryRouter } from 'react-router';
 import * as testData from '@testData/documents.json';
 
@@ -12,7 +9,7 @@ jest.mock('@components/backoffice/ExportSearchResults');
 jest.mock('@config');
 
 Settings.defaultZoneName = 'utc';
-const stringDate = fromISO('2018-01-01T11:05:00+01:00');
+const stringDate = '2018-01-01T11:05:00+01:00';
 
 describe('MostLoanedDocumentsList tests', () => {
   let component;

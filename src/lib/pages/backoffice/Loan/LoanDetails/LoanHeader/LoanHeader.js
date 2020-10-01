@@ -9,6 +9,7 @@ import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, Label } from 'semantic-ui-react';
+import { DateTime } from 'luxon';
 
 export default class LoanHeader extends Component {
   render() {
@@ -33,7 +34,8 @@ export default class LoanHeader extends Component {
         <label className="muted">Loan</label> {data.metadata.pid}{' '}
         <CopyButton text={data.metadata.pid} />
         <br />
-        <label className="muted">Created on</label> {toShortDate(data.created)}
+        <label className="muted">Created on</label>{' '}
+        {toShortDate(DateTime.fromISO(data.created))}
       </>
     );
     return (

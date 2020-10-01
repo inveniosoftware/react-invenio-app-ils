@@ -7,6 +7,7 @@ import { toShortDate } from '@api/date';
 import { CopyButton } from '@components/CopyButton';
 import { DocumentRequestIcon } from '@components/backoffice/icons';
 import { DetailsHeader } from '@components/backoffice/DetailsHeader';
+import { DateTime } from 'luxon';
 
 export default class DocumentRequestHeader extends Component {
   renderStatus(status) {
@@ -29,7 +30,8 @@ export default class DocumentRequestHeader extends Component {
         <Label className="muted">Request</Label> {data.metadata.pid}
         <CopyButton text={data.metadata.pid} />
         <br />
-        <Label className="muted">Created on</Label> {toShortDate(data.created)}
+        <Label className="muted">Created on</Label>{' '}
+        {toShortDate(DateTime.fromISO(data.created))}
       </>
     );
   };

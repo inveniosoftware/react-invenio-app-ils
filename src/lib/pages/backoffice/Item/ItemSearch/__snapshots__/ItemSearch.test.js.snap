@@ -63,7 +63,7 @@ exports[`ItemsSearch ResultsList tests should render a list of results 1`] = `
   data={
     Array [
       Object {
-        "created": "2018-01-01T10:05:00.000Z",
+        "created": "2018-01-01T11:05:00+01:00",
         "id": 987,
         "metadata": Object {
           "barcode": "9865745223",
@@ -192,7 +192,7 @@ exports[`ItemsSearch ResultsList tests should render a list of results 1`] = `
         rows={
           Array [
             Object {
-              "created": "2018-01-01T10:05:00.000Z",
+              "created": "2018-01-01T11:05:00+01:00",
               "id": 987,
               "metadata": Object {
                 "barcode": "9865745223",

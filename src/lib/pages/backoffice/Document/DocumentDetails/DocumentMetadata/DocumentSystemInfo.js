@@ -4,6 +4,7 @@ import { MetadataTable } from '@components/backoffice/MetadataTable';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { DateTime } from 'luxon';
 
 export class DocumentSystemInfo extends Component {
   renderInternalNotes = () => {
@@ -25,11 +26,11 @@ export class DocumentSystemInfo extends Component {
     let rows = [
       {
         name: 'Created',
-        value: toShortDateTime(document.created),
+        value: toShortDateTime(DateTime.fromISO(document.created)),
       },
       {
         name: 'Last updated',
-        value: toShortDateTime(document.updated),
+        value: toShortDateTime(DateTime.fromISO(document.updated)),
       },
     ];
 

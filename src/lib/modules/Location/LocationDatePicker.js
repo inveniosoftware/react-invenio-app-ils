@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { DatePicker } from '@components/DatePicker';
 import { locationApi } from '@api/locations';
-import { fromISO, toISODate } from '@api/date';
 import _isEmpty from 'lodash/isEmpty';
+import { DateTime } from 'luxon';
 
 export class LocationDatePicker extends Component {
   constructor(props) {
@@ -27,10 +27,10 @@ export class LocationDatePicker extends Component {
   };
 
   disableAllDates = (minDate, maxDate, disabled) => {
-    let date = fromISO(minDate);
-    const dateMax = fromISO(maxDate);
+    let date = DateTime.fromISO(minDate);
+    const dateMax = DateTime.fromISO(maxDate);
     while (date <= dateMax) {
-      const dateISO = toISODate(date);
+      const dateISO = date.toISODate();
       disabled.push(dateISO);
       date = date.plus({ days: 1 });
     }
@@ -39,10 +39,10 @@ export class LocationDatePicker extends Component {
   disableClosures = (maxDate, minDate, data, disabled) => {
     const weekdays = data.metadata.opening_weekdays,
       exceptions = data.metadata.opening_exceptions;
-    let date = fromISO(minDate);
-    const dateMax = fromISO(maxDate);
+    let date = DateTime.fromISO(minDate);
+    const dateMax = DateTime.fromISO(maxDate);
     while (date <= dateMax) {
-      const dateISO = toISODate(date);
+      const dateISO = date.toISODate();
       let isOpen = weekdays[date.weekday - 1].is_open;
       exceptions.forEach(exception => {
         if (exception.start_date <= dateISO && dateISO <= exception.end_date) {

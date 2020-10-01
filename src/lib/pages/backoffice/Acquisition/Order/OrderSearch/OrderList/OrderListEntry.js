@@ -1,4 +1,3 @@
-import { toShortDate } from '@api/date';
 import { formatPrice } from '@api/utils';
 import { invenioConfig } from '@config';
 import { getDisplayVal } from '@config';
@@ -20,9 +19,7 @@ export default class OrderListEntry extends Component {
     return (
       <>
         <Item.Description>
-          <Item.Meta>
-            Ordered: {toShortDate(order.metadata.order_date)}
-          </Item.Meta>
+          <Item.Meta>Ordered: {order.metadata.order_date}</Item.Meta>
         </Item.Description>
         <Item.Description>
           <label>status </label>
@@ -118,7 +115,7 @@ export default class OrderListEntry extends Component {
         {receivedDate && (
           <List.Item>
             <List.Content floated="right">
-              <strong>{toShortDate(receivedDate)}</strong>
+              <strong>{receivedDate}</strong>
             </List.Content>
             <List.Content>received</List.Content>
           </List.Item>
@@ -126,7 +123,7 @@ export default class OrderListEntry extends Component {
         {expectedDeliveryDate && (
           <List.Item>
             <List.Content floated="right">
-              <strong>{toShortDate(expectedDeliveryDate)}</strong>
+              <strong>{expectedDeliveryDate}</strong>
             </List.Content>
             <List.Content>expected</List.Content>
           </List.Item>

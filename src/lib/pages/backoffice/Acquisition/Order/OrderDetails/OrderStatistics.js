@@ -3,7 +3,6 @@ import { getDisplayVal } from '@config';
 import PropTypes from 'prop-types';
 import { Statistic } from 'semantic-ui-react';
 import { formatPrice } from '@api/utils';
-import { toShortDate } from '@api/date';
 
 export class OrderStatistics extends React.Component {
   renderStatusCancelled(status) {
@@ -23,7 +22,7 @@ export class OrderStatistics extends React.Component {
     return (
       <Statistic color="green">
         <Statistic.Label>Delivered</Statistic.Label>
-        <Statistic.Value>{toShortDate(order.received_date)}</Statistic.Value>
+        <Statistic.Value>{order.received_date}</Statistic.Value>
       </Statistic>
     );
   }
@@ -34,9 +33,7 @@ export class OrderStatistics extends React.Component {
     return (
       <Statistic color="yellow">
         <Statistic.Label>Expected delivery</Statistic.Label>
-        <Statistic.Value>
-          {toShortDate(order.expected_delivery_date)}
-        </Statistic.Value>
+        <Statistic.Value>{order.expected_delivery_date}</Statistic.Value>
       </Statistic>
     );
   }

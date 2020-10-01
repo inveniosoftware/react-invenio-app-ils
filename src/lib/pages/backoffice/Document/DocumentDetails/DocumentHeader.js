@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Header, Icon } from 'semantic-ui-react';
+import { DateTime } from 'luxon';
 
 export class DocumentHeader extends Component {
   render() {
@@ -29,7 +30,8 @@ export class DocumentHeader extends Component {
           </>
         )}
         <br />
-        <label className="muted">Created on</label> {toShortDate(data.created)}
+        <label className="muted">Created on</label>{' '}
+        {toShortDate(DateTime.fromISO(data.created))}
         <br />
         <RestrictedAccessLabel isRestricted={data.metadata.restricted} />
         <Link to={FrontSiteRoutes.documentDetailsFor(data.metadata.pid)}>

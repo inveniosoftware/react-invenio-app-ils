@@ -1,4 +1,3 @@
-import { toShortDate } from '@api/date';
 import { CopyButton } from '@components/CopyButton';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
@@ -67,7 +66,7 @@ class OrderHeader extends React.Component {
           </>
         )}
         <br />
-        <label>Order date</label> {toShortDate(data.metadata.order_date)}
+        <label>Order date</label> {data.metadata.order_date}
       </>
     );
     return (

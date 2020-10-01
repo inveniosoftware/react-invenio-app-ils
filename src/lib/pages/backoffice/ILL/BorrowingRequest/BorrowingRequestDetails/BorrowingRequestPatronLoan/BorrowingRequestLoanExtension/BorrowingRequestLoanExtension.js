@@ -1,4 +1,3 @@
-import { fromISO } from '@api/date';
 import { DatePicker } from '@components/DatePicker';
 import { InfoMessage } from '@components/InfoMessage';
 import { invenioConfig } from '@config';
@@ -31,7 +30,7 @@ export default class BorrowingRequestLoanExtension extends Component {
   acceptHandler = async (e, elem) => {
     const { brwReqPid, borrowingRequestLoanExtensionAccept } = this.props;
     const { acceptEndDate } = this.state;
-    const endDate = fromISO(acceptEndDate);
+    const endDate = acceptEndDate;
     borrowingRequestLoanExtensionAccept(brwReqPid, endDate);
     this.handleCloseModal();
   };

@@ -1,4 +1,3 @@
-import { toShortDate } from '@api/date';
 import { getDisplayVal } from '@config';
 import { ILLBorrowingRequestIcon } from '@components/backoffice/icons';
 import { BackOfficeRoutes, ILLRoutes } from '@routes/urls';
@@ -29,7 +28,7 @@ export default class BorrowingRequestListEntry extends Component {
         </Item.Description>
         <Item.Description>
           <label>due date </label>
-          {dueDate ? toShortDate(dueDate) : '-'}
+          {dueDate ? dueDate : '-'}
         </Item.Description>
       </>
     );
@@ -92,7 +91,7 @@ export default class BorrowingRequestListEntry extends Component {
         {requestDate && (
           <List.Item>
             <List.Content floated="right">
-              <strong>{toShortDate(requestDate)}</strong>
+              <strong>{requestDate}</strong>
             </List.Content>
             <List.Content>requested</List.Content>
           </List.Item>
@@ -100,7 +99,7 @@ export default class BorrowingRequestListEntry extends Component {
         {receivedDate && (
           <List.Item>
             <List.Content floated="right">
-              <strong>{toShortDate(receivedDate)}</strong>
+              <strong>{receivedDate}</strong>
             </List.Content>
             <List.Content>received</List.Content>
           </List.Item>
@@ -108,7 +107,7 @@ export default class BorrowingRequestListEntry extends Component {
         {expectedDeliveryDate && (
           <List.Item>
             <List.Content floated="right">
-              <strong>{toShortDate(expectedDeliveryDate)}</strong>
+              <strong>{expectedDeliveryDate}</strong>
             </List.Content>
             <List.Content>expected</List.Content>
           </List.Item>

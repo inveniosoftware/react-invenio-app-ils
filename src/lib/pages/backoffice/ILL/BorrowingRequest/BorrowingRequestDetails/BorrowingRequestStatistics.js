@@ -1,4 +1,3 @@
-import { toShortDate } from '@api/date';
 import { getDisplayVal } from '@config';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -54,9 +53,7 @@ export class BorrowingRequestStatistics extends React.Component {
     return (
       <Statistic>
         <Statistic.Label>Due date</Statistic.Label>
-        <Statistic.Value>
-          {dueDate ? toShortDate(dueDate) : '-'}
-        </Statistic.Value>
+        <Statistic.Value>{dueDate ? dueDate : '-'}</Statistic.Value>
       </Statistic>
     );
   }

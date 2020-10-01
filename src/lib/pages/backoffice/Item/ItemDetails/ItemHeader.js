@@ -10,6 +10,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Header, Label } from 'semantic-ui-react';
 import { invenioConfig } from '@config';
+import { DateTime } from 'luxon';
 
 export class ItemHeader extends Component {
   statusLabel = () => {
@@ -50,7 +51,8 @@ export class ItemHeader extends Component {
         <label className="muted">Physical copy</label> {data.metadata.pid}{' '}
         <CopyButton text={data.metadata.pid} />
         <br />
-        <label className="muted">Created on</label> {toShortDate(data.created)}
+        <label className="muted">Created on</label>{' '}
+        {toShortDate(DateTime.fromISO(data.created))}
         <br />
         <Link
           to={BackOfficeRoutes.documentDetailsFor(data.metadata.document_pid)}

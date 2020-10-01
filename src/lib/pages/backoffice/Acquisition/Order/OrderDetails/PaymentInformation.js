@@ -1,4 +1,3 @@
-import { toShortDate } from '@api/date';
 import { formatPrice } from '@api/utils';
 import { invenioConfig } from '@config';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
@@ -51,7 +50,7 @@ export class PaymentInformation extends React.Component {
       },
       {
         name: 'Debit date',
-        value: payment.debit_date ? toShortDate(payment.debit_date) : '-',
+        value: payment.debit_date ? payment.debit_date : '-',
       },
       { name: 'Funds', value: order.funds ? order.funds.join(', ') : null },
     ];

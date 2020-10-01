@@ -3,7 +3,6 @@ import Overridable from 'react-overridable';
 import PropTypes from 'prop-types';
 import { Table, Grid, Icon } from 'semantic-ui-react';
 import { DateTime } from 'luxon';
-import { fromISO, toISODate } from '@api/date';
 import { InfoMessage } from '@components/InfoMessage';
 import _isEmpty from 'lodash/isEmpty';
 import _get from 'lodash/get';
@@ -49,7 +48,7 @@ export class LocationOpeningHours extends Component {
       this.isInInterval(today, ex)
     );
     return metadata.opening_weekdays.map((weekday, idx) => {
-      const isCurrent = fromISO(today).weekday - 1 === idx;
+      const isCurrent = DateTime.fromISO(today).weekday - 1 === idx;
       return (
         <Table.Row key={weekday.weekday} active={isNotOverriden && isCurrent}>
           <Table.Cell textAlign="center">
@@ -89,7 +88,7 @@ export class LocationOpeningHours extends Component {
   render() {
     const { location } = this.props;
     const metadata = location.metadata;
-    const today = toISODate(DateTime.local());
+    const today = DateTime.local().toISODate();
     return (
       <Grid centered columns={2}>
         <Grid.Column computer={7} mobile={16}>

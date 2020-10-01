@@ -1,4 +1,3 @@
-import { toShortDate } from '@api/date';
 import { CreatedBy, UpdatedBy } from '@components/backoffice/ChangedBy';
 import {
   DocumentIcon,
@@ -16,7 +15,7 @@ import { BorrowingRequestPatronLoan } from './BorrowingRequestPatronLoan';
 
 class Loan extends React.Component {
   dateOrDefault = value => {
-    return value ? toShortDate(value) : '-';
+    return value ? value : '-';
   };
 
   render() {
