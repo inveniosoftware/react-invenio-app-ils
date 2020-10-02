@@ -89,6 +89,9 @@ exports[`should render correctly 1`] = `
         </GridColumn>
       </Grid>
     </ItemMeta>
+    <ItemExtra>
+      <Overridable(LiteratureTags) />
+    </ItemExtra>
   </ItemContent>
 </Item>
 `;

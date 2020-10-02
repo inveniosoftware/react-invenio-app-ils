@@ -137,7 +137,7 @@ export default class DocumentListEntry extends Component {
             </Grid.Column>
           </Grid>
           <Item.Extra>
-            <LiteratureTags isBackOffice tags={document.metadata.tags} />
+            <LiteratureTags tags={document.metadata.tags} />
           </Item.Extra>
         </Item.Content>
         <div className="pid-field discrete">#{document.metadata.pid}</div>

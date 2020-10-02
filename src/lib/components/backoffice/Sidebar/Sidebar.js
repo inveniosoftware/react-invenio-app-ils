@@ -60,7 +60,7 @@ class Sidebar extends Component {
                   <Menu.Header>Actions</Menu.Header>
                   <Menu.Menu>
                     <Menu.Item
-                      as={Link}
+                      as={checkInActive ? '' : Link}
                       active={checkInActive}
                       to={BackOfficeRoutes.checkIn}
                     >
@@ -68,7 +68,7 @@ class Sidebar extends Component {
                       <div className="menu-item-description">Return copies</div>
                     </Menu.Item>
                     <Menu.Item
-                      as={Link}
+                      as={checkOutActive ? '' : Link}
                       active={checkOutActive}
                       to={BackOfficeRoutes.checkOut}
                     >
@@ -81,28 +81,28 @@ class Sidebar extends Component {
                   <Menu.Header>Library</Menu.Header>
                   <Menu.Menu>
                     <Menu.Item
-                      as={Link}
+                      as={overviewActive ? '' : Link}
                       active={overviewActive}
                       to={BackOfficeRoutes.home}
                     >
                       Overview
                     </Menu.Item>
                     <Menu.Item
-                      as={Link}
+                      as={loansActive ? '' : Link}
                       active={loansActive}
                       to={BackOfficeRoutes.loansList}
                     >
                       Loans
                     </Menu.Item>
                     <Menu.Item
-                      as={Link}
+                      as={documentRequestsActive ? '' : Link}
                       active={documentRequestsActive}
                       to={BackOfficeRoutes.documentRequestsList}
                     >
                       Requests for new literature
                     </Menu.Item>
                     <Menu.Item
-                      as={Link}
+                      as={locationsActive ? '' : Link}
                       active={locationsActive}
                       to={BackOfficeRoutes.locationsList}
                     >
@@ -115,28 +115,28 @@ class Sidebar extends Component {
                   <Menu.Header>Catalogue</Menu.Header>
                   <Menu.Menu>
                     <Menu.Item
-                      as={Link}
+                      as={documentsActive ? '' : Link}
                       active={documentsActive}
                       to={BackOfficeRoutes.documentsList}
                     >
                       Books / Articles
                     </Menu.Item>
                     <Menu.Item
-                      as={Link}
+                      as={seriesActive ? '' : Link}
                       active={seriesActive}
                       to={BackOfficeRoutes.seriesList}
                     >
                       Series / Monographs
                     </Menu.Item>
                     <Menu.Item
-                      as={Link}
+                      as={itemsActive ? '' : Link}
                       active={itemsActive}
                       to={BackOfficeRoutes.itemsList}
                     >
                       Physical Copies
                     </Menu.Item>
                     <Menu.Item
-                      as={Link}
+                      as={eitemsActive ? '' : Link}
                       active={eitemsActive}
                       to={BackOfficeRoutes.eitemsList}
                     >
@@ -149,14 +149,14 @@ class Sidebar extends Component {
                   <Menu.Header>Acquisition</Menu.Header>
                   <Menu.Menu>
                     <Menu.Item
-                      as={Link}
+                      as={ordersActive ? '' : Link}
                       active={ordersActive}
                       to={AcquisitionRoutes.ordersList}
                     >
                       Purchase Orders
                     </Menu.Item>
                     <Menu.Item
-                      as={Link}
+                      as={vendorsActive ? '' : Link}
                       active={vendorsActive}
                       to={AcquisitionRoutes.vendorsList}
                     >
@@ -169,14 +169,14 @@ class Sidebar extends Component {
                   <Menu.Header>InterLibrary Loans</Menu.Header>
                   <Menu.Menu>
                     <Menu.Item
-                      as={Link}
+                      as={borrowingRequestsActive ? '' : Link}
                       active={borrowingRequestsActive}
                       to={ILLRoutes.borrowingRequestList}
                     >
                       Borrowing Requests
                     </Menu.Item>
                     <Menu.Item
-                      as={Link}
+                      as={librariesActive ? '' : Link}
                       active={librariesActive}
                       to={ILLRoutes.libraryList}
                     >
@@ -189,7 +189,7 @@ class Sidebar extends Component {
                   <Menu.Header>Patrons</Menu.Header>
                   <Menu.Menu>
                     <Menu.Item
-                      as={Link}
+                      as={patronsActive ? '' : Link}
                       active={patronsActive}
                       to={BackOfficeRoutes.patronsList}
                     >
@@ -202,7 +202,7 @@ class Sidebar extends Component {
                   <Menu.Header>Statistics</Menu.Header>
                   <Menu.Menu>
                     <Menu.Item
-                      as={Link}
+                      as={statsActive ? '' : Link}
                       active={statsActive}
                       to={BackOfficeRoutes.stats.home}
                     >

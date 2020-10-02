@@ -1,4 +1,5 @@
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import { SeriesLanguages } from '@modules/Series/SeriesLanguages';
 import { FrontSiteRoutes } from '@routes/urls';
@@ -95,6 +96,9 @@ export default class SeriesListEntry extends Component {
               </Grid.Column>
             </Grid>
           </Item.Meta>
+          <Item.Extra>
+            <LiteratureTags tags={this.metadata.tags} />
+          </Item.Extra>
         </Item.Content>
       </Item>
     );
