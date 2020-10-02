@@ -45,52 +45,55 @@ export class PatronSearch extends Component {
       },
     ];
     return (
-      <OverridableContext.Provider
-        value={{
-          ...SearchControlsOverridesMap,
-          ResultsList: PatronResultsList,
-        }}
-      >
-        <ReactSearchKit searchApi={this.searchApi}>
-          <>
-            <Container fluid className="spaced">
-              <SearchBar
-                placeholder="Search for patrons"
-                queryHelperFields={helperFields}
-              />
-            </Container>
-            <Grid>
-              <Grid.Row columns={2}>
-                <ResultsLoader>
-                  <Grid.Column width={3}>
-                    <Header content="Filter by" />
-                    <SearchAggregationsCards modelName="PATRONS" />
-                  </Grid.Column>
-                  <Grid.Column width={13}>
-                    <Grid columns={1}>
-                      <Grid.Column textAlign="right">
-                        <ExportReactSearchKitResults
-                          exportBaseUrl={patronApi.searchBaseURL}
-                        />
-                      </Grid.Column>
-                      <Grid.Column>
-                        <EmptyResults />
-                        <Error />
-                        <SearchControls
-                          modelName="PATRONS"
-                          withLayoutSwitcher={false}
-                        />
-                        <ResultsList />
-                        <SearchFooter />
-                      </Grid.Column>
-                    </Grid>
-                  </Grid.Column>
-                </ResultsLoader>
-              </Grid.Row>
-            </Grid>
-          </>
-        </ReactSearchKit>
-      </OverridableContext.Provider>
+      <>
+        <Header as="h2">Patrons</Header>
+        <OverridableContext.Provider
+          value={{
+            ...SearchControlsOverridesMap,
+            ResultsList: PatronResultsList,
+          }}
+        >
+          <ReactSearchKit searchApi={this.searchApi}>
+            <>
+              <Container fluid className="spaced">
+                <SearchBar
+                  placeholder="Search for patrons"
+                  queryHelperFields={helperFields}
+                />
+              </Container>
+              <Grid>
+                <Grid.Row columns={2}>
+                  <ResultsLoader>
+                    <Grid.Column width={3}>
+                      <Header content="Filter by" />
+                      <SearchAggregationsCards modelName="PATRONS" />
+                    </Grid.Column>
+                    <Grid.Column width={13}>
+                      <Grid columns={1}>
+                        <Grid.Column textAlign="right">
+                          <ExportReactSearchKitResults
+                            exportBaseUrl={patronApi.searchBaseURL}
+                          />
+                        </Grid.Column>
+                        <Grid.Column>
+                          <EmptyResults />
+                          <Error />
+                          <SearchControls
+                            modelName="PATRONS"
+                            withLayoutSwitcher={false}
+                          />
+                          <ResultsList />
+                          <SearchFooter />
+                        </Grid.Column>
+                      </Grid>
+                    </Grid.Column>
+                  </ResultsLoader>
+                </Grid.Row>
+              </Grid>
+            </>
+          </ReactSearchKit>
+        </OverridableContext.Provider>
+      </>
     );
   }
 }

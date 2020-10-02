@@ -129,7 +129,7 @@ export class SeriesListEntry extends Component {
             </Grid.Column>
           </Grid>
           <Item.Extra>
-            <LiteratureTags isBackOffice tags={series.metadata.tags} />
+            <LiteratureTags tags={series.metadata.tags} />
           </Item.Extra>
         </Item.Content>
         <div className="pid-field">#{series.metadata.pid}</div>

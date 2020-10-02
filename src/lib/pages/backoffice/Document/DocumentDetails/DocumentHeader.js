@@ -66,7 +66,7 @@ export class DocumentHeader extends Component {
         }
         recordInfo={recordInfo}
       >
-        <LiteratureTags isBackOffice tags={data.metadata.tags} />
+        <LiteratureTags tags={data.metadata.tags} />
       </DetailsHeader>
     );
   }

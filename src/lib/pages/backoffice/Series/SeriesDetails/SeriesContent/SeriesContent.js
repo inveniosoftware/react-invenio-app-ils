@@ -28,11 +28,7 @@ export class SeriesContent extends Component {
           <>
             <Divider />
             <Header as="h3">Tags</Header>
-            <LiteratureTags
-              isBackOffice
-              size="mini"
-              tags={series.metadata.tags}
-            />
+            <LiteratureTags size="mini" tags={series.metadata.tags} />
           </>
         )}
 

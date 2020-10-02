@@ -50,11 +50,7 @@ export class DocumentContents extends Component {
             <>
               <Divider />
               <Header as="h3">Tags</Header>
-              <LiteratureTags
-                isBackOffice
-                size="mini"
-                tags={document.metadata.tags}
-              />
+              <LiteratureTags size="mini" tags={document.metadata.tags} />
             </>
           )}
 

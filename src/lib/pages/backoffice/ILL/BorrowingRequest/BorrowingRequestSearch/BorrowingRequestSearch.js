@@ -48,66 +48,69 @@ export class BorrowingRequestSearch extends Component {
       },
     ];
     return (
-      <OverridableContext.Provider
-        value={{
-          ...SearchControlsOverridesMap,
-        }}
-      >
-        <ReactSearchKit searchApi={this.searchApi} history={history}>
-          <>
-            <Container fluid className="spaced">
-              <SearchBar
-                placeholder="Search for borrowing requests..."
-                queryHelperFields={helperFields}
-              />
-            </Container>
-            <Container fluid className="bo-search-body">
-              <Grid>
-                <Grid.Row columns={2}>
-                  <ResultsLoader>
-                    <Grid.Column width={3} className="search-aggregations">
-                      <Header content="Filter by" />
-                      <SearchAggregationsCards modelName="ILL_BORROWING_REQUESTS" />
-                    </Grid.Column>
-                    <Grid.Column width={13}>
-                      <Grid columns={2}>
-                        <Grid.Column width={8}>
-                          <NewButton
-                            text="Create new borrowing request"
-                            to={ILLRoutes.borrowingRequestCreate}
-                          />
-                        </Grid.Column>
-                        <Grid.Column width={8} textAlign="right">
-                          <ExportReactSearchKitResults
-                            exportBaseUrl={borrowingRequestApi.searchBaseURL}
-                          />
-                        </Grid.Column>
-                      </Grid>
-                      <EmptyResults
-                        extraContent={
-                          <NewButton
-                            text="Create borrowing request"
-                            to={ILLRoutes.borrowingRequestCreate}
-                          />
-                        }
-                      />
-                      <Error />
-                      <SearchControls
-                        modelName="ILL_BORROWING_REQUESTS"
-                        withLayoutSwitcher={false}
-                      />
-                      <ResultsList
-                        ListEntryElement={BorrowingRequestListEntry}
-                      />
-                      <SearchFooter />
-                    </Grid.Column>
-                  </ResultsLoader>
-                </Grid.Row>
-              </Grid>
-            </Container>
-          </>
-        </ReactSearchKit>
-      </OverridableContext.Provider>
+      <>
+        <Header as="h2">Borrowing Requests</Header>
+        <OverridableContext.Provider
+          value={{
+            ...SearchControlsOverridesMap,
+          }}
+        >
+          <ReactSearchKit searchApi={this.searchApi} history={history}>
+            <>
+              <Container fluid className="spaced">
+                <SearchBar
+                  placeholder="Search for borrowing requests..."
+                  queryHelperFields={helperFields}
+                />
+              </Container>
+              <Container fluid className="bo-search-body">
+                <Grid>
+                  <Grid.Row columns={2}>
+                    <ResultsLoader>
+                      <Grid.Column width={3} className="search-aggregations">
+                        <Header content="Filter by" />
+                        <SearchAggregationsCards modelName="ILL_BORROWING_REQUESTS" />
+                      </Grid.Column>
+                      <Grid.Column width={13}>
+                        <Grid columns={2}>
+                          <Grid.Column width={8}>
+                            <NewButton
+                              text="Create new borrowing request"
+                              to={ILLRoutes.borrowingRequestCreate}
+                            />
+                          </Grid.Column>
+                          <Grid.Column width={8} textAlign="right">
+                            <ExportReactSearchKitResults
+                              exportBaseUrl={borrowingRequestApi.searchBaseURL}
+                            />
+                          </Grid.Column>
+                        </Grid>
+                        <EmptyResults
+                          extraContent={
+                            <NewButton
+                              text="Create borrowing request"
+                              to={ILLRoutes.borrowingRequestCreate}
+                            />
+                          }
+                        />
+                        <Error />
+                        <SearchControls
+                          modelName="ILL_BORROWING_REQUESTS"
+                          withLayoutSwitcher={false}
+                        />
+                        <ResultsList
+                          ListEntryElement={BorrowingRequestListEntry}
+                        />
+                        <SearchFooter />
+                      </Grid.Column>
+                    </ResultsLoader>
+                  </Grid.Row>
+                </Grid>
+              </Container>
+            </>
+          </ReactSearchKit>
+        </OverridableContext.Provider>
+      </>
     );
   }
 }
