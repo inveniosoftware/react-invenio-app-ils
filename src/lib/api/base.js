@@ -1,6 +1,6 @@
 import { invenioConfig } from '@config';
 import { goTo } from '@history';
-import { AuthenticationRoutes } from '@routes/urls';
+import { AuthenticationRoutes, FrontSiteRoutes } from '@routes/urls';
 import axios from 'axios';
 
 const apiConfig = {
@@ -20,6 +20,8 @@ const urlShouldNotRedirect = url => {
 
 const http = axios.create(apiConfig);
 
+const errorsList = [404, 429, 500];
+
 const responseRejectInterceptor = error => {
   if (
     error.response &&
@@ -27,6 +29,17 @@ const responseRejectInterceptor = error => {
     !urlShouldNotRedirect(error.response.request.responseURL)
   ) {
     goTo(`${AuthenticationRoutes.login}?sessionExpired`);
+  }
+
+  if (error.response && errorsList.includes(error.response.status)) {
+    error.response.data.error_id
+      ? goTo(FrontSiteRoutes.errors, {
+          errorCode: error.response.status,
+          errorId: error.response.data.error_id,
+        })
+      : goTo(FrontSiteRoutes.errors, {
+          errorCode: error.response.status,
+        });
   }
 
   return Promise.reject(error);

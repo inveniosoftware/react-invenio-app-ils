@@ -10,6 +10,7 @@ const FrontSiteRoutesList = {
   documentRequestForm: `${FrontSiteBase}request`,
   openingHours: `${FrontSiteBase}opening-hours`,
   seriesDetails: `${FrontSiteBase}series/:seriesPid`,
+  errors: `${FrontSiteBase}error`,
 };
 
 const FrontSiteRoutesGenerators = {

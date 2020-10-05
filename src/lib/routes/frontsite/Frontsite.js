@@ -16,6 +16,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
+import { ErrorsPage } from '@pages/frontsite/ErrorsPage';
 
 export default class FrontSite extends Component {
   renderCustomStaticPages = () => {
@@ -66,6 +67,7 @@ export default class FrontSite extends Component {
               path={FrontSiteRoutes.openingHours}
               component={OpeningHours}
             />
+            <Route exact path={FrontSiteRoutes.errors} component={ErrorsPage} />
             {staticPagesRoutes.map(route => (
               <Route key={route} exact path={route} component={StaticPage} />
             ))}

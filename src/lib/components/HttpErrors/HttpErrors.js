@@ -8,6 +8,7 @@ const propTypes = {
   message: PropTypes.string,
   icon: PropTypes.string,
   isBackOffice: PropTypes.bool,
+  errorId: PropTypes.string,
 };
 
 const defaultProps = {
@@ -15,6 +16,7 @@ const defaultProps = {
   message: undefined,
   icon: undefined,
   isBackOffice: false,
+  errorId: undefined,
 };
 
 function UnauthorizedComponent(props) {
@@ -76,6 +78,28 @@ NotFoundComponent.propTypes = propTypes;
 NotFoundComponent.defaultProps = defaultProps;
 
 export const NotFound = Overridable.component('NotFound', NotFoundComponent);
+
+function TooManyRequestsComponent(props) {
+  const {
+    title = 'Internal Server Error',
+    message = 'Something went wrong and the server was not able to complete the request. The administrators were notified of the problem. Please try again later',
+    icon = 'exclamation circle',
+  } = props;
+  const newProps = { ...props, ...{ title, message, icon } };
+  return (
+    <Overridable id="TooManyRequests.layout" {...newProps}>
+      <HttpError {...newProps} />
+    </Overridable>
+  );
+}
+
+TooManyRequestsComponent.propTypes = propTypes;
+TooManyRequestsComponent.defaultProps = defaultProps;
+
+export const TooManyRequests = Overridable.component(
+  'TooManyRequests',
+  TooManyRequestsComponent
+);
 
 function InternalServerErrorComponent(props) {
   const {

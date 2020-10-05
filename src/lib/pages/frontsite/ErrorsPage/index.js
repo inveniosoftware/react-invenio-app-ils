@@ -1,0 +1,1 @@
+export { ErrorsPage } from './ErrorsPage';
