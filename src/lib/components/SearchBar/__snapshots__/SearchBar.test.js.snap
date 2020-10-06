@@ -2,7 +2,6 @@
 
 exports[`LoansSearch SearchBar tests should render search bar with query helper 1`] = `
 <SearchBar
-  buttonColor={null}
   currentQueryString={null}
   executeSearch={null}
   onKeyPressHandler={null}
@@ -27,7 +26,6 @@ exports[`LoansSearch SearchBar tests should render search bar with query helper 
   <Input
     action={
       Object {
-        "color": null,
         "icon": "search",
         "onClick": [Function],
       }
@@ -53,7 +51,6 @@ exports[`LoansSearch SearchBar tests should render search bar with query helper 
       />
       <Button
         as="button"
-        color={null}
         icon="search"
         onClick={[Function]}
       >
@@ -187,7 +184,6 @@ exports[`LoansSearch SearchBar tests should render search bar with query helper 
 
 exports[`LoansSearch SearchBar tests should render the current query string 1`] = `
 <SearchBar
-  buttonColor={null}
   currentQueryString={null}
   executeSearch={null}
   onKeyPressHandler={null}
@@ -200,7 +196,6 @@ exports[`LoansSearch SearchBar tests should render the current query string 1`] 
   <Input
     action={
       Object {
-        "color": null,
         "icon": "search",
         "onClick": [Function],
       }
@@ -226,7 +221,6 @@ exports[`LoansSearch SearchBar tests should render the current query string 1`] 
       />
       <Button
         as="button"
-        color={null}
         icon="search"
         onClick={[Function]}
       >

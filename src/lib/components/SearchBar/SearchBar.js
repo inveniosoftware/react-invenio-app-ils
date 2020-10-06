@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Input } from 'semantic-ui-react';
 import { QueryBuildHelper } from './QueryBuildHelper';
+import _isFunction from 'lodash/isFunction';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -35,14 +36,14 @@ class SearchBar extends Component {
   };
 
   executeSearch = () => {
-    const { updateQueryString } = this.props;
+    const { updateQueryString, executeSearch: parentSearch } = this.props;
     const { currentValue } = this.state;
     updateQueryString(currentValue);
+    if (_isFunction(parentSearch)) parentSearch(currentValue);
   };
 
   render() {
     const {
-      buttonColor,
       currentQueryString,
       executeSearch: parentSearch,
       onKeyPressHandler,
@@ -58,15 +59,14 @@ class SearchBar extends Component {
       <>
         <Input
           action={{
-            color: buttonColor,
             icon: 'search',
-            onClick: parentSearch || this.executeSearch,
+            onClick: this.executeSearch,
           }}
           size="big"
           fluid
+          value={currentValue}
           placeholder={placeholder}
           onChange={(e, { value }) => this.onInputChange(value)}
-          value={currentValue}
           onKeyPress={event =>
             onKeyPressHandler
               ? onKeyPressHandler(event)
@@ -91,7 +91,6 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-  buttonColor: PropTypes.string,
   executeSearch: PropTypes.func,
   currentQueryString: PropTypes.string,
   onKeyPressHandler: PropTypes.func,
@@ -103,7 +102,6 @@ SearchBar.propTypes = {
 };
 
 SearchBar.defaultProps = {
-  buttonColor: null,
   currentQueryString: null,
   executeSearch: null,
   onKeyPressHandler: null,
@@ -114,3 +112,45 @@ SearchBar.defaultProps = {
 };
 
 export default SearchBar;
+
+export const SearchBarElement = props => {
+  const {
+    executeSearch,
+    placeholder,
+    onKeyPress,
+    onInputChange,
+    queryString,
+    ...rest
+  } = props;
+  const { className } = rest;
+  return (
+    <Input
+      action={{
+        icon: 'search',
+        onClick: executeSearch,
+      }}
+      fluid
+      size="big"
+      className={`${className} ils-searchbar`}
+      placeholder={placeholder}
+      onChange={(event, { value }) => {
+        onInputChange(value);
+      }}
+      value={queryString}
+      onKeyPress={onKeyPress}
+    />
+  );
+};
+
+SearchBarElement.propTypes = {
+  executeSearch: PropTypes.func.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  onKeyPress: PropTypes.func.isRequired,
+  placeholder: PropTypes.node.isRequired,
+  queryString: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};
+
+SearchBarElement.defaultProps = {
+  className: '',
+};

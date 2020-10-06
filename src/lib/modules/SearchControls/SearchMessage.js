@@ -2,23 +2,26 @@ import { Header, Icon, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export const SearchMessage = ({ title, icon, children }) => (
+export const SearchMessage = ({ title, icon, subtitle, children }) => (
   <Segment placeholder textAlign="center">
     <Header icon>
       {icon && <Icon name={icon} />}
       {title}
     </Header>
-    {children && <Header.Subheader>{children}</Header.Subheader>}
+    {subtitle && <Header.Subheader>{subtitle}</Header.Subheader>}
+    {children}
   </Segment>
 );
 
 SearchMessage.propTypes = {
-  title: PropTypes.string.isRequired,
   children: PropTypes.node,
   icon: PropTypes.string,
+  subtitle: PropTypes.node,
+  title: PropTypes.string.isRequired,
 };
 
 SearchMessage.defaultProps = {
-  icon: null,
   children: null,
+  icon: null,
+  subtitle: null,
 };

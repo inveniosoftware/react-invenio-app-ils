@@ -13,17 +13,21 @@ export const SearchError = ({ error }) => {
       </SearchMessage> // When implemented, add link to documentation
     );
   } else {
-    return (
-      <SearchMessage
-        title="Something went wrong while fetching results."
-        icon="warning"
-      >
+    const subtitle = (
+      <>
         Please try again later. If the problem persists,{' '}
         <EmailLink email={invenioConfig.APP.supportEmail}>
           contact the technical support
         </EmailLink>
         .
-      </SearchMessage>
+      </>
+    );
+    return (
+      <SearchMessage
+        title="Something went wrong while fetching results."
+        icon="warning"
+        subtitle={subtitle}
+      />
     );
   }
 };

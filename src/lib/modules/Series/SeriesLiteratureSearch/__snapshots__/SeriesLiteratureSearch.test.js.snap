@@ -19,7 +19,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
         "Error.element": [Function],
         "ResultsGrid": [Function],
         "ResultsList": [Function],
-        "SearchBar": [Function],
+        "SearchBar.element": [Function],
         "SortBy.element.desktop": [Function],
         "SortBy.element.mobile": [Function],
         "SortOrder.element.desktop": [Function],
