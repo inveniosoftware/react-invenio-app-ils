@@ -1,4 +1,5 @@
 import { orderApi } from '@api/acquisition';
+import { withCancel } from '@api/utils';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import _get from 'lodash/get';
@@ -12,7 +13,7 @@ export class OrderEditor extends Component {
 
     this.state = {
       data: {},
-      isLoading: true,
+      isLoading: !!props.match.params.orderPid,
       error: {},
     };
   }
@@ -27,12 +28,20 @@ export class OrderEditor extends Component {
       this.fetchOrder(orderPid);
     }
   }
+
+  componentWillUnmount() {
+    this.cancellableFetchOrder && this.cancellableFetchOrder.cancel();
+  }
+
   fetchOrder = async orderPid => {
+    this.cancellableFetchOrder = withCancel(orderApi.get(orderPid));
     try {
-      const response = await orderApi.get(orderPid);
+      const response = await this.cancellableFetchOrder.promise;
       this.setState({ data: response.data, isLoading: false, error: {} });
     } catch (error) {
-      this.setState({ isLoading: false, error: error });
+      if (error !== 'UNMOUNTED') {
+        this.setState({ isLoading: false, error: error });
+      }
     }
   };
 

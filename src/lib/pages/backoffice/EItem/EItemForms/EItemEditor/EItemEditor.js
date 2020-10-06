@@ -1,16 +1,32 @@
+import { withCancel } from '@api/utils';
 import React, { Component } from 'react';
 import { Loader } from '@components/Loader';
 import { Error } from '@components/Error';
 import { EItemForm } from './EItemForm';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
+import { eItemApi } from '@api/eitems';
 
 export class EItemEditor extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: {},
+      isLoading: !!props.match.params.eitemPid,
+      error: {},
+    };
+  }
+
   componentDidMount() {
-    const { fetchEItemDetails, match } = this.props;
+    const { match } = this.props;
     if (match.params.eitemPid) {
-      fetchEItemDetails(match.params.eitemPid);
+      this.fetchEItem(match.params.eitemPid);
     }
+  }
+
+  componentWillUnmount() {
+    this.cancellableFetchEItem && this.cancellableFetchEItem.cancel();
   }
 
   get initialData() {
@@ -26,8 +42,20 @@ export class EItemEditor extends Component {
     return null;
   }
 
+  fetchEItem = async eitemPid => {
+    this.cancellableFetchEItem = withCancel(eItemApi.get(eitemPid));
+    try {
+      const response = await this.cancellableFetchEItem.promise;
+      this.setState({ data: response.data, isLoading: false, error: {} });
+    } catch (error) {
+      if (error !== 'UNMOUNTED') {
+        this.setState({ isLoading: false, error: error });
+      }
+    }
+  };
+
   renderEditForm = pid => {
-    const { isLoading, error, data } = this.props;
+    const { isLoading, error, data } = this.state;
     return (
       <Loader isLoading={isLoading}>
         <Error error={error}>
@@ -62,18 +90,9 @@ export class EItemEditor extends Component {
 }
 
 EItemEditor.propTypes = {
-  fetchEItemDetails: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool,
-  error: PropTypes.object,
-  data: PropTypes.object.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       eitemPid: PropTypes.string,
     }),
   }).isRequired,
-};
-
-EItemEditor.defaultProps = {
-  isLoading: false,
-  error: null,
 };

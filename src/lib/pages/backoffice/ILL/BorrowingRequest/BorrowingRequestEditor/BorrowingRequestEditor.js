@@ -1,4 +1,5 @@
 import { borrowingRequestApi } from '@api/ill';
+import { withCancel } from '@api/utils';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import _get from 'lodash/get';
@@ -7,17 +8,26 @@ import React, { Component } from 'react';
 import { BorrowingRequestForm } from './BorrowingRequestForm/BorrowingRequestForm';
 
 export class BorrowingRequestEditor extends Component {
-  state = {
-    data: {},
-    isLoading: true,
-    error: {},
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: {},
+      isLoading: !!props.match.params.borrowingRequestPid,
+      error: {},
+    };
+  }
 
   componentDidMount() {
     const { match } = this.props;
     if (match.params.borrowingRequestPid) {
       this.fetchBorrowingRequest(match.params.borrowingRequestPid);
     }
+  }
+
+  componentWillUnmount() {
+    this.cancellableFetchBorrowingRequest &&
+      this.cancellableFetchBorrowingRequest.cancel();
   }
 
   get initialData() {
@@ -36,11 +46,16 @@ export class BorrowingRequestEditor extends Component {
   }
 
   fetchBorrowingRequest = async borrowingRequestPid => {
+    this.cancellableFetchBorrowingRequest = withCancel(
+      borrowingRequestApi.get(borrowingRequestPid)
+    );
     try {
-      const response = await borrowingRequestApi.get(borrowingRequestPid);
+      const response = await this.cancellableFetchBorrowingRequest.promise;
       this.setState({ data: response.data, isLoading: false, error: {} });
     } catch (error) {
-      this.setState({ isLoading: false, error: error });
+      if (error !== 'UNMOUNTED') {
+        this.setState({ isLoading: false, error: error });
+      }
     }
   };
 

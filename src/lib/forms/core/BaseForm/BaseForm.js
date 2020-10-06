@@ -41,13 +41,13 @@ export class BaseForm extends Component {
       const errors = getIn(error, 'response.data.errors', []);
 
       if (_isEmpty(errors)) {
-        const message = getIn(error, 'response.data.message', null);
-        if (message) {
-          actions.setSubmitting(false);
-          actions.setErrors({ message });
-        } else {
-          throw error;
-        }
+        const message = getIn(
+          error,
+          'response.data.message',
+          getIn(error, 'message', 'Unknown error')
+        );
+        actions.setSubmitting(false);
+        actions.setErrors({ message });
       } else {
         const errorData = error.response.data;
         const payload = {};

@@ -140,6 +140,7 @@ class ESSelector extends Component {
       alwaysWildcard,
       minCharacters,
       focus,
+      error,
       serializer,
       onSearchChange,
       onResults,
@@ -163,6 +164,11 @@ class ESSelector extends Component {
           onSearchChange={onSearchChange}
           ref={element => (this.searchRef = element)}
         />
+        {error && (
+          <Label prompt pointing={error.pointing}>
+            {error.content}
+          </Label>
+        )}
         {this.renderSelectionInfoText()}
         {this.renderSelections(
           selections,
@@ -197,6 +203,7 @@ ESSelector.propTypes = {
   selectionInfoText: PropTypes.string,
   emptySelectionInfoText: PropTypes.string,
   focus: PropTypes.bool,
+  error: PropTypes.object,
 };
 
 ESSelector.defaultProps = {
@@ -209,6 +216,7 @@ ESSelector.defaultProps = {
   selectionInfoText: null,
   onResults: null,
   focus: false,
+  error: null,
 };
 
 export default Overridable.component('ESSelector', ESSelector);

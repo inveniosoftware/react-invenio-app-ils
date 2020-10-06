@@ -17,10 +17,10 @@ export class TextField extends Component {
   renderFormField = props => {
     const { fieldPath, optimized, ...uiProps } = this.props;
     const {
-      form: { values, handleChange, handleBlur, errors },
+      form: { values, handleChange, handleBlur, errors, isSubmitting },
     } = props;
     return (
-      <Form.Field>
+      <Form.Field disabled={isSubmitting}>
         <Form.TextArea
           id={fieldPath}
           name={fieldPath}

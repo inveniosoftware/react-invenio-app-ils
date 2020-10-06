@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FastField, Field, getIn } from 'formik';
-import { Form, Card, Icon, Label } from 'semantic-ui-react';
+import { Form, Card, Icon } from 'semantic-ui-react';
 import { ESSelector } from '@modules/ESSelector';
 import _isEmpty from 'lodash/isEmpty';
 import _has from 'lodash/has';
@@ -67,7 +67,9 @@ export class SelectorField extends Component {
     return !_isEmpty(error);
   }
 
-  renderFormField = ({ form: { errors, setFieldValue, values } }) => {
+  renderFormField = ({
+    form: { errors, setFieldValue, values, isSubmitting },
+  }) => {
     const {
       fieldPath,
       errorPath,
@@ -103,12 +105,16 @@ export class SelectorField extends Component {
     const placeholderText =
       !multiple && selections.length > 0 ? selections[0].title : placeholder;
     return (
-      <Form.Field required={required} error={hasFieldError} width={width}>
-        {label && <label htmlFor={fieldPath}>{label}</label>}
-        {hasFieldError && !_isEmpty(error) && (
-          <Label prompt pointing="below">
-            {error}
-          </Label>
+      <Form.Field
+        required={required}
+        error={hasFieldError}
+        width={width}
+        disabled={isSubmitting}
+      >
+        {label && (
+          <Form.Field required={required} error={hasFieldError}>
+            <label htmlFor={fieldPath}>{label}</label>
+          </Form.Field>
         )}
         <ESSelector
           id={fieldPath}
@@ -123,6 +129,13 @@ export class SelectorField extends Component {
           serializer={serializer}
           placeholder={placeholderText}
           icon={icon}
+          error={
+            hasFieldError &&
+            !_isEmpty(error) && {
+              content: error,
+              pointing: 'above',
+            }
+          }
           {...selectorProps}
         />
       </Form.Field>

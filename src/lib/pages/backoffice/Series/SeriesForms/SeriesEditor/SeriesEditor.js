@@ -1,24 +1,51 @@
+import { withCancel } from '@api/utils';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { SeriesForm } from './components';
+import { seriesApi } from '@api/series';
 
 export class SeriesEditor extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: {},
+      isLoading: !!props.match.params.seriesPid,
+      error: {},
+    };
+  }
+
   componentDidMount() {
     const {
-      fetchSeriesDetails,
       match: {
         params: { seriesPid },
       },
     } = this.props;
     if (seriesPid) {
-      fetchSeriesDetails(seriesPid);
+      this.fetchSeries(seriesPid);
     }
   }
 
+  componentWillUnmount() {
+    this.cancellableFetchSeries && this.cancellableFetchSeries.cancel();
+  }
+
+  fetchSeries = async seriesPid => {
+    this.cancellableFetchSeries = withCancel(seriesApi.get(seriesPid));
+    try {
+      const response = await this.cancellableFetchSeries.promise;
+      this.setState({ data: response.data, isLoading: false, error: {} });
+    } catch (error) {
+      if (error !== 'UNMOUNTED') {
+        this.setState({ isLoading: false, error: error });
+      }
+    }
+  };
+
   renderEditForm = pid => {
-    const { isLoading, error, data } = this.props;
+    const { isLoading, error, data } = this.state;
     return (
       <Loader isLoading={isLoading}>
         <Error error={error}>
@@ -34,20 +61,11 @@ export class SeriesEditor extends Component {
   };
 
   renderCreateForm = () => {
-    const { error } = this.props;
-    const data = {
-      metadata: {
-        extensions: undefined,
-      },
-    };
     return (
-      <Error error={error}>
-        <SeriesForm
-          data={data}
-          title="Create new series"
-          successSubmitMessage="The series was successfully created."
-        />
-      </Error>
+      <SeriesForm
+        title="Create new series"
+        successSubmitMessage="The series was successfully created."
+      />
     );
   };
 
@@ -65,10 +83,6 @@ export class SeriesEditor extends Component {
 }
 
 SeriesEditor.propTypes = {
-  fetchSeriesDetails: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool,
-  error: PropTypes.object,
-  data: PropTypes.object,
   match: PropTypes.shape({
     params: PropTypes.shape({
       seriesPid: PropTypes.string,

@@ -17,18 +17,18 @@ export class StringField extends Component {
   renderFormField = props => {
     const { fieldPath, inline, width, optimized, ...uiProps } = this.props;
     const {
-      form: { values, handleChange, handleBlur, errors, status },
+      form: { values, handleChange, handleBlur, errors, status, isSubmitting },
     } = props;
 
     return (
-      <Form.Field inline={inline} width={width}>
+      <Form.Field inline={inline} width={width} disabled={isSubmitting}>
         <Form.Input
           fluid
           id={fieldPath}
           name={fieldPath}
           onChange={handleChange}
           onBlur={handleBlur}
-          value={getIn(values, fieldPath, undefined)}
+          value={getIn(values, fieldPath, '')}
           error={this.renderError(status || errors, fieldPath)}
           {...uiProps}
         />

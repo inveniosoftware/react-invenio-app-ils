@@ -23,7 +23,7 @@ export class BooleanField extends Component {
       ...uiProps
     } = this.props;
     const {
-      form: { values, handleBlur, errors, setFieldValue },
+      form: { values, handleBlur, errors, setFieldValue, isSubmitting },
     } = props;
     const value = getIn(values, fieldPath, false);
     return (
@@ -36,6 +36,7 @@ export class BooleanField extends Component {
           onBlur={handleBlur}
           checked={value}
           error={this.renderError(errors, fieldPath)}
+          disabled={isSubmitting}
           {...uiProps}
         />
         <label htmlFor={fieldPath}>{rightLabel}</label>

@@ -1,3 +1,4 @@
+import { withCancel } from '@api/utils';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Loader } from '@components/Loader';
@@ -11,7 +12,7 @@ export class LocationEditor extends Component {
 
     this.state = {
       data: {},
-      isLoading: true,
+      isLoading: !!props.match.params.locationPid,
       error: {},
     };
   }
@@ -27,12 +28,19 @@ export class LocationEditor extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.cancellableFetchLocation && this.cancellableFetchLocation.cancel();
+  }
+
   fetchLocation = async locationPid => {
+    this.cancellableFetchLocation = withCancel(locationApi.get(locationPid));
     try {
-      const response = await locationApi.get(locationPid);
+      const response = await this.cancellableFetchLocation.promise;
       this.setState({ data: response.data, isLoading: false, error: {} });
     } catch (error) {
-      this.setState({ isLoading: false, error: error });
+      if (error !== 'UNMOUNTED') {
+        this.setState({ isLoading: false, error: error });
+      }
     }
   };
 

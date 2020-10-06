@@ -14,7 +14,7 @@ export class ArrayField extends Component {
 
   renderFormField = props => {
     const {
-      form: { values },
+      form: { values, isSubmitting },
       ...arrayHelpers
     } = props;
     const {
@@ -51,6 +51,7 @@ export class ArrayField extends Component {
           secondary
           type="button"
           onClick={() => arrayHelpers.push(defaultNewValue)}
+          disabled={isSubmitting}
         >
           <Icon name="add" />
           {addButtonLabel}

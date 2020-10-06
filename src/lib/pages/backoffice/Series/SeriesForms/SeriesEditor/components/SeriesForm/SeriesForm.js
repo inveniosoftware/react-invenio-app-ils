@@ -29,6 +29,7 @@ import Overridable from 'react-overridable';
 import { AccessUrls } from './AccessUrls';
 import { SeriesMetadataExtensions } from './SeriesMetadataExtensions';
 import { Segment, Header, Grid } from 'semantic-ui-react';
+import _get from 'lodash/get';
 
 export class SeriesForm extends Component {
   prepareData = data => {
@@ -86,14 +87,9 @@ export class SeriesForm extends Component {
   };
 
   render() {
-    const {
-      data: { metadata },
-      data,
-      title,
-      pid,
-    } = this.props;
-    const { extensions } = metadata;
-    const initialValues = data ? this.prepareData(metadata) : {};
+    const { data, title, pid, successSubmitMessage } = this.props;
+    const extensions = _get(data, 'metadata.extensions', {});
+    const initialValues = data ? this.prepareData(data.metadata) : {};
     return (
       <BaseForm
         initialValues={{
@@ -103,7 +99,7 @@ export class SeriesForm extends Component {
         editApiMethod={this.updateSeries}
         createApiMethod={this.createSeries}
         successCallback={this.successCallback}
-        successSubmitMessage={this.successSubmitMessage}
+        successSubmitMessage={successSubmitMessage}
         title={title}
         pid={pid}
       >
@@ -219,11 +215,15 @@ export class SeriesForm extends Component {
 }
 
 SeriesForm.propTypes = {
-  data: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired,
+  data: PropTypes.object,
   pid: PropTypes.string,
+  successSubmitMessage: PropTypes.string,
+  title: PropTypes.string,
 };
 
 SeriesForm.defaultProps = {
+  data: null,
   pid: null,
+  successSubmitMessage: null,
+  title: null,
 };

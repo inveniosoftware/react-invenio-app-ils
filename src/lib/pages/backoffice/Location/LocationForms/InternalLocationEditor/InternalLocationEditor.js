@@ -1,3 +1,4 @@
+import { withCancel } from '@api/utils';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Loader } from '@components/Loader';
@@ -11,7 +12,7 @@ export class InternalLocationEditor extends Component {
 
     this.state = {
       data: {},
-      isLoading: true,
+      isLoading: !!props.match.params.ilocationPid,
       error: {},
     };
   }
@@ -27,12 +28,22 @@ export class InternalLocationEditor extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.cancellableFetchInternalLocation &&
+      this.cancellableFetchInternalLocation.cancel();
+  }
+
   fetchInternalLocation = async ilocationPid => {
+    this.cancellableFetchInternalLocation = withCancel(
+      internalLocationApi.get(ilocationPid)
+    );
     try {
-      const response = await internalLocationApi.get(ilocationPid);
+      const response = await this.cancellableFetchInternalLocation.promise;
       this.setState({ data: response.data, isLoading: false, error: {} });
     } catch (error) {
-      this.setState({ isLoading: false, error: error });
+      if (error !== 'UNMOUNTED') {
+        this.setState({ isLoading: false, error: error });
+      }
     }
   };
 
