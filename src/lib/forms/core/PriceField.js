@@ -158,13 +158,14 @@ export class PriceField extends Component {
       ...uiProps
     } = this.props;
     const {
-      form: { values, handleChange, handleBlur, errors, status },
+      form: { values, handleChange, handleBlur, errors, status, isSubmitting },
     } = props;
     return (
       <Form.Field
         inline={inline}
         required={required}
         error={this.renderError(status || errors, `${fieldPath}.value`)}
+        disabled={isSubmitting}
       >
         <label>{label}</label>
         <Input

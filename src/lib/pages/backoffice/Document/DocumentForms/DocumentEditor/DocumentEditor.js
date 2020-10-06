@@ -1,4 +1,5 @@
 import { documentApi } from '@api/documents';
+import { withCancel } from '@api/utils';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import _get from 'lodash/get';
@@ -9,9 +10,10 @@ import { DocumentForm } from './DocumentForm';
 export class DocumentEditor extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       data: {},
-      isLoading: true,
+      isLoading: !!props.match.params.documentPid,
       error: {},
     };
   }
@@ -25,6 +27,10 @@ export class DocumentEditor extends Component {
     if (documentPid) {
       this.fetchDocument(documentPid);
     }
+  }
+
+  componentWillUnmount() {
+    this.cancellableFetchDocument && this.cancellableFetchDocument.cancel();
   }
 
   get documentRequest() {
@@ -42,12 +48,16 @@ export class DocumentEditor extends Component {
       },
     };
   }
+
   fetchDocument = async documentPid => {
+    this.cancellableFetchDocument = withCancel(documentApi.get(documentPid));
     try {
-      const response = await documentApi.get(documentPid);
+      const response = await this.cancellableFetchDocument.promise;
       this.setState({ data: response.data, isLoading: false, error: {} });
     } catch (error) {
-      this.setState({ isLoading: false, error: error });
+      if (error !== 'UNMOUNTED') {
+        this.setState({ isLoading: false, error: error });
+      }
     }
   };
 

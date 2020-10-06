@@ -1,3 +1,4 @@
+import { withCancel } from '@api/utils';
 import { vocabularyApi } from '@api/vocabularies';
 import { invenioConfig } from '@config';
 import PropTypes from 'prop-types';
@@ -22,6 +23,11 @@ export class VocabularyField extends React.Component {
     this.fetchVocabularies(serializer);
   }
 
+  componentWillUnmount() {
+    this.cancellableFetchVocabularies &&
+      this.cancellableFetchVocabularies.cancel();
+  }
+
   query = () => {
     const { type } = this.props;
     const searchQuery = vocabularyApi
@@ -40,19 +46,22 @@ export class VocabularyField extends React.Component {
 
   fetchVocabularies = async serializer => {
     const { label } = this.props;
+    this.cancellableFetchVocabularies = withCancel(this.query());
     try {
-      const response = await this.query();
+      const response = await this.cancellableFetchVocabularies.promise;
       const options = response.data.hits.map(hit => serializer(hit));
 
       this.setState({ isLoading: false, options: options, error: null });
     } catch (error) {
-      this.setState({
-        isLoading: false,
-        error: {
-          content: `Error loading values for ${label}.`,
-          pointing: 'above',
-        },
-      });
+      if (error !== 'UNMOUNTED') {
+        this.setState({
+          isLoading: false,
+          error: {
+            content: `Error loading values for ${label}.`,
+            pointing: 'above',
+          },
+        });
+      }
     }
   };
 

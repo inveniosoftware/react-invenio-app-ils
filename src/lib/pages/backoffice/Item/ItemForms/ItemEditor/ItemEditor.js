@@ -1,17 +1,34 @@
+import { withCancel } from '@api/utils';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { ItemForm } from './ItemForm';
+import { itemApi } from '@api/items';
 
 export class ItemEditor extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: {},
+      isLoading: !!props.match.params.itemPid,
+      error: {},
+    };
+  }
+
   componentDidMount() {
-    const { fetchItemDetails, match } = this.props;
+    const { match } = this.props;
     if (match.params.itemPid) {
-      fetchItemDetails(match.params.itemPid);
+      this.fetchItem(match.params.itemPid);
     }
   }
+
+  componentWillUnmount() {
+    this.cancellableFetchItem && this.cancellableFetchItem.cancel();
+  }
+
   get initialData() {
     const doc = get(this.props, 'location.state.document', null);
     if (doc) {
@@ -30,8 +47,20 @@ export class ItemEditor extends Component {
     };
   }
 
+  fetchItem = async itemPid => {
+    this.cancellableFetchItem = withCancel(itemApi.get(itemPid));
+    try {
+      const response = await this.cancellableFetchItem.promise;
+      this.setState({ data: response.data, isLoading: false, error: {} });
+    } catch (error) {
+      if (error !== 'UNMOUNTED') {
+        this.setState({ isLoading: false, error: error });
+      }
+    }
+  };
+
   renderEditForm = pid => {
-    const { isLoading, error, data } = this.props;
+    const { isLoading, error, data } = this.state;
     return (
       <Loader isLoading={isLoading}>
         <Error error={error}>
@@ -66,10 +95,6 @@ export class ItemEditor extends Component {
 }
 
 ItemEditor.propTypes = {
-  isLoading: PropTypes.bool,
-  error: PropTypes.object,
-  data: PropTypes.object.isRequired,
-  fetchItemDetails: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       itemPid: PropTypes.string,

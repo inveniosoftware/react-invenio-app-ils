@@ -29,7 +29,7 @@ export class ObjectListField extends Component {
   renderFormField = props => {
     const { fieldPath, keyField, activeIndex } = this.props;
     const {
-      form: { errors, values },
+      form: { errors, values, isSubmitting },
     } = props;
     const items = getIn(values, fieldPath, []);
     return (
@@ -40,6 +40,7 @@ export class ObjectListField extends Component {
               key={index}
               as="a"
               active={activeIndex === index}
+              disabled={isSubmitting}
               onClick={() => this.onItemClick(item, index)}
             >
               <List.Content>
@@ -52,6 +53,7 @@ export class ObjectListField extends Component {
           <List.Item
             as="a"
             active={activeIndex === items.length}
+            disabled={isSubmitting}
             onClick={() => this.onItemClick(null, items.length)}
           >
             <List.Content>

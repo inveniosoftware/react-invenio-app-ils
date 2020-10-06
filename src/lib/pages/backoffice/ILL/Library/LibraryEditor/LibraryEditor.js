@@ -1,4 +1,5 @@
 import { libraryApi } from '@api/ill';
+import { withCancel } from '@api/utils';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import PropTypes from 'prop-types';
@@ -6,25 +7,36 @@ import React, { Component } from 'react';
 import { LibraryForm } from './LibraryForm';
 
 export class LibraryEditor extends Component {
-  state = {
-    data: {},
-    isLoading: true,
-    error: {},
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: {},
+      isLoading: !!props.match.params.libraryPid,
+      error: {},
+    };
+  }
 
   componentDidMount() {
     const { match } = this.props;
     if (match.params.libraryPid) {
-      this.fetchlibrary(match.params.libraryPid);
+      this.fetchLibrary(match.params.libraryPid);
     }
   }
 
-  fetchlibrary = async libraryPid => {
+  componentWillUnmount() {
+    this.cancellableFetchLibrary && this.cancellableFetchLibrary.cancel();
+  }
+
+  fetchLibrary = async libraryPid => {
+    this.cancellableFetchLibrary = withCancel(libraryApi.get(libraryPid));
     try {
-      const response = await libraryApi.get(libraryPid);
+      const response = await this.cancellableFetchLibrary.promise;
       this.setState({ data: response.data, isLoading: false, error: {} });
     } catch (error) {
-      this.setState({ isLoading: false, error: error });
+      if (error !== 'UNMOUNTED') {
+        this.setState({ isLoading: false, error: error });
+      }
     }
   };
 

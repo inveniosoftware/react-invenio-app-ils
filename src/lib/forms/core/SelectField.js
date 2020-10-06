@@ -71,7 +71,7 @@ export class SelectField extends Component {
 
   renderFormField = props => {
     const {
-      form: { values, setFieldValue, handleBlur, errors },
+      form: { values, setFieldValue, handleBlur, errors, isSubmitting },
     } = props;
     const {
       error,
@@ -86,7 +86,7 @@ export class SelectField extends Component {
     } = this.props;
     const value = getIn(values, fieldPath, multiple ? [] : '');
     return (
-      <Form.Field width={width}>
+      <Form.Field width={width} disabled={isSubmitting}>
         <Form.Dropdown
           fluid
           selection

@@ -1,4 +1,5 @@
 import { vendorApi } from '@api/acquisition';
+import { withCancel } from '@api/utils';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import PropTypes from 'prop-types';
@@ -11,7 +12,7 @@ export class VendorEditor extends Component {
 
     this.state = {
       data: {},
-      isLoading: true,
+      isLoading: !!props.match.params.vendorPid,
       error: {},
     };
   }
@@ -27,12 +28,19 @@ export class VendorEditor extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.cancellableFetchVendor && this.cancellableFetchVendor.cancel();
+  }
+
   fetchVendor = async vendorPid => {
+    this.cancellableFetchVendor = withCancel(vendorApi.get(vendorPid));
     try {
-      const response = await vendorApi.get(vendorPid);
+      const response = await this.cancellableFetchVendor.promise;
       this.setState({ data: response.data, isLoading: false, error: {} });
     } catch (error) {
-      this.setState({ isLoading: false, error: error });
+      if (error !== 'UNMOUNTED') {
+        this.setState({ isLoading: false, error: error });
+      }
     }
   };
 
