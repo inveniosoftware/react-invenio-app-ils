@@ -14,7 +14,6 @@ export default class SearchSortOrder extends Component {
           {searchConfig.SORT_ORDER.length > 0 ? (
             <SortOrder
               values={searchConfig.SORT_ORDER}
-              defaultValue={searchConfig.SORT_ORDER[0]['value']}
               overridableId="desktop"
             />
           ) : null}
@@ -23,7 +22,6 @@ export default class SearchSortOrder extends Component {
           {searchConfig.SORT_ORDER.length > 0 ? (
             <SortOrder
               values={searchConfig.SORT_ORDER}
-              defaultValue={searchConfig.SORT_ORDER[0]['value']}
               overridableId="mobile"
             />
           ) : null}

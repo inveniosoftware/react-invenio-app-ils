@@ -20,6 +20,7 @@ import {
   SearchBar,
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
+import { setReactSearchKitInitialQueryState } from '@config';
 
 export class BorrowingRequestSearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -47,6 +48,11 @@ export class BorrowingRequestSearch extends Component {
         defaultValue: 'Yannic',
       },
     ];
+
+    const initialState = setReactSearchKitInitialQueryState(
+      'ILL_BORROWING_REQUESTS'
+    );
+
     return (
       <>
         <Header as="h2">Borrowing Requests</Header>
@@ -55,7 +61,11 @@ export class BorrowingRequestSearch extends Component {
             ...SearchControlsOverridesMap,
           }}
         >
-          <ReactSearchKit searchApi={this.searchApi} history={history}>
+          <ReactSearchKit
+            searchApi={this.searchApi}
+            history={history}
+            initialQueryState={initialState}
+          >
             <>
               <Container fluid className="spaced">
                 <SearchBar

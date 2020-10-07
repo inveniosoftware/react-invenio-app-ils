@@ -20,6 +20,7 @@ import {
 import { Container, Grid, Header, Loader, Responsive } from 'semantic-ui-react';
 import LiteratureSearchMobile from './LiteratureSearchMobile';
 import SearchMessage from './SearchMessage/SearchMessage';
+import { setReactSearchKitInitialQueryState } from '@config';
 
 class LiteratureSearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -39,6 +40,8 @@ class LiteratureSearch extends Component {
   };
 
   render() {
+    const initialState = setReactSearchKitInitialQueryState('LITERATURE');
+
     return (
       <OverridableContext.Provider
         value={{
@@ -50,6 +53,7 @@ class LiteratureSearch extends Component {
           searchApi={this.searchApi}
           history={history}
           overridableId="LiteratureSearchOverridable"
+          initialQueryState={initialState}
         >
           <Overridable id="LiteratureSearch.layout">
             <>

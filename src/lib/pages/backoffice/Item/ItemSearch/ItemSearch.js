@@ -12,7 +12,7 @@ import {
   InvenioSearchApi,
   EmptyResults,
 } from 'react-searchkit';
-import { getSearchConfig } from '@config';
+import { setReactSearchKitInitialQueryState } from '@config';
 import { Error as IlsError } from '@components/Error';
 import { itemApi } from '@api/items';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
@@ -34,7 +34,6 @@ export class ItemSearch extends Component {
       response: { reject: responseRejectInterceptor },
     },
   });
-  searchConfig = getSearchConfig('ITEMS');
 
   renderError = error => {
     return <IlsError error={error} />;
@@ -62,6 +61,9 @@ export class ItemSearch extends Component {
         field: '_created',
       },
     ];
+
+    const initialState = setReactSearchKitInitialQueryState('ITEMS');
+
     return (
       <>
         <Header as="h2">Physical copies</Header>
@@ -70,7 +72,11 @@ export class ItemSearch extends Component {
             ...SearchControlsOverridesMap,
           }}
         >
-          <ReactSearchKit searchApi={this.searchApi} history={history}>
+          <ReactSearchKit
+            searchApi={this.searchApi}
+            history={history}
+            initialQueryState={initialState}
+          >
             <>
               <Container fluid className="spaced">
                 <SearchBar
@@ -113,6 +119,7 @@ export class ItemSearch extends Component {
                         <SearchControls
                           modelName="ITEMS"
                           withLayoutSwitcher={false}
+                          withSortOrder={false}
                         />
                         <ResultsList ListEntryElement={ItemListEntry} />
                         <SearchFooter />

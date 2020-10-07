@@ -20,6 +20,7 @@ import {
 import { Container, Divider, Loader, Responsive } from 'semantic-ui-react';
 import { qsBuilderForSeries } from './RequestSerializer';
 import { SeriesLiteratureSearchMobile } from './SeriesLiteratureSearchMobile';
+import { setReactSearchKitInitialQueryState } from '@config';
 
 export class SeriesLiteratureSearch extends React.Component {
   renderLoader = () => {
@@ -39,6 +40,9 @@ export class SeriesLiteratureSearch extends React.Component {
         requestSerializer: qsBuilderForSeries(metadata),
       },
     });
+
+    const initialState = setReactSearchKitInitialQueryState('LITERATURE');
+
     return (
       <>
         <Divider horizontal>
@@ -54,6 +58,7 @@ export class SeriesLiteratureSearch extends React.Component {
             searchApi={api}
             history={history}
             urlHandlerApi={{ enabled: false }}
+            initialQueryState={initialState}
           >
             <>
               <Container className="series-details-search-container">
@@ -66,7 +71,10 @@ export class SeriesLiteratureSearch extends React.Component {
                   <Error />
 
                   <Responsive minWidth={Responsive.onlyComputer.minWidth}>
-                    <SearchControls modelName="LITERATURE" />
+                    <SearchControls
+                      modelName="LITERATURE"
+                      withSortOrder={false}
+                    />
                     <ResultsMultiLayout />
                   </Responsive>
                   <Responsive maxWidth={Responsive.onlyTablet.maxWidth}>

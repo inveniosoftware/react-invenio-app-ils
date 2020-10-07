@@ -19,6 +19,7 @@ import {
   SearchBar,
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
+import { setReactSearchKitInitialQueryState } from '@config';
 
 export class LibrarySearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -46,6 +47,9 @@ export class LibrarySearch extends Component {
         defaultValue: '"Geneva"',
       },
     ];
+
+    const initialState = setReactSearchKitInitialQueryState('ILL_LIBRARIES');
+
     return (
       <>
         <Header as="h2">Libraries</Header>
@@ -54,7 +58,11 @@ export class LibrarySearch extends Component {
             ...SearchControlsOverridesMap,
           }}
         >
-          <ReactSearchKit searchApi={this.searchApi} history={history}>
+          <ReactSearchKit
+            searchApi={this.searchApi}
+            history={history}
+            initialQueryState={initialState}
+          >
             <>
               <Container fluid className="spaced">
                 <SearchBar
@@ -92,6 +100,7 @@ export class LibrarySearch extends Component {
                         <SearchControls
                           modelName="ILL_LIBRARIES"
                           withLayoutSwitcher={false}
+                          withSortOrder={false}
                         />
                         <ResultsList ListEntryElement={LibraryListEntry} />
                         <SearchFooter />

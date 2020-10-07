@@ -18,6 +18,7 @@ import {
   ResultsLoader,
   SearchBar,
 } from 'react-searchkit';
+import { setReactSearchKitInitialQueryState } from '@config';
 import { Container, Grid, Header } from 'semantic-ui-react';
 
 export class VendorSearch extends Component {
@@ -47,6 +48,8 @@ export class VendorSearch extends Component {
       },
     ];
 
+    const initialState = setReactSearchKitInitialQueryState('ACQ_VENDORS');
+
     return (
       <>
         <Header as="h2">Vendors</Header>
@@ -55,7 +58,11 @@ export class VendorSearch extends Component {
             ...SearchControlsOverridesMap,
           }}
         >
-          <ReactSearchKit searchApi={this.searchApi} history={history}>
+          <ReactSearchKit
+            searchApi={this.searchApi}
+            history={history}
+            initialQueryState={initialState}
+          >
             <>
               <Container fluid className="spaced">
                 <SearchBar
@@ -93,6 +100,7 @@ export class VendorSearch extends Component {
                         <SearchControls
                           modelName="ACQ_VENDORS"
                           withLayoutSwitcher={false}
+                          withSortOrder={false}
                         />
                         <ResultsList
                           overridableId="VendorSearch"

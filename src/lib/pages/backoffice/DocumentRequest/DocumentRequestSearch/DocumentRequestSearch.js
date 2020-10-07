@@ -16,7 +16,7 @@ import {
   EmptyResults,
 } from 'react-searchkit';
 import { documentRequestApi } from '@api/documentRequests';
-import { getSearchConfig } from '@config';
+import { setReactSearchKitInitialQueryState } from '@config';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import history from '@history';
 import { responseRejectInterceptor } from '@api/base';
@@ -32,8 +32,6 @@ export class DocumentRequestSearch extends Component {
     },
   });
 
-  searchConfig = getSearchConfig('DOCUMENT_REQUESTS');
-
   render() {
     const helperFields = [
       {
@@ -47,6 +45,11 @@ export class DocumentRequestSearch extends Component {
         defaultValue: 'Harry Potter',
       },
     ];
+
+    const initialState = setReactSearchKitInitialQueryState(
+      'DOCUMENT_REQUESTS'
+    );
+
     return (
       <>
         <Header as="h2">Requests for new literature</Header>
@@ -55,7 +58,11 @@ export class DocumentRequestSearch extends Component {
             ...SearchControlsOverridesMap,
           }}
         >
-          <ReactSearchKit searchApi={this.searchApi} history={history}>
+          <ReactSearchKit
+            searchApi={this.searchApi}
+            history={history}
+            initialQueryState={initialState}
+          >
             <>
               <Container fluid className="spaced">
                 <SearchBar
@@ -84,6 +91,7 @@ export class DocumentRequestSearch extends Component {
                       <SearchControls
                         modelName="DOCUMENT_REQUESTS"
                         withLayoutSwitcher={false}
+                        withSortOrder={false}
                       />
                       <ResultsList
                         ListEntryElement={DocumentRequestListEntry}
