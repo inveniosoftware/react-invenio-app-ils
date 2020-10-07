@@ -1,5 +1,6 @@
 import { RedirectToLoginButton } from '@authentication/components/RedirectToLoginButton';
 import { authenticationService } from '@authentication/services/AuthenticationService';
+import { EnvironmentLabel } from '@components/EnvironmentLabel';
 import { invenioConfig } from '@config';
 import { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
@@ -92,18 +93,26 @@ class ILSMenu extends Component {
             >
               <Container>
                 <Menu.Item header>
-                  <Overridable id="ILSMenu.Logo">
-                    {invenioConfig.APP.LOGO_SRC && (
-                      <Link to="/">
-                        <Image
-                          src={invenioConfig.APP.LOGO_SRC}
-                          size="tiny"
-                          centered
-                          alt="Logo"
-                        />
-                      </Link>
-                    )}
-                  </Overridable>
+                  <div>
+                    <Overridable id="ILSMenu.Logo">
+                      {invenioConfig.APP.LOGO_SRC && (
+                        <Link to="/">
+                          <Image
+                            src={invenioConfig.APP.LOGO_SRC}
+                            size="tiny"
+                            centered
+                            alt="Logo"
+                          />
+                        </Link>
+                      )}
+                    </Overridable>
+                  </div>
+                  <div>
+                    <EnvironmentLabel
+                      pointing="left"
+                      style={{ marginLeft: '1.6em' }}
+                    />
+                  </div>
                 </Menu.Item>
                 <Menu.Menu position="right">
                   <Overridable id="ILSMenu.RightMenuItems" />
@@ -123,18 +132,26 @@ class ILSMenu extends Component {
             >
               <Container>
                 <Menu.Item header>
-                  <Overridable id="ILSMenu.LogoMobile">
-                    {invenioConfig.APP.LOGO_SRC && (
-                      <Link to="/">
-                        <Image
-                          src={invenioConfig.APP.LOGO_SRC}
-                          size="tiny"
-                          centered
-                          alt="Logo"
-                        />
-                      </Link>
-                    )}
-                  </Overridable>
+                  <div>
+                    <Overridable id="ILSMenu.LogoMobile">
+                      {invenioConfig.APP.LOGO_SRC && (
+                        <Link to="/">
+                          <Image
+                            src={invenioConfig.APP.LOGO_SRC}
+                            size="tiny"
+                            centered
+                            alt="Logo"
+                          />
+                        </Link>
+                      )}
+                    </Overridable>
+                  </div>
+                  <div>
+                    <EnvironmentLabel
+                      pointing="left"
+                      style={{ marginLeft: '1.6em' }}
+                    />
+                  </div>
                 </Menu.Item>
                 <Menu.Menu position="right">
                   <Overridable id="ILSMenu.RightMenuItemsMobile" />

@@ -1,4 +1,5 @@
 import { parseParams } from '@authentication/utils';
+import { EnvironmentLabel } from '@components/EnvironmentLabel';
 import { Notifications } from '@components/Notifications';
 import { invenioConfig } from '@config';
 import { goTo } from '@history';
@@ -154,6 +155,9 @@ const LoginLayout = ({
             }}
           >
             <Container>
+              <Container textAlign="center">
+                <EnvironmentLabel pointing="below" />
+              </Container>
               {showLogo && invenioConfig.APP.LOGO_SRC && (
                 <Image src={invenioConfig.APP.LOGO_SRC} size="small" centered />
               )}

@@ -38,6 +38,33 @@ export const APP_CONFIG = {
     { name: 'contact', route: '/contact', apiURL: '2' },
   ],
   supportEmail: 'info@inveniosoftware.org',
+  environments: [
+    {
+      name: 'development',
+      display: {
+        text: 'Development environment',
+        color: 'blue',
+        icon: 'code',
+      },
+    },
+    {
+      name: 'sandbox',
+      display: {
+        text: 'Sandbox environment',
+        color: 'teal',
+        icon: 'camera',
+      },
+    },
+    {
+      name: 'production',
+      display: {
+        roles: ['admin'],
+        text: 'Production environment',
+        color: 'red',
+        icon: 'warning',
+      },
+    },
+  ],
 };
 
 export const RECORDS_CONFIG = {
