@@ -15,20 +15,13 @@ export default class SearchSortBy extends Component {
             <SortBy
               label={cmp => <> Sort by {cmp}</>}
               values={searchConfig.SORT_BY}
-              defaultValue={searchConfig.SORT_BY[0].value}
-              defaultValueOnEmptyString={searchConfig.SORT_BY_ON_EMPTY_QUERY}
               overridableId="desktop"
             />
           ) : null}
         </Responsive>
         <Responsive {...Responsive.onlyMobile}>
           {searchConfig.SORT_BY.length > 0 ? (
-            <SortBy
-              values={searchConfig.SORT_BY}
-              defaultValue={searchConfig.SORT_BY[0].value}
-              defaultValueOnEmptyString={searchConfig.SORT_BY_ON_EMPTY_QUERY}
-              overridableId="mobile"
-            />
+            <SortBy values={searchConfig.SORT_BY} overridableId="mobile" />
           ) : null}
         </Responsive>
       </>

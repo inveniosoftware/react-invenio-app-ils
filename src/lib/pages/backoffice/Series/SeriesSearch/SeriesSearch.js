@@ -18,7 +18,7 @@ import {
 } from 'react-searchkit';
 import { seriesApi } from '@api/series/series';
 import { responseRejectInterceptor } from '@api/base';
-import { getSearchConfig } from '@config';
+import { setReactSearchKitInitialQueryState } from '@config';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { BackOfficeRoutes } from '@routes/urls';
@@ -34,7 +34,6 @@ export class SeriesSearch extends Component {
       response: { reject: responseRejectInterceptor },
     },
   });
-  searchConfig = getSearchConfig('SERIES');
 
   viewDetails = ({ row }) => {
     return (
@@ -60,6 +59,9 @@ export class SeriesSearch extends Component {
         field: '_created',
       },
     ];
+
+    const initialState = setReactSearchKitInitialQueryState('SERIES');
+
     return (
       <>
         <Header as="h2">Series</Header>
@@ -68,7 +70,11 @@ export class SeriesSearch extends Component {
             ...SearchControlsOverridesMap,
           }}
         >
-          <ReactSearchKit searchApi={this.searchApi} history={history}>
+          <ReactSearchKit
+            searchApi={this.searchApi}
+            history={history}
+            initialQueryState={initialState}
+          >
             <>
               <Container fluid className="spaced">
                 <SearchBar
@@ -102,6 +108,7 @@ export class SeriesSearch extends Component {
                       <SearchControls
                         modelName="SERIES"
                         withLayoutSwitcher={false}
+                        withSortOrder={false}
                       />
                       <ResultsList ListEntryElement={SeriesListEntry} />
                       <SearchFooter />

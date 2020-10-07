@@ -17,7 +17,7 @@ import {
 } from 'react-searchkit';
 import { patronApi } from '@api/patrons';
 import { responseRejectInterceptor } from '@api/base';
-import { getSearchConfig } from '@config';
+import { setReactSearchKitInitialQueryState } from '@config';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 
 export class PatronSearch extends Component {
@@ -30,7 +30,6 @@ export class PatronSearch extends Component {
       response: { reject: responseRejectInterceptor },
     },
   });
-  searchConfig = getSearchConfig('PATRONS');
 
   render() {
     const helperFields = [
@@ -44,6 +43,9 @@ export class PatronSearch extends Component {
         field: 'email',
       },
     ];
+
+    const initialState = setReactSearchKitInitialQueryState('PATRONS');
+
     return (
       <>
         <Header as="h2">Patrons</Header>
@@ -53,7 +55,10 @@ export class PatronSearch extends Component {
             ResultsList: PatronResultsList,
           }}
         >
-          <ReactSearchKit searchApi={this.searchApi}>
+          <ReactSearchKit
+            searchApi={this.searchApi}
+            initialQueryState={initialState}
+          >
             <>
               <Container fluid className="spaced">
                 <SearchBar
@@ -81,6 +86,7 @@ export class PatronSearch extends Component {
                           <SearchControls
                             modelName="PATRONS"
                             withLayoutSwitcher={false}
+                            withSortOrder={false}
                           />
                           <ResultsList />
                           <SearchFooter />

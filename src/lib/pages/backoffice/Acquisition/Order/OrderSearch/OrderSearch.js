@@ -20,6 +20,7 @@ import {
   SearchBar,
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
+import { setReactSearchKitInitialQueryState } from '@config';
 
 class OrderResponseSerializer {
   serialize(results) {
@@ -63,6 +64,9 @@ export class OrderSearch extends Component {
         defaultValue: '1',
       },
     ];
+
+    const initialState = setReactSearchKitInitialQueryState('ACQ_ORDERS');
+
     return (
       <>
         <Header as="h2">Purchase Orders</Header>
@@ -71,7 +75,11 @@ export class OrderSearch extends Component {
             ...SearchControlsOverridesMap,
           }}
         >
-          <ReactSearchKit searchApi={this.searchApi} history={history}>
+          <ReactSearchKit
+            searchApi={this.searchApi}
+            history={history}
+            initialQueryState={initialState}
+          >
             <>
               <Container fluid className="spaced">
                 <SearchBar

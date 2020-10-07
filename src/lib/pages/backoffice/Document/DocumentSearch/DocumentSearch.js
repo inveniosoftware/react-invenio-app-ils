@@ -13,7 +13,7 @@ import {
   EmptyResults,
 } from 'react-searchkit';
 import { documentApi } from '@api/documents';
-import { getSearchConfig } from '@config';
+import { setReactSearchKitInitialQueryState } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
@@ -29,8 +29,6 @@ export class DocumentSearch extends Component {
       withCredentials: true,
     },
   });
-
-  searchConfig = getSearchConfig('DOCUMENTS');
 
   render() {
     const helperFields = [
@@ -48,6 +46,9 @@ export class DocumentSearch extends Component {
         field: 'imprint.date',
       },
     ];
+
+    const initialState = setReactSearchKitInitialQueryState('DOCUMENTS');
+
     return (
       <>
         <Header as="h2">Documents</Header>
@@ -56,7 +57,11 @@ export class DocumentSearch extends Component {
             ...SearchControlsOverridesMap,
           }}
         >
-          <ReactSearchKit searchApi={this.searchApi} history={history}>
+          <ReactSearchKit
+            searchApi={this.searchApi}
+            history={history}
+            initialQueryState={initialState}
+          >
             <>
               <Container fluid className="spaced">
                 <SearchBar
@@ -98,6 +103,7 @@ export class DocumentSearch extends Component {
                         <SearchControls
                           modelName="DOCUMENTS"
                           withLayoutSwitcher={false}
+                          withSortOrder={false}
                         />
                         <ResultsList ListEntryElement={DocumentListEntry} />
                         <SearchFooter />

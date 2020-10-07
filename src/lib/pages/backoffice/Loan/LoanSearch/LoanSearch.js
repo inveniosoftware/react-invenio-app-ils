@@ -20,7 +20,7 @@ import history from '@history';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
-
+import { setReactSearchKitInitialQueryState } from '@config';
 import { SearchDateRange } from './SearchDateRange';
 
 export class LoanSearch extends Component {
@@ -44,6 +44,9 @@ export class LoanSearch extends Component {
         defaultValue: '"Little Prince"',
       },
     ];
+
+    const initialState = setReactSearchKitInitialQueryState('LOANS');
+
     return (
       <>
         <Header as="h2">Loans and requests</Header>
@@ -52,7 +55,11 @@ export class LoanSearch extends Component {
             ...SearchControlsOverridesMap,
           }}
         >
-          <ReactSearchKit searchApi={this.searchApi} history={history}>
+          <ReactSearchKit
+            searchApi={this.searchApi}
+            history={history}
+            initialQueryState={initialState}
+          >
             <>
               <Container fluid className="spaced">
                 <SearchBar

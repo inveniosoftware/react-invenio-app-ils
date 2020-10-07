@@ -16,7 +16,7 @@ import {
   Error,
   InvenioSearchApi,
 } from 'react-searchkit';
-import { getSearchConfig } from '@config';
+import { setReactSearchKitInitialQueryState } from '@config';
 import { eItemApi } from '@api/eitems';
 import { responseRejectInterceptor } from '@api/base';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
@@ -34,7 +34,6 @@ export class EItemSearch extends Component {
       response: { reject: responseRejectInterceptor },
     },
   });
-  searchConfig = getSearchConfig('EITEMS');
 
   viewDetails = ({ row }) => {
     return (
@@ -64,6 +63,9 @@ export class EItemSearch extends Component {
         field: '_created',
       },
     ];
+
+    const initialState = setReactSearchKitInitialQueryState('EITEMS');
+
     return (
       <>
         <Header as="h2">Electronic items</Header>
@@ -72,7 +74,11 @@ export class EItemSearch extends Component {
             ...SearchControlsOverridesMap,
           }}
         >
-          <ReactSearchKit searchApi={this.searchApi} history={history}>
+          <ReactSearchKit
+            searchApi={this.searchApi}
+            history={history}
+            initialQueryState={initialState}
+          >
             <>
               <Container fluid className="spaced">
                 <SearchBar
@@ -105,6 +111,7 @@ export class EItemSearch extends Component {
                       <SearchControls
                         modelName="EITEMS"
                         withLayoutSwitcher={false}
+                        withSortOrder={false}
                       />
                       <EmptyResults
                         extraContent={
