@@ -9,7 +9,9 @@ Card Overrides - REACT-INVENIO-APP-ILS
     border-bottom: 1px solid @borderColor;
     border-radius: 0;
     margin-bottom: 2em;
-    width: calc(60% + 3em);
+    width: 100%;
+    max-width: 500px;
+
 
       & > .content {
 

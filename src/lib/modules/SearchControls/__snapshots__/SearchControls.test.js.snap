@@ -11,8 +11,8 @@ exports[`SearchControls tests should load the SearchControls component 1`] = `
       columns={3}
     >
       <GridColumn
-        computer={4}
-        largeScreen={4}
+        computer={5}
+        largeScreen={5}
       >
         <Grid
           columns={2}

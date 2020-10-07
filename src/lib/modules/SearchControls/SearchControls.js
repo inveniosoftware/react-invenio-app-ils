@@ -20,7 +20,7 @@ export class SearchControls extends Component {
       <>
         <Responsive {...Responsive.onlyComputer}>
           <Grid columns={3} className="search-controls">
-            <Grid.Column largeScreen={4} computer={4}>
+            <Grid.Column largeScreen={5} computer={5}>
               <Grid columns={2}>
                 {withLayoutSwitcher && (
                   <Grid.Column width={6} className="layout-switcher">
