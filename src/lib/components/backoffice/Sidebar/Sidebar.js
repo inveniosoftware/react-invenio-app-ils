@@ -1,5 +1,6 @@
 import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
 import { authenticationService } from '@authentication/services/AuthenticationService';
+import { EnvironmentLabel } from '@components/EnvironmentLabel';
 import {
   AcquisitionRoutes,
   BackOfficeRoutes,
@@ -10,7 +11,15 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
-import { Divider, Header, Icon, Label, List, Menu } from 'semantic-ui-react';
+import {
+  Container,
+  Divider,
+  Header,
+  Icon,
+  Label,
+  List,
+  Menu,
+} from 'semantic-ui-react';
 import AdminMenu from './AdminMenu';
 
 class Sidebar extends Component {
@@ -43,6 +52,9 @@ class Sidebar extends Component {
     return (
       <Overridable id="Sidebar.layout">
         <>
+          <Container textAlign="center">
+            <EnvironmentLabel pointing="below" style={{ marginBottom: 0 }} />
+          </Container>
           <Header as="h3" className="bo-menu-header">
             <Icon name="user circle" color="grey" />
             <Header.Content>
