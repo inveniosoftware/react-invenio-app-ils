@@ -17,6 +17,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
         "BucketAggregationValues.element.card": [Function],
         "EmptyResults.element": [Function],
         "Error.element": [Function],
+        "Pagination.element": [Function],
         "ResultsGrid": [Function],
         "ResultsList": [Function],
         "SearchBar": [Function],
@@ -46,6 +47,15 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
           },
           "push": [Function],
           "replace": [Function],
+        }
+      }
+      initialQueryState={
+        Object {
+          "layout": "grid",
+          "page": 1,
+          "size": 15,
+          "sortBy": "-mostrecent",
+          "sortOrder": "asc",
         }
       }
       searchApi={
@@ -98,7 +108,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
               defaultLayout="grid"
               modelName="LITERATURE"
               withLayoutSwitcher={true}
-              withSortOrder={true}
+              withSortOrder={false}
             />
             <Connect(Overridable(ResultsMultiLayout)) />
           </Responsive>
