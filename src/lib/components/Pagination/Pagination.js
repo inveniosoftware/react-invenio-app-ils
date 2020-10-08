@@ -5,29 +5,40 @@ import Overridable from 'react-overridable';
 import { Pagination as Paginator } from 'semantic-ui-react';
 
 class Pagination extends Component {
-  constructor(props) {
-    super(props);
-    this.showFirstAndLastNav = false;
-  }
-
   render() {
     const {
       totalResults,
       currentPage,
-      onPageChange,
       currentSize = invenioConfig.APP.defaultResultsSize,
+      onPageChange,
+      loading,
+      simple,
+      firstItem,
+      lastItem,
+      totalPages: _,
+      ...extraParams
     } = this.props;
-    const pages = Math.ceil(totalResults / currentSize);
+    // Maximum number of pages allowed (backend window limitation)
+    const maximumWindowPages = Math.floor(
+      invenioConfig.APP.MAX_RESULTS_WINDOW / currentSize
+    );
+    // Theoretical number of pages for this search result
+    const totalPages = Math.ceil(totalResults / currentSize);
+    // Actual number of pages displayed
+    const totalDisplayedPages = Math.min(totalPages, maximumWindowPages);
     return (
-      <div className="pagination">
-        <Paginator
-          firstItem={this.showFirstAndLastNav}
-          lastItem={this.showFirstAndLastNav}
-          activePage={currentPage}
-          totalPages={pages}
-          onPageChange={(event, { activePage }) => onPageChange(activePage)}
-        />
-      </div>
+      !loading && (
+        <div className="pagination">
+          <Paginator
+            activePage={currentPage}
+            totalPages={totalDisplayedPages}
+            firstItem={simple ? null : firstItem}
+            lastItem={simple ? null : lastItem}
+            onPageChange={(event, { activePage }) => onPageChange(activePage)}
+            {...extraParams}
+          />
+        </div>
+      )
     );
   }
 }
@@ -35,8 +46,17 @@ class Pagination extends Component {
 Pagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
   currentSize: PropTypes.number,
+  totalPages: PropTypes.number,
   totalResults: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
+  loading: PropTypes.bool,
+  simple: PropTypes.bool,
+  firstItem: PropTypes.any,
+  lastItem: PropTypes.any,
+};
+
+Pagination.defaultProps = {
+  simple: false,
 };
 
 export default Overridable.component('Pagination', Pagination);

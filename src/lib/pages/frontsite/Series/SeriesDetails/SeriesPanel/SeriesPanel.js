@@ -31,6 +31,7 @@ class SeriesPanel extends Component {
                 <Grid.Column width={5}>
                   <LiteratureCover
                     url={_get(series, 'metadata.cover_metadata.urls.large')}
+                    isLoading={isLoading}
                   />
                 </Grid.Column>
                 <Grid.Column width={6}>

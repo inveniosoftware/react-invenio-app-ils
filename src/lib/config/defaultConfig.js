@@ -751,7 +751,7 @@ export const RECORDS_CONFIG = {
           {
             field: 'expire_date',
             order: 1,
-            title: 'Expriration date',
+            title: 'Expiration date',
             default_order: 'desc',
           },
           {
