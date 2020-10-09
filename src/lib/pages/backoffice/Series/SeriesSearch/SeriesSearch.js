@@ -108,7 +108,6 @@ export class SeriesSearch extends Component {
                       <SearchControls
                         modelName="SERIES"
                         withLayoutSwitcher={false}
-                        withSortOrder={false}
                       />
                       <ResultsList ListEntryElement={SeriesListEntry} />
                       <SearchFooter />

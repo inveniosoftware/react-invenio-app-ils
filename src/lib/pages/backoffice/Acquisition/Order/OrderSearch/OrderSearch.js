@@ -121,7 +121,6 @@ export class OrderSearch extends Component {
                         <SearchControls
                           modelName="ACQ_ORDERS"
                           withLayoutSwitcher={false}
-                          withSortOrder={false}
                         />
                         <ResultsList ListEntryElement={OrderListEntry} />
                         <SearchFooter />

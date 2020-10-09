@@ -86,7 +86,6 @@ export class PatronSearch extends Component {
                           <SearchControls
                             modelName="PATRONS"
                             withLayoutSwitcher={false}
-                            withSortOrder={false}
                           />
                           <ResultsList />
                           <SearchFooter />

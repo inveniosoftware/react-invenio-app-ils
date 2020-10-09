@@ -12,7 +12,6 @@ const stateQuery = {
   queryString: '',
   size: 15,
   sortBy: 'publication_year',
-  sortOrder: 'asc',
 };
 
 let serializer;

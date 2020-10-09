@@ -33,7 +33,6 @@ class LiteratureSearchMobile extends Component {
                       <SearchControlsMobile
                         ref={this.stickyRef}
                         modelName="LITERATURE"
-                        withSortOrder={false}
                       />
                     </Sticky>
                     <Container textAlign="center">

@@ -1,4 +1,3 @@
-import _capitalize from 'lodash/capitalize';
 import _find from 'lodash/find';
 import _get from 'lodash/get';
 import _map from 'lodash/map';
@@ -37,17 +36,7 @@ export const getSearchConfig = (modelName, extraOptions = {}) => {
         value: 60,
       },
     ],
-    SORT_BY: config.sortBy.values.map(sortField => {
-      return {
-        text: sortField.title,
-        value: sortField.field,
-        defaultValue: sortField.default_order,
-      };
-    }),
-    SORT_BY_ON_EMPTY_QUERY: config.sortBy.onEmptyQuery,
-    SORT_ORDER: config.sortOrder.map(sortField => {
-      return { text: _capitalize(sortField), value: sortField };
-    }),
+    SORT_BY: config.sort,
     DEFAULT_PAGE: config.defaultPage,
     DEFAULT_SIZE: config.defaultSize,
     DEFAULT_LAYOUT: config.defaultLayout,
@@ -68,10 +57,9 @@ export const setReactSearchKitInitialQueryState = modelName => {
     initialState['size'] = searchConfig.DEFAULT_SIZE;
   }
   if (searchConfig.SORT_BY) {
-    initialState['sortBy'] = searchConfig.SORT_BY[0].value;
-  }
-  if (searchConfig.SORT_ORDER) {
-    initialState['sortOrder'] = searchConfig.SORT_ORDER[0].value;
+    const defaultSort = searchConfig.SORT_BY[0];
+    initialState['sortBy'] = defaultSort.sortBy;
+    initialState['sortOrder'] = defaultSort.sortOrder;
   }
   return initialState;
 };

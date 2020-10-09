@@ -6,7 +6,6 @@ export const initialState = {
   data: { hits: [], total: 0 },
   error: {},
   sortBy: 'transaction_date',
-  sortOrder: 'asc',
 };
 
 export default (state = initialState, action) => {

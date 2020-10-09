@@ -26,7 +26,6 @@ export class SeriesLiteratureSearchMobile extends React.Component {
                 <SearchControlsMobile
                   ref={this.stickyRef}
                   modelName="LITERATURE"
-                  withSortOrder={false}
                 />
               </Sticky>
               <Container textAlign="center">

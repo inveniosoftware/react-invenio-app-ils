@@ -78,10 +78,7 @@ class LiteratureSearch extends Component {
                       <Grid.Column width={13} className="search-results">
                         <EmptyResults />
                         <Error />
-                        <SearchControls
-                          modelName="LITERATURE"
-                          withSortOrder={false}
-                        />
+                        <SearchControls modelName="LITERATURE" />
                         <ResultsMultiLayout />
                         <Container fluid className="search-results-footer">
                           <SearchFooter />

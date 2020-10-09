@@ -4,7 +4,6 @@ import {
   SUCCESS,
   HAS_ERROR,
   CHANGE_SORT_BY,
-  CHANGE_SORT_ORDER,
 } from './actions';
 
 describe('Fetch pending loans reducer', () => {
@@ -58,17 +57,6 @@ describe('Fetch pending loans reducer', () => {
       ...initialState,
       sortBy: 'transaction_date',
       sortOrder: initialState.sortOrder,
-    });
-  });
-
-  it('should change sortOrder state on change sort order action', () => {
-    const action = {
-      type: CHANGE_SORT_ORDER,
-      payload: 'desc',
-    };
-    expect(reducer(initialState, action)).toEqual({
-      ...initialState,
-      sortOrder: 'desc',
     });
   });
 });

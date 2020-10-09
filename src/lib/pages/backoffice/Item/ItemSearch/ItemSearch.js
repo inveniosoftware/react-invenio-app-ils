@@ -119,7 +119,6 @@ export class ItemSearch extends Component {
                         <SearchControls
                           modelName="ITEMS"
                           withLayoutSwitcher={false}
-                          withSortOrder={false}
                         />
                         <ResultsList ListEntryElement={ItemListEntry} />
                         <SearchFooter />
