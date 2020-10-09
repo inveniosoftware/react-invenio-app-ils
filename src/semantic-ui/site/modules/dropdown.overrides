@@ -28,7 +28,6 @@ Dropdown Overrides - REACT-INVENIO-APP-ILS
 
   .mobile-filters-dropdown.ui.dropdown.scrolling {
     .menu.transition.visible {
-      width: 70vw !important;
       max-height: 70vh;
     }
   }

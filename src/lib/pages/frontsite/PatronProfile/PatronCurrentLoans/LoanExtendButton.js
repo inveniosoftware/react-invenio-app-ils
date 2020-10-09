@@ -1,12 +1,11 @@
 import { loanApi } from '@api/loans';
-import { delay, withCancel } from '@api/utils';
+import { searchReady, withCancel } from '@api/utils';
 import { invenioConfig } from '@config';
 import _get from 'lodash/get';
 import _has from 'lodash/has';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Icon, Popup } from 'semantic-ui-react';
-
 const INFO_MESSAGES = {
   SUCCESS: documentTitle =>
     `Your loan for "${documentTitle}" has been extended.`,
@@ -32,7 +31,7 @@ class LoanExtendButton extends Component {
 
   async extendLoan(actionURL, documentPid, patronPid) {
     const response = await loanApi.doAction(actionURL, documentPid, patronPid);
-    await delay();
+    await searchReady();
     return response;
   }
 

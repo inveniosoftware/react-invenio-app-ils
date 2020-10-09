@@ -59,7 +59,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
       searchApi={
         InvenioSearchApi {
           "axiosConfig": Object {
-            "url": "https://localhost:5000/api/literature/",
+            "url": "https://127.0.0.1:5000/api/literature/",
             "withCredentials": true,
           },
           "http": [Function],

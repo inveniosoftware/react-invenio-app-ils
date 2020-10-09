@@ -1,12 +1,11 @@
 import { libraryApi } from '@api/ill';
-import { delay } from '@api/utils';
+import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
 import { goTo } from '@history';
 import { ILLRoutes } from '@routes/urls';
-
 export const IS_LOADING = 'fetchLibraryDetails/IS_LOADING';
 export const SUCCESS = 'fetchLibraryDetails/SUCCESS';
 export const HAS_ERROR = 'fetchLibraryDetails/HAS_ERROR';
@@ -45,7 +44,7 @@ export const deleteLibrary = pid => {
 
     try {
       await libraryApi.delete(pid);
-      await delay();
+      await searchReady();
       dispatch({
         type: DELETE_SUCCESS,
         payload: { pid: pid },

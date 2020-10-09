@@ -1,16 +1,16 @@
-import {
-  DETAILS_SUCCESS as FETCH_LOAN_SUCCESS,
-  DETAILS_IS_LOADING as FETCH_LOAN_IS_LOADING,
-} from '@modules/Loan/actions';
 import { itemApi } from '@api/items';
 import { loanApi } from '@api/loans';
-import { invenioConfig } from '@config';
+import { searchReady } from '@api/utils';
 import { sendErrorNotification } from '@components/Notifications';
+import { invenioConfig } from '@config';
+import {
+  DETAILS_IS_LOADING as FETCH_LOAN_IS_LOADING,
+  DETAILS_SUCCESS as FETCH_LOAN_SUCCESS,
+} from '@modules/Loan/actions';
 
 export const IS_LOADING = 'fetchAvailableItems/IS_LOADING';
 export const SUCCESS = 'fetchAvailableItems/SUCCESS';
 export const HAS_ERROR = 'fetchAvailableItems/HAS_ERROR';
-
 export const fetchAvailableItems = documentPid => {
   return async dispatch => {
     dispatch({
@@ -49,6 +49,7 @@ export const assignItemToLoan = (itemId, loanId) => {
 
     try {
       const response = await loanApi.assignItemToLoan(itemId, loanId);
+      await searchReady();
 
       dispatch({
         type: FETCH_LOAN_SUCCESS,

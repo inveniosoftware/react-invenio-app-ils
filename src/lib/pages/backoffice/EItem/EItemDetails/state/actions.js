@@ -1,5 +1,5 @@
 import { eItemApi } from '@api/eitems';
-import { delay } from '@api/utils';
+import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
@@ -18,7 +18,6 @@ export const DELETE_HAS_ERROR = 'fetchEItemDetails/DELETE_HAS_ERROR';
 export const ADD_FILE = 'fetchEItemDetails/ADD_FILE';
 export const DELETE_FILE = 'fetchEItemDetails/DELETE_FILE';
 export const UPLOAD_IS_LOADING = 'fetchEItemDetails/UPLOAD_IS_LOADING';
-
 export const deleteEItem = eitemPid => {
   return async dispatch => {
     dispatch({
@@ -27,7 +26,7 @@ export const deleteEItem = eitemPid => {
 
     try {
       await eItemApi.delete(eitemPid);
-      await delay();
+      await searchReady();
       dispatch({
         type: DELETE_SUCCESS,
         payload: { eitemPid: eitemPid },

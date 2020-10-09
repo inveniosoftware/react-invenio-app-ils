@@ -1,4 +1,5 @@
-import { delay } from '@api/utils';
+import { locationApi } from '@api/locations/location';
+import { searchReady } from '@api/utils';
 import { BaseForm } from '@forms/core/BaseForm';
 import { GroupField } from '@forms/core/GroupField';
 import { StringField } from '@forms/core/StringField';
@@ -8,10 +9,8 @@ import { BackOfficeRoutes } from '@routes/urls';
 import pick from 'lodash/pick';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Closures } from './Closures';
 import { Header, Segment } from 'semantic-ui-react';
-import { locationApi } from '@api/locations/location';
-
+import { Closures } from './Closures';
 export class LocationForm extends Component {
   prepareData = data => {
     return pick(data, [
@@ -91,14 +90,14 @@ export class LocationForm extends Component {
   updateLocation = async (pid, data) => {
     data = this.processData(data);
     const response = await locationApi.update(pid, data);
-    await delay();
+    await searchReady();
     return response;
   };
 
   createLocation = async data => {
     data = this.processData(data);
     const response = await locationApi.create(data);
-    await delay();
+    await searchReady();
     return response;
   };
 

@@ -139,12 +139,11 @@ export const withCancel = promise => {
 };
 
 /**
- * Wrap a promise with the Elasticsearch delay timeout
- * @param promise the promise to wrap
- * @returns the delayed promise
+ * Blocking promise to wait for the backend search to be ready
+ * @returns a blocking promise
  */
-export const delay = async () => {
+export const searchReady = async () => {
   return await new Promise(resolve =>
-    setTimeout(resolve, invenioConfig.APP.ES_DELAY)
+    setTimeout(resolve, invenioConfig.APP.SEARCH_READY_DELAY)
   );
 };

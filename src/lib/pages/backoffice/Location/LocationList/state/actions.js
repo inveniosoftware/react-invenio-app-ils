@@ -1,10 +1,9 @@
 import { locationApi } from '@api/locations/location';
-import { delay } from '@api/utils';
+import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
-
 export const IS_LOADING = 'fetchAllLocations/IS_LOADING';
 export const SUCCESS = 'fetchAllLocations/SUCCESS';
 export const HAS_ERROR = 'fetchAllLocations/HAS_ERROR';
@@ -41,7 +40,7 @@ export const deleteLocation = locationPid => {
     });
     try {
       await locationApi.delete(locationPid);
-      await delay();
+      await searchReady();
       dispatch({
         type: DELETE_SUCCESS,
         payload: { locationPid: locationPid },

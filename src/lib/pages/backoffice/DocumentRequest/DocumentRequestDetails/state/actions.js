@@ -1,12 +1,11 @@
 import { documentRequestApi } from '@api/documentRequests';
-import { delay } from '@api/utils';
+import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
-
 export const IS_LOADING = 'fetchDocumentRequestDetails/IS_LOADING';
 export const SUCCESS = 'fetchDocumentRequestDetails/SUCCESS';
 export const HAS_ERROR = 'fetchDocumentRequestDetails/HAS_ERROR';
@@ -44,7 +43,7 @@ export const deleteRequest = requestPid => {
 
     try {
       await documentRequestApi.delete(requestPid);
-      await delay();
+      await searchReady();
       dispatch({
         type: DELETE_SUCCESS,
         payload: { requestPid: requestPid },

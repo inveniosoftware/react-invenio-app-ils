@@ -1,15 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { delay } from '@api/utils';
 import { itemApi } from '@api/items';
 import { loanApi } from '@api/loans';
-import { BackOfficeRoutes } from '@routes/urls';
+import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
 import { goTo } from '@history';
-
+import { BackOfficeRoutes } from '@routes/urls';
+import React from 'react';
+import { Link } from 'react-router-dom';
 export const IS_LOADING = 'fetchItemDetails/IS_LOADING';
 export const SUCCESS = 'fetchItemDetails/SUCCESS';
 export const HAS_ERROR = 'fetchItemDetails/HAS_ERROR';
@@ -48,7 +47,7 @@ export const deleteItem = itemPid => {
 
     try {
       await itemApi.delete(itemPid);
-      await delay();
+      await searchReady();
       dispatch({
         type: DELETE_SUCCESS,
         payload: { itemPid: itemPid },
@@ -87,7 +86,7 @@ export const checkoutItem = (
         patronPid,
         { force: force }
       );
-      await delay();
+      await searchReady();
       const { pid } = response.data.metadata;
       const linkToLoan = (
         <p>

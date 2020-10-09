@@ -1,6 +1,6 @@
 import { dateFormatter } from '@api/date';
 import { documentRequestApi } from '@api/documentRequests';
-import { delay, withCancel } from '@api/utils';
+import { searchReady, withCancel } from '@api/utils';
 import { Error } from '@components/Error';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
@@ -22,7 +22,6 @@ import {
   Popup,
 } from 'semantic-ui-react';
 import PatronCancelModal from '../PatronCancelModal';
-
 class ButtonCancelRequest extends Component {
   constructor(props) {
     super(props);
@@ -62,7 +61,7 @@ class ButtonCancelRequest extends Component {
     const response = await documentRequestApi.reject(docReqPid, {
       reject_reason: invenioConfig.DOCUMENT_REQUESTS.rejectTypes.userCancel,
     });
-    await delay();
+    await searchReady();
     return response;
   }
 

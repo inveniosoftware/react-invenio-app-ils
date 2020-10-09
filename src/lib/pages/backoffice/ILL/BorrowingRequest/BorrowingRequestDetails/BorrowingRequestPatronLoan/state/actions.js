@@ -1,12 +1,11 @@
 import { borrowingRequestApi } from '@api/ill';
-import { delay } from '@api/utils';
+import { searchReady } from '@api/utils';
 import { sendSuccessNotification } from '@components/Notifications';
 import { SUCCESS as FETCH_SUCCESS } from '../../state/actions';
 
 export const SUCCESS = 'borrowingRequestPatronLoanCreate/SUCCESS';
 export const IS_LOADING = 'borrowingRequestPatronLoanCreate/IS_LOADING';
 export const HAS_ERROR = 'borrowingRequestPatronLoanCreate/HAS_ERROR';
-
 export const borrowingRequestPatronLoanCreate = (
   borrowingRequestPid,
   loanStartDate,
@@ -23,7 +22,7 @@ export const borrowingRequestPatronLoanCreate = (
         loanStartDate,
         loanEndDate
       );
-      await delay();
+      await searchReady();
       dispatch({
         type: SUCCESS,
       });

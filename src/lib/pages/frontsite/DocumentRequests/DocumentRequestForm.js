@@ -1,5 +1,5 @@
 import { documentRequestApi } from '@api/documentRequests/documentRequest';
-import { delay } from '@api/utils';
+import { searchReady } from '@api/utils';
 import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
 import { invenioConfig } from '@config';
 import { BaseForm } from '@forms/core/BaseForm';
@@ -17,7 +17,6 @@ import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Container, Header, Segment } from 'semantic-ui-react';
 import * as Yup from 'yup';
-
 const ERROR_MSGS = {
   publication_year: 'Not a valid year',
 };
@@ -51,7 +50,7 @@ class DocumentRequestForm extends Component {
 
   createDocumentRequest = async data => {
     const response = await documentRequestApi.create(data);
-    await delay();
+    await searchReady();
     return response;
   };
 

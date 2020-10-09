@@ -1,10 +1,9 @@
 import { internalLocationApi } from '@api/locations';
-import { delay } from '@api/utils';
+import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
-
 export const IS_LOADING = 'fetchInternalLocations/IS_LOADING';
 export const SUCCESS = 'fetchInternalLocations/SUCCESS';
 export const HAS_ERROR = 'fetchInternalLocations/HAS_ERROR';
@@ -42,7 +41,7 @@ export const deleteInternalLocation = ilocPid => {
 
     try {
       await internalLocationApi.delete(ilocPid);
-      await delay();
+      await searchReady();
       dispatch({
         type: DELETE_SUCCESS,
         payload: { internalLocationPid: ilocPid },
