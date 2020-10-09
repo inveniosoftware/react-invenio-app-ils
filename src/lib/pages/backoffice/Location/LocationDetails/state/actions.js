@@ -1,12 +1,11 @@
 import { locationApi } from '@api/locations/location';
-import { delay } from '@api/utils';
+import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
-
 export const IS_LOADING = 'fetchLocationDetails/IS_LOADING';
 export const SUCCESS = 'fetchLocationDetails/SUCCESS';
 export const HAS_ERROR = 'fetchLocationDetails/HAS_ERROR';
@@ -43,7 +42,7 @@ export const deleteLocation = pid => {
     });
     try {
       await locationApi.delete(pid);
-      await delay();
+      await searchReady();
       dispatch({
         type: DELETE_SUCCESS,
         payload: { pid: pid },

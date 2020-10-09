@@ -1,5 +1,5 @@
 import { borrowingRequestApi } from '@api/ill';
-import { delay } from '@api/utils';
+import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
@@ -9,7 +9,6 @@ import { SUCCESS as FETCH_SUCCESS } from '../../state/actions';
 export const SUCCESS = 'borrowingRequestLoanExtensionAction/SUCCESS';
 export const IS_LOADING = 'borrowingRequestLoanExtensionAction/IS_LOADING';
 export const HAS_ERROR = 'borrowingRequestLoanExtensionAction/HAS_ERROR';
-
 export const borrowingRequestLoanExtensionAccept = (
   borrowingRequestPid,
   loanEndDate
@@ -24,7 +23,7 @@ export const borrowingRequestLoanExtensionAccept = (
         borrowingRequestPid,
         loanEndDate
       );
-      await delay();
+      await searchReady();
       dispatch({
         type: SUCCESS,
       });
@@ -57,7 +56,7 @@ export const borrowingRequestLoanExtensionDecline = borrowingRequestPid => {
       const response = await borrowingRequestApi.declineExtension(
         borrowingRequestPid
       );
-      await delay();
+      await searchReady();
       dispatch({
         type: SUCCESS,
       });

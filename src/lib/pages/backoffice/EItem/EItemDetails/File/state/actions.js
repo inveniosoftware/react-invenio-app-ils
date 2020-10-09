@@ -1,16 +1,15 @@
 import { eItemApi } from '@api/eitems/eitem';
 import { fileApi } from '@api/files/file';
+import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
-import { delay } from '@api/utils';
 import {
   DELETE_FILE,
   UPLOAD_IS_LOADING,
 } from '@pages/backoffice/EItem/EItemDetails/state/actions';
 import { fetchEItemDetails } from './../../state/actions';
-
 export const HAS_ERROR = 'upload/HAS_ERROR';
 export const SUCCESS = 'upload/SUCCESS';
 export const IS_LOADING = 'upload/IS_LOADING';
@@ -24,7 +23,7 @@ export const uploadFile = (eitemPid, bucket, file) => {
     try {
       if (!bucket) {
         const bucketResponse = await eItemApi.bucket(eitemPid);
-        await delay();
+        await searchReady();
         bucket = bucketResponse.data.metadata.bucket_id;
       }
       const response = await fileApi.upload(bucket, file);

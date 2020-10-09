@@ -1,5 +1,5 @@
 import { loanApi } from '@api/loans';
-import { delay, withCancel } from '@api/utils';
+import { searchReady, withCancel } from '@api/utils';
 import { Error } from '@components/Error';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
@@ -18,7 +18,6 @@ import {
 import LoansList from '../LoansList';
 import LoansListItem from '../LoansListEntry';
 import PatronCancelModal from '../PatronCancelModal';
-
 class ButtonCancelRequest extends Component {
   constructor(props) {
     super(props);
@@ -60,7 +59,7 @@ class ButtonCancelRequest extends Component {
     const response = await loanApi.doAction(cancelUrl, documentPid, patronPid, {
       cancelReason: 'USER_CANCEL',
     });
-    await delay();
+    await searchReady();
     return response;
   }
 

@@ -1,11 +1,10 @@
 import { loanApi } from '@api/loans';
-import { delay } from '@api/utils';
+import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
 import { fetchItemDetails } from './../../pages/backoffice/Item/ItemDetails/state/actions';
-
 export const ACTION_IS_LOADING = 'loanAction/IS_LOADING';
 export const ACTION_SUCCESS = 'loanAction/SUCCESS';
 export const ACTION_HAS_ERROR = 'loanAction/HAS_ERROR';
@@ -55,7 +54,7 @@ export const performLoanAction = (
           cancelReason: cancelReason,
         }
       );
-      await delay();
+      await searchReady();
 
       dispatch({
         type: ACTION_SUCCESS,

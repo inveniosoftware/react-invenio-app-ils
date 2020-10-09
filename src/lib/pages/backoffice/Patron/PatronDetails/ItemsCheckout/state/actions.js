@@ -1,13 +1,14 @@
 import { loanApi } from '@api/loans';
-import { delay } from '@api/utils';
+import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
-import { fetchPatronCurrentLoans } from '@modules/Patron/PatronCurrentLoans/actions';
-import { IS_LOADING as CURRENT_LOANS_IS_LOADING } from '@modules/Patron/PatronCurrentLoans/actions';
+import {
+  fetchPatronCurrentLoans,
+  IS_LOADING as CURRENT_LOANS_IS_LOADING,
+} from '@modules/Patron/PatronCurrentLoans/actions';
 import { CLEAR_SEARCH } from '../../ItemsSearch/state/actions';
-
 export const IS_LOADING = 'patronItemCheckout/IS_LOADING';
 export const SUCCESS = 'patronItemCheckout/SUCCESS';
 export const HAS_ERROR = 'patronItemCheckout/ERROR';
@@ -40,7 +41,7 @@ export const checkoutItem = (
       dispatch({
         type: CURRENT_LOANS_IS_LOADING,
       });
-      await delay();
+      await searchReady();
       dispatch(fetchPatronCurrentLoans(patronPid));
       dispatch(
         sendSuccessNotification(

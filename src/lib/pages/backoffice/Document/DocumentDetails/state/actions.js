@@ -1,8 +1,7 @@
+import { toShortDate } from '@api/date';
 import { documentApi } from '@api/documents';
 import { loanApi } from '@api/loans';
-import { toShortDate } from '@api/date';
-import { delay } from '@api/utils';
-import PropTypes from 'prop-types';
+import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
@@ -10,10 +9,10 @@ import {
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
 import { DateTime } from 'luxon';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Overridable from 'react-overridable';
-
+import { Link } from 'react-router-dom';
 export const IS_LOADING = 'fetchDocumentDetails/IS_LOADING';
 export const SUCCESS = 'fetchDocumentDetails/SUCCESS';
 export const HAS_ERROR = 'fetchDocumentDetails/HAS_ERROR';
@@ -52,7 +51,7 @@ export const deleteDocument = documentPid => {
 
     try {
       await documentApi.delete(documentPid);
-      await delay();
+      await searchReady();
       dispatch({
         type: DELETE_SUCCESS,
         payload: { documentPid: documentPid },
@@ -125,7 +124,7 @@ export const requestLoanForPatron = (
         requestStartDate: today,
         deliveryMethod: deliveryMethod,
       });
-      await delay();
+      await searchReady();
       const loanPid = response.data.pid;
       dispatch(
         sendSuccessNotification(

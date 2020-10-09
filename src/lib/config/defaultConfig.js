@@ -10,7 +10,7 @@ import {
 export const APP_CONFIG = {
   ENABLE_LOCAL_ACCOUNT_LOGIN: true,
   ENABLE_OAUTH_LOGIN: true,
-  ES_DELAY: 3000,
+  SEARCH_READY_DELAY: 2000,
   INVENIO_UI_URL: process.env.REACT_APP_INVENIO_UI_URL,
   LOGO_SRC: process.env.PUBLIC_URL + '/logo-invenio-ils.svg',
   MAX_RESULTS_WINDOW: 10000,

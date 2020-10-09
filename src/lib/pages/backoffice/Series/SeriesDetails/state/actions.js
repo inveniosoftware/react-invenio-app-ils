@@ -1,12 +1,11 @@
 import { seriesApi } from '@api/series';
-import { delay } from '@api/utils';
+import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
-
 export const IS_LOADING = 'fetchSeriesDetails/IS_LOADING';
 export const SUCCESS = 'fetchSeriesDetails/SUCCESS';
 export const HAS_ERROR = 'fetchSeriesDetails/HAS_ERROR';
@@ -23,7 +22,7 @@ export const deleteSeries = seriesPid => {
 
     try {
       await seriesApi.delete(seriesPid);
-      await delay();
+      await searchReady();
       dispatch({
         type: DELETE_SUCCESS,
         payload: { seriesPid: seriesPid },

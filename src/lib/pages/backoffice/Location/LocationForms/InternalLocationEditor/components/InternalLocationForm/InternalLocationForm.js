@@ -1,6 +1,7 @@
 import { internalLocationApi } from '@api/locations';
 import { locationApi } from '@api/locations/location';
-import { delay } from '@api/utils';
+import { searchReady } from '@api/utils';
+import { InternalLocationIcon } from '@components/backoffice/icons';
 import { BaseForm } from '@forms/core/BaseForm';
 import { GroupField } from '@forms/core/GroupField';
 import { SelectorField } from '@forms/core/SelectorField';
@@ -14,8 +15,6 @@ import pick from 'lodash/pick';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, Segment } from 'semantic-ui-react';
-import { InternalLocationIcon } from '@components/backoffice/icons';
-
 export class InternalLocationForm extends Component {
   prepareData = data => {
     return pick(data, [
@@ -29,7 +28,7 @@ export class InternalLocationForm extends Component {
 
   updateInternalLocation = async (pid, data) => {
     const response = await internalLocationApi.update(pid, data);
-    await delay();
+    await searchReady();
     return response;
   };
 
