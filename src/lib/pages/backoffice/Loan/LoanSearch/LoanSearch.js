@@ -88,7 +88,6 @@ export class LoanSearch extends Component {
                       <SearchControls
                         modelName="LOANS"
                         withLayoutSwitcher={false}
-                        withSortOrder={false}
                       />
                       <ResultsList ListEntryElement={LoanListEntry} />
                       <SearchFooter />

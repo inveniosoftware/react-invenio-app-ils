@@ -100,7 +100,6 @@ export class LibrarySearch extends Component {
                         <SearchControls
                           modelName="ILL_LIBRARIES"
                           withLayoutSwitcher={false}
-                          withSortOrder={false}
                         />
                         <ResultsList ListEntryElement={LibraryListEntry} />
                         <SearchFooter />

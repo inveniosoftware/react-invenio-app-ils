@@ -103,7 +103,6 @@ export class DocumentSearch extends Component {
                         <SearchControls
                           modelName="DOCUMENTS"
                           withLayoutSwitcher={false}
-                          withSortOrder={false}
                         />
                         <ResultsList ListEntryElement={DocumentListEntry} />
                         <SearchFooter />

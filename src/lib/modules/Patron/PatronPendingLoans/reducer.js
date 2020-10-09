@@ -1,10 +1,4 @@
-import {
-  IS_LOADING,
-  SUCCESS,
-  HAS_ERROR,
-  CHANGE_SORT_BY,
-  CHANGE_SORT_ORDER,
-} from './actions';
+import { IS_LOADING, SUCCESS, HAS_ERROR, CHANGE_SORT_BY } from './actions';
 
 export const initialState = {
   isLoading: true,
@@ -12,7 +6,6 @@ export const initialState = {
   data: { hits: [], total: 0 },
   error: {},
   sortBy: 'transaction_date',
-  sortOrder: 'asc',
 };
 
 export default (state = initialState, action) => {
@@ -38,12 +31,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         sortBy: action.payload,
-        sortOrder: initialState.sortOrder,
-      };
-    case CHANGE_SORT_ORDER:
-      return {
-        ...state,
-        sortOrder: action.payload,
       };
     default:
       return state;

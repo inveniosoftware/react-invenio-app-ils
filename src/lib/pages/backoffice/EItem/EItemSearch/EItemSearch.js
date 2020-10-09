@@ -111,7 +111,6 @@ export class EItemSearch extends Component {
                       <SearchControls
                         modelName="EITEMS"
                         withLayoutSwitcher={false}
-                        withSortOrder={false}
                       />
                       <EmptyResults
                         extraContent={

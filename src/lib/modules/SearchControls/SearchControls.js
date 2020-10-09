@@ -3,19 +3,13 @@ import React, { Component } from 'react';
 import { Grid, Responsive } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import SearchSortBy from './SearchSortBy';
-import SearchSortOrder from './SearchSortOrder';
 import SearchResultsPerPage from './SearchResultsPerPage';
 import { SearchControlsMobile } from './SearchControlsMobile';
 import SearchPagination from './SearchPagination';
 
 export class SearchControls extends Component {
   render() {
-    const {
-      withLayoutSwitcher,
-      defaultLayout,
-      modelName,
-      withSortOrder,
-    } = this.props;
+    const { withLayoutSwitcher, defaultLayout, modelName } = this.props;
     return (
       <>
         <Responsive {...Responsive.onlyComputer}>
@@ -51,7 +45,6 @@ export class SearchControls extends Component {
             >
               <div className="sort-by-filters">
                 <SearchSortBy modelName={modelName} />
-                {withSortOrder && <SearchSortOrder modelName={modelName} />}
               </div>
             </Grid.Column>
           </Grid>
@@ -64,10 +57,7 @@ export class SearchControls extends Component {
           </Grid>
         </Responsive>
         <Responsive maxWidth={Responsive.onlyTablet.maxWidth}>
-          <SearchControlsMobile
-            modelName={modelName}
-            withSortOrder={withSortOrder}
-          />
+          <SearchControlsMobile modelName={modelName} />
         </Responsive>
       </>
     );
@@ -78,11 +68,9 @@ SearchControls.propTypes = {
   modelName: PropTypes.string.isRequired,
   withLayoutSwitcher: PropTypes.bool,
   defaultLayout: PropTypes.oneOf(['grid', 'list']),
-  withSortOrder: PropTypes.bool,
 };
 
 SearchControls.defaultProps = {
   withLayoutSwitcher: true,
   defaultLayout: 'grid',
-  withSortOrder: true,
 };

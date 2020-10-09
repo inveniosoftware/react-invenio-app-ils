@@ -71,10 +71,7 @@ export class SeriesLiteratureSearch extends React.Component {
                   <Error />
 
                   <Responsive minWidth={Responsive.onlyComputer.minWidth}>
-                    <SearchControls
-                      modelName="LITERATURE"
-                      withSortOrder={false}
-                    />
+                    <SearchControls modelName="LITERATURE" />
                     <ResultsMultiLayout />
                   </Responsive>
                   <Responsive maxWidth={Responsive.onlyTablet.maxWidth}>

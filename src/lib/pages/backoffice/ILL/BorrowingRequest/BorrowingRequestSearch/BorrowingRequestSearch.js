@@ -107,7 +107,6 @@ export class BorrowingRequestSearch extends Component {
                         <SearchControls
                           modelName="ILL_BORROWING_REQUESTS"
                           withLayoutSwitcher={false}
-                          withSortOrder={false}
                         />
                         <ResultsList
                           ListEntryElement={BorrowingRequestListEntry}

@@ -100,7 +100,6 @@ export class VendorSearch extends Component {
                         <SearchControls
                           modelName="ACQ_VENDORS"
                           withLayoutSwitcher={false}
-                          withSortOrder={false}
                         />
                         <ResultsList
                           overridableId="VendorSearch"

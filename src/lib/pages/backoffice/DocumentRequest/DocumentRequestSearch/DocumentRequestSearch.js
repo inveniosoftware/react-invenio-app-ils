@@ -91,7 +91,6 @@ export class DocumentRequestSearch extends Component {
                       <SearchControls
                         modelName="DOCUMENT_REQUESTS"
                         withLayoutSwitcher={false}
-                        withSortOrder={false}
                       />
                       <ResultsList
                         ListEntryElement={DocumentRequestListEntry}
