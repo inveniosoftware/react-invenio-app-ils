@@ -37,16 +37,28 @@ MailTo.propTypes = {
   row: PropTypes.object.isRequired,
 };
 
-export const PatronResultsList = ({ results }) => {
+export const PatronResultsList = ({ results, renderEmptyResultsElement }) => {
   const columns = [
     { title: 'Name', field: 'metadata.name', formatter: ViewDetails },
     { title: 'E-mail', field: 'metadata.email', formatter: MailTo },
     { title: '#ID', field: 'metadata.id' },
   ];
 
-  return <ResultsTable data={results} columns={columns} title="" />;
+  return (
+    <ResultsTable
+      data={results}
+      columns={columns}
+      renderEmptyResultsElement={renderEmptyResultsElement}
+      title=""
+    />
+  );
 };
 
 PatronResultsList.propTypes = {
   results: PropTypes.array.isRequired,
+  renderEmptyResultsElement: PropTypes.func,
+};
+
+PatronResultsList.defaultProps = {
+  renderEmptyResultsElement: null,
 };

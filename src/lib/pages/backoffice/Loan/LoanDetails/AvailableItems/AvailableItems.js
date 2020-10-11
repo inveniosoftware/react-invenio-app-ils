@@ -5,7 +5,7 @@ import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
-import { SearchBar } from '@components/SearchBar';
+import { SearchBarILS } from '@components/SearchBar';
 import { invenioConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
@@ -190,11 +190,12 @@ export default class AvailableItems extends Component {
 
   renderSearchBar() {
     const { query } = this.state;
+    // NOTE: this one has to be revised with the latest requirements
     return (
-      <SearchBar
+      <SearchBarILS
         currentQueryString={query}
-        onInputChange={this.updateSearchQuery}
-        executeSearch={this.onSearchExecute}
+        onInputChange={this.onSearchExecute}
+        onSearchHandler={this.onSearchExecute}
         placeholder="Insert barcode..."
       />
     );

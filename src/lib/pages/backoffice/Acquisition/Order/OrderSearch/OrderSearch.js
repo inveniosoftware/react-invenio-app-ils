@@ -4,6 +4,7 @@ import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearch
 import history from '@history';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import { AcquisitionRoutes } from '@routes/urls';
@@ -20,7 +21,7 @@ import {
   SearchBar,
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
-import { setReactSearchKitInitialQueryState } from '@config';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 
 class OrderResponseSerializer {
   serialize(results) {
@@ -84,8 +85,9 @@ export class OrderSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for orders..."
-                  queryHelperFields={helperFields}
+                  {...invenioConfig.APP.searchBarRSKProps}
                 />
+                <QueryBuildHelper fields={helperFields} />
               </Container>
               <Container fluid className="bo-search-body">
                 <Grid>

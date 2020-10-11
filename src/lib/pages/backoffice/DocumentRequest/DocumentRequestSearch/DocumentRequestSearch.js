@@ -2,6 +2,7 @@ import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsC
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 import { DocumentRequestListEntry } from './DocumentRequestListEntry';
 import { OverridableContext } from 'react-overridable';
 import React, { Component } from 'react';
@@ -16,7 +17,7 @@ import {
   EmptyResults,
 } from 'react-searchkit';
 import { documentRequestApi } from '@api/documentRequests';
-import { setReactSearchKitInitialQueryState } from '@config';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import history from '@history';
 import { responseRejectInterceptor } from '@api/base';
@@ -67,8 +68,9 @@ export class DocumentRequestSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for document requests"
-                  queryHelperFields={helperFields}
+                  {...invenioConfig.APP.searchBarRSKProps}
                 />
+                <QueryBuildHelper fields={helperFields} />
               </Container>
               <Grid>
                 <Grid.Row columns={2}>

@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { List, Grid } from 'semantic-ui-react';
+import { withState } from 'react-searchkit';
 
-export class QueryBuildHelper extends Component {
+class _QueryBuildHelper extends Component {
   addToQuery = field => {
-    const { currentQueryString, updateQueryString } = this.props;
+    const { currentQueryState, updateQueryState } = this.props;
+    const { queryString } = currentQueryState;
+
     const defaultVal = field.defaultValue ? field.defaultValue : '*';
     const newCriteriaString = `${field.field}:${defaultVal}`;
-    const previousQueryString = currentQueryString;
+    const previousQueryString = queryString;
 
     if (previousQueryString === '') {
-      updateQueryString(newCriteriaString);
+      updateQueryState({ queryString: newCriteriaString });
     } else {
-      updateQueryString(`${previousQueryString} AND ${newCriteriaString}`);
+      updateQueryState({
+        queryString: `${previousQueryString} AND ${newCriteriaString}`,
+      });
     }
   };
 
@@ -46,6 +51,7 @@ export class QueryBuildHelper extends Component {
 
   render() {
     const { fields } = this.props;
+
     return (
       <Grid>
         <Grid.Row columns={1}>
@@ -58,10 +64,10 @@ export class QueryBuildHelper extends Component {
   }
 }
 
-QueryBuildHelper.propTypes = {
+_QueryBuildHelper.propTypes = {
   fields: PropTypes.array.isRequired,
-  currentQueryString: PropTypes.string.isRequired,
-  updateQueryString: PropTypes.func.isRequired,
+  updateQueryState: PropTypes.func.isRequired,
+  currentQueryState: PropTypes.object.isRequired,
 };
 
-QueryBuildHelper.defaultProps = {};
+export const QueryBuildHelper = withState(_QueryBuildHelper);

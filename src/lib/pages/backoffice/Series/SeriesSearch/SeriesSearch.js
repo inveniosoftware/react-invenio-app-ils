@@ -1,6 +1,7 @@
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import { SeriesListEntry } from './SeriesListEntry';
 import { OverridableContext } from 'react-overridable';
@@ -18,7 +19,7 @@ import {
 } from 'react-searchkit';
 import { seriesApi } from '@api/series/series';
 import { responseRejectInterceptor } from '@api/base';
-import { setReactSearchKitInitialQueryState } from '@config';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { BackOfficeRoutes } from '@routes/urls';
@@ -79,8 +80,9 @@ export class SeriesSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for series"
-                  queryHelperFields={helperFields}
+                  {...invenioConfig.APP.searchBarRSKProps}
                 />
+                <QueryBuildHelper fields={helperFields} />
               </Container>
               <Grid>
                 <Grid.Row columns={2}>

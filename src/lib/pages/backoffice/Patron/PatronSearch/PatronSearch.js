@@ -1,6 +1,7 @@
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import { PatronResultsList } from './PatronResultsList';
 import React, { Component } from 'react';
@@ -17,7 +18,7 @@ import {
 } from 'react-searchkit';
 import { patronApi } from '@api/patrons';
 import { responseRejectInterceptor } from '@api/base';
-import { setReactSearchKitInitialQueryState } from '@config';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 
 export class PatronSearch extends Component {
@@ -63,8 +64,9 @@ export class PatronSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for patrons"
-                  queryHelperFields={helperFields}
+                  {...invenioConfig.APP.searchBarRSKProps}
                 />
+                <QueryBuildHelper fields={helperFields} />
               </Container>
               <Grid>
                 <Grid.Row columns={2}>
@@ -81,13 +83,14 @@ export class PatronSearch extends Component {
                           />
                         </Grid.Column>
                         <Grid.Column>
-                          <EmptyResults />
                           <Error />
                           <SearchControls
                             modelName="PATRONS"
                             withLayoutSwitcher={false}
                           />
-                          <ResultsList />
+                          <ResultsList
+                            renderEmptyResultsElement={() => <EmptyResults />}
+                          />
                           <SearchFooter />
                         </Grid.Column>
                       </Grid>

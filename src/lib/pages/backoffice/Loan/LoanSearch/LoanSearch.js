@@ -22,6 +22,8 @@ import SearchFooter from '@modules/SearchControls/SearchFooter';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { setReactSearchKitInitialQueryState } from '@config';
 import { SearchDateRange } from './SearchDateRange';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
+import { invenioConfig } from '@config';
 
 export class LoanSearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -64,8 +66,9 @@ export class LoanSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for loans"
-                  queryHelperFields={helperFields}
+                  {...invenioConfig.APP.searchBarRSKProps}
                 />
+                <QueryBuildHelper fields={helperFields} />
               </Container>
               <Grid>
                 <Grid.Row columns={2}>

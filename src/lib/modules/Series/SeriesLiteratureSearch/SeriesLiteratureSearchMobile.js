@@ -1,10 +1,14 @@
 import { Error as IlsError } from '@components/Error';
 import { SearchControlsMobile } from '@modules/SearchControls/SearchControlsMobile';
-import SearchEmptyResults from '@modules/SearchControls/SearchEmptyResults';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import SearchPagination from '@modules/SearchControls/SearchPagination';
 import React from 'react';
-import { Error, ResultsGrid, ResultsLoader } from 'react-searchkit';
+import {
+  Error,
+  ResultsGrid,
+  ResultsLoader,
+  EmptyResults,
+} from 'react-searchkit';
 import { Container, Ref, Sticky } from 'semantic-ui-react';
 
 export class SeriesLiteratureSearchMobile extends React.Component {
@@ -18,7 +22,7 @@ export class SeriesLiteratureSearchMobile extends React.Component {
     return (
       <Container fluid className="grid-documents-search">
         <ResultsLoader>
-          <SearchEmptyResults />
+          <EmptyResults />
           <Error renderElement={this.renderError} />
           <Ref innerRef={this.stickyRef}>
             <Container fluid>
