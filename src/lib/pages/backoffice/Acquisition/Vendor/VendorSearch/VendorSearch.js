@@ -3,6 +3,7 @@ import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import history from '@history';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import { AcquisitionRoutes } from '@routes/urls';
@@ -20,6 +21,7 @@ import {
 } from 'react-searchkit';
 import { setReactSearchKitInitialQueryState } from '@config';
 import { Container, Grid, Header } from 'semantic-ui-react';
+import { invenioConfig } from '@config';
 
 export class VendorSearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -34,7 +36,7 @@ export class VendorSearch extends Component {
       {
         name: 'name',
         field: 'name',
-        defaultValue: '"Test vendor"',
+        defaultValue: '"Vendor Name"',
       },
       {
         name: 'email',
@@ -44,7 +46,7 @@ export class VendorSearch extends Component {
       {
         name: 'address',
         field: 'address',
-        defaultValue: '"Geneva"',
+        defaultValue: '"Vendor Address"',
       },
     ];
 
@@ -67,8 +69,9 @@ export class VendorSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for vendors..."
-                  queryHelperFields={helperFields}
+                  {...invenioConfig.APP.searchBarRSKProps}
                 />
+                <QueryBuildHelper fields={helperFields} />
               </Container>
               <Container fluid className="bo-search-body">
                 <Grid>

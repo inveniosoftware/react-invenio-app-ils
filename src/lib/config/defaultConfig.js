@@ -65,6 +65,15 @@ export const APP_CONFIG = {
       },
     },
   ],
+  searchBarRSKProps: {
+    autofocus: true,
+    actionProps: { icon: 'search', content: null },
+    uiProps: {
+      className: 'ils-searchbar',
+      fluid: true,
+      size: 'big',
+    },
+  },
 };
 
 export const RECORDS_CONFIG = {

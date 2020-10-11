@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar tests should match snapshot 1`] = `
+<SearchBarILS
+  className=""
+  onKeyPressHandler={null}
+  onPasteHandler={null}
+  onSearchHandler={[Function]}
+  placeholder="Search"
+>
+  <Input
+    action={
+      Object {
+        "icon": "search",
+        "onClick": [Function],
+      }
+    }
+    className=" ils-searchbar"
+    fluid={true}
+    onChange={[Function]}
+    onKeyPress={[Function]}
+    onPaste={[Function]}
+    placeholder="Search"
+    size="big"
+    type="text"
+  >
+    <div
+      className="ui big fluid action input  ils-searchbar"
+      onPaste={[Function]}
+    >
+      <input
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        placeholder="Search"
+        type="text"
+      />
+      <Button
+        as="button"
+        icon="search"
+        onClick={[Function]}
+      >
+        <Ref
+          innerRef={
+            Object {
+              "current": <button
+                class="ui icon button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="search icon"
+                />
+              </button>,
+            }
+          }
+        >
+          <RefFindNode
+            innerRef={
+              Object {
+                "current": <button
+                  class="ui icon button"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="search icon"
+                  />
+                </button>,
+              }
+            }
+          >
+            <button
+              className="ui icon button"
+              onClick={[Function]}
+            >
+              <Icon
+                as="i"
+                name="search"
+              >
+                <i
+                  aria-hidden="true"
+                  className="search icon"
+                  onClick={[Function]}
+                />
+              </Icon>
+            </button>
+          </RefFindNode>
+        </Ref>
+      </Button>
+    </div>
+  </Input>
+</SearchBarILS>
+`;

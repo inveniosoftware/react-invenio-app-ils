@@ -8,17 +8,17 @@ export const SearchMessage = ({ title, icon, children }) => (
       {icon && <Icon name={icon} />}
       {title}
     </Header>
-    {children && <Header.Subheader>{children}</Header.Subheader>}
+    {children}
   </Segment>
 );
 
 SearchMessage.propTypes = {
-  title: PropTypes.string.isRequired,
   children: PropTypes.node,
   icon: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };
 
 SearchMessage.defaultProps = {
-  icon: null,
   children: null,
+  icon: null,
 };

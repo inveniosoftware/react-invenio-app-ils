@@ -40,8 +40,12 @@ export const DOCUMENT_RELATIONS = [
 ];
 
 export const DOCUMENT_TYPES = [
-  { value: 'BOOK', text: 'Book' },
-  { value: 'PROCEEDING', text: 'Proceeding' },
-  { value: 'STANDARD', text: 'Standard' },
-  { value: 'PERIODICAL_ISSUE', text: 'Periodical issue' },
+  { value: 'BOOK', text: 'Book', label: 'Book' },
+  { value: 'PROCEEDING', text: 'Proceeding', label: 'Proceeding' },
+  { value: 'STANDARD', text: 'Standard', label: 'Standard' },
+  {
+    value: 'PERIODICAL_ISSUE',
+    text: 'Periodical issue',
+    label: 'Periodical issue',
+  },
 ];

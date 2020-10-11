@@ -24,7 +24,11 @@ export const Identifiers = ({ identifiers }) => {
 };
 
 Identifiers.propTypes = {
-  identifiers: PropTypes.array.isRequired,
+  identifiers: PropTypes.array,
+};
+
+Identifiers.defaultProps = {
+  identifiers: [],
 };
 
 export const IdentifierRows = ({ includeSchemes, identifiers }) => {

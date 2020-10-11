@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _get from 'lodash/get';
+import { Header } from 'semantic-ui-react';
 import { EmailLink } from '@components/EmailLink';
 import { invenioConfig } from '@config';
 import { SearchMessage } from '@modules/SearchControls/SearchMessage';
@@ -18,11 +19,13 @@ export const SearchError = ({ error }) => {
         title="Something went wrong while fetching results."
         icon="warning"
       >
-        Please try again later. If the problem persists,{' '}
-        <EmailLink email={invenioConfig.APP.supportEmail}>
-          contact the technical support
-        </EmailLink>
-        .
+        <Header.Subheader>
+          Please try again later. If the problem persists,{' '}
+          <EmailLink email={invenioConfig.APP.supportEmail}>
+            contact the technical support
+          </EmailLink>
+          .
+        </Header.Subheader>
       </SearchMessage>
     );
   }

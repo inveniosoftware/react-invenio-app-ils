@@ -1,6 +1,7 @@
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import EItemListEntry from './EItemListEntry';
 import { OverridableContext } from 'react-overridable';
@@ -16,7 +17,7 @@ import {
   Error,
   InvenioSearchApi,
 } from 'react-searchkit';
-import { setReactSearchKitInitialQueryState } from '@config';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 import { eItemApi } from '@api/eitems';
 import { responseRejectInterceptor } from '@api/base';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
@@ -83,8 +84,9 @@ export class EItemSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for eitems..."
-                  queryHelperFields={helperFields}
+                  {...invenioConfig.APP.searchBarRSKProps}
                 />
+                <QueryBuildHelper fields={helperFields} />
               </Container>
               <Grid>
                 <Grid.Row columns={2}>

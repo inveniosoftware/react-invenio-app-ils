@@ -20,7 +20,6 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
         "Pagination.element": [Function],
         "ResultsGrid": [Function],
         "ResultsList": [Function],
-        "SearchBar": [Function],
         "SortBy.element.desktop": [Function],
         "SortBy.element.mobile": [Function],
       }
@@ -86,7 +85,21 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
         className="series-details-search-container"
       >
         <Connect(Overridable(SearchBarUncontrolled))
+          actionProps={
+            Object {
+              "content": null,
+              "icon": "search",
+            }
+          }
+          autofocus={true}
           placeholder="Search for volumes or issues..."
+          uiProps={
+            Object {
+              "className": "ils-searchbar",
+              "fluid": true,
+              "size": "big",
+            }
+          }
         />
       </Container>
       <Responsive

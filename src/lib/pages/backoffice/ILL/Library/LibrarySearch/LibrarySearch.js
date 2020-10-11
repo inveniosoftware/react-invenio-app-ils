@@ -4,6 +4,7 @@ import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearch
 import history from '@history';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import { ILLRoutes } from '@routes/urls';
 import { LibraryListEntry } from './LibraryList';
@@ -19,7 +20,7 @@ import {
   SearchBar,
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
-import { setReactSearchKitInitialQueryState } from '@config';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 
 export class LibrarySearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -47,7 +48,6 @@ export class LibrarySearch extends Component {
         defaultValue: '"Geneva"',
       },
     ];
-
     const initialState = setReactSearchKitInitialQueryState('ILL_LIBRARIES');
 
     return (
@@ -66,9 +66,10 @@ export class LibrarySearch extends Component {
             <>
               <Container fluid className="spaced">
                 <SearchBar
-                  queryHelperFields={helperFields}
                   placeholder="Search for libaries..."
+                  {...invenioConfig.APP.searchBarRSKProps}
                 />
+                <QueryBuildHelper fields={helperFields} />
               </Container>
               <Container fluid className="bo-search-body">
                 <Grid>

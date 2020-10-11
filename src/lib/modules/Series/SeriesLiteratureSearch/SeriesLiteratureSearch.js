@@ -20,7 +20,7 @@ import {
 import { Container, Divider, Loader, Responsive } from 'semantic-ui-react';
 import { qsBuilderForSeries } from './RequestSerializer';
 import { SeriesLiteratureSearchMobile } from './SeriesLiteratureSearchMobile';
-import { setReactSearchKitInitialQueryState } from '@config';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 
 export class SeriesLiteratureSearch extends React.Component {
   renderLoader = () => {
@@ -62,7 +62,10 @@ export class SeriesLiteratureSearch extends React.Component {
           >
             <>
               <Container className="series-details-search-container">
-                <SearchBar placeholder="Search for volumes or issues..." />
+                <SearchBar
+                  placeholder="Search for volumes or issues..."
+                  {...invenioConfig.APP.searchBarRSKProps}
+                />
               </Container>
               <Responsive minWidth={Responsive.onlyTablet.minWidth}>
                 <ResultsLoader renderElement={this.renderLoader}>

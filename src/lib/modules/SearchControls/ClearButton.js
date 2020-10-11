@@ -15,7 +15,7 @@ export default class ClearButton extends Component {
         labelPosition="left"
         onClick={clickHandler}
       >
-        <Icon name="undo" />
+        <Icon name="close" />
         {text}
       </Button>
     );
@@ -30,7 +30,7 @@ ClearButton.propTypes = {
 };
 
 ClearButton.defaultProps = {
-  text: 'Clear query',
+  text: 'Clear search',
   fluid: false,
   disabled: false,
 };

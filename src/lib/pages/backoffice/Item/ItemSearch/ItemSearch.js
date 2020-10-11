@@ -12,7 +12,7 @@ import {
   InvenioSearchApi,
   EmptyResults,
 } from 'react-searchkit';
-import { setReactSearchKitInitialQueryState } from '@config';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 import { Error as IlsError } from '@components/Error';
 import { itemApi } from '@api/items';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
@@ -23,6 +23,7 @@ import { responseRejectInterceptor } from '@api/base';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 
 export class ItemSearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -81,8 +82,9 @@ export class ItemSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for physical copies..."
-                  queryHelperFields={helperFields}
+                  {...invenioConfig.APP.searchBarRSKProps}
                 />
+                <QueryBuildHelper fields={helperFields} />
               </Container>
 
               <Container fluid className="bo-search-body">
