@@ -11,7 +11,7 @@ import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Header, Icon } from 'semantic-ui-react';
+import { Header, Icon, Label } from 'semantic-ui-react';
 import { DateTime } from 'luxon';
 
 export class SeriesHeader extends Component {
@@ -32,9 +32,14 @@ export class SeriesHeader extends Component {
         <label className="muted">Created on</label>{' '}
         {toShortDate(DateTime.fromISO(data.created))}
         <br />
-        <Link to={FrontSiteRoutes.seriesDetailsFor(data.metadata.pid)}>
-          public view <Icon name="linkify" />
-        </Link>
+        <Label
+          as={Link}
+          to={FrontSiteRoutes.seriesDetailsFor(data.metadata.pid)}
+          color="grey"
+        >
+          <Icon name="linkify" />
+          View in Frontsite
+        </Label>
       </>
     );
     return (

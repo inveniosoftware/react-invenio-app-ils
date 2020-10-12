@@ -1767,14 +1767,14 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                             }
                                             disabled={false}
                                             fluid={false}
-                                            size="tiny"
+                                            size="small"
                                             to="/backoffice/loans?q=(patron_pid:2 AND state:(PENDING))"
                                           >
                                             <Ref
                                               innerRef={
                                                 Object {
                                                   "current": <a
-                                                    class="ui tiny button"
+                                                    class="ui small button"
                                                     href="/backoffice/loans?q=(patron_pid:2 AND state:(PENDING))"
                                                     role="button"
                                                   >
@@ -1787,7 +1787,7 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                                 innerRef={
                                                   Object {
                                                     "current": <a
-                                                      class="ui tiny button"
+                                                      class="ui small button"
                                                       href="/backoffice/loans?q=(patron_pid:2 AND state:(PENDING))"
                                                       role="button"
                                                     >
@@ -1797,20 +1797,20 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                                 }
                                               >
                                                 <Link
-                                                  className="ui tiny button"
+                                                  className="ui small button"
                                                   onClick={[Function]}
                                                   role="button"
                                                   to="/backoffice/loans?q=(patron_pid:2 AND state:(PENDING))"
                                                 >
                                                   <LinkAnchor
-                                                    className="ui tiny button"
+                                                    className="ui small button"
                                                     href="/backoffice/loans?q=(patron_pid:2 AND state:(PENDING))"
                                                     navigate={[Function]}
                                                     onClick={[Function]}
                                                     role="button"
                                                   >
                                                     <a
-                                                      className="ui tiny button"
+                                                      className="ui small button"
                                                       href="/backoffice/loans?q=(patron_pid:2 AND state:(PENDING))"
                                                       onClick={[Function]}
                                                       role="button"

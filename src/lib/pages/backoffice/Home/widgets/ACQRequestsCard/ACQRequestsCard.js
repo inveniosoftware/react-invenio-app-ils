@@ -1,3 +1,6 @@
+import { orderApi } from '@api/acquisition';
+import { invenioConfig } from '@config';
+import { AcquisitionRoutes } from '@routes/backoffice/AcquisitionUrls';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Loader } from '@components/Loader';
@@ -9,20 +12,27 @@ import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 export default class ACQRequestsCard extends Component {
   constructor(props) {
     super(props);
-
-    // TODO when acquisition module
-    this.seeAllUrl = '';
-    this.newAcqURL = '';
+    this.seeAllUrl = AcquisitionRoutes.ordersListWithQuery;
+    this.newAcqURL = AcquisitionRoutes.orderCreate;
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    const { fetchOngoingAcqRequests } = this.props;
+    fetchOngoingAcqRequests();
+  }
 
   seeAllButton = () => {
-    return <SeeAllButton fluid disabled to={this.seeAllUrl} />;
+    const path = this.seeAllUrl(
+      orderApi
+        .query()
+        .withState(`(${invenioConfig.ACQ_ORDERS.orderedStatuses.join(' OR ')})`)
+        .qs()
+    );
+    return <SeeAllButton fluid to={path} />;
   };
 
   newAcqButton = () => {
-    return <NewButton fluid disabled to={this.newAcqURL} />;
+    return <NewButton fluid to={this.newAcqURL} />;
   };
 
   renderCard = data => {
@@ -48,8 +58,8 @@ export default class ACQRequestsCard extends Component {
 }
 
 ACQRequestsCard.propTypes = {
-  // fetchOngoingAcqRequests: PropTypes.func.isRequired,
   /* redux */
+  fetchOngoingAcqRequests: PropTypes.func.isRequired,
   data: PropTypes.number.isRequired,
   isLoading: PropTypes.bool.isRequired,
   error: PropTypes.object,

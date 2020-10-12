@@ -1,3 +1,6 @@
+import { borrowingRequestApi } from '@api/ill';
+import { invenioConfig } from '@config';
+import { ILLRoutes } from '@routes/urls';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Loader } from '@components/Loader';
@@ -9,21 +12,31 @@ import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 export default class ILLCard extends Component {
   constructor(props) {
     super(props);
-
-    // TODO when acquisition module
-    this.seeAllUrl = '';
-    this.newILLUrl = '';
+    this.seeAllUrl = ILLRoutes.borrowingRequestListWithQuery;
+    this.newILLUrl = ILLRoutes.borrowingRequestCreate;
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    const { fetchOngoingILLRequests } = this.props;
+    fetchOngoingILLRequests();
+  }
 
   seeAllButton = () => {
-    // TODO when #155 solved
-    return <SeeAllButton fluid disabled to={this.seeAllUrl} />;
+    const path = this.seeAllUrl(
+      borrowingRequestApi
+        .query()
+        .withState(
+          `(${invenioConfig.ILL_BORROWING_REQUESTS.requestedStatuses.join(
+            ' OR '
+          )})`
+        )
+        .qs()
+    );
+    return <SeeAllButton fluid to={path} />;
   };
 
   newAcqButton = () => {
-    return <NewButton fluid disabled to={this.newILLUrl} />;
+    return <NewButton fluid to={this.newILLUrl} />;
   };
 
   renderCard = data => {
@@ -49,13 +62,12 @@ export default class ILLCard extends Component {
 }
 
 ILLCard.propTypes = {
-  // fetchOngoingILLRequests: PropTypes.func.isRequired,
+  fetchOngoingILLRequests: PropTypes.func.isRequired,
   data: PropTypes.number.isRequired,
-  isLoading: PropTypes.bool,
+  isLoading: PropTypes.bool.isRequired,
   error: PropTypes.object,
 };
 
 ILLCard.defaultProps = {
-  isLoading: false,
   error: {},
 };

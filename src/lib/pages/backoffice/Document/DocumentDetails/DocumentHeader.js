@@ -12,7 +12,7 @@ import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Header, Icon } from 'semantic-ui-react';
+import { Header, Icon, Label } from 'semantic-ui-react';
 import { DateTime } from 'luxon';
 
 export class DocumentHeader extends Component {
@@ -34,9 +34,14 @@ export class DocumentHeader extends Component {
         {toShortDate(DateTime.fromISO(data.created))}
         <br />
         <RestrictedAccessLabel isRestricted={data.metadata.restricted} />
-        <Link to={FrontSiteRoutes.documentDetailsFor(data.metadata.pid)}>
-          public view <Icon name="linkify" />
-        </Link>
+        <Label
+          as={Link}
+          to={FrontSiteRoutes.documentDetailsFor(data.metadata.pid)}
+          color="grey"
+        >
+          <Icon name="linkify" />
+          View in Frontsite
+        </Label>
       </>
     );
     return (

@@ -28,11 +28,11 @@ export default class DocumentCard extends Component {
         .withPendingLoans()
         .qs()
     );
-    return <SeeAllButton fluid disabled to={path} />;
+    return <SeeAllButton fluid to={path} />;
   };
 
   newDocumentButton = () => {
-    return <NewButton fluid disabled to={this.newDocumentURL} />;
+    return <NewButton fluid to={this.newDocumentURL} />;
   };
 
   render() {

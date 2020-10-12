@@ -135,6 +135,20 @@ Menu Overrides - REACT-INVENIO-APP-ILS
           font-size: 1em;
         }
       }
+
+      &.bo-menu-subheader {
+        margin-top: 0;
+        margin-bottom: 1.2em;
+
+        .item {
+          margin: 0;
+          padding: 0.5em 0;
+        }
+      }
+
+      &.bo-menu-footer {
+        margin-top: -1.2em;
+      }
     }
   }
 

@@ -22,14 +22,9 @@ exports[`RecordsBriefCard tests should load the details component 1`] = `
     test test test
   </p>
   <Grid>
-    <GridRow>
-      <GridColumn
-        width={8}
-      />
-      <GridColumn
-        width={8}
-      />
-    </GridRow>
+    <GridRow
+      columns="equal"
+    />
   </Grid>
 </Segment>
 `;
@@ -99,15 +94,17 @@ exports[`RecordsBriefCard tests should render with buttons 1`] = `
         <div
           className="ui grid"
         >
-          <GridRow>
+          <GridRow
+            columns="equal"
+          >
             <div
-              className="row"
+              className="equal width row"
             >
               <GridColumn
-                width={8}
+                key="left"
               >
                 <div
-                  className="eight wide column"
+                  className="column"
                 >
                   <Button
                     as="button"
@@ -167,10 +164,10 @@ exports[`RecordsBriefCard tests should render with buttons 1`] = `
                 </div>
               </GridColumn>
               <GridColumn
-                width={8}
+                key="right"
               >
                 <div
-                  className="eight wide column"
+                  className="column"
                 >
                   <Button
                     as="button"
@@ -277,25 +274,12 @@ exports[`RecordsBriefCard tests should render without buttons 1`] = `
         <div
           className="ui grid"
         >
-          <GridRow>
+          <GridRow
+            columns="equal"
+          >
             <div
-              className="row"
-            >
-              <GridColumn
-                width={8}
-              >
-                <div
-                  className="eight wide column"
-                />
-              </GridColumn>
-              <GridColumn
-                width={8}
-              >
-                <div
-                  className="eight wide column"
-                />
-              </GridColumn>
-            </div>
+              className="equal width row"
+            />
           </GridRow>
         </div>
       </Grid>

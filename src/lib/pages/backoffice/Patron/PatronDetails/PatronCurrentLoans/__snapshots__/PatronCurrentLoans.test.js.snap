@@ -1444,14 +1444,14 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                                             }
                                             disabled={false}
                                             fluid={false}
-                                            size="tiny"
+                                            size="small"
                                             to="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-mostrecent"
                                           >
                                             <Ref
                                               innerRef={
                                                 Object {
                                                   "current": <a
-                                                    class="ui tiny button"
+                                                    class="ui small button"
                                                     href="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-mostrecent"
                                                     role="button"
                                                   >
@@ -1464,7 +1464,7 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                                                 innerRef={
                                                   Object {
                                                     "current": <a
-                                                      class="ui tiny button"
+                                                      class="ui small button"
                                                       href="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-mostrecent"
                                                       role="button"
                                                     >
@@ -1474,20 +1474,20 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                                                 }
                                               >
                                                 <Link
-                                                  className="ui tiny button"
+                                                  className="ui small button"
                                                   onClick={[Function]}
                                                   role="button"
                                                   to="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-mostrecent"
                                                 >
                                                   <LinkAnchor
-                                                    className="ui tiny button"
+                                                    className="ui small button"
                                                     href="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-mostrecent"
                                                     navigate={[Function]}
                                                     onClick={[Function]}
                                                     role="button"
                                                   >
                                                     <a
-                                                      className="ui tiny button"
+                                                      className="ui small button"
                                                       href="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-mostrecent"
                                                       onClick={[Function]}
                                                       role="button"

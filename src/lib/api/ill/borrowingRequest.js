@@ -69,6 +69,12 @@ const list = async query => {
   return response;
 };
 
+const count = async query => {
+  const response = await http.get(`${borrowingRequestUrl}?q=${query}`);
+  response.data = response.data.hits.total;
+  return response;
+};
+
 class QueryBuilder {
   constructor() {
     this.page = '';
@@ -150,6 +156,7 @@ export const borrowingRequestApi = {
   requestExtension: requestExtension,
   acceptExtension: acceptExtension,
   declineExtension: declineExtension,
+  count: count,
   query: queryBuilder,
   url: borrowingRequestUrl,
 };

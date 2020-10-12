@@ -9,20 +9,24 @@ export default class AdminMenu extends Component {
       <Overridable id="AdminMenu.layout">
         <>
           <Divider horizontal>Admin menu</Divider>
-          <Menu text vertical className="bo-menu">
-            <Menu.Item
-              as="a"
-              href={`${invenioConfig.APP.INVENIO_UI_URL}/admin`}
-              target="_blank"
-            >
-              Admin panel
-            </Menu.Item>
-            <Menu.Item
-              as="a"
-              href={`${invenioConfig.APP.INVENIO_UI_URL}/admin/page`}
-              target="_blank"
-            >
-              Static pages
+          <Menu text vertical className="bo-menu bo-menu-footer">
+            <Menu.Item>
+              <Menu.Menu>
+                <Menu.Item
+                  as="a"
+                  href={`${invenioConfig.APP.INVENIO_UI_URL}/admin`}
+                  target="_blank"
+                >
+                  Admin panel
+                </Menu.Item>
+                <Menu.Item
+                  as="a"
+                  href={`${invenioConfig.APP.INVENIO_UI_URL}/admin/page`}
+                  target="_blank"
+                >
+                  Static pages
+                </Menu.Item>
+              </Menu.Menu>
             </Menu.Item>
           </Menu>
         </>

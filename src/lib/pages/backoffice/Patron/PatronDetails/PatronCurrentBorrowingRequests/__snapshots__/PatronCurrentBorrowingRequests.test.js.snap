@@ -2292,14 +2292,14 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                             }
                                             disabled={false}
                                             fluid={false}
-                                            size="tiny"
+                                            size="small"
                                             to="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
                                           >
                                             <Ref
                                               innerRef={
                                                 Object {
                                                   "current": <a
-                                                    class="ui tiny button"
+                                                    class="ui small button"
                                                     href="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
                                                     role="button"
                                                   >
@@ -2312,7 +2312,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                                 innerRef={
                                                   Object {
                                                     "current": <a
-                                                      class="ui tiny button"
+                                                      class="ui small button"
                                                       href="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
                                                       role="button"
                                                     >
@@ -2322,20 +2322,20 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                                 }
                                               >
                                                 <Link
-                                                  className="ui tiny button"
+                                                  className="ui small button"
                                                   onClick={[Function]}
                                                   role="button"
                                                   to="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
                                                 >
                                                   <LinkAnchor
-                                                    className="ui tiny button"
+                                                    className="ui small button"
                                                     href="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
                                                     navigate={[Function]}
                                                     onClick={[Function]}
                                                     role="button"
                                                   >
                                                     <a
-                                                      className="ui tiny button"
+                                                      className="ui small button"
                                                       href="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
                                                       onClick={[Function]}
                                                       role="button"

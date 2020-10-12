@@ -27,8 +27,10 @@ import { documentRequestDetailsReducer } from '@pages/backoffice/DocumentRequest
 import { eitemDetailsFileReducer } from '@pages/backoffice/EItem/EItemDetails/File/reducer';
 import { eitemDetailsReducer } from '@pages/backoffice/EItem/EItemDetails/reducer';
 import {
+  acquisitionCardReducer,
   documentCardReducer,
   idleLoansReducer,
+  illCardReducer,
   loansCardReducer,
   overbookedDocumentsReducer,
   overdueLoansReducer,
@@ -97,6 +99,8 @@ const rootReducer = combineReducers({
   /* backoffice */
   loansCard: loansCardReducer,
   documentCard: documentCardReducer,
+  acquisitionCard: acquisitionCardReducer,
+  illCard: illCardReducer,
   overbookedDocuments: overbookedDocumentsReducer,
   overdueLoans: overdueLoansReducer,
   pendingOverdueDocuments: pendingOverdueDocumentsReducer,

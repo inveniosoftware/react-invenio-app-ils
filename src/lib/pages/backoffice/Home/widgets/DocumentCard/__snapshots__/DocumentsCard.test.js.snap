@@ -10,7 +10,7 @@ exports[`DocumentsCard tests should load the details component 1`] = `
     <RecordsBriefCard
       buttonLeft={
         <NewButton
-          disabled={true}
+          disabled={false}
           fluid={true}
           text="New"
           to="/backoffice/documents/create"
@@ -18,7 +18,7 @@ exports[`DocumentsCard tests should load the details component 1`] = `
       }
       buttonRight={
         <SeeAllButton
-          disabled={true}
+          disabled={false}
           fluid={true}
           to="/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0"
         />
@@ -66,7 +66,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
           <RecordsBriefCard
             buttonLeft={
               <NewButton
-                disabled={true}
+                disabled={false}
                 fluid={true}
                 text="New"
                 to="/backoffice/documents/create"
@@ -74,7 +74,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
             }
             buttonRight={
               <SeeAllButton
-                disabled={true}
+                disabled={false}
                 fluid={true}
                 to="/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0"
               />
@@ -114,18 +114,20 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                   <div
                     className="ui grid"
                   >
-                    <GridRow>
+                    <GridRow
+                      columns="equal"
+                    >
                       <div
-                        className="row"
+                        className="equal width row"
                       >
                         <GridColumn
-                          width={8}
+                          key="left"
                         >
                           <div
-                            className="eight wide column"
+                            className="column"
                           >
                             <NewButton
-                              disabled={true}
+                              disabled={false}
                               fluid={true}
                               text="New"
                               to="/backoffice/documents/create"
@@ -152,11 +154,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -180,11 +182,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -202,11 +204,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "innerRef",
@@ -223,11 +225,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "innerRef",
@@ -272,11 +274,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -300,11 +302,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -322,11 +324,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "onClick",
@@ -343,11 +345,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "onClick",
@@ -392,11 +394,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -420,11 +422,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -442,11 +444,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "replace",
@@ -463,11 +465,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "replace",
@@ -512,11 +514,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -540,11 +542,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -562,11 +564,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "target",
@@ -583,11 +585,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "target",
@@ -632,11 +634,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -660,11 +662,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -682,11 +684,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "to",
@@ -703,11 +705,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "to",
@@ -753,11 +755,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               false,
                                               false,
                                             ],
-                                            "className": "ui small fluid icon positive disabled left labeled button",
+                                            "className": "ui small fluid icon positive left labeled button",
                                             "disabled": undefined,
                                             "onClick": [Function],
                                             "role": "button",
-                                            "tabIndex": -1,
+                                            "tabIndex": undefined,
                                             "text": "New",
                                             "to": "/backoffice/documents/create",
                                           },
@@ -771,11 +773,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               false,
                                               false,
                                             ],
-                                            "className": "ui tiny fluid disabled button",
+                                            "className": "ui small fluid button",
                                             "disabled": undefined,
                                             "onClick": [Function],
                                             "role": "button",
-                                            "tabIndex": -1,
+                                            "tabIndex": undefined,
                                             "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                           },
                                           [Function],
@@ -794,7 +796,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                     },
                                   }
                                 }
-                                disabled={true}
+                                disabled={false}
                                 fluid={true}
                                 icon={true}
                                 labelPosition="left"
@@ -818,10 +820,9 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                     }
                                   >
                                     <Link
-                                      className="ui small fluid icon positive disabled left labeled button"
+                                      className="ui small fluid icon positive left labeled button"
                                       onClick={[Function]}
                                       role="button"
-                                      tabIndex={-1}
                                       text="New"
                                       to="/backoffice/documents/create"
                                     />
@@ -832,13 +833,13 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                           </div>
                         </GridColumn>
                         <GridColumn
-                          width={8}
+                          key="right"
                         >
                           <div
-                            className="eight wide column"
+                            className="column"
                           >
                             <SeeAllButton
-                              disabled={true}
+                              disabled={false}
                               fluid={true}
                               to="/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0"
                             >
@@ -864,11 +865,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -892,11 +893,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -914,11 +915,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "innerRef",
@@ -935,11 +936,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "innerRef",
@@ -984,11 +985,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -1012,11 +1013,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -1034,11 +1035,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "onClick",
@@ -1055,11 +1056,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "onClick",
@@ -1104,11 +1105,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -1132,11 +1133,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -1154,11 +1155,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "replace",
@@ -1175,11 +1176,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "replace",
@@ -1224,11 +1225,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -1252,11 +1253,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -1274,11 +1275,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "target",
@@ -1295,11 +1296,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "target",
@@ -1344,11 +1345,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -1372,11 +1373,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui small fluid icon positive disabled left labeled button",
+                                              "className": "ui small fluid icon positive left labeled button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "text": "New",
                                               "to": "/backoffice/documents/create",
                                             },
@@ -1394,11 +1395,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "to",
@@ -1415,11 +1416,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                                 false,
                                                 false,
                                               ],
-                                              "className": "ui tiny fluid disabled button",
+                                              "className": "ui small fluid button",
                                               "disabled": undefined,
                                               "onClick": [Function],
                                               "role": "button",
-                                              "tabIndex": -1,
+                                              "tabIndex": undefined,
                                               "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                             },
                                             "to",
@@ -1465,11 +1466,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               false,
                                               false,
                                             ],
-                                            "className": "ui small fluid icon positive disabled left labeled button",
+                                            "className": "ui small fluid icon positive left labeled button",
                                             "disabled": undefined,
                                             "onClick": [Function],
                                             "role": "button",
-                                            "tabIndex": -1,
+                                            "tabIndex": undefined,
                                             "text": "New",
                                             "to": "/backoffice/documents/create",
                                           },
@@ -1483,11 +1484,11 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               false,
                                               false,
                                             ],
-                                            "className": "ui tiny fluid disabled button",
+                                            "className": "ui small fluid button",
                                             "disabled": undefined,
                                             "onClick": [Function],
                                             "role": "button",
-                                            "tabIndex": -1,
+                                            "tabIndex": undefined,
                                             "to": "/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0",
                                           },
                                           [Function],
@@ -1506,9 +1507,9 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                     },
                                   }
                                 }
-                                disabled={true}
+                                disabled={false}
                                 fluid={true}
-                                size="tiny"
+                                size="small"
                                 to="/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0"
                               >
                                 <Ref
@@ -1526,10 +1527,9 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                     }
                                   >
                                     <Link
-                                      className="ui tiny fluid disabled button"
+                                      className="ui small fluid button"
                                       onClick={[Function]}
                                       role="button"
-                                      tabIndex={-1}
                                       to="/backoffice/documents?q=circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0"
                                     />
                                   </RefForward>

@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
-import { Container, Grid, Icon, Responsive } from 'semantic-ui-react';
+import { Container, Grid, Icon, Label, Responsive } from 'semantic-ui-react';
 import { DocumentItems } from './DocumentItems';
 import { DocumentMetadata } from './DocumentMetadata';
 import DocumentPanel from './DocumentPanel/DocumentPanel';
@@ -55,13 +55,16 @@ const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
                 <AuthenticationGuard
                   silent
                   authorizedComponent={() => (
-                    <Link
+                    <Label
+                      as={Link}
                       to={BackOfficeRoutes.documentDetailsFor(
                         documentDetails.metadata.pid
                       )}
+                      color="grey"
                     >
-                      open in backoffice <Icon name="cogs" />
-                    </Link>
+                      <Icon name="cogs" />
+                      Open in Backoffice
+                    </Label>
                   )}
                   roles={['admin', 'librarian']}
                   loginComponent={() => null}
