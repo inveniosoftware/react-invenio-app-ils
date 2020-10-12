@@ -10,6 +10,7 @@ import {
 export const initialState = {
   data: {},
   error: {},
+  firstLoanRequested: {},
   isLoading: false,
   hasError: false,
 };
@@ -53,6 +54,7 @@ export const loanDetailsReducer = (state = initialDetailsState, action) => {
       return {
         ...state,
         data: action.payload,
+        firstLoanRequested: action.firstLoanRequested,
         error: {},
         isLoading: false,
         hasError: false,

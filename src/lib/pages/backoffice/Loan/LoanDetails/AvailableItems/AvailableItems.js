@@ -12,7 +12,7 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Header, Message, Segment } from 'semantic-ui-react';
+import { Button, Header, Message, Segment, Modal } from 'semantic-ui-react';
 
 export default class AvailableItems extends Component {
   constructor(props) {
@@ -21,7 +21,12 @@ export default class AvailableItems extends Component {
     this.assignItemToLoan = props.assignItemToLoan;
     this.performCheckoutAction = props.performCheckoutAction;
     this.seeAllUrl = BackOfficeRoutes.itemsListWithQuery;
-    this.state = { query: '', filteredData: null };
+    this.state = {
+      query: '',
+      filteredData: null,
+      modalOpen: false,
+      checkoutItem: null,
+    };
   }
 
   componentDidMount() {
@@ -66,8 +71,29 @@ export default class AvailableItems extends Component {
     );
   }
 
+  performCheckout(loan, item = null) {
+    const { performCheckoutAction } = this.props;
+    const { checkoutItem, modalOpen } = this.state;
+    item = item ? item : checkoutItem;
+    if (modalOpen) {
+      this.setState({ modalOpen: !modalOpen });
+    }
+    const checkoutUrl = loan.availableActions.checkout;
+    const patronPid = loan.metadata.patron_pid;
+    const documentPid = item.metadata.document.pid;
+    const itemPid = {
+      type: recordToPidType(item),
+      value: item.metadata.pid,
+    };
+    performCheckoutAction(checkoutUrl, documentPid, patronPid, itemPid);
+  }
+
+  handleCloseModal = () => {
+    this.setState({ modalOpen: false });
+  };
+
   checkoutItemButton(item, loan) {
-    const { performCheckoutAction, isActionLoading } = this.props;
+    const { isActionLoading } = this.props;
     return (
       <Button
         size="mini"
@@ -75,14 +101,14 @@ export default class AvailableItems extends Component {
         loading={isActionLoading}
         disabled={isActionLoading}
         onClick={() => {
-          const checkoutUrl = loan.availableActions.checkout;
-          const patronPid = loan.metadata.patron_pid;
-          const documentPid = item.metadata.document.pid;
-          const itemPid = {
-            type: recordToPidType(item),
-            value: item.metadata.pid,
-          };
-          performCheckoutAction(checkoutUrl, documentPid, patronPid, itemPid);
+          if (!loan['is_first_requested']) {
+            this.setState({
+              modalOpen: true,
+              checkoutItem: item,
+            });
+          } else {
+            this.performCheckout(loan, item);
+          }
         }}
       >
         checkout
@@ -202,7 +228,8 @@ export default class AvailableItems extends Component {
   }
 
   render() {
-    const { isLoading, error, loan, data } = this.props;
+    const { isLoading, error, loan, data, firstLoanRequested } = this.props;
+    const { modalOpen } = this.state;
     const statesThatRenderSearchBar = invenioConfig.CIRCULATION.loanActiveStates.concat(
       invenioConfig.CIRCULATION.loanRequestStates
     );
@@ -222,6 +249,32 @@ export default class AvailableItems extends Component {
         >
           <Loader isLoading={isLoading}>
             <Error error={error}>{this.renderTable()}</Error>
+            {firstLoanRequested ? (
+              <Modal open={modalOpen}>
+                <Modal.Header>Preceding loan request found!</Modal.Header>
+                <Modal.Content>
+                  There is a preceding{' '}
+                  <Link
+                    target="_blank"
+                    to={BackOfficeRoutes.loanDetailsFor(firstLoanRequested.pid)}
+                  >
+                    pending loan request{' '}
+                  </Link>
+                  for this literature. Are you sure that you want to checkout
+                  the copy for this request?
+                </Modal.Content>
+                <Modal.Actions key="modalActions">
+                  <Button onClick={this.handleCloseModal}>Cancel</Button>
+                  <Button
+                    primary
+                    icon="checkmark"
+                    labelPosition="left"
+                    content="Checkout"
+                    onClick={() => this.performCheckout(loan)}
+                  />
+                </Modal.Actions>
+              </Modal>
+            ) : null}
           </Loader>
         </Segment>
       </>
@@ -233,6 +286,7 @@ AvailableItems.propTypes = {
   assignItemToLoan: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired,
   loan: PropTypes.object.isRequired,
+  firstLoanRequested: PropTypes.object.isRequired,
   fetchAvailableItems: PropTypes.func.isRequired,
   performCheckoutAction: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,

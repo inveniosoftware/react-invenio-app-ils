@@ -18,7 +18,7 @@ export const loanUpdateDates = (pid, data) => {
         type: SUCCESS,
         payload: resp.data,
       });
-      dispatch(fetchLoanDetails(resp.data.metadata.pid));
+      dispatch(fetchLoanDetails(resp.data.metadata.pid, true));
     } catch (error) {
       dispatch({
         type: HAS_ERROR,
