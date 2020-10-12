@@ -29,7 +29,6 @@ export const fetchOngoingILLRequests = () => {
         payload: response.data,
       });
     } catch (error) {
-      console.log(error);
       dispatch({
         type: HAS_ERROR,
         payload: error,

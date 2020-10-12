@@ -234,6 +234,11 @@ class QueryBuilder {
     return this;
   }
 
+  sortByRequestStartDate() {
+    this.sortBy = `&sort=-request_start_date`;
+    return this;
+  }
+
   qs() {
     const searchCriteria = this.documentQuery
       .concat(

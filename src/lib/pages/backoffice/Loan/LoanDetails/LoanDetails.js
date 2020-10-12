@@ -18,7 +18,7 @@ export default class LoanDetails extends Component {
 
   componentDidMount() {
     const { fetchLoanDetails, match } = this.props;
-    fetchLoanDetails(match.params.loanPid);
+    fetchLoanDetails(match.params.loanPid, true);
   }
 
   componentDidUpdate(prevProps) {
@@ -31,12 +31,12 @@ export default class LoanDetails extends Component {
 
     const samePidFromRouter = prevProps.match.params.loanPid === loanPid;
     if (!samePidFromRouter) {
-      fetchLoanDetails(loanPid);
+      fetchLoanDetails(loanPid, true);
     }
   }
 
   render() {
-    const { isLoading, error, data } = this.props;
+    const { isLoading, error, data, firstLoanRequested } = this.props;
     return (
       <div ref={this.headerRef}>
         <Container fluid>
@@ -56,7 +56,10 @@ export default class LoanDetails extends Component {
                         <Container className="spaced">
                           <Loan />
                           <CurrentItem />
-                          <AvailableItems loan={data} />
+                          <AvailableItems
+                            loan={data}
+                            firstLoanRequested={firstLoanRequested}
+                          />
                         </Container>
                       </Container>
                     </Grid.Column>
@@ -80,6 +83,7 @@ LoanDetails.propTypes = {
   /* REDUX */
   fetchLoanDetails: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired,
+  firstLoanRequested: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   error: PropTypes.object,
   match: PropTypes.shape({
