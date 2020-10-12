@@ -1566,7 +1566,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         false,
                                                         false,
                                                       ],
-                                                      "className": "ui tiny button",
+                                                      "className": "ui small button",
                                                       "disabled": undefined,
                                                       "onClick": [Function],
                                                       "role": "button",
@@ -1587,7 +1587,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         false,
                                                         false,
                                                       ],
-                                                      "className": "ui tiny button",
+                                                      "className": "ui small button",
                                                       "disabled": undefined,
                                                       "onClick": [Function],
                                                       "role": "button",
@@ -1670,7 +1670,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         false,
                                                         false,
                                                       ],
-                                                      "className": "ui tiny button",
+                                                      "className": "ui small button",
                                                       "disabled": undefined,
                                                       "onClick": [Function],
                                                       "role": "button",
@@ -1691,7 +1691,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         false,
                                                         false,
                                                       ],
-                                                      "className": "ui tiny button",
+                                                      "className": "ui small button",
                                                       "disabled": undefined,
                                                       "onClick": [Function],
                                                       "role": "button",
@@ -1774,7 +1774,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         false,
                                                         false,
                                                       ],
-                                                      "className": "ui tiny button",
+                                                      "className": "ui small button",
                                                       "disabled": undefined,
                                                       "onClick": [Function],
                                                       "role": "button",
@@ -1795,7 +1795,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         false,
                                                         false,
                                                       ],
-                                                      "className": "ui tiny button",
+                                                      "className": "ui small button",
                                                       "disabled": undefined,
                                                       "onClick": [Function],
                                                       "role": "button",
@@ -1878,7 +1878,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         false,
                                                         false,
                                                       ],
-                                                      "className": "ui tiny button",
+                                                      "className": "ui small button",
                                                       "disabled": undefined,
                                                       "onClick": [Function],
                                                       "role": "button",
@@ -1899,7 +1899,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         false,
                                                         false,
                                                       ],
-                                                      "className": "ui tiny button",
+                                                      "className": "ui small button",
                                                       "disabled": undefined,
                                                       "onClick": [Function],
                                                       "role": "button",
@@ -1982,7 +1982,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         false,
                                                         false,
                                                       ],
-                                                      "className": "ui tiny button",
+                                                      "className": "ui small button",
                                                       "disabled": undefined,
                                                       "onClick": [Function],
                                                       "role": "button",
@@ -2003,7 +2003,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         false,
                                                         false,
                                                       ],
-                                                      "className": "ui tiny button",
+                                                      "className": "ui small button",
                                                       "disabled": undefined,
                                                       "onClick": [Function],
                                                       "role": "button",
@@ -2075,7 +2075,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                       false,
                                                       false,
                                                     ],
-                                                    "className": "ui tiny button",
+                                                    "className": "ui small button",
                                                     "disabled": undefined,
                                                     "onClick": [Function],
                                                     "role": "button",
@@ -2108,7 +2108,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                         }
                                         disabled={false}
                                         fluid={false}
-                                        size="tiny"
+                                        size="small"
                                         to="/backoffice/items?q=document_pid:111"
                                       >
                                         <Ref
@@ -2126,7 +2126,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                             }
                                           >
                                             <Link
-                                              className="ui tiny button"
+                                              className="ui small button"
                                               onClick={[Function]}
                                               role="button"
                                               to="/backoffice/items?q=document_pid:111"

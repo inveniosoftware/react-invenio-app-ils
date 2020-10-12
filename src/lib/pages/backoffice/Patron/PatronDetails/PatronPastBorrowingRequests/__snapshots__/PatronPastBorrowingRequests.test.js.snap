@@ -2072,14 +2072,14 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                                             }
                                             disabled={false}
                                             fluid={false}
-                                            size="tiny"
+                                            size="small"
                                             to="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(CANCELLED OR RETURNED))"
                                           >
                                             <Ref
                                               innerRef={
                                                 Object {
                                                   "current": <a
-                                                    class="ui tiny button"
+                                                    class="ui small button"
                                                     href="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(CANCELLED OR RETURNED))"
                                                     role="button"
                                                   >
@@ -2092,7 +2092,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                                                 innerRef={
                                                   Object {
                                                     "current": <a
-                                                      class="ui tiny button"
+                                                      class="ui small button"
                                                       href="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(CANCELLED OR RETURNED))"
                                                       role="button"
                                                     >
@@ -2102,20 +2102,20 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                                                 }
                                               >
                                                 <Link
-                                                  className="ui tiny button"
+                                                  className="ui small button"
                                                   onClick={[Function]}
                                                   role="button"
                                                   to="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(CANCELLED OR RETURNED))"
                                                 >
                                                   <LinkAnchor
-                                                    className="ui tiny button"
+                                                    className="ui small button"
                                                     href="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(CANCELLED OR RETURNED))"
                                                     navigate={[Function]}
                                                     onClick={[Function]}
                                                     role="button"
                                                   >
                                                     <a
-                                                      className="ui tiny button"
+                                                      className="ui small button"
                                                       href="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(CANCELLED OR RETURNED))"
                                                       onClick={[Function]}
                                                       role="button"

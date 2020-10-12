@@ -1406,14 +1406,14 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                             }
                                             disabled={false}
                                             fluid={false}
-                                            size="tiny"
+                                            size="small"
                                             to="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
                                           >
                                             <Ref
                                               innerRef={
                                                 Object {
                                                   "current": <a
-                                                    class="ui tiny button"
+                                                    class="ui small button"
                                                     href="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
                                                     role="button"
                                                   >
@@ -1426,7 +1426,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                                 innerRef={
                                                   Object {
                                                     "current": <a
-                                                      class="ui tiny button"
+                                                      class="ui small button"
                                                       href="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
                                                       role="button"
                                                     >
@@ -1436,20 +1436,20 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                                 }
                                               >
                                                 <Link
-                                                  className="ui tiny button"
+                                                  className="ui small button"
                                                   onClick={[Function]}
                                                   role="button"
                                                   to="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
                                                 >
                                                   <LinkAnchor
-                                                    className="ui tiny button"
+                                                    className="ui small button"
                                                     href="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
                                                     navigate={[Function]}
                                                     onClick={[Function]}
                                                     role="button"
                                                   >
                                                     <a
-                                                      className="ui tiny button"
+                                                      className="ui small button"
                                                       href="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
                                                       onClick={[Function]}
                                                       role="button"

@@ -16,11 +16,13 @@ export default class RecordsBriefCard extends Component {
           <span data-test={stats}>{stats}</span> {text}
         </p>
         <Grid>
-          <Grid.Row>
-            <Grid.Column width={8}>{buttonLeft ? buttonLeft : ''}</Grid.Column>
-            <Grid.Column width={8}>
-              {buttonRight ? buttonRight : ''}
-            </Grid.Column>
+          <Grid.Row columns="equal">
+            {buttonLeft ? (
+              <Grid.Column key="left">{buttonLeft}</Grid.Column>
+            ) : null}
+            {buttonRight ? (
+              <Grid.Column key="right">{buttonRight}</Grid.Column>
+            ) : null}
           </Grid.Row>
         </Grid>
       </Segment>

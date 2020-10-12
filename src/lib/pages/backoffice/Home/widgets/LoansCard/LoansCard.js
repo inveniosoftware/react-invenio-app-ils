@@ -6,7 +6,6 @@ import { invenioConfig } from '@config';
 import { loanApi } from '@api/loans';
 import { RecordsBriefCard } from '@components/backoffice/RecordsBriefCard';
 import { BackOfficeRoutes } from '@routes/urls';
-import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 
 export default class LoansCard extends Component {
@@ -27,11 +26,7 @@ export default class LoansCard extends Component {
         .withState(invenioConfig.CIRCULATION.loanRequestStates)
         .qs()
     );
-    return <SeeAllButton fluid disabled to={path} />;
-  };
-
-  newLoanButton = () => {
-    return <NewButton fluid disabled to="" />;
+    return <SeeAllButton fluid to={path} />;
   };
 
   renderCard = data => {
@@ -40,7 +35,7 @@ export default class LoansCard extends Component {
         title="Loans"
         stats={data}
         text="new requests"
-        buttonLeft={this.newLoanButton()}
+        buttonLeft={null}
         buttonRight={this.seeAllButton()}
       />
     );

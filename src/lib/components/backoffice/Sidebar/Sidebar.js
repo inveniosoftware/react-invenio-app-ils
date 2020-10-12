@@ -23,6 +23,18 @@ import {
 import AdminMenu from './AdminMenu';
 
 class Sidebar extends Component {
+  logout = async () => {
+    const { logout, sendErrorNotification } = this.props;
+    try {
+      await logout();
+    } catch (e) {
+      sendErrorNotification(
+        'Logout',
+        'Something went wrong. Please try to logout again.'
+      );
+    }
+  };
+
   removeTrailingSlashes = path => path.replace(/\/+$/, '');
   render() {
     const { location, user } = this.props;
@@ -64,9 +76,19 @@ class Sidebar extends Component {
               </Header.Subheader>
             </Header.Content>
           </Header>
-          <Divider />
           <Overridable id="Sidebar.Menu">
             <>
+              <Menu text vertical className="bo-menu bo-menu-subheader">
+                <Menu.Item>
+                  <Menu.Menu>
+                    <Menu.Item onClick={this.logout}>Sign out</Menu.Item>
+                    <Menu.Item as={Link} to={FrontSiteRoutes.home}>
+                      Go to Frontsite
+                    </Menu.Item>
+                  </Menu.Menu>
+                </Menu.Item>
+              </Menu>
+              <Divider />
               <Menu text vertical className="bo-menu">
                 <Menu.Item>
                   <Menu.Header>Actions</Menu.Header>
@@ -223,12 +245,6 @@ class Sidebar extends Component {
                   </Menu.Menu>
                 </Menu.Item>
               </Menu>
-              <Divider horizontal>Other</Divider>
-              <Menu text vertical className="bo-menu">
-                <Menu.Item as={Link} to={FrontSiteRoutes.home}>
-                  Go to Home Page
-                </Menu.Item>
-              </Menu>
             </>
           </Overridable>
           <AuthenticationGuard
@@ -280,6 +296,8 @@ Sidebar.propTypes = {
   }),
   /* REDUX */
   user: PropTypes.object.isRequired,
+  logout: PropTypes.func.isRequired,
+  sendErrorNotification: PropTypes.func.isRequired,
 };
 
 Sidebar.defaultProps = {
