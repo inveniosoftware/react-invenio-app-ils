@@ -1,4 +1,5 @@
 export { orderApi, vendorApi } from '@api/acquisition';
+export { bannerApi } from '@api/banners';
 export { documentRequestApi } from '@api/documentRequests';
 export { documentApi } from '@api/documents';
 export { eItemApi } from '@api/eitems';

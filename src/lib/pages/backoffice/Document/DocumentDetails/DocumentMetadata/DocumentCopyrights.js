@@ -1,9 +1,8 @@
+import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Divider, Header } from 'semantic-ui-react';
-import { List } from 'semantic-ui-react';
-import { InfoMessage } from '@components/backoffice/InfoMessage';
+import { Divider, Header, List } from 'semantic-ui-react';
 
 export class DocumentCopyrights extends Component {
   renderCopyrights() {
@@ -29,8 +28,8 @@ export class DocumentCopyrights extends Component {
     } = this.props;
     return (
       <List bulleted>
-        {licenses.map((entry, index) => (
-          <List.Item key={index}>{entry}</List.Item>
+        {licenses.map(entry => (
+          <List.Item key={entry}>{entry}</List.Item>
         ))}
       </List>
     );

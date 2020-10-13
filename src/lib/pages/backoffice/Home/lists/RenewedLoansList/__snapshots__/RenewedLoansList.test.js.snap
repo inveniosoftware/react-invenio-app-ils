@@ -5,7 +5,10 @@ exports[`RenewedLoansList tests should load the details component 1`] = `
   isLoading={false}
 >
   <Error
+    FallbackComponent={[Function]}
+    boundary={false}
     error={Object {}}
+    onUIError={null}
   >
     <ResultsTable
       columns={
@@ -48,6 +51,7 @@ exports[`RenewedLoansList tests should load the details component 1`] = `
       headerActionComponent={null}
       name="frequently renewed loans"
       paginationComponent={null}
+      renderEmptyResultsElement={null}
       seeAllComponent={
         <SeeAllButton
           disabled={false}
@@ -136,7 +140,10 @@ exports[`RenewedLoansList tests should render loans 1`] = `
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={Object {}}
+          onUIError={null}
         >
           <ResultsTable
             columns={
@@ -227,6 +234,7 @@ exports[`RenewedLoansList tests should render loans 1`] = `
             headerActionComponent={null}
             name="frequently renewed loans"
             paginationComponent={null}
+            renderEmptyResultsElement={null}
             seeAllComponent={
               <SeeAllButton
                 disabled={false}
@@ -2236,7 +2244,10 @@ exports[`RenewedLoansList tests should render show a message with no loans 1`] =
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={Object {}}
+          onUIError={null}
         >
           <ResultsTable
             columns={
@@ -2279,6 +2290,7 @@ exports[`RenewedLoansList tests should render show a message with no loans 1`] =
             headerActionComponent={null}
             name="frequently renewed loans"
             paginationComponent={null}
+            renderEmptyResultsElement={null}
             seeAllComponent={
               <SeeAllButton
                 disabled={false}

@@ -1,10 +1,12 @@
+import { Banner } from '@components/Banner';
+import { NotFound } from '@components/HttpErrors';
 import { ILSFooter } from '@components/ILSFooter';
 import { ILSMenu } from '@components/ILSMenu';
-import { NotFound } from '@components/HttpErrors';
 import { Notifications } from '@components/Notifications';
 import { getStaticPagesRoutes } from '@config';
 import { DocumentRequestForm } from '@pages/frontsite/DocumentRequests';
 import { DocumentDetails } from '@pages/frontsite/Documents';
+import { ErrorsPage } from '@pages/frontsite/ErrorsPage';
 import { Home } from '@pages/frontsite/Home';
 import LiteratureSearch from '@pages/frontsite/Literature/LiteratureSearch/LiteratureSearch';
 import { OpeningHours } from '@pages/frontsite/OpeningHours';
@@ -16,7 +18,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
-import { ErrorsPage } from '@pages/frontsite/ErrorsPage';
 
 export default class FrontSite extends Component {
   renderCustomStaticPages = () => {
@@ -31,6 +32,7 @@ export default class FrontSite extends Component {
         <ILSMenu />
         <Notifications className="compact" />
         <Container fluid className="fs-content">
+          <Banner />
           <Switch>
             <Route
               exact

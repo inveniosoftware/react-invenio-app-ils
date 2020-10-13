@@ -5,7 +5,10 @@ exports[`PendingOverdueDocumentsList tests should load the details component 1`]
   isLoading={false}
 >
   <Error
+    FallbackComponent={[Function]}
+    boundary={false}
     error={Object {}}
+    onUIError={null}
   >
     <ResultsTable
       columns={
@@ -39,6 +42,7 @@ exports[`PendingOverdueDocumentsList tests should load the details component 1`]
       headerActionComponent={null}
       name="pending overdue documents"
       paginationComponent={null}
+      renderEmptyResultsElement={null}
       seeAllComponent={
         <SeeAllButton
           disabled={false}
@@ -135,7 +139,10 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={Object {}}
+          onUIError={null}
         >
           <ResultsTable
             columns={
@@ -225,6 +232,7 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
             headerActionComponent={null}
             name="pending overdue documents"
             paginationComponent={null}
+            renderEmptyResultsElement={null}
             seeAllComponent={
               <SeeAllButton
                 disabled={false}
@@ -2138,7 +2146,10 @@ exports[`PendingOverdueDocumentsList tests should render show a message with no 
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={Object {}}
+          onUIError={null}
         >
           <ResultsTable
             columns={
@@ -2172,6 +2183,7 @@ exports[`PendingOverdueDocumentsList tests should render show a message with no 
             headerActionComponent={null}
             name="pending overdue documents"
             paginationComponent={null}
+            renderEmptyResultsElement={null}
             seeAllComponent={
               <SeeAllButton
                 disabled={false}

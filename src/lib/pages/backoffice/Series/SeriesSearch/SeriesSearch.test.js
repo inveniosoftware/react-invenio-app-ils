@@ -1,7 +1,7 @@
-import React from 'react';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { mount } from 'enzyme';
 import { Settings } from 'luxon';
-import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import React from 'react';
 import { Button } from 'semantic-ui-react';
 
 Settings.defaultZoneName = 'utc';

@@ -5,7 +5,10 @@ exports[`DocumentItems tests should load the DocumentItems component 1`] = `
   isLoading={false}
 >
   <Error
+    FallbackComponent={[Function]}
+    boundary={false}
     error={null}
+    onUIError={null}
   >
     <ResultsTable
       columns={
@@ -49,6 +52,7 @@ exports[`DocumentItems tests should load the DocumentItems component 1`] = `
       headerActionComponent={null}
       name="attached items"
       paginationComponent={null}
+      renderEmptyResultsElement={null}
       seeAllComponent={
         <SeeAllButton
           disabled={false}
@@ -144,7 +148,10 @@ exports[`DocumentItems tests should render item 1`] = `
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={null}
+          onUIError={null}
         >
           <ResultsTable
             columns={
@@ -235,6 +242,7 @@ exports[`DocumentItems tests should render item 1`] = `
             headerActionComponent={null}
             name="attached items"
             paginationComponent={null}
+            renderEmptyResultsElement={null}
             seeAllComponent={
               <SeeAllButton
                 disabled={false}
@@ -806,7 +814,10 @@ exports[`DocumentItems tests should render show a message with no items 1`] = `
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={null}
+          onUIError={null}
         >
           <ResultsTable
             columns={
@@ -850,6 +861,7 @@ exports[`DocumentItems tests should render show a message with no items 1`] = `
             headerActionComponent={null}
             name="attached items"
             paginationComponent={null}
+            renderEmptyResultsElement={null}
             seeAllComponent={
               <SeeAllButton
                 disabled={false}
@@ -976,7 +988,10 @@ exports[`DocumentItems tests should render the see all button when showing only 
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={null}
+          onUIError={null}
         >
           <ResultsTable
             columns={
@@ -1067,6 +1082,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
             headerActionComponent={null}
             name="attached items"
             paginationComponent={null}
+            renderEmptyResultsElement={null}
             seeAllComponent={
               <SeeAllButton
                 disabled={false}

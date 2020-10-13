@@ -126,7 +126,7 @@ exports[`SeriesCard tests should go to book details when clicking on a book 1`] 
                           role="list"
                         >
                           <ListItem
-                            key="0"
+                            key="Author1"
                           >
                             <div
                               className="item"
@@ -138,7 +138,7 @@ exports[`SeriesCard tests should go to book details when clicking on a book 1`] 
                             </div>
                           </ListItem>
                           <ListItem
-                            key="1"
+                            key="Author2"
                           >
                             <div
                               className="item"
@@ -293,7 +293,7 @@ exports[`SeriesCard tests should render the SeriesCard 1`] = `
                           role="list"
                         >
                           <ListItem
-                            key="0"
+                            key="Author1"
                           >
                             <div
                               className="item"
@@ -305,7 +305,7 @@ exports[`SeriesCard tests should render the SeriesCard 1`] = `
                             </div>
                           </ListItem>
                           <ListItem
-                            key="1"
+                            key="Author2"
                           >
                             <div
                               className="item"

@@ -1,11 +1,11 @@
+import { InfoMessage } from '@components/InfoMessage';
+import _get from 'lodash/get';
+import _isEmpty from 'lodash/isEmpty';
+import { DateTime } from 'luxon';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import PropTypes from 'prop-types';
-import { Table, Grid, Icon } from 'semantic-ui-react';
-import { DateTime } from 'luxon';
-import { InfoMessage } from '@components/InfoMessage';
-import _isEmpty from 'lodash/isEmpty';
-import _get from 'lodash/get';
+import { Grid, Icon, Table } from 'semantic-ui-react';
 
 export class LocationOpeningHours extends Component {
   capitalizeFirst = string => {
@@ -67,12 +67,12 @@ export class LocationOpeningHours extends Component {
 
   renderExceptionRows = today => {
     const { location } = this.props;
-    return location.metadata.opening_exceptions.map((exception, idx) => {
+    return location.metadata.opening_exceptions.map(exception => {
       const startDate = exception.start_date,
         endDate = exception.end_date;
       const isCurrent = this.isInInterval(today, exception);
       return (
-        <Table.Row key={idx} active={isCurrent}>
+        <Table.Row key={exception.title} active={isCurrent}>
           <Table.Cell textAlign="left">{exception.title}</Table.Cell>
           <Table.Cell textAlign="center">
             {this.renderDateRange(startDate, endDate)}

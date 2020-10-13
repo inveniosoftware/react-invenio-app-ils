@@ -35,7 +35,10 @@ exports[`ItemPendingLoans tests should render show a message with no requested l
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={Object {}}
+          onUIError={null}
         >
           <Header
             as="h3"

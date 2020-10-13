@@ -5,7 +5,10 @@ exports[`SeriesDocuments tests should load the SeriesDocuments component 1`] = `
   isLoading={false}
 >
   <Error
+    FallbackComponent={[Function]}
+    boundary={false}
     error={Object {}}
+    onUIError={null}
   >
     <ResultsTable
       columns={

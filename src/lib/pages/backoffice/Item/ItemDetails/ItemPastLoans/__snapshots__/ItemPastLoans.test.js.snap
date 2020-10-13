@@ -5,7 +5,10 @@ exports[`ItemPastLoans tests should load the past loans component 1`] = `
   isLoading={false}
 >
   <Error
+    FallbackComponent={[Function]}
+    boundary={false}
     error={Object {}}
+    onUIError={null}
   >
     <Header
       as="h3"
@@ -159,7 +162,10 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={Object {}}
+          onUIError={null}
         >
           <Header
             as="h3"
@@ -2244,7 +2250,10 @@ exports[`ItemPastLoans tests should render show a message with no past loans 1`]
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={Object {}}
+          onUIError={null}
         >
           <Header
             as="h3"

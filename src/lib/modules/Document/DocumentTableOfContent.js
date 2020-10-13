@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Divider, List } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
 
 export class DocumentTableOfContent extends Component {
   constructor(props) {
@@ -9,8 +9,8 @@ export class DocumentTableOfContent extends Component {
   }
 
   renderTOCList = () => {
-    return this.toc.map((entry, idx) => (
-      <List.Item key={idx}>
+    return this.toc.map(entry => (
+      <List.Item key={entry}>
         <List.Content>{entry}</List.Content>
       </List.Item>
     ));

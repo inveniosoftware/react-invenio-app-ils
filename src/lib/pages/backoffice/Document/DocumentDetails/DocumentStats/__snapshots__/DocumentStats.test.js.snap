@@ -57,7 +57,10 @@ exports[`DocumentStats tests should load the component 1`] = `
           isLoading={false}
         >
           <Error
+            FallbackComponent={[Function]}
+            boundary={false}
             error={null}
+            onUIError={null}
           >
             <Table
               as="table"

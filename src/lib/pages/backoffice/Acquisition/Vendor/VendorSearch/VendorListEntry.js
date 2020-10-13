@@ -75,8 +75,8 @@ export default class VendorListEntry extends Component {
     return (
       <Item.Description>
         <p>
-          {address.split('\n').map((line, index) => (
-            <React.Fragment key={index}>
+          {address.split('\n').map(line => (
+            <React.Fragment key={line}>
               {line}
               <br />
             </React.Fragment>

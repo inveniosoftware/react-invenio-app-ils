@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Table } from 'semantic-ui-react';
 import _get from 'lodash/get';
 import _isFunction from 'lodash/isFunction';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Table } from 'semantic-ui-react';
 
 export default class ResultsTableBody extends Component {
   renderCell = (col, row, rowIndex) => {
@@ -20,15 +20,14 @@ export default class ResultsTableBody extends Component {
       const identifier = row.pid ? row.pid : row.id ? row.id : row.pid_value;
       return (
         <Table.Row key={identifier} data-test={identifier}>
-          {columns.map((col, idx) => (
-            <Table.Cell
-              key={`${idx}-${identifier}`}
-              data-test={`${idx}-${identifier}`}
-              data-label={col.title}
-            >
-              {this.renderCell(col, row, rowIndex)}
-            </Table.Cell>
-          ))}
+          {columns.map((col, idx) => {
+            const key = `${idx}-${identifier}`;
+            return (
+              <Table.Cell key={key} data-test={key} data-label={col.title}>
+                {this.renderCell(col, row, rowIndex)}
+              </Table.Cell>
+            );
+          })}
         </Table.Row>
       );
     });

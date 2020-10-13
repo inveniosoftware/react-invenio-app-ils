@@ -1,11 +1,10 @@
+import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
+import capitalize from 'lodash/capitalize';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Divider, Header } from 'semantic-ui-react';
-import { List } from 'semantic-ui-react';
-import capitalize from 'lodash/capitalize';
-import { InfoMessage } from '@components/backoffice/InfoMessage';
+import { Divider, Header, List } from 'semantic-ui-react';
 
 export class DocumentPublishing extends Component {
   prepareImprintInfo = () => {
@@ -42,8 +41,8 @@ export class DocumentPublishing extends Component {
       if (Array.isArray(val)) {
         const arrayVals = (
           <List>
-            {val.map((entry, idx) => (
-              <List.Item key={idx}>
+            {val.map(entry => (
+              <List.Item key={entry.value}>
                 <List.Content>
                   <List.Header>{entry.scheme}</List.Header>
                   <List.Description>{entry.value}</List.Description>

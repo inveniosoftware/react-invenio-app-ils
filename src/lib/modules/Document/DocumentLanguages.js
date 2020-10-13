@@ -1,7 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Overridable from 'react-overridable';
 import { List } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
 
 const DocumentLanguages = ({ languages, separator, withLabel, listItemAs }) => {
   if (!languages || !languages.length) {
@@ -20,7 +20,7 @@ const DocumentLanguages = ({ languages, separator, withLabel, listItemAs }) => {
             const separatorCmp =
               index < languages.length - 1 ? separator : null;
             return (
-              <List.Item as={listItemAs} key={`Key${index}`}>
+              <List.Item as={listItemAs} key={language}>
                 {language.toUpperCase()}
                 {separatorCmp}
               </List.Item>

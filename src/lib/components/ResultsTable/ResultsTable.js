@@ -21,7 +21,7 @@ export class ResultsTable extends Component {
       totalHitsCount,
       headerActionComponent,
       renderEmptyResultsElement,
-      showMaxRows = invenioConfig.APP.DEFAULT_RESULTS_SIZE,
+      showMaxRows,
       ...tableProps
     } = this.props;
 
@@ -134,4 +134,7 @@ ResultsTable.defaultProps = {
   title: '',
   fixed: false,
   name: '',
+  totalHitsCount: 0,
+  showMaxRows: invenioConfig.APP.DEFAULT_RESULTS_SIZE,
+  renderEmptyResultsElement: null,
 };

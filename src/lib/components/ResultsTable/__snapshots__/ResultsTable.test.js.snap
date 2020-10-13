@@ -58,12 +58,14 @@ exports[`ResultsTable tests should not render the see all button when showing on
   headerActionComponent={null}
   name=""
   paginationComponent={null}
+  renderEmptyResultsElement={null}
   seeAllComponent={null}
   showAllResults={false}
   showMaxRows={3}
   singleLine={true}
   subtitle=""
   title=""
+  totalHitsCount={0}
 >
   <Table
     as="table"
@@ -394,6 +396,7 @@ exports[`ResultsTable tests should render the see all button when showing only a
   headerActionComponent={null}
   name=""
   paginationComponent={null}
+  renderEmptyResultsElement={null}
   seeAllComponent={
     <Button
       as="button"
@@ -408,6 +411,7 @@ exports[`ResultsTable tests should render the see all button when showing only a
   singleLine={true}
   subtitle=""
   title=""
+  totalHitsCount={0}
 >
   <Table
     as="table"

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Container, Message } from 'semantic-ui-react';
 import get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Container, Message } from 'semantic-ui-react';
 import { DefaultFallbackComponent } from './DefaultFallbackComponent';
 
 const isAPIError = error => {
@@ -61,13 +61,10 @@ export class Error extends Component {
 
   render() {
     const { boundary, children, error, FallbackComponent } = this.props;
-    const Fallback = FallbackComponent
-      ? FallbackComponent
-      : DefaultFallbackComponent;
 
     const { error: stateError } = this.state;
     if (boundary && stateError) {
-      return <Fallback {...this.state} />;
+      return <FallbackComponent {...this.state} />;
     } else if (!_isEmpty(error) && shouldShowErrorPage(error)) {
       return this.renderErrorMessage(error);
     } else {
@@ -85,5 +82,9 @@ Error.propTypes = {
 };
 
 Error.defaultProps = {
+  error: null,
+  boundary: false,
   children: null,
+  FallbackComponent: DefaultFallbackComponent,
+  onUIError: null,
 };
