@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Breadcrumb } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Breadcrumb } from 'semantic-ui-react';
 
 export default class Breadcrumbs extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ export default class Breadcrumbs extends Component {
 
   _renderBreadcrumbElements = () => {
     return this.elements.map((element, i, arr) => (
-      <span key={i}>
+      <span key={element.label}>
         <Breadcrumb.Section>
           <Link key={element.to} to={element.to}>
             {element.label}

@@ -5,7 +5,10 @@ exports[`DocumentPendingLoans tests should load the details component 1`] = `
   isLoading={false}
 >
   <Error
+    FallbackComponent={[Function]}
+    boundary={false}
     error={null}
+    onUIError={null}
   >
     <ResultsTable
       columns={
@@ -38,6 +41,7 @@ exports[`DocumentPendingLoans tests should load the details component 1`] = `
       headerActionComponent={null}
       name="pending loan requests"
       paginationComponent={null}
+      renderEmptyResultsElement={null}
       seeAllComponent={
         <SeeAllButton
           disabled={false}
@@ -135,7 +139,10 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={null}
+          onUIError={null}
         >
           <ResultsTable
             columns={
@@ -216,6 +223,7 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
             headerActionComponent={null}
             name="pending loan requests"
             paginationComponent={null}
+            renderEmptyResultsElement={null}
             seeAllComponent={
               <SeeAllButton
                 disabled={false}
@@ -642,7 +650,10 @@ exports[`DocumentPendingLoans tests should render show a message with no pending
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={null}
+          onUIError={null}
         >
           <ResultsTable
             columns={
@@ -675,6 +686,7 @@ exports[`DocumentPendingLoans tests should render show a message with no pending
             headerActionComponent={null}
             name="pending loan requests"
             paginationComponent={null}
+            renderEmptyResultsElement={null}
             seeAllComponent={
               <SeeAllButton
                 disabled={false}
@@ -803,7 +815,10 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={null}
+          onUIError={null}
         >
           <ResultsTable
             columns={
@@ -884,6 +899,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
             headerActionComponent={null}
             name="pending loan requests"
             paginationComponent={null}
+            renderEmptyResultsElement={null}
             seeAllComponent={
               <SeeAllButton
                 disabled={false}

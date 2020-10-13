@@ -5,7 +5,10 @@ exports[`OverbookedDocumentsList tests should load the details component 1`] = `
   isLoading={false}
 >
   <Error
+    FallbackComponent={[Function]}
+    boundary={false}
     error={Object {}}
+    onUIError={null}
   >
     <ResultsTable
       columns={
@@ -35,6 +38,7 @@ exports[`OverbookedDocumentsList tests should load the details component 1`] = `
       headerActionComponent={null}
       name="overbooked documents"
       paginationComponent={null}
+      renderEmptyResultsElement={null}
       seeAllComponent={
         <SeeAllButton
           disabled={false}
@@ -127,7 +131,10 @@ exports[`OverbookedDocumentsList tests should render documents 1`] = `
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={Object {}}
+          onUIError={null}
         >
           <ResultsTable
             columns={
@@ -209,6 +216,7 @@ exports[`OverbookedDocumentsList tests should render documents 1`] = `
             headerActionComponent={null}
             name="overbooked documents"
             paginationComponent={null}
+            renderEmptyResultsElement={null}
             seeAllComponent={
               <SeeAllButton
                 disabled={false}
@@ -2067,7 +2075,10 @@ exports[`OverbookedDocumentsList tests should render show a message with no docu
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={Object {}}
+          onUIError={null}
         >
           <ResultsTable
             columns={
@@ -2097,6 +2108,7 @@ exports[`OverbookedDocumentsList tests should render show a message with no docu
             headerActionComponent={null}
             name="overbooked documents"
             paginationComponent={null}
+            renderEmptyResultsElement={null}
             seeAllComponent={
               <SeeAllButton
                 disabled={false}

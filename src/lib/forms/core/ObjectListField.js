@@ -37,7 +37,7 @@ export class ObjectListField extends Component {
         <List horizontal divided relaxed>
           {items.map((item, index) => (
             <List.Item
-              key={index}
+              key={item[keyField]}
               as="a"
               active={activeIndex === index}
               disabled={isSubmitting}

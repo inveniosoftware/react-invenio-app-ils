@@ -1,5 +1,6 @@
 import { authenticationReducer } from '@authentication/reducer';
 import { deleteRecordModalReducer } from '@components/backoffice/DeleteRecordModal/reducer';
+import { fetchBannerReducer } from '@components/Banner/state/reducer';
 import { notificationsReducer } from '@components/Notifications/reducer';
 import { overdueLoanSendMailModalReducer } from '@modules/Loan/backoffice/OverdueLoanSendMailModal/reducer';
 import { loanActionReducer, loanDetailsReducer } from '@modules/Loan/reducer';
@@ -15,7 +16,8 @@ import {
 } from '@modules/Relations/backoffice/reducer';
 import orderDetailsReducer from '@pages/backoffice/Acquisition/Order/OrderDetails/state/reducer';
 import vendorDetailsReducer from '@pages/backoffice/Acquisition/Vendor/VendorDetails/state/reducer';
-import patronItemsSearchReducer from '@pages/backoffice/Patron/PatronDetails/ItemsSearch/state/reducer';
+import { itemsCheckInReducer } from '@pages/backoffice/Actions/CheckIn/reducer';
+import { checkOutReducer } from '@pages/backoffice/Actions/CheckOut/reducer';
 import {
   documentDetailsReducer,
   documentEItems,
@@ -45,12 +47,14 @@ import {
   itemDetailsReducer,
   itemPastLoansReducer,
 } from '@pages/backoffice/Item/ItemDetails/reducer';
+import { loanUpdateDatesReducer } from '@pages/backoffice/Loan/LoanDetails/LoanUpdateDates/reducer';
 import { availableItemsReducer } from '@pages/backoffice/Loan/LoanDetails/reducer';
+import locationDetailsReducer from '@pages/backoffice/Location/LocationDetails/state/locationDetailsReducer';
 import {
   internalLocationListReducer,
   locationListReducer,
 } from '@pages/backoffice/Location/LocationList/reducer';
-import locationDetailsReducer from '@pages/backoffice/Location/LocationDetails/state/locationDetailsReducer';
+import patronItemsSearchReducer from '@pages/backoffice/Patron/PatronDetails/ItemsSearch/state/reducer';
 import {
   itemsSearchByBarcodeReducer,
   patronDetailsReducer,
@@ -62,8 +66,6 @@ import {
   seriesMultipartMonographsReducer,
   seriesRelationsReducer,
 } from '@pages/backoffice/Series/SeriesDetails/reducer';
-import { itemsCheckInReducer } from '@pages/backoffice/Actions/CheckIn/reducer';
-import { checkOutReducer } from '@pages/backoffice/Actions/CheckOut/reducer';
 import { mostLoanedDocumentsReducer } from '@pages/backoffice/Stats/reducer';
 import { loanRequestFormReducer } from '@pages/frontsite/Documents/DocumentDetails/LoanRequestForm/reducer';
 import { documentDetailsFrontReducer } from '@pages/frontsite/Documents/DocumentDetails/reducer';
@@ -76,7 +78,6 @@ import { staticPageReducer } from '@pages/frontsite/StaticPage/reducer';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import { loanUpdateDatesReducer } from '@pages/backoffice/Loan/LoanDetails/LoanUpdateDates/reducer';
 
 const rootReducer = combineReducers({
   authenticationManagement: authenticationReducer,
@@ -142,6 +143,7 @@ const rootReducer = combineReducers({
   borrowingRequestLoanExtension: borrowingRequestLoanExtensionReducer,
   itemsCheckIn: itemsCheckInReducer,
   checkOut: checkOutReducer,
+  banner: fetchBannerReducer,
 });
 
 const composeEnhancers = composeWithDevTools({

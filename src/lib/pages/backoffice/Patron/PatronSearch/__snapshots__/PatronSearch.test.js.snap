@@ -29,11 +29,14 @@ exports[`PatronsSearch ResultsList tests should not render when empty results 1`
   headerActionComponent={null}
   name=""
   paginationComponent={null}
+  renderEmptyResultsElement={null}
   seeAllComponent={null}
   showAllResults={false}
+  showMaxRows={15}
   singleLine={true}
   subtitle=""
   title=""
+  totalHitsCount={0}
 >
   <Message
     data-test="no-results"
@@ -106,11 +109,14 @@ exports[`PatronsSearch ResultsList tests should render a list of results 1`] = `
   headerActionComponent={null}
   name=""
   paginationComponent={null}
+  renderEmptyResultsElement={null}
   seeAllComponent={null}
   showAllResults={false}
+  showMaxRows={15}
   singleLine={true}
   subtitle=""
   title=""
+  totalHitsCount={0}
 >
   <Table
     as="table"

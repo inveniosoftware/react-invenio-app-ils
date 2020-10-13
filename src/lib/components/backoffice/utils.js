@@ -21,8 +21,8 @@ export const groupedSchemeValueList = schemeValueList => {
       name: scheme,
       value: (
         <List bulleted>
-          {idsList.map((entry, idx) => (
-            <List.Item key={idx}>
+          {idsList.map(entry => (
+            <List.Item key={entry.value}>
               <List.Content>
                 {entry.value} {entry.material && <>({entry.material})</>}
               </List.Content>

@@ -1,10 +1,9 @@
+import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Divider, Header } from 'semantic-ui-react';
-import { InfoMessage } from '@components/backoffice/InfoMessage';
-import { List } from 'semantic-ui-react';
+import { Divider, Header, List } from 'semantic-ui-react';
 
 export class DocumentExtras extends Component {
   prepareAlternativeTitle = element => {
@@ -13,8 +12,8 @@ export class DocumentExtras extends Component {
       name: 'Alternative title',
       value: (
         <List bulleted>
-          {element.map((entry, idx) => (
-            <List.Item key={idx}>
+          {element.map(entry => (
+            <List.Item key={entry.value}>
               <List.Content>{entry.value}</List.Content>
             </List.Item>
           ))}
@@ -51,9 +50,9 @@ export class DocumentExtras extends Component {
             <>
               <Divider />
               <Header as="h3">Publication info</Header>
-              {document.metadata.alternative_abstracts.map((element, index) => (
+              {document.metadata.alternative_abstracts.map(element => (
                 <MetadataTable
-                  key={index}
+                  key={element}
                   rows={this.prepareAlternativeAbstracts(element)}
                 />
               ))}

@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { List } from 'semantic-ui-react';
 import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { List } from 'semantic-ui-react';
 
 export const SeparatedList = ({
   items,
@@ -16,7 +16,7 @@ export const SeparatedList = ({
       {prefix}
       <List horizontal {...listProps}>
         {items.map((item, index) => (
-          <List.Item key={index} {...itemProps}>
+          <List.Item key={item} {...itemProps}>
             {item}
             {index !== items.length - 1 && separator}
           </List.Item>

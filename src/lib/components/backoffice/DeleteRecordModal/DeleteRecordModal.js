@@ -55,9 +55,9 @@ export default class DeleteRecordModal extends Component {
 
   renderContent = (refEntry, refData) => {
     const { refType, onRefClick } = refEntry;
-    const references = _sortBy(refData.hits, 'id').map((hit, i) => (
+    const references = _sortBy(refData.hits, 'id').map(hit => (
       <List.Item
-        key={i}
+        key={hit.id}
         as="a"
         onClick={() => onRefClick(hit.id)}
         target="blank"

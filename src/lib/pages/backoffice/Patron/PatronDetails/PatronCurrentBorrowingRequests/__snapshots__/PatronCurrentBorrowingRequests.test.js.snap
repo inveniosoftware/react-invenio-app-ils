@@ -5,7 +5,10 @@ exports[`PatronCurrentBorrowingRequests tests should load the details component 
   isLoading={false}
 >
   <Error
+    FallbackComponent={[Function]}
+    boundary={false}
     error={null}
+    onUIError={null}
   >
     <ResultsTable
       columns={
@@ -54,6 +57,7 @@ exports[`PatronCurrentBorrowingRequests tests should load the details component 
       headerActionComponent={null}
       name="borrowing requests"
       paginationComponent={null}
+      renderEmptyResultsElement={null}
       seeAllComponent={
         <SeeAllButton
           disabled={false}
@@ -213,7 +217,10 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
             isLoading={false}
           >
             <Error
+              FallbackComponent={[Function]}
+              boundary={false}
               error={null}
+              onUIError={null}
             >
               <ResultsTable
                 columns={
@@ -339,6 +346,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                 headerActionComponent={null}
                 name="borrowing requests"
                 paginationComponent={null}
+                renderEmptyResultsElement={null}
                 seeAllComponent={
                   <SeeAllButton
                     disabled={false}
@@ -1281,7 +1289,10 @@ exports[`PatronCurrentBorrowingRequests tests should render show a message with 
             isLoading={false}
           >
             <Error
+              FallbackComponent={[Function]}
+              boundary={false}
               error={null}
+              onUIError={null}
             >
               <ResultsTable
                 columns={
@@ -1330,6 +1341,7 @@ exports[`PatronCurrentBorrowingRequests tests should render show a message with 
                 headerActionComponent={null}
                 name="borrowing requests"
                 paginationComponent={null}
+                renderEmptyResultsElement={null}
                 seeAllComponent={
                   <SeeAllButton
                     disabled={false}
@@ -1522,7 +1534,10 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
             isLoading={false}
           >
             <Error
+              FallbackComponent={[Function]}
+              boundary={false}
               error={null}
+              onUIError={null}
             >
               <ResultsTable
                 columns={
@@ -1648,6 +1663,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                 headerActionComponent={null}
                 name="borrowing requests"
                 paginationComponent={null}
+                renderEmptyResultsElement={null}
                 seeAllComponent={
                   <SeeAllButton
                     disabled={false}

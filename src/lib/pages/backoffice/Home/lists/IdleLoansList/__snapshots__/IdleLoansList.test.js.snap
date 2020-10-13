@@ -5,7 +5,10 @@ exports[`IdleLoansList tests should load the details component 1`] = `
   isLoading={false}
 >
   <Error
+    FallbackComponent={[Function]}
+    boundary={false}
     error={Object {}}
+    onUIError={null}
   >
     <ResultsTable
       columns={
@@ -40,6 +43,7 @@ exports[`IdleLoansList tests should load the details component 1`] = `
       headerActionComponent={null}
       name="idle loan requests"
       paginationComponent={null}
+      renderEmptyResultsElement={null}
       seeAllComponent={
         <SeeAllButton
           disabled={false}
@@ -52,6 +56,7 @@ exports[`IdleLoansList tests should load the details component 1`] = `
       singleLine={true}
       subtitle="Loan requests pending since more than 10 days."
       title="Idle loan requests"
+      totalHitsCount={0}
       totalHitsCounts={0}
     />
   </Error>
@@ -82,7 +87,10 @@ exports[`IdleLoansList tests should render show a message with no loans 1`] = `
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={Object {}}
+          onUIError={null}
         >
           <ResultsTable
             columns={
@@ -117,6 +125,7 @@ exports[`IdleLoansList tests should render show a message with no loans 1`] = `
             headerActionComponent={null}
             name="idle loan requests"
             paginationComponent={null}
+            renderEmptyResultsElement={null}
             seeAllComponent={
               <SeeAllButton
                 disabled={false}
@@ -129,6 +138,7 @@ exports[`IdleLoansList tests should render show a message with no loans 1`] = `
             singleLine={true}
             subtitle="Loan requests pending since more than 10 days."
             title="Idle loan requests"
+            totalHitsCount={0}
             totalHitsCounts={0}
           >
             <Grid>

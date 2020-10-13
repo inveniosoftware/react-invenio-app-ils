@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { List } from 'semantic-ui-react';
 
@@ -13,8 +13,8 @@ class DocumentToc extends Component {
     return (
       <Overridable id="DocumentToc.layout" {...this.props}>
         <List ordered>
-          {tableOfContent.map((entry, index) => (
-            <List.Item key={index}>{entry}</List.Item>
+          {tableOfContent.map(entry => (
+            <List.Item key={entry}>{entry}</List.Item>
           ))}
         </List>
       </Overridable>

@@ -5,7 +5,10 @@ exports[`PatronDocumentRequests tests should load the details component 1`] = `
   isLoading={false}
 >
   <Error
+    FallbackComponent={[Function]}
+    boundary={false}
     error={null}
+    onUIError={null}
   >
     <ResultsTable
       columns={
@@ -39,6 +42,7 @@ exports[`PatronDocumentRequests tests should load the details component 1`] = `
       headerActionComponent={null}
       name="new book requests"
       paginationComponent={null}
+      renderEmptyResultsElement={null}
       seeAllComponent={
         <SeeAllButton
           disabled={false}
@@ -160,7 +164,10 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
             isLoading={false}
           >
             <Error
+              FallbackComponent={[Function]}
+              boundary={false}
               error={null}
+              onUIError={null}
             >
               <ResultsTable
                 columns={
@@ -231,6 +238,7 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                 headerActionComponent={null}
                 name="new book requests"
                 paginationComponent={null}
+                renderEmptyResultsElement={null}
                 seeAllComponent={
                   <SeeAllButton
                     disabled={false}
@@ -752,7 +760,10 @@ exports[`PatronDocumentRequests tests should render show a message with no user 
             isLoading={false}
           >
             <Error
+              FallbackComponent={[Function]}
+              boundary={false}
               error={null}
+              onUIError={null}
             >
               <ResultsTable
                 columns={
@@ -786,6 +797,7 @@ exports[`PatronDocumentRequests tests should render show a message with no user 
                 headerActionComponent={null}
                 name="new book requests"
                 paginationComponent={null}
+                renderEmptyResultsElement={null}
                 seeAllComponent={
                   <SeeAllButton
                     disabled={false}
@@ -940,7 +952,10 @@ exports[`PatronDocumentRequests tests should render the see all button when show
             isLoading={false}
           >
             <Error
+              FallbackComponent={[Function]}
+              boundary={false}
               error={null}
+              onUIError={null}
             >
               <ResultsTable
                 columns={
@@ -1011,6 +1026,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                 headerActionComponent={null}
                 name="new book requests"
                 paginationComponent={null}
+                renderEmptyResultsElement={null}
                 seeAllComponent={
                   <SeeAllButton
                     disabled={false}

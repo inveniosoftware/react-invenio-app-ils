@@ -2,7 +2,7 @@ import _merge from 'lodash/merge';
 import { APP_CONFIG, RECORDS_CONFIG } from '../defaultConfig';
 
 const mockExtensionsConfig = {
-  circulation: { maxExtensionsCount: 42 },
+  DEFAULT_RESULTS_SIZE: 15,
   DOCUMENTS: {
     extensions: {
       label: 'document',

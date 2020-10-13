@@ -5,7 +5,10 @@ exports[`PatronCurrentLoans tests should load the details component 1`] = `
   isLoading={false}
 >
   <Error
+    FallbackComponent={[Function]}
+    boundary={false}
     error={null}
+    onUIError={null}
   >
     <ResultsTable
       columns={
@@ -40,6 +43,7 @@ exports[`PatronCurrentLoans tests should load the details component 1`] = `
       headerActionComponent={null}
       name="current loans"
       paginationComponent={null}
+      renderEmptyResultsElement={null}
       seeAllComponent={
         <SeeAllButton
           disabled={false}
@@ -171,7 +175,10 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
             isLoading={false}
           >
             <Error
+              FallbackComponent={[Function]}
+              boundary={false}
               error={null}
+              onUIError={null}
             >
               <ResultsTable
                 columns={
@@ -254,6 +261,7 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                 headerActionComponent={null}
                 name="current loans"
                 paginationComponent={null}
+                renderEmptyResultsElement={null}
                 seeAllComponent={
                   <SeeAllButton
                     disabled={false}
@@ -764,7 +772,10 @@ exports[`PatronCurrentLoans tests should render show a message with no user loan
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={null}
+          onUIError={null}
         >
           <ResultsTable
             columns={
@@ -799,6 +810,7 @@ exports[`PatronCurrentLoans tests should render show a message with no user loan
             headerActionComponent={null}
             name="current loans"
             paginationComponent={null}
+            renderEmptyResultsElement={null}
             seeAllComponent={
               <SeeAllButton
                 disabled={false}
@@ -960,7 +972,10 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
             isLoading={false}
           >
             <Error
+              FallbackComponent={[Function]}
+              boundary={false}
               error={null}
+              onUIError={null}
             >
               <ResultsTable
                 columns={
@@ -1043,6 +1058,7 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                 headerActionComponent={null}
                 name="current loans"
                 paginationComponent={null}
+                renderEmptyResultsElement={null}
                 seeAllComponent={
                   <SeeAllButton
                     disabled={false}

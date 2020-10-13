@@ -5,7 +5,10 @@ exports[`PatronLoans tests should load the ItemsCheckout component 1`] = `
   isLoading={false}
 >
   <Error
+    FallbackComponent={[Function]}
+    boundary={false}
     error={null}
+    onUIError={null}
   >
     <Message
       color="blue"
@@ -42,7 +45,10 @@ exports[`PatronLoans tests should render show a message with added loan 1`] = `
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={null}
+          onUIError={null}
         >
           <Message
             color="blue"

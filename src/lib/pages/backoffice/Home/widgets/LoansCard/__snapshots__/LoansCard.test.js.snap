@@ -5,7 +5,10 @@ exports[`LoansCard tests should load the details component 1`] = `
   isLoading={false}
 >
   <Error
+    FallbackComponent={[Function]}
+    boundary={false}
     error={Object {}}
+    onUIError={null}
   >
     <RecordsBriefCard
       buttonLeft={null}
@@ -54,7 +57,10 @@ exports[`LoansCard tests should render stats with 2 records 1`] = `
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={Object {}}
+          onUIError={null}
         >
           <RecordsBriefCard
             buttonLeft={null}

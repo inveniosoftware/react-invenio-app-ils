@@ -64,7 +64,10 @@ exports[`MostLoanedDocumentsList tests should load the component 1`] = `
       isLoading={false}
     >
       <Error
+        FallbackComponent={[Function]}
+        boundary={false}
         error={null}
+        onUIError={null}
       >
         <SearchResultsList
           ListEntryElement={[Function]}

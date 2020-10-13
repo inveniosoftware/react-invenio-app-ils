@@ -1,6 +1,6 @@
-import { Dropdown } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Dropdown } from 'semantic-ui-react';
 
 export const SortByElementMobile = ({
   currentSortBy,
@@ -17,10 +17,10 @@ export const SortByElementMobile = ({
     >
       <Dropdown.Menu>
         <Dropdown.Header icon="sort" content="Sort by" />
-        {options.map((element, index) => {
+        {options.map(element => {
           return (
             <Dropdown.Item
-              key={index}
+              key={element.value}
               value={element.value}
               text={element.text}
               onClick={(e, { value }) => onValueChange(value)}

@@ -31,10 +31,7 @@ class ExportDialog extends Component {
   }
 
   render() {
-    const {
-      onExportClick,
-      max = invenioConfig.APP.MAX_RESULTS_WINDOW,
-    } = this.props;
+    const { onExportClick, max } = this.props;
     const { currentFormat } = this.state;
     return (
       <Popup
@@ -89,6 +86,10 @@ class ExportDialog extends Component {
 ExportDialog.propTypes = {
   onExportClick: PropTypes.func.isRequired,
   max: PropTypes.number,
+};
+
+ExportDialog.defaultProps = {
+  max: invenioConfig.APP.MAX_RESULTS_WINDOW,
 };
 
 /** Wrapper component to export search results retrieved using ReactSearchKit */

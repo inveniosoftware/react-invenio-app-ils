@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { List } from 'semantic-ui-react';
 import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { List } from 'semantic-ui-react';
 
 export class UrlList extends Component {
   render() {
@@ -11,8 +11,8 @@ export class UrlList extends Component {
     }
     return (
       <List bulleted>
-        {urls.map((entry, idx) => (
-          <List.Item key={idx}>
+        {urls.map(entry => (
+          <List.Item key={entry.value}>
             <List.Content>
               <a href={entry.value}>{entry.description || entry.value}</a>
             </List.Content>

@@ -5,7 +5,10 @@ exports[`DocumentsCard tests should load the details component 1`] = `
   isLoading={false}
 >
   <Error
+    FallbackComponent={[Function]}
+    boundary={false}
     error={null}
+    onUIError={null}
   >
     <RecordsBriefCard
       buttonLeft={
@@ -61,7 +64,10 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
         isLoading={false}
       >
         <Error
+          FallbackComponent={[Function]}
+          boundary={false}
           error={null}
+          onUIError={null}
         >
           <RecordsBriefCard
             buttonLeft={
