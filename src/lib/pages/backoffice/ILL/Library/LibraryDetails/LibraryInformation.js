@@ -4,17 +4,21 @@ import { EmailLink } from '@components/EmailLink';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
+import { invenioConfig } from '@config';
 
 export class LibraryInformation extends React.Component {
   render() {
     const { library } = this.props;
+
+    const emailBody = `${library.name}, \n\n\n ${invenioConfig.APP.emailFooter}`;
+
     const leftTable = [
       { name: 'Name', value: library.name },
       {
         name: 'Email',
         value: (
           <span>
-            <EmailLink email={library.email} />{' '}
+            <EmailLink email={library.email} body={emailBody} />{' '}
             <CopyButton text={library.email} />
           </span>
         ),

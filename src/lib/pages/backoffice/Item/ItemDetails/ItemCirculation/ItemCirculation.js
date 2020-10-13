@@ -23,7 +23,10 @@ import {
 
 class ItemStatusMessageOnLoan extends Component {
   render() {
-    const { circulation } = this.props;
+    const { circulation, title } = this.props;
+
+    const emailBody = `${circulation.patron.name}, \n\n "${title}" \n\n\n${invenioConfig.APP.emailFooter}`;
+    const emailSubject = `${invenioConfig.APP.emailSubjectPrefix} - "${title}"`;
 
     const patron = [
       {
@@ -39,12 +42,17 @@ class ItemStatusMessageOnLoan extends Component {
             </Link>{' '}
             <EmailLink
               email={circulation.patron.email}
+              body={emailBody}
+              subject={emailSubject}
               asButton
-              size="mini"
-              basic
+              icon
+              size="small"
+              compact
               labelPosition="left"
               className="ml-10"
-            />
+            >
+              Send email
+            </EmailLink>
           </>
         ),
       },
@@ -87,6 +95,7 @@ class ItemStatusMessageOnLoan extends Component {
 
 ItemStatusMessageOnLoan.propTypes = {
   circulation: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 class ItemStatusMessageNotOnLoan extends Component {
@@ -151,7 +160,10 @@ export default class ItemCirculation extends Component {
 
     const circulationState = _get(metadata, 'circulation.state');
     const cmpItemStatusMessage = this.hasActiveLoan(circulationState) ? (
-      <ItemStatusMessageOnLoan circulation={metadata.circulation} />
+      <ItemStatusMessageOnLoan
+        circulation={metadata.circulation}
+        title={metadata.document.title}
+      />
     ) : (
       <ItemStatusMessageNotOnLoan status={metadata.status} />
     );
