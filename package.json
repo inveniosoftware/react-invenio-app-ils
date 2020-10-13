@@ -9,7 +9,7 @@
     "dist"
   ],
   "scripts": {
-    "start": "HTTPS=true craco start",
+    "start": "HOST=127.0.0.1 HTTPS=true craco start",
     "build": "rimraf dist && NODE_ENV=production rollup -c",
     "test": "craco test",
     "eject": "craco eject",
