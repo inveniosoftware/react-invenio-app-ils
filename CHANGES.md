@@ -1,5 +1,15 @@
 # Changes
 
+Version 1.0.0-alpha.14 (released 2020-10-13)
+
+- improve error handling
+- add publication information to document
+- fixe HitSearch component
+- minor UI fixes
+- add environment labeling
+- decrease ES delay
+- Refactor SearchBar
+
 Version 1.0.0-alpha.13 (released 2020-09-30)
 
 - add success notification on file upload on e-items
