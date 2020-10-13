@@ -38,6 +38,8 @@ export const APP_CONFIG = {
     { name: 'contact', route: '/contact', apiURL: '2' },
   ],
   supportEmail: 'info@inveniosoftware.org',
+  emailSubjectPrefix: 'InvenioILS',
+  emailFooter: 'Kind regards,\nInvenioILS',
   environments: [
     {
       name: 'development',

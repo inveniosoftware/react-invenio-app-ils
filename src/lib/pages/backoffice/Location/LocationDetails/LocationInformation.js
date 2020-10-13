@@ -4,17 +4,21 @@ import { EmailLink } from '@components/EmailLink';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
+import { invenioConfig } from '@config';
 
 export class LocationInformation extends React.Component {
   render() {
     const { location } = this.props;
+
+    const emailBody = `${location.name}, \n\n\n ${invenioConfig.APP.emailFooter}`;
+
     const leftTable = [
       { name: 'Name', value: location.name },
       {
         name: 'Email',
         value: (
           <span>
-            <EmailLink email={location.email} />{' '}
+            <EmailLink email={location.email} body={emailBody} />{' '}
             <CopyButton text={location.email} />
           </span>
         ),

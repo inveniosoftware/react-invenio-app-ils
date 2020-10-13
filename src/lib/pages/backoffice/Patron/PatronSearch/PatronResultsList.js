@@ -5,6 +5,7 @@ import { BackOfficeRoutes } from '@routes/backoffice/backofficeUrls';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import React from 'react';
+import { invenioConfig } from '@config';
 
 const ViewDetails = ({ row }) => {
   // NOTE: patrons have id in their metadata not pid.
@@ -25,9 +26,11 @@ ViewDetails.propTypes = {
 };
 
 const MailTo = ({ row }) => {
+  const emailBody = `${row.metadata.name}, \n\n\n${invenioConfig.APP.emailFooter}`;
+
   return (
     <>
-      <EmailLink email={row.metadata.email} />{' '}
+      <EmailLink email={row.metadata.email} body={emailBody} />{' '}
       <CopyButton text={row.metadata.email} />
     </>
   );

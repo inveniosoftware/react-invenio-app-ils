@@ -13,12 +13,12 @@ export const EmailLink = ({
   ...buttonUIProps
 }) => {
   const params = [];
-  if (bcc) params.push(`bcc=${bcc}`);
-  if (body) params.push(`body=${body}`);
-  if (cc) params.push(`cc=${cc}`);
-  if (subject) params.push(`subject=${subject}`);
+  if (bcc) params.push(`bcc=${encodeURIComponent(bcc)}`);
+  if (body) params.push(`body=${encodeURIComponent(body)}`);
+  if (cc) params.push(`cc=${encodeURIComponent(cc)}`);
+  if (subject) params.push(`subject=${encodeURIComponent(subject)}`);
 
-  const url = params.length > 0 ? email + '?' : email;
+  const url = params.length > 0 ? email + '?' + params : email;
 
   return asButton ? (
     <Button as="a" href={`mailto:${url}`} {...buttonUIProps}>
