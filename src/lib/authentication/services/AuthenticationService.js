@@ -20,7 +20,7 @@ class AuthenticationService {
 
   logout = () => {
     const logoutUrl = `${invenioConfig.APP.REST_ENDOINTS_BASE_URL}/logout`;
-    return http.post(logoutUrl);
+    window.location.replace(logoutUrl);
   };
 
   confirmUser = token => {
