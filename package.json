@@ -18,6 +18,7 @@
     "watch": "NODE_ENV=production rollup --watch -c"
   },
   "dependencies": {
+    "cypress": "^5.3.0",
     "jest-canvas-mock": "^2.3.0"
   },
   "peerDependencies": {
