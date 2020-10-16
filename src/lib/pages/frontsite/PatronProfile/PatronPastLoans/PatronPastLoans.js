@@ -6,17 +6,22 @@ import React, { Component } from 'react';
 import { Container, Header, Label } from 'semantic-ui-react';
 import LoansList from '../LoansList';
 import LoansListItem from '../LoansListEntry';
+import { DateTime } from 'luxon';
 
 class LoansListEntry extends Component {
   renderLabels = (startDate, endDate) => (
     <div className="pt-default">
       <Label basic>
         Loaned on
-        <Label.Detail>{startDate.toLocaleString()}</Label.Detail>
+        <Label.Detail>
+          {DateTime.fromISO(startDate).toLocaleString()}
+        </Label.Detail>
       </Label>
       <Label basic>
         Return on
-        <Label.Detail>{endDate.toLocaleString()}</Label.Detail>
+        <Label.Detail>
+          {DateTime.fromISO(endDate).toLocaleString()}
+        </Label.Detail>
       </Label>
     </div>
   );

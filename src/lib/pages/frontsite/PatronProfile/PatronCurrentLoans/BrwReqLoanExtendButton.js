@@ -7,6 +7,7 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Icon, Popup } from 'semantic-ui-react';
+import { DateTime } from 'luxon';
 
 const INFO_MESSAGES = {
   SUCCESS: documentTitle =>
@@ -60,10 +61,13 @@ const validateLoanExtension = brwReqLoan => {
   let msg = null;
   const { loanWillExpireDays } = invenioConfig.CIRCULATION;
   const isTooEarly =
-    brwReqLoan.metadata.end_date.diffNow('days').days > loanWillExpireDays;
+    DateTime.fromISO(brwReqLoan.metadata.end_date).diffNow('days').days >
+    loanWillExpireDays;
   if (isTooEarly) {
     isValid = false;
-    msg = INFO_MESSAGES.IS_TOO_EARLY(brwReqLoan.metadata.end_date);
+    msg = INFO_MESSAGES.IS_TOO_EARLY(
+      DateTime.fromISO(brwReqLoan.metadata.end_date)
+    );
   }
 
   const maxExtensionsReached =
@@ -96,7 +100,7 @@ const validateExtensionRequest = extension => {
     if (isPending) {
       isValid = false;
       const requestDate = extension.request_date;
-      msg = REQUEST_MESSAGES.IS_PENDING(requestDate);
+      msg = REQUEST_MESSAGES.IS_PENDING(DateTime.fromISO(requestDate));
     }
 
     const isDeclined = extensionStatus === 'DECLINED';

@@ -13,14 +13,6 @@ import { Link } from 'react-router-dom';
 import { LoanInformationBullets } from './LoanInformationBullets';
 
 class DocumentCirculation extends Component {
-  componentDidMount() {
-    const {
-      fetchLoans,
-      documentDetails: { documentPid },
-    } = this.props;
-    fetchLoans(documentPid);
-  }
-
   loginToLoan = () => {
     const {
       documentDetails: {
@@ -38,7 +30,7 @@ class DocumentCirculation extends Component {
   renderLoanRequestForm = () => {
     const {
       documentDetails,
-      loans: { last_loan: lastLoan },
+      loansInfo: { last_loan: lastLoan },
     } = this.props;
     return <LoanRequestForm document={documentDetails} lastLoan={lastLoan} />;
   };
@@ -89,14 +81,14 @@ class DocumentCirculation extends Component {
     const {
       documentDetails,
       isLoading,
-      loans,
+      loansInfo,
       loanRequestIsLoading,
       showTab,
     } = this.props;
     const {
       has_active_loan: userHasActiveLoan,
       is_requested: userHasPendingRequest,
-    } = loans;
+    } = loansInfo || {};
     const hasNeither = !userHasPendingRequest && !userHasActiveLoan;
     return (
       <Segment
@@ -122,10 +114,9 @@ class DocumentCirculation extends Component {
 
 DocumentCirculation.propTypes = {
   documentDetails: PropTypes.object.isRequired,
+  loansInfo: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   showTab: PropTypes.func.isRequired,
-  fetchLoans: PropTypes.func.isRequired,
-  loans: PropTypes.object.isRequired,
   loanRequestIsLoading: PropTypes.bool,
 };
 

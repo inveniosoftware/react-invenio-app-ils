@@ -67,7 +67,6 @@ import { checkOutReducer } from '@pages/backoffice/Actions/CheckOut/reducer';
 import { mostLoanedDocumentsReducer } from '@pages/backoffice/Stats/reducer';
 import { loanRequestFormReducer } from '@pages/frontsite/Documents/DocumentDetails/LoanRequestForm/reducer';
 import { documentDetailsFrontReducer } from '@pages/frontsite/Documents/DocumentDetails/reducer';
-import { loansForUserReducer } from '@pages/frontsite/Documents/DocumentDetails/DocumentCirculation/reducer';
 import {
   patronCurrentDocumentRequestsReducer,
   patronPastDocumentRequestsReducer,
@@ -85,7 +84,6 @@ const rootReducer = combineReducers({
   /* frontsite */
   documentDetailsFront: documentDetailsFrontReducer,
   loanRequestForm: loanRequestFormReducer,
-  loansForUser: loansForUserReducer,
   seriesDetailsFront: seriesDetailsFrontReducer,
   patronCurrentLoans: patronCurrentLoansReducer,
   patronDocumentRequests: patronDocumentRequestsReducer,

@@ -47,6 +47,7 @@ describe('Document details actions', () => {
         {
           type: actions.SUCCESS,
           payload: expectedPayload,
+          loansPayload: null,
         },
       ];
 

@@ -6,6 +6,8 @@ import _has from 'lodash/has';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Icon, Popup } from 'semantic-ui-react';
+import { DateTime } from 'luxon';
+
 const INFO_MESSAGES = {
   SUCCESS: documentTitle =>
     `Your loan for "${documentTitle}" has been extended.`,
@@ -68,11 +70,12 @@ class LoanExtendButton extends Component {
       return { isValid: false, msg: INFO_MESSAGES.MISSING_ACTION_URL };
     const { loanWillExpireDays } = invenioConfig.CIRCULATION;
     const isTooEarly =
-      loan.metadata.end_date.diffNow('days').days > loanWillExpireDays;
+      DateTime.fromISO(loan.metadata.end_date).diffNow('days').days >
+      loanWillExpireDays;
     if (isTooEarly) {
       return {
         isValid: false,
-        msg: INFO_MESSAGES.TOO_EARLY(loan.metadata.end_date),
+        msg: INFO_MESSAGES.TOO_EARLY(DateTime.fromISO(loan.metadata.end_date)),
       };
     }
 

@@ -16,7 +16,7 @@ import { DocumentTitle } from './DocumentTitle';
 
 class DocumentPanel extends Component {
   render() {
-    const { documentDetails: doc, isLoading } = this.props;
+    const { documentDetails: doc, isLoading, loansInfo } = this.props;
     return (
       <Overridable
         id="DocumentPanel.layout"
@@ -72,6 +72,7 @@ class DocumentPanel extends Component {
                   <Grid.Column>
                     <DocumentCirculation
                       documentDetails={doc}
+                      loansInfo={loansInfo}
                       isLoading={isLoading}
                     />
                   </Grid.Column>
@@ -91,6 +92,7 @@ class DocumentPanel extends Component {
 DocumentPanel.propTypes = {
   /* Redux */
   documentDetails: PropTypes.object.isRequired,
+  loansInfo: PropTypes.object.isRequired,
   isLoading: PropTypes.bool,
 };
 

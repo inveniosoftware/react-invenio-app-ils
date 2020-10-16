@@ -4,6 +4,7 @@ export const initialState = {
   isLoading: true,
   hasError: false,
   data: { metadata: {} },
+  loansData: {},
   error: {},
 };
 
@@ -16,6 +17,7 @@ export const documentDetailsFrontReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         data: action.payload,
+        loansData: action.loansPayload,
         error: {},
         hasError: false,
       };
