@@ -14,6 +14,7 @@ import {
   Modal,
   Table,
 } from 'semantic-ui-react';
+import { DateTime } from 'luxon';
 
 export default class BorrowingRequestLoanExtension extends Component {
   constructor(props) {
@@ -68,7 +69,9 @@ export default class BorrowingRequestLoanExtension extends Component {
         {!_isEmpty(extension) && extension.status && (
           <>
             The patron requested an extension for this loan on{' '}
-            <Label basic>{extension.request_date.toLocaleString()}</Label>
+            <Label basic>
+              {DateTime.fromISO(extension.request_date).toLocaleString()}
+            </Label>
             <Divider hidden />
             {invenioConfig.ILL_BORROWING_REQUESTS.extensionPendingStatuses.includes(
               extension.status
@@ -93,7 +96,9 @@ export default class BorrowingRequestLoanExtension extends Component {
                       <Modal.Content>
                         Current loan end date:{' '}
                         <Label basic size="large">
-                          {patronLoan.loan.end_date.toLocaleString()}
+                          {DateTime.fromISO(
+                            patronLoan.loan.end_date
+                          ).toLocaleString()}
                         </Label>
                         <Divider hidden />
                         <Form>

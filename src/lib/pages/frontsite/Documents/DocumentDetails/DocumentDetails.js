@@ -20,7 +20,12 @@ import { DocumentMetadata } from './DocumentMetadata';
 import DocumentPanel from './DocumentPanel/DocumentPanel';
 import { NotFound } from '@components/HttpErrors';
 
-const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
+const DocumentDetailsLayout = ({
+  error,
+  isLoading,
+  documentDetails,
+  loansInfo,
+}) => {
   const breadcrumbs = () => [
     { to: FrontSiteRoutes.home, label: 'Home' },
     { to: FrontSiteRoutes.documentsList, label: 'Search' },
@@ -75,6 +80,7 @@ const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
           <DocumentPanel
             isLoading={isLoading}
             documentDetails={documentDetails}
+            loansInfo={loansInfo}
           />
         </Container>
         <Container className="document-tags spaced">
@@ -92,7 +98,7 @@ const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
         <Container className="section" fluid>
           <Container>
             <ILSParagraphPlaceholder linesNumber={20} isLoading={isLoading}>
-              <DocumentMetadata />
+              <DocumentMetadata documentDetails={documentDetails} />
             </ILSParagraphPlaceholder>
           </Container>
         </Container>
@@ -108,6 +114,7 @@ const DocumentDetailsLayout = ({ error, isLoading, documentDetails }) => {
 
 DocumentDetailsLayout.propTypes = {
   documentDetails: PropTypes.object.isRequired,
+  loansInfo: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   error: PropTypes.object,
 };
@@ -161,7 +168,13 @@ class DocumentDetails extends Component {
   };
 
   render() {
-    const { isLoading, hasError, error, documentDetails } = this.props;
+    const {
+      isLoading,
+      hasError,
+      error,
+      documentDetails,
+      loansInfo,
+    } = this.props;
     if (hasError && _get(error, 'response.status') === 404) {
       return <NotFound />;
     }
@@ -182,6 +195,7 @@ class DocumentDetails extends Component {
             error,
             isLoading,
             documentDetails,
+            loansInfo,
           }}
         />
       </>
@@ -192,6 +206,7 @@ class DocumentDetails extends Component {
 DocumentDetails.propTypes = {
   fetchDocumentsDetails: PropTypes.func.isRequired,
   documentDetails: PropTypes.object.isRequired,
+  loansInfo: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   hasError: PropTypes.bool.isRequired,
   error: PropTypes.object,

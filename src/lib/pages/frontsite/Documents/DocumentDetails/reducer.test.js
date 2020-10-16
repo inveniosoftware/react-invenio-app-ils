@@ -24,6 +24,7 @@ describe('Fetch document details reducer', () => {
     const action = {
       type: actions.SUCCESS,
       payload: document,
+      loansPayload: {},
     };
     expect(reducer(initialState, action)).toEqual({
       ...initialState,

@@ -4,6 +4,7 @@ import { Header, Icon, Label, Message, Popup } from 'semantic-ui-react';
 import LoansListItem from '../LoansListEntry';
 import { BrwReqLoanExtendButton } from './BrwReqLoanExtendButton';
 import { LoanExtendButton } from './LoanExtendButton';
+import { DateTime } from 'luxon';
 
 export default class LoansListEntry extends Component {
   constructor(props) {
@@ -45,7 +46,7 @@ export default class LoansListEntry extends Component {
   getReturnLabel = endDate => (
     <h4>
       Please return the literature before date
-      <Header size="large">{endDate.toLocaleString()}</Header>
+      <Header size="large">{DateTime.fromISO(endDate).toLocaleString()}</Header>
     </h4>
   );
 
@@ -60,7 +61,9 @@ export default class LoansListEntry extends Component {
       <div className="pt-default">
         <Label basic>
           Loaned on
-          <Label.Detail>{startDate.toLocaleString()}</Label.Detail>
+          <Label.Detail>
+            {DateTime.fromISO(startDate).toLocaleString()}
+          </Label.Detail>
         </Label>
         {illWarningCmp}
       </div>

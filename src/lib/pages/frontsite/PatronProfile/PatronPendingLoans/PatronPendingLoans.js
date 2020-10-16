@@ -18,6 +18,8 @@ import {
 import LoansList from '../LoansList';
 import LoansListItem from '../LoansListEntry';
 import PatronCancelModal from '../PatronCancelModal';
+import { DateTime } from 'luxon';
+
 class ButtonCancelRequest extends Component {
   constructor(props) {
     super(props);
@@ -163,11 +165,15 @@ class LoansListEntry extends Component {
     <div className="pt-default">
       <Label basic>
         Requested on
-        <Label.Detail>{startDate.toLocaleString()}</Label.Detail>
+        <Label.Detail>
+          {DateTime.fromISO(startDate).toLocaleString()}
+        </Label.Detail>
       </Label>
       <Label basic>
         Valid until
-        <Label.Detail>{endDate.toLocaleString()}</Label.Detail>
+        <Label.Detail>
+          {DateTime.fromISO(endDate).toLocaleString()}
+        </Label.Detail>
       </Label>
     </div>
   );
