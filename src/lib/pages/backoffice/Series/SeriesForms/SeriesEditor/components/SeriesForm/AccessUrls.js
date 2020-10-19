@@ -46,7 +46,7 @@ export class AccessUrls extends Component {
           <ArrayField
             fieldPath="access_urls"
             defaultNewValue={{
-              url: undefined,
+              value: undefined,
               description: undefined,
               open_access: true,
             }}

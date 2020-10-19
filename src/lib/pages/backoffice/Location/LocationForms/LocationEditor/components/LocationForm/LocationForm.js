@@ -11,6 +11,19 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, Segment } from 'semantic-ui-react';
 import { Closures } from './Closures';
+import * as Yup from 'yup';
+
+const LocationSchema = Yup.object().shape({
+  email: Yup.string().email(),
+  opening_exceptions: Yup.array().of(
+    Yup.object().shape({
+      start_date: Yup.date().required(),
+      end_date: Yup.date().required(),
+      title: Yup.string().required(),
+    })
+  ),
+});
+
 export class LocationForm extends Component {
   prepareData = data => {
     return pick(data, [
@@ -124,6 +137,7 @@ export class LocationForm extends Component {
         successSubmitMessage={successSubmitMessage}
         title={title}
         pid={pid ? pid : undefined}
+        validationSchema={LocationSchema}
       >
         <Header as="h3" attached="top">
           Basic information

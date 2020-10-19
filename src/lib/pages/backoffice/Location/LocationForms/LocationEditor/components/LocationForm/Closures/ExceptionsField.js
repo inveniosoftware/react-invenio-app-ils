@@ -31,7 +31,11 @@ export class ExceptionsField extends Component {
             />
           </Grid.Column>
           <Grid.Column width={6}>
-            <StringField label="Title" fieldPath={`${objectPath}.title`} />
+            <StringField
+              label="Title"
+              fieldPath={`${objectPath}.title`}
+              required
+            />
           </Grid.Column>
           <Grid.Column width={4}>
             <DateInputField

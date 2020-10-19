@@ -30,6 +30,33 @@ import { AccessUrls } from './AccessUrls';
 import { SeriesMetadataExtensions } from './SeriesMetadataExtensions';
 import { Segment, Header, Grid } from 'semantic-ui-react';
 import _get from 'lodash/get';
+import * as Yup from 'yup';
+
+const SeriesSchema = Yup.object().shape({
+  access_urls: Yup.array().of(
+    Yup.object().shape({
+      value: Yup.string()
+        .url()
+        .required(),
+    })
+  ),
+  alternative_titles: Yup.array().of(
+    Yup.object().shape({
+      value: Yup.string().required(),
+    })
+  ),
+  internal_notes: Yup.array().of(
+    Yup.object().shape({
+      value: Yup.string().required(),
+    })
+  ),
+  identifiers: Yup.array().of(
+    Yup.object().shape({
+      value: Yup.string().required(),
+      scheme: Yup.string().required(),
+    })
+  ),
+});
 
 export class SeriesForm extends Component {
   prepareData = data => {
@@ -102,6 +129,7 @@ export class SeriesForm extends Component {
         successSubmitMessage={successSubmitMessage}
         title={title}
         pid={pid}
+        validationSchema={SeriesSchema}
       >
         <Header as="h3" attached="top">
           Basic Information

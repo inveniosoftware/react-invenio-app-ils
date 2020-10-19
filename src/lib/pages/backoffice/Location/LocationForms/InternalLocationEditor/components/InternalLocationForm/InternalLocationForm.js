@@ -15,6 +15,14 @@ import pick from 'lodash/pick';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, Segment } from 'semantic-ui-react';
+import * as Yup from 'yup';
+
+const InternalLocationSchema = Yup.object().shape({
+  location: Yup.object('missing').shape({
+    pid: Yup.string().required(),
+  }),
+});
+
 export class InternalLocationForm extends Component {
   prepareData = data => {
     return pick(data, [
@@ -66,6 +74,7 @@ export class InternalLocationForm extends Component {
         title={title}
         pid={pid ? pid : undefined}
         submitSerializer={this.submitSerializer}
+        validationSchema={InternalLocationSchema}
       >
         <Header as="h3" attached="top">
           Basic information

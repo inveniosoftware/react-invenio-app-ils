@@ -21,6 +21,59 @@ import { DocumentLicensesCopyright } from './DocumentLicensesCopyright';
 import { DocumentPublishing } from './DocumentPublishing';
 import documentSubmitSerializer from './documentSubmitSerializer';
 
+import * as Yup from 'yup';
+
+const DocumentSchema = Yup.object().shape({
+  affiliations: Yup.array().of(
+    Yup.object().shape({
+      value: Yup.string().required(),
+    })
+  ),
+  document_type: Yup.string().required(),
+  identifiers: Yup.array().of(
+    Yup.object().shape({
+      value: Yup.string().required(),
+      scheme: Yup.string().required(),
+    })
+  ),
+  urls: Yup.array().of(
+    Yup.object().shape({
+      value: Yup.string()
+        .url()
+        .required(),
+    })
+  ),
+  subjects: Yup.array().of(
+    Yup.object().shape({
+      value: Yup.string().required(),
+      scheme: Yup.string().required(),
+    })
+  ),
+  alternative_identifiers: Yup.array().of(
+    Yup.object().shape({
+      value: Yup.string().required(),
+    }),
+    Yup.object().shape({
+      scheme: Yup.string().required(),
+    })
+  ),
+  alternative_titles: Yup.array().of(
+    Yup.object().shape({
+      value: Yup.string().required(),
+    })
+  ),
+  internal_notes: Yup.array().of(
+    Yup.object().shape({
+      value: Yup.string().required(),
+    })
+  ),
+  licenses: Yup.array().of(
+    Yup.object().shape({
+      value: Yup.string().required(),
+    })
+  ),
+});
+
 export class DocumentForm extends Component {
   get buttons() {
     const { pid } = this.props;
@@ -94,6 +147,7 @@ export class DocumentForm extends Component {
         submitSerializer={documentSubmitSerializer}
         documentRequestPid={_get(data, 'documentRequestPid', null)}
         buttons={this.buttons}
+        validationSchema={DocumentSchema}
       >
         <Header as="h3" attached="top">
           Basic information

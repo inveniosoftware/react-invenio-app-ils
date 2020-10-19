@@ -17,6 +17,26 @@ import React, { Component } from 'react';
 import { Grid, Header, Segment } from 'semantic-ui-react';
 import eitemSubmitSerializer from './eitemSubmitSerializer';
 import { DocumentIcon } from '@components/backoffice/icons';
+import * as Yup from 'yup';
+
+const EItemSchema = Yup.object().shape({
+  document: Yup.object().shape({
+    pid: Yup.string().required(),
+  }),
+  identifiers: Yup.array().of(
+    Yup.object().shape({
+      scheme: Yup.string().required(),
+      value: Yup.string().required(),
+    })
+  ),
+  urls: Yup.array().of(
+    Yup.object().shape({
+      value: Yup.string()
+        .url('not a cvali d url')
+        .required(),
+    })
+  ),
+});
 
 export class EItemForm extends Component {
   prepareData = data => {
@@ -59,6 +79,7 @@ export class EItemForm extends Component {
         title={title}
         pid={pid ? pid : undefined}
         submitSerializer={eitemSubmitSerializer}
+        validationSchema={EItemSchema}
       >
         <Header as="h3" attached="top">
           Basic information
