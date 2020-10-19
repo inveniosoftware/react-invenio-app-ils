@@ -79,7 +79,9 @@ class QueryBuilder {
   }
 
   withAvailableItems() {
-    this.availableItemsQuery.push('circulation.has_items_for_loan:>0');
+    this.availableItemsQuery.push(
+      'circulation.available_items_for_loan_count:>0'
+    );
     return this;
   }
 
@@ -132,7 +134,7 @@ class QueryBuilder {
 
   pendingOverdue() {
     const query = [
-      'circulation.has_items_for_loan:0',
+      'circulation.available_items_for_loan_count:0',
       'circulation.pending_loans:>0',
       'circulation.overdue_loans:>0',
       'items.total:>0',

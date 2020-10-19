@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Icon, List } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
 
 export default class DocumentCirculation extends Component {
   renderOverbookIcon = isOverbooked => {
@@ -18,13 +18,13 @@ export default class DocumentCirculation extends Component {
           <List.Content floated="right">
             <strong>{document.metadata.items.total}</strong>
           </List.Content>
-          <List.Content>total items</List.Content>
+          <List.Content>total physical copies</List.Content>
         </List.Item>
         <List.Item>
           <List.Content floated="right">
-            <strong>{circulation.has_items_for_loan}</strong>
+            <strong>{circulation.available_items_for_loan_count}</strong>
           </List.Content>
-          <List.Content>available items</List.Content>
+          <List.Content>available copies for loan</List.Content>
         </List.Item>
         <List.Item>
           <List.Content floated="right">
@@ -36,7 +36,7 @@ export default class DocumentCirculation extends Component {
           <List.Content floated="right">
             <strong>{circulation.pending_loans}</strong>
           </List.Content>
-          <List.Content>pending loans</List.Content>
+          <List.Content>loan requests</List.Content>
         </List.Item>
         <List.Item>
           <List.Content floated="right">

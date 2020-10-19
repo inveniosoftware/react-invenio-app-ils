@@ -1,7 +1,7 @@
-import React from 'react';
-import DocumentListEntry from './DocumentListEntry';
 import * as testData from '@testData/documents.json';
 import { shallow } from 'enzyme';
+import React from 'react';
+import DocumentListEntry from './DocumentListEntry';
 
 it('should render correctly', () => {
   const data = {
@@ -10,7 +10,7 @@ it('should render correctly', () => {
       pid: '13',
       eitems: { hits: [], total: 0 },
       circulation: {
-        has_items_for_loan: 0,
+        available_items_for_loan_count: 0,
       },
     },
   };

@@ -51,8 +51,8 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
           "layout": "grid",
           "page": 1,
           "size": 15,
-          "sortBy": "mostrecent",
-          "sortOrder": "asc",
+          "sortBy": "created",
+          "sortOrder": "desc",
         }
       }
       searchApi={
