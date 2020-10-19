@@ -74,9 +74,8 @@ class DocumentCard extends Component {
             </Card.Meta>
           </Card.Content>
           <Card.Content extra>
-            {_get(metadata, 'circulation.has_items_for_loan') > 0 && (
-              <Label>On shelf</Label>
-            )}
+            {_get(metadata, 'circulation.available_items_for_loan_count') >
+              0 && <Label>On shelf</Label>}
             {metadata.eitems.total > 0 && <Label>E-book</Label>}
           </Card.Content>
         </Card>

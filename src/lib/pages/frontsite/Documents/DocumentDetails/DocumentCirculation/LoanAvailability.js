@@ -6,7 +6,7 @@ import { List, Popup } from 'semantic-ui-react';
 export class LoanAvailability extends Component {
   render() {
     const { circulation } = this.props;
-    if (circulation.has_items_for_loan > 0) {
+    if (circulation.available_items_for_loan_count > 0) {
       return (
         <List.Item>
           <Popup
@@ -15,7 +15,7 @@ export class LoanAvailability extends Component {
           />
           <List.Content
             className={
-              circulation.has_items_for_loan > 0
+              circulation.available_items_for_loan_count > 0
                 ? 'text-success'
                 : 'text-danger'
             }

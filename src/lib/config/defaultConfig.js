@@ -117,8 +117,8 @@ export const RECORDS_CONFIG = {
       sort: [
         {
           order: 1,
-          sortBy: 'mostrecent',
-          sortOrder: 'asc',
+          sortBy: 'created',
+          sortOrder: 'desc',
           text: 'Recently added',
         },
         {
@@ -129,27 +129,15 @@ export const RECORDS_CONFIG = {
         },
         {
           order: 3,
-          sortBy: 'grand_total',
-          sortOrder: 'desc',
-          text: `Total (${DEFAULT_CURRENCY})`,
-        },
-        {
-          order: 4,
-          sortBy: 'received_date',
-          sortOrder: 'desc',
-          text: 'Received date',
-        },
-        {
-          order: 5,
           sortBy: 'expected_delivery_date',
           sortOrder: 'desc',
           text: 'Expected delivery date',
         },
         {
-          order: 6,
-          sortBy: 'bestmatch',
-          sortOrder: 'asc',
-          text: 'Best match',
+          order: 4,
+          sortBy: 'grand_total',
+          sortOrder: 'desc',
+          text: `Total (${DEFAULT_CURRENCY})`,
         },
       ],
       defaultPage: 1,
@@ -165,7 +153,7 @@ export const RECORDS_CONFIG = {
           order: 1,
           sortBy: 'bestmatch',
           sortOrder: 'asc',
-          text: 'Best match',
+          text: 'Most relevant',
         },
         {
           order: 2,
@@ -246,7 +234,7 @@ export const RECORDS_CONFIG = {
         },
         {
           title: 'Availability',
-          field: 'circulation.has_items_for_loan',
+          field: 'circulation.available_items_for_loan_count',
           aggName: 'availability',
         },
         {
@@ -274,39 +262,39 @@ export const RECORDS_CONFIG = {
       sort: [
         {
           order: 1,
-          sortBy: 'mostrecent',
-          sortOrder: 'asc',
+          sortBy: 'created',
+          sortOrder: 'desc',
           text: 'Recently added',
         },
         {
           order: 2,
           sortBy: 'bestmatch',
           sortOrder: 'asc',
-          text: 'Best match',
+          text: 'Most relevant',
         },
         {
           order: 3,
-          sortBy: 'available_items',
-          sortOrder: 'asc',
+          sortBy: 'available_copies',
+          sortOrder: 'desc',
           text: 'Available copies',
         },
         {
           order: 4,
           sortBy: 'mostloaned',
-          sortOrder: 'asc',
+          sortOrder: 'desc',
           text: 'Most loaned',
         },
         {
           order: 5,
           sortBy: 'publication_year',
           sortOrder: 'desc',
-          text: 'Publication year [oldest]',
+          text: 'Publication year [newest]',
         },
         {
           order: 6,
           sortBy: 'publication_year',
           sortOrder: 'asc',
-          text: 'Publication year [newest]',
+          text: 'Publication year [oldest]',
         },
         {
           order: 7,
@@ -352,15 +340,15 @@ export const RECORDS_CONFIG = {
       sort: [
         {
           order: 1,
-          sortBy: 'mostrecent',
-          sortOrder: 'asc',
+          sortBy: 'created',
+          sortOrder: 'desc',
           text: 'Recently added',
         },
         {
           order: 2,
           sortBy: 'bestmatch',
           sortOrder: 'asc',
-          text: 'Best match',
+          text: 'Most relevant',
         },
       ],
       defaultPage: 1,
@@ -385,15 +373,15 @@ export const RECORDS_CONFIG = {
       sort: [
         {
           order: 1,
-          sortBy: 'mostrecent',
-          sortOrder: 'asc',
+          sortBy: 'created',
+          sortOrder: 'desc',
           text: 'Recently added',
         },
         {
           order: 2,
           sortBy: 'bestmatch',
           sortOrder: 'asc',
-          text: 'Best match',
+          text: 'Most relevant',
         },
         {
           order: 3,
@@ -449,8 +437,8 @@ export const RECORDS_CONFIG = {
       sort: [
         {
           order: 1,
-          sortBy: 'mostrecent',
-          sortOrder: 'asc',
+          sortBy: 'created',
+          sortOrder: 'desc',
           text: 'Recently added',
         },
         {
@@ -461,27 +449,15 @@ export const RECORDS_CONFIG = {
         },
         {
           order: 3,
-          sortBy: 'received_date',
-          sortOrder: 'desc',
-          text: 'Received date',
-        },
-        {
-          order: 4,
           sortBy: 'expected_delivery_date',
           sortOrder: 'desc',
           text: 'Expected delivery date',
         },
         {
-          order: 5,
-          sortBy: 'loan_end_date',
+          order: 4,
+          sortBy: 'due_date',
           sortOrder: 'desc',
-          text: 'Loan end date',
-        },
-        {
-          order: 6,
-          sortBy: 'bestmatch',
-          sortOrder: 'asc',
-          text: 'Best match',
+          text: 'Due date',
         },
       ],
       defaultPage: 1,
@@ -497,7 +473,7 @@ export const RECORDS_CONFIG = {
           order: 1,
           sortBy: 'bestmatch',
           sortOrder: 'asc',
-          text: 'Best match',
+          text: 'Most relevant',
         },
         {
           order: 2,
@@ -578,15 +554,15 @@ export const RECORDS_CONFIG = {
       sort: [
         {
           order: 1,
-          sortBy: 'mostrecent',
-          sortOrder: 'asc',
+          sortBy: 'created',
+          sortOrder: 'desc',
           text: 'Recently added',
         },
         {
           order: 2,
           sortBy: 'bestmatch',
           sortOrder: 'asc',
-          text: 'Best match',
+          text: 'Most relevant',
         },
         {
           order: 3,
@@ -622,7 +598,7 @@ export const RECORDS_CONFIG = {
         },
         {
           title: 'Availability',
-          field: 'circulation.has_items_for_loan',
+          field: 'circulation.available_items_for_loan_count',
           aggName: 'availability',
         },
         {
@@ -650,39 +626,39 @@ export const RECORDS_CONFIG = {
       sort: [
         {
           order: 1,
-          sortBy: 'mostrecent',
-          sortOrder: 'asc',
+          sortBy: 'created',
+          sortOrder: 'desc',
           text: 'Recently added',
         },
         {
           order: 2,
           sortBy: 'bestmatch',
           sortOrder: 'asc',
-          text: 'Best match',
+          text: 'Most relevant',
         },
         {
           order: 3,
-          sortBy: 'available_items',
-          sortOrder: 'asc',
+          sortBy: 'available_copies',
+          sortOrder: 'desc',
           text: 'Available copies',
         },
         {
           order: 4,
           sortBy: 'mostloaned',
-          sortOrder: 'asc',
+          sortOrder: 'desc',
           text: 'Most loaned',
         },
         {
           order: 5,
           sortBy: 'publication_year',
-          sortOrder: 'asc',
-          text: 'Publication year [oldest] ',
+          sortOrder: 'desc',
+          text: 'Publication year [newest]',
         },
         {
           order: 6,
           sortBy: 'publication_year',
-          sortOrder: 'desc',
-          text: 'Publication year [newest]',
+          sortOrder: 'asc',
+          text: 'Publication year [oldest] ',
         },
         {
           order: 7,
@@ -724,33 +700,33 @@ export const RECORDS_CONFIG = {
       sort: [
         {
           order: 1,
-          sortBy: 'expire_date',
-          sortOrder: 'desc',
-          text: 'Expiration date',
+          sortBy: 'request_expire_date',
+          sortOrder: 'asc',
+          text: 'Request expiration date',
         },
         {
           order: 2,
           sortBy: 'request_start_date',
-          sortOrder: 'desc',
+          sortOrder: 'asc',
           text: 'Request start date',
         },
         {
           order: 3,
           sortBy: 'end_date',
-          sortOrder: 'desc',
+          sortOrder: 'asc',
           text: 'Loan end date',
         },
         {
           order: 4,
           sortBy: 'start_date',
-          sortOrder: 'desc',
+          sortOrder: 'asc',
           text: 'Loan start date',
         },
         {
           order: 5,
           sortBy: 'extensions',
-          sortOrder: 'asc',
-          text: 'Extension count',
+          sortOrder: 'desc',
+          text: 'Extensions count',
         },
       ],
       defaultPage: 1,
@@ -785,15 +761,15 @@ export const RECORDS_CONFIG = {
       sort: [
         {
           order: 1,
-          sortBy: 'mostrecent',
-          sortOrder: 'asc',
+          sortBy: 'created',
+          sortOrder: 'desc',
           text: 'Recently added',
         },
         {
           order: 2,
           sortBy: 'bestmatch',
           sortOrder: 'asc',
-          text: 'Best match',
+          text: 'Most relevant',
         },
         {
           order: 3,
@@ -822,7 +798,7 @@ export const RECORDS_CONFIG = {
           order: 1,
           sortBy: 'bestmatch',
           sortOrder: 'asc',
-          text: 'Best match',
+          text: 'Most relevant',
         },
       ],
       defaultPage: 1,

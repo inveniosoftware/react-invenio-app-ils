@@ -1,7 +1,7 @@
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
-import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
@@ -20,11 +20,12 @@ export default class DocumentListEntry extends Component {
   renderCirculationInfo = meta => {
     if (
       meta.circulation &&
-      (meta.circulation.has_items_for_loan > 0 || meta.eitems.total > 0)
+      (meta.circulation.available_items_for_loan_count > 0 ||
+        meta.eitems.total > 0)
     ) {
       return (
         <List className="document-availability-wrapper">
-          {meta.circulation.has_items_for_loan > 0 ? (
+          {meta.circulation.available_items_for_loan_count > 0 ? (
             <List.Item>
               <List.Icon color="green" name="check" />
               <List.Content>Available for loan</List.Content>

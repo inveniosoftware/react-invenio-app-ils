@@ -1,8 +1,8 @@
+import { documentApi } from '@api/documents';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import { documentApi } from '@api/documents';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -43,7 +43,7 @@ describe('Documents with items on shelf tests', () => {
 
     store.dispatch(actions.fetchRequestedWithAvailableItems()).then(() => {
       expect(mockDocumentsCount).toHaveBeenCalledWith(
-        'circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0'
+        'circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0'
       );
       const actions = store.getActions();
       expect(actions[0]).toEqual(expectedAction);
@@ -61,7 +61,7 @@ describe('Documents with items on shelf tests', () => {
 
     store.dispatch(actions.fetchRequestedWithAvailableItems()).then(() => {
       expect(mockDocumentsCount).toHaveBeenCalledWith(
-        'circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0'
+        'circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0'
       );
       const actions = store.getActions();
       expect(actions[1]).toEqual(expectedAction);
@@ -79,7 +79,7 @@ describe('Documents with items on shelf tests', () => {
 
     store.dispatch(actions.fetchRequestedWithAvailableItems()).then(() => {
       expect(mockDocumentsCount).toHaveBeenCalledWith(
-        'circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0'
+        'circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0'
       );
       const actions = store.getActions();
       expect(actions[1]).toEqual(expectedAction);

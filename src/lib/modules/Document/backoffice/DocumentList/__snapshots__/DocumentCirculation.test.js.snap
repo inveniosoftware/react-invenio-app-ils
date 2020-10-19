@@ -14,7 +14,7 @@ exports[`DocumentCirculation tests should load the DocumentCirculation component
       </strong>
     </ListContent>
     <ListContent>
-      total items
+      total physical copies
     </ListContent>
   </ListItem>
   <ListItem>
@@ -26,7 +26,7 @@ exports[`DocumentCirculation tests should load the DocumentCirculation component
       </strong>
     </ListContent>
     <ListContent>
-      available items
+      available copies for loan
     </ListContent>
   </ListItem>
   <ListItem>
@@ -46,7 +46,7 @@ exports[`DocumentCirculation tests should load the DocumentCirculation component
       <strong />
     </ListContent>
     <ListContent>
-      pending loans
+      loan requests
     </ListContent>
   </ListItem>
   <ListItem>

@@ -230,7 +230,7 @@ class QueryBuilder {
   }
 
   sortByNewest() {
-    this.sortBy = `&sort=-mostrecent`;
+    this.sortBy = `&sort=-created`;
     return this;
   }
 

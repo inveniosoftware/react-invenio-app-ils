@@ -46,7 +46,7 @@ describe('Patron document requests tests', () => {
 
       await store.dispatch(actions.fetchPatronDocumentRequests(2));
       expect(mockFetchPatronDocumentRequests).toHaveBeenCalledWith(
-        '(patron_pid:2 AND state:PENDING)&sort=-mostrecent&size=15&page=1'
+        '(patron_pid:2 AND state:PENDING)&sort=-created&size=15&page=1'
       );
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
@@ -61,7 +61,7 @@ describe('Patron document requests tests', () => {
 
       await store.dispatch(actions.fetchPatronDocumentRequests(2));
       expect(mockFetchPatronDocumentRequests).toHaveBeenCalledWith(
-        '(patron_pid:2 AND state:PENDING)&sort=-mostrecent&size=15&page=1'
+        '(patron_pid:2 AND state:PENDING)&sort=-created&size=15&page=1'
       );
       expect(store.getActions()[1]).toEqual(expectedAction);
     });
@@ -76,7 +76,7 @@ describe('Patron document requests tests', () => {
 
       await store.dispatch(actions.fetchPatronDocumentRequests(2));
       expect(mockFetchPatronDocumentRequests).toHaveBeenCalledWith(
-        '(patron_pid:2 AND state:PENDING)&sort=-mostrecent&size=15&page=1'
+        '(patron_pid:2 AND state:PENDING)&sort=-created&size=15&page=1'
       );
       expect(store.getActions()[1]).toEqual(expectedAction);
     });
@@ -90,7 +90,7 @@ describe('Patron document requests tests', () => {
 
       await store.dispatch(actions.fetchPatronDocumentRequests(2));
       expect(mockFetchPatronDocumentRequests).toHaveBeenCalledWith(
-        '(patron_pid:2 AND state:PENDING)&sort=-mostrecent&size=15&page=1'
+        '(patron_pid:2 AND state:PENDING)&sort=-created&size=15&page=1'
       );
       expect(store.getActions()[0]).toEqual(expectedAction);
     });

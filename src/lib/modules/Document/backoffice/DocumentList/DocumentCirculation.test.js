@@ -1,7 +1,7 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import DocumentCirculation from './DocumentCirculation';
 import * as testData from '@testData/documents.json';
+import { shallow } from 'enzyme';
+import React from 'react';
+import DocumentCirculation from './DocumentCirculation';
 
 describe('DocumentCirculation tests', () => {
   let component;
@@ -15,7 +15,7 @@ describe('DocumentCirculation tests', () => {
     metadata: {
       ...testData[0],
       items: { total: 2 },
-      circulation: { has_items_for_loan: 2 },
+      circulation: { available_items_for_loan_count: 2 },
     },
   };
 

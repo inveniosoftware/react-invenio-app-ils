@@ -43,7 +43,7 @@ exports[`PatronDocumentRequests tests should load the details component 1`] = `
         <SeeAllButton
           disabled={false}
           fluid={false}
-          to="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
+          to="/backoffice/document-requests?q=(patron_pid:2)&sort=-created"
         />
       }
       showAllResults={false}
@@ -235,7 +235,7 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                   <SeeAllButton
                     disabled={false}
                     fluid={false}
-                    to="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
+                    to="/backoffice/document-requests?q=(patron_pid:2)&sort=-created"
                   />
                 }
                 showAllResults={false}
@@ -666,7 +666,7 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                         <SeeAllButton
                           disabled={false}
                           fluid={false}
-                          to="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
+                          to="/backoffice/document-requests?q=(patron_pid:2)&sort=-created"
                         />
                       }
                       showAllResults={false}
@@ -790,7 +790,7 @@ exports[`PatronDocumentRequests tests should render show a message with no user 
                   <SeeAllButton
                     disabled={false}
                     fluid={false}
-                    to="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
+                    to="/backoffice/document-requests?q=(patron_pid:2)&sort=-created"
                   />
                 }
                 showAllResults={false}
@@ -1015,7 +1015,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                   <SeeAllButton
                     disabled={false}
                     fluid={false}
-                    to="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
+                    to="/backoffice/document-requests?q=(patron_pid:2)&sort=-created"
                   />
                 }
                 showAllResults={false}
@@ -1330,7 +1330,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                         <SeeAllButton
                           disabled={false}
                           fluid={false}
-                          to="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
+                          to="/backoffice/document-requests?q=(patron_pid:2)&sort=-created"
                         />
                       }
                       showAllResults={false}
@@ -1387,7 +1387,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                         <SeeAllButton
                                           disabled={false}
                                           fluid={false}
-                                          to="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
+                                          to="/backoffice/document-requests?q=(patron_pid:2)&sort=-created"
                                         >
                                           <Button
                                             as={
@@ -1407,14 +1407,14 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                             disabled={false}
                                             fluid={false}
                                             size="small"
-                                            to="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
+                                            to="/backoffice/document-requests?q=(patron_pid:2)&sort=-created"
                                           >
                                             <Ref
                                               innerRef={
                                                 Object {
                                                   "current": <a
                                                     class="ui small button"
-                                                    href="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
+                                                    href="/backoffice/document-requests?q=(patron_pid:2)&sort=-created"
                                                     role="button"
                                                   >
                                                     See all
@@ -1427,7 +1427,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                                   Object {
                                                     "current": <a
                                                       class="ui small button"
-                                                      href="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
+                                                      href="/backoffice/document-requests?q=(patron_pid:2)&sort=-created"
                                                       role="button"
                                                     >
                                                       See all
@@ -1439,18 +1439,18 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                                   className="ui small button"
                                                   onClick={[Function]}
                                                   role="button"
-                                                  to="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
+                                                  to="/backoffice/document-requests?q=(patron_pid:2)&sort=-created"
                                                 >
                                                   <LinkAnchor
                                                     className="ui small button"
-                                                    href="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
+                                                    href="/backoffice/document-requests?q=(patron_pid:2)&sort=-created"
                                                     navigate={[Function]}
                                                     onClick={[Function]}
                                                     role="button"
                                                   >
                                                     <a
                                                       className="ui small button"
-                                                      href="/backoffice/document-requests?q=(patron_pid:2)&sort=-mostrecent"
+                                                      href="/backoffice/document-requests?q=(patron_pid:2)&sort=-created"
                                                       onClick={[Function]}
                                                       role="button"
                                                     >

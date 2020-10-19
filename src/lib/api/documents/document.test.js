@@ -30,7 +30,7 @@ describe('Document query builder tests', () => {
       .query()
       .withAvailableItems()
       .qs();
-    expect(query).toEqual('circulation.has_items_for_loan:>0');
+    expect(query).toEqual('circulation.available_items_for_loan_count:>0');
   });
 
   it('should build the query string for documents with items available for loan and pending loans stats', () => {
@@ -40,7 +40,7 @@ describe('Document query builder tests', () => {
       .withPendingLoans()
       .qs();
     expect(query).toEqual(
-      'circulation.has_items_for_loan:>0 AND circulation.pending_loans:>0'
+      'circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0'
     );
   });
 

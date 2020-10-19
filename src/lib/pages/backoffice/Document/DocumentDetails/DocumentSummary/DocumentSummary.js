@@ -64,7 +64,7 @@ export default class DocumentSummary extends Component {
           onClick={() => this.scrollTo(anchors.attachedItemsRef)}
         >
           <Statistic.Value>
-            {document.metadata.circulation.has_items_for_loan}
+            {document.metadata.circulation.available_items_for_loan_count}
           </Statistic.Value>
           <Statistic.Label>Items available for loan</Statistic.Label>
         </Statistic>

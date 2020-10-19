@@ -43,7 +43,7 @@ exports[`PendingOverdueDocumentsList tests should load the details component 1`]
         <SeeAllButton
           disabled={false}
           fluid={false}
-          to="/backoffice/documents?q=circulation.has_items_for_loan:0%20AND%20circulation.pending_loans:%3E0%20AND%20circulation.overdue_loans:%3E0%20AND%20items.total:%3E0"
+          to="/backoffice/documents?q=circulation.available_items_for_loan_count:0%20AND%20circulation.pending_loans:%3E0%20AND%20circulation.overdue_loans:%3E0%20AND%20items.total:%3E0"
         />
       }
       showAllResults={false}
@@ -229,7 +229,7 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
               <SeeAllButton
                 disabled={false}
                 fluid={false}
-                to="/backoffice/documents?q=circulation.has_items_for_loan:0%20AND%20circulation.pending_loans:%3E0%20AND%20circulation.overdue_loans:%3E0%20AND%20items.total:%3E0"
+                to="/backoffice/documents?q=circulation.available_items_for_loan_count:0%20AND%20circulation.pending_loans:%3E0%20AND%20circulation.overdue_loans:%3E0%20AND%20items.total:%3E0"
               />
             }
             showAllResults={false}
@@ -2098,7 +2098,7 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
                     <SeeAllButton
                       disabled={false}
                       fluid={false}
-                      to="/backoffice/documents?q=circulation.has_items_for_loan:0%20AND%20circulation.pending_loans:%3E0%20AND%20circulation.overdue_loans:%3E0%20AND%20items.total:%3E0"
+                      to="/backoffice/documents?q=circulation.available_items_for_loan_count:0%20AND%20circulation.pending_loans:%3E0%20AND%20circulation.overdue_loans:%3E0%20AND%20items.total:%3E0"
                     />
                   }
                   showAllResults={false}
@@ -2176,7 +2176,7 @@ exports[`PendingOverdueDocumentsList tests should render show a message with no 
               <SeeAllButton
                 disabled={false}
                 fluid={false}
-                to="/backoffice/documents?q=circulation.has_items_for_loan:0%20AND%20circulation.pending_loans:%3E0%20AND%20circulation.overdue_loans:%3E0%20AND%20items.total:%3E0"
+                to="/backoffice/documents?q=circulation.available_items_for_loan_count:0%20AND%20circulation.pending_loans:%3E0%20AND%20circulation.overdue_loans:%3E0%20AND%20items.total:%3E0"
               />
             }
             showAllResults={false}

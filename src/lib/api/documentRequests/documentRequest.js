@@ -1,8 +1,8 @@
-import { http, apiConfig } from '@api/base';
-import { serializer } from './serializer';
+import { apiConfig, http } from '@api/base';
 import { prepareSumQuery } from '@api/utils';
 import _isEmpty from 'lodash/isEmpty';
 import { generatePath } from 'react-router-dom';
+import { serializer } from './serializer';
 
 const documentRequestURL = '/document-requests/';
 const apiPaths = {
@@ -115,7 +115,7 @@ class QueryBuilder {
   }
 
   sortByNewest() {
-    this.sortBy = `&sort=-mostrecent`;
+    this.sortBy = `&sort=-created`;
     return this;
   }
 

@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import { invenioConfig } from '@config';
 import PropTypes from 'prop-types';
 import Qs from 'qs';
-import { Button, Popup, Dropdown, Menu, Icon } from 'semantic-ui-react';
+import React, { Component } from 'react';
 import {
   InvenioRequestSerializer,
   withState as withSearchState,
 } from 'react-searchkit';
-import { invenioConfig } from '@config';
+import { Button, Dropdown, Icon, Menu, Popup } from 'semantic-ui-react';
 
 /** Simple component rendering a small dialog to choose format of results to export. */
 class ExportDialog extends Component {
@@ -68,7 +68,7 @@ class ExportDialog extends Component {
         </div>
         <br />
         <div>
-          <span>Only the first {max} results will be exported.</span>
+          <span>Export is limited to the first {max} results.</span>
         </div>
         <br />
         <div style={{ textAlign: 'center' }}>
