@@ -9,6 +9,11 @@ import { getIn } from 'formik';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, Segment } from 'semantic-ui-react';
+import * as Yup from 'yup';
+
+const LibrarySchema = Yup.object().shape({
+  email: Yup.string().email(),
+});
 
 export class LibraryForm extends Component {
   get buttons() {
@@ -57,6 +62,7 @@ export class LibraryForm extends Component {
         title={title}
         pid={pid}
         buttons={this.buttons}
+        validationSchema={LibrarySchema}
       >
         <Header as="h3" attached="top">
           Basic information

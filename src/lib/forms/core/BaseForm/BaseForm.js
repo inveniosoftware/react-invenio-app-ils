@@ -83,14 +83,21 @@ export class BaseForm extends Component {
   };
 
   render() {
-    const { buttons, initialValues, title, onSubmit, children } = this.props;
+    const {
+      buttons,
+      initialValues,
+      title,
+      onSubmit,
+      children,
+      validationSchema,
+    } = this.props;
     return (
       <>
         <Header textAlign="center">{title}</Header>
         <Formik
           initialValues={initialValues}
           onSubmit={onSubmit || this.onSubmit}
-          validationSchema={this.validationSchema}
+          validationSchema={validationSchema}
         >
           {({ isSubmitting, handleSubmit, submitForm, values }) => (
             <Form
