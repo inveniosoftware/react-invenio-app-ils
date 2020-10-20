@@ -165,7 +165,7 @@ describe('Axios response interceptor tests for CSRF errors', () => {
       response: {
         status: 400,
         data: {
-          message: 'CSRF cookie is missing!',
+          message: 'CSRF token missing...',
         },
       },
     };

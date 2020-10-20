@@ -13,8 +13,10 @@ const http = axios.create(apiConfig);
 
 const HTTP_STATUS_CODES_WITH_ERROR_PAGE = [404, 429, 500];
 const URLS_NOT_TO_REDIRECT_IF_UNAUTHORIZED = ['/me', '/me/loans'];
+// CSRF possible errors
 const CSRF_ERROR_REASON_NO_COOKIE = 'CSRF cookie';
 const CSRF_ERROR_REASON_BAD_TOKEN = 'CSRF token';
+const CSRF_ERROR_REASON_BAD_SIGNATURE = 'CSRF error';
 
 const urlShouldRedirect = url => {
   const urlPath = url.split('?', 1)[0];
@@ -43,7 +45,8 @@ const isCSRFError = (errorStatus, errorResponse) => {
   if (isBadRequest && errorMessage) {
     const isCSRFError =
       errorMessage.includes(CSRF_ERROR_REASON_NO_COOKIE) ||
-      errorMessage.includes(CSRF_ERROR_REASON_BAD_TOKEN);
+      errorMessage.includes(CSRF_ERROR_REASON_BAD_TOKEN) ||
+      errorMessage.includes(CSRF_ERROR_REASON_BAD_SIGNATURE);
     return isCSRFError;
   }
   return false;
