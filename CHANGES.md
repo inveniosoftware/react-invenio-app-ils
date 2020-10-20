@@ -1,5 +1,14 @@
 # Changes
 
+Version 1.0.0-alpha.15 (released 2020-10-20)
+
+- handle CSRF error on request
+- update sorting configuration
+- add forms validation
+- cypress E2E testing
+- add warning on overbooked documents
+- fix loan request component
+
 Version 1.0.0-alpha.14 (released 2020-10-13)
 
 - improve error handling
