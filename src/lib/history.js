@@ -10,4 +10,8 @@ export const goTo = (path, state = {}) => {
   history.push(path, state);
 };
 
+export const replaceTo = (path, state = {}) => {
+  history.push(path, state);
+};
+
 export default history;
