@@ -4,6 +4,7 @@ import { GroupField } from '@forms/core/GroupField';
 import { StringField } from '@forms/core/StringField';
 import React, { Component } from 'react';
 import { DeleteActionButton } from './DeleteActionButton';
+import { BooleanField } from '@forms/core/BooleanField';
 
 export class UrlsField extends Component {
   renderFormField({ arrayPath, indexPath, ...arrayHelpers }) {
@@ -22,6 +23,11 @@ export class UrlsField extends Component {
           label="Description"
           fieldPath={`${objectPath}.description`}
         />
+        <BooleanField
+          rightLabel="Login required"
+          fieldPath={`${objectPath}.login_required`}
+          toggle
+        />
       </GroupField>
     );
   }
@@ -34,7 +40,11 @@ export class UrlsField extends Component {
         content={
           <ArrayField
             fieldPath="urls"
-            defaultNewValue={{ value: undefined, description: undefined }}
+            defaultNewValue={{
+              value: undefined,
+              description: undefined,
+              login_required: false,
+            }}
             renderArrayItem={this.renderFormField}
             addButtonLabel="Add new url"
           />

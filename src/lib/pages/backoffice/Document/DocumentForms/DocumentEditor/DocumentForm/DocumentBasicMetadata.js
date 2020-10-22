@@ -1,5 +1,5 @@
 import { invenioConfig } from '@config';
-import { UrlsField } from '@forms/components';
+import { UrlsField, LanguageField } from '@forms/components';
 import { BooleanField } from '@forms/core/BooleanField';
 import { GroupField } from '@forms/core/GroupField';
 import { SelectField } from '@forms/core/SelectField';
@@ -63,6 +63,13 @@ export class DocumentBasicMetadata extends Component {
                         width={5}
                       />
                     </GroupField>
+                  </Grid.Column>
+                  <Grid.Column width={5} floated="right">
+                    <LanguageField
+                      multiple
+                      fieldPath="languages"
+                      type={invenioConfig.VOCABULARIES.language}
+                    />
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
