@@ -856,6 +856,9 @@ export const RECORDS_CONFIG = {
       doc_req_payment_method: 'doc_req_payment_method',
       doc_req_medium: 'doc_req_medium',
     },
+    item: {
+      mediums: 'item_medium',
+    },
     series: {
       identifier: {
         scheme: 'series_identifier_scheme',

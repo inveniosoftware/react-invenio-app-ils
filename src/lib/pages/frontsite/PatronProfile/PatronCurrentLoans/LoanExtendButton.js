@@ -85,7 +85,7 @@ class LoanExtendButton extends Component {
     if (maxExtensionsReached)
       return {
         isValid: false,
-        msg: INFO_MESSAGES.maxMAX_EXTENSIONSExtensions,
+        msg: INFO_MESSAGES.MAX_EXTENSIONS,
       };
 
     return { isValid: true, msg: '' };
