@@ -38,7 +38,6 @@ export class LicensesField extends React.Component {
         }
       >
         <VocabularyField
-          required
           type={invenioConfig.VOCABULARIES.document.license}
           fieldPath={`${objectPath}.license`}
           serializer={this.serializer}
