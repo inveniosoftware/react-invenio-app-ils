@@ -26,6 +26,7 @@ import {
   DocumentIcon,
   InternalLocationIcon,
 } from '@components/backoffice/icons';
+import { VocabularyField } from '@forms/core/VocabularyField';
 
 export class ItemForm extends Component {
   constructor(props) {
@@ -88,7 +89,6 @@ export class ItemForm extends Component {
         initialValues={{
           circulation_restriction: 'NO_RESTRICTION',
           status: 'CAN_CIRCULATE',
-          medium: 'NOT_SPECIFIED',
           ...initialValues,
         }}
         editApiMethod={this.update}
@@ -118,13 +118,12 @@ export class ItemForm extends Component {
               serializer={serializeDocument}
               width={8}
             />
-            <SelectField
-              required
-              search
-              label="Medium"
+            <VocabularyField
+              type={invenioConfig.VOCABULARIES.item.mediums}
               fieldPath="medium"
-              options={this.config.mediums}
-              width={8}
+              label="Medium"
+              placeholder="Select medium ..."
+              required
             />
           </GroupField>
           <GroupField widths="2">
