@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.16 (released 2020-10-23)
+
+- form fields fixes
+- item medium vocabulary fixes
+
 Version 1.0.0-alpha.15 (released 2020-10-20)
 
 - handle CSRF error on request
