@@ -1,10 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import _get from 'lodash/get';
-import { Header } from 'semantic-ui-react';
-import { EmailLink } from '@components/EmailLink';
-import { invenioConfig } from '@config';
+import { getStaticPageByName } from '@config';
 import { SearchMessage } from '@modules/SearchControls/SearchMessage';
+import _get from 'lodash/get';
+import PropTypes from 'prop-types';
+import React from 'react';
+import Overridable from 'react-overridable';
+import { Link } from 'react-router-dom';
+import { Header } from 'semantic-ui-react';
 
 export const SearchError = ({ error }) => {
   if (_get(error, 'response.status') === 400) {
@@ -15,18 +16,17 @@ export const SearchError = ({ error }) => {
     );
   } else {
     return (
-      <SearchMessage
-        title="Something went wrong while fetching results."
-        icon="warning"
-      >
-        <Header.Subheader>
-          Please try again later. If the problem persists,{' '}
-          <EmailLink email={invenioConfig.APP.supportEmail}>
-            contact the technical support
-          </EmailLink>
-          .
-        </Header.Subheader>
-      </SearchMessage>
+      <Overridable id="SearchError.layout">
+        <SearchMessage
+          title="Something went wrong while fetching results."
+          icon="warning"
+        >
+          <Header.Subheader>
+            Please try again later. If the problem persists,{' '}
+            <Link to={getStaticPageByName('contact').route}>contact us</Link>.
+          </Header.Subheader>
+        </SearchMessage>
+      </Overridable>
     );
   }
 };

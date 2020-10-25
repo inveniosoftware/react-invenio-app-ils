@@ -1,8 +1,8 @@
 import { formatPrice } from '@api/utils';
-import { invenioConfig } from '@config';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
-import React from 'react';
+import { invenioConfig } from '@config';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { Grid, Icon, Popup } from 'semantic-ui-react';
 
 export class PaymentInformation extends React.Component {
@@ -11,7 +11,7 @@ export class PaymentInformation extends React.Component {
     const payment = order.payment;
     const leftTable = [
       {
-        name: `Total (${invenioConfig.APP.defaultCurrency})`,
+        name: `Total (${invenioConfig.APP.DEFAULT_CURRENCY})`,
         value: formatPrice(order.grand_total_main_currency),
       },
       {
@@ -38,7 +38,7 @@ export class PaymentInformation extends React.Component {
     ];
     const rightTable = [
       {
-        name: `Debit cost (${invenioConfig.APP.defaultCurrency})`,
+        name: `Debit cost (${invenioConfig.APP.DEFAULT_CURRENCY})`,
         value: formatPrice(payment.debit_cost_main_currency),
       },
       {

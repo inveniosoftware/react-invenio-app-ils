@@ -70,13 +70,13 @@ export function getDisplayVal(configField, value) {
 }
 
 export const getStaticPagesRoutes = () => {
-  return _map(invenioConfig.APP.staticPages, 'route');
+  return _map(invenioConfig.APP.STATIC_PAGES, 'route');
 };
 
 export const getStaticPageByRoute = path => {
-  return _find(invenioConfig.APP.staticPages, ['route', path]);
+  return _find(invenioConfig.APP.STATIC_PAGES, ['route', path]);
 };
 
 export const getStaticPageByName = name => {
-  return _find(invenioConfig.APP.staticPages, ['name', name]);
+  return _find(invenioConfig.APP.STATIC_PAGES, ['name', name]);
 };

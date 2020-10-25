@@ -1,13 +1,13 @@
 import { vendorApi } from '@api/acquisition';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 import history from '@history';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
-import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import { AcquisitionRoutes } from '@routes/urls';
-import VendorListEntry from './VendorListEntry';
 import React, { Component } from 'react';
 import { OverridableContext } from 'react-overridable';
 import {
@@ -19,9 +19,8 @@ import {
   ResultsLoader,
   SearchBar,
 } from 'react-searchkit';
-import { setReactSearchKitInitialQueryState } from '@config';
 import { Container, Grid, Header } from 'semantic-ui-react';
-import { invenioConfig } from '@config';
+import VendorListEntry from './VendorListEntry';
 
 export class VendorSearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -69,7 +68,7 @@ export class VendorSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for vendors..."
-                  {...invenioConfig.APP.searchBarRSKProps}
+                  {...invenioConfig.APP.SEARCH_BAR_PROPS}
                 />
                 <QueryBuildHelper fields={helperFields} />
               </Container>

@@ -1,4 +1,5 @@
 import { vendorApi } from '@api/acquisition';
+import { AcquisitionVendorIcon } from '@components/backoffice/icons';
 import { invenioConfig } from '@config';
 import { DateInputField } from '@forms/core/DateTimeFields/DateInputField';
 import { GroupField } from '@forms/core/GroupField';
@@ -9,7 +10,6 @@ import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
 import { serializeVendor } from '@modules/ESSelector/serializer';
 import React, { Component } from 'react';
-import { AcquisitionVendorIcon } from '@components/backoffice/icons';
 
 export class OrderInfo extends Component {
   render() {
@@ -61,13 +61,13 @@ export class OrderInfo extends Component {
           <PriceField
             label="Total"
             fieldPath="grand_total"
-            defaultCurrency={invenioConfig.APP.defaultCurrency}
+            defaultCurrency={invenioConfig.APP.DEFAULT_CURRENCY}
           />
           <PriceField
             label="Total Main Currency"
             fieldPath="grand_total_main_currency"
             canSelectCurrency={false}
-            defaultCurrency={invenioConfig.APP.defaultCurrency}
+            defaultCurrency={invenioConfig.APP.DEFAULT_CURRENCY}
           />
         </GroupField>
 

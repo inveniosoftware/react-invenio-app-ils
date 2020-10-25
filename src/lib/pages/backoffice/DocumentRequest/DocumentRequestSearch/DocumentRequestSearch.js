@@ -1,26 +1,26 @@
+import { responseRejectInterceptor } from '@api/base';
+import { documentRequestApi } from '@api/documentRequests';
+import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
+import history from '@history';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
-import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
-import { DocumentRequestListEntry } from './DocumentRequestListEntry';
-import { OverridableContext } from 'react-overridable';
 import React, { Component } from 'react';
-import { Container, Grid, Header } from 'semantic-ui-react';
+import { OverridableContext } from 'react-overridable';
 import {
-  ReactSearchKit,
-  SearchBar,
-  ResultsList,
-  ResultsLoader,
+  EmptyResults,
   Error,
   InvenioSearchApi,
-  EmptyResults,
+  ReactSearchKit,
+  ResultsList,
+  ResultsLoader,
+  SearchBar,
 } from 'react-searchkit';
-import { documentRequestApi } from '@api/documentRequests';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
-import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
-import history from '@history';
-import { responseRejectInterceptor } from '@api/base';
+import { Container, Grid, Header } from 'semantic-ui-react';
+import { DocumentRequestListEntry } from './DocumentRequestListEntry';
 
 export class DocumentRequestSearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -68,7 +68,7 @@ export class DocumentRequestSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for document requests"
-                  {...invenioConfig.APP.searchBarRSKProps}
+                  {...invenioConfig.APP.SEARCH_BAR_PROPS}
                 />
                 <QueryBuildHelper fields={helperFields} />
               </Container>

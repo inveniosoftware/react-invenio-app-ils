@@ -17,10 +17,7 @@
     "format": "prettier --config ./.prettierrc --ignore-path ./.prettierignore --write \"**/*.js\"",
     "watch": "NODE_ENV=production rollup --watch -c"
   },
-  "dependencies": {
-    "cypress": "^5.3.0",
-    "jest-canvas-mock": "^2.3.0"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "@babel/runtime": "^7.9.2",
     "axios": "^0.19.2",
@@ -63,6 +60,7 @@
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "axios": "^0.19.2",
     "axios-mock-adapter": "^1.18.1",
+    "cypress": "^5.3.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
@@ -77,6 +75,7 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
     "formik": "^2.1.6",
+    "jest-canvas-mock": "^2.3.0",
     "json": "^9.0.6",
     "less": "^3.11.1",
     "less-loader": "^5.0.0",

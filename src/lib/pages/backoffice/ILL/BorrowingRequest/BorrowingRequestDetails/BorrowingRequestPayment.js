@@ -1,6 +1,6 @@
 import { formatPrice } from '@api/utils';
-import { invenioConfig } from '@config';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
+import { invenioConfig } from '@config';
 import _isEmpty from 'lodash/isEmpty';
 import { PropTypes } from 'prop-types';
 import React from 'react';
@@ -12,7 +12,7 @@ class Payment extends React.Component {
     const payment = brwReq.payment;
     const leftTable = [
       {
-        name: `Total (${invenioConfig.APP.defaultCurrency})`,
+        name: `Total (${invenioConfig.APP.DEFAULT_CURRENCY})`,
         value: formatPrice(brwReq.total_main_currency),
       },
       {
@@ -39,7 +39,7 @@ class Payment extends React.Component {
     ];
     const rightTable = [
       {
-        name: `Debit cost (${invenioConfig.APP.defaultCurrency})`,
+        name: `Debit cost (${invenioConfig.APP.DEFAULT_CURRENCY})`,
         value: formatPrice(payment.debit_cost_main_currency),
       },
       {

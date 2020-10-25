@@ -27,20 +27,21 @@ export const APP_CONFIG = {
   },
   REST_ENDOINTS_BASE_URL: process.env.REACT_APP_INVENIO_REST_ENDPOINTS_BASE_URL,
   SUCCESS_AUTO_DISMISS_SECONDS: 10,
-  defaultCurrency: DEFAULT_CURRENCY,
-  defaultResultsSize: 15,
+  DEFAULT_CURRENCY: DEFAULT_CURRENCY,
+  DEFAULT_RESULTS_SIZE: 15,
   i18n: {
     priceLocale: 'fr-CH',
   },
-  restMimetypeQueryArgName: 'format',
-  staticPages: [
+  REST_MIME_TYPE_QUERY_ARG_NAME: 'format',
+  STATIC_PAGES: [
     { name: 'about', route: '/about', apiURL: '1' },
     { name: 'contact', route: '/contact', apiURL: '2' },
   ],
-  supportEmail: 'info@inveniosoftware.org',
-  emailSubjectPrefix: 'InvenioILS',
-  emailFooter: 'Kind regards,\nInvenioILS',
-  environments: [
+  EMAILS_PREFILL: {
+    subjectPrefix: 'InvenioILS',
+    footer: '\n\n\nKind regards,\nInvenioILS',
+  },
+  ENVIRONMENTS: [
     {
       name: 'development',
       display: {
@@ -67,7 +68,7 @@ export const APP_CONFIG = {
       },
     },
   ],
-  searchBarRSKProps: {
+  SEARCH_BAR_PROPS: {
     autofocus: true,
     actionProps: { icon: 'search', content: null },
     uiProps: {

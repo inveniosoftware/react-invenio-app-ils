@@ -1,5 +1,6 @@
 import { responseRejectInterceptor } from '@api/base';
 import { literatureApi } from '@api/literature/literature';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 import history from '@history';
 import { LiteratureSearchOverridesMap } from '@modules/Literature/LiteratureSearchOverrides';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
@@ -20,7 +21,6 @@ import {
 import { Container, Grid, Header, Loader, Responsive } from 'semantic-ui-react';
 import LiteratureSearchMobile from './LiteratureSearchMobile';
 import SearchMessage from './SearchMessage/SearchMessage';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 
 class LiteratureSearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -61,7 +61,7 @@ class LiteratureSearch extends Component {
                 <Container>
                   <SearchBar
                     placeholder="Search for books, series, articles, publications..."
-                    {...invenioConfig.APP.searchBarRSKProps}
+                    {...invenioConfig.APP.SEARCH_BAR_PROPS}
                   />
                 </Container>
               </Container>

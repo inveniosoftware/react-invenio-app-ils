@@ -1,5 +1,6 @@
 import { documentApi } from '@api/documents';
 import { patronApi } from '@api/patrons';
+import { DocumentIcon, PatronIcon } from '@components/backoffice/icons';
 import { invenioConfig } from '@config';
 import { DeleteActionButton } from '@forms/components/DeleteActionButton';
 import { ArrayField } from '@forms/core/ArrayField';
@@ -16,8 +17,7 @@ import {
 } from '@modules/ESSelector/serializer';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Segment, Divider, Grid } from 'semantic-ui-react';
-import { DocumentIcon, PatronIcon } from '@components/backoffice/icons';
+import { Divider, Grid, Segment } from 'semantic-ui-react';
 
 export class OrderLines extends Component {
   renderArrayItem = ({ arrayPath, indexPath, ...arrayHelpers }) => {
@@ -80,14 +80,14 @@ export class OrderLines extends Component {
             <PriceField
               label="Order Line Unit Price"
               fieldPath={`${arrayPath}.${indexPath}.unit_price`}
-              defaultCurrency={invenioConfig.APP.defaultCurrency}
+              defaultCurrency={invenioConfig.APP.DEFAULT_CURRENCY}
             />
           </Grid.Column>
           <Grid.Column>
             <PriceField
               label="Order Line Total Price"
               fieldPath={`${arrayPath}.${indexPath}.total_price`}
-              defaultCurrency={invenioConfig.APP.defaultCurrency}
+              defaultCurrency={invenioConfig.APP.DEFAULT_CURRENCY}
             />
           </Grid.Column>
           <Grid.Column>
@@ -179,8 +179,8 @@ export class OrderLines extends Component {
         <ArrayField
           fieldPath="order_lines"
           defaultNewValue={{
-            unit_price: { currency: invenioConfig.APP.defaultCurrency },
-            total_price: { currency: invenioConfig.APP.defaultCurrency },
+            unit_price: { currency: invenioConfig.APP.DEFAULT_CURRENCY },
+            total_price: { currency: invenioConfig.APP.DEFAULT_CURRENCY },
           }}
           renderArrayItem={this.renderArrayItem}
           addButtonLabel="Add new order line"

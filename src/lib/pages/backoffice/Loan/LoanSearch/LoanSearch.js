@@ -1,29 +1,28 @@
+import { responseRejectInterceptor } from '@api/base';
+import { loanApi } from '@api/loans';
+import { NewButton } from '@components/backoffice/buttons/NewButton';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
+import history from '@history';
 import { LoanListEntry } from '@modules/Loan/backoffice/LoanList/LoanListEntry';
+import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
+import { BackOfficeRoutes } from '@routes/urls';
 import React, { Component } from 'react';
 import { OverridableContext } from 'react-overridable';
-import { Grid, Header, Container } from 'semantic-ui-react';
 import {
+  EmptyResults,
+  Error,
+  InvenioSearchApi,
   ReactSearchKit,
-  SearchBar,
   ResultsList,
   ResultsLoader,
-  Error,
-  EmptyResults,
-  InvenioSearchApi,
+  SearchBar,
 } from 'react-searchkit';
-import { responseRejectInterceptor } from '@api/base';
-import { NewButton } from '@components/backoffice/buttons/NewButton';
-import { loanApi } from '@api/loans';
-import { BackOfficeRoutes } from '@routes/urls';
-import history from '@history';
-import { SearchControls } from '@modules/SearchControls/SearchControls';
-import SearchFooter from '@modules/SearchControls/SearchFooter';
-import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
-import { setReactSearchKitInitialQueryState } from '@config';
+import { Container, Grid, Header } from 'semantic-ui-react';
 import { SearchDateRange } from './SearchDateRange';
-import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
-import { invenioConfig } from '@config';
 
 export class LoanSearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -66,7 +65,7 @@ export class LoanSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for loans"
-                  {...invenioConfig.APP.searchBarRSKProps}
+                  {...invenioConfig.APP.SEARCH_BAR_PROPS}
                 />
                 <QueryBuildHelper fields={helperFields} />
               </Container>

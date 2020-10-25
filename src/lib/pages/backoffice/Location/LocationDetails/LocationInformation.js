@@ -1,16 +1,16 @@
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { CopyButton } from '@components/CopyButton';
 import { EmailLink } from '@components/EmailLink';
+import { invenioConfig } from '@config';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
-import { invenioConfig } from '@config';
 
 export class LocationInformation extends React.Component {
   render() {
     const { location } = this.props;
 
-    const emailBody = `${location.name}, \n\n\n ${invenioConfig.APP.emailFooter}`;
+    const emailBody = `${location.name}, ${invenioConfig.APP.EMAILS_PREFILL.footer}`;
 
     const leftTable = [
       { name: 'Name', value: location.name },

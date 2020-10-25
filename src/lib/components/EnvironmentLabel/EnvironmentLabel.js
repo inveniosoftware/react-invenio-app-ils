@@ -1,11 +1,11 @@
 import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
 import { invenioConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/backoffice/backofficeUrls';
-import React from 'react';
+import _get from 'lodash/get';
 import PropTypes from 'prop-types';
+import React from 'react';
 import Overridable from 'react-overridable';
 import { Icon, Label } from 'semantic-ui-react';
-import _get from 'lodash/get';
 
 const EnvironmentLabelLayout = ({
   text,
@@ -37,7 +37,7 @@ EnvironmentLabelLayout.propTypes = {
 
 const EnvironmentLabelComponent = ({ pointing, ...uiProps }) => {
   const environment = process.env.REACT_APP_ENV_NAME;
-  const environmentConfig = invenioConfig.APP.environments.find(
+  const environmentConfig = invenioConfig.APP.ENVIRONMENTS.find(
     env => env.name === environment
   );
   const display = _get(environmentConfig, 'display');

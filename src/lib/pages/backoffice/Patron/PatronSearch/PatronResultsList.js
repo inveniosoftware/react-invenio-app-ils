@@ -1,11 +1,11 @@
 import { CopyButton } from '@components/CopyButton';
 import { EmailLink } from '@components/EmailLink';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import { invenioConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/backoffice/backofficeUrls';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import React from 'react';
-import { invenioConfig } from '@config';
+import { Link } from 'react-router-dom';
 
 const ViewDetails = ({ row }) => {
   // NOTE: patrons have id in their metadata not pid.
@@ -26,7 +26,7 @@ ViewDetails.propTypes = {
 };
 
 const MailTo = ({ row }) => {
-  const emailBody = `${row.metadata.name}, \n\n\n${invenioConfig.APP.emailFooter}`;
+  const emailBody = `${row.metadata.name}, ${invenioConfig.APP.EMAILS_PREFILL.footer}`;
 
   return (
     <>

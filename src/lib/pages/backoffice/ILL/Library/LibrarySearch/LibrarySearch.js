@@ -1,13 +1,13 @@
 import { libraryApi } from '@api/ill';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 import history from '@history';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
-import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import { ILLRoutes } from '@routes/urls';
-import { LibraryListEntry } from './LibraryList';
 import React, { Component } from 'react';
 import { OverridableContext } from 'react-overridable';
 import {
@@ -20,7 +20,7 @@ import {
   SearchBar,
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
+import { LibraryListEntry } from './LibraryList';
 
 export class LibrarySearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -67,7 +67,7 @@ export class LibrarySearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for libaries..."
-                  {...invenioConfig.APP.searchBarRSKProps}
+                  {...invenioConfig.APP.SEARCH_BAR_PROPS}
                 />
                 <QueryBuildHelper fields={helperFields} />
               </Container>
