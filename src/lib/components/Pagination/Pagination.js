@@ -9,7 +9,7 @@ class Pagination extends Component {
     const {
       totalResults,
       currentPage,
-      currentSize = invenioConfig.APP.defaultResultsSize,
+      currentSize = invenioConfig.APP.DEFAULT_RESULTS_SIZE,
       onPageChange,
       loading,
       simple,

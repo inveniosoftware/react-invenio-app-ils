@@ -2,9 +2,9 @@ import { invenioConfig } from '@config';
 import { DateInputField } from '@forms/core/DateTimeFields/DateInputField';
 import { GroupField } from '@forms/core/GroupField';
 import { PriceField } from '@forms/core/PriceField';
-import { VocabularyField } from '@forms/core/VocabularyField';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
+import { VocabularyField } from '@forms/core/VocabularyField';
 import React, { Component } from 'react';
 import { Funds } from './Funds';
 
@@ -16,13 +16,13 @@ export class Payment extends Component {
           <PriceField
             label="Debit Cost"
             fieldPath="payment.debit_cost"
-            defaultCurrency={invenioConfig.APP.defaultCurrency}
+            defaultCurrency={invenioConfig.APP.DEFAULT_CURRENCY}
           />
           <PriceField
             label="Debit Cost in Main Currency"
             fieldPath="payment.debit_cost_main_currency"
             canSelectCurrency={false}
-            defaultCurrency={invenioConfig.APP.defaultCurrency}
+            defaultCurrency={invenioConfig.APP.DEFAULT_CURRENCY}
           />
           <DateInputField
             label="Debit Date"

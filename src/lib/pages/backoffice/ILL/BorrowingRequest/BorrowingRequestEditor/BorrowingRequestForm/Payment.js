@@ -27,7 +27,7 @@ export class Payment extends Component {
             <PriceField
               label="Debit Cost"
               fieldPath="payment.debit_cost"
-              defaultCurrency={invenioConfig.APP.defaultCurrency}
+              defaultCurrency={invenioConfig.APP.DEFAULT_CURRENCY}
             />
           </Grid.Column>
           <Grid.Column>
@@ -35,7 +35,7 @@ export class Payment extends Component {
               label="Debit Cost in Main Currency"
               fieldPath="payment.debit_cost_main_currency"
               canSelectCurrency={false}
-              defaultCurrency={invenioConfig.APP.defaultCurrency}
+              defaultCurrency={invenioConfig.APP.DEFAULT_CURRENCY}
             />
           </Grid.Column>
           <Grid.Column>

@@ -18,7 +18,7 @@ const selectQuery = (patronPid, page, size) => {
 
 export const fetchPatronDocumentRequests = (
   patronPid,
-  { page = 1, size = invenioConfig.APP.defaultResultsSize } = {}
+  { page = 1, size = invenioConfig.APP.DEFAULT_RESULTS_SIZE } = {}
 ) => {
   return async dispatch => {
     dispatch({

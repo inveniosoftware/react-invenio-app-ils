@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Message, Header, Table, Grid } from 'semantic-ui-react';
-import ResultsTableHeader from './ResultsTableHeader';
-import ResultsTableBody from './ResultsTableBody';
-import ResultsTableFooter from './ResultsTableFooter';
 import { invenioConfig } from '@config';
 import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Grid, Header, Message, Table } from 'semantic-ui-react';
+import ResultsTableBody from './ResultsTableBody';
+import ResultsTableFooter from './ResultsTableFooter';
+import ResultsTableHeader from './ResultsTableHeader';
 
 export class ResultsTable extends Component {
   renderTable = () => {
@@ -21,7 +21,7 @@ export class ResultsTable extends Component {
       totalHitsCount,
       headerActionComponent,
       renderEmptyResultsElement,
-      showMaxRows = invenioConfig.APP.defaultResultsSize,
+      showMaxRows = invenioConfig.APP.DEFAULT_RESULTS_SIZE,
       ...tableProps
     } = this.props;
 

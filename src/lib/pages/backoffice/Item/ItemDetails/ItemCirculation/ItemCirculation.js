@@ -1,10 +1,15 @@
+import {
+  InternalLocationIcon,
+  LocationIcon,
+  PatronIcon,
+} from '@components/backoffice/icons';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { EmailLink } from '@components/EmailLink';
 import { invenioConfig } from '@config';
-import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Divider,
@@ -15,18 +20,13 @@ import {
   Message,
   Segment,
 } from 'semantic-ui-react';
-import {
-  InternalLocationIcon,
-  LocationIcon,
-  PatronIcon,
-} from '@components/backoffice/icons';
 
 class ItemStatusMessageOnLoan extends Component {
   render() {
     const { circulation, title } = this.props;
 
-    const emailBody = `${circulation.patron.name}, \n\n "${title}" \n\n\n${invenioConfig.APP.emailFooter}`;
-    const emailSubject = `${invenioConfig.APP.emailSubjectPrefix} - "${title}"`;
+    const emailBody = `${circulation.patron.name}, \n\n "${title}" ${invenioConfig.APP.EMAILS_PREFILL.footer}`;
+    const emailSubject = `${invenioConfig.APP.EMAILS_PREFILL.subjectPrefix} - "${title}"`;
 
     const patron = [
       {

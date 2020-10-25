@@ -1,6 +1,10 @@
 import { documentApi } from '@api/documents';
 import { itemApi } from '@api/items';
 import { internalLocationApi } from '@api/locations';
+import {
+  DocumentIcon,
+  InternalLocationIcon,
+} from '@components/backoffice/icons';
 import { invenioConfig } from '@config';
 import { AccordionField } from '@forms/core/AccordionField';
 import { BaseForm } from '@forms/core/BaseForm';
@@ -10,6 +14,7 @@ import { SelectField } from '@forms/core/SelectField';
 import { SelectorField } from '@forms/core/SelectorField';
 import { StringField } from '@forms/core/StringField';
 import { TextField } from '@forms/core/TextField';
+import { VocabularyField } from '@forms/core/VocabularyField';
 import { goTo } from '@history';
 import {
   serializeDocument,
@@ -20,13 +25,8 @@ import { getIn } from 'formik';
 import pick from 'lodash/pick';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Header, Segment } from 'semantic-ui-react';
 import itemSubmitSerializer from './itemSubmitSerializer';
-import { Segment, Header } from 'semantic-ui-react';
-import {
-  DocumentIcon,
-  InternalLocationIcon,
-} from '@components/backoffice/icons';
-import { VocabularyField } from '@forms/core/VocabularyField';
 
 export class ItemForm extends Component {
   constructor(props) {
@@ -207,7 +207,7 @@ export class ItemForm extends Component {
             <PriceField
               label="Price"
               fieldPath="price"
-              defaultCurrency={invenioConfig.APP.defaultCurrency}
+              defaultCurrency={invenioConfig.APP.DEFAULT_CURRENCY}
             />
           </GroupField>
           <GroupField widths="equal">

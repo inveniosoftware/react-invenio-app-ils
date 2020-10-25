@@ -1,25 +1,25 @@
+import { responseRejectInterceptor } from '@api/base';
+import { patronApi } from '@api/patrons';
+import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
-import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
-import { PatronResultsList } from './PatronResultsList';
 import React, { Component } from 'react';
 import { OverridableContext } from 'react-overridable';
-import { Grid, Container, Header } from 'semantic-ui-react';
 import {
+  EmptyResults,
+  Error,
+  InvenioSearchApi,
   ReactSearchKit,
-  SearchBar,
   ResultsList,
   ResultsLoader,
-  Error,
-  EmptyResults,
-  InvenioSearchApi,
+  SearchBar,
 } from 'react-searchkit';
-import { patronApi } from '@api/patrons';
-import { responseRejectInterceptor } from '@api/base';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
-import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import { Container, Grid, Header } from 'semantic-ui-react';
+import { PatronResultsList } from './PatronResultsList';
 
 export class PatronSearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -64,7 +64,7 @@ export class PatronSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for patrons"
-                  {...invenioConfig.APP.searchBarRSKProps}
+                  {...invenioConfig.APP.SEARCH_BAR_PROPS}
                 />
                 <QueryBuildHelper fields={helperFields} />
               </Container>

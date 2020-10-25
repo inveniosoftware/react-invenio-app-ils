@@ -1,26 +1,26 @@
 import { literatureApi } from '@api/literature';
-import { SearchControls } from '@modules/SearchControls/SearchControls';
-import SearchFooter from '@modules/SearchControls/SearchFooter';
-import { SearchControlsMobile } from '@modules/SearchControls/SearchControlsMobile';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 import history from '@history';
-import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
 import { LiteratureSearchOverridesMap } from '@modules/Literature/LiteratureSearchOverrides';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
+import { SearchControlsMobile } from '@modules/SearchControls/SearchControlsMobile';
+import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { OverridableContext } from 'react-overridable';
 import {
+  EmptyResults,
   Error,
   InvenioSearchApi,
   ReactSearchKit,
   ResultsLoader,
-  SearchBar,
   ResultsMultiLayout,
-  EmptyResults,
+  SearchBar,
 } from 'react-searchkit';
 import { Container, Divider, Loader, Responsive } from 'semantic-ui-react';
 import { qsBuilderForSeries } from './RequestSerializer';
 import { SeriesLiteratureSearchMobile } from './SeriesLiteratureSearchMobile';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 
 export class SeriesLiteratureSearch extends React.Component {
   renderLoader = () => {
@@ -64,7 +64,7 @@ export class SeriesLiteratureSearch extends React.Component {
               <Container className="series-details-search-container">
                 <SearchBar
                   placeholder="Search for volumes or issues..."
-                  {...invenioConfig.APP.searchBarRSKProps}
+                  {...invenioConfig.APP.SEARCH_BAR_PROPS}
                 />
               </Container>
               <Responsive minWidth={Responsive.onlyTablet.minWidth}>

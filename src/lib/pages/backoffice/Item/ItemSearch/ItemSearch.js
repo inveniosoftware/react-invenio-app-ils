@@ -1,29 +1,29 @@
+import { responseRejectInterceptor } from '@api/base';
+import { itemApi } from '@api/items';
+import { NewButton } from '@components/backoffice/buttons/NewButton';
+import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import { Error as IlsError } from '@components/Error';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
+import history from '@history';
 import { ItemListEntry } from '@modules/Items/backoffice';
+import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
+import { BackOfficeRoutes } from '@routes/urls';
 import React, { Component } from 'react';
 import { OverridableContext } from 'react-overridable';
-import { Grid, Header, Container } from 'semantic-ui-react';
 import {
-  ReactSearchKit,
-  SearchBar,
-  ResultsList,
-  ResultsLoader,
+  EmptyResults,
   Error,
   InvenioSearchApi,
-  EmptyResults,
+  ReactSearchKit,
+  ResultsList,
+  ResultsLoader,
+  SearchBar,
 } from 'react-searchkit';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
-import { Error as IlsError } from '@components/Error';
-import { itemApi } from '@api/items';
-import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
-import { NewButton } from '@components/backoffice/buttons/NewButton';
-import { BackOfficeRoutes } from '@routes/urls';
-import history from '@history';
-import { responseRejectInterceptor } from '@api/base';
-import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
-import SearchFooter from '@modules/SearchControls/SearchFooter';
-import { SearchControls } from '@modules/SearchControls/SearchControls';
-import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
+import { Container, Grid, Header } from 'semantic-ui-react';
 
 export class ItemSearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -82,7 +82,7 @@ export class ItemSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for physical copies..."
-                  {...invenioConfig.APP.searchBarRSKProps}
+                  {...invenioConfig.APP.SEARCH_BAR_PROPS}
                 />
                 <QueryBuildHelper fields={helperFields} />
               </Container>

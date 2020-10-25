@@ -1,6 +1,11 @@
 import { documentApi } from '@api/documents';
 import { libraryApi } from '@api/ill';
 import { patronApi } from '@api/patrons';
+import {
+  DocumentIcon,
+  ILLLibraryIcon,
+  PatronIcon,
+} from '@components/backoffice/icons';
 import { invenioConfig } from '@config';
 import { DateInputField } from '@forms/core/DateTimeFields/DateInputField';
 import { PriceField } from '@forms/core/PriceField';
@@ -16,11 +21,6 @@ import {
 } from '@modules/ESSelector/serializer';
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
-import {
-  DocumentIcon,
-  ILLLibraryIcon,
-  PatronIcon,
-} from '@components/backoffice/icons';
 
 export class OrderInfo extends Component {
   render() {
@@ -127,7 +127,7 @@ export class OrderInfo extends Component {
             <PriceField
               label="Total"
               fieldPath="total"
-              defaultCurrency={invenioConfig.APP.defaultCurrency}
+              defaultCurrency={invenioConfig.APP.DEFAULT_CURRENCY}
             />
           </Grid.Column>
           <Grid.Column width={4}>
@@ -135,7 +135,7 @@ export class OrderInfo extends Component {
               label="Total Main Currency"
               fieldPath="total_main_currency"
               canSelectCurrency={false}
-              defaultCurrency={invenioConfig.APP.defaultCurrency}
+              defaultCurrency={invenioConfig.APP.DEFAULT_CURRENCY}
             />
           </Grid.Column>
         </Grid.Row>

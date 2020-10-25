@@ -1,11 +1,11 @@
-import { CopyButton } from '@components/CopyButton';
 import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { PatronIcon } from '@components/backoffice/icons';
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { CopyButton } from '@components/CopyButton';
 import { EmailLink } from '@components/EmailLink';
-import { Header } from 'semantic-ui-react';
 import { invenioConfig } from '@config';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Header } from 'semantic-ui-react';
 
 export default class PatronHeader extends Component {
   render() {
@@ -18,7 +18,7 @@ export default class PatronHeader extends Component {
       </>
     );
 
-    const emailBody = `${data.metadata.name}, \n\n\n${invenioConfig.APP.emailFooter}`;
+    const emailBody = `${data.metadata.name}, ${invenioConfig.APP.EMAILS_PREFILL.footer}`;
 
     return (
       <DetailsHeader

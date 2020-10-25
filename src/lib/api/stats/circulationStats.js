@@ -1,6 +1,6 @@
-import { http, apiConfig } from '@api/base';
-import { invenioConfig } from '@config';
+import { apiConfig, http } from '@api/base';
 import { documentApi } from '@api/documents';
+import { invenioConfig } from '@config';
 
 const circulationStatsURL = '/circulation/stats/';
 const mostLoanedURL = `${circulationStatsURL}most-loaned`;
@@ -23,7 +23,7 @@ const getMostLoanedDocumentsParams = (
     params.size = size;
   }
   if (format) {
-    const formatArgName = invenioConfig.APP.restMimetypeQueryArgName;
+    const formatArgName = invenioConfig.APP.REST_MIME_TYPE_QUERY_ARG_NAME;
     params[formatArgName] = format;
   }
   return params;

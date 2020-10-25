@@ -1,28 +1,27 @@
+import { documentApi } from '@api/documents';
+import { NewButton } from '@components/backoffice/buttons/NewButton';
+import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
+import history from '@history';
 import { DocumentListEntry } from '@modules/Document/backoffice/DocumentList';
+import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
+import { SearchControls } from '@modules/SearchControls/SearchControls';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
+import SearchFooter from '@modules/SearchControls/SearchFooter';
+import { BackOfficeRoutes } from '@routes/urls';
 import React, { Component } from 'react';
 import { OverridableContext } from 'react-overridable';
-import { Container, Grid, Header } from 'semantic-ui-react';
 import {
+  EmptyResults,
   Error,
-  ResultsList,
+  InvenioSearchApi,
   ReactSearchKit,
+  ResultsList,
   ResultsLoader,
   SearchBar,
-  InvenioSearchApi,
-  EmptyResults,
 } from 'react-searchkit';
-import { documentApi } from '@api/documents';
-import { setReactSearchKitInitialQueryState } from '@config';
-import { BackOfficeRoutes } from '@routes/urls';
-import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
-import { NewButton } from '@components/backoffice/buttons/NewButton';
-import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
-import SearchFooter from '@modules/SearchControls/SearchFooter';
-import { SearchControls } from '@modules/SearchControls/SearchControls';
-import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
-import { invenioConfig } from '@config';
-import history from '@history';
+import { Container, Grid, Header } from 'semantic-ui-react';
 
 export class DocumentSearch extends Component {
   searchApi = new InvenioSearchApi({
@@ -68,7 +67,7 @@ export class DocumentSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for documents..."
-                  {...invenioConfig.APP.searchBarRSKProps}
+                  {...invenioConfig.APP.SEARCH_BAR_PROPS}
                 />
                 <QueryBuildHelper fields={helperFields} />
               </Container>

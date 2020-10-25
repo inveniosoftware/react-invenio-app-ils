@@ -25,7 +25,7 @@ const selectQuery = (patronPid, page = 1, size) => {
 export const fetchPatronCurrentBorrowingRequests = (
   patronPid,
   page,
-  size = invenioConfig.APP.defaultResultsSize
+  size = invenioConfig.APP.DEFAULT_RESULTS_SIZE
 ) => {
   return async dispatch => {
     dispatch({

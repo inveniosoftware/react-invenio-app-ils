@@ -1,14 +1,15 @@
 import { orderApi } from '@api/acquisition';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
+import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
+import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 import history from '@history';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
-import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
-import { AcquisitionRoutes } from '@routes/urls';
 import { OrderListEntry } from '@pages/backoffice/Acquisition/Order/OrderSearch/OrderList';
+import { AcquisitionRoutes } from '@routes/urls';
 import React, { Component } from 'react';
 import { OverridableContext } from 'react-overridable';
 import {
@@ -21,7 +22,6 @@ import {
   SearchBar,
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
 
 class OrderResponseSerializer {
   serialize(results) {
@@ -85,7 +85,7 @@ export class OrderSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for orders..."
-                  {...invenioConfig.APP.searchBarRSKProps}
+                  {...invenioConfig.APP.SEARCH_BAR_PROPS}
                 />
                 <QueryBuildHelper fields={helperFields} />
               </Container>
