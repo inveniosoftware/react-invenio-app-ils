@@ -12,6 +12,7 @@ import { Grid, Header, Segment } from 'semantic-ui-react';
 import { OrderInfo } from './OrderInfo';
 import { OrderLines } from './OrderLines';
 import { Payment } from './Payment';
+import * as Yup from 'yup';
 
 const orderSubmitSerializer = values => {
   const submitValues = { ...values };
@@ -37,6 +38,35 @@ const orderSubmitSerializer = values => {
 
   return submitValues;
 };
+
+const OrderSchema = Yup.object().shape({
+  vendor: Yup.object().shape({
+    pid: Yup.string().required(),
+  }),
+  status: Yup.string().required(),
+  order_date: Yup.date().required(),
+  expected_delivery_date: Yup.date(),
+  received_date: Yup.date(),
+  funds: Yup.array().of(Yup.string().required()),
+  payment: Yup.object().shape({
+    mode: Yup.string().required(),
+  }),
+  order_lines: Yup.array().of(
+    Yup.object().shape({
+      document: Yup.object().shape({
+        pid: Yup.string().required(),
+      }),
+      medium: Yup.string().required(),
+      unit_price: Yup.object().shape({
+        value: Yup.number().required(),
+      }),
+      total_price: Yup.object().shape({
+        value: Yup.number().required(),
+      }),
+      recipient: Yup.string().required(),
+    })
+  ),
+});
 
 export class OrderForm extends Component {
   get buttons() {
@@ -95,6 +125,7 @@ export class OrderForm extends Component {
         title={title}
         pid={pid}
         submitSerializer={orderSubmitSerializer}
+        validationSchema={OrderSchema}
         buttons={this.buttons}
       >
         <Grid columns="equal">

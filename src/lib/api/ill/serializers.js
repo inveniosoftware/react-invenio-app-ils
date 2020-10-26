@@ -6,6 +6,16 @@ const LibrarySerializers = {
   },
 };
 
+const BorrowingRequestSerializers = {
+  responseSerializer: function(hit) {
+    return recordResponseSerializer(hit);
+  },
+};
+
 export const librarySerializer = {
   fromJSON: LibrarySerializers.responseSerializer,
+};
+
+export const borrowingRequestSerializer = {
+  fromJSON: BorrowingRequestSerializers.responseSerializer,
 };

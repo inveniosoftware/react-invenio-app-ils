@@ -19,7 +19,7 @@ class Pagination extends Component {
       ...extraParams
     } = this.props;
     // Maximum number of pages allowed (backend window limitation)
-    const maximumWindowPages = Math.ceil(
+    const maximumWindowPages = Math.floor(
       invenioConfig.APP.MAX_RESULTS_WINDOW / currentSize
     );
     // Theoretical number of pages for this search result

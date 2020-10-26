@@ -32,7 +32,7 @@ const EItemSchema = Yup.object().shape({
   urls: Yup.array().of(
     Yup.object().shape({
       value: Yup.string()
-        .url('not a cvali d url')
+        .url('not a valid url')
         .required(),
     })
   ),

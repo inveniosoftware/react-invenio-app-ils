@@ -27,6 +27,23 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, Segment } from 'semantic-ui-react';
 import itemSubmitSerializer from './itemSubmitSerializer';
+import * as Yup from 'yup';
+
+const ItemSchema = Yup.object().shape({
+  barcode: Yup.string().required(),
+  document: Yup.object().shape({
+    pid: Yup.string().required(),
+  }),
+  medium: Yup.string().required(),
+  internal_location: Yup.object().shape({
+    pid: Yup.string().required(),
+  }),
+  status: Yup.string().required(),
+  circulation_restriction: Yup.string().required(),
+  isbn: Yup.object().shape({
+    value: Yup.string().required(),
+  }),
+});
 
 export class ItemForm extends Component {
   constructor(props) {
@@ -98,6 +115,7 @@ export class ItemForm extends Component {
         title={title}
         pid={pid}
         submitSerializer={itemSubmitSerializer}
+        validationSchema={ItemSchema}
       >
         <Segment>
           <Header dividing>Basic Metadata</Header>

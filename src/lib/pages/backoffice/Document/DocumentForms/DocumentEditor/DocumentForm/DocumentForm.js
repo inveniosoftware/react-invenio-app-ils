@@ -20,15 +20,9 @@ import { DocumentCurationCatalog } from './DocumentCurationCatalog';
 import { DocumentLicensesCopyright } from './DocumentLicensesCopyright';
 import { DocumentPublishing } from './DocumentPublishing';
 import documentSubmitSerializer from './documentSubmitSerializer';
-
 import * as Yup from 'yup';
 
 const DocumentSchema = Yup.object().shape({
-  affiliations: Yup.array().of(
-    Yup.object().shape({
-      value: Yup.string().required(),
-    })
-  ),
   document_type: Yup.string().required(),
   identifiers: Yup.array().of(
     Yup.object().shape({

@@ -32,6 +32,7 @@ export class DateInputField extends React.Component {
           id={fieldPath}
           name={fieldPath}
           placeholder={placeholder}
+          required={required}
           error={props.error}
           defaultValue={props.value}
           handleBlur={props.form.handleBlur}

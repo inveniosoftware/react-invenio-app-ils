@@ -86,8 +86,10 @@ class ButtonCancelRequest extends Component {
       this.setState({ isLoading: false });
       onSuccess(`Your loan request for ${documentTitle} has been cancelled.`);
     } catch (error) {
-      this.setState({ isLoading: false });
-      this.showError(error.response.data.message);
+      if (error !== 'UNMOUNTED') {
+        this.setState({ isLoading: false });
+        this.showError(error.response.data.message);
+      }
     }
   };
 

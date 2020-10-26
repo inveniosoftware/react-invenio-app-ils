@@ -1,16 +1,19 @@
 import { apiConfig, http } from '@api/base';
 import { prepareSumQuery } from '@api/utils';
 import { sessionManager } from '@authentication/services/SessionManager';
+import { borrowingRequestSerializer as serializer } from './serializers';
 
 const borrowingRequestUrl = '/ill/borrowing-requests/';
 
 const get = async pid => {
   const response = await http.get(`${borrowingRequestUrl}${pid}`);
+  response.data = serializer.fromJSON(response.data);
   return response;
 };
 
 const create = async data => {
   const resp = await http.post(`${borrowingRequestUrl}`, data);
+  resp.data = serializer.fromJSON(resp.data);
   return resp;
 };
 
@@ -19,6 +22,7 @@ const update = async (borrowingRequestPid, data) => {
     `${borrowingRequestUrl}${borrowingRequestPid}`,
     data
   );
+  resp.data = serializer.fromJSON(resp.data);
   return resp;
 };
 
@@ -66,6 +70,9 @@ const declineExtension = async borrowingRequestPid => {
 const list = async query => {
   const response = await http.get(`${borrowingRequestUrl}?q=${query}`);
   response.data.total = response.data.hits.total;
+  response.data.hits = response.data.hits.hits.map(hit =>
+    serializer.fromJSON(hit)
+  );
   return response;
 };
 

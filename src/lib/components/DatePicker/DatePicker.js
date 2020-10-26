@@ -56,6 +56,7 @@ class DatePicker extends Component {
       disable,
       disabledInput,
       loading,
+      required,
     } = this.props;
     const { selectedDate } = this.state;
     // Remove this code when this issue is solved -> https://github.com/arfedulov/semantic-ui-calendar-react/issues/202
@@ -86,6 +87,7 @@ class DatePicker extends Component {
         data-test={selectedDate}
         dateFormat="YYYY-MM-DD"
         animation="none"
+        required={required}
       />
     );
   }
@@ -107,6 +109,7 @@ DatePicker.propTypes = {
   disabledInput: PropTypes.bool,
   loading: PropTypes.bool,
   locationPid: PropTypes.string,
+  required: PropTypes.bool,
 };
 
 DatePicker.defaultProps = {
@@ -124,6 +127,7 @@ DatePicker.defaultProps = {
   fetchData: null,
   loading: false,
   locationPid: '',
+  required: false,
 };
 
 export default Overridable.component('DatePicker', DatePicker);
