@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import { Menu } from 'semantic-ui-react';
 
 export default class ScrollingMenuItem extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeItem: props.children[0].props.elementId };
+    this.state = {
+      activeItem: props.children
+        .map(child => child.props.elementId)
+        .find(id => !_isEmpty(id)),
+    };
   }
 
   setActiveLink = elementId => {

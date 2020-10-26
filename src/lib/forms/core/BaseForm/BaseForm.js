@@ -98,6 +98,8 @@ export class BaseForm extends Component {
           initialValues={initialValues}
           onSubmit={onSubmit || this.onSubmit}
           validationSchema={validationSchema}
+          validateOnChange={false}
+          validateOnBlur={false}
         >
           {({ isSubmitting, handleSubmit, submitForm, values }) => (
             <Form
