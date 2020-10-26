@@ -1,18 +1,14 @@
 import { documentRequestApi } from '@api/documentRequests';
 import { documentApi } from '@api/documents';
 import { Loader } from '@components/Loader';
-import { invenioConfig } from '@config';
 import { BaseForm } from '@forms/core/BaseForm';
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
 import { getIn } from 'formik';
 import _get from 'lodash/get';
-import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Overridable from 'react-overridable';
 import { Header, Segment } from 'semantic-ui-react';
-import { MetadataExtensions } from './components';
 import { DocumentAdditionalInfo } from './DocumentAdditionalInfo';
 import { DocumentBasicMetadata } from './DocumentBasicMetadata';
 import { DocumentContent } from './DocumentContent';
@@ -193,16 +189,9 @@ export class DocumentForm extends Component {
         </Header>
         <Segment attached>
           <Loader>
-            <DocumentAdditionalInfo />
+            <DocumentAdditionalInfo extensions={extensions} />
           </Loader>
         </Segment>
-
-        {!_isEmpty(extensions) &&
-          !_isEmpty(invenioConfig.DOCUMENTS.extensions.fields) && (
-            <Overridable id="DocumentForm.Extensions" extensions={extensions}>
-              <MetadataExtensions extensions={extensions} />
-            </Overridable>
-          )}
       </BaseForm>
     );
   }
