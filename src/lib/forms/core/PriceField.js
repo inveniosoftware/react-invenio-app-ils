@@ -1,13 +1,13 @@
 import { FastField, Field, getIn } from 'formik';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Dropdown, Form, Input, Label } from 'semantic-ui-react';
+import { Dropdown, Form, Input } from 'semantic-ui-react';
 import { invenioConfig } from '@config';
 import { vocabularyApi } from '@api/vocabularies';
 import { withCancel } from '@api/utils';
 import _isEmpty from 'lodash/isEmpty';
 
-class PriceDropdown extends Component {
+class CurrencyDropdown extends Component {
   state = {
     isLoading: true,
     error: null,
@@ -53,23 +53,20 @@ class PriceDropdown extends Component {
   };
 
   getAllOptions = (options, value) => {
-    const {
-      field: { required },
-    } = this.props;
+    const { defaultCurrency } = this.props;
     const { isLoading } = this.state;
-    if (!required) {
-      options = [
-        {
-          key: '',
-          value: undefined,
-          text: '-',
-        },
-        ...options,
-      ];
-    }
+    const visibleOptions =
+      defaultCurrency !== null
+        ? options.filter(o => o.value === defaultCurrency)
+        : options;
+    visibleOptions.unshift({
+      key: '',
+      value: '',
+      text: '-',
+    });
     if (!isLoading) {
-      if (!_isEmpty(value) && !options.find(o => o.value === value)) {
-        options.push({
+      if (!_isEmpty(value) && !visibleOptions.find(o => o.value === value)) {
+        visibleOptions.push({
           key: value,
           value: value,
           text: `Missing value: ${value}`,
@@ -77,7 +74,7 @@ class PriceDropdown extends Component {
         });
       }
     }
-    return options;
+    return visibleOptions;
   };
 
   render() {
@@ -89,16 +86,13 @@ class PriceDropdown extends Component {
     } = this.props;
     const { isLoading, currencies, error } = this.state;
     const errorText = error || (touched[name] && errors[name]);
-    const currentValue = value
-      ? value
-      : currencies.length && currencies[0].value;
     return (
       <Dropdown
         selection
         compact
         options={this.getAllOptions(currencies, value)}
-        text={error && !currentValue && errorText}
-        value={currentValue}
+        text={error && errorText ? errorText : value ? value : '-'}
+        value={value}
         onChange={(_, { value }) => setFieldValue(name, value)}
         error={!!errorText}
         loading={isLoading}
@@ -108,16 +102,18 @@ class PriceDropdown extends Component {
   }
 }
 
-PriceDropdown.propTypes = {
+CurrencyDropdown.propTypes = {
   field: PropTypes.object.isRequired,
   form: PropTypes.object.isRequired,
   children: PropTypes.node,
   required: PropTypes.bool,
+  defaultCurrency: PropTypes.string,
 };
 
-PriceDropdown.defaultProps = {
+CurrencyDropdown.defaultProps = {
   children: null,
   required: false,
+  defaultCurrency: null,
 };
 
 export class PriceField extends Component {
@@ -131,7 +127,7 @@ export class PriceField extends Component {
       : null;
   };
 
-  renderCurrencyLabel = () => {
+  renderCurrencyLabel = props => {
     const {
       fieldPath,
       defaultCurrency,
@@ -139,10 +135,13 @@ export class PriceField extends Component {
       required,
     } = this.props;
     const name = `${fieldPath}.currency`;
-    return canSelectCurrency ? (
-      <Field name={name} required={required} component={PriceDropdown} />
-    ) : (
-      <Label name={name}>{defaultCurrency}</Label>
+    return (
+      <Field
+        name={name}
+        required={required}
+        defaultCurrency={canSelectCurrency ? defaultCurrency : null}
+        component={CurrencyDropdown}
+      />
     );
   };
 
@@ -164,7 +163,10 @@ export class PriceField extends Component {
       <Form.Field
         inline={inline}
         required={required}
-        error={this.renderError(status || errors, `${fieldPath}.value`)}
+        error={
+          this.renderError(status || errors, `${fieldPath}.currency`) ||
+          this.renderError(status || errors, `${fieldPath}.value`)
+        }
         disabled={isSubmitting}
       >
         <label>{label}</label>
@@ -173,7 +175,7 @@ export class PriceField extends Component {
           type="number"
           step="any"
           min="0"
-          label={this.renderCurrencyLabel()}
+          label={this.renderCurrencyLabel(props)}
           labelPosition="left"
           id={`${fieldPath}.value`}
           name={`${fieldPath}.value`}

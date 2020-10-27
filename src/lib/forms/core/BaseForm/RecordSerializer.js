@@ -22,6 +22,9 @@ export const removeEmptyValues = obj => {
       }
     } else if (val && _isObject(val)) {
       removeEmptyValues(val);
+      if (Object.entries(val).every(([k, v]) => v === undefined)) {
+        obj[key] = undefined;
+      }
     } else if (val === '') obj[key] = undefined;
   });
 };

@@ -14,7 +14,7 @@ describe('removeEmptyValues', () => {
 
     const expectedObject = {
       authors: [{ name: 'Joe', surname: undefined }],
-      contributors: [{ identifiers: undefined }],
+      contributors: [undefined],
       roles: undefined,
       version: 0,
       cool: false,
@@ -96,7 +96,7 @@ describe('removeEmptyValues', () => {
       pid: 'c1dg5-6aj21',
       publication_year: '123',
       restricted: false,
-      stock: { mediums: undefined },
+      stock: undefined,
       title: 'Title',
       urls: [
         { value: 'http://localhost:3000/backoffice/documents/create' },
