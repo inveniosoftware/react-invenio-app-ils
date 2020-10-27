@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.17 (released 2020-10-27)
+
+- removed contact email from config
+- refactor some config vars
+
 Version 1.0.0-alpha.16 (released 2020-10-23)
 
 - form fields fixes
