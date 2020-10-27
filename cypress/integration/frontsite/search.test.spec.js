@@ -23,21 +23,29 @@ describe('frontsite search', () => {
     cy.visit('/search');
     registerSearchAliases();
   };
-  const login = () => {
-    cy.get('input#email').type('patron@test.ch');
-    cy.get('input#password').type('123456');
-    cy.contains('button.primary', 'Sign in').click();
-  };
+
+  it('should be able to go to document details', () => {
+    goToSearch();
+    cy.get('.fs-book-card')
+      .first()
+      .click();
+    cy.url().should('contain', Cypress.config().baseUrl + '/literature');
+  });
 
   it('should handle empty results', () => {
     goToSearch();
     cy.get('@input').type('zzzzzz');
     cy.get('@search').click();
     cy.contains('No results found');
-    cy.contains('Availability').should('not.exist'); // See https://github.com/inveniosoftware/react-invenio-app-ils/issues/5
+    // cy.contains('Availability').should('not.exist'); // See https://github.com/inveniosoftware/react-invenio-app-ils/issues/5
+
+    cy.contains('Clear search').click();
+    cy.get('@input')
+      .invoke('val')
+      .should('eq', '');
   });
 
-  it('should be able to use the search components', () => {
+  it('should be able to change results per page', () => {
     cy.visit('/');
     cy.focused().type('{enter}');
     registerSearchAliases();
@@ -69,11 +77,24 @@ describe('frontsite search', () => {
       .click();
 
     checkResultsCount(60);
+  });
 
-    cy.get('@per-page')
-      .click()
-      .contains(15)
-      .click();
+  it('should be able to change layout', () => {
+    cy.visit('/search');
+
+    cy.get('i.list.layout.icon').click();
+    cy.get('div.ui.items').within($div => {
+      cy.get('div').should('have.class', 'item');
+    });
+
+    cy.get('i.grid.layout.icon').click();
+    cy.get('div.ui.cards').within($div => {
+      cy.get('a').should('have.class', 'fs-book-card');
+    });
+  });
+
+  it('should be able to use filters', () => {
+    goToSearch();
 
     // Aggregation buckets
     // TODO is there a better way to express this temporal logic?
@@ -106,25 +127,10 @@ describe('frontsite search', () => {
           });
       });
     });
+  });
 
-    goToSearch();
-
-    cy.get('@pagination').find('a.active[value=1]');
-
-    cy.get('@results-found').then($label1 => {
-      const total = parseInt($label1.text());
-      if (total > 15) {
-        cy.get('@pagination')
-          .find('a[type=nextItem]')
-          .click();
-        cy.get('@pagination').find('a.active[value=2]');
-        cy.get('@pagination')
-          .find('a[type=pageItem][value=1]')
-          .click();
-      }
-    });
-
-    // Sort filters
+  it('should be able to use sorting filters', () => {
+    cy.visit('/search');
 
     cy.get('.sort-by-filters').click();
     cy.contains('Title [A-Z]').click();
@@ -143,8 +149,10 @@ describe('frontsite search', () => {
         expect(card1 <= card2).to.be.true;
       }
     });
+  });
 
-    // Availability
+  it('should be able to display available documents', () => {
+    cy.visit('/search');
 
     cy.get('i.list.layout.icon').click();
     cy.contains('.checkbox', 'available for loan').click();
@@ -154,6 +162,25 @@ describe('frontsite search', () => {
         cy.get($cards.eq(i))
           .contains('Available for loan')
           .should('have.length', 1);
+      }
+    });
+  });
+
+  it('should be able to change results page', () => {
+    goToSearch();
+
+    cy.get('@pagination').find('a.active[value=1]');
+
+    cy.get('@results-found').then($label1 => {
+      const total = parseInt($label1.text());
+      if (total > 15) {
+        cy.get('@pagination')
+          .find('a[type=nextItem]')
+          .click();
+        cy.get('@pagination').find('a.active[value=2]');
+        cy.get('@pagination')
+          .find('a[type=pageItem][value=1]')
+          .click();
       }
     });
   });

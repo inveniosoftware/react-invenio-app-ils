@@ -1,4 +1,26 @@
 describe('frontsite homepage', () => {
+  const searchRoute = Cypress.config().baseUrl + '/search';
+  const mostRecentBooksAssertion = () => {
+    cy.url()
+      .should('contain', searchRoute)
+      .and('include', 'sort=created')
+      .and('include', 'order=desc');
+  };
+  const mostLoanedBooksAssertion = () => {
+    cy.url()
+      .should('contain', searchRoute)
+      .and('include', 'sort=mostloaned')
+      .and('include', 'order=desc');
+  };
+  const mostRecentEBooksAssertion = () => {
+    cy.url()
+      .should('contain', searchRoute)
+      .and('include', 'sort=created')
+      .and('include', 'order=desc')
+      .and('include', 'doctype%3ABOOK')
+      .and('include', 'medium%3AELECTRONIC_VERSION');
+  };
+
   it('should be able to search from a query', () => {
     cy.visit('/');
 
@@ -7,7 +29,7 @@ describe('frontsite homepage', () => {
       .type('{enter}');
 
     cy.url()
-      .should('contain', Cypress.config().baseUrl + '/search')
+      .should('contain', searchRoute)
       .should('contain', 'lorem');
 
     cy.focused()
@@ -22,44 +44,51 @@ describe('frontsite homepage', () => {
     cy.visit('/');
 
     cy.contains('Recent books').click();
-
-    cy.url().should('contain', Cypress.config().baseUrl + '/search');
-    cy.url().should('include', 'sort=created');
-    cy.url().should('include', 'order=desc');
+    mostRecentBooksAssertion();
   });
 
   it('should be able to find most loaned books', () => {
     cy.visit('/');
 
     cy.contains('Most loaned books').click();
-
-    cy.url().should('contain', Cypress.config().baseUrl + '/search');
-    cy.url().should('include', 'sort=mostloaned');
-    cy.url().should('include', 'order=desc');
+    mostLoanedBooksAssertion();
   });
 
   it('should be able to find new ebooks', () => {
     cy.visit('/');
 
     cy.contains('New e-books').click();
-
-    cy.url().should('contain', Cypress.config().baseUrl + '/search');
-    cy.url().should('include', 'sort=created');
-    cy.url().should('include', 'order=desc');
-    cy.url().should('include', 'doctype%3ABOOK');
-    cy.url().should('include', 'medium%3AELECTRONIC_VERSION');
+    mostRecentEBooksAssertion();
   });
 
-  it('should be able to click on first VIEW ALL', () => {
+  it('should be able to click on VIEW ALL buttons', () => {
+    const clickViewAllLink = title => {
+      cy.get('.ui.header.section-header.highlight')
+        .contains(title)
+        .siblings('.sub.header')
+        .within(() => {
+          cy.get('a').click();
+        });
+    };
     cy.visit('/');
-    cy.contains('VIEW ALL').click();
-    cy.url().should('contain', Cypress.config().baseUrl + '/search');
+
+    clickViewAllLink('Most Recent Books');
+    mostRecentBooksAssertion();
+    cy.go('back');
+
+    clickViewAllLink('Most Loaned Books');
+    mostLoanedBooksAssertion();
+    cy.go('back');
+
+    clickViewAllLink('Most Recent E-Books');
+    mostRecentEBooksAssertion();
   });
 
-  it('should be able to go to details of book', () => {
+  it('should be able to go to details of a book', () => {
     cy.visit('/');
+
     cy.get('.fs-book-card')
-      .eq(0)
+      .first()
       .click();
     cy.url().should('contain', Cypress.config().baseUrl + '/literature');
   });
