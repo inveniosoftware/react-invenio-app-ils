@@ -137,6 +137,11 @@ a {
   justify-content: center;
 }
 
+.ui.pagination [type=ellipsisItem]:nth-last-child(3) + [type=pageItem] {
+  /* Workaround to hide the last page item button */
+  display: none !important;
+}
+
 /* FRONTSITE */
 
 @media only screen and (max-width: @largestMobileScreen) {

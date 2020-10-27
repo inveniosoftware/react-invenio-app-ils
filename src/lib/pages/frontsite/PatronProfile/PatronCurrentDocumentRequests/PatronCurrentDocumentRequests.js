@@ -286,7 +286,6 @@ class PatronCurrentDocumentRequests extends Component {
                     loading={isLoading}
                     onPageChange={this.onPageChange}
                     totalResults={documentRequests.total}
-                    simple
                   />
                 </Container>
               )}

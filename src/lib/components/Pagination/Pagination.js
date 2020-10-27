@@ -12,7 +12,6 @@ class Pagination extends Component {
       currentSize = invenioConfig.APP.DEFAULT_RESULTS_SIZE,
       onPageChange,
       loading,
-      simple,
       firstItem,
       lastItem,
       totalPages: _,
@@ -32,8 +31,8 @@ class Pagination extends Component {
           <Paginator
             activePage={currentPage}
             totalPages={totalDisplayedPages}
-            firstItem={simple ? null : firstItem}
-            lastItem={simple ? null : lastItem}
+            firstItem={null}
+            lastItem={null}
             onPageChange={(event, { activePage }) => onPageChange(activePage)}
             {...extraParams}
           />
@@ -50,13 +49,8 @@ Pagination.propTypes = {
   totalResults: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
   loading: PropTypes.bool,
-  simple: PropTypes.bool,
   firstItem: PropTypes.any,
   lastItem: PropTypes.any,
-};
-
-Pagination.defaultProps = {
-  simple: false,
 };
 
 export default Overridable.component('Pagination', Pagination);
