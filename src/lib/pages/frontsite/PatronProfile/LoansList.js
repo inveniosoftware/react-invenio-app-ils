@@ -30,7 +30,6 @@ export default class LoansList extends Component {
             loading={isLoading}
             onPageChange={onPageChange}
             totalResults={loans.total}
-            simple
           />
         </Container>
       </>

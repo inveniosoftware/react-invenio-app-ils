@@ -37,7 +37,6 @@ export class ExistingRelations extends Component {
             currentSize={showMaxRows}
             totalResults={rows.length}
             onPageChange={this.onPageChange}
-            simple
           />
         }
       />

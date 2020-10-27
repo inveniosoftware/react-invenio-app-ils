@@ -52,7 +52,6 @@ class PatronPastDocumentRequests extends Component {
         loading={isLoading}
         totalResults={documentRequests.total}
         onPageChange={this.onPageChange}
-        simple
       />
     );
   };
@@ -124,7 +123,6 @@ class PatronPastDocumentRequests extends Component {
                     loading={isLoading}
                     onPageChange={this.onPageChange}
                     totalResults={documentRequests.total}
-                    simple
                   />
                 </Container>
               )}
