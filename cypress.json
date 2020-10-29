@@ -1,3 +1,4 @@
 {
-  "baseUrl": "https://127.0.0.1:3000"
+  "baseUrl": "https://127.0.0.1:3000",
+  "backendBaseUrl": "https://127.0.0.1:5000"
 }
