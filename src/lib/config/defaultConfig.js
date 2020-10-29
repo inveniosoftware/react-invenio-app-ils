@@ -77,6 +77,8 @@ export const APP_CONFIG = {
       size: 'big',
     },
   },
+  HOME_SEARCH_BAR_PLACEHOLDER:
+    'Search for books, series, articles, publications...',
 };
 
 export const RECORDS_CONFIG = {

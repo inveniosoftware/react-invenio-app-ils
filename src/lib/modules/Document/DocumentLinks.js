@@ -1,103 +1,102 @@
+import { RedirectToLoginButton } from '@authentication/components/RedirectToLoginButton';
+import { ShowMoreItems } from '@components/ShowMoreItems';
+import { invenioConfig } from '@config';
+import { LiteratureAccessUrls } from '@modules/Literature/LiteratureAccessUrls';
+import prettyBytes from 'pretty-bytes';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Divider, List } from 'semantic-ui-react';
+import { Divider, Header, List } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { DownloadLink } from '@modules/EItem/DownloadLink';
 import { sessionManager } from '@authentication/services/SessionManager';
 
 export class DocumentLinks extends Component {
-  constructor(props) {
-    super(props);
-    this.linkCount = 0;
-  }
-
-  hasMaxLinks = () => {
-    const { showMaxLinks } = this.props;
-    return this.linkCount > 0 && showMaxLinks && this.linkCount > showMaxLinks;
+  renderTitle = title => {
+    const { dividers } = this.props;
+    return dividers ? (
+      <Divider horizontal>{title}</Divider>
+    ) : (
+      <Header as="h5">{title}</Header>
+    );
   };
 
-  hasPermissions = eitem => {
-    if (!eitem.open_access) {
-      return sessionManager.isAuthenticated();
-    }
-    return eitem.open_access;
+  userCanSeeFiles = eitem => {
+    return eitem.open_access || sessionManager.isAuthenticated();
   };
+
+  renderFileLogin = () => (
+    <RedirectToLoginButton content="Sign in to view all files" fluid positive />
+  );
 
   renderReadableList = () => {
-    const { dividers } = this.props;
-    return dividers ? <p>None.</p> : null;
+    const { eitems } = this.props;
+    return (
+      <>
+        {this.renderTitle('Read online')}
+        <LiteratureAccessUrls urls={eitems.hits.flatMap(eitem => eitem.urls)} />
+      </>
+    );
+  };
+
+  hasReadable = () => {
+    const { eitems } = this.props;
+    return eitems.hits.some(eitem => eitem.urls.length > 0);
   };
 
   renderDownloadLink = (eitem, file) => (
     <List.Item key={file.file_id}>
       <List.Icon name="download" />
       <List.Content>
-        Download <DownloadLink eitem={eitem} filename={file.key} />
+        <DownloadLink eitem={eitem} content={file.key} filename={file.key}>
+          file
+        </DownloadLink>{' '}
+        ({prettyBytes(file.size)})
       </List.Content>
     </List.Item>
   );
 
   renderDownloadableList = () => {
+    const { eitems, dividers } = this.props;
+    const hasRestrictedFiles = eitems.hits.some(
+      eitem => !this.userCanSeeFiles(eitem)
+    );
+    return (
+      <>
+        {this.renderTitle('Download')}
+        <ShowMoreItems lines={invenioConfig.DOCUMENTS.frontsiteMaxLinks}>
+          {eitems.hits
+            .filter(eitem => this.userCanSeeFiles(eitem))
+            .flatMap(eitem =>
+              eitem.files.map(file => this.renderDownloadLink(eitem, file))
+            )}
+        </ShowMoreItems>
+        {hasRestrictedFiles && !dividers && this.renderFileLogin()}
+      </>
+    );
+  };
+
+  hasDownloadable = () => {
     const { eitems } = this.props;
-    return (
-      <List>
-        {eitems.hits.map(eitem =>
-          eitem.files.map(file => {
-            if (this.hasPermissions(eitem)) {
-              this.linkCount++;
-            }
-            const hideLink = !this.hasPermissions(eitem) || this.hasMaxLinks();
-            return hideLink ? null : this.renderDownloadLink(eitem, file);
-          })
-        )}
-      </List>
-    );
-  };
-
-  renderEmptyMessage = () => {
-    return (
-      <p>
-        {sessionManager.isAuthenticated()
-          ? 'No files available.'
-          : 'Please login to see restricted files.'}
-      </p>
-    );
-  };
-
-  renderShowAll = () => {
-    const { onShowAll } = this.props;
-    return (
-      <Link to={{}} onClick={onShowAll}>
-        Show all {this.linkCount} links
-      </Link>
-    );
+    return eitems.hits.some(eitem => eitem.files.length > 0);
   };
 
   render() {
-    const { dividers } = this.props;
-    this.linkCount = 0;
     return (
       <>
-        {dividers && <Divider horizontal>Readable online</Divider>}
-        {this.renderReadableList()}
-        {dividers && <Divider horizontal>Downloadable</Divider>}
-        {this.renderDownloadableList()}
-        {this.linkCount === 0 && this.renderEmptyMessage()}
-        {this.hasMaxLinks() && this.renderShowAll()}
+        {this.hasReadable() && this.renderReadableList()}
+        {this.hasDownloadable() && this.renderDownloadableList()}
+        {!this.hasReadable() && !this.hasDownloadable() && (
+          <p>There are no online resources available.</p>
+        )}
       </>
     );
   }
 }
 
 DocumentLinks.propTypes = {
-  dividers: PropTypes.bool,
   eitems: PropTypes.object.isRequired,
-  showMaxLinks: PropTypes.number,
-  onShowAll: PropTypes.func,
+  dividers: PropTypes.bool,
 };
 
 DocumentLinks.defaultProps = {
   dividers: false,
-  onShowAll: () => {},
-  showMaxLinks: 5,
 };

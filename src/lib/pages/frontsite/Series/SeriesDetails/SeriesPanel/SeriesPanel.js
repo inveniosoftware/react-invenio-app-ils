@@ -72,7 +72,10 @@ class SeriesPanel extends Component {
                   </ILSParagraphPlaceholder>
                 </Grid.Column>
                 <Grid.Column width={5}>
-                  <SeriesAccess urls={series.metadata.access_urls} />
+                  <SeriesAccess
+                    urls={series.metadata.access_urls}
+                    isLoading={isLoading}
+                  />
                   {!_isEmpty(series.metadata.relations) && (
                     <SeriesSequences relations={series.metadata.relations} />
                   )}

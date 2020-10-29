@@ -12,6 +12,8 @@ const EnvironmentLabelLayout = ({
   icon,
   color,
   pointing,
+  small,
+  classContext,
   ...uiProps
 }) => {
   return (
@@ -19,11 +21,11 @@ const EnvironmentLabelLayout = ({
       color={color}
       pointing={pointing}
       size="small"
-      className="environment-label"
+      className={`environment-label ${classContext}`}
       {...uiProps}
     >
       <Icon name={icon} />
-      {text}
+      {!small && text}
     </Label>
   );
 };
@@ -33,9 +35,16 @@ EnvironmentLabelLayout.propTypes = {
   icon: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   pointing: PropTypes.string.isRequired,
+  small: PropTypes.bool.isRequired,
+  classContext: PropTypes.string.isRequired,
 };
 
-const EnvironmentLabelComponent = ({ pointing, ...uiProps }) => {
+const EnvironmentLabelComponent = ({
+  pointing,
+  small,
+  classContext,
+  ...uiProps
+}) => {
   const environment = process.env.REACT_APP_ENV_NAME;
   const environmentConfig = invenioConfig.APP.ENVIRONMENTS.find(
     env => env.name === environment
@@ -48,6 +57,8 @@ const EnvironmentLabelComponent = ({ pointing, ...uiProps }) => {
         color={display.color}
         icon={display.icon}
         pointing={pointing}
+        small={small}
+        classContext={classContext ? classContext : ''}
         {...uiProps}
       />
     );
@@ -74,6 +85,13 @@ const EnvironmentLabelComponent = ({ pointing, ...uiProps }) => {
 
 EnvironmentLabelComponent.propTypes = {
   pointing: PropTypes.string.isRequired,
+  small: PropTypes.bool,
+  classContext: PropTypes.string,
+};
+
+EnvironmentLabelComponent.defaultProps = {
+  small: false,
+  classContext: null,
 };
 
 export const EnvironmentLabel = Overridable.component(
