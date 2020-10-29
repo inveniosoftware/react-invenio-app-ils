@@ -134,7 +134,7 @@ export class EItemForm extends Component {
             <Grid.Row>
               <Grid.Column>
                 <Segment>
-                  <UrlsField />
+                  <UrlsField withRestriction />
                 </Segment>
               </Grid.Column>
               <Grid.Column>

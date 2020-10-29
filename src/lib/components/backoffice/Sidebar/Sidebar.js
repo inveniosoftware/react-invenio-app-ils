@@ -65,7 +65,7 @@ class Sidebar extends Component {
       <Overridable id="Sidebar.layout">
         <>
           <Container textAlign="center">
-            <EnvironmentLabel pointing="below" style={{ marginBottom: 0 }} />
+            <EnvironmentLabel pointing="below" classContext="backoffice" />
           </Container>
           <Header as="h3" className="bo-menu-header">
             <Icon name="user circle" color="grey" />

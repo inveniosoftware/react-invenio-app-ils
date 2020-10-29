@@ -11,6 +11,7 @@ import { InfoMessage } from '@components/InfoMessage';
 import { FrontSiteRoutes } from '@routes/urls';
 import { Link } from 'react-router-dom';
 import { LoanInformationBullets } from './LoanInformationBullets';
+import _get from 'lodash/get';
 
 class DocumentCirculation extends Component {
   loginToLoan = () => {
@@ -29,8 +30,12 @@ class DocumentCirculation extends Component {
 
   renderLoanRequestForm = () => {
     const { documentDetails, loansInfo } = this.props;
-    const lastLoan = loansInfo ? loansInfo.last_loan : null;
-    return <LoanRequestForm document={documentDetails} lastLoan={lastLoan} />;
+    return (
+      <LoanRequestForm
+        document={documentDetails}
+        lastLoan={_get(loansInfo, 'last_loan')}
+      />
+    );
   };
 
   myLoansButton = () => {

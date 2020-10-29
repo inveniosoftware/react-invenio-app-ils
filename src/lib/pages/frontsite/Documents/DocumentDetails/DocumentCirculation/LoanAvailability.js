@@ -33,6 +33,7 @@ export class LoanAvailability extends Component {
             <b>
               {DateTime.fromISO(circulation.next_available_date).toLocaleString(
                 {
+                  locale: 'en-GB',
                   month: 'long',
                   day: 'numeric',
                 }

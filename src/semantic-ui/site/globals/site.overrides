@@ -137,6 +137,20 @@ a {
   justify-content: center;
 }
 
+.ui.label.environment-label {
+  &.frontsite-computer {
+    margin-left: 1.6em;
+  }
+  &.frontsite-mobile {
+    margin-left: 1.6em;
+    padding-left: 0.8em;
+    padding-right: 0;
+  }
+  &.backoffice {
+    margin-bottom: 0;
+  }
+}
+
 .ui.pagination [type=ellipsisItem]:nth-last-child(3) + [type=pageItem] {
   /* Workaround to hide the last page item button */
   display: none !important;

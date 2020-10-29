@@ -60,7 +60,7 @@ class LiteratureSearch extends Component {
               <Container fluid className="literature-search-container">
                 <Container>
                   <SearchBar
-                    placeholder="Search for books, series, articles, publications..."
+                    placeholder={invenioConfig.APP.HOME_SEARCH_BAR_PLACEHOLDER}
                     {...invenioConfig.APP.SEARCH_BAR_PROPS}
                   />
                 </Container>

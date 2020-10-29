@@ -110,7 +110,7 @@ class ILSMenu extends Component {
                   <div>
                     <EnvironmentLabel
                       pointing="left"
-                      style={{ marginLeft: '1.6em' }}
+                      classContext="frontsite-computer"
                     />
                   </div>
                 </Menu.Item>
@@ -149,7 +149,8 @@ class ILSMenu extends Component {
                   <div>
                     <EnvironmentLabel
                       pointing="left"
-                      style={{ marginLeft: '1.6em' }}
+                      small
+                      classContext="frontsite-mobile"
                     />
                   </div>
                 </Menu.Item>

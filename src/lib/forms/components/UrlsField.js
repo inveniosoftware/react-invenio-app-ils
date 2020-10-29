@@ -2,12 +2,14 @@ import { AccordionField } from '@forms/core/AccordionField';
 import { ArrayField } from '@forms/core/ArrayField';
 import { GroupField } from '@forms/core/GroupField';
 import { StringField } from '@forms/core/StringField';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { DeleteActionButton } from './DeleteActionButton';
 import { BooleanField } from '@forms/core/BooleanField';
 
 export class UrlsField extends Component {
-  renderFormField({ arrayPath, indexPath, ...arrayHelpers }) {
+  renderFormField = ({ arrayPath, indexPath, ...arrayHelpers }) => {
+    const { withRestriction } = this.props;
     const objectPath = `${arrayPath}.${indexPath}`;
     return (
       <GroupField
@@ -23,16 +25,19 @@ export class UrlsField extends Component {
           label="Description"
           fieldPath={`${objectPath}.description`}
         />
-        <BooleanField
-          rightLabel="Login required"
-          fieldPath={`${objectPath}.login_required`}
-          toggle
-        />
+        {withRestriction && (
+          <BooleanField
+            rightLabel="Login required"
+            fieldPath={`${objectPath}.login_required`}
+            toggle
+          />
+        )}
       </GroupField>
     );
-  }
+  };
 
   render() {
+    const { withRestriction } = this.props;
     return (
       <AccordionField
         label="Urls"
@@ -43,7 +48,7 @@ export class UrlsField extends Component {
             defaultNewValue={{
               value: undefined,
               description: undefined,
-              login_required: false,
+              login_required: withRestriction ? true : undefined,
             }}
             renderArrayItem={this.renderFormField}
             addButtonLabel="Add new url"
@@ -53,3 +58,11 @@ export class UrlsField extends Component {
     );
   }
 }
+
+UrlsField.propTypes = {
+  withRestriction: PropTypes.bool,
+};
+
+UrlsField.defaultProps = {
+  withRestriction: false,
+};

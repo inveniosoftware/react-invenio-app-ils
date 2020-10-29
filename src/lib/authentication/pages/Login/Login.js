@@ -156,7 +156,7 @@ const LoginLayout = ({
           >
             <Container>
               <Container textAlign="center">
-                <EnvironmentLabel pointing="below" />
+                <EnvironmentLabel pointing="below" classContext="login" />
               </Container>
               {showLogo && invenioConfig.APP.LOGO_SRC && (
                 <Image src={invenioConfig.APP.LOGO_SRC} size="small" centered />

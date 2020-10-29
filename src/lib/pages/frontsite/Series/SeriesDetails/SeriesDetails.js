@@ -3,6 +3,7 @@ import { Breadcrumbs } from '@components/Breadcrumbs';
 import { Error } from '@components/Error';
 import { ILSParagraphPlaceholder } from '@components/ILSPlaceholder';
 import { SearchBarILS } from '@components/SearchBar';
+import { invenioConfig } from '@config';
 import { goTo } from '@history';
 import { SeriesLiteratureSearch } from '@modules/Series/SeriesLiteratureSearch';
 import { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
@@ -150,7 +151,11 @@ class SeriesDetails extends React.Component {
             executeSearch={this.onSearchClick}
           >
             <Container>
-              <SearchBarILS onSearchHandler={this.onSearchClick} />
+              <SearchBarILS
+                onSearchHandler={this.onSearchClick}
+                placeholder={invenioConfig.APP.HOME_SEARCH_BAR_PLACEHOLDER}
+                className="fs-headline"
+              />
             </Container>
           </Overridable>
         </Container>
