@@ -28,10 +28,8 @@ class DocumentCirculation extends Component {
   };
 
   renderLoanRequestForm = () => {
-    const {
-      documentDetails,
-      loansInfo: { last_loan: lastLoan },
-    } = this.props;
+    const { documentDetails, loansInfo } = this.props;
+    const lastLoan = loansInfo ? loansInfo.last_loan : null;
     return <LoanRequestForm document={documentDetails} lastLoan={lastLoan} />;
   };
 
