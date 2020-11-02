@@ -106,12 +106,14 @@ export default class OrderListEntry extends Component {
     } = order.metadata;
     return (
       <List verticalAlign="middle" className="document-circulation">
-        <List.Item>
-          <List.Content floated="right">
-            <strong>{payment.mode}</strong>
-          </List.Content>
-          <List.Content>payment mode</List.Content>
-        </List.Item>
+        {payment && (
+          <List.Item>
+            <List.Content floated="right">
+              <strong>{payment.mode}</strong>
+            </List.Content>
+            <List.Content>payment mode</List.Content>
+          </List.Item>
+        )}
         {receivedDate && (
           <List.Item>
             <List.Content floated="right">
