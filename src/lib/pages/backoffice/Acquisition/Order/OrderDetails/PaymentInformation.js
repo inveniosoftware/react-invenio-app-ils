@@ -1,3 +1,4 @@
+import { InfoMessage } from '@components/InfoMessage';
 import { formatPrice } from '@api/utils';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { invenioConfig } from '@config';
@@ -8,7 +9,11 @@ import { Grid, Icon, Popup } from 'semantic-ui-react';
 export class PaymentInformation extends React.Component {
   render() {
     const { order } = this.props;
-    const payment = order.payment;
+    const { payment } = order;
+
+    if (payment === undefined)
+      return <InfoMessage title="There is no payment information" />;
+
     const leftTable = [
       {
         name: `Total (${invenioConfig.APP.DEFAULT_CURRENCY})`,
