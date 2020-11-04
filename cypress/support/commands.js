@@ -29,3 +29,21 @@ Cypress.Commands.add('shouldRedirectToLogin', route => {
   cy.visit(route);
   cy.url().should('contain', '/login');
 });
+
+Cypress.Commands.add('handleEmptyResults', (input, addButton) => {
+  cy.get(input)
+    .type('zzzzzz')
+    .type('{enter}');
+  cy.contains('No results found');
+
+  if (addButton) {
+    cy.contains(addButton.text).click();
+    cy.url().should('eq', Cypress.config().baseUrl + addButton.route);
+    cy.go('back');
+  }
+
+  cy.contains('Clear search').click();
+  cy.get(input)
+    .invoke('val')
+    .should('eq', '');
+});
