@@ -34,15 +34,7 @@ describe('frontsite search', () => {
 
   it('should handle empty results', () => {
     goToSearch();
-    cy.get('@input').type('zzzzzz');
-    cy.get('@search').click();
-    cy.contains('No results found');
-    // cy.contains('Availability').should('not.exist'); // See https://github.com/inveniosoftware/react-invenio-app-ils/issues/5
-
-    cy.contains('Clear search').click();
-    cy.get('@input')
-      .invoke('val')
-      .should('eq', '');
+    cy.handleEmptyResults('@input');
   });
 
   it('should be able to change results per page', () => {
@@ -83,14 +75,10 @@ describe('frontsite search', () => {
     cy.visit('/search');
 
     cy.get('i.list.layout.icon').click();
-    cy.get('div.ui.items').within($div => {
-      cy.get('div').should('have.class', 'item');
-    });
+    cy.get('div.ui.items > div').should('have.class', 'item');
 
     cy.get('i.grid.layout.icon').click();
-    cy.get('div.ui.cards').within($div => {
-      cy.get('a').should('have.class', 'fs-book-card');
-    });
+    cy.get('div.ui.cards a').should('have.class', 'fs-book-card');
   });
 
   it('should be able to use filters', () => {

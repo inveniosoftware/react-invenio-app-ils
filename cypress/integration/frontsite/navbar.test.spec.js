@@ -15,6 +15,12 @@ describe('navbar links', () => {
     cy.contains('h2', 'Your activity');
   });
 
+  it('should be able to go to login page', () => {
+    cy.visit('/');
+    cy.contains('Sign in').click();
+    cy.url().should('include', '/login');
+  });
+
   it('should be able to go to backoffice when librarian is logged in', () => {
     cy.login({ email: 'librarian@test.ch', password: '123456' });
 
