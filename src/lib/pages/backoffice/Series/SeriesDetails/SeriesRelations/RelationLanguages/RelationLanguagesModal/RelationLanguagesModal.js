@@ -53,6 +53,8 @@ export default class RelationLanguagesModal extends Component {
     return (
       <RelationModal
         triggerButtonContent="Add language relations"
+        disabled={!seriesDetails.metadata.languages}
+        disabledContent="Please specify a language for this record before adding a language relation."
         modalHeader={
           <>
             Attach translations <Icon size="large" name="language" />

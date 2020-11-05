@@ -69,7 +69,7 @@ class DocumentCard extends Component {
                     {toShortDate(_get(metadata, 'imprints[0].date'))} <br />{' '}
                   </>
                 ) : null}
-                Edition {metadata.edition}
+                {metadata.edition && <>Edition {metadata.edition}</>}
               </div>
             </Card.Meta>
           </Card.Content>

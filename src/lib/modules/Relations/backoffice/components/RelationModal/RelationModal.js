@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Icon, Modal } from 'semantic-ui-react';
+import { Button, Icon, Modal, Popup } from 'semantic-ui-react';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 
@@ -51,6 +51,7 @@ export default class RelationModal extends Component {
       children,
       disabled,
       triggerButtonContent,
+      disabledContent,
       modalHeader,
       isLoading: externalLoading,
       selections,
@@ -69,17 +70,25 @@ export default class RelationModal extends Component {
         size="large"
         closeIcon
         trigger={
-          <Button
-            disabled={disabled}
-            className="edit-related"
-            icon
-            labelPosition="left"
-            positive
-            onClick={this.toggle}
-          >
-            <Icon name="add" />
-            {triggerButtonContent}
-          </Button>
+          <>
+            <Button
+              disabled={disabled}
+              className="edit-related"
+              icon
+              labelPosition="left"
+              positive
+              onClick={this.toggle}
+            >
+              <Icon name="add" />
+              {triggerButtonContent}
+            </Button>
+            {disabled && disabledContent && (
+              <Popup
+                content={disabledContent}
+                trigger={<Icon size="large" name="info circle" color="grey" />}
+              />
+            )}
+          </>
         }
         open={visible}
         centered
@@ -109,6 +118,7 @@ export default class RelationModal extends Component {
 RelationModal.propTypes = {
   disabled: PropTypes.bool,
   triggerButtonContent: PropTypes.string.isRequired,
+  disabledContent: PropTypes.string,
   modalHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
     .isRequired,
   isLoading: PropTypes.bool,
@@ -126,4 +136,5 @@ RelationModal.defaultProps = {
   extraRelationField: {},
   disabled: false,
   isLoading: false,
+  disabledContent: null,
 };

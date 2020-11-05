@@ -55,10 +55,13 @@ export class DocumentInfo extends Component {
                 />
               </Table.Cell>
             </Table.Row>
-            <Table.Row>
-              <Table.Cell>Edition</Table.Cell>
-              <Table.Cell>{metadata.edition}</Table.Cell>
-            </Table.Row>
+            {metadata.edition && (
+              <Table.Row>
+                <Table.Cell>Edition</Table.Cell>
+                <Table.Cell>{metadata.edition}</Table.Cell>
+              </Table.Row>
+            )}
+
             {this.renderLanguages()}
             {this.renderKeywords()}
           </Table.Body>
