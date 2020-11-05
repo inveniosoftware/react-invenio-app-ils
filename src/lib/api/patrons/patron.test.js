@@ -33,7 +33,7 @@ describe('Patron query builder tests', () => {
       .query()
       .withEmail('test', true)
       .qs();
-    expect(query).toEqual('(email:test*)');
+    expect(query).toEqual('(email:test)');
   });
 
   it('should build query string with configured custom fields', () => {
@@ -56,7 +56,7 @@ describe('Patron query builder tests', () => {
       .withCustomField(term)
       .qs();
     expect(query).toEqual(
-      `(name:${term}* OR email:${term}* OR ${invenioConfig.PATRONS.customFields.mockField.field}:${term})`
+      `(name:${term}* OR email:${term} OR ${invenioConfig.PATRONS.customFields.mockField.field}:${term})`
     );
   });
 

@@ -37,7 +37,7 @@ class QueryBuilder {
     if (!email) {
       throw TypeError('Email argument missing');
     }
-    this.patronQuery.push(`email:${email}${wildcard ? '*' : ''}`);
+    this.patronQuery.push(`email:${email}`);
     return this;
   }
 
