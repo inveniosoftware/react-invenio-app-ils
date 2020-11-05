@@ -188,6 +188,7 @@ class DocumentDetails extends Component {
           <Container fluid className="literature-search-container">
             <Container>
               <SearchBarILS
+                onPasteHandler={() => {}}
                 onSearchHandler={this.onSearchClick}
                 placeholder={invenioConfig.APP.HOME_SEARCH_BAR_PLACEHOLDER}
                 className="fs-headline"

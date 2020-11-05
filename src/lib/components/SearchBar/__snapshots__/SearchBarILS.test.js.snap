@@ -3,6 +3,7 @@
 exports[`SearchBar tests should match snapshot 1`] = `
 <SearchBarILS
   className=""
+  onChangeHandler={null}
   onKeyPressHandler={null}
   onPasteHandler={null}
   onSearchHandler={[Function]}

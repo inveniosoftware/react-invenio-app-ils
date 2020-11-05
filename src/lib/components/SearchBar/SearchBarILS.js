@@ -33,6 +33,7 @@ export class SearchBarILS extends Component {
       onKeyPressHandler: parentKeyPressHandler,
       onSearchHandler,
       onPasteHandler,
+      onChangeHandler,
       placeholder,
       ...rest
     } = this.props;
@@ -45,6 +46,7 @@ export class SearchBarILS extends Component {
         }}
         onChange={(event, { value }) => {
           this.setState({ currentValue: value });
+          onChangeHandler && onChangeHandler(value);
         }}
         onKeyPress={parentKeyPressHandler || this.onKeyPressHandler}
         onPaste={onPasteHandler || this.onPasteHandler}
@@ -65,6 +67,7 @@ SearchBarILS.propTypes = {
   onKeyPressHandler: PropTypes.func,
   onPasteHandler: PropTypes.func,
   onSearchHandler: PropTypes.func.isRequired,
+  onChangeHandler: PropTypes.func,
   placeholder: PropTypes.string,
   className: PropTypes.string,
 };
@@ -72,6 +75,7 @@ SearchBarILS.propTypes = {
 SearchBarILS.defaultProps = {
   onKeyPressHandler: null,
   onPasteHandler: null,
+  onChangeHandler: null,
   placeholder: '',
   className: '',
 };
