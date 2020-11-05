@@ -67,6 +67,8 @@ export default class RelationEditionModal extends Component {
     return (
       <RelationModal
         triggerButtonContent="Attach editions"
+        disabled={!recordDetails.metadata.edition}
+        disabledContent="Please specify an edition for this record before adding an edition relation."
         modalHeader="Attach editions"
         isLoading={isLoading}
         relationType={relationType}

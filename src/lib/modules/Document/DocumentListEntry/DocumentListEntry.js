@@ -127,18 +127,24 @@ export default class DocumentListEntry extends Component {
               {this.renderImprintInfo()}
               <Grid.Column width={4}>
                 <List>
-                  <List.Item>
-                    <List.Content>
-                      <span>Edition: </span>
-                      {this.metadata.edition}
-                    </List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <List.Content>
-                      <span>Languages: </span>
-                      <DocumentLanguages languages={this.metadata.languages} />
-                    </List.Content>
-                  </List.Item>
+                  {this.metadata.edition && (
+                    <List.Item>
+                      <List.Content>
+                        <span>Edition: </span>
+                        {this.metadata.edition}
+                      </List.Content>
+                    </List.Item>
+                  )}
+                  {this.metadata.languages && (
+                    <List.Item>
+                      <List.Content>
+                        <span>Languages: </span>
+                        <DocumentLanguages
+                          languages={this.metadata.languages}
+                        />
+                      </List.Content>
+                    </List.Item>
+                  )}
                 </List>
               </Grid.Column>
             </Grid>
