@@ -33,7 +33,7 @@ const searchPatrons = async (dispatch, term) => {
     patronApi
       .query()
       .withPid(term, true)
-      .withEmail(term, true)
+      .withEmail(term)
       .withName(term, true)
       .withCustomField(term)
       .qs(),
