@@ -33,7 +33,7 @@ class QueryBuilder {
     this.patronQuery = [];
   }
 
-  withEmail(email, wildcard = false) {
+  withEmail(email) {
     if (!email) {
       throw TypeError('Email argument missing');
     }
