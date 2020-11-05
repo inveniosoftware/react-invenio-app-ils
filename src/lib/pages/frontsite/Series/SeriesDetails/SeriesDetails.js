@@ -152,6 +152,7 @@ class SeriesDetails extends React.Component {
           >
             <Container>
               <SearchBarILS
+                onPasteHandler={() => {}}
                 onSearchHandler={this.onSearchClick}
                 placeholder={invenioConfig.APP.HOME_SEARCH_BAR_PLACEHOLDER}
                 className="fs-headline"

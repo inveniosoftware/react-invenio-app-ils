@@ -13,6 +13,7 @@ export class HomeSearchBar extends Component {
   render() {
     return (
       <SearchBarILS
+        onPasteHandler={() => {}}
         onSearchHandler={this.onSearchExecute}
         placeholder={invenioConfig.APP.HOME_SEARCH_BAR_PLACEHOLDER}
         className="fs-headline"

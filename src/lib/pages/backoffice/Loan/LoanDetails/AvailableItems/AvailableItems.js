@@ -194,33 +194,53 @@ export default class AvailableItems extends Component {
     }
   };
 
-  updateSearchQuery = (e, elem) => {
+  onChangeHandler = query => {
     const { data } = this.props;
-    this.setState({
-      query: elem.target.value,
-      filteredData: data.hits.filter(hit =>
-        hit.metadata.barcode.includes(elem.target.value)
-      ),
-    });
+    if (query) {
+      const barcode = query.trim();
+      const filteredData = data.hits.filter(hit =>
+        hit.metadata.barcode.startsWith(barcode)
+      );
+      this.setState({
+        query: query,
+        filteredData: filteredData,
+      });
+    } else {
+      this.setState({
+        query: '',
+        filteredData: null,
+      });
+    }
   };
 
-  onSearchExecute = () => {
-    const { query } = this.state;
-    const { data } = this.props;
-    this.setState({
-      filteredData: data.hits.filter(hit =>
-        hit.metadata.barcode.includes(query)
-      ),
-    });
+  onSearchExecute = query => {
+    const { data, loan } = this.props;
+    if (query) {
+      const barcode = query.trim();
+      const matches = data.hits.filter(hit => hit.metadata.barcode === barcode);
+      const isRequested = invenioConfig.CIRCULATION.loanRequestStates.includes(
+        loan.metadata.state
+      );
+      if (matches.length === 1 && isRequested) {
+        // If the loan is pending and exactly one item matches the search, check it out
+        const item = matches[0];
+        this.performCheckout(loan, item);
+      }
+    }
   };
+
+  renderCheckoutMessage() {
+    return (
+      <InfoMessage header="Copy checkout">
+        Scan or paste a barcode to automatically checkout that copy
+      </InfoMessage>
+    );
+  }
 
   renderSearchBar() {
-    const { query } = this.state;
-    // NOTE: this one has to be revised with the latest requirements
     return (
       <SearchBarILS
-        currentQueryString={query}
-        onInputChange={this.onSearchExecute}
+        onChangeHandler={this.onChangeHandler}
         onSearchHandler={this.onSearchExecute}
         placeholder="Insert barcode..."
       />
@@ -233,6 +253,9 @@ export default class AvailableItems extends Component {
     const statesThatRenderSearchBar = invenioConfig.CIRCULATION.loanActiveStates.concat(
       invenioConfig.CIRCULATION.loanRequestStates
     );
+    const statesThatRenderCheckoutMessage = invenioConfig.CIRCULATION.loanRequestStates.includes(
+      loan.metadata.state
+    );
     return (
       <>
         <Header as="h3" attached="top">
@@ -240,7 +263,10 @@ export default class AvailableItems extends Component {
         </Header>
         {statesThatRenderSearchBar.includes(loan.metadata.state) &&
         !_isEmpty(data.hits) ? (
-          <Segment attached>{this.renderSearchBar()}</Segment>
+          <Segment attached>
+            {statesThatRenderCheckoutMessage && this.renderCheckoutMessage()}
+            {this.renderSearchBar()}
+          </Segment>
         ) : null}
         <Segment
           attached
