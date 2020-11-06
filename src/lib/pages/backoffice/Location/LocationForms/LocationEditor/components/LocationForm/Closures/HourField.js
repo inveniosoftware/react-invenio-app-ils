@@ -31,6 +31,7 @@ export class HourField extends Component {
       parentFieldPath,
       index,
       dependantValue,
+      required,
     } = this.props;
     const {
       form: { values, errors },
@@ -57,6 +58,7 @@ export class HourField extends Component {
           onChange={(value, name) => {
             this.handleChange(props, value, name);
           }}
+          required={required}
         />
       </Form.Field>
     );
@@ -78,6 +80,7 @@ HourField.propTypes = {
   inline: PropTypes.bool,
   optimized: PropTypes.bool,
   width: PropTypes.number,
+  required: PropTypes.bool,
 };
 
 HourField.defaultProps = {
@@ -88,4 +91,5 @@ HourField.defaultProps = {
   optimized: false,
   width: 16,
   placeholder: '',
+  required: false,
 };
