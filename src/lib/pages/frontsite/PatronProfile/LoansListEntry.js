@@ -52,7 +52,7 @@ export default class LoansListEntry extends Component {
             </Item.Header>
 
             <Grid columns={2}>
-              <Grid.Column mobile={16} tablet={8} computer={8}>
+              <Grid.Column mobile={16} tablet={8} computer={10}>
                 <Item.Meta>
                   <DocumentAuthors
                     authors={documentAuthors}

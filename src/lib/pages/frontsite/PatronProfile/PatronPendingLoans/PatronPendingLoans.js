@@ -6,6 +6,7 @@ import { InfoMessage } from '@components/InfoMessage';
 import _has from 'lodash/has';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { invenioConfig } from '@config';
 import {
   Button,
   Container,
@@ -14,6 +15,7 @@ import {
   Label,
   Message,
   Popup,
+  Icon,
 } from 'semantic-ui-react';
 import LoansList from '../LoansList';
 import LoansListItem from '../LoansListEntry';
@@ -163,7 +165,7 @@ ButtonCancelRequest.propTypes = {
 };
 
 class LoansListEntry extends Component {
-  renderRequestDetails = (startDate, endDate) => (
+  renderRequestDetails = (startDate, endDate, delivery) => (
     <div className="pt-default">
       <Label basic>
         Requested on
@@ -177,6 +179,12 @@ class LoansListEntry extends Component {
           {DateTime.fromISO(endDate).toLocaleString()}
         </Label.Detail>
       </Label>
+      <Label basic>
+        <Icon className={delivery === 'PICKUP' ? 'university' : 'dolly'} />
+        <Label.Detail>
+          {invenioConfig.CIRCULATION.deliveryMethods[delivery]}
+        </Label.Detail>
+      </Label>
     </div>
   );
 
@@ -188,7 +196,8 @@ class LoansListEntry extends Component {
         extraItemProps={{
           itemMetaCmp: this.renderRequestDetails(
             loan.metadata.request_start_date,
-            loan.metadata.request_expire_date
+            loan.metadata.request_expire_date,
+            loan.metadata.delivery.method
           ),
           itemExtraCmp: _has(loan, 'availableActions.cancel') && (
             <ButtonCancelRequest
