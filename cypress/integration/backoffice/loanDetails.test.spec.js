@@ -52,7 +52,6 @@ describe('backoffice loan details page', () => {
               .siblings()
               .then($ext => {
                 let newExts = parseInt($ext.text());
-                console.log(newExts, exts);
                 expect(newExts).to.equal(exts + 1);
               });
           });
