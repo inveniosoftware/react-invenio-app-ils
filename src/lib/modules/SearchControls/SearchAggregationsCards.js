@@ -1,4 +1,3 @@
-import _get from 'lodash/get';
 import { BucketAggregation } from 'react-searchkit';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -28,7 +27,6 @@ export default class SearchAggregationsCards extends Component {
             field: filter.field,
             aggName: filter.aggName,
           }}
-          valuesLabels={_get(filter, 'labels', [])}
           overridableId="card"
         />
       );

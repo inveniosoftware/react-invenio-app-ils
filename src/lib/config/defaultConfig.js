@@ -261,6 +261,11 @@ export const RECORDS_CONFIG = {
           field: 'stock.mediums',
           aggName: 'medium',
         },
+        {
+          title: 'Restricted',
+          field: 'restricted',
+          aggName: 'access',
+        },
       ],
       sort: [
         {
