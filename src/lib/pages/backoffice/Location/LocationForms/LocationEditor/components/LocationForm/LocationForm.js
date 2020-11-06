@@ -86,6 +86,8 @@ export class LocationForm extends Component {
     data['opening_weekdays'].forEach(element => {
       if (!element['is_open']) {
         delete element['times'];
+      } else if (element['times']) {
+        element['times'] = element['times'].filter(e => e);
       }
     });
     if (data['opening_exceptions'] === undefined) {
