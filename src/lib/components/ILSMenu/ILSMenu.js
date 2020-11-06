@@ -12,6 +12,7 @@ import {
   Dropdown,
   Image,
   Menu,
+  Icon,
   Responsive,
 } from 'semantic-ui-react';
 
@@ -115,6 +116,11 @@ class ILSMenu extends Component {
                   </div>
                 </Menu.Item>
                 <Menu.Menu position="right">
+                  <Menu.Item>
+                    <Link to={FrontSiteRoutes.documentsListWithQuery('')}>
+                      Search
+                    </Link>
+                  </Menu.Item>
                   <Overridable id="ILSMenu.RightMenuItems" />
                   <Menu.Item>
                     {this.renderRightMenuItem(user.fullName)}
@@ -155,6 +161,12 @@ class ILSMenu extends Component {
                   </div>
                 </Menu.Item>
                 <Menu.Menu position="right">
+                  <Menu.Item
+                    as={Link}
+                    to={FrontSiteRoutes.documentsListWithQuery('')}
+                  >
+                    <Icon name="search" />
+                  </Menu.Item>
                   <Overridable id="ILSMenu.RightMenuItemsMobile" />
                   {this.renderRightMenuItem()}
                 </Menu.Menu>
