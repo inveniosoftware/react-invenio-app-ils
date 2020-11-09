@@ -99,8 +99,17 @@ export class ItemForm extends Component {
       successSubmitMessage,
       title,
       pid,
+      itemPastLoans,
     } = this.props;
     const initialValues = data ? this.prepareData(metadata) : {};
+    const hasPastOrActiveLoans =
+      itemPastLoans > 0 ||
+      (data.metadata.circulation &&
+        invenioConfig.CIRCULATION.loanActiveStates.includes(
+          data.metadata.circulation.state
+        ));
+    const message =
+      'Change of document is disabled because this item has active or past loans.';
     return (
       <BaseForm
         initialValues={{
@@ -134,6 +143,8 @@ export class ItemForm extends Component {
               icon={<DocumentIcon />}
               query={documentApi.list}
               serializer={serializeDocument}
+              disabled={hasPastOrActiveLoans}
+              disabledMessage={hasPastOrActiveLoans ? message : ''}
               width={8}
             />
             <VocabularyField
@@ -246,6 +257,7 @@ ItemForm.propTypes = {
   successSubmitMessage: PropTypes.string,
   title: PropTypes.string,
   pid: PropTypes.string,
+  itemPastLoans: PropTypes.number,
 };
 
 ItemForm.defaultProps = {
@@ -253,4 +265,5 @@ ItemForm.defaultProps = {
   successSubmitMessage: null,
   title: null,
   pid: null,
+  itemPastLoans: null,
 };
