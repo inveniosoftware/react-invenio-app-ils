@@ -85,6 +85,7 @@ export class SelectorField extends Component {
       renderGroup,
       renderSelection,
       width,
+      disabledMessage,
       ...selectorProps
     } = this.props;
     const selections = [];
@@ -123,6 +124,7 @@ export class SelectorField extends Component {
           initialSelections={selections}
           renderSelections={renderGroup}
           renderSelection={renderSelection}
+          disabledMessage={disabledMessage}
           onSelectionsUpdate={selections =>
             this.onSelectionsUpdate(selections, setFieldValue)
           }
@@ -164,6 +166,7 @@ SelectorField.propTypes = {
   multiple: PropTypes.bool,
   placeholder: PropTypes.string,
   width: PropTypes.number,
+  disabledMessage: PropTypes.string,
 };
 
 SelectorField.defaultProps = {
@@ -178,4 +181,5 @@ SelectorField.defaultProps = {
   renderGroup: null,
   label: '',
   icon: null,
+  disabledMessage: '',
 };

@@ -151,4 +151,15 @@ BaseForm.propTypes = {
 
 BaseForm.defaultProps = {
   children: null,
+  initialValues: null,
+  successSubmitMessage: '',
+  successCallback: null,
+  createApiMethod: null,
+  editApiMethod: null,
+  submitSerializer: null,
+  title: '',
+  pid: '',
+  validationSchema: null,
+  onSubmit: null,
+  buttons: null,
 };

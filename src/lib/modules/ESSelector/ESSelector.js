@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Overridable from 'react-overridable';
-import { List, Container, Icon, Label, Popup } from 'semantic-ui-react';
+import {
+  List,
+  Container,
+  Icon,
+  Label,
+  Popup,
+  Message,
+} from 'semantic-ui-react';
 import _isEmpty from 'lodash/isEmpty';
 import { HitsSearch } from './HitsSearch';
 import find from 'lodash/find';
@@ -74,10 +81,12 @@ class ESSelector extends Component {
   };
 
   renderSelection = (selection, removeSelection) => {
-    const { renderSelection, icon } = this.props;
+    const { renderSelection, icon, disabledMessage } = this.props;
     if (renderSelection) return renderSelection;
 
-    const label = (
+    const label = !_isEmpty(disabledMessage) ? (
+      <Message color="yellow">{disabledMessage}</Message>
+    ) : (
       <Label>
         {icon}
         {selection.title}
@@ -89,7 +98,7 @@ class ESSelector extends Component {
     return (
       <List.Item key={selection.id}>
         <List.Content>
-          {selection.extra ? (
+          {selection.extra && _isEmpty(disabledMessage) ? (
             <Popup content={selection.extra} trigger={label} />
           ) : (
             label
@@ -204,6 +213,7 @@ ESSelector.propTypes = {
   emptySelectionInfoText: PropTypes.string,
   focus: PropTypes.bool,
   error: PropTypes.object,
+  disabledMessage: PropTypes.string,
 };
 
 ESSelector.defaultProps = {
@@ -217,6 +227,19 @@ ESSelector.defaultProps = {
   onResults: null,
   focus: false,
   error: null,
+  disabledMessage: '',
+  alwaysWildcard: false,
+  disabled: false,
+  multiple: false,
+  placeholder: '',
+  onSearchChange: null,
+  onSelectResult: null,
+  onRemoveSelection: null,
+  renderSelections: null,
+  renderSelection: null,
+  serializer: null,
+  id: '',
+  name: '',
 };
 
 export default Overridable.component('ESSelector', ESSelector);

@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import { ItemForm } from './ItemForm';
 import { itemApi } from '@api/items';
 
-export class ItemEditor extends Component {
+export default class ItemEditor extends Component {
   constructor(props) {
     super(props);
 
@@ -19,9 +19,10 @@ export class ItemEditor extends Component {
   }
 
   componentDidMount() {
-    const { match } = this.props;
+    const { fetchPastLoans, match } = this.props;
     if (match.params.itemPid) {
       this.fetchItem(match.params.itemPid);
+      fetchPastLoans(match.params.itemPid);
     }
   }
 
@@ -61,13 +62,16 @@ export class ItemEditor extends Component {
 
   renderEditForm = pid => {
     const { isLoading, error, data } = this.state;
+    const { itemPastLoans, isLoadingPastLoans } = this.props;
+
     return (
-      <Loader isLoading={isLoading}>
+      <Loader isLoading={isLoading || isLoadingPastLoans}>
         <Error error={error}>
           <ItemForm
             pid={pid}
             data={data}
             title="Edit item"
+            itemPastLoans={itemPastLoans}
             successSubmitMessage="The item was successfully updated."
           />
         </Error>
@@ -95,6 +99,9 @@ export class ItemEditor extends Component {
 }
 
 ItemEditor.propTypes = {
+  fetchPastLoans: PropTypes.object.isRequired,
+  isLoadingPastLoans: PropTypes.bool.isRequired,
+  itemPastLoans: PropTypes.object.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       itemPid: PropTypes.string,
