@@ -1,5 +1,17 @@
 # Changes
 
+Version 1.0.0-alpha.18 (released 2020-10-11)
+
+- integrated latest changes of RSK
+- improved searchbar
+- displays the delivery method in the "My loans" section
+- updates location form opening hours
+- refactors extra fields of the documents
+- replaces Travis with GH actions
+- adds banner
+- adds more cypress tests for the frontsite
+- bug fixes
+
 Version 1.0.0-alpha.17 (released 2020-10-27)
 
 - removed contact email from config
