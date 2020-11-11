@@ -41,8 +41,9 @@ export default class SearchAggregationsMenu extends Component {
     return (
       <Dropdown
         item
+        upward={false}
         size="small"
-        pointing="top right"
+        pointing="top left"
         className="link item mobile-filters-dropdown"
         onChange={() => {}}
         disabled={_isEmpty(searchConfig.FILTERS)}

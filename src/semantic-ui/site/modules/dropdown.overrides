@@ -26,6 +26,16 @@ Dropdown Overrides - REACT-INVENIO-APP-ILS
     }
   }
 
+  .mobile-filters-dropdown {
+      margin-left: auto;
+  }
+
+  .ui.menu:not(.vertical) {
+    .mobile-filters-dropdown {
+      margin-right: 0 !important;
+    }
+  }
+
   .mobile-filters-dropdown.ui.dropdown.scrolling {
     .menu.transition.visible {
       max-height: 70vh;
