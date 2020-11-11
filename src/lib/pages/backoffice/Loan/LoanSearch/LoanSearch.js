@@ -2,7 +2,11 @@ import { responseRejectInterceptor } from '@api/base';
 import { loanApi } from '@api/loans';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
+import {
+  invenioConfig,
+  setReactSearchKitInitialQueryState,
+  setReactSearchKitDefaultSortingOnEmptyQueryString,
+} from '@config';
 import history from '@history';
 import { LoanListEntry } from '@modules/Loan/backoffice/LoanList/LoanListEntry';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
@@ -47,7 +51,9 @@ export class LoanSearch extends Component {
     ];
 
     const initialState = setReactSearchKitInitialQueryState('LOANS');
-
+    const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
+      'LOANS'
+    );
     return (
       <>
         <Header as="h2">Loans and requests</Header>
@@ -60,6 +66,7 @@ export class LoanSearch extends Component {
             searchApi={this.searchApi}
             history={history}
             initialQueryState={initialState}
+            defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
             <>
               <Container fluid className="spaced">

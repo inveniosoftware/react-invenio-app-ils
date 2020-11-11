@@ -2,7 +2,11 @@ import { responseRejectInterceptor } from '@api/base';
 import { documentRequestApi } from '@api/documentRequests';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
+import {
+  invenioConfig,
+  setReactSearchKitInitialQueryState,
+  setReactSearchKitDefaultSortingOnEmptyQueryString,
+} from '@config';
 import history from '@history';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
@@ -50,7 +54,9 @@ export class DocumentRequestSearch extends Component {
     const initialState = setReactSearchKitInitialQueryState(
       'DOCUMENT_REQUESTS'
     );
-
+    const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
+      'DOCUMENT_REQUESTS'
+    );
     return (
       <>
         <Header as="h2">Requests for new literature</Header>
@@ -63,6 +69,7 @@ export class DocumentRequestSearch extends Component {
             searchApi={this.searchApi}
             history={history}
             initialQueryState={initialState}
+            defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
             <>
               <Container fluid className="spaced">

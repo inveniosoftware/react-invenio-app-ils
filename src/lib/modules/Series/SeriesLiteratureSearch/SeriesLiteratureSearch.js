@@ -1,5 +1,9 @@
 import { literatureApi } from '@api/literature';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
+import {
+  invenioConfig,
+  setReactSearchKitInitialQueryState,
+  setReactSearchKitDefaultSortingOnEmptyQueryString,
+} from '@config';
 import history from '@history';
 import { LiteratureSearchOverridesMap } from '@modules/Literature/LiteratureSearchOverrides';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
@@ -42,7 +46,9 @@ export class SeriesLiteratureSearch extends React.Component {
     });
 
     const initialState = setReactSearchKitInitialQueryState('LITERATURE');
-
+    const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
+      'LITERATURE'
+    );
     return (
       <>
         <Divider horizontal>
@@ -59,6 +65,7 @@ export class SeriesLiteratureSearch extends React.Component {
             history={history}
             urlHandlerApi={{ enabled: false }}
             initialQueryState={initialState}
+            defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
             <>
               <Container className="series-details-search-container">

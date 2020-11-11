@@ -126,18 +126,24 @@ export const RECORDS_CONFIG = {
         },
         {
           order: 2,
+          sortBy: 'bestmatch',
+          sortOrder: 'asc',
+          text: 'Most relevant',
+        },
+        {
+          order: 3,
           sortBy: 'order_date',
           sortOrder: 'desc',
           text: 'Order date',
         },
         {
-          order: 3,
+          order: 4,
           sortBy: 'expected_delivery_date',
           sortOrder: 'desc',
           text: 'Expected delivery date',
         },
         {
-          order: 4,
+          order: 5,
           sortBy: 'grand_total',
           sortOrder: 'desc',
           text: `Total (${DEFAULT_CURRENCY})`,
@@ -154,18 +160,24 @@ export const RECORDS_CONFIG = {
       sort: [
         {
           order: 1,
+          sortBy: 'created',
+          sortOrder: 'desc',
+          text: 'Recently added',
+        },
+        {
+          order: 2,
           sortBy: 'bestmatch',
           sortOrder: 'asc',
           text: 'Most relevant',
         },
         {
-          order: 2,
+          order: 3,
           sortBy: 'name',
           sortOrder: 'asc',
           text: 'Name [A-Z]',
         },
         {
-          order: 2,
+          order: 4,
           sortBy: 'name',
           sortOrder: 'desc',
           text: 'Name [Z-A]',
@@ -446,18 +458,24 @@ export const RECORDS_CONFIG = {
         },
         {
           order: 2,
+          sortBy: 'bestmatch',
+          sortOrder: 'asc',
+          text: 'Most relevant',
+        },
+        {
+          order: 3,
           sortBy: 'request_date',
           sortOrder: 'desc',
           text: 'Request date',
         },
         {
-          order: 3,
+          order: 4,
           sortBy: 'expected_delivery_date',
           sortOrder: 'desc',
           text: 'Expected delivery date',
         },
         {
-          order: 4,
+          order: 5,
           sortBy: 'due_date',
           sortOrder: 'desc',
           text: 'Due date',
@@ -474,18 +492,24 @@ export const RECORDS_CONFIG = {
       sort: [
         {
           order: 1,
+          sortBy: 'created',
+          sortOrder: 'desc',
+          text: 'Recently added',
+        },
+        {
+          order: 2,
           sortBy: 'bestmatch',
           sortOrder: 'asc',
           text: 'Most relevant',
         },
         {
-          order: 2,
+          order: 3,
           sortBy: 'name',
           sortOrder: 'asc',
           text: 'Name [A-Z]',
         },
         {
-          order: 2,
+          order: 4,
           sortBy: 'name',
           sortOrder: 'desc',
           text: 'Name [Z-A]',
@@ -730,6 +754,18 @@ export const RECORDS_CONFIG = {
           sortBy: 'extensions',
           sortOrder: 'desc',
           text: 'Extensions count',
+        },
+        {
+          order: 6,
+          sortBy: 'created',
+          sortOrder: 'desc',
+          text: 'Recently added',
+        },
+        {
+          order: 7,
+          sortBy: 'bestmatch',
+          sortOrder: 'asc',
+          text: 'Most relevant',
         },
       ],
       defaultPage: 1,
