@@ -2,7 +2,11 @@ import { borrowingRequestApi } from '@api/ill';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
+import {
+  invenioConfig,
+  setReactSearchKitInitialQueryState,
+  setReactSearchKitDefaultSortingOnEmptyQueryString,
+} from '@config';
 import history from '@history';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
@@ -53,6 +57,9 @@ export class BorrowingRequestSearch extends Component {
     const initialState = setReactSearchKitInitialQueryState(
       'ILL_BORROWING_REQUESTS'
     );
+    const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
+      'ILL_BORROWING_REQUESTS'
+    );
 
     return (
       <>
@@ -66,6 +73,7 @@ export class BorrowingRequestSearch extends Component {
             searchApi={this.searchApi}
             history={history}
             initialQueryState={initialState}
+            defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
             <>
               <Container fluid className="spaced">

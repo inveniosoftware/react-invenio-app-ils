@@ -26,6 +26,12 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
     }
   >
     <Overridable(ReactSearchKit)
+      defaultSortingOnEmptyQueryString={
+        Object {
+          "sortBy": "created",
+          "sortOrder": "desc",
+        }
+      }
       history={
         Object {
           "action": "POP",
@@ -51,8 +57,8 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
           "layout": "grid",
           "page": 1,
           "size": 15,
-          "sortBy": "created",
-          "sortOrder": "desc",
+          "sortBy": "bestmatch",
+          "sortOrder": "asc",
         }
       }
       searchApi={

@@ -2,7 +2,11 @@ import { responseRejectInterceptor } from '@api/base';
 import { patronApi } from '@api/patrons';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
+import {
+  invenioConfig,
+  setReactSearchKitInitialQueryState,
+  setReactSearchKitDefaultSortingOnEmptyQueryString,
+} from '@config';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
@@ -46,7 +50,9 @@ export class PatronSearch extends Component {
     ];
 
     const initialState = setReactSearchKitInitialQueryState('PATRONS');
-
+    const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
+      'PATRONS'
+    );
     return (
       <>
         <Header as="h2">Patrons</Header>
@@ -59,6 +65,7 @@ export class PatronSearch extends Component {
           <ReactSearchKit
             searchApi={this.searchApi}
             initialQueryState={initialState}
+            defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
             <>
               <Container fluid className="spaced">

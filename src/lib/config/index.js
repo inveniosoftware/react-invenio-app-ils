@@ -2,6 +2,7 @@ import _find from 'lodash/find';
 import _get from 'lodash/get';
 import _map from 'lodash/map';
 import _merge from 'lodash/merge';
+import _isEmpty from 'lodash/isEmpty';
 import { APP_CONFIG, RECORDS_CONFIG } from './defaultConfig';
 
 class Config {
@@ -44,6 +45,13 @@ export const getSearchConfig = (modelName, extraOptions = {}) => {
   return _merge(result, extraOptions);
 };
 
+const findBySortTypeOrReturnFirst = (searchConfig, sortType) => {
+  const getCreatedSort = searchConfig.SORT_BY.find(
+    elem => elem.sortBy === sortType
+  );
+  return !_isEmpty(getCreatedSort) ? getCreatedSort : searchConfig.SORT_BY[0];
+};
+
 export const setReactSearchKitInitialQueryState = modelName => {
   const searchConfig = getSearchConfig(modelName);
   let initialState = {};
@@ -57,11 +65,22 @@ export const setReactSearchKitInitialQueryState = modelName => {
     initialState['size'] = searchConfig.DEFAULT_SIZE;
   }
   if (searchConfig.SORT_BY) {
-    const defaultSort = searchConfig.SORT_BY[0];
+    const defaultSort = findBySortTypeOrReturnFirst(searchConfig, 'bestmatch');
     initialState['sortBy'] = defaultSort.sortBy;
     initialState['sortOrder'] = defaultSort.sortOrder;
   }
   return initialState;
+};
+
+export const setReactSearchKitDefaultSortingOnEmptyQueryString = modelName => {
+  const searchConfig = getSearchConfig(modelName);
+  let sortObject = {};
+  if (searchConfig.SORT_BY) {
+    const defaultSort = findBySortTypeOrReturnFirst(searchConfig, 'created');
+    sortObject['sortBy'] = defaultSort.sortBy;
+    sortObject['sortOrder'] = defaultSort.sortOrder;
+  }
+  return sortObject;
 };
 
 export function getDisplayVal(configField, value) {

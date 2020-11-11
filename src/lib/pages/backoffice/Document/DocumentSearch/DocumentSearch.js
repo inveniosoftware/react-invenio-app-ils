@@ -2,7 +2,11 @@ import { documentApi } from '@api/documents';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
+import {
+  invenioConfig,
+  setReactSearchKitInitialQueryState,
+  setReactSearchKitDefaultSortingOnEmptyQueryString,
+} from '@config';
 import history from '@history';
 import { DocumentListEntry } from '@modules/Document/backoffice/DocumentList';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
@@ -49,6 +53,9 @@ export class DocumentSearch extends Component {
     ];
 
     const initialState = setReactSearchKitInitialQueryState('DOCUMENTS');
+    const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
+      'DOCUMENTS'
+    );
 
     return (
       <>
@@ -62,6 +69,7 @@ export class DocumentSearch extends Component {
             searchApi={this.searchApi}
             history={history}
             initialQueryState={initialState}
+            defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
             <>
               <Container fluid className="spaced">

@@ -1,6 +1,10 @@
 import { responseRejectInterceptor } from '@api/base';
 import { literatureApi } from '@api/literature/literature';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
+import {
+  invenioConfig,
+  setReactSearchKitInitialQueryState,
+  setReactSearchKitDefaultSortingOnEmptyQueryString,
+} from '@config';
 import history from '@history';
 import { LiteratureSearchOverridesMap } from '@modules/Literature/LiteratureSearchOverrides';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
@@ -41,6 +45,9 @@ class LiteratureSearch extends Component {
 
   render() {
     const initialState = setReactSearchKitInitialQueryState('LITERATURE');
+    const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
+      'LITERATURE'
+    );
 
     return (
       <OverridableContext.Provider
@@ -54,6 +61,7 @@ class LiteratureSearch extends Component {
           history={history}
           overridableId="LiteratureSearchOverridable"
           initialQueryState={initialState}
+          defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
         >
           <Overridable id="LiteratureSearch.layout">
             <>

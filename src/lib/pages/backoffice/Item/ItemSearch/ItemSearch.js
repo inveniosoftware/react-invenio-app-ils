@@ -4,7 +4,11 @@ import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { Error as IlsError } from '@components/Error';
 import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
+import {
+  invenioConfig,
+  setReactSearchKitInitialQueryState,
+  setReactSearchKitDefaultSortingOnEmptyQueryString,
+} from '@config';
 import history from '@history';
 import { ItemListEntry } from '@modules/Items/backoffice';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
@@ -64,7 +68,9 @@ export class ItemSearch extends Component {
     ];
 
     const initialState = setReactSearchKitInitialQueryState('ITEMS');
-
+    const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
+      'ITEMS'
+    );
     return (
       <>
         <Header as="h2">Physical copies</Header>
@@ -77,6 +83,7 @@ export class ItemSearch extends Component {
             searchApi={this.searchApi}
             history={history}
             initialQueryState={initialState}
+            defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
             <>
               <Container fluid className="spaced">

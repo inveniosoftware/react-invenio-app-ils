@@ -2,7 +2,11 @@ import { vendorApi } from '@api/acquisition';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
-import { invenioConfig, setReactSearchKitInitialQueryState } from '@config';
+import {
+  invenioConfig,
+  setReactSearchKitInitialQueryState,
+  setReactSearchKitDefaultSortingOnEmptyQueryString,
+} from '@config';
 import history from '@history';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
@@ -50,7 +54,9 @@ export class VendorSearch extends Component {
     ];
 
     const initialState = setReactSearchKitInitialQueryState('ACQ_VENDORS');
-
+    const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
+      'ACQ_VENDORS'
+    );
     return (
       <>
         <Header as="h2">Vendors</Header>
@@ -63,6 +69,7 @@ export class VendorSearch extends Component {
             searchApi={this.searchApi}
             history={history}
             initialQueryState={initialState}
+            defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
             <>
               <Container fluid className="spaced">
