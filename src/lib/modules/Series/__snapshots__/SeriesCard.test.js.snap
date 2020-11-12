@@ -54,26 +54,29 @@ exports[`SeriesCard tests should go to book details when clicking on a book 1`] 
         >
           <Overridable
             asItem={false}
-            id="LiteratureCover.placeholder"
+            id="LiteratureCover.layout"
             isLoading={false}
             isRestricted={false}
             linkTo={null}
             size="small"
             url={null}
           >
-            <Placeholder>
-              <div
-                className="ui placeholder"
-              >
-                <PlaceholderImage
-                  square={true}
-                >
-                  <div
-                    className="square image"
-                  />
-                </PlaceholderImage>
-              </div>
-            </Placeholder>
+            <Image
+              as="img"
+              centered={true}
+              disabled={false}
+              label={null}
+              onError={[Function]}
+              size="small"
+              src={null}
+              ui={true}
+            >
+              <img
+                className="ui small centered image"
+                onError={[Function]}
+                src={null}
+              />
+            </Image>
           </Overridable>
         </LiteratureCover>
       </Overridable(LiteratureCover)>
@@ -221,26 +224,29 @@ exports[`SeriesCard tests should render the SeriesCard 1`] = `
         >
           <Overridable
             asItem={false}
-            id="LiteratureCover.placeholder"
+            id="LiteratureCover.layout"
             isLoading={false}
             isRestricted={false}
             linkTo={null}
             size="small"
             url={null}
           >
-            <Placeholder>
-              <div
-                className="ui placeholder"
-              >
-                <PlaceholderImage
-                  square={true}
-                >
-                  <div
-                    className="square image"
-                  />
-                </PlaceholderImage>
-              </div>
-            </Placeholder>
+            <Image
+              as="img"
+              centered={true}
+              disabled={false}
+              label={null}
+              onError={[Function]}
+              size="small"
+              src={null}
+              ui={true}
+            >
+              <img
+                className="ui small centered image"
+                onError={[Function]}
+                src={null}
+              />
+            </Image>
           </Overridable>
         </LiteratureCover>
       </Overridable(LiteratureCover)>

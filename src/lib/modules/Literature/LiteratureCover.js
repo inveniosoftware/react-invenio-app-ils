@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import { Image, Item, Placeholder } from 'semantic-ui-react';
+import { Image, Item } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 class LiteratureCover extends Component {
@@ -28,7 +28,7 @@ class LiteratureCover extends Component {
     } = this.props;
     const Cmp = asItem ? Item.Image : Image;
     const link = linkTo ? { as: Link, to: linkTo } : {};
-    return url ? (
+    return (
       <Overridable id="LiteratureCover.layout" {...this.props}>
         {!isLoading && (
           <Cmp
@@ -42,12 +42,6 @@ class LiteratureCover extends Component {
             {...uiProps}
           />
         )}
-      </Overridable>
-    ) : (
-      <Overridable id="LiteratureCover.placeholder" {...this.props}>
-        <Placeholder>
-          <Placeholder.Image square />
-        </Placeholder>
       </Overridable>
     );
   }
