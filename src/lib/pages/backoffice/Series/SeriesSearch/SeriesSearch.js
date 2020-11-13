@@ -7,6 +7,7 @@ import {
   invenioConfig,
   setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitUrlHandler,
 } from '@config';
 import history from '@history';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
@@ -30,6 +31,8 @@ import { Button, Container, Grid, Header } from 'semantic-ui-react';
 import { SeriesListEntry } from './SeriesListEntry';
 
 export class SeriesSearch extends Component {
+  modelName = 'SERIES';
+
   searchApi = new InvenioSearchApi({
     axios: {
       url: seriesApi.searchBaseURL,
@@ -65,10 +68,11 @@ export class SeriesSearch extends Component {
       },
     ];
 
-    const initialState = setReactSearchKitInitialQueryState('SERIES');
+    const initialState = setReactSearchKitInitialQueryState(this.modelName);
     const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
-      'SERIES'
+      this.modelName
     );
+    const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
         <Header as="h2">Series</Header>
@@ -80,6 +84,7 @@ export class SeriesSearch extends Component {
           <ReactSearchKit
             searchApi={this.searchApi}
             history={history}
+            urlHandlerApi={urlHandler}
             initialQueryState={initialState}
             defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
@@ -96,7 +101,7 @@ export class SeriesSearch extends Component {
                   <ResultsLoader>
                     <Grid.Column width={3} className="search-aggregations">
                       <Header content="Filter by" />
-                      <SearchAggregationsCards modelName="SERIES" />
+                      <SearchAggregationsCards modelName={this.modelName} />
                     </Grid.Column>
                     <Grid.Column width={13}>
                       <Grid columns={2}>
@@ -115,7 +120,7 @@ export class SeriesSearch extends Component {
                       <EmptyResults />
                       <Error />
                       <SearchControls
-                        modelName="SERIES"
+                        modelName={this.modelName}
                         withLayoutSwitcher={false}
                       />
                       <ResultsList ListEntryElement={SeriesListEntry} />

@@ -7,6 +7,7 @@ import {
   invenioConfig,
   setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitUrlHandler,
 } from '@config';
 import history from '@history';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
@@ -30,6 +31,8 @@ import { Button, Container, Grid, Header } from 'semantic-ui-react';
 import EItemListEntry from './EItemListEntry';
 
 export class EItemSearch extends Component {
+  modelName = 'EITEMS';
+
   searchApi = new InvenioSearchApi({
     axios: {
       url: eItemApi.searchBaseURL,
@@ -69,10 +72,11 @@ export class EItemSearch extends Component {
       },
     ];
 
-    const initialState = setReactSearchKitInitialQueryState('EITEMS');
+    const initialState = setReactSearchKitInitialQueryState(this.modelName);
     const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
-      'EITEMS'
+      this.modelName
     );
+    const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
         <Header as="h2">Electronic items</Header>
@@ -84,6 +88,7 @@ export class EItemSearch extends Component {
           <ReactSearchKit
             searchApi={this.searchApi}
             history={history}
+            urlHandlerApi={urlHandler}
             initialQueryState={initialState}
             defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
@@ -100,7 +105,7 @@ export class EItemSearch extends Component {
                   <ResultsLoader>
                     <Grid.Column width={3} className="search-aggregations">
                       <Header content="Filter by" />
-                      <SearchAggregationsCards modelName="EITEMS" />
+                      <SearchAggregationsCards modelName={this.modelName} />
                     </Grid.Column>
                     <Grid.Column width={13}>
                       <Grid columns={2}>
@@ -118,7 +123,7 @@ export class EItemSearch extends Component {
                       </Grid>
                       <Error />
                       <SearchControls
-                        modelName="EITEMS"
+                        modelName={this.modelName}
                         withLayoutSwitcher={false}
                       />
                       <EmptyResults

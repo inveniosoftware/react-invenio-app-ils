@@ -6,6 +6,7 @@ import {
   invenioConfig,
   setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitUrlHandler,
 } from '@config';
 import history from '@history';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
@@ -27,6 +28,8 @@ import { Container, Grid, Header } from 'semantic-ui-react';
 import { DocumentRequestListEntry } from './DocumentRequestListEntry';
 
 export class DocumentRequestSearch extends Component {
+  modelName = 'DOCUMENT_REQUESTS';
+
   searchApi = new InvenioSearchApi({
     axios: {
       url: documentRequestApi.searchBaseURL,
@@ -51,12 +54,11 @@ export class DocumentRequestSearch extends Component {
       },
     ];
 
-    const initialState = setReactSearchKitInitialQueryState(
-      'DOCUMENT_REQUESTS'
-    );
+    const initialState = setReactSearchKitInitialQueryState(this.modelName);
     const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
-      'DOCUMENT_REQUESTS'
+      this.modelName
     );
+    const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
         <Header as="h2">Requests for new literature</Header>
@@ -68,6 +70,7 @@ export class DocumentRequestSearch extends Component {
           <ReactSearchKit
             searchApi={this.searchApi}
             history={history}
+            urlHandlerApi={urlHandler}
             initialQueryState={initialState}
             defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
@@ -84,7 +87,7 @@ export class DocumentRequestSearch extends Component {
                   <ResultsLoader>
                     <Grid.Column width={3} className="search-aggregations">
                       <Header content="Filter by" />
-                      <SearchAggregationsCards modelName="DOCUMENT_REQUESTS" />
+                      <SearchAggregationsCards modelName={this.modelName} />
                     </Grid.Column>
                     <Grid.Column width={13}>
                       <Grid columns={2}>
@@ -98,7 +101,7 @@ export class DocumentRequestSearch extends Component {
                       <EmptyResults />
                       <Error />
                       <SearchControls
-                        modelName="DOCUMENT_REQUESTS"
+                        modelName={this.modelName}
                         withLayoutSwitcher={false}
                       />
                       <ResultsList

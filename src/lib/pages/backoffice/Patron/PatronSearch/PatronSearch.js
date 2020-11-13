@@ -6,6 +6,7 @@ import {
   invenioConfig,
   setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitUrlHandler,
 } from '@config';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
@@ -26,6 +27,8 @@ import { Container, Grid, Header } from 'semantic-ui-react';
 import { PatronResultsList } from './PatronResultsList';
 
 export class PatronSearch extends Component {
+  modelName = 'PATRONS';
+
   searchApi = new InvenioSearchApi({
     axios: {
       url: patronApi.searchBaseURL,
@@ -49,10 +52,11 @@ export class PatronSearch extends Component {
       },
     ];
 
-    const initialState = setReactSearchKitInitialQueryState('PATRONS');
+    const initialState = setReactSearchKitInitialQueryState(this.modelName);
     const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
-      'PATRONS'
+      this.modelName
     );
+    const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
         <Header as="h2">Patrons</Header>
@@ -64,6 +68,7 @@ export class PatronSearch extends Component {
         >
           <ReactSearchKit
             searchApi={this.searchApi}
+            urlHandlerApi={urlHandler}
             initialQueryState={initialState}
             defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
@@ -80,7 +85,7 @@ export class PatronSearch extends Component {
                   <ResultsLoader>
                     <Grid.Column width={3}>
                       <Header content="Filter by" />
-                      <SearchAggregationsCards modelName="PATRONS" />
+                      <SearchAggregationsCards modelName={this.modelName} />
                     </Grid.Column>
                     <Grid.Column width={13}>
                       <Grid columns={1}>
@@ -92,7 +97,7 @@ export class PatronSearch extends Component {
                         <Grid.Column>
                           <Error />
                           <SearchControls
-                            modelName="PATRONS"
+                            modelName={this.modelName}
                             withLayoutSwitcher={false}
                           />
                           <ResultsList

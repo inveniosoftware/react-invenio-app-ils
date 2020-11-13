@@ -4,6 +4,7 @@ import {
   invenioConfig,
   setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitUrlHandler,
 } from '@config';
 import history from '@history';
 import { LiteratureSearchOverridesMap } from '@modules/Literature/LiteratureSearchOverrides';
@@ -27,6 +28,8 @@ import LiteratureSearchMobile from './LiteratureSearchMobile';
 import SearchMessage from './SearchMessage/SearchMessage';
 
 class LiteratureSearch extends Component {
+  modelName = 'LITERATURE';
+
   searchApi = new InvenioSearchApi({
     axios: {
       url: literatureApi.searchBaseURL,
@@ -44,10 +47,11 @@ class LiteratureSearch extends Component {
   };
 
   render() {
-    const initialState = setReactSearchKitInitialQueryState('LITERATURE');
+    const initialState = setReactSearchKitInitialQueryState(this.modelName);
     const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
-      'LITERATURE'
+      this.modelName
     );
+    const urlHandler = setReactSearchKitUrlHandler(this.modelName);
 
     return (
       <OverridableContext.Provider
@@ -59,6 +63,7 @@ class LiteratureSearch extends Component {
         <ReactSearchKit
           searchApi={this.searchApi}
           history={history}
+          urlHandlerApi={urlHandler}
           overridableId="LiteratureSearchOverridable"
           initialQueryState={initialState}
           defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
@@ -84,12 +89,12 @@ class LiteratureSearch extends Component {
                     <ResultsLoader renderElement={this.renderLoader}>
                       <Grid.Column width={3} className="search-aggregations">
                         <Header content="Filter by" />
-                        <SearchAggregationsCards modelName="LITERATURE" />
+                        <SearchAggregationsCards modelName={this.modelName} />
                       </Grid.Column>
                       <Grid.Column width={13} className="search-results">
                         <EmptyResults />
                         <Error />
-                        <SearchControls modelName="LITERATURE" />
+                        <SearchControls modelName={this.modelName} />
                         <ResultsMultiLayout />
                         <Container fluid className="search-results-footer">
                           <SearchFooter />
