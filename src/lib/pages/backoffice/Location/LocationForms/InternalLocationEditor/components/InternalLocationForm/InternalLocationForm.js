@@ -18,7 +18,7 @@ import { Header, Segment } from 'semantic-ui-react';
 import * as Yup from 'yup';
 
 const InternalLocationSchema = Yup.object().shape({
-  location: Yup.object('missing').shape({
+  location: Yup.object().shape({
     pid: Yup.string().required(),
   }),
 });
