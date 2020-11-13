@@ -6,6 +6,7 @@ import {
   invenioConfig,
   setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitUrlHandler,
 } from '@config';
 import history from '@history';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
@@ -27,6 +28,8 @@ import { Container, Grid, Header } from 'semantic-ui-react';
 import { LibraryListEntry } from './LibraryList';
 
 export class LibrarySearch extends Component {
+  modelName = 'ILL_LIBRARIES';
+
   searchApi = new InvenioSearchApi({
     axios: {
       url: libraryApi.searchBaseURL,
@@ -52,10 +55,11 @@ export class LibrarySearch extends Component {
         defaultValue: '"Geneva"',
       },
     ];
-    const initialState = setReactSearchKitInitialQueryState('ILL_LIBRARIES');
+    const initialState = setReactSearchKitInitialQueryState(this.modelName);
     const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
-      'ILL_LIBRARIES'
+      this.modelName
     );
+    const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
         <Header as="h2">Libraries</Header>
@@ -67,6 +71,7 @@ export class LibrarySearch extends Component {
           <ReactSearchKit
             searchApi={this.searchApi}
             history={history}
+            urlHandlerApi={urlHandler}
             initialQueryState={initialState}
             defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
@@ -106,7 +111,7 @@ export class LibrarySearch extends Component {
                         />
                         <Error />
                         <SearchControls
-                          modelName="ILL_LIBRARIES"
+                          modelName={this.modelName}
                           withLayoutSwitcher={false}
                         />
                         <ResultsList ListEntryElement={LibraryListEntry} />

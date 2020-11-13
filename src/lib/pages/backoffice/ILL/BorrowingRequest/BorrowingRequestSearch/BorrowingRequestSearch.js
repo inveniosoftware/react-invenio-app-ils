@@ -6,6 +6,7 @@ import {
   invenioConfig,
   setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitUrlHandler,
 } from '@config';
 import history from '@history';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
@@ -28,6 +29,8 @@ import { Container, Grid, Header } from 'semantic-ui-react';
 import BorrowingRequestListEntry from './BorrowingRequestList/BorrowingRequestListEntry';
 
 export class BorrowingRequestSearch extends Component {
+  modelName = 'ILL_BORROWING_REQUESTS';
+
   searchApi = new InvenioSearchApi({
     axios: {
       url: borrowingRequestApi.searchBaseURL,
@@ -54,12 +57,11 @@ export class BorrowingRequestSearch extends Component {
       },
     ];
 
-    const initialState = setReactSearchKitInitialQueryState(
-      'ILL_BORROWING_REQUESTS'
-    );
+    const initialState = setReactSearchKitInitialQueryState(this.modelName);
     const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
-      'ILL_BORROWING_REQUESTS'
+      this.modelName
     );
+    const urlHandler = setReactSearchKitUrlHandler(this.modelName);
 
     return (
       <>
@@ -72,6 +74,7 @@ export class BorrowingRequestSearch extends Component {
           <ReactSearchKit
             searchApi={this.searchApi}
             history={history}
+            urlHandlerApi={urlHandler}
             initialQueryState={initialState}
             defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
@@ -89,7 +92,7 @@ export class BorrowingRequestSearch extends Component {
                     <ResultsLoader>
                       <Grid.Column width={3} className="search-aggregations">
                         <Header content="Filter by" />
-                        <SearchAggregationsCards modelName="ILL_BORROWING_REQUESTS" />
+                        <SearchAggregationsCards modelName={this.modelName} />
                       </Grid.Column>
                       <Grid.Column width={13}>
                         <Grid columns={2}>
@@ -115,7 +118,7 @@ export class BorrowingRequestSearch extends Component {
                         />
                         <Error />
                         <SearchControls
-                          modelName="ILL_BORROWING_REQUESTS"
+                          modelName={this.modelName}
                           withLayoutSwitcher={false}
                         />
                         <ResultsList

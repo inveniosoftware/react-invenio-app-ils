@@ -6,6 +6,7 @@ import {
   invenioConfig,
   setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitUrlHandler,
 } from '@config';
 import history from '@history';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
@@ -41,6 +42,8 @@ class OrderResponseSerializer {
 }
 
 export class OrderSearch extends Component {
+  modelName = 'ACQ_ORDERS';
+
   searchApi = new InvenioSearchApi({
     axios: {
       url: orderApi.searchBaseURL,
@@ -70,10 +73,11 @@ export class OrderSearch extends Component {
       },
     ];
 
-    const initialState = setReactSearchKitInitialQueryState('ACQ_ORDERS');
+    const initialState = setReactSearchKitInitialQueryState(this.modelName);
     const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
-      'ACQ_ORDERS'
+      this.modelName
     );
+    const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
         <Header as="h2">Purchase Orders</Header>
@@ -85,6 +89,7 @@ export class OrderSearch extends Component {
           <ReactSearchKit
             searchApi={this.searchApi}
             history={history}
+            urlHandlerApi={urlHandler}
             initialQueryState={initialState}
             defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
@@ -102,7 +107,7 @@ export class OrderSearch extends Component {
                     <ResultsLoader>
                       <Grid.Column width={3} className="search-aggregations">
                         <Header content="Filter by" />
-                        <SearchAggregationsCards modelName="ACQ_ORDERS" />
+                        <SearchAggregationsCards modelName={this.modelName} />
                       </Grid.Column>
                       <Grid.Column width={13}>
                         <Grid columns={2}>
@@ -128,7 +133,7 @@ export class OrderSearch extends Component {
                         />
                         <Error />
                         <SearchControls
-                          modelName="ACQ_ORDERS"
+                          modelName={this.modelName}
                           withLayoutSwitcher={false}
                         />
                         <ResultsList ListEntryElement={OrderListEntry} />

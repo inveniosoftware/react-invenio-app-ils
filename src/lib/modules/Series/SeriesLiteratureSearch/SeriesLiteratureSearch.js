@@ -3,6 +3,7 @@ import {
   invenioConfig,
   setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitUrlHandler,
 } from '@config';
 import history from '@history';
 import { LiteratureSearchOverridesMap } from '@modules/Literature/LiteratureSearchOverrides';
@@ -27,6 +28,8 @@ import { qsBuilderForSeries } from './RequestSerializer';
 import { SeriesLiteratureSearchMobile } from './SeriesLiteratureSearchMobile';
 
 export class SeriesLiteratureSearch extends React.Component {
+  modelName = 'LITERATURE';
+
   renderLoader = () => {
     return (
       <Loader active size="huge" inline="centered" className="full-height" />
@@ -45,10 +48,11 @@ export class SeriesLiteratureSearch extends React.Component {
       },
     });
 
-    const initialState = setReactSearchKitInitialQueryState('LITERATURE');
+    const initialState = setReactSearchKitInitialQueryState(this.modelName);
     const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
-      'LITERATURE'
+      this.modelName
     );
+    const urlHandler = setReactSearchKitUrlHandler(this.modelName, false);
     return (
       <>
         <Divider horizontal>
@@ -63,7 +67,7 @@ export class SeriesLiteratureSearch extends React.Component {
           <ReactSearchKit
             searchApi={api}
             history={history}
-            urlHandlerApi={{ enabled: false }}
+            urlHandlerApi={urlHandler}
             initialQueryState={initialState}
             defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
@@ -81,11 +85,11 @@ export class SeriesLiteratureSearch extends React.Component {
                   <Error />
 
                   <Responsive minWidth={Responsive.onlyComputer.minWidth}>
-                    <SearchControls modelName="LITERATURE" />
+                    <SearchControls modelName={this.modelName} />
                     <ResultsMultiLayout />
                   </Responsive>
                   <Responsive maxWidth={Responsive.onlyTablet.maxWidth}>
-                    <SearchControlsMobile modelName="LITERATURE" />
+                    <SearchControlsMobile modelName={this.modelName} />
                   </Responsive>
                   <SearchFooter />
                 </ResultsLoader>

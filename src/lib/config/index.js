@@ -4,6 +4,7 @@ import _map from 'lodash/map';
 import _merge from 'lodash/merge';
 import _isEmpty from 'lodash/isEmpty';
 import { APP_CONFIG, RECORDS_CONFIG } from './defaultConfig';
+import { UrlParamValidator } from 'react-searchkit';
 
 class Config {
   constructor() {
@@ -81,6 +82,49 @@ export const setReactSearchKitDefaultSortingOnEmptyQueryString = modelName => {
     sortObject['sortOrder'] = defaultSort.sortOrder;
   }
   return sortObject;
+};
+
+class ILSUrlParamValidator {
+  baseParamValidator = new UrlParamValidator();
+
+  constructor(searchConfig) {
+    this.searchConfig = searchConfig;
+  }
+
+  isValid = (urlHandler, key, value) => {
+    if (!this.baseParamValidator.isValid(urlHandler, key, value)) {
+      return false;
+    } else {
+      switch (key) {
+        case 'sortBy':
+          return this.searchConfig.SORT_BY.some(opt => value === opt.sortBy);
+        case 'size':
+          return this.searchConfig.RESULTS_PER_PAGE.some(
+            opt => value === opt.value
+          );
+        default:
+          return true;
+      }
+    }
+  };
+}
+
+export const setReactSearchKitUrlHandler = (
+  modelName,
+  withUrlHandling = true
+) => {
+  return withUrlHandling
+    ? {
+        enabled: true,
+        overrideConfig: {
+          urlParamValidator: new ILSUrlParamValidator(
+            getSearchConfig(modelName)
+          ),
+        },
+      }
+    : {
+        enabled: false,
+      };
 };
 
 export function getDisplayVal(configField, value) {

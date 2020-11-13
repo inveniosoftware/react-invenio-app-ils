@@ -6,6 +6,7 @@ import {
   invenioConfig,
   setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitUrlHandler,
 } from '@config';
 import history from '@history';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
@@ -27,6 +28,8 @@ import { Container, Grid, Header } from 'semantic-ui-react';
 import VendorListEntry from './VendorListEntry';
 
 export class VendorSearch extends Component {
+  modelName = 'ACQ_VENDORS';
+
   searchApi = new InvenioSearchApi({
     axios: {
       url: vendorApi.searchBaseURL,
@@ -53,10 +56,11 @@ export class VendorSearch extends Component {
       },
     ];
 
-    const initialState = setReactSearchKitInitialQueryState('ACQ_VENDORS');
+    const initialState = setReactSearchKitInitialQueryState(this.modelName);
     const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
-      'ACQ_VENDORS'
+      this.modelName
     );
+    const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
         <Header as="h2">Vendors</Header>
@@ -68,6 +72,7 @@ export class VendorSearch extends Component {
           <ReactSearchKit
             searchApi={this.searchApi}
             history={history}
+            urlHandlerApi={urlHandler}
             initialQueryState={initialState}
             defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
@@ -107,7 +112,7 @@ export class VendorSearch extends Component {
                         />
                         <Error />
                         <SearchControls
-                          modelName="ACQ_VENDORS"
+                          modelName={this.modelName}
                           withLayoutSwitcher={false}
                         />
                         <ResultsList

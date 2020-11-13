@@ -6,6 +6,7 @@ import {
   invenioConfig,
   setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitUrlHandler,
 } from '@config';
 import history from '@history';
 import { LoanListEntry } from '@modules/Loan/backoffice/LoanList/LoanListEntry';
@@ -29,6 +30,8 @@ import { Container, Grid, Header } from 'semantic-ui-react';
 import { SearchDateRange } from './SearchDateRange';
 
 export class LoanSearch extends Component {
+  modelName = 'LOANS';
+
   searchApi = new InvenioSearchApi({
     axios: { url: loanApi.searchBaseURL, withCredentials: true },
     interceptors: {
@@ -50,10 +53,11 @@ export class LoanSearch extends Component {
       },
     ];
 
-    const initialState = setReactSearchKitInitialQueryState('LOANS');
+    const initialState = setReactSearchKitInitialQueryState(this.modelName);
     const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
-      'LOANS'
+      this.modelName
     );
+    const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
         <Header as="h2">Loans and requests</Header>
@@ -65,6 +69,7 @@ export class LoanSearch extends Component {
           <ReactSearchKit
             searchApi={this.searchApi}
             history={history}
+            urlHandlerApi={urlHandler}
             initialQueryState={initialState}
             defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
@@ -81,7 +86,7 @@ export class LoanSearch extends Component {
                   <ResultsLoader>
                     <Grid.Column width={3} className="search-aggregations">
                       <Header content="Filter by" />
-                      <SearchAggregationsCards modelName="LOANS" />
+                      <SearchAggregationsCards modelName={this.modelName} />
                       <SearchDateRange />
                     </Grid.Column>
                     <Grid.Column width={13}>
@@ -95,7 +100,7 @@ export class LoanSearch extends Component {
                       />
                       <Error />
                       <SearchControls
-                        modelName="LOANS"
+                        modelName={this.modelName}
                         withLayoutSwitcher={false}
                       />
                       <ResultsList ListEntryElement={LoanListEntry} />

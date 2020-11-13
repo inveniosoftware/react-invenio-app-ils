@@ -8,6 +8,7 @@ import {
   invenioConfig,
   setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitUrlHandler,
 } from '@config';
 import history from '@history';
 import { ItemListEntry } from '@modules/Items/backoffice';
@@ -30,6 +31,8 @@ import {
 import { Container, Grid, Header } from 'semantic-ui-react';
 
 export class ItemSearch extends Component {
+  modelName = 'ITEMS';
+
   searchApi = new InvenioSearchApi({
     axios: {
       url: itemApi.searchBaseURL,
@@ -67,10 +70,11 @@ export class ItemSearch extends Component {
       },
     ];
 
-    const initialState = setReactSearchKitInitialQueryState('ITEMS');
+    const initialState = setReactSearchKitInitialQueryState(this.modelName);
     const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
-      'ITEMS'
+      this.modelName
     );
+    const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
         <Header as="h2">Physical copies</Header>
@@ -82,6 +86,7 @@ export class ItemSearch extends Component {
           <ReactSearchKit
             searchApi={this.searchApi}
             history={history}
+            urlHandlerApi={urlHandler}
             initialQueryState={initialState}
             defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
           >
@@ -100,7 +105,7 @@ export class ItemSearch extends Component {
                     <ResultsLoader>
                       <Grid.Column width={3} className="search-aggregations">
                         <Header content="Filter by" />
-                        <SearchAggregationsCards modelName="ITEMS" />
+                        <SearchAggregationsCards modelName={this.modelName} />
                       </Grid.Column>
                       <Grid.Column width={13}>
                         <Grid columns={2}>
@@ -126,7 +131,7 @@ export class ItemSearch extends Component {
                         />
                         <Error />
                         <SearchControls
-                          modelName="ITEMS"
+                          modelName={this.modelName}
                           withLayoutSwitcher={false}
                         />
                         <ResultsList ListEntryElement={ItemListEntry} />
