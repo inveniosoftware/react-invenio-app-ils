@@ -114,7 +114,6 @@ export class OrderForm extends Component {
 
   render() {
     const { successSubmitMessage, data, title, pid, isCreate } = this.props;
-
     return (
       <BaseForm
         initialValues={data ? data.metadata : this.getDefaultValues()}

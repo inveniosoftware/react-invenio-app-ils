@@ -56,6 +56,7 @@ describe('Order request/response serializers tests', () => {
         notes: 'abc',
         order_date: stringDate,
         order_lines: orderLines,
+        resolved_order_lines: orderLines,
         payment: payment,
         status: 'RECEIVED',
         vendor_pid: '1',
@@ -82,6 +83,7 @@ describe('Order request/response serializers tests', () => {
         notes: 'abc',
         order_date: stringDate,
         order_lines: orderLines,
+        resolved_order_lines: orderLines,
         payment: {
           ...payment,
           debit_date: stringDate,

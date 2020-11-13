@@ -91,10 +91,14 @@ export class OrderStatistics extends React.Component {
     return (
       <Statistic>
         <Statistic.Label>Total</Statistic.Label>
-        <Statistic.Value>
-          {formatPrice(order.grand_total, false)}
-        </Statistic.Value>
-        <Statistic.Label>{order.grand_total.currency}</Statistic.Label>
+        {order.grand_total ? (
+          <>
+            <Statistic.Value>
+              {formatPrice(order.grand_total, false)}
+            </Statistic.Value>
+            <Statistic.Label>{order.grand_total.currency}</Statistic.Label>
+          </>
+        ) : null}
       </Statistic>
     );
   }
