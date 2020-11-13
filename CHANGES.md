@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.19 (released 2020-10-13)
+
+- fixes filters display on mobile version
+- removes cover loading image when no image present
+
 Version 1.0.0-alpha.18 (released 2020-10-11)
 
 - integrated latest changes of RSK
