@@ -1,7 +1,7 @@
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import React from 'react';
 import { Component } from 'react';
-import { Grid, Segment, Header } from 'semantic-ui-react';
+import { Grid, Header, List, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { BackOfficeRoutes } from '@routes/urls';
@@ -16,16 +16,18 @@ export default class ItemMetadata extends Component {
       { name: 'Barcode', value: itemDetails.metadata.barcode },
       { name: 'Medium', value: itemDetails.metadata.medium },
       {
-        name: 'ISBN value',
-        value: itemDetails.metadata.isbn
-          ? itemDetails.metadata.isbn.value
-          : null,
-      },
-      {
-        name: 'ISBN description',
-        value: itemDetails.metadata.isbn
-          ? itemDetails.metadata.isbn.description
-          : null,
+        name: 'ISBN',
+        value: (
+          <List>
+            {itemDetails.metadata.isbns &&
+              itemDetails.metadata.isbns.map(isbn => (
+                <List.Item key={isbn.value}>
+                  {isbn.value}
+                  {isbn.description && ` (${isbn.description})`}
+                </List.Item>
+              ))}
+          </List>
+        ),
       },
     ];
 

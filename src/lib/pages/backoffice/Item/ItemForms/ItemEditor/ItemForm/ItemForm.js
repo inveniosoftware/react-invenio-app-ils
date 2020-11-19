@@ -6,7 +6,9 @@ import {
   InternalLocationIcon,
 } from '@components/backoffice/icons';
 import { invenioConfig } from '@config';
+import { DeleteActionButton } from '@forms/components';
 import { AccordionField } from '@forms/core/AccordionField';
+import { ArrayField } from '@forms/core/ArrayField';
 import { BaseForm } from '@forms/core/BaseForm';
 import { GroupField } from '@forms/core/GroupField';
 import { PriceField } from '@forms/core/PriceField';
@@ -40,9 +42,11 @@ const ItemSchema = Yup.object().shape({
   }),
   status: Yup.string().required(),
   circulation_restriction: Yup.string().required(),
-  isbn: Yup.object().shape({
-    value: Yup.string().required(),
-  }),
+  isbns: Yup.array().of(
+    Yup.object().shape({
+      value: Yup.string().required(),
+    })
+  ),
 });
 
 export class ItemForm extends Component {
@@ -68,7 +72,7 @@ export class ItemForm extends Component {
       'internal_location_pid',
       'internal_location',
       'internal_notes',
-      'isbn',
+      'isbns',
       'legacy_id',
       'legacy_library_id',
       'medium',
@@ -180,14 +184,44 @@ export class ItemForm extends Component {
             label="ISBN"
             fieldPath="isbn"
             content={
-              <GroupField border widths="equal" fieldPath="isbn">
-                <StringField required label="Value" fieldPath="isbn.value" />
-                <TextField
-                  label="Description"
-                  fieldPath="isbn.description"
-                  rows={2}
-                />
-              </GroupField>
+              <ArrayField
+                fieldPath="isbns"
+                defaultNewValue={{
+                  value: undefined,
+                  description: undefined,
+                }}
+                renderArrayItem={({
+                  arrayPath,
+                  indexPath,
+                  ...arrayHelpers
+                }) => {
+                  const objectPath = `${arrayPath}.${indexPath}`;
+                  return (
+                    <GroupField
+                      border
+                      widths="equal"
+                      fieldPath={objectPath}
+                      action={
+                        <DeleteActionButton
+                          onClick={() => arrayHelpers.remove(indexPath)}
+                        />
+                      }
+                    >
+                      <StringField
+                        required
+                        label="Value"
+                        fieldPath={`${objectPath}.value`}
+                      />
+                      <TextField
+                        label="Description"
+                        fieldPath={`${objectPath}.description`}
+                        rows={2}
+                      />
+                    </GroupField>
+                  );
+                }}
+                addButtonLabel="Add new ISBN"
+              />
             }
           />
         </Segment>
