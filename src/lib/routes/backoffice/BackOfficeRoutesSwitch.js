@@ -43,6 +43,7 @@ import { VendorDetails } from '@pages/backoffice/Acquisition/Vendor/VendorDetail
 import { VendorEditor } from '@pages/backoffice/Acquisition/Vendor/VendorEditor';
 import { VendorSearch } from '@pages/backoffice/Acquisition/Vendor/VendorSearch';
 import CheckIn from '@pages/backoffice/Actions/CheckIn/CheckIn';
+import { Importer } from '@pages/backoffice/Importer';
 
 export default class BackOfficeRoutesSwitch extends Component {
   render() {
@@ -260,6 +261,7 @@ export default class BackOfficeRoutesSwitch extends Component {
         <Route exact path={BackOfficeRoutes.stats.home} component={Stats} />
         <Route exact path={BackOfficeRoutes.checkIn} component={CheckIn} />
         <Route exact path={BackOfficeRoutes.checkOut} component={CheckOut} />
+        <Route exact path={BackOfficeRoutes.importer} component={Importer} />
         <Route>
           <NotFound />
         </Route>

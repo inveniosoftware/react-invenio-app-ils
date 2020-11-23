@@ -913,4 +913,15 @@ export const RECORDS_CONFIG = {
       ill_payment_mode: 'ill_payment_mode',
     },
   },
+  IMPORTER: {
+    providers: [
+      { key: 'springer', text: 'Springer', value: 'springer' },
+      { key: 'cds', text: 'CDS', value: 'cds' },
+      { key: 'ebl', text: 'EBL', value: 'ebl' },
+    ],
+    modes: [
+      { key: 'create', text: 'Create', value: 'create' },
+      { key: 'delete', text: 'Delete', value: 'delete' },
+    ],
+  },
 };

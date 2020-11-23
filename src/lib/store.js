@@ -43,6 +43,7 @@ import { borrowingRequestLoanExtensionReducer } from '@pages/backoffice/ILL/Borr
 import { borrowingRequestPatronLoanCreateReducer } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/BorrowingRequestPatronLoan/reducer';
 import borrowingRequestDetailsReducer from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/state/reducer';
 import libraryDetailsReducer from '@pages/backoffice/ILL/Library/LibraryDetails/state/reducer';
+import ImporterReducer from '@pages/backoffice/Importer/state/reducer';
 import {
   itemDetailsReducer,
   itemPastLoansReducer,
@@ -127,6 +128,7 @@ const rootReducer = combineReducers({
   seriesMultipartMonographs: seriesMultipartMonographsReducer,
   seriesRelations: seriesRelationsReducer,
   itemDetails: itemDetailsReducer,
+  importer: ImporterReducer,
   itemPastLoans: itemPastLoansReducer,
   eitemDetails: eitemDetailsReducer,
   eitemDetailsFile: eitemDetailsFileReducer,

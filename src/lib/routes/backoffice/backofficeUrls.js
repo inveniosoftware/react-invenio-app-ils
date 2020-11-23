@@ -37,6 +37,7 @@ const BackOfficeRoutesList = {
   stats: {
     home: `${BackOfficeBase}/stats`,
   },
+  importer: `${BackOfficeBase}/importer`,
 };
 
 export const BackOfficeRouteGenerators = {
