@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Accordion, Header, Icon, Message } from 'semantic-ui-react';
+import { Accordion, Button, Header, Icon } from 'semantic-ui-react';
 import _isEmpty from 'lodash/isEmpty';
 import { http } from '@api/base';
 import _isEqual from 'lodash/isEqual';
@@ -13,36 +13,61 @@ import { DocumentIcon } from '@components/backoffice/icons';
 const importerURL = '/importer/check';
 
 export class ImportedDocuments extends React.Component {
-  state = {
-    activeIndex: -1,
-    importCompleted: false,
-    count: 0,
-    data: null,
-  };
-
-  componentDidMount() {
-    var idVar = setInterval(() => this.checkForData(idVar), 3000);
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeIndex: -1,
+      importCompleted: false,
+      data: null,
+      intervalId: null,
+      isLoading: true,
+    };
   }
 
+  componentDidMount() {
+    //TODO: Define how much we wait until the next call (currently 30 sec)
+    var idVar = setInterval(() => this.checkForData(idVar), 30000);
+    // eslint-disable-next-line react/no-did-mount-set-state
+    this.setState({ intervalId: idVar });
+    window.addEventListener('beforeunload', this.onCloseWarning);
+  }
+
+  componentWillUnmount = () => {
+    const { intervalId } = this.state;
+    window.removeEventListener('beforeunload', this.onCloseWarning);
+    clearInterval(intervalId);
+  };
+
+  onCloseWarning = e => {
+    const { isLoading } = this.state;
+    if (isLoading) {
+      var confirmationMessage =
+        'Importing in progress. Are you sure you want to leave?';
+
+      (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+      return confirmationMessage; //Webkit, Safari, Chrome
+    }
+  };
+
   checkForData = async idVar => {
-    const { importCompleted, count, data } = this.state;
+    const { importCompleted, data } = this.state;
 
     if (!importCompleted) {
       const response = await http.get(`${importerURL}`);
       const reports = _get(data, 'reports', []);
-
+      //TODO: After endpoint is updated check for status of task, instead of comparing data
       if (_isEqual(response.data.reports.length, reports.length)) {
         this.setState({
           importCompleted: true,
+          isLoading: false,
         });
       } else {
         this.setState({
-          count: count + 1,
           data: response.data,
+          isLoading: true,
         });
       }
     } else {
-      console.log('ClearInterval');
       clearInterval(idVar);
     }
   };
@@ -55,19 +80,9 @@ export class ImportedDocuments extends React.Component {
     this.setState({ activeIndex: newIndex });
   };
 
-  renderErrorMessage = error => {
-    let message = _get(error, 'response.data.message');
-    return (
-      <Message negative>
-        <Message.Header>Something went wrong</Message.Header>
-        <p>{message}</p>
-      </Message>
-    );
-  };
-
-  renderData = isLoading => {
-    const { count, data, activeIndex } = this.state;
-    console.log(data, count);
+  render() {
+    const { data, activeIndex, isLoading } = this.state;
+    const { cleanData } = this.props;
     return (
       <>
         {isLoading ? (
@@ -81,13 +96,23 @@ export class ImportedDocuments extends React.Component {
             Documents imported succesfully.
           </>
         )}
+        <div>
+          <Button
+            className="default-margin-top"
+            labelPosition="left"
+            loading={isLoading}
+            icon="left arrow"
+            onClick={() => cleanData()}
+            content="Import other files"
+          />
+        </div>
         {!_isEmpty(data) ? (
           <>
             <Header as="h2">Documents</Header>
             {!_isEmpty(data) &&
-              ' Imported ' + data.reports.length + ' documents'}
+              ' Imported ' + data.reports.length + ' documents.'}
 
-            <Accordion>
+            <Accordion styled fluid>
               {data.reports.map((elem, index) => {
                 const document = !_isEmpty(elem.created)
                   ? elem.created
@@ -123,23 +148,9 @@ export class ImportedDocuments extends React.Component {
         ) : null}
       </>
     );
-  };
-
-  render() {
-    const { data, error, isLoading } = this.props;
-    console.log('ImportedDocuments', data, error, isLoading);
-
-    return (
-      <>
-        {!_isEmpty(error) ? this.renderErrorMessage(error) : null}
-        {this.renderData(isLoading)}
-      </>
-    );
   }
 }
 
 ImportedDocuments.propTypes = {
-  data: PropTypes.object.isRequired,
-  error: PropTypes.object.isRequired,
-  isLoading: PropTypes.object.isRequired,
+  cleanData: PropTypes.func.isRequired,
 };

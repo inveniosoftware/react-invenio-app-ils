@@ -60,6 +60,7 @@ class Sidebar extends Component {
     const statsActive = activePath.includes(BackOfficeRoutes.stats.home);
     const checkInActive = activePath.includes(BackOfficeRoutes.checkIn);
     const checkOutActive = activePath.includes(BackOfficeRoutes.checkOut);
+    const importerActive = activePath.includes(BackOfficeRoutes.importer);
 
     return (
       <Overridable id="Sidebar.layout">
@@ -241,6 +242,19 @@ class Sidebar extends Component {
                       to={BackOfficeRoutes.stats.home}
                     >
                       Most Loaned
+                    </Menu.Item>
+                  </Menu.Menu>
+                </Menu.Item>
+
+                <Menu.Item>
+                  <Menu.Header>Importer</Menu.Header>
+                  <Menu.Menu>
+                    <Menu.Item
+                      as={importerActive ? '' : Link}
+                      active={importerActive}
+                      to={BackOfficeRoutes.importer}
+                    >
+                      Import
                     </Menu.Item>
                   </Menu.Menu>
                 </Menu.Item>

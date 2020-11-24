@@ -918,6 +918,7 @@ export const RECORDS_CONFIG = {
       { key: 'springer', text: 'Springer', value: 'springer' },
       { key: 'cds', text: 'CDS', value: 'cds' },
       { key: 'ebl', text: 'EBL', value: 'ebl' },
+      { key: 'safari', text: 'Safari', value: 'safari' },
     ],
     modes: [
       { key: 'create', text: 'Create', value: 'create' },

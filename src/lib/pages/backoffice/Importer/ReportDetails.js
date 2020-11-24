@@ -2,6 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Item, Grid } from 'semantic-ui-react';
 import _isEmpty from 'lodash/isEmpty';
+import { Link } from 'react-router-dom';
+import { BackOfficeRoutes } from '@routes/urls';
+
+const displayLinkToDocument = (e, index = 0) => {
+  return (
+    <Link to={BackOfficeRoutes.documentDetailsFor(e)} target="_blank">
+      {index > 0 ? ', ' + e : e}
+    </Link>
+  );
+};
+
+const displayLinkToEitem = (e, index = 0) => {
+  return (
+    <Link to={BackOfficeRoutes.eitemDetailsFor(e)} target="_blank">
+      {index > 0 ? ', ' + e : e}
+    </Link>
+  );
+};
 
 const ReportDetailsLeftColumn = ({ report }) => {
   return (
@@ -13,6 +31,20 @@ const ReportDetailsLeftColumn = ({ report }) => {
       <Item.Description>
         <label>Updated: </label>
         {!_isEmpty(report.updated) ? 'Yes' : 'No'}
+      </Item.Description>
+      <Item.Description>
+        <label>Series: </label>
+        {!_isEmpty(report.series)
+          ? report.series.map((e, index) => (
+              <Link
+                key={e.pid}
+                to={BackOfficeRoutes.seriesDetailsFor(e.pid)}
+                target="_blank"
+              >
+                {index > 0 ? ', ' + e.title : e.title}
+              </Link>
+            ))
+          : 'No'}
       </Item.Description>
     </>
   );
@@ -27,11 +59,23 @@ const ReportDetailsMiddleColumn = ({ report }) => {
     <>
       <Item.Description>
         <label>Ambiguous: </label>
-        {!_isEmpty(report.ambiguous) ? report.ambiguous.map(e => e) : 'No'}
+        {!_isEmpty(report.ambiguous)
+          ? report.ambiguous.map((e, index) => displayLinkToDocument(e, index))
+          : 'No'}
       </Item.Description>
       <Item.Description>
         <label>Fuzzy: </label>
-        {!_isEmpty(report.fuzzy) ? report.fuzzy.map(e => e) : 'No'}
+        {!_isEmpty(report.fuzzy)
+          ? report.fuzzy.map((e, index) => displayLinkToDocument(e, index))
+          : 'No'}
+      </Item.Description>
+      <Item.Description>
+        <label>Ambiguous eitems: </label>
+        {!_isEmpty(report.ambiguous_eitems_list)
+          ? report.ambiguous_eitems_list.map((e, index) =>
+              displayLinkToEitem(e, index)
+            )
+          : 'No'}
       </Item.Description>
     </>
   );
@@ -46,16 +90,22 @@ const ReportDetailsRightColumn = ({ report }) => {
     <>
       <Item.Description>
         <label>Created eitem: </label>
-        {!_isEmpty(report.created_eitem) ? report.created_eitem.pid : 'No'}
+        {!_isEmpty(report.created_eitem)
+          ? displayLinkToEitem(report.created_eitem.pid)
+          : 'No'}
       </Item.Description>
       <Item.Description>
         <label>Updated eitem: </label>
-        {!_isEmpty(report.updated_eitem) ? report.updated_eitem.pid : 'No'}
+        {!_isEmpty(report.updated_eitem)
+          ? displayLinkToEitem(report.updated_eitem.pid)
+          : 'No'}
       </Item.Description>
       <Item.Description>
         <label>Deleted eitems: </label>
         {!_isEmpty(report.deleted_eitem_list)
-          ? report.deleted_eitem_list.map(e => e)
+          ? report.deleted_eitem_list.map((e, index) =>
+              displayLinkToEitem(e, index)
+            )
           : 'No'}
       </Item.Description>
     </>

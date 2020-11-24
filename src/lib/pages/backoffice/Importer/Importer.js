@@ -7,10 +7,14 @@ import {
   Form,
   Modal,
   Icon,
+  Label,
+  Message,
 } from 'semantic-ui-react';
 import { invenioConfig } from '@config';
 import PropTypes from 'prop-types';
 import { ImportedDocuments } from './ImportedDocuments';
+import _isEmpty from 'lodash/isEmpty';
+import _get from 'lodash/get';
 
 export default class Importer extends Component {
   constructor(props) {
@@ -22,39 +26,83 @@ export default class Importer extends Component {
       file: null,
       openModal: false,
       postDone: false,
+      providerMissing: false,
+      modeMissing: false,
+      fileMissing: false,
     };
   }
 
-  handleChange = (e, { name, value }) => this.setState({ [name]: value });
+  handleChange = (e, { name, value }) =>
+    this.setState({
+      [name]: value,
+      providerMissing: false,
+      modeMissing: false,
+      fileMissing: false,
+    });
 
   handleSubmit = async () => {
     const { provider, mode, file } = this.state;
     const { postData } = this.props;
-    var formData = new FormData();
-    formData.append('provider', provider);
-    formData.append('mode', mode);
-    formData.append('file', file);
-    postData(formData);
+    if (!_isEmpty(provider) && !_isEmpty(mode) && file) {
+      var formData = new FormData();
+      formData.append('provider', provider);
+      formData.append('mode', mode);
+      formData.append('file', file);
+      postData(formData);
+      this.setState({
+        provider: '',
+        mode: '',
+        file: null,
+        postDone: true,
+      });
+    } else {
+      if (_isEmpty(provider)) {
+        this.setState({ providerMissing: true });
+      }
+      if (_isEmpty(mode)) {
+        this.setState({ modeMissing: true });
+      }
+      if (!file) {
+        this.setState({ fileMissing: true });
+      }
+    }
+  };
+
+  cleanData = () => {
     this.setState({
       provider: '',
       mode: '',
       file: null,
-      postDone: true,
+      openModal: false,
+      postDone: false,
+      providerMissing: false,
+      modeMissing: false,
+      fileMissing: false,
     });
   };
 
-  onChange = async event => {
+  onFileChange = async event => {
     const file = this.filesRef.current.files[0];
     this.setState({
       file: file,
+      providerMissing: false,
+      modeMissing: false,
+      fileMissing: false,
     });
   };
 
-  renderData = () => {
-    const { data, error, isLoading } = this.props;
+  renderErrorMessage = error => {
+    let message = _get(error, 'response.data.message');
     return (
-      <ImportedDocuments data={data} error={error} isLoading={isLoading} />
+      <Message negative>
+        <Message.Header>Something went wrong</Message.Header>
+        <p>{message}</p>
+      </Message>
     );
+  };
+
+  renderData = () => {
+    return <ImportedDocuments cleanData={this.cleanData} />;
   };
 
   renderModal = () => {
@@ -66,11 +114,11 @@ export default class Importer extends Component {
         onOpen={() => this.setState({ openModal: true })}
         open={openModal}
         size="small"
-        trigger={<Button primary>Submit</Button>}
+        trigger={<Button primary>Import</Button>}
       >
         <Header>Deleting Records</Header>
         <Modal.Content>
-          <p>Are you sure you want to delete these records?</p>
+          <p>Are you sure you want to delete records?</p>
         </Modal.Content>
         <Modal.Actions>
           <Button
@@ -94,7 +142,14 @@ export default class Importer extends Component {
   };
 
   renderForm = () => {
-    const { provider, mode, file } = this.state;
+    const {
+      provider,
+      mode,
+      file,
+      providerMissing,
+      modeMissing,
+      fileMissing,
+    } = this.state;
     return (
       <Form onSubmit={mode !== 'delete' ? this.handleSubmit : null}>
         <Segment>
@@ -109,6 +164,7 @@ export default class Importer extends Component {
               options={invenioConfig.IMPORTER.providers}
               onChange={this.handleChange}
               required
+              error={providerMissing ? 'Please enter a provider' : null}
             />
             <Form.Select
               placeholder="Select a mode ..."
@@ -120,6 +176,7 @@ export default class Importer extends Component {
               options={invenioConfig.IMPORTER.modes}
               onChange={this.handleChange}
               required
+              error={modeMissing ? 'Please enter a mode' : null}
             />
           </Form.Group>
           <Form.Group widths="equal">
@@ -139,16 +196,18 @@ export default class Importer extends Component {
                 id="upload"
                 type="file"
                 accept=".xml"
-                onChange={this.onChange}
+                onChange={this.onFileChange}
               />
-              {file ? file.name : 'No file selected.'}
+              <Label basic prompt={fileMissing} pointing="left">
+                {file ? file.name : 'No file selected.'}
+              </Label>
             </Form.Field>
           </Form.Group>
         </Segment>
         {mode === 'delete' ? (
           this.renderModal()
         ) : (
-          <Form.Button primary content="Submit" />
+          <Form.Button primary content="Import" />
         )}
       </Form>
     );
@@ -156,15 +215,19 @@ export default class Importer extends Component {
 
   render() {
     const { postDone } = this.state;
+    const { error } = this.props;
     return (
       <Container id="importer" className="spaced">
         <>
           <Header as="h1">Documents Importer</Header>
           <p>
-            {!postDone ? 'Fill in the form below to import documents.' : null}
+            {!postDone || !_isEmpty(error)
+              ? 'Fill in the form below to import documents.'
+              : null}
           </p>
         </>
-        {postDone ? this.renderData() : this.renderForm()}
+        {!_isEmpty(error) ? this.renderErrorMessage(error) : null}
+        {postDone && _isEmpty(error) ? this.renderData() : this.renderForm()}
       </Container>
     );
   }
@@ -172,7 +235,5 @@ export default class Importer extends Component {
 
 Importer.propTypes = {
   postData: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
-  isLoading: PropTypes.bool.isRequired,
   error: PropTypes.object.isRequired,
 };
