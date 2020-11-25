@@ -244,6 +244,11 @@ class Sidebar extends Component {
                     </Menu.Item>
                   </Menu.Menu>
                 </Menu.Item>
+
+                <Overridable
+                  activePath={activePath}
+                  id="Backoffice.Sidebar.CustomMenuItem"
+                />
               </Menu>
             </>
           </Overridable>
