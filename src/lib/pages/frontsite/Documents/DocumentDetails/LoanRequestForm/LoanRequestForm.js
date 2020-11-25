@@ -105,7 +105,7 @@ class LoanRequestForm extends Component {
           initialDate={toShortDate(initialDate)}
           minDate={toShortDate(today)}
           maxDate={toShortDate(max)}
-          placeholder="Pick the date"
+          placeholder="Choose the date"
           handleDateChange={this.handleRequestEndDateChange}
         />
       </Form.Field>

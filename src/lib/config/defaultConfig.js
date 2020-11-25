@@ -78,7 +78,7 @@ export const APP_CONFIG = {
     },
   },
   HOME_SEARCH_BAR_PLACEHOLDER:
-    'Search for books, series, articles, publications...',
+    'Search for books, ebooks, series, journals and standards.',
 };
 
 export const RECORDS_CONFIG = {

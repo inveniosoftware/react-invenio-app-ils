@@ -34,6 +34,7 @@ class DocumentRequestForm extends Component {
     this.state = {
       data: {
         title: getIn(props, 'location.state.queryString', ''),
+        medium: getIn(props, 'location.state.medium', ''),
       },
     };
   }
