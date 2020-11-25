@@ -12,7 +12,7 @@ const AccessUrl = ({ truncate, url }) => {
     <List.Item>
       <List.Icon name="linkify" />
       <List.Content>
-        <a href={url.value}>
+        <a href={url.login_required_url ? url.login_required_url : url.value}>
           {truncate ? _truncate(description, { length: 35 }) : description}{' '}
         </a>
       </List.Content>
@@ -24,7 +24,8 @@ AccessUrl.propTypes = {
   url: PropTypes.shape({
     description: PropTypes.string,
     value: PropTypes.string.isRequired,
-    open_access: PropTypes.bool,
+    login_required: PropTypes.bool,
+    login_required_url: PropTypes.string,
   }).isRequired,
   truncate: PropTypes.bool,
 };
