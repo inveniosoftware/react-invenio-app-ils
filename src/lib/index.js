@@ -26,7 +26,10 @@ export {
 export { DocumentCardGroup } from '@modules/Document/DocumentCardGroup';
 export { DocumentRequestForm } from '@pages/frontsite/DocumentRequests';
 export { Headline } from '@pages/frontsite/Home/Headline';
-export { FrontSiteRoutes } from '@routes/frontsite/frontsiteUrls';
+export { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
+export { http } from '@api/base';
+export { DocumentIcon } from '@components/backoffice/icons';
+export { BackOfficeBase } from '@routes/backoffice/backofficeUrls';
 export { default as InvenioILSApp } from './App';
 export { default as history } from './history';
 export { default as store } from './store';
