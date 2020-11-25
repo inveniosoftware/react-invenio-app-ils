@@ -14,7 +14,13 @@ export class UrlList extends Component {
         {urls.map((entry, idx) => (
           <List.Item key={idx}>
             <List.Content>
-              <a href={entry.value}>
+              <a
+                href={
+                  entry.login_required_url
+                    ? entry.login_required_url
+                    : entry.value
+                }
+              >
                 {entry.description || entry.value}{' '}
                 {entry.login_required && <Icon name="lock" />}
               </a>
