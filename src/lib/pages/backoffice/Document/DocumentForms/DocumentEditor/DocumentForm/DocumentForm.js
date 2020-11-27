@@ -114,7 +114,7 @@ export class DocumentForm extends Component {
       goTo(BackOfficeRoutes.eitemCreate, { document: doc });
     } else if (documentRequestPid) {
       await documentRequestApi.addDocument(documentRequestPid, {
-        document_pid: doc.pid,
+        document_pid: doc.metadata.pid,
       });
       goTo(BackOfficeRoutes.documentRequestDetailsFor(documentRequestPid));
     } else {

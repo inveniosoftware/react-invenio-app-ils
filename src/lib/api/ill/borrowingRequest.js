@@ -2,6 +2,7 @@ import { apiConfig, http } from '@api/base';
 import { prepareSumQuery } from '@api/utils';
 import { sessionManager } from '@authentication/services/SessionManager';
 import { borrowingRequestSerializer as serializer } from './serializers';
+import { invenioConfig } from '@config';
 
 const borrowingRequestUrl = '/ill/borrowing-requests/';
 
@@ -76,6 +77,22 @@ const list = async query => {
   return response;
 };
 
+const listWithPendingStatus = async query => {
+  const searchCriteria = borrowingRequestApi
+    .query()
+    .withState(
+      `(${invenioConfig.ILL_BORROWING_REQUESTS.pendingStatuses.join(' OR ')})`
+    )
+    .withQuery(query)
+    .qs();
+  const response = await http.get(`${borrowingRequestUrl}?q=${searchCriteria}`);
+  response.data.total = response.data.hits.total;
+  response.data.hits = response.data.hits.hits.map(hit =>
+    serializer.fromJSON(hit)
+  );
+  return response;
+};
+
 const count = async query => {
   const response = await http.get(`${borrowingRequestUrl}?q=${query}`);
   response.data = response.data.hits.total;
@@ -88,6 +105,7 @@ class QueryBuilder {
     this.patronQuery = [];
     this.libraryQuery = [];
     this.libraryPidQuery = [];
+    this.query = [];
     this.size = '';
     this.sortByQuery = '';
     this.stateQuery = [];
@@ -135,6 +153,14 @@ class QueryBuilder {
     return this;
   }
 
+  withQuery(query) {
+    if (!query) {
+      throw TypeError('Query argument missing');
+    }
+    this.query.push(`${query}`);
+    return this;
+  }
+
   sortBy(order = 'bestmatch') {
     this.sortByQuery = `&sort=${order}`;
     return this;
@@ -144,6 +170,7 @@ class QueryBuilder {
     const searchCriteria = this.patronQuery
       .concat(this.libraryQuery, this.libraryPidQuery)
       .concat(this.stateQuery)
+      .concat(this.query)
       .join(' AND ');
     return `(${searchCriteria})${this.sortByQuery}${this.size}${this.page}`;
   }
@@ -158,6 +185,7 @@ export const borrowingRequestApi = {
   create: create,
   get: get,
   list: list,
+  listWithPendingStatus: listWithPendingStatus,
   update: update,
   createLoan: createLoan,
   requestExtension: requestExtension,
