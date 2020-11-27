@@ -37,7 +37,7 @@ export class DocumentEditor extends Component {
     const request = _get(this.props, 'location.state', null);
     if (!request) return null;
     return {
-      documentRequestPid: request.pid,
+      documentRequestPid: request.metadata.pid,
       metadata: {
         title: _get(request, 'metadata.title'),
         // NOTE: serializing authors for the document form

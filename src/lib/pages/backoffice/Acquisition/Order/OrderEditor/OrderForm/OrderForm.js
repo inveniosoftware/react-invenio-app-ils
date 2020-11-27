@@ -13,6 +13,10 @@ import { OrderInfo } from './OrderInfo';
 import { OrderLines } from './OrderLines';
 import { Payment } from './Payment';
 import * as Yup from 'yup';
+import _get from 'lodash/get';
+import { documentRequestApi } from '@api/documentRequests';
+import { BackOfficeRoutes } from '@routes/urls';
+import { invenioConfig } from '@config';
 
 const orderSubmitSerializer = values => {
   const submitValues = { ...values };
@@ -100,10 +104,25 @@ export class OrderForm extends Component {
     return orderApi.update(pid, data);
   };
 
-  successCallback = response => {
-    goTo(
-      AcquisitionRoutes.orderDetailsFor(getIn(response, 'data.metadata.pid'))
+  successCallback = async response => {
+    const order = getIn(response, 'data');
+    const documentRequestPid = _get(
+      this.props,
+      'data.documentRequestPid',
+      null
     );
+    if (documentRequestPid) {
+      await documentRequestApi.addProvider(documentRequestPid, {
+        physical_item_provider: {
+          pid: order.metadata.pid,
+          pid_type:
+            invenioConfig.DOCUMENT_REQUESTS.physicalItemProviders.acq.pid_type,
+        },
+      });
+      goTo(BackOfficeRoutes.documentRequestDetailsFor(documentRequestPid));
+    } else {
+      goTo(AcquisitionRoutes.orderDetailsFor(order.metadata.pid));
+    }
   };
 
   getDefaultValues() {

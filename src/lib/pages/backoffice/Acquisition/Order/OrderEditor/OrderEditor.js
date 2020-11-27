@@ -65,7 +65,7 @@ export class OrderEditor extends Component {
     const request = _get(this.props, 'location.state', null);
     if (!request) return null;
     return {
-      documentRequestPid: request.pid,
+      documentRequestPid: request.metadata.pid,
       metadata: {
         order_lines: [
           {

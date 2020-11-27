@@ -9,6 +9,10 @@ import React, { Component } from 'react';
 import { Header, Segment } from 'semantic-ui-react';
 import { OrderInfo } from './OrderInfo';
 import { Payment } from './Payment';
+import _get from 'lodash/get';
+import { documentRequestApi } from '@api/documentRequests';
+import { BackOfficeRoutes } from '@routes/urls';
+import { invenioConfig } from '@config';
 
 const submitSerializer = values => {
   const submitValues = { ...values };
@@ -34,9 +38,25 @@ export class BorrowingRequestForm extends Component {
     return borrowingRequestApi.create(data);
   };
 
-  successCallback = (response, submitButton) => {
+  successCallback = async (response, submitButton) => {
     const borrowingRequest = getIn(response, 'data');
-    goTo(ILLRoutes.borrowingRequestDetailsFor(borrowingRequest.metadata.pid));
+    const documentRequestPid = _get(
+      this.props,
+      'data.documentRequestPid',
+      null
+    );
+    if (documentRequestPid) {
+      await documentRequestApi.addProvider(documentRequestPid, {
+        physical_item_provider: {
+          pid: borrowingRequest.metadata.pid,
+          pid_type:
+            invenioConfig.DOCUMENT_REQUESTS.physicalItemProviders.ill.pid_type,
+        },
+      });
+      goTo(BackOfficeRoutes.documentRequestDetailsFor(documentRequestPid));
+    } else {
+      goTo(ILLRoutes.borrowingRequestDetailsFor(borrowingRequest.metadata.pid));
+    }
   };
 
   render() {

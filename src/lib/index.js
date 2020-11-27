@@ -33,6 +33,5 @@ export { BackOfficeBase } from '@routes/backoffice/backofficeUrls';
 export { default as InvenioILSApp } from './App';
 export { default as history } from './history';
 export { default as store } from './store';
-export { http } from '@api/base';
 export { NotFound } from '@components/HttpErrors';
 export { withCancel, recordToPidType } from '@api/utils';

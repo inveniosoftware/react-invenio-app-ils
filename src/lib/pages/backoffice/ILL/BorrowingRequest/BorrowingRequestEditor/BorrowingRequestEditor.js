@@ -36,6 +36,7 @@ export class BorrowingRequestEditor extends Component {
     } = this.props;
     if (!request) return null;
     return {
+      documentRequestPid: request.metadata.pid,
       metadata: {
         title: _get(request, 'metadata.title'),
         patron: request.metadata.patron,

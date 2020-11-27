@@ -85,6 +85,7 @@ export const RECORDS_CONFIG = {
   ACQ_ORDERS: {
     maxShowOrderLines: 3,
     orderedValidStatuses: ['PENDING', 'ORDERED', 'RECEIVED'],
+    pendingStatuses: ['PENDING'],
     orderedStatuses: ['ORDERED'],
     statuses: ACQ_ORDER_STATUSES,
     search: {

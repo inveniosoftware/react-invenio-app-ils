@@ -1,6 +1,7 @@
 import { http, apiConfig } from '@api/base';
 import { prepareSumQuery } from '@api/utils';
 import { orderSerializer as serializer } from './serializers';
+import { invenioConfig } from '@config';
 
 const orderURL = '/acquisition/orders/';
 
@@ -31,6 +32,20 @@ const list = async query => {
   return response;
 };
 
+const listWithPendingStatus = async query => {
+  const searchCriteria = orderApi
+    .query()
+    .withState(`(${invenioConfig.ACQ_ORDERS.pendingStatuses.join(' OR ')})`)
+    .withQuery(query)
+    .qs();
+  const response = await http.get(`${orderURL}?q=${searchCriteria}`);
+  response.data.total = response.data.hits.total;
+  response.data.hits = response.data.hits.hits.map(hit =>
+    serializer.fromJSON(hit)
+  );
+  return response;
+};
+
 const count = async query => {
   const response = await http.get(`${orderURL}?q=${query}`);
   response.data = response.data.hits.total;
@@ -43,6 +58,7 @@ class QueryBuilder {
     this.recipientQuery = [];
     this.vendorQuery = [];
     this.vendorPidQuery = [];
+    this.query = [];
     this.sortByQuery = '';
     this.stateQuery = [];
   }
@@ -87,6 +103,14 @@ class QueryBuilder {
     return this;
   }
 
+  withQuery(query) {
+    if (!query) {
+      throw TypeError('Query argument missing');
+    }
+    this.query.push(`${query}`);
+    return this;
+  }
+
   sortBy(order = 'bestmatch') {
     this.sortByQuery = `&sort=${order}`;
     return this;
@@ -96,6 +120,7 @@ class QueryBuilder {
     const searchCriteria = this.patronQuery
       .concat(this.recipientQuery, this.vendorQuery, this.vendorPidQuery)
       .concat(this.stateQuery)
+      .concat(this.query)
       .join(' AND ');
     return `${searchCriteria}${this.sortByQuery}`;
   }
@@ -111,6 +136,7 @@ export const orderApi = {
   create: create,
   update: update,
   list: list,
+  listWithPendingStatus: listWithPendingStatus,
   count: count,
   query: queryBuilder,
   serializer: serializer,
