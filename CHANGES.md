@@ -1,5 +1,12 @@
 # Changes
 
+Version 1.0.0-alpha.20 (released 2020-11-30)
+
+- bugfix in the literature request workflow
+- fix login required url for e-items
+- add overridable routes for frontsite and backoffice
+- add validation for document pid in item form
+
 Version 1.0.0-alpha.19 (released 2020-10-13)
 
 - fixes filters display on mobile version
