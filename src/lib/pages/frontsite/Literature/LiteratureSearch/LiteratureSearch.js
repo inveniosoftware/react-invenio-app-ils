@@ -1,5 +1,6 @@
 import { responseRejectInterceptor } from '@api/base';
 import { literatureApi } from '@api/literature/literature';
+import { Media } from '@components/Media';
 import {
   invenioConfig,
   setReactSearchKitInitialQueryState,
@@ -23,7 +24,7 @@ import {
   ResultsMultiLayout,
   SearchBar,
 } from 'react-searchkit';
-import { Container, Grid, Header, Loader, Responsive } from 'semantic-ui-react';
+import { Container, Grid, Header, Loader } from 'semantic-ui-react';
 import LiteratureSearchMobile from './LiteratureSearchMobile';
 import SearchMessage from './SearchMessage/SearchMessage';
 
@@ -78,7 +79,7 @@ class LiteratureSearch extends Component {
                   />
                 </Container>
               </Container>
-              <Responsive minWidth={Responsive.onlyComputer.minWidth}>
+              <Media greaterThanOrEqual="computer">
                 <Container fluid className="fs-search-body">
                   <Grid
                     columns={2}
@@ -106,10 +107,10 @@ class LiteratureSearch extends Component {
                     </ResultsLoader>
                   </Grid>
                 </Container>
-              </Responsive>
-              <Responsive maxWidth={Responsive.onlyTablet.maxWidth}>
+              </Media>
+              <Media lessThan="computer">
                 <LiteratureSearchMobile />
-              </Responsive>
+              </Media>
             </>
           </Overridable>
         </ReactSearchKit>

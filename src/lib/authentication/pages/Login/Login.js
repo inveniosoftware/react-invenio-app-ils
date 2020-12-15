@@ -1,5 +1,6 @@
 import { parseParams } from '@authentication/utils';
 import { EnvironmentLabel } from '@components/EnvironmentLabel';
+import { Media } from '@components/Media';
 import { Notifications } from '@components/Notifications';
 import { invenioConfig } from '@config';
 import { goTo } from '@history';
@@ -16,7 +17,6 @@ import {
   Icon,
   Image,
   Popup,
-  Responsive,
   Segment,
 } from 'semantic-ui-react';
 import { LoginWithLocalAccount } from './LoginWithLocalAccount';
@@ -118,10 +118,10 @@ const RightCol = ({ hasError, errorMessage, errorHeader }) => (
         <Container fluid>
           <p>Forgot your password? Recover {notImplementedPopup}.</p>
         </Container>
-        <Responsive {...Responsive.onlyMobile}>
+        <Media at="mobile">
           <Divider />
           <SignUp />
-        </Responsive>
+        </Media>
       </>
     )}
   </Grid.Column>

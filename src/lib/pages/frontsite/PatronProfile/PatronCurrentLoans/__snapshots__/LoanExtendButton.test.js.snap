@@ -35,7 +35,6 @@ exports[`Extend loan button tests should match snapshot 1`] = `
     January 25."
     disabled={false}
     eventsEnabled={true}
-    offset={0}
     on={
       Array [
         "click",
@@ -43,6 +42,7 @@ exports[`Extend loan button tests should match snapshot 1`] = `
       ]
     }
     pinned={false}
+    popperModifiers={Array []}
     position="top right"
     trigger={
       <Icon

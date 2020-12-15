@@ -1,20 +1,14 @@
 import { RedirectToLoginButton } from '@authentication/components/RedirectToLoginButton';
 import { authenticationService } from '@authentication/services/AuthenticationService';
 import { EnvironmentLabel } from '@components/EnvironmentLabel';
+import { Media } from '@components/Media';
 import { invenioConfig } from '@config';
 import { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
-import {
-  Container,
-  Dropdown,
-  Image,
-  Menu,
-  Icon,
-  Responsive,
-} from 'semantic-ui-react';
+import { Container, Dropdown, Image, Menu, Icon } from 'semantic-ui-react';
 
 class ILSMenu extends Component {
   logout = async () => {
@@ -51,16 +45,16 @@ class ILSMenu extends Component {
 
     return (
       <>
-        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+        <Media greaterThanOrEqual="tablet">
           <Dropdown item text={userMenuText} icon="caret down">
             {dropdownEntries}
           </Dropdown>
-        </Responsive>
-        <Responsive {...Responsive.onlyMobile}>
+        </Media>
+        <Media at="mobile">
           <Dropdown item text={userMenuText} icon="bars">
             {dropdownEntries}
           </Dropdown>
-        </Responsive>
+        </Media>
       </>
     );
   };
@@ -84,7 +78,7 @@ class ILSMenu extends Component {
     return (
       <Overridable id="ILSMenu.layout" {...this.props}>
         <>
-          <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+          <Media greaterThanOrEqual="tablet">
             <Menu
               stackable
               borderless
@@ -128,8 +122,8 @@ class ILSMenu extends Component {
                 </Menu.Menu>
               </Container>
             </Menu>
-          </Responsive>
-          <Responsive {...Responsive.onlyMobile}>
+          </Media>
+          <Media at="mobile">
             <Menu
               borderless
               inverted
@@ -172,7 +166,7 @@ class ILSMenu extends Component {
                 </Menu.Menu>
               </Container>
             </Menu>
-          </Responsive>
+          </Media>
         </>
       </Overridable>
     );

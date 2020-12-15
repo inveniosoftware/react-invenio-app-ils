@@ -70,7 +70,7 @@ export default class RelationModal extends Component {
         size="large"
         closeIcon
         trigger={
-          <>
+          <div>
             <Button
               disabled={disabled}
               className="edit-related"
@@ -88,7 +88,7 @@ export default class RelationModal extends Component {
                 trigger={<Icon size="large" name="info circle" color="grey" />}
               />
             )}
-          </>
+          </div>
         }
         open={visible}
         centered

@@ -1,10 +1,11 @@
 import { recordToPidType } from '@api/utils';
+import { Media } from '@components/Media';
 import { DocumentCard } from '@modules/Document/DocumentCard';
 import { SeriesCard } from '@modules/Series/SeriesCard';
 import { findVolume } from '@modules/Series/utils';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Card, Responsive } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 
 export const LiteratureSearchResultsGrid = ({
   results,
@@ -21,16 +22,16 @@ export const LiteratureSearchResultsGrid = ({
   });
   return (
     <>
-      <Responsive minWidth={Responsive.onlyLargeScreen.minWidth}>
+      <Media greaterThanOrEqual="largeScreen">
         <Card.Group doubling stackable itemsPerRow={5}>
           {cards}
         </Card.Group>
-      </Responsive>
-      <Responsive maxWidth={Responsive.onlyLargeScreen.minWidth - 1}>
+      </Media>
+      <Media lessThan="largeScreen">
         <Card.Group doubling stackable itemsPerRow={3}>
           {cards}
         </Card.Group>
-      </Responsive>
+      </Media>
     </>
   );
 };
