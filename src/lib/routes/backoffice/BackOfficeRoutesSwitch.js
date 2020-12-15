@@ -261,10 +261,12 @@ export default class BackOfficeRoutesSwitch extends Component {
         <Route exact path={BackOfficeRoutes.stats.home} component={Stats} />
         <Route exact path={BackOfficeRoutes.checkIn} component={CheckIn} />
         <Route exact path={BackOfficeRoutes.checkOut} component={CheckOut} />
-        <Overridable id="Backoffice.CustomRoute" />
-        <Route>
-          <NotFound />
-        </Route>
+
+        <Overridable id="BackOfficeRoutesSwitch.CustomRoute">
+          <Route>
+            <NotFound />
+          </Route>
+        </Overridable>
       </Switch>
     );
   }

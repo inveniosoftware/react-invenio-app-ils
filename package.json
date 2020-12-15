@@ -116,7 +116,6 @@
     "name": "CERN",
     "email": "info@inveniosoftware.org"
   },
-  "homepage": "https://github.com/inveniosoftware/react-invenio-app-ils/",
   "bugs": {
     "url": "https://github.com/inveniosoftware/react-invenio-app-ils/issues"
   },

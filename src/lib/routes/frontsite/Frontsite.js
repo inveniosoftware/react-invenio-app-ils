@@ -20,7 +20,7 @@ import { Route, Switch } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 import Overridable from 'react-overridable';
 
-export class FrontSite extends Component {
+export default class FrontSite extends Component {
   renderCustomStaticPages = () => {
     const { customStaticPages } = this.props;
     customStaticPages();
@@ -76,10 +76,11 @@ export class FrontSite extends Component {
             ))}
             {this.renderCustomStaticPages()}
 
-            <Overridable id="Frontsite.route" {...this.props} />
-            <Route>
-              <NotFound />
-            </Route>
+            <Overridable id="FrontSite.CustomRoute">
+              <Route>
+                <NotFound />
+              </Route>
+            </Overridable>
           </Switch>
         </Container>
         <ILSFooter />
@@ -95,5 +96,3 @@ FrontSite.propTypes = {
 FrontSite.defaultProps = {
   customStaticPages: () => {},
 };
-
-export default Overridable.component('Frontsite', FrontSite);
