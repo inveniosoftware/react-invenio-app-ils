@@ -2,9 +2,9 @@
 
 exports[`SearchControls tests should load the SearchControls component 1`] = `
 <Fragment>
-  <Responsive
-    getWidth={[Function]}
-    minWidth={992}
+  <Media
+    className=""
+    greaterThanOrEqual="computer"
   >
     <Grid
       className="search-controls"
@@ -43,12 +43,12 @@ exports[`SearchControls tests should load the SearchControls component 1`] = `
         largeScreen={6}
         textAlign="center"
       >
-        <Responsive
-          getWidth={[Function]}
-          minWidth={1200}
+        <Media
+          className=""
+          greaterThanOrEqual="largeScreen"
         >
           <SearchPagination />
-        </Responsive>
+        </Media>
       </GridColumn>
       <GridColumn
         className="search-sort-options-column"
@@ -65,10 +65,19 @@ exports[`SearchControls tests should load the SearchControls component 1`] = `
         </div>
       </GridColumn>
     </Grid>
-  </Responsive>
-  <Responsive
-    getWidth={[Function]}
-    maxWidth={1199}
+  </Media>
+  <Media
+    className=""
+    lessThan="computer"
+  >
+    <SearchControlsMobile
+      modelName="DOCUMENTS"
+      stickyRef={null}
+    />
+  </Media>
+  <Media
+    className=""
+    lessThan="largeScreen"
   >
     <Grid>
       <GridColumn
@@ -78,15 +87,6 @@ exports[`SearchControls tests should load the SearchControls component 1`] = `
         <SearchPagination />
       </GridColumn>
     </Grid>
-  </Responsive>
-  <Responsive
-    getWidth={[Function]}
-    maxWidth={991}
-  >
-    <SearchControlsMobile
-      modelName="DOCUMENTS"
-      stickyRef={null}
-    />
-  </Responsive>
+  </Media>
 </Fragment>
 `;

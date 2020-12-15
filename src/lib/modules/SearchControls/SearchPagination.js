@@ -1,15 +1,15 @@
+import { Media } from '@components/Media';
 import { Pagination } from 'react-searchkit';
 import React, { Component } from 'react';
-import { Responsive } from 'semantic-ui-react';
 
 export default class SearchPagination extends Component {
   render() {
     return (
       <>
-        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+        <Media greaterThanOrEqual="tablet">
           <Pagination />
-        </Responsive>
-        <Responsive {...Responsive.onlyMobile}>
+        </Media>
+        <Media at="mobile">
           <Pagination
             options={{
               boundaryRangeCount: 0,
@@ -18,7 +18,7 @@ export default class SearchPagination extends Component {
               showNext: true,
             }}
           />
-        </Responsive>
+        </Media>
       </>
     );
   }

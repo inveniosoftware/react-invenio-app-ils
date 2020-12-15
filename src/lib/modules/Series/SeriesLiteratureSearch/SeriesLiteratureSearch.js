@@ -1,4 +1,5 @@
 import { literatureApi } from '@api/literature';
+import { Media } from '@components/Media';
 import {
   invenioConfig,
   setReactSearchKitInitialQueryState,
@@ -23,7 +24,7 @@ import {
   ResultsMultiLayout,
   SearchBar,
 } from 'react-searchkit';
-import { Container, Divider, Loader, Responsive } from 'semantic-ui-react';
+import { Container, Divider, Loader } from 'semantic-ui-react';
 import { qsBuilderForSeries } from './RequestSerializer';
 import { SeriesLiteratureSearchMobile } from './SeriesLiteratureSearchMobile';
 
@@ -78,25 +79,25 @@ export class SeriesLiteratureSearch extends React.Component {
                   {...invenioConfig.APP.SEARCH_BAR_PROPS}
                 />
               </Container>
-              <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+              <Media greaterThanOrEqual="tablet">
                 <ResultsLoader renderElement={this.renderLoader}>
                   <EmptyResults />
 
                   <Error />
 
-                  <Responsive minWidth={Responsive.onlyComputer.minWidth}>
+                  <Media greaterThanOrEqual="tablet">
                     <SearchControls modelName={this.modelName} />
                     <ResultsMultiLayout />
-                  </Responsive>
-                  <Responsive maxWidth={Responsive.onlyTablet.maxWidth}>
+                  </Media>
+                  <Media lessThan="computer">
                     <SearchControlsMobile modelName={this.modelName} />
-                  </Responsive>
+                  </Media>
                   <SearchFooter />
                 </ResultsLoader>
-              </Responsive>
-              <Responsive maxWidth={Responsive.onlyMobile.maxWidth}>
+              </Media>
+              <Media lessThan="tablet">
                 <SeriesLiteratureSearchMobile metadata={metadata} />
-              </Responsive>
+              </Media>
             </>
           </ReactSearchKit>
         </OverridableContext.Provider>

@@ -108,18 +108,18 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
           }
         />
       </Container>
-      <Responsive
-        getWidth={[Function]}
-        minWidth={768}
+      <Media
+        className=""
+        greaterThanOrEqual="tablet"
       >
         <Connect(Overridable(ResultsLoader))
           renderElement={[Function]}
         >
           <Connect(Overridable(EmptyResults)) />
           <Connect(Overridable(Error$1)) />
-          <Responsive
-            getWidth={[Function]}
-            minWidth={992}
+          <Media
+            className=""
+            greaterThanOrEqual="tablet"
           >
             <SearchControls
               defaultLayout="grid"
@@ -127,22 +127,22 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
               withLayoutSwitcher={true}
             />
             <Connect(Overridable(ResultsMultiLayout)) />
-          </Responsive>
-          <Responsive
-            getWidth={[Function]}
-            maxWidth={991}
+          </Media>
+          <Media
+            className=""
+            lessThan="computer"
           >
             <SearchControlsMobile
               modelName="LITERATURE"
               stickyRef={null}
             />
-          </Responsive>
+          </Media>
           <SearchFooter />
         </Connect(Overridable(ResultsLoader))>
-      </Responsive>
-      <Responsive
-        getWidth={[Function]}
-        maxWidth={767}
+      </Media>
+      <Media
+        className=""
+        lessThan="tablet"
       >
         <SeriesLiteratureSearchMobile
           metadata={
@@ -159,7 +159,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
             }
           }
         />
-      </Responsive>
+      </Media>
     </Overridable(ReactSearchKit)>
   </ContextProvider>
 </Fragment>

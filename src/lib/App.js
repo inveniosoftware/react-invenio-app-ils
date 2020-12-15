@@ -14,6 +14,7 @@ import React, { Component } from 'react';
 import { connect, Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import store from './store';
+import { MediaContextProvider } from '@components/Media';
 
 class FetchUserComponent extends Component {
   componentDidMount() {
@@ -47,29 +48,31 @@ export default class App extends Component {
 
   render() {
     return (
-      <Provider store={store}>
-        <FetchUser>
-          <Switch>
-            <Route exact path={AuthenticationRoutes.login}>
-              <Login />
-            </Route>
-            <AuthenticationGuard
-              path={AuthenticationRoutes.confirmEmail}
-              authorizedComponent={ConfirmEmail}
-            />
-            <AuthenticationGuard
-              path={BackOfficeRoutes.home}
-              authorizedComponent={BackOffice}
-              unAuthorizedComponent={UnAuthorized}
-              roles={['admin', 'librarian']}
-            />
-            <FrontSite />
-            <Route>
-              <NotFound />
-            </Route>
-          </Switch>
-        </FetchUser>
-      </Provider>
+      <MediaContextProvider>
+        <Provider store={store}>
+          <FetchUser>
+            <Switch>
+              <Route exact path={AuthenticationRoutes.login}>
+                <Login />
+              </Route>
+              <AuthenticationGuard
+                path={AuthenticationRoutes.confirmEmail}
+                authorizedComponent={ConfirmEmail}
+              />
+              <AuthenticationGuard
+                path={BackOfficeRoutes.home}
+                authorizedComponent={BackOffice}
+                unAuthorizedComponent={UnAuthorized}
+                roles={['admin', 'librarian']}
+              />
+              <FrontSite />
+              <Route>
+                <NotFound />
+              </Route>
+            </Switch>
+          </FetchUser>
+        </Provider>
+      </MediaContextProvider>
     );
   }
 }
