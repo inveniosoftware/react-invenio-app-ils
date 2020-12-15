@@ -2,6 +2,7 @@ import {
   ILSHeaderPlaceholder,
   ILSParagraphPlaceholder,
 } from '@components/ILSPlaceholder';
+import { Media } from '@components/Media';
 import { ShowMoreContent } from '@components/ShowMoreContent';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
@@ -9,7 +10,7 @@ import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import { Grid, Responsive } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import { DocumentCirculation } from '../DocumentCirculation';
 import DocumentPanelMobile from './DocumentPanelMobile';
 import { DocumentTitle } from './DocumentTitle';
@@ -24,7 +25,7 @@ class DocumentPanel extends Component {
         isLoading={isLoading}
       >
         <>
-          <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+          <Media greaterThanOrEqual="tablet">
             <div
               className="document-panel"
               data-test={doc.metadata ? doc.metadata.pid : 0}
@@ -79,10 +80,10 @@ class DocumentPanel extends Component {
                 </Grid.Row>
               </Grid>
             </div>
-          </Responsive>
-          <Responsive {...Responsive.onlyMobile}>
+          </Media>
+          <Media at="mobile">
             <DocumentPanelMobile isLoading={isLoading} documentDetails={doc} />
-          </Responsive>
+          </Media>
         </>
       </Overridable>
     );

@@ -3,6 +3,7 @@ import {
   ILSHeaderPlaceholder,
   ILSParagraphPlaceholder,
 } from '@components/ILSPlaceholder';
+import { Media } from '@components/Media';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import { SeriesAccess } from '@modules/Series/SeriesAccess';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
@@ -12,7 +13,7 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import { Grid, Responsive } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import SeriesPanelMobile from './SeriesPanelMobile';
 import SeriesSequences from './SeriesSequences';
 
@@ -21,7 +22,7 @@ class SeriesPanel extends Component {
     const { isLoading, series } = this.props;
     return (
       <>
-        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+        <Media greaterThanOrEqual="tablet">
           <div
             className="series-panel"
             data-test={series.metadata ? series.metadata.pid : 0}
@@ -83,10 +84,10 @@ class SeriesPanel extends Component {
               </Grid.Row>
             </Grid>
           </div>
-        </Responsive>
-        <Responsive {...Responsive.onlyMobile}>
+        </Media>
+        <Media at="mobile">
           <SeriesPanelMobile series={series} isLoading={isLoading} />
-        </Responsive>
+        </Media>
       </>
     );
   }

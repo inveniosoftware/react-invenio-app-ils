@@ -1,6 +1,7 @@
+import { Media } from '@components/Media';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import { Container, Responsive } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 import { DocumentMetadataTabs } from './DocumentMetadataTabs';
@@ -16,12 +17,12 @@ class DocumentMetadata extends Component {
       >
         <Overridable id="DocumentMetadata.layout" documentDetails={document}>
           <>
-            <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+            <Media greaterThanOrEqual="tablet">
               <DocumentMetadataTabs metadata={documentDetails.metadata} />
-            </Responsive>
-            <Responsive {...Responsive.onlyMobile}>
+            </Media>
+            <Media at="mobile">
               <DocumentMetadataAccordion metadata={documentDetails.metadata} />
-            </Responsive>
+            </Media>
           </>
         </Overridable>
       </Container>

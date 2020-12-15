@@ -1,6 +1,7 @@
+import { Media } from '@components/Media';
 import { Count, LayoutSwitcher } from 'react-searchkit';
 import React, { Component } from 'react';
-import { Grid, Responsive } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import SearchSortBy from './SearchSortBy';
 import SearchResultsPerPage from './SearchResultsPerPage';
@@ -12,7 +13,7 @@ export class SearchControls extends Component {
     const { withLayoutSwitcher, defaultLayout, modelName } = this.props;
     return (
       <>
-        <Responsive {...Responsive.onlyComputer}>
+        <Media greaterThanOrEqual="computer">
           <Grid columns={3} className="search-controls">
             <Grid.Column largeScreen={5} computer={5}>
               <Grid columns={2}>
@@ -33,9 +34,9 @@ export class SearchControls extends Component {
               textAlign="center"
               className="search-pagination-column"
             >
-              <Responsive minWidth={Responsive.onlyLargeScreen.minWidth}>
+              <Media greaterThanOrEqual="largeScreen">
                 <SearchPagination />
-              </Responsive>
+              </Media>
             </Grid.Column>
             <Grid.Column
               textAlign="right"
@@ -48,17 +49,17 @@ export class SearchControls extends Component {
               </div>
             </Grid.Column>
           </Grid>
-        </Responsive>
-        <Responsive maxWidth={Responsive.onlyLargeScreen.minWidth - 1}>
+        </Media>
+        <Media lessThan="computer">
+          <SearchControlsMobile modelName={modelName} />
+        </Media>
+        <Media lessThan="largeScreen">
           <Grid>
             <Grid.Column width={16} textAlign="center">
               <SearchPagination />
             </Grid.Column>
           </Grid>
-        </Responsive>
-        <Responsive maxWidth={Responsive.onlyTablet.maxWidth}>
-          <SearchControlsMobile modelName={modelName} />
-        </Responsive>
+        </Media>
       </>
     );
   }

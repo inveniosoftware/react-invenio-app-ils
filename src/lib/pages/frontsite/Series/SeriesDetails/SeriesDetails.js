@@ -2,6 +2,7 @@ import { AuthenticationGuard } from '@authentication/components/AuthenticationGu
 import { Breadcrumbs } from '@components/Breadcrumbs';
 import { Error } from '@components/Error';
 import { ILSParagraphPlaceholder } from '@components/ILSPlaceholder';
+import { Media } from '@components/Media';
 import { SearchBarILS } from '@components/SearchBar';
 import { invenioConfig } from '@config';
 import { goTo } from '@history';
@@ -12,7 +13,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
-import { Container, Grid, Icon, Label, Responsive } from 'semantic-ui-react';
+import { Container, Grid, Icon, Label } from 'semantic-ui-react';
 import { SeriesMetadata } from './SeriesMetadata';
 import SeriesPanel from './SeriesPanel/SeriesPanel';
 import { NotFound } from '@components/HttpErrors';
@@ -66,24 +67,24 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
           <SeriesPanel isLoading={isLoading} series={series} />
         </Container>
         <Container className="series-tags spaced">
-          <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+          <Media greaterThanOrEqual="tablet">
             <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
               <LiteratureTags tags={series.metadata.tags} />
             </ILSParagraphPlaceholder>
-          </Responsive>
+          </Media>
         </Container>
-        <Responsive minWidth={Responsive.onlyComputer.minWidth}>
+        <Media greaterThanOrEqual="computer">
           <Container className="items-locations spaced">
             <ILSParagraphPlaceholder linesNumber={3} isLoading={isLoading}>
               <SeriesLiteratureSearch metadata={series.metadata} />
             </ILSParagraphPlaceholder>
           </Container>
-        </Responsive>
-        <Responsive maxWidth={Responsive.onlyTablet.maxWidth}>
+        </Media>
+        <Media lessThan="computer">
           <ILSParagraphPlaceholder linesNumber={3} isLoading={isLoading}>
             <SeriesLiteratureSearch metadata={series.metadata} />
           </ILSParagraphPlaceholder>
-        </Responsive>
+        </Media>
         <Container className="section" fluid>
           <Container>
             <ILSParagraphPlaceholder linesNumber={20} isLoading={isLoading}>
