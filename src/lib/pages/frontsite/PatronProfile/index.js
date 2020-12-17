@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import PatronProfileComponent from './PatronProfile';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.authenticationManagement.data,
 });
 

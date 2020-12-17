@@ -15,21 +15,21 @@ const ILLRoutesList = {
 };
 
 export const ILLRoutesGenerators = {
-  libraryDetailsFor: libraryPid =>
+  libraryDetailsFor: (libraryPid) =>
     generatePath(ILLRoutesList.libraryDetails, {
       libraryPid: libraryPid,
     }),
-  libraryEditFor: libraryPid =>
+  libraryEditFor: (libraryPid) =>
     generatePath(ILLRoutesList.libraryEdit, {
       libraryPid: libraryPid,
     }),
-  borrowingRequestListWithQuery: qs =>
+  borrowingRequestListWithQuery: (qs) =>
     `${ILLRoutesList.borrowingRequestList}?q=${qs}`,
-  borrowingRequestDetailsFor: borrowingRequestPid =>
+  borrowingRequestDetailsFor: (borrowingRequestPid) =>
     generatePath(ILLRoutesList.borrowingRequestDetails, {
       borrowingRequestPid: borrowingRequestPid,
     }),
-  borrowingRequestEditFor: borrowingRequestPid =>
+  borrowingRequestEditFor: (borrowingRequestPid) =>
     generatePath(ILLRoutesList.borrowingRequestEdit, {
       borrowingRequestPid: borrowingRequestPid,
     }),
@@ -40,7 +40,7 @@ export const ILLRoutes = {
   ...ILLRoutesGenerators,
 };
 
-export const DetailsRouteByPidTypeFor = pidType => {
+export const DetailsRouteByPidTypeFor = (pidType) => {
   switch (pidType) {
     case 'pitmid':
       return BackOfficeRouteGenerators.itemDetailsFor;

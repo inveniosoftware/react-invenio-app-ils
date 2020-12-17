@@ -34,7 +34,7 @@ FetchUserComponent.propTypes = {
   fetchUserProfile: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchUserProfile: () => dispatch(fetchUserProfile()),
 });
 

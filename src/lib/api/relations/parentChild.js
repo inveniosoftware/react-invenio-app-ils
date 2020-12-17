@@ -5,7 +5,7 @@ export const add = (referrer, relatedList, relationType, extra = {}) => {
   const parent = relatedList[0];
   const children = [referrer];
 
-  return children.map(child => ({
+  return children.map((child) => ({
     parent_pid_value: parent.metadata.pid,
     parent_pid_type: recordToPidType(parent),
     child_pid_value: child.metadata.pid,

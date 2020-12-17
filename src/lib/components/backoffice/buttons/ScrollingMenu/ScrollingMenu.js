@@ -8,19 +8,19 @@ export default class ScrollingMenuItem extends Component {
     super(props);
     this.state = {
       activeItem: props.children
-        .map(child => child.props.elementId)
-        .find(id => !_isEmpty(id)),
+        .map((child) => child.props.elementId)
+        .find((id) => !_isEmpty(id)),
     };
   }
 
-  setActiveLink = elementId => {
+  setActiveLink = (elementId) => {
     this.setState({ activeItem: elementId });
   };
 
   render() {
     const { children, offset } = this.props;
     const { activeItem } = this.state;
-    const childrenWithProps = React.Children.map(children, child =>
+    const childrenWithProps = React.Children.map(children, (child) =>
       React.cloneElement(child, {
         setActiveLink: this.setActiveLink,
         activeItem: activeItem,

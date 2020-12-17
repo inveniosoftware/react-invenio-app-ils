@@ -10,7 +10,7 @@ const pageURL = '/pages/';
  * @param pageID id of the static page
  * @returns {Promise<AxiosResponse<T>>} page object
  */
-const get = async pageID => {
+const get = async (pageID) => {
   return http.get(`${pageURL}${pageID}`);
 };
 

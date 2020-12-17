@@ -5,17 +5,17 @@ import { serializer } from './serializer';
 
 const itemURL = '/items/';
 
-const get = async itemPid => {
+const get = async (itemPid) => {
   const response = await http.get(`${itemURL}${itemPid}`);
   response.data = serializer.fromJSON(response.data);
   return response;
 };
 
-const del = async itemPid => {
+const del = async (itemPid) => {
   return await http.delete(`${itemURL}${itemPid}`);
 };
 
-const create = async data => {
+const create = async (data) => {
   const resp = await http.post(`${itemURL}`, data);
   resp.data = serializer.fromJSON(resp.data);
   return resp;
@@ -27,10 +27,10 @@ const update = async (itemPid, data) => {
   return response;
 };
 
-const list = async query => {
+const list = async (query) => {
   const response = await http.get(`${itemURL}?q=${query}`);
   response.data.total = response.data.hits.total;
-  response.data.hits = response.data.hits.hits.map(hit =>
+  response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
   return response;

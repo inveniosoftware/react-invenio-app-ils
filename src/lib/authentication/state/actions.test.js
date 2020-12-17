@@ -47,7 +47,7 @@ beforeEach(() => {
 
 describe('Authentication action tests', () => {
   describe('fetch User profile and confirm user actions', () => {
-    it('should dispatch a loading action when fetching user profile', done => {
+    it('should dispatch a loading action when fetching user profile', (done) => {
       mockFetchProfile.mockResolvedValue(mockResponse);
 
       const expectedAction = {
@@ -62,7 +62,7 @@ describe('Authentication action tests', () => {
       });
     });
 
-    it('should dispatch a success action when fetching user profile succeeds', done => {
+    it('should dispatch a success action when fetching user profile succeeds', (done) => {
       mockFetchProfile.mockResolvedValue(mockResponse);
 
       const expectedAction = {
@@ -79,7 +79,7 @@ describe('Authentication action tests', () => {
       });
     });
 
-    it('should dispatch an error action when fetching user profile fails', done => {
+    it('should dispatch an error action when fetching user profile fails', (done) => {
       mockFetchProfile.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {
@@ -95,7 +95,7 @@ describe('Authentication action tests', () => {
       });
     });
 
-    it('should dispatch a loading action when confirming user', done => {
+    it('should dispatch a loading action when confirming user', (done) => {
       mockConfirmUser.mockResolvedValue({});
 
       const expectedAction = {
@@ -111,7 +111,7 @@ describe('Authentication action tests', () => {
       });
     });
 
-    it('should dispatch an `IS_CONFIRMED` action when confirming user succeeds', done => {
+    it('should dispatch an `IS_CONFIRMED` action when confirming user succeeds', (done) => {
       mockConfirmUser.mockResolvedValue(mockResponse);
 
       const expectedAction = {
@@ -129,7 +129,7 @@ describe('Authentication action tests', () => {
       });
     });
 
-    it('should dispatch an `IS_CONFIRMED` action when confirming user fails', done => {
+    it('should dispatch an `IS_CONFIRMED` action when confirming user fails', (done) => {
       mockConfirmUser.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {

@@ -9,7 +9,7 @@ export const HAS_ERROR =
   'fetchILLsPendingPatronLoanExtensionRequests/HAS_ERROR';
 
 export const fetchPendingILLPatronLoanExtensions = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

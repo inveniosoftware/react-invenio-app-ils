@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { uploadFile } from './state/actions';
 import UploadButtonComponent from './UploadButton';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isFilesLoading: state.eitemDetailsFile.isFilesLoading,
   files: state.eitemDetails.files,
   eitem: state.eitemDetails.data,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   sendErrorNotification: (title, message) =>
     dispatch(addNotification(title, message, 'error')),
   uploadFile: (eitemPid, bucket, file) =>

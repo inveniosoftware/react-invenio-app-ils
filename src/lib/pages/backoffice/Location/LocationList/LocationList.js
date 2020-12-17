@@ -29,7 +29,7 @@ export default class LocationList extends Component {
     return [
       {
         refType: 'Internal Location',
-        onRefClick: iLocPid => {
+        onRefClick: (iLocPid) => {
           goTo(BackOfficeRoutes.ilocationsEditFor(iLocPid));
         },
         getRefData: () =>

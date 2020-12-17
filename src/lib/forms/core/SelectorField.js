@@ -40,7 +40,7 @@ export class SelectorField extends Component {
 
     return (
       <Card.Group>
-        {selections.map(selection =>
+        {selections.map((selection) =>
           renderSelection(selection, removeSelection)
         )}
       </Card.Group>
@@ -125,7 +125,7 @@ export class SelectorField extends Component {
           renderSelections={renderGroup}
           renderSelection={renderSelection}
           disabledMessage={disabledMessage}
-          onSelectionsUpdate={selections =>
+          onSelectionsUpdate={(selections) =>
             this.onSelectionsUpdate(selections, setFieldValue)
           }
           serializer={serializer}

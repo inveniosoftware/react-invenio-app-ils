@@ -53,7 +53,7 @@ export class DocumentCuration extends Component {
           {document.metadata.internal_notes && (
             <>
               <Header as="h3">Internal notes</Header>
-              {document.metadata.internal_notes.map(element => (
+              {document.metadata.internal_notes.map((element) => (
                 <>
                   User {element.user} noted for field {element.field}:<br />
                   <p>{element.value}</p>

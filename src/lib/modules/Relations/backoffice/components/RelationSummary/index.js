@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import RelationSummaryComponent from './RelationSummary';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   selections: state.recordRelationsSelections.selections,
 });
 

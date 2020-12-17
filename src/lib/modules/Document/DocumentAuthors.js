@@ -28,7 +28,7 @@ class Affiliations extends Component {
       <span>
         Aff.:{' '}
         {affiliations
-          .map(item => {
+          .map((item) => {
             return item.name;
           })
           .join(', ')}
@@ -65,7 +65,9 @@ class Identifiers extends Component {
       <>
         <span>
           Ids:{' '}
-          {identifiers.map(item => `${item.value} (${item.scheme})`).join(', ')}
+          {identifiers
+            .map((item) => `${item.value} (${item.scheme})`)
+            .join(', ')}
         </span>
         <br />
       </>
@@ -94,7 +96,7 @@ Type.propTypes = {
 };
 
 class PopUpShowMoreFields extends Component {
-  renderPopupContent = author => {
+  renderPopupContent = (author) => {
     const { showAllFields } = this.props;
     return (
       <>

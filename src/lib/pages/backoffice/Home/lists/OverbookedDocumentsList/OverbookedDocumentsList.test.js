@@ -7,7 +7,7 @@ import testData from '@testData/documents.json';
 jest.mock('react-router-dom');
 let mockViewDetails = jest.fn();
 
-BackOfficeRoutes.documentDetailsFor = jest.fn(pid => `url/${pid}`);
+BackOfficeRoutes.documentDetailsFor = jest.fn((pid) => `url/${pid}`);
 
 const data = {
   hits: [
@@ -66,7 +66,7 @@ describe('OverbookedDocumentsList tests', () => {
     expect(component).toMatchSnapshot();
     const message = component
       .find('Message')
-      .filterWhere(element => element.prop('data-test') === 'no-results');
+      .filterWhere((element) => element.prop('data-test') === 'no-results');
     expect(message).toHaveLength(1);
   });
 
@@ -82,7 +82,7 @@ describe('OverbookedDocumentsList tests', () => {
     const rows = component
       .find('TableRow')
       .filterWhere(
-        element =>
+        (element) =>
           element.prop('data-test') === 'doc1' ||
           element.prop('data-test') === 'doc2'
       );
@@ -90,7 +90,7 @@ describe('OverbookedDocumentsList tests', () => {
 
     const footer = component
       .find('TableRow')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(0);
   });
 });

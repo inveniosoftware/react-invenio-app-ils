@@ -7,8 +7,8 @@ const mapStateToProps = (state, ownProps) => ({
   loanRequestIsLoading: state.loanRequestForm.isLoading,
 });
 
-const mapDispatchToProps = dispatch => ({
-  showTab: activeIndex => dispatch(showTab(activeIndex)),
+const mapDispatchToProps = (dispatch) => ({
+  showTab: (activeIndex) => dispatch(showTab(activeIndex)),
 });
 
 export const DocumentCirculation = connect(

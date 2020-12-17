@@ -6,13 +6,13 @@ import React, { Component } from 'react';
 import { Divider, Header, List } from 'semantic-ui-react';
 
 export class DocumentExtras extends Component {
-  prepareAlternativeTitle = element => {
+  prepareAlternativeTitle = (element) => {
     let rows = [];
     rows.push({
       name: 'Alternative title',
       value: (
         <List bulleted>
-          {element.map(entry => (
+          {element.map((entry) => (
             <List.Item key={entry.value}>
               <List.Content>{entry.value}</List.Content>
             </List.Item>
@@ -23,7 +23,7 @@ export class DocumentExtras extends Component {
     return rows;
   };
 
-  prepareAlternativeAbstracts = element => {
+  prepareAlternativeAbstracts = (element) => {
     return [{ name: 'Abstract', value: element }];
   };
 
@@ -50,7 +50,7 @@ export class DocumentExtras extends Component {
             <>
               <Divider />
               <Header as="h3">Publication info</Header>
-              {document.metadata.alternative_abstracts.map(element => (
+              {document.metadata.alternative_abstracts.map((element) => (
                 <MetadataTable
                   key={element}
                   rows={this.prepareAlternativeAbstracts(element)}

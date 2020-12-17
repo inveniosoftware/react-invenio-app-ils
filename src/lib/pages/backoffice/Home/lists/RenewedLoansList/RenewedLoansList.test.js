@@ -6,7 +6,7 @@ import testData from '@testData/loans.json';
 
 jest.mock('react-router-dom');
 
-BackOfficeRoutes.loanDetailsFor = jest.fn(pid => `url/${pid}`);
+BackOfficeRoutes.loanDetailsFor = jest.fn((pid) => `url/${pid}`);
 
 const data = {
   hits: [
@@ -64,7 +64,7 @@ describe('RenewedLoansList tests', () => {
     expect(component).toMatchSnapshot();
     const message = component
       .find('Message')
-      .filterWhere(element => element.prop('data-test') === 'no-results');
+      .filterWhere((element) => element.prop('data-test') === 'no-results');
     expect(message).toHaveLength(1);
   });
 
@@ -77,7 +77,7 @@ describe('RenewedLoansList tests', () => {
     const rows = component
       .find('TableRow')
       .filterWhere(
-        element =>
+        (element) =>
           element.prop('data-test') === 'loan1' ||
           element.prop('data-test') === 'loan2'
       );
@@ -85,7 +85,7 @@ describe('RenewedLoansList tests', () => {
 
     const footer = component
       .find('TableRow')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(0);
   });
 });

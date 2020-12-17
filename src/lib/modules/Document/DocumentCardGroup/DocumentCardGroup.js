@@ -44,7 +44,7 @@ class DocumentCardGroup extends Component {
   renderCards() {
     const { data } = this.state;
     if (!data) return null;
-    return data.hits.map(book => {
+    return data.hits.map((book) => {
       return <DocumentCard key={book.metadata.pid} data={book} />;
     });
   }

@@ -11,7 +11,7 @@ export const borrowingRequestPatronLoanCreate = (
   loanStartDate,
   loanEndDate
 ) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

@@ -34,7 +34,7 @@ beforeEach(() => {
 });
 
 describe('Loans renewed more then 3 times (last week) fetch tests', () => {
-  it('should dispatch a loading action when fetching loans', done => {
+  it('should dispatch a loading action when fetching loans', (done) => {
     mockDocumentList.mockResolvedValue(mockResponse);
 
     const expectedAction = {
@@ -51,7 +51,7 @@ describe('Loans renewed more then 3 times (last week) fetch tests', () => {
     });
   });
 
-  it('should dispatch a success action when loans fetch succeeds', done => {
+  it('should dispatch a success action when loans fetch succeeds', (done) => {
     mockDocumentList.mockResolvedValue(mockResponse);
 
     const expectedAction = {
@@ -69,7 +69,7 @@ describe('Loans renewed more then 3 times (last week) fetch tests', () => {
     });
   });
 
-  it('should dispatch an error action when loans fetch fails', done => {
+  it('should dispatch an error action when loans fetch fails', (done) => {
     mockDocumentList.mockRejectedValue([500, 'Error']);
 
     const expectedAction = {

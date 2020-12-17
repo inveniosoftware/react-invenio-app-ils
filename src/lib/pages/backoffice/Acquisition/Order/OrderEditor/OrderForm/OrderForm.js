@@ -18,7 +18,7 @@ import { documentRequestApi } from '@api/documentRequests';
 import { BackOfficeRoutes } from '@routes/urls';
 import { invenioConfig } from '@config';
 
-const orderSubmitSerializer = values => {
+const orderSubmitSerializer = (values) => {
   const submitValues = { ...values };
 
   _isEmpty(values.vendor)
@@ -26,7 +26,7 @@ const orderSubmitSerializer = values => {
     : (submitValues.vendor_pid = values.vendor.pid);
   _isEmpty(values.order_lines)
     ? (submitValues.order_lines = undefined)
-    : (submitValues.order_lines = values.order_lines.map(line => {
+    : (submitValues.order_lines = values.order_lines.map((line) => {
         if (line.document) {
           line.document_pid = _has(line.document, 'id')
             ? line.document.id
@@ -96,7 +96,7 @@ export class OrderForm extends Component {
     ];
   }
 
-  createOrder = data => {
+  createOrder = (data) => {
     return orderApi.create(data);
   };
 
@@ -104,7 +104,7 @@ export class OrderForm extends Component {
     return orderApi.update(pid, data);
   };
 
-  successCallback = async response => {
+  successCallback = async (response) => {
     const order = getIn(response, 'data');
     const documentRequestPid = _get(
       this.props,

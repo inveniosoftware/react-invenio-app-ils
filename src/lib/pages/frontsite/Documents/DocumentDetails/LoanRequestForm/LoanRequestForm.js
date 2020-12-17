@@ -23,7 +23,7 @@ class LoanRequestForm extends Component {
       invenioConfig.CIRCULATION.deliveryMethods
     );
     this.deliveryMethods = this.withDeliveryMethod
-      ? Object.keys(invenioConfig.CIRCULATION.deliveryMethods).map(key => ({
+      ? Object.keys(invenioConfig.CIRCULATION.deliveryMethods).map((key) => ({
           key: key,
           value: key,
           text: invenioConfig.CIRCULATION.deliveryMethods[key],
@@ -39,7 +39,7 @@ class LoanRequestForm extends Component {
     initializeState();
   }
 
-  handleRequestEndDateChange = value => {
+  handleRequestEndDateChange = (value) => {
     this.setState({ requestEndDate: value });
   };
 
@@ -67,7 +67,7 @@ class LoanRequestForm extends Component {
 
   renderDeliveryRadioButtons = () => {
     const { deliveryMethod } = this.state;
-    return this.deliveryMethods.map(method => (
+    return this.deliveryMethods.map((method) => (
       <Checkbox
         radio
         label={method.text}

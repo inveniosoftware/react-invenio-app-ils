@@ -66,7 +66,7 @@ describe('Item search by barcode tests', () => {
       expect(store.getActions()[1]).toEqual(expectedAction);
     });
 
-    it('should dispatch a query string update action', done => {
+    it('should dispatch a query string update action', (done) => {
       const expectedAction = {
         type: actions.QUERY_STRING_UPDATE,
         queryString: 'pppp',
@@ -78,7 +78,7 @@ describe('Item search by barcode tests', () => {
       done();
     });
 
-    it('should dispatch clear query action', done => {
+    it('should dispatch clear query action', (done) => {
       const expectedAction = {
         type: actions.CLEAR_SEARCH,
       };

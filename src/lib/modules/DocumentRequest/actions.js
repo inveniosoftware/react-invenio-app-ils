@@ -9,7 +9,7 @@ export const SUCCESS = 'rejectDocumentRequest/SUCCESS';
 export const HAS_ERROR = 'rejectDocumentRequest/HAS_ERROR';
 
 export const rejectRequest = (pid, data) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

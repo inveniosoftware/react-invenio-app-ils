@@ -4,17 +4,17 @@ import { prepareSumQuery } from '@api/utils';
 
 const eitemURL = '/eitems/';
 
-const get = async eitemPid => {
+const get = async (eitemPid) => {
   const response = await http.get(`${eitemURL}${eitemPid}`);
   response.data = serializer.fromJSON(response.data);
   return response;
 };
 
-const del = async eitemPid => {
+const del = async (eitemPid) => {
   return await http.delete(`${eitemURL}${eitemPid}`);
 };
 
-const create = async data => {
+const create = async (data) => {
   const resp = await http.post(`${eitemURL}`, data);
   resp.data = serializer.fromJSON(resp.data);
   return resp;
@@ -26,16 +26,16 @@ const update = async (eitemPid, data) => {
   return response;
 };
 
-const list = async query => {
+const list = async (query) => {
   const response = await http.get(`${eitemURL}?q=${query}`);
   response.data.total = response.data.hits.total;
-  response.data.hits = response.data.hits.hits.map(hit =>
+  response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
   return response;
 };
 
-const bucket = async eitemPid => {
+const bucket = async (eitemPid) => {
   const resp = await http.post(`${eitemURL}${eitemPid}/bucket`);
   resp.data = serializer.fromJSON(resp.data);
   return resp;

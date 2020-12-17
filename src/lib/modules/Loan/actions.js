@@ -19,7 +19,7 @@ export const fetchLoanDetails = (
   loanPid,
   withFetchOtherPendingLoans = null
 ) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: DETAILS_IS_LOADING,
     });
@@ -68,7 +68,7 @@ export const performLoanAction = (
   patronPid,
   { itemPid = null, cancelReason = null, shouldFetchItemDetails = null } = {}
 ) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: ACTION_IS_LOADING,
     });

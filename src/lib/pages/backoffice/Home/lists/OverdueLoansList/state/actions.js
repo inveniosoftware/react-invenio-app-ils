@@ -7,7 +7,7 @@ export const SUCCESS = 'fetchOverdueLoans/SUCCESS';
 export const HAS_ERROR = 'fetchOverdueLoans/HAS_ERROR';
 
 export const fetchOverdueLoans = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

@@ -22,7 +22,7 @@ class CurrencyDropdown extends Component {
     this.cancellableFetchData && this.cancellableFetchData.cancel();
   }
 
-  serializer = hit => ({
+  serializer = (hit) => ({
     key: hit.metadata.key,
     value: hit.metadata.key,
     text: hit.metadata.key,
@@ -40,7 +40,7 @@ class CurrencyDropdown extends Component {
     this.cancellableFetchData = withCancel(this.query());
     try {
       const response = await this.cancellableFetchData.promise;
-      const currencies = response.data.hits.map(hit => this.serializer(hit));
+      const currencies = response.data.hits.map((hit) => this.serializer(hit));
       this.setState({ isLoading: false, currencies: currencies, error: null });
     } catch (error) {
       if (error !== 'UNMOUNTED') {
@@ -57,7 +57,7 @@ class CurrencyDropdown extends Component {
     const { isLoading } = this.state;
     const visibleOptions =
       defaultCurrency !== null
-        ? options.filter(o => o.value === defaultCurrency)
+        ? options.filter((o) => o.value === defaultCurrency)
         : options;
     visibleOptions.unshift({
       key: '',
@@ -65,7 +65,7 @@ class CurrencyDropdown extends Component {
       text: '-',
     });
     if (!isLoading) {
-      if (!_isEmpty(value) && !visibleOptions.find(o => o.value === value)) {
+      if (!_isEmpty(value) && !visibleOptions.find((o) => o.value === value)) {
         visibleOptions.push({
           key: value,
           value: value,
@@ -127,7 +127,7 @@ export class PriceField extends Component {
       : null;
   };
 
-  renderCurrencyLabel = props => {
+  renderCurrencyLabel = (props) => {
     const {
       fieldPath,
       defaultCurrency,
@@ -145,7 +145,7 @@ export class PriceField extends Component {
     );
   };
 
-  renderFormField = props => {
+  renderFormField = (props) => {
     const {
       fieldPath,
       defaultCurrency,

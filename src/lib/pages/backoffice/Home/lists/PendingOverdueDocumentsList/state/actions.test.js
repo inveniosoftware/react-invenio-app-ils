@@ -37,7 +37,7 @@ beforeEach(() => {
 });
 
 describe('Fetch pending overdue documents tests', () => {
-  it('should dispatch a loading action when fetching documents', done => {
+  it('should dispatch a loading action when fetching documents', (done) => {
     mockLoanList.mockResolvedValue(mockResponse);
 
     const expectedAction = {
@@ -52,7 +52,7 @@ describe('Fetch pending overdue documents tests', () => {
     });
   });
 
-  it('should dispatch a success action when documents fetch succeeds', done => {
+  it('should dispatch a success action when documents fetch succeeds', (done) => {
     mockLoanList.mockResolvedValue(mockResponse);
 
     const expectedAction = {
@@ -68,7 +68,7 @@ describe('Fetch pending overdue documents tests', () => {
     });
   });
 
-  it('should dispatch an error action when documents fetch fails', done => {
+  it('should dispatch an error action when documents fetch fails', (done) => {
     mockLoanList.mockRejectedValue([500, 'Error']);
 
     const expectedAction = {

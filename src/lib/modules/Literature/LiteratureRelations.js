@@ -15,7 +15,7 @@ export default class LiteratureRelations extends Component {
     this.relations = props.relations;
   }
 
-  getLinkTo = relation => {
+  getLinkTo = (relation) => {
     return relation.pid_type === 'docid'
       ? FrontSiteRoutes.documentDetailsFor(relation.pid_value)
       : FrontSiteRoutes.seriesDetailsFor(relation.pid_value);
@@ -25,7 +25,7 @@ export default class LiteratureRelations extends Component {
     const relations = _get(this.relations, 'multipart_monograph', []);
     if (!relations.length) return null;
 
-    const cmp = relations.map(rel => {
+    const cmp = relations.map((rel) => {
       const volume = _get(rel, 'volume');
       const text = volume
         ? `${rel.record_metadata.title} (vol: ${volume})`
@@ -46,7 +46,7 @@ export default class LiteratureRelations extends Component {
     const relations = _get(this.relations, 'serial', []);
     if (!relations.length) return null;
 
-    const items = relations.map(rel => {
+    const items = relations.map((rel) => {
       const volume = _get(rel, 'volume');
       const text = volume
         ? `${rel.record_metadata.title} (vol: ${volume})`
@@ -74,7 +74,7 @@ export default class LiteratureRelations extends Component {
   renderLanguages = () => {
     const relations = _get(this.relations, 'language', []);
     if (!relations.length) return null;
-    const items = relations.map(rel => (
+    const items = relations.map((rel) => (
       <Link key={rel.pid_value} to={this.getLinkTo(rel)}>
         {rel.record_metadata.languages
           ? rel.record_metadata.languages.join(' ')
@@ -97,7 +97,7 @@ export default class LiteratureRelations extends Component {
     const relations = _get(this.relations, 'edition', []);
     if (!relations.length) return null;
 
-    const items = relations.map(rel => {
+    const items = relations.map((rel) => {
       const edition = rel.record_metadata.edition;
       return (
         edition && (

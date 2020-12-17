@@ -10,9 +10,9 @@ import { Button, Icon, Popup } from 'semantic-ui-react';
 import { DateTime } from 'luxon';
 
 const INFO_MESSAGES = {
-  SUCCESS: documentTitle =>
+  SUCCESS: (documentTitle) =>
     `The loan extension for "${documentTitle}" has been requested to the library and you should receive an answer soon.`,
-  IS_TOO_EARLY: reqDate =>
+  IS_TOO_EARLY: (reqDate) =>
     `It is too early for extending the loan. You can request an extension from
 ${reqDate
   .minus({ days: invenioConfig.CIRCULATION.loanWillExpireDays })
@@ -22,7 +22,7 @@ ${reqDate
 };
 
 const REQUEST_MESSAGES = {
-  IS_PENDING: requestDate =>
+  IS_PENDING: (requestDate) =>
     `Extension pending since ${requestDate.toLocaleString({
       month: 'long',
       day: 'numeric',
@@ -31,7 +31,7 @@ const REQUEST_MESSAGES = {
 };
 
 class BorrowingRequestFetcher {
-  get = async pid => {
+  get = async (pid) => {
     this.cancellablePromise = withCancel(borrowingRequestApi.get(pid));
     const resp = await this.cancellablePromise.promise;
     return resp.data;
@@ -43,7 +43,7 @@ class BorrowingRequestFetcher {
 }
 
 class ExtensionRequester {
-  doRequest = async brwReqPid => {
+  doRequest = async (brwReqPid) => {
     this.cancellablePromise = withCancel(
       borrowingRequestApi.requestExtension(brwReqPid)
     );
@@ -56,7 +56,7 @@ class ExtensionRequester {
   };
 }
 
-const validateLoanExtension = brwReqLoan => {
+const validateLoanExtension = (brwReqLoan) => {
   let isValid = true;
   let msg = null;
   const { loanWillExpireDays } = invenioConfig.CIRCULATION;
@@ -90,7 +90,7 @@ const validateLoanExtension = brwReqLoan => {
   };
 };
 
-const validateExtensionRequest = extension => {
+const validateExtensionRequest = (extension) => {
   let isValid = true;
   let msg = null;
 
@@ -144,7 +144,7 @@ class BrwReqLoanExtendButton extends Component {
     this.extensionRequester.cancel();
   }
 
-  fetchBorrowingRequestDetails = async brwReqPid => {
+  fetchBorrowingRequestDetails = async (brwReqPid) => {
     this.setState({ brwReqDetailsIsLoading: true });
     try {
       const data = await this.borrowingRequestFetcher.get(brwReqPid);

@@ -26,11 +26,7 @@ export default class ItemPastLoans extends Component {
     } = this.props;
     const loanStates = invenioConfig.CIRCULATION.loanCompletedStates;
     const path = BackOfficeRoutes.loansListWithQuery(
-      loanApi
-        .query()
-        .withItemPid(pid)
-        .withState(loanStates)
-        .qs()
+      loanApi.query().withItemPid(pid).withState(loanStates).qs()
     );
     return <SeeAllButton to={path} />;
   };

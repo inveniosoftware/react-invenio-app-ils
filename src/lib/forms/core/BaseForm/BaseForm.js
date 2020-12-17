@@ -7,7 +7,7 @@ import { Button, Form, Header } from 'semantic-ui-react';
 import { removeEmptyValues } from './RecordSerializer';
 
 export class BaseForm extends Component {
-  submitSerializer = values => {
+  submitSerializer = (values) => {
     const { pid, submitSerializer } = this.props;
     const { _submitButton, ...rawValues } = values;
     const newRecord = !!pid;
@@ -103,7 +103,7 @@ export class BaseForm extends Component {
         >
           {({ isSubmitting, handleSubmit, submitForm, values }) => (
             <Form
-              onSubmit={event =>
+              onSubmit={(event) =>
                 this.submitForm(event, 'submit', submitForm, values)
               }
               loading={isSubmitting}

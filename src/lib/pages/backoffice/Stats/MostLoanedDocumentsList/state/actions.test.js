@@ -37,7 +37,7 @@ describe('Most loaned documents fetch tests', () => {
   const start = '2019-01-01';
   const end = '2019-03-01';
 
-  it('should dispatch a loading action when fetching documents', done => {
+  it('should dispatch a loading action when fetching documents', (done) => {
     mockStatsMostLoaned.mockResolvedValue(mockResponse);
 
     const expectedAction = {
@@ -52,7 +52,7 @@ describe('Most loaned documents fetch tests', () => {
     });
   });
 
-  it('should dispatch a success action when documents fetch succeeds', done => {
+  it('should dispatch a success action when documents fetch succeeds', (done) => {
     mockStatsMostLoaned.mockResolvedValue(mockResponse);
 
     const expectedAction = {
@@ -68,7 +68,7 @@ describe('Most loaned documents fetch tests', () => {
     });
   });
 
-  it('should dispatch an error action when documents fetch fails', done => {
+  it('should dispatch an error action when documents fetch fails', (done) => {
     mockStatsMostLoaned.mockRejectedValue([500, 'Error']);
 
     const expectedAction = {

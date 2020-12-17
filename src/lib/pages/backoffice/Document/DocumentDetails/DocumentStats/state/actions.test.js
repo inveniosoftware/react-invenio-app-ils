@@ -32,7 +32,7 @@ describe('Document stats fetch tests', () => {
     const expectedAction = {
       type: actions.IS_LOADING,
     };
-    store.dispatch(actions.fetchDocumentStats(ARGS)).then(done => {
+    store.dispatch(actions.fetchDocumentStats(ARGS)).then((done) => {
       const range = encodeURI(`{${ARGS.fromDate} TO ${ARGS.toDate}}`);
       expect(mockLoanList).toHaveBeenCalledWith(
         `(document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED OR CANCELLED) AND start_date:${range})`
@@ -49,7 +49,7 @@ describe('Document stats fetch tests', () => {
       payload: 'someData',
     };
 
-    store.dispatch(actions.fetchDocumentStats(ARGS)).then(done => {
+    store.dispatch(actions.fetchDocumentStats(ARGS)).then((done) => {
       const range = encodeURI(`{${ARGS.fromDate} TO ${ARGS.toDate}}`);
       expect(mockLoanList).toHaveBeenCalledWith(
         `(document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED OR CANCELLED) AND start_date:${range})`
@@ -66,7 +66,7 @@ describe('Document stats fetch tests', () => {
       payload: [500, 'Error'],
     };
 
-    store.dispatch(actions.fetchDocumentStats(ARGS)).then(done => {
+    store.dispatch(actions.fetchDocumentStats(ARGS)).then((done) => {
       const range = encodeURI(`{${ARGS.fromDate} TO ${ARGS.toDate}}`);
       expect(mockLoanList).toHaveBeenCalledWith(
         `(document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED OR CANCELLED) AND start_date:${range})`

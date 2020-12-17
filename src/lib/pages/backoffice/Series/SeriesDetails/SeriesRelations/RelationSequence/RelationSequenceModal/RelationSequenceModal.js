@@ -84,10 +84,10 @@ export default class RelationOtherModal extends Component {
 
     const sequenceRelations = _get(relations, relationType, []);
     const existingContinuations = sequenceRelations.filter(
-      rel => rel.relation_order === this.ORDER_CONTINUES.order
+      (rel) => rel.relation_order === this.ORDER_CONTINUES.order
     );
     const existingPredecessors = sequenceRelations.filter(
-      rel => rel.relation_order === this.ORDER_IS_CONTINUED_BY.order
+      (rel) => rel.relation_order === this.ORDER_IS_CONTINUED_BY.order
     );
 
     const existingRelations = _concat(

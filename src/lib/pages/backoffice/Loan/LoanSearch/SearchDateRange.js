@@ -24,11 +24,11 @@ export class _SearchDateRange extends Component {
    * different values. For this range dates filters, we want each filter to
    * appear only one time with one value (e.g. loan_start_date = `<date>`)
    */
-  onDateChange = newFilter => {
+  onDateChange = (newFilter) => {
     const { currentQueryState, updateQueryState } = this.props;
     const [name, value] = newFilter;
     const filters = currentQueryState.filters.filter(
-      filter => filter[0] === name
+      (filter) => filter[0] === name
     );
     if (!_isEmpty(value)) filters.push(newFilter);
     return updateQueryState({ filters: filters });
@@ -50,7 +50,7 @@ export class _SearchDateRange extends Component {
             maxDate={toDate}
             defaultValue={fromDate}
             placeholder="From"
-            handleDateChange={value =>
+            handleDateChange={(value) =>
               this.onDateChange(['loans_from_date', value])
             }
           />
@@ -60,7 +60,7 @@ export class _SearchDateRange extends Component {
             minDate={fromDate}
             defaultValue={toDate}
             placeholder="To"
-            handleDateChange={value =>
+            handleDateChange={(value) =>
               this.onDateChange(['loans_to_date', value])
             }
           />

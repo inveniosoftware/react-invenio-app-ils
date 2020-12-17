@@ -68,7 +68,7 @@ export default class PatronPastBorrowingRequests extends Component {
     );
   };
 
-  viewDate = date => {
+  viewDate = (date) => {
     return <> {dateFormatter({ ...date }, '-')} </>;
   };
 

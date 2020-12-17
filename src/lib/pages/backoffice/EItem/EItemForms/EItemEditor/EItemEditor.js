@@ -42,7 +42,7 @@ export class EItemEditor extends Component {
     return null;
   }
 
-  fetchEItem = async eitemPid => {
+  fetchEItem = async (eitemPid) => {
     this.cancellableFetchEItem = withCancel(eItemApi.get(eitemPid));
     try {
       const response = await this.cancellableFetchEItem.promise;
@@ -54,7 +54,7 @@ export class EItemEditor extends Component {
     }
   };
 
-  renderEditForm = pid => {
+  renderEditForm = (pid) => {
     const { isLoading, error, data } = this.state;
     return (
       <Loader isLoading={isLoading}>

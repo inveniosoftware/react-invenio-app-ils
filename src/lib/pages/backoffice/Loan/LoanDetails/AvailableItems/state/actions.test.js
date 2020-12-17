@@ -83,7 +83,7 @@ describe('Available items tests', () => {
       expect(store.getActions()[0]).toEqual(expectedActions[0]);
     });
 
-    it('should dispatch a success action when available items fetch succeeds', done => {
+    it('should dispatch a success action when available items fetch succeeds', (done) => {
       mockList.mockResolvedValue(response);
 
       const expectedActions = [
@@ -103,7 +103,7 @@ describe('Available items tests', () => {
       });
     });
 
-    it('should dispatch an error action when available items fetch fails', done => {
+    it('should dispatch an error action when available items fetch fails', (done) => {
       mockList.mockRejectedValue([500, 'Error']);
 
       const expectedActions = [

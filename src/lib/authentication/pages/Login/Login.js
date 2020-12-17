@@ -95,10 +95,10 @@ const RightCol = ({ hasError, errorMessage, errorHeader }) => (
     {invenioConfig.APP.ENABLE_OAUTH_LOGIN &&
       Object.keys(invenioConfig.APP.OAUTH_PROVIDERS)
         .filter(
-          providerName =>
+          (providerName) =>
             invenioConfig.APP.OAUTH_PROVIDERS[providerName].enabled
         )
-        .map(providerName => (
+        .map((providerName) => (
           <LoginWithOauthProviders
             key={providerName}
             providerName={providerName}

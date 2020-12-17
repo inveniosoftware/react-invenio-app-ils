@@ -65,7 +65,7 @@ export class HitsSearch extends Component {
     this.searchInputRef.focus();
   };
 
-  search = searchQuery => {
+  search = (searchQuery) => {
     const {
       serializer,
       alwaysWildcard,
@@ -74,7 +74,7 @@ export class HitsSearch extends Component {
       query: queryFunc,
     } = this.props;
 
-    const deb = debounce(async searchQuery => {
+    const deb = debounce(async (searchQuery) => {
       let results, hasError;
       try {
         const queryString = alwaysWildcard ? searchQuery + '*' : searchQuery;
@@ -192,7 +192,7 @@ export class HitsSearch extends Component {
         value={propsValue || value}
         resultRenderer={this.renderResults}
         placeholder={placeholder}
-        input={{ ref: element => (this.searchInputRef = element) }}
+        input={{ ref: (element) => (this.searchInputRef = element) }}
       />
     );
   }

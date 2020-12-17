@@ -6,17 +6,14 @@ export const SUCCESS = 'fetchOverbookedDocuments/SUCCESS';
 export const HAS_ERROR = 'fetchOverbookedDocuments/HAS_ERROR';
 
 export const fetchOverbookedDocuments = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
 
     try {
       const response = await documentApi.list(
-        documentApi
-          .query()
-          .overbooked()
-          .qs()
+        documentApi.query().overbooked().qs()
       );
 
       dispatch({

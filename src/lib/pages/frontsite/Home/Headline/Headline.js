@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Button, Container, Divider, Grid, Header } from 'semantic-ui-react';
 import { HomeSearchBar } from './HomeSearchBar';
 
-const HeadlineLayout = props => {
+const HeadlineLayout = (props) => {
   const { backgroundImageURL } = props;
   return (
     <Overridable id="Home.Headline.render">

@@ -81,7 +81,7 @@ export default class ItemActionMenu extends Component {
     );
   };
 
-  deleteDocButton = props => {
+  deleteDocButton = (props) => {
     return (
       <DeleteButton
         fluid
@@ -92,7 +92,7 @@ export default class ItemActionMenu extends Component {
     );
   };
 
-  checkoutItem = results => {
+  checkoutItem = (results) => {
     const {
       checkoutItem,
       item: { metadata },
@@ -107,7 +107,7 @@ export default class ItemActionMenu extends Component {
     checkoutItem(documentPid, itemPid, patronPid);
   };
 
-  onResults = results => {
+  onResults = (results) => {
     if (!this.hasCheckOutItem() || results.length !== 1) return;
     this.checkoutItem(results);
   };

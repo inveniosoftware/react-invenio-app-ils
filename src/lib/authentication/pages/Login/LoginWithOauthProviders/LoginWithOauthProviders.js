@@ -17,7 +17,7 @@ export class LoginWithOauthProviders extends Component {
     };
   }
 
-  checkIfOauthLoginResponse = params => {
+  checkIfOauthLoginResponse = (params) => {
     const isOauthResponse = 'code' in params;
     const { hasError } = this.state;
     if (!isOauthResponse) return;

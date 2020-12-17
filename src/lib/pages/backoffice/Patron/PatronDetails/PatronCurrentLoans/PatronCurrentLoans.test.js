@@ -7,7 +7,7 @@ import testData from '@testData/loans.json';
 import _isEmpty from 'lodash/isEmpty';
 
 jest.mock('@config');
-BackOfficeRoutes.loanDetailsFor = jest.fn(pid => `url/${pid}`);
+BackOfficeRoutes.loanDetailsFor = jest.fn((pid) => `url/${pid}`);
 let mockViewDetails = jest.fn();
 
 const data = {
@@ -67,7 +67,7 @@ describe('PatronCurrentLoans tests', () => {
     expect(component).toMatchSnapshot();
     const message = component
       .find('Message')
-      .filterWhere(element => element.prop('data-test') === 'no-results');
+      .filterWhere((element) => element.prop('data-test') === 'no-results');
     expect(message).toHaveLength(1);
   });
 
@@ -88,7 +88,7 @@ describe('PatronCurrentLoans tests', () => {
     const rows = component
       .find('TableRow')
       .filterWhere(
-        element =>
+        (element) =>
           element.prop('data-test') === 'loan1' ||
           element.prop('data-test') === 'loan2'
       );
@@ -96,7 +96,7 @@ describe('PatronCurrentLoans tests', () => {
 
     const footer = component
       .find('TableRow')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(0);
   });
 
@@ -117,7 +117,7 @@ describe('PatronCurrentLoans tests', () => {
     expect(component).toMatchSnapshot();
     const footer = component
       .find('TableFooter')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(1);
   });
 
@@ -138,7 +138,7 @@ describe('PatronCurrentLoans tests', () => {
     const firstId = data.hits[0].pid;
     component
       .find('TableCell')
-      .filterWhere(element => element.prop('data-test') === `0-${firstId}`)
+      .filterWhere((element) => element.prop('data-test') === `0-${firstId}`)
       .find('Link')
       .simulate('click');
     expect(BackOfficeRoutes.loanDetailsFor).toHaveBeenCalled();

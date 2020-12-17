@@ -17,7 +17,7 @@ export default class LoansList extends Component {
     return loans.total > 0 ? (
       <>
         <Item.Group divided>
-          {loans.hits.map(loan => (
+          {loans.hits.map((loan) => (
             <React.Fragment key={loan.metadata.pid}>
               {renderListEntry(loan)}
             </React.Fragment>

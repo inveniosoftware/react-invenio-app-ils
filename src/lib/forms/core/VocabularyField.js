@@ -38,18 +38,18 @@ export class VocabularyField extends React.Component {
     return vocabularyApi.list(searchQuery);
   };
 
-  serializer = hit => ({
+  serializer = (hit) => ({
     key: hit.metadata.id,
     value: hit.metadata.key,
     text: hit.metadata.text,
   });
 
-  fetchVocabularies = async serializer => {
+  fetchVocabularies = async (serializer) => {
     const { label } = this.props;
     this.cancellableFetchVocabularies = withCancel(this.query());
     try {
       const response = await this.cancellableFetchVocabularies.promise;
-      const options = response.data.hits.map(hit => serializer(hit));
+      const options = response.data.hits.map((hit) => serializer(hit));
 
       this.setState({ isLoading: false, options: options, error: null });
     } catch (error) {

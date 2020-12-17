@@ -23,7 +23,7 @@ export class SearchControls extends Component {
                   </Grid.Column>
                 )}
                 <Grid.Column width={10}>
-                  <Count label={cmp => <div>{cmp} results found</div>} />
+                  <Count label={(cmp) => <div>{cmp} results found</div>} />
                   <SearchResultsPerPage modelName={modelName} />
                 </Grid.Column>
               </Grid>

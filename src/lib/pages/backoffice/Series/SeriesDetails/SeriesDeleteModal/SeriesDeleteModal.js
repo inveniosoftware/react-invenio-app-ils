@@ -4,7 +4,7 @@ import { formatPidTypeToName } from '@components/backoffice/utils';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-const deleteButton = props => {
+const deleteButton = (props) => {
   return (
     <DeleteButton
       fluid

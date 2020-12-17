@@ -50,10 +50,10 @@ export default class RelationSequence extends Component {
 
     const sequenceRelations = _get(relations, 'sequence', []);
     const continuations = sequenceRelations.filter(
-      rel => rel.relation_order === 'is_continued_by'
+      (rel) => rel.relation_order === 'is_continued_by'
     );
     const predecessors = sequenceRelations.filter(
-      rel => rel.relation_order === 'continues'
+      (rel) => rel.relation_order === 'continues'
     );
 
     const columns = [

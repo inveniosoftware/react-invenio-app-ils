@@ -22,11 +22,7 @@ export default class DocumentCard extends Component {
 
   seeAllButton = () => {
     const path = this.seeAllUrl(
-      documentApi
-        .query()
-        .withAvailableItems()
-        .withPendingLoans()
-        .qs()
+      documentApi.query().withAvailableItems().withPendingLoans().qs()
     );
     return <SeeAllButton fluid to={path} />;
   };

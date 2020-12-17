@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { GroupField } from '@forms/core/GroupField';
 
-const getFormComponent = fieldType => {
+const getFormComponent = (fieldType) => {
   switch (fieldType) {
     case 'string':
       return StringField;
@@ -42,7 +42,7 @@ const sortByLine = (a, b) => {
   return 0;
 };
 
-const createComponents = extensions => {
+const createComponents = (extensions) => {
   let components = [];
   _forOwn(extensions, (value, key) => {
     const componentType = invenioConfig.DOCUMENTS.extensions.fields[key].type;
@@ -88,7 +88,7 @@ const createComponents = extensions => {
 const addToOrderedComponents = (orderedComponents, lineComponents) => {
   orderedComponents.push(
     <GroupField widths="equal">
-      {lineComponents.map(element => element)}
+      {lineComponents.map((element) => element)}
     </GroupField>
   );
 };
@@ -96,7 +96,7 @@ const addToOrderedComponents = (orderedComponents, lineComponents) => {
 export const MetadataExtensions = ({ extensions }) => {
   const { label, fields } = invenioConfig.DOCUMENTS.extensions;
   const configDefaults = {};
-  _keys(fields).map(key => (configDefaults[key] = fields[key]['default']));
+  _keys(fields).map((key) => (configDefaults[key] = fields[key]['default']));
   const allExtensions = _merge(configDefaults, extensions);
 
   let orderedComponents = [];
@@ -106,7 +106,7 @@ export const MetadataExtensions = ({ extensions }) => {
   const components = createComponents(allExtensions);
   // Sort the components by line, to be able to loop through all the components by line
   components.sort(sortByLine);
-  components.forEach(element => {
+  components.forEach((element) => {
     if (element.line === oldLine) {
       lineComponents.push(element.component);
     } else {
@@ -126,7 +126,7 @@ export const MetadataExtensions = ({ extensions }) => {
     <AccordionField
       label={label}
       fieldPath="extensions"
-      content={<>{orderedComponents.map(cmp => cmp)}</>}
+      content={<>{orderedComponents.map((cmp) => cmp)}</>}
     />
   );
 };

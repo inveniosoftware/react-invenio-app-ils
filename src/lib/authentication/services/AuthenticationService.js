@@ -13,7 +13,7 @@ class AuthenticationService {
     window.location = redirectOauthUrl;
   };
 
-  loginWithLocalAccount = data => {
+  loginWithLocalAccount = (data) => {
     const loginUrl = `${invenioConfig.APP.REST_ENDOINTS_BASE_URL}/login`;
     return http.post(loginUrl, data);
   };
@@ -23,7 +23,7 @@ class AuthenticationService {
     window.location.replace(logoutUrl);
   };
 
-  confirmUser = token => {
+  confirmUser = (token) => {
     return http.post('/confirm-email', { token });
   };
 
@@ -32,7 +32,7 @@ class AuthenticationService {
       return true;
     }
     // any of needed roles found in user roles
-    return roles.some(role => user.roles.indexOf(role) !== -1);
+    return roles.some((role) => user.roles.indexOf(role) !== -1);
   };
 }
 

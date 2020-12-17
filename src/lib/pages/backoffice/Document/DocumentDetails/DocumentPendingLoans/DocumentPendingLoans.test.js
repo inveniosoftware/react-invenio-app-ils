@@ -7,8 +7,8 @@ import testData from '@testData/loans.json';
 jest.mock('react-router-dom');
 jest.mock('@config');
 
-BackOfficeRoutes.loanDetailsFor = jest.fn(pid => `loan/${pid}`);
-BackOfficeRoutes.patronDetailsFor = jest.fn(pid => `patron/${pid}`);
+BackOfficeRoutes.loanDetailsFor = jest.fn((pid) => `loan/${pid}`);
+BackOfficeRoutes.patronDetailsFor = jest.fn((pid) => `patron/${pid}`);
 
 const data = {
   hits: [
@@ -77,7 +77,7 @@ describe('DocumentPendingLoans tests', () => {
     expect(component).toMatchSnapshot();
     const message = component
       .find('Message')
-      .filterWhere(element => element.prop('data-test') === 'no-results');
+      .filterWhere((element) => element.prop('data-test') === 'no-results');
     expect(message).toHaveLength(1);
   });
 
@@ -94,7 +94,7 @@ describe('DocumentPendingLoans tests', () => {
     const rows = component
       .find('TableRow')
       .filterWhere(
-        element =>
+        (element) =>
           element.prop('data-test') === 'loan1' ||
           element.prop('data-test') === 'loan2'
       );
@@ -102,7 +102,7 @@ describe('DocumentPendingLoans tests', () => {
 
     const footer = component
       .find('TableRow')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(0);
   });
 
@@ -119,7 +119,7 @@ describe('DocumentPendingLoans tests', () => {
     expect(component).toMatchSnapshot();
     const footer = component
       .find('TableFooter')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(1);
   });
 });

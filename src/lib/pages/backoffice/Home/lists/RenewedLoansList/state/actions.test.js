@@ -38,7 +38,7 @@ beforeEach(() => {
 describe('Loans renewed more then 3 times (last week) fetch tests', () => {
   let date = toShortDate(DateTime.local().minus({ days: 7 }));
 
-  it('should dispatch a loading action when fetching loans', done => {
+  it('should dispatch a loading action when fetching loans', (done) => {
     mockLoanList.mockResolvedValue(mockResponse);
 
     const expectedAction = {
@@ -55,7 +55,7 @@ describe('Loans renewed more then 3 times (last week) fetch tests', () => {
     });
   });
 
-  it('should dispatch a success action when loans fetch succeeds', done => {
+  it('should dispatch a success action when loans fetch succeeds', (done) => {
     mockLoanList.mockResolvedValue(mockResponse);
 
     const expectedAction = {
@@ -73,7 +73,7 @@ describe('Loans renewed more then 3 times (last week) fetch tests', () => {
     });
   });
 
-  it('should dispatch an error action when loans fetch fails', done => {
+  it('should dispatch an error action when loans fetch fails', (done) => {
     mockLoanList.mockRejectedValue([500, 'Error']);
 
     const expectedAction = {

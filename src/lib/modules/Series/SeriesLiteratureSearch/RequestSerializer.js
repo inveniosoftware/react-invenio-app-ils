@@ -1,7 +1,7 @@
 import _isEmpty from 'lodash/isEmpty';
 import { InvenioRequestSerializer } from 'react-searchkit';
 
-export const qsBuilderForSeries = seriesMetadata => {
+export const qsBuilderForSeries = (seriesMetadata) => {
   const pidValue = seriesMetadata.pid;
   // MM can have has children only documents
   let relationsQuery = `relations.multipart_monograph.pid_value:${pidValue}`;

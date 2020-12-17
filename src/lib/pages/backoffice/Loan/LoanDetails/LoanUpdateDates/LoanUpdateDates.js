@@ -39,7 +39,7 @@ export default class LoanUpdateDates extends Component {
     );
   };
 
-  handleStartDateChange = value => {
+  handleStartDateChange = (value) => {
     this.setState(
       this.isActiveOrCompleted()
         ? { startDate: value }
@@ -47,7 +47,7 @@ export default class LoanUpdateDates extends Component {
     );
   };
 
-  handleEndDateChange = value => {
+  handleEndDateChange = (value) => {
     this.setState(
       this.isActiveOrCompleted()
         ? { endDate: value }
@@ -113,11 +113,11 @@ export default class LoanUpdateDates extends Component {
     loanUpdateDates(pid, data);
   };
 
-  renderWarning = message => {
+  renderWarning = (message) => {
     return <Message warning header="Warning" content={message} />;
   };
 
-  renderHint = message => {
+  renderHint = (message) => {
     return (
       <>
         <Divider hidden />
@@ -187,7 +187,7 @@ export default class LoanUpdateDates extends Component {
                     maxDate={active ? this.today() : null}
                     defaultValue={active ? startDate : requestStartDate}
                     placeholder={startLabel}
-                    handleDateChange={value =>
+                    handleDateChange={(value) =>
                       this.handleStartDateChange(value)
                     }
                   />
@@ -197,7 +197,9 @@ export default class LoanUpdateDates extends Component {
                   <DatePicker
                     defaultValue={active ? endDate : requestExpireDate}
                     placeholder={endLabel}
-                    handleDateChange={value => this.handleEndDateChange(value)}
+                    handleDateChange={(value) =>
+                      this.handleEndDateChange(value)
+                    }
                   />
                 </Form.Field>
               </Form.Group>

@@ -6,13 +6,13 @@ import { borrowingRequestSerializer as serializer } from './serializers';
 
 const borrowingRequestUrl = '/ill/borrowing-requests/';
 
-const get = async pid => {
+const get = async (pid) => {
   const response = await http.get(`${borrowingRequestUrl}${pid}`);
   response.data = serializer.fromJSON(response.data);
   return response;
 };
 
-const create = async data => {
+const create = async (data) => {
   const resp = await http.post(`${borrowingRequestUrl}`, data);
   resp.data = serializer.fromJSON(resp.data);
   return resp;
@@ -41,7 +41,7 @@ const createLoan = async (borrowingRequestPid, loanStartDate, loanEndDate) => {
   return resp;
 };
 
-const requestExtension = async borrowingRequestPid => {
+const requestExtension = async (borrowingRequestPid) => {
   const resp = await http.post(
     `${borrowingRequestUrl}${borrowingRequestPid}/patron-loan/extension/request`
   );
@@ -61,23 +61,23 @@ const acceptExtension = async (borrowingRequestPid, loanEndDate) => {
   return resp;
 };
 
-const declineExtension = async borrowingRequestPid => {
+const declineExtension = async (borrowingRequestPid) => {
   const resp = await http.post(
     `${borrowingRequestUrl}${borrowingRequestPid}/patron-loan/extension/decline`
   );
   return resp;
 };
 
-const list = async query => {
+const list = async (query) => {
   const response = await http.get(`${borrowingRequestUrl}?q=${query}`);
   response.data.total = response.data.hits.total;
-  response.data.hits = response.data.hits.hits.map(hit =>
+  response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
   return response;
 };
 
-const listWithPendingStatus = async query => {
+const listWithPendingStatus = async (query) => {
   const searchCriteria = borrowingRequestApi
     .query()
     .withState(
@@ -87,13 +87,13 @@ const listWithPendingStatus = async query => {
     .qs();
   const response = await http.get(`${borrowingRequestUrl}?q=${searchCriteria}`);
   response.data.total = response.data.hits.total;
-  response.data.hits = response.data.hits.hits.map(hit =>
+  response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
   return response;
 };
 
-const count = async query => {
+const count = async (query) => {
   const response = await http.get(`${borrowingRequestUrl}?q=${query}`);
   response.data = response.data.hits.total;
   return response;

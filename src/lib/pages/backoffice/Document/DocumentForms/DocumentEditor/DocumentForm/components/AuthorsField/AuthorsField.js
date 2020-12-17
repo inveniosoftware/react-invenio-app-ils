@@ -36,13 +36,13 @@ export class AuthorsField extends React.Component {
     }
   };
 
-  onAuthorSearchChange = value => {
+  onAuthorSearchChange = (value) => {
     if (value.length < 1) {
       this.setState({ activeIndex: null, showForm: false });
     }
   };
 
-  onAuthorChange = index => {
+  onAuthorChange = (index) => {
     const { activeIndex, showForm } = this.state;
     // Hide then show the form to prevent display issues when switching between
     // authors.
@@ -80,7 +80,7 @@ export class AuthorsField extends React.Component {
             this.onSubmit(values, activeIndex, setFieldValue)
           }
           onRemove={() => this.onRemove(values, activeIndex, setFieldValue)}
-          render={basePath => (
+          render={(basePath) => (
             <AuthorForm
               isCreate={isCreate}
               basePath={basePath}
@@ -92,7 +92,7 @@ export class AuthorsField extends React.Component {
     );
   };
 
-  renderAuthors = authors => {
+  renderAuthors = (authors) => {
     const { fieldPath } = this.props;
     const { activeIndex } = this.state;
 
@@ -104,7 +104,7 @@ export class AuthorsField extends React.Component {
         <AuthorSearchField
           authors={authors}
           onSearchChange={this.onAuthorSearchChange}
-          onResultSelect={result => this.onAuthorChange(result.index)}
+          onResultSelect={(result) => this.onAuthorChange(result.index)}
           showMaxResults={15}
         />
       );
@@ -120,7 +120,7 @@ export class AuthorsField extends React.Component {
     );
   };
 
-  renderFormField = props => {
+  renderFormField = (props) => {
     const {
       form: { values, setFieldValue, errors },
     } = props;

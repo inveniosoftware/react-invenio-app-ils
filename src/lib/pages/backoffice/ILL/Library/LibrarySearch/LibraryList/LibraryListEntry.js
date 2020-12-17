@@ -47,7 +47,7 @@ LibraryOrderSearch.propTypes = {
 };
 
 export default class LibraryListEntry extends Component {
-  renderMiddleColumn = libraryMetadata => {
+  renderMiddleColumn = (libraryMetadata) => {
     const { renderMiddleColumn } = this.props;
     if (renderMiddleColumn) {
       return renderMiddleColumn(libraryMetadata);
@@ -55,7 +55,7 @@ export default class LibraryListEntry extends Component {
     return <LibraryListInfo libraryMetadata={libraryMetadata} />;
   };
 
-  renderRightColumn = libraryMetadata => {
+  renderRightColumn = (libraryMetadata) => {
     const { renderRightColumn } = this.props;
 
     if (renderRightColumn) {
@@ -75,7 +75,7 @@ export default class LibraryListEntry extends Component {
     return (
       <Item.Description>
         <p>
-          {address.split('\n').map(line => (
+          {address.split('\n').map((line) => (
             <React.Fragment key={line}>
               {line}
               <br />

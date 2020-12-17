@@ -2,14 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox, Label, List } from 'semantic-ui-react';
 
-const generateLabel = key => {
+const generateLabel = (key) => {
   return (
     key.charAt(0).toUpperCase() +
-    key
-      .slice(1)
-      .replaceAll('_', ' ')
-      .replaceAll('-', ' ')
-      .toLowerCase()
+    key.slice(1).replaceAll('_', ' ').replaceAll('-', ' ').toLowerCase()
   );
 };
 

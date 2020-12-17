@@ -4,14 +4,14 @@ import { deleteFile, uploadFile } from '../File/state/actions';
 
 import EItemFilesComponent from './EItemFiles';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   eitemDetails: state.eitemDetails.data,
   files: state.eitemDetails.files,
   error: state.eitemDetails.error,
   isEItemFilesLoading: state.eitemDetails.isFilesLoading,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   sendErrorNotification: (title, message) =>
     dispatch(addNotification(title, message, 'error')),
   deleteFile: (bucket, filename) => dispatch(deleteFile(bucket, filename)),

@@ -13,7 +13,7 @@ export class DocumentCopyrights extends Component {
     } = this.props;
     const rows = [];
     if (copyrights) {
-      copyrights.forEach(element => {
+      copyrights.forEach((element) => {
         rows.push({ name: element.holder, value: element.year });
       });
     }
@@ -28,7 +28,7 @@ export class DocumentCopyrights extends Component {
     } = this.props;
     return (
       <List bulleted>
-        {licenses.map(entry => (
+        {licenses.map((entry) => (
           <List.Item key={entry}>{entry}</List.Item>
         ))}
       </List>

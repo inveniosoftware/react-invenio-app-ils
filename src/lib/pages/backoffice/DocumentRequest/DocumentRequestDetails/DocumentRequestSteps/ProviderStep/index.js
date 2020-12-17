@@ -2,11 +2,11 @@ import { addProvider } from '@pages/backoffice/DocumentRequest/DocumentRequestDe
 import { connect } from 'react-redux';
 import ProviderStepContentComponent from './ProviderStep';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   ...state.documentRequestDetails,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   addProvider: (provDataPid, pid, pidType) =>
     dispatch(addProvider(provDataPid, pid, pidType)),
 });

@@ -15,16 +15,16 @@ const AcquisitionRoutesList = {
 };
 
 const AcquisitionRouteGenerators = {
-  orderDetailsFor: orderPid =>
+  orderDetailsFor: (orderPid) =>
     generatePath(AcquisitionRoutesList.orderDetails, { orderPid: orderPid }),
-  orderEditFor: orderPid =>
+  orderEditFor: (orderPid) =>
     generatePath(AcquisitionRoutesList.orderEdit, { orderPid: orderPid }),
-  ordersListWithQuery: qs => `${AcquisitionRoutesList.ordersList}?q=${qs}`,
-  vendorDetailsFor: vendorPid =>
+  ordersListWithQuery: (qs) => `${AcquisitionRoutesList.ordersList}?q=${qs}`,
+  vendorDetailsFor: (vendorPid) =>
     generatePath(AcquisitionRoutesList.vendorDetails, { vendorPid: vendorPid }),
-  vendorEditFor: vendorPid =>
+  vendorEditFor: (vendorPid) =>
     generatePath(AcquisitionRoutesList.vendorEdit, { vendorPid: vendorPid }),
-  vendorsListWithQuery: qs => `${AcquisitionRoutesList.vendorsList}?q=${qs}`,
+  vendorsListWithQuery: (qs) => `${AcquisitionRoutesList.vendorsList}?q=${qs}`,
 };
 
 export const AcquisitionRoutes = {

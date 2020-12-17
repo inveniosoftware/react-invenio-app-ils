@@ -14,7 +14,7 @@ import { Grid, Header, Icon, Item, List } from 'semantic-ui-react';
 import DocumentCirculation from './DocumentCirculation';
 
 export default class DocumentListEntry extends Component {
-  renderMiddleColumn = document => {
+  renderMiddleColumn = (document) => {
     const { renderMiddleColumn } = this.props;
     if (renderMiddleColumn) {
       return renderMiddleColumn(document);
@@ -22,7 +22,7 @@ export default class DocumentListEntry extends Component {
     return <DocumentCirculation document={document} />;
   };
 
-  renderRightColumn = document => {
+  renderRightColumn = (document) => {
     const { renderRightColumn } = this.props;
     if (renderRightColumn) {
       return renderRightColumn(document);
@@ -38,10 +38,10 @@ export default class DocumentListEntry extends Component {
       'metadata.relations.multipart_monograph',
       []
     )
-      .map(rel => `pid:${rel.pid_value}`)
+      .map((rel) => `pid:${rel.pid_value}`)
       .join(' OR ');
     const partOfSeriesQuery = _get(document, 'metadata.relations.serial', [])
-      .map(rel => `pid:${rel.pid_value}`)
+      .map((rel) => `pid:${rel.pid_value}`)
       .join(' OR ');
 
     return (

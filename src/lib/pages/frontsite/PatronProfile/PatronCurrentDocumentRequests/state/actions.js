@@ -20,7 +20,7 @@ export const fetchPatronDocumentRequests = (
   patronPid,
   { page = 1, size = invenioConfig.APP.DEFAULT_RESULTS_SIZE } = {}
 ) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

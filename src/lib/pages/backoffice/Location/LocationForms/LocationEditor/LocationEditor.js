@@ -32,7 +32,7 @@ export class LocationEditor extends Component {
     this.cancellableFetchLocation && this.cancellableFetchLocation.cancel();
   }
 
-  fetchLocation = async locationPid => {
+  fetchLocation = async (locationPid) => {
     this.cancellableFetchLocation = withCancel(locationApi.get(locationPid));
     try {
       const response = await this.cancellableFetchLocation.promise;
@@ -44,7 +44,7 @@ export class LocationEditor extends Component {
     }
   };
 
-  renderEditForm = pid => {
+  renderEditForm = (pid) => {
     const { isLoading, error, data } = this.state;
     return (
       <Loader isLoading={isLoading}>

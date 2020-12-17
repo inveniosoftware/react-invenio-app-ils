@@ -20,7 +20,7 @@ const LiteratureKeywords = ({ keywords, separator, noneMessage }) => {
       <>
         {_get(keywords, 'length', 0) > 0
           ? keywords
-              .map(keyword => displayKeyword(keyword.value, keyword.source))
+              .map((keyword) => displayKeyword(keyword.value, keyword.source))
               .join(separator)
           : noneMessage}
       </>

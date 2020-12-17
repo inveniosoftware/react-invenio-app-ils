@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import LoanUpdateDatesComponent from './LoanUpdateDates';
 import { loanUpdateDates, clearError } from './state/actions';
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   loanUpdateDates: (loanPid, data) => dispatch(loanUpdateDates(loanPid, data)),
   clearError: () => dispatch(clearError()),
 });
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isLoading: state.loanUpdateDates.isLoading,
   data: state.loanUpdateDates.data,
   error: state.loanUpdateDates.error,

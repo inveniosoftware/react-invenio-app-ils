@@ -51,7 +51,7 @@ ItemCirculation.defaultProps = {
 };
 
 export class ItemListEntry extends Component {
-  onClickPendingRequests = item => {
+  onClickPendingRequests = (item) => {
     return {
       pathname: BackOfficeRoutes.documentDetailsFor(item.metadata.document_pid),
     };

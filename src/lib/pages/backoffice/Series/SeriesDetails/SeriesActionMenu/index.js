@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { deleteSeries } from '../state/actions';
 import SeriesActionMenuComponent from './SeriesActionMenu';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isLoading: state.seriesDetails.isLoading,
   error: state.seriesDetails.error,
   data: state.seriesDetails.data,
@@ -11,8 +11,8 @@ const mapStateToProps = state => ({
   multipartMonographsInSeries: state.seriesMultipartMonographs.data,
 });
 
-const mapDeleteDispatch = dispatch => ({
-  deleteSeries: seriesPid => dispatch(deleteSeries(seriesPid)),
+const mapDeleteDispatch = (dispatch) => ({
+  deleteSeries: (seriesPid) => dispatch(deleteSeries(seriesPid)),
 });
 
 export const SeriesActionMenu = connect(

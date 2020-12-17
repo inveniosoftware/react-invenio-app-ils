@@ -26,10 +26,7 @@ VendorListInfo.propTypes = {
 };
 
 const VendorOrderSearch = ({ vendor }) => {
-  const orderQuery = orderApi
-    .query()
-    .withVendorPid(vendor.metadata.pid)
-    .qs();
+  const orderQuery = orderApi.query().withVendorPid(vendor.metadata.pid).qs();
   return (
     <List.Item>
       <List.Content>
@@ -47,7 +44,7 @@ VendorOrderSearch.propTypes = {
 };
 
 export default class VendorListEntry extends Component {
-  renderMiddleColumn = vendor => {
+  renderMiddleColumn = (vendor) => {
     const { renderMiddleColumn } = this.props;
     if (renderMiddleColumn) {
       return renderMiddleColumn(vendor);
@@ -55,7 +52,7 @@ export default class VendorListEntry extends Component {
     return <VendorListInfo vendor={vendor} />;
   };
 
-  renderRightColumn = vendor => {
+  renderRightColumn = (vendor) => {
     const { renderRightColumn } = this.props;
     if (renderRightColumn) {
       return renderRightColumn(vendor);
@@ -75,7 +72,7 @@ export default class VendorListEntry extends Component {
     return (
       <Item.Description>
         <p>
-          {address.split('\n').map(line => (
+          {address.split('\n').map((line) => (
             <React.Fragment key={line}>
               {line}
               <br />

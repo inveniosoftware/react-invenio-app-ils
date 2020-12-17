@@ -20,7 +20,7 @@ export class ObjectArrayField extends React.Component {
           />
         }
       >
-        {objects.map(obj => {
+        {objects.map((obj) => {
           const ObjectField = obj.element;
           const objProps = obj.props || {};
           return (

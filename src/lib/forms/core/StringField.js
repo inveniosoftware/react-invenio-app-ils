@@ -14,7 +14,7 @@ export class StringField extends Component {
       : null;
   }
 
-  renderFormField = props => {
+  renderFormField = (props) => {
     const { fieldPath, inline, width, optimized, ...uiProps } = this.props;
     const {
       form: { values, handleChange, handleBlur, errors, status, isSubmitting },

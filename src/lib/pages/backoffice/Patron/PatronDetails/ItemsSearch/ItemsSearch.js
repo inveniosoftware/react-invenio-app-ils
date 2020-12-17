@@ -24,7 +24,7 @@ export default class ItemsSearch extends Component {
     clearResults();
   };
 
-  executeSearch = queryString => {
+  executeSearch = (queryString) => {
     const { queryString: propsQueryString, fetchItems } = this.props;
     queryString = queryString || propsQueryString;
     // eslint-disable-next-line react/no-unused-state
@@ -32,7 +32,7 @@ export default class ItemsSearch extends Component {
     fetchItems(queryString);
   };
 
-  onPasteHandler = async event => {
+  onPasteHandler = async (event) => {
     const { checkoutItem, patronDetails } = this.props;
     const { prevSearchQuery } = this.state;
     let queryString = event.clipboardData.getData('Text');
@@ -62,7 +62,7 @@ export default class ItemsSearch extends Component {
     }
   };
 
-  renderResultsList = results => {
+  renderResultsList = (results) => {
     const { patronDetails, clearResults, isLoadingSearch } = this.props;
     const { executedSearch } = this.state;
     return (

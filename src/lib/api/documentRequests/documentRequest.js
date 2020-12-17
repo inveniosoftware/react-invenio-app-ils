@@ -14,20 +14,20 @@ const apiPaths = {
   provider: `${documentRequestURL}:docReqPid/provider`,
 };
 
-const create = async data => {
+const create = async (data) => {
   const response = await http.post(apiPaths.list, data);
   response.data = serializer.fromJSON(response.data);
   return response;
 };
 
-const get = async docRequestPid => {
+const get = async (docRequestPid) => {
   const path = generatePath(apiPaths.item, { docReqPid: docRequestPid });
   const response = await http.get(path);
   response.data = serializer.fromJSON(response.data);
   return response;
 };
 
-const del = async docRequestPid => {
+const del = async (docRequestPid) => {
   const path = generatePath(apiPaths.item, { docReqPid: docRequestPid });
   const response = await http.delete(path);
   return response;
@@ -39,7 +39,7 @@ const performAction = async (urlPath, data) => {
   return response;
 };
 
-const accept = async docRequestPid => {
+const accept = async (docRequestPid) => {
   const urlPath = generatePath(apiPaths.accept, { docReqPid: docRequestPid });
   return performAction(urlPath);
 };
@@ -60,7 +60,7 @@ const addProvider = async (docReqPid, data) => {
   return await http.post(url, data);
 };
 
-const removeProvider = async docReqPid => {
+const removeProvider = async (docReqPid) => {
   const url = generatePath(apiPaths.provider, { docReqPid: docReqPid });
   return await http.delete(url);
 };
@@ -131,16 +131,16 @@ const queryBuilder = () => {
   return new QueryBuilder();
 };
 
-const list = async query => {
+const list = async (query) => {
   const response = await http.get(`${documentRequestURL}?q=${query}`);
   response.data.total = response.data.hits.total;
-  response.data.hits = response.data.hits.hits.map(hit =>
+  response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
   return response;
 };
 
-const count = async query => {
+const count = async (query) => {
   const response = await http.get(`${documentRequestURL}?q=${query}`);
   response.data = response.data.hits.total;
   return response;

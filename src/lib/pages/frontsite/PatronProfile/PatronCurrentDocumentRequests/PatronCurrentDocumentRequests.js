@@ -86,7 +86,7 @@ class ButtonCancelRequest extends Component {
     }
   };
 
-  showError = msg => {
+  showError = (msg) => {
     this.setState({
       errorMsgOpened: true,
       errorMsg: (
@@ -174,7 +174,7 @@ class PatronCurrentDocumentRequests extends Component {
     });
   }
 
-  onPageChange = newPage => {
+  onPageChange = (newPage) => {
     this.setState({ activePage: newPage }, this.fetchPatronDocumentRequests);
   };
 
@@ -217,7 +217,7 @@ class PatronCurrentDocumentRequests extends Component {
         <ButtonCancelRequest
           docReqPid={row.metadata.pid}
           docReqTitle={row.metadata.title}
-          onSuccess={msg => {
+          onSuccess={(msg) => {
             this.fetchPatronDocumentRequests();
             this.showSuccessMessage(msg);
           }}
@@ -226,7 +226,7 @@ class PatronCurrentDocumentRequests extends Component {
     },
   ];
 
-  showSuccessMessage = msg => {
+  showSuccessMessage = (msg) => {
     this.setState({ isSuccessMessageVisible: true, successMessage: msg });
   };
 

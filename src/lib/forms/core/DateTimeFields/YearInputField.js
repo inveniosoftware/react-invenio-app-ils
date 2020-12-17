@@ -5,7 +5,7 @@ import { Form } from 'semantic-ui-react';
 import { CalendarInputField } from './CalendarInputField';
 
 export class YearInputField extends React.Component {
-  renderFormField = props => {
+  renderFormField = (props) => {
     const { required, label, placeholder, fieldPath, className } = this.props;
     return (
       <Form.Field required={required}>

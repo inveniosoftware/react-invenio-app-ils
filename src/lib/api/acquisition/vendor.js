@@ -3,13 +3,13 @@ import { vendorSerializer as serializer } from './serializers';
 
 const vendorURL = '/acquisition/vendors/';
 
-const get = async pid => {
+const get = async (pid) => {
   const response = await http.get(`${vendorURL}${pid}`);
   response.data = serializer.fromJSON(response.data);
   return response;
 };
 
-const create = async data => {
+const create = async (data) => {
   const resp = await http.post(`${vendorURL}`, data);
   resp.data = serializer.fromJSON(resp.data);
   return resp;
@@ -21,20 +21,20 @@ const update = async (pid, data) => {
   return response;
 };
 
-const del = async pid => {
+const del = async (pid) => {
   return await http.delete(`${vendorURL}${pid}`);
 };
 
-const list = async query => {
+const list = async (query) => {
   const response = await http.get(`${vendorURL}?q=${query}`);
   response.data.total = response.data.hits.total;
-  response.data.hits = response.data.hits.hits.map(hit =>
+  response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
   return response;
 };
 
-const count = async query => {
+const count = async (query) => {
   const response = await http.get(`${vendorURL}?q=${query}`);
   response.data = response.data.hits.total;
   return response;

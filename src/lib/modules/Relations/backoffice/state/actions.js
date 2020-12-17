@@ -10,7 +10,7 @@ export const IS_LOADING = 'recordRelations/IS_LOADING';
 export const SUCCESS = 'recordRelations/SUCCESS';
 export const HAS_ERROR = 'recordRelations/HAS_ERROR';
 
-const getRecordApi = referrerRecord => {
+const getRecordApi = (referrerRecord) => {
   if (recordToPidType(referrerRecord) === 'docid') {
     return documentApi;
   } else if (recordToPidType(referrerRecord) === 'serid') {
@@ -26,7 +26,7 @@ export const createRelations = (
   relationType,
   extra = {}
 ) => {
-  return async dispatch => {
+  return async (dispatch) => {
     if (selections.length) {
       dispatch({
         type: IS_LOADING,
@@ -60,7 +60,7 @@ export const createRelations = (
 };
 
 export const deleteRelation = (referrer, related) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

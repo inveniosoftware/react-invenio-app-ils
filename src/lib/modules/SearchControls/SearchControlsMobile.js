@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { getSearchConfig } from '@config';
 
 export class SearchControlsMobile extends Component {
-  renderCount = totalResults => {
+  renderCount = (totalResults) => {
     return (
       <div className="search-results-counter">{totalResults} results found</div>
     );
@@ -31,7 +31,7 @@ export class SearchControlsMobile extends Component {
                 <Grid.Column width={8} className="vertical-align-content">
                   <div>
                     <Count
-                      label={cmp => (
+                      label={(cmp) => (
                         <div className="mobile-count">{cmp} results found</div>
                       )}
                     />
@@ -45,7 +45,7 @@ export class SearchControlsMobile extends Component {
                   <div>
                     <SearchResultsPerPage
                       modelName={modelName}
-                      label={cmp => (
+                      label={(cmp) => (
                         <div className="mobile-results-page">
                           {cmp} results per page
                         </div>

@@ -3,8 +3,10 @@ import _cloneDeep from 'lodash/cloneDeep';
 import { qsBuilderForSeries } from './RequestSerializer';
 
 const series = Object.values(seriesTestData);
-const serial = series.filter(s => s.mode_of_issuance === 'SERIAL')[0];
-const mm = series.filter(s => s.mode_of_issuance === 'MULTIPART_MONOGRAPH')[0];
+const serial = series.filter((s) => s.mode_of_issuance === 'SERIAL')[0];
+const mm = series.filter(
+  (s) => s.mode_of_issuance === 'MULTIPART_MONOGRAPH'
+)[0];
 
 const stateQuery = {
   filters: [],

@@ -47,7 +47,7 @@ BorrowingRequestStep.defaultProps = {
   iconName: null,
 };
 
-const toLabel = status => {
+const toLabel = (status) => {
   return getDisplayVal('ILL_BORROWING_REQUESTS.statuses', status);
 };
 

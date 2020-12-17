@@ -13,7 +13,7 @@ export default class SearchSortBy extends Component {
         <Media greaterThanOrEqual="tablet">
           {searchConfig.SORT_BY.length > 0 ? (
             <Sort
-              label={cmp => <> Sort by {cmp}</>}
+              label={(cmp) => <> Sort by {cmp}</>}
               values={searchConfig.SORT_BY}
               overridableId="desktop"
             />

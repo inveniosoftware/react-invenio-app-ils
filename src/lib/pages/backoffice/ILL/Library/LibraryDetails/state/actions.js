@@ -14,8 +14,8 @@ export const DELETE_IS_LOADING = 'deleteLibrary/DELETE_IS_LOADING';
 export const DELETE_SUCCESS = 'deleteLibrary/DELETE_SUCCESS';
 export const DELETE_HAS_ERROR = 'deleteLibrary/DELETE_HAS_ERROR';
 
-export const fetchLibraryDetails = pid => {
-  return async dispatch => {
+export const fetchLibraryDetails = (pid) => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -36,8 +36,8 @@ export const fetchLibraryDetails = pid => {
   };
 };
 
-export const deleteLibrary = pid => {
-  return async dispatch => {
+export const deleteLibrary = (pid) => {
+  return async (dispatch) => {
     dispatch({
       type: DELETE_IS_LOADING,
     });

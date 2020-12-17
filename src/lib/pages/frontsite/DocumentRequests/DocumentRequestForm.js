@@ -39,7 +39,7 @@ class DocumentRequestForm extends Component {
     };
   }
 
-  onSerializeSubmit = values => {
+  onSerializeSubmit = (values) => {
     const {
       user: { id },
     } = this.props;
@@ -49,7 +49,7 @@ class DocumentRequestForm extends Component {
     };
   };
 
-  createDocumentRequest = async data => {
+  createDocumentRequest = async (data) => {
     const response = await documentRequestApi.create(data);
     await searchReady();
     return response;

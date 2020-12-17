@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { sendSuccessNotification } from '@components/Notifications/actions';
 import { SeriesForm as SeriesFormComponent } from './SeriesForm';
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   sendSuccessNotification: (title, content) =>
     dispatch(sendSuccessNotification(title, content)),
 });

@@ -4,10 +4,10 @@ import { prepareSumQuery } from '@api/utils';
 
 const literatureURL = '/literature/';
 
-const list = async query => {
+const list = async (query) => {
   const response = await http.get(`${literatureURL}?q=${query}`);
   response.data.total = response.data.hits.total;
-  response.data.hits = response.data.hits.hits.map(hit =>
+  response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
   return response;

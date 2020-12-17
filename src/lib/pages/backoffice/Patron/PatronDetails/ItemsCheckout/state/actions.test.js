@@ -30,7 +30,7 @@ beforeEach(() => {
 
 describe('ItemsCheckout actions tests', () => {
   describe('Direct checkout of an item', () => {
-    it('should dispatch an action when checkout', done => {
+    it('should dispatch an action when checkout', (done) => {
       mockDoCheckout.mockResolvedValue(response);
 
       const expectedActions = [
@@ -57,7 +57,7 @@ describe('ItemsCheckout actions tests', () => {
         });
     });
 
-    it('should dispatch an action forcing checkout', done => {
+    it('should dispatch an action forcing checkout', (done) => {
       mockDoCheckout.mockResolvedValue(response);
 
       const expectedActions = [
@@ -86,7 +86,7 @@ describe('ItemsCheckout actions tests', () => {
         });
     });
 
-    it('should dispatch an action without forcing checkout', done => {
+    it('should dispatch an action without forcing checkout', (done) => {
       mockDoCheckout.mockResolvedValue(response);
 
       const expectedActions = [
@@ -113,7 +113,7 @@ describe('ItemsCheckout actions tests', () => {
         });
     });
 
-    it('should dispatch an action when user fetch fails', done => {
+    it('should dispatch an action when user fetch fails', (done) => {
       mockDoCheckout.mockRejectedValue([500, 'Error']);
 
       const expectedActions = [

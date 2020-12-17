@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import CheckedInItemsComponent from './CheckedInItems';
 import { clearResults } from '../ItemsSearch/state/actions';
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   clearResults: () => dispatch(clearResults()),
 });
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   items: state.itemsCheckIn.items,
 });
 

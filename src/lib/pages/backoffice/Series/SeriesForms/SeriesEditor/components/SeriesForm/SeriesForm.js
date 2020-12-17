@@ -35,9 +35,7 @@ import * as Yup from 'yup';
 const SeriesSchema = Yup.object().shape({
   access_urls: Yup.array().of(
     Yup.object().shape({
-      value: Yup.string()
-        .url()
-        .required(),
+      value: Yup.string().url().required(),
     })
   ),
   alternative_titles: Yup.array().of(
@@ -59,7 +57,7 @@ const SeriesSchema = Yup.object().shape({
 });
 
 export class SeriesForm extends Component {
-  prepareData = data => {
+  prepareData = (data) => {
     return _pick(data, [
       'abbreviated_title',
       'abstract',
@@ -87,11 +85,11 @@ export class SeriesForm extends Component {
     return seriesApi.update(pid, data);
   };
 
-  createSeries = data => {
+  createSeries = (data) => {
     return seriesApi.create(data);
   };
 
-  successCallback = response => {
+  successCallback = (response) => {
     goTo(
       BackOfficeRoutes.seriesDetailsFor(getIn(response, 'data.metadata.pid'))
     );

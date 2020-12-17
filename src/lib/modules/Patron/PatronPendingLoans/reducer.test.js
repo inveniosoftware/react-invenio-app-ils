@@ -1,10 +1,5 @@
 import reducer, { initialState } from './reducer';
-import {
-  IS_LOADING,
-  SUCCESS,
-  HAS_ERROR,
-  CHANGE_SORT_BY,
-} from './actions';
+import { IS_LOADING, SUCCESS, HAS_ERROR, CHANGE_SORT_BY } from './actions';
 
 describe('Fetch pending loans reducer', () => {
   it('should have initial state', () => {

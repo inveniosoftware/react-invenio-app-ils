@@ -25,15 +25,15 @@ export class ItemHeader extends Component {
         )
       ) {
         status = invenioConfig.CIRCULATION.statuses.find(
-          x => x.value === data.metadata.circulation.state
+          (x) => x.value === data.metadata.circulation.state
         );
       }
     } else {
       status = invenioConfig.ITEMS.statuses.find(
-        x => x.value === data.metadata.status
+        (x) => x.value === data.metadata.status
       );
     }
-    const lowercaseDashed = value => {
+    const lowercaseDashed = (value) => {
       value = value.toLowerCase().replace(/_/g, '-');
       return value;
     };

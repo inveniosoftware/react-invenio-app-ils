@@ -7,7 +7,7 @@ export const SUCCESS = 'fetchOngoingAcqRequests/SUCCESS';
 export const HAS_ERROR = 'fetchOngoingAcqRequests/HAS_ERROR';
 
 export const fetchOngoingAcqRequests = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

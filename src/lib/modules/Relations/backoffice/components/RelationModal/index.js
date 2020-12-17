@@ -3,7 +3,7 @@ import { createRelations } from '../../state/actions';
 import { connect } from 'react-redux';
 import RelationModalComponent from './RelationModal';
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   createRelations: (
     relationType,
     selections,
@@ -21,7 +21,7 @@ const mapDispatchToProps = dispatch => ({
   resetSelections: () => dispatch(resetSelections()),
 });
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   selections: state.recordRelationsSelections.selections,
 });
 

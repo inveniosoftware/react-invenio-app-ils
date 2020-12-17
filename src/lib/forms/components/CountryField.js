@@ -43,7 +43,7 @@ export class FlagDropdown extends Dropdown {
 }
 
 export class CountryField extends Component {
-  serializer = hit => {
+  serializer = (hit) => {
     const obj = {
       key: hit.metadata.id,
       value: hit.metadata.key,

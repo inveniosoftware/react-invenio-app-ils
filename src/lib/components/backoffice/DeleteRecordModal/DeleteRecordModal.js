@@ -28,7 +28,7 @@ export default class DeleteRecordModal extends Component {
   handleOpen() {
     const { refProps, fetchReferences } = this.props;
     if (!_isEmpty(refProps)) {
-      fetchReferences(refProps.map(entry => entry.getRefData()));
+      fetchReferences(refProps.map((entry) => entry.getRefData()));
     }
   }
 
@@ -43,7 +43,7 @@ export default class DeleteRecordModal extends Component {
     );
   };
 
-  renderHeader = refEntry => {
+  renderHeader = (refEntry) => {
     return (
       <Header
         key={`${refEntry}`}
@@ -55,7 +55,7 @@ export default class DeleteRecordModal extends Component {
 
   renderContent = (refEntry, refData) => {
     const { refType, onRefClick } = refEntry;
-    const references = _sortBy(refData.hits, 'id').map(hit => (
+    const references = _sortBy(refData.hits, 'id').map((hit) => (
       <List.Item
         key={hit.id}
         as="a"
@@ -81,7 +81,7 @@ export default class DeleteRecordModal extends Component {
     }
   };
 
-  renderActions = canDelete => {
+  renderActions = (canDelete) => {
     return (
       <Modal.Actions key="modalActions">
         <Button onClick={this.toggleModal}>

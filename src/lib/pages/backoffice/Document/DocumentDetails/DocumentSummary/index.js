@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import DocumentSummaryComponent from './DocumentSummary';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   document: state.documentDetails.data,
   error: state.documentDetails.error,
   loading: state.documentDetails.isLoading,

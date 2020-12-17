@@ -19,10 +19,7 @@ export default class DocumentItems extends Component {
     const { documentDetails } = this.props;
 
     const path = BackOfficeRoutes.itemsListWithQuery(
-      itemApi
-        .query()
-        .withDocPid(documentDetails.pid)
-        .qs()
+      itemApi.query().withDocPid(documentDetails.pid).qs()
     );
     return <SeeAllButton to={path} />;
   };

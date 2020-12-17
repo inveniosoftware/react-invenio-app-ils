@@ -9,7 +9,7 @@ export const SUCCESS = 'fetchIdleLoans/SUCCESS';
 export const HAS_ERROR = 'fetchIdleLoans/HAS_ERROR';
 
 export const fetchIdlePendingLoans = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

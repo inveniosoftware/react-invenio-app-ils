@@ -7,13 +7,13 @@ import { connect } from 'react-redux';
 
 import RelationSelectorComponent from './RelationSelector';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   selections: state.recordRelationsSelections.selections,
 });
 
-const mapDispatchToProps = dispatch => ({
-  selectOption: option => dispatch(selectOption(option)),
-  removeSelection: removePid => dispatch(removeSelection(removePid)),
+const mapDispatchToProps = (dispatch) => ({
+  selectOption: (option) => dispatch(selectOption(option)),
+  removeSelection: (removePid) => dispatch(removeSelection(removePid)),
   resetSelections: () => dispatch(resetSelections()),
 });
 

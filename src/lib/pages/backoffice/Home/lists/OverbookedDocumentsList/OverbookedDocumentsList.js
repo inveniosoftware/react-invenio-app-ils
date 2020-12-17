@@ -17,10 +17,7 @@ export default class OverbookedDocumentsList extends Component {
 
   seeAllButton = () => {
     const path = BackOfficeRoutes.documentsListWithQuery(
-      documentApi
-        .query()
-        .overbooked()
-        .qs()
+      documentApi.query().overbooked().qs()
     );
 
     return <SeeAllButton to={path} />;

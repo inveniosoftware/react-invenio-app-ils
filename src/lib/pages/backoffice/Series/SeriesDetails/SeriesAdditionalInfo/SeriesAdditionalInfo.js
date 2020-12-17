@@ -12,7 +12,7 @@ export class SeriesAdditionalInfo extends Component {
       name: 'Alternative title',
       value: (
         <List bulleted>
-          {series.metadata.alternative_titles.map(entry => (
+          {series.metadata.alternative_titles.map((entry) => (
             <List.Item key={entry.value}>
               <List.Content>{entry.value}</List.Content>
             </List.Item>

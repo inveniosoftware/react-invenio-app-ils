@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchPatronDocumentRequests } from '@modules/Patron/PatronDocumentRequests/actions';
 import PatronDocumentRequestsComponent from './PatronDocumentRequests';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   data: state.patronDocumentRequests.data,
   error: state.patronDocumentRequests.error,
   isLoading: state.patronDocumentRequests.isLoading,
@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
   patronDetails: state.patronDetails.data,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchPatronDocumentRequests: (patronPid, optionalParams = {}) =>
     dispatch(fetchPatronDocumentRequests(patronPid, optionalParams)),
 });

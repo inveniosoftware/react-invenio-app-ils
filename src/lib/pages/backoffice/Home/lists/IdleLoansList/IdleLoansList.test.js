@@ -6,7 +6,7 @@ import IdleLoansList from './IdleLoansList';
 
 jest.mock('react-router-dom');
 jest.mock('@config');
-BackOfficeRoutes.loanDetailsFor = jest.fn(pid => `url/${pid}`);
+BackOfficeRoutes.loanDetailsFor = jest.fn((pid) => `url/${pid}`);
 let mockViewDetails = jest.fn();
 
 const data = {
@@ -69,7 +69,7 @@ describe('IdleLoansList tests', () => {
     expect(component).toMatchSnapshot();
     const message = component
       .find('Message')
-      .filterWhere(element => element.prop('data-test') === 'no-results');
+      .filterWhere((element) => element.prop('data-test') === 'no-results');
     expect(message).toHaveLength(1);
   });
 });

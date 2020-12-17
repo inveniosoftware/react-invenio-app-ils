@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import _isEmpty from 'lodash/isEmpty';
 
 export default class RelationSelector extends Component {
-  disabledSelectionOption = result => {
+  disabledSelectionOption = (result) => {
     const { existingRelations, referrerRecordPid } = this.props;
 
     /* if itself, disable it */
@@ -18,15 +18,17 @@ export default class RelationSelector extends Component {
     if (!hasRelations) {
       return false;
     }
-    return existingRelations.find(rel => rel.pid_value === result.metadata.pid);
+    return existingRelations.find(
+      (rel) => rel.pid_value === result.metadata.pid
+    );
   };
 
-  isSelected = option => {
+  isSelected = (option) => {
     const { selections } = this.props;
-    return selections.find(o => o.pid === option.metadata.pid);
+    return selections.find((o) => o.pid === option.metadata.pid);
   };
 
-  selectResultRender = option => {
+  selectResultRender = (option) => {
     let disabled = false;
     const { resultRenderer } = this.props;
 
@@ -37,7 +39,7 @@ export default class RelationSelector extends Component {
     return resultRenderer(option, disabled);
   };
 
-  onSelectResult = result => {
+  onSelectResult = (result) => {
     const { mode, resetSelections, selectOption } = this.props;
     if (mode === 'single') {
       resetSelections();
@@ -59,7 +61,7 @@ export default class RelationSelector extends Component {
         onSelect={this.onSelectResult}
         value=""
         resultRenderer={this.selectResultRender}
-        ref={element => (this.searchRef = element)}
+        ref={(element) => (this.searchRef = element)}
       />
     );
   }

@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import { addDocument } from '@pages/backoffice/DocumentRequest/DocumentRequestDetails/state/actions';
 import DocumentStepContentComponent from './DocumentStep';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   ...state.documentRequestDetails,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   addDocument: (pid, key) => dispatch(addDocument(pid, key)),
 });
 

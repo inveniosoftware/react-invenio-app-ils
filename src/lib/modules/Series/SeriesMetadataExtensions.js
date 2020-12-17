@@ -12,7 +12,7 @@ export const SeriesMetadataExtensions = ({ extensions, showDivider }) => {
       )}
       <Table definition>
         <Table.Body>
-          {_keys(extensions).map(key => (
+          {_keys(extensions).map((key) => (
             <Table.Row key={key}>
               <Table.Cell width={4}>
                 {invenioConfig.SERIES.extensions.fields[key].label}
