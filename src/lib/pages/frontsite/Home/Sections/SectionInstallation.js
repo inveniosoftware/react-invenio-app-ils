@@ -103,8 +103,8 @@ export class SectionInstallation extends Component {
                     <List>
                       <List.Item className="install-item">
                         Visit{' '}
-                        <a href="http://localhost:3000/">
-                          http://localhost:3000
+                        <a href="https://127.0.0.1:3000/">
+                          https://127.0.0.1:3000
                         </a>{' '}
                         in you browser.
                       </List.Item>

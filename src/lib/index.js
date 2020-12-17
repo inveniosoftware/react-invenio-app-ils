@@ -34,4 +34,5 @@ export { default as InvenioILSApp } from './App';
 export { default as history } from './history';
 export { default as store } from './store';
 export { NotFound } from '@components/HttpErrors';
+export { ResultsTable } from '@components/ResultsTable/ResultsTable';
 export { withCancel, recordToPidType } from '@api/utils';
