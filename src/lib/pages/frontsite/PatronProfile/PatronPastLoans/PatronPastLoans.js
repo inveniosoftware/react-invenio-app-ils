@@ -84,14 +84,14 @@ export default class PatronPastLoans extends Component {
               activePage={activePage}
               isLoading={isLoading}
               loans={loans}
-              onPageChange={newPage => {
+              onPageChange={(newPage) => {
                 this.setState(
                   { activePage: newPage },
                   this.fetchPatronPastLoans
                 );
               }}
               rowsPerPage={rowsPerPage}
-              renderListEntry={loan => <LoansListEntry loan={loan} />}
+              renderListEntry={(loan) => <LoansListEntry loan={loan} />}
               noLoansCmp={
                 <InfoMessage
                   title="No past loans"

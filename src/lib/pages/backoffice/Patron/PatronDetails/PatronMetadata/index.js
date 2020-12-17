@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import PatronMetadataComponent from './PatronMetadata';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   patronDetails: state.patronDetails,
 });
 

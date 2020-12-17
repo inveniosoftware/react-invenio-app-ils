@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import SeriesRelationsComponent from './SeriesRelations';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   seriesDetails: state.seriesDetails.data,
   error: state.recordRelations.error,
   isLoading: state.recordRelations.isLoading,

@@ -11,7 +11,7 @@ export class ExistingRelations extends Component {
     };
   }
 
-  onPageChange = page => {
+  onPageChange = (page) => {
     this.setState({ activePage: page });
   };
 

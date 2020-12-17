@@ -50,14 +50,15 @@ describe('DocumentRequestsSearch ResultsTable tests', () => {
     const resultRows = component
       .find('TableRow')
       .filterWhere(
-        element => element.prop('data-test') === firstResult.metadata.pid
+        (element) => element.prop('data-test') === firstResult.metadata.pid
       );
     expect(resultRows).toHaveLength(1);
 
     const mappedStatusElements = resultRows
       .find('TableCell')
       .filterWhere(
-        element => element.prop('data-test') === `1-${firstResult.metadata.pid}`
+        (element) =>
+          element.prop('data-test') === `1-${firstResult.metadata.pid}`
       );
     expect(mappedStatusElements).toHaveLength(1);
     expect(mappedStatusElements.text()).toEqual(firstResult.metadata.title);
@@ -68,7 +69,7 @@ describe('DocumentRequestsSearch ResultsTable tests', () => {
     const firstId = data[0].pid;
     const button = component
       .find('TableCell')
-      .filterWhere(element => element.prop('data-test') === `0-${firstId}`)
+      .filterWhere((element) => element.prop('data-test') === `0-${firstId}`)
       .find('button');
     button.simulate('click');
     expect(mockViewDetails).toHaveBeenCalled();

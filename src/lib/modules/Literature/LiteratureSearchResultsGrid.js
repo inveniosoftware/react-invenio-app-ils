@@ -12,7 +12,7 @@ export const LiteratureSearchResultsGrid = ({
   overridableId,
   parentPid,
 }) => {
-  const cards = results.map(result => {
+  const cards = results.map((result) => {
     const volume = findVolume(result, parentPid);
     return recordToPidType(result) === 'docid' ? (
       <DocumentCard key={result.metadata.pid} data={result} volume={volume} />

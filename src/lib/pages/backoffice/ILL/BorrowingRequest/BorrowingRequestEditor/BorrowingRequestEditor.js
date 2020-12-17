@@ -46,7 +46,7 @@ export class BorrowingRequestEditor extends Component {
     };
   }
 
-  fetchBorrowingRequest = async borrowingRequestPid => {
+  fetchBorrowingRequest = async (borrowingRequestPid) => {
     this.cancellableFetchBorrowingRequest = withCancel(
       borrowingRequestApi.get(borrowingRequestPid)
     );
@@ -60,7 +60,7 @@ export class BorrowingRequestEditor extends Component {
     }
   };
 
-  renderEditForm = pid => {
+  renderEditForm = (pid) => {
     const { isLoading, error, data } = this.state;
     return (
       <Loader isLoading={isLoading}>

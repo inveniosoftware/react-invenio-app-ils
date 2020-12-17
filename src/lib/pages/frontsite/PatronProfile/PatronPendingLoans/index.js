@@ -2,13 +2,13 @@ import { fetchPatronPendingLoans } from '@modules/Patron/PatronPendingLoans/acti
 import { connect } from 'react-redux';
 import PatronPendingLoansComponent from './PatronPendingLoans';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   loans: state.patronPendingLoans.data,
   isLoading: state.patronPendingLoans.isLoading,
   error: state.patronPendingLoans.error,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchPatronPendingLoans: (patronPid, optionalParams = {}) =>
     dispatch(fetchPatronPendingLoans(patronPid, optionalParams)),
 });

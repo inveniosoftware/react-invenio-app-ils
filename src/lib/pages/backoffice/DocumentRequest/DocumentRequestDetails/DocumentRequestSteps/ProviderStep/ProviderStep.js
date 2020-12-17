@@ -60,7 +60,7 @@ ProviderStepContent.propTypes = {
 };
 
 class AcqProvider extends Component {
-  onSelectResult = provData => {
+  onSelectResult = (provData) => {
     const {
       data: { metadata },
       addProvider,
@@ -108,7 +108,7 @@ AcqProvider.propTypes = {
 };
 
 class IllProvider extends Component {
-  onSelectResult = provData => {
+  onSelectResult = (provData) => {
     const {
       data: { metadata },
       addProvider,

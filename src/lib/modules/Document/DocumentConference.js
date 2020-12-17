@@ -38,7 +38,7 @@ export class DocumentConference extends Component {
               <Table.Cell>
                 {conference.identifiers &&
                   conference.identifiers.map(
-                    identifier =>
+                    (identifier) =>
                       '(' + identifier.scheme + ') ' + identifier.value
                   )}
               </Table.Cell>

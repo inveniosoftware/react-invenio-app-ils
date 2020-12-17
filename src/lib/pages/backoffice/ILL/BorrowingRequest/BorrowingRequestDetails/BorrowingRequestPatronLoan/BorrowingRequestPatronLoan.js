@@ -96,11 +96,11 @@ class CreateLoan extends React.Component {
     };
   };
 
-  handleStartDateChange = value => {
+  handleStartDateChange = (value) => {
     this.setState({ startDate: value });
   };
 
-  handleEndDateChange = value => {
+  handleEndDateChange = (value) => {
     this.setState({ endDate: value });
   };
 
@@ -128,7 +128,7 @@ class CreateLoan extends React.Component {
     this.handleCloseModal();
   };
 
-  transformError = error => {
+  transformError = (error) => {
     return error.response.data.message;
   };
 
@@ -172,7 +172,7 @@ class CreateLoan extends React.Component {
                     minDate={this.today}
                     maxDate={toShortDate(max)}
                     placeholder="Start date"
-                    handleDateChange={value =>
+                    handleDateChange={(value) =>
                       this.handleStartDateChange(value)
                     }
                   />
@@ -184,7 +184,9 @@ class CreateLoan extends React.Component {
                     minDate={this.today}
                     maxDate={toShortDate(max)}
                     placeholder="End date"
-                    handleDateChange={value => this.handleEndDateChange(value)}
+                    handleDateChange={(value) =>
+                      this.handleEndDateChange(value)
+                    }
                   />
                 </Form.Field>
               </Form.Group>

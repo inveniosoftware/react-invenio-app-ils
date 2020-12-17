@@ -30,7 +30,7 @@ import { Container, Grid, Header } from 'semantic-ui-react';
 
 class OrderResponseSerializer {
   serialize(results) {
-    const hits = results.hits.hits.map(hit =>
+    const hits = results.hits.hits.map((hit) =>
       orderApi.serializer.fromJSON(hit)
     );
     return {

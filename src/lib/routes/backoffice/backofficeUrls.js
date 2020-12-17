@@ -40,52 +40,53 @@ const BackOfficeRoutesList = {
 };
 
 export const BackOfficeRouteGenerators = {
-  documentEditFor: documentPid =>
+  documentEditFor: (documentPid) =>
     generatePath(BackOfficeRoutesList.documentEdit, {
       documentPid: documentPid,
     }),
-  documentsListWithQuery: qs => `${BackOfficeRoutesList.documentsList}?q=${qs}`,
-  documentDetailsFor: documentPid =>
+  documentsListWithQuery: (qs) =>
+    `${BackOfficeRoutesList.documentsList}?q=${qs}`,
+  documentDetailsFor: (documentPid) =>
     generatePath(BackOfficeRoutesList.documentDetails, {
       documentPid: documentPid,
     }),
-  documentRequestsListWithQuery: qs =>
+  documentRequestsListWithQuery: (qs) =>
     `${BackOfficeRoutesList.documentRequestsList}?q=${qs}`,
-  documentRequestDetailsFor: documentRequestPid =>
+  documentRequestDetailsFor: (documentRequestPid) =>
     generatePath(BackOfficeRoutesList.documentRequestDetails, {
       documentRequestPid: documentRequestPid,
     }),
-  eitemDetailsFor: eitemPid =>
+  eitemDetailsFor: (eitemPid) =>
     generatePath(BackOfficeRoutesList.eitemDetails, { eitemPid: eitemPid }),
-  eitemEditFor: eitemPid =>
+  eitemEditFor: (eitemPid) =>
     generatePath(BackOfficeRoutesList.eitemEdit, { eitemPid: eitemPid }),
-  eitemsListWithQuery: qs => `${BackOfficeRoutesList.eitemsList}?q=${qs}`,
-  itemsListWithQuery: qs => `${BackOfficeRoutesList.itemsList}?q=${qs}`,
-  itemDetailsFor: itemPid =>
+  eitemsListWithQuery: (qs) => `${BackOfficeRoutesList.eitemsList}?q=${qs}`,
+  itemsListWithQuery: (qs) => `${BackOfficeRoutesList.itemsList}?q=${qs}`,
+  itemDetailsFor: (itemPid) =>
     generatePath(BackOfficeRoutesList.itemDetails, { itemPid: itemPid }),
-  itemEditFor: itemPid =>
+  itemEditFor: (itemPid) =>
     generatePath(BackOfficeRoutesList.itemEdit, { itemPid: itemPid }),
-  loansListWithQuery: qs => `${BackOfficeRoutesList.loansList}?q=${qs}`,
-  loanDetailsFor: loanPid =>
+  loansListWithQuery: (qs) => `${BackOfficeRoutesList.loansList}?q=${qs}`,
+  loanDetailsFor: (loanPid) =>
     generatePath(BackOfficeRoutesList.loanDetails, { loanPid: loanPid }),
-  ilocationsEditFor: ilocationPid =>
+  ilocationsEditFor: (ilocationPid) =>
     generatePath(BackOfficeRoutesList.ilocationsEdit, {
       ilocationPid: ilocationPid,
     }),
-  locationsEditFor: locationPid =>
+  locationsEditFor: (locationPid) =>
     generatePath(BackOfficeRoutesList.locationsEdit, {
       locationPid: locationPid,
     }),
-  locationsDetailsFor: locationPid =>
+  locationsDetailsFor: (locationPid) =>
     generatePath(BackOfficeRoutesList.locationsDetails, {
       locationPid: locationPid,
     }),
-  patronDetailsFor: patronPid =>
+  patronDetailsFor: (patronPid) =>
     generatePath(BackOfficeRoutesList.patronDetails, { patronPid: patronPid }),
-  seriesListWithQuery: qs => `${BackOfficeRoutesList.seriesList}?q=${qs}`,
-  seriesDetailsFor: seriesPid =>
+  seriesListWithQuery: (qs) => `${BackOfficeRoutesList.seriesList}?q=${qs}`,
+  seriesDetailsFor: (seriesPid) =>
     generatePath(BackOfficeRoutesList.seriesDetails, { seriesPid: seriesPid }),
-  seriesEditFor: seriesPid =>
+  seriesEditFor: (seriesPid) =>
     generatePath(BackOfficeRoutesList.seriesEdit, {
       seriesPid: seriesPid,
     }),

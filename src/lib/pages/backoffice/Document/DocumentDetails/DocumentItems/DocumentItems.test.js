@@ -5,7 +5,7 @@ import DocumentItems from './DocumentItems';
 import testData from '@testData/items.json';
 
 jest.mock('react-router-dom');
-BackOfficeRoutes.itemDetailsFor = jest.fn(pid => `url/${pid}`);
+BackOfficeRoutes.itemDetailsFor = jest.fn((pid) => `url/${pid}`);
 
 const data = {
   hits: [
@@ -83,7 +83,7 @@ describe('DocumentItems tests', () => {
     expect(component).toMatchSnapshot();
     const message = component
       .find('Message')
-      .filterWhere(element => element.prop('data-test') === 'no-results');
+      .filterWhere((element) => element.prop('data-test') === 'no-results');
     expect(message).toHaveLength(1);
   });
 
@@ -100,7 +100,7 @@ describe('DocumentItems tests', () => {
     const rows = component
       .find('TableRow')
       .filterWhere(
-        element =>
+        (element) =>
           element.prop('data-test') === 'item1' ||
           element.prop('data-test') === 'item2'
       );
@@ -108,7 +108,7 @@ describe('DocumentItems tests', () => {
 
     const footer = component
       .find('TableRow')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(0);
   });
 
@@ -125,7 +125,7 @@ describe('DocumentItems tests', () => {
     expect(component).toMatchSnapshot();
     const footer = component
       .find('TableFooter')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(1);
   });
 });

@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
     }
     case REMOVE_SELECTION: {
       let removeSelections = [...state.selections];
-      remove(removeSelections, o => o.metadata.pid === action.removePid);
+      remove(removeSelections, (o) => o.metadata.pid === action.removePid);
       return {
         selections: removeSelections,
       };

@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import { Divider } from 'semantic-ui-react';
 
 export default class EItemActionMenu extends Component {
-  deleteRecordButton = props => {
+  deleteRecordButton = (props) => {
     return (
       <DeleteButton
         fluid

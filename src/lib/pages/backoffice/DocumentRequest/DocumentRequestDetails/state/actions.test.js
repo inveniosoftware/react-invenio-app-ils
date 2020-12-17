@@ -36,7 +36,7 @@ beforeEach(() => {
 
 describe('DocumentRequest details tests', () => {
   describe('Fetch documentRequest details tests', () => {
-    it('should dispatch a loading action when fetching a documentRequest', done => {
+    it('should dispatch a loading action when fetching a documentRequest', (done) => {
       mockGet.mockResolvedValue(response);
 
       const expectedActions = [
@@ -53,7 +53,7 @@ describe('DocumentRequest details tests', () => {
       });
     });
 
-    it('should dispatch a success action when documentRequest fetch succeeds', done => {
+    it('should dispatch a success action when documentRequest fetch succeeds', (done) => {
       mockGet.mockResolvedValue(response);
 
       const expectedActions = [
@@ -71,7 +71,7 @@ describe('DocumentRequest details tests', () => {
       });
     });
 
-    it('should dispatch an error action when documentRequest fetch fails', done => {
+    it('should dispatch an error action when documentRequest fetch fails', (done) => {
       mockGet.mockRejectedValue([500, 'Error']);
 
       const expectedActions = [

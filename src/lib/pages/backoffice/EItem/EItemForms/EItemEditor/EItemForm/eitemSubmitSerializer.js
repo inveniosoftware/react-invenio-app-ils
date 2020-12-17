@@ -1,6 +1,6 @@
 import _isEmpty from 'lodash/isEmpty';
 
-export default values => {
+export default (values) => {
   const submitValues = { ...values };
   _isEmpty(submitValues.document)
     ? (submitValues.document_pid = undefined)

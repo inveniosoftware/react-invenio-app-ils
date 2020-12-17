@@ -23,7 +23,7 @@ class ILSMenu extends Component {
     }
   };
 
-  renderRightDropDown = userMenuText => {
+  renderRightDropDown = (userMenuText) => {
     const { user } = this.props;
     const dropdownEntries = (
       <Dropdown.Menu>

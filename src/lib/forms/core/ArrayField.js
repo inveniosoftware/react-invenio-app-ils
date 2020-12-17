@@ -12,7 +12,7 @@ export class ArrayField extends Component {
     };
   }
 
-  renderFormField = props => {
+  renderFormField = (props) => {
     const {
       form: { values, isSubmitting },
       ...arrayHelpers

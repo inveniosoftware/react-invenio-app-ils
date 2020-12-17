@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
       return { ...state, isFilesLoading: true };
     case SUCCESS: {
       let fileAdded = false;
-      const files = state.files.map(file => {
+      const files = state.files.map((file) => {
         if (file.key === action.payload.key) {
           fileAdded = true;
           return action.payload;

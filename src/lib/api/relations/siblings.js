@@ -1,7 +1,7 @@
 import { recordToPidType } from '@api/utils';
 
 export const add = (_, relatedList, relationType, extra = {}) => {
-  return relatedList.map(second => ({
+  return relatedList.map((second) => ({
     pid_value: second.metadata.pid,
     pid_type: recordToPidType(second),
     relation_type: relationType,

@@ -8,14 +8,14 @@ import Overridable from 'react-overridable';
 import { Grid, Icon, Table } from 'semantic-ui-react';
 
 export class LocationOpeningHours extends Component {
-  capitalizeFirst = string => {
+  capitalizeFirst = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
   isInInterval = (today, exception) =>
     exception.start_date <= today && today <= exception.end_date;
 
-  renderOpenClosed = isOpen => {
+  renderOpenClosed = (isOpen) => {
     return isOpen ? (
       <span className="success">Open</span>
     ) : (
@@ -33,20 +33,22 @@ export class LocationOpeningHours extends Component {
     );
   };
 
-  renderHours = weekday => {
+  renderHours = (weekday) => {
     const hoursDisplay =
       !_isEmpty(weekday['times']) &&
-      weekday['times'].map(e => e.start_time + ' - ' + e.end_time).join('; ');
+      weekday['times'].map((e) => e.start_time + ' - ' + e.end_time).join('; ');
     return hoursDisplay && <span>{hoursDisplay}</span>;
   };
 
-  renderWeekdayRows = today => {
+  renderWeekdayRows = (today) => {
     const {
       location: { metadata },
     } = this.props;
-    const isNotOverriden = !_get(metadata, 'opening_exceptions', []).some(ex =>
-      this.isInInterval(today, ex)
-    );
+    const isNotOverriden = !_get(
+      metadata,
+      'opening_exceptions',
+      []
+    ).some((ex) => this.isInInterval(today, ex));
     return metadata.opening_weekdays.map((weekday, idx) => {
       const isCurrent = DateTime.fromISO(today).weekday - 1 === idx;
       return (
@@ -65,9 +67,9 @@ export class LocationOpeningHours extends Component {
     });
   };
 
-  renderExceptionRows = today => {
+  renderExceptionRows = (today) => {
     const { location } = this.props;
-    return location.metadata.opening_exceptions.map(exception => {
+    return location.metadata.opening_exceptions.map((exception) => {
       const startDate = exception.start_date,
         endDate = exception.end_date;
       const isCurrent = this.isInInterval(today, exception);

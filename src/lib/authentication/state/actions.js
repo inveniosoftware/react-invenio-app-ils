@@ -12,7 +12,7 @@ export const IS_CONFIRMED_LOADING = 'confirmUser/IS_LOADING';
 export const IS_CONFIRMED = 'confirmUser/IS_CONFIRMED';
 
 export const fetchUserProfile = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -33,7 +33,7 @@ export const fetchUserProfile = () => {
 };
 
 export const logout = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     await authenticationService.logout();
     sessionManager.setAnonymous();
     dispatch({
@@ -43,8 +43,8 @@ export const logout = () => {
   };
 };
 
-export const confirmUser = token => {
-  return async dispatch => {
+export const confirmUser = (token) => {
+  return async (dispatch) => {
     dispatch({
       type: IS_CONFIRMED_LOADING,
     });

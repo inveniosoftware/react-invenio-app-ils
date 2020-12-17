@@ -26,7 +26,7 @@ beforeEach(() => {
 
 describe('Series details actions', () => {
   describe('Fetch series details tests', () => {
-    it('should dispatch an action when fetching a series', done => {
+    it('should dispatch an action when fetching a series', (done) => {
       mockGet.mockResolvedValue(response);
 
       const expectedActions = [
@@ -43,7 +43,7 @@ describe('Series details actions', () => {
       });
     });
 
-    it('should dispatch an action when series fetch succeeds', done => {
+    it('should dispatch an action when series fetch succeeds', (done) => {
       mockGet.mockResolvedValue(response);
 
       const expectedActions = [
@@ -61,7 +61,7 @@ describe('Series details actions', () => {
       });
     });
 
-    it('should dispatch an action when series fetch fails', done => {
+    it('should dispatch an action when series fetch fails', (done) => {
       mockGet.mockRejectedValue([500, 'Error']);
 
       const expectedActions = [

@@ -24,7 +24,7 @@ const InternalLocationSchema = Yup.object().shape({
 });
 
 export class InternalLocationForm extends Component {
-  prepareData = data => {
+  prepareData = (data) => {
     return pick(data, [
       'name',
       'location',
@@ -40,13 +40,13 @@ export class InternalLocationForm extends Component {
     return response;
   };
 
-  createInternalLocation = async data => {
+  createInternalLocation = async (data) => {
     return internalLocationApi.create(data);
   };
 
   successCallback = () => goTo(BackOfficeRoutes.locationsList);
 
-  submitSerializer = values => {
+  submitSerializer = (values) => {
     const submitValues = { ...values };
     _isEmpty(values.location)
       ? (submitValues.location_pid = undefined)

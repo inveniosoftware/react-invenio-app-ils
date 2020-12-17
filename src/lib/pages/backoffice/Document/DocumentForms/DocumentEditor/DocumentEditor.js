@@ -49,7 +49,7 @@ export class DocumentEditor extends Component {
     };
   }
 
-  fetchDocument = async documentPid => {
+  fetchDocument = async (documentPid) => {
     this.cancellableFetchDocument = withCancel(documentApi.get(documentPid));
     try {
       const response = await this.cancellableFetchDocument.promise;
@@ -61,7 +61,7 @@ export class DocumentEditor extends Component {
     }
   };
 
-  renderEditForm = pid => {
+  renderEditForm = (pid) => {
     const { isLoading, error, data } = this.state;
     return (
       <Loader isLoading={isLoading}>

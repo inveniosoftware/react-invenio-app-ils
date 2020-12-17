@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchUserProfile } from '@authentication/state/actions';
 import LoginWithLocalAccountComponent from './LoginWithLocalAccount';
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchUserProfile: () => dispatch(fetchUserProfile()),
 });
 

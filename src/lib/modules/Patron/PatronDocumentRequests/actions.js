@@ -16,7 +16,7 @@ const selectQuery = (patronPid, page = 1) => {
 
 export const fetchPatronDocumentRequests = (patronPid, page) => {
   const query = selectQuery(patronPid, page);
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

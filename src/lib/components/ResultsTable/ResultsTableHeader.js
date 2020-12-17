@@ -8,7 +8,7 @@ export default class ResultsTableHeader extends Component {
     return (
       <Table.Header>
         <Table.Row data-test="header">
-          {columns.map(col => (
+          {columns.map((col) => (
             <Table.HeaderCell key={col.title}>{col.title}</Table.HeaderCell>
           ))}
         </Table.Row>

@@ -9,7 +9,7 @@ export const SUCCESS = 'seriesRelations/SUCCESS';
 export const HAS_ERROR = 'seriesRelations/HAS_ERROR';
 
 export const createRelations = (pid, relations) => {
-  return async dispatch => {
+  return async (dispatch) => {
     if (relations.length) {
       dispatch({
         type: IS_LOADING,
@@ -40,7 +40,7 @@ export const createRelations = (pid, relations) => {
 };
 
 export const deleteRelation = (pid, relation) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

@@ -36,7 +36,7 @@ class PatronPastDocumentRequests extends Component {
     });
   }
 
-  onPageChange = newPage => {
+  onPageChange = (newPage) => {
     this.setState(
       { activePage: newPage },
       this.fetchPatronPastDocumentRequests

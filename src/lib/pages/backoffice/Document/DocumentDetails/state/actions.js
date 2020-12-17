@@ -21,8 +21,8 @@ export const DELETE_IS_LOADING = 'deleteDocument/DELETE_IS_LOADING';
 export const DELETE_SUCCESS = 'deleteDocument/DELETE_SUCCESS';
 export const DELETE_HAS_ERROR = 'deleteDocument/DELETE_HAS_ERROR';
 
-export const fetchDocumentDetails = documentPid => {
-  return async dispatch => {
+export const fetchDocumentDetails = (documentPid) => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -43,8 +43,8 @@ export const fetchDocumentDetails = documentPid => {
   };
 };
 
-export const deleteDocument = documentPid => {
-  return async dispatch => {
+export const deleteDocument = (documentPid) => {
+  return async (dispatch) => {
     dispatch({
       type: DELETE_IS_LOADING,
     });
@@ -74,7 +74,7 @@ export const deleteDocument = documentPid => {
 };
 
 export const updateDocument = (documentPid, path, value) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -113,7 +113,7 @@ export const requestLoanForPatron = (
   patronPid,
   { requestEndDate = null, deliveryMethod = null } = {}
 ) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

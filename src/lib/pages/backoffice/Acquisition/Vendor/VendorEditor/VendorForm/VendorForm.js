@@ -37,7 +37,7 @@ export class VendorForm extends Component {
         ];
   }
 
-  createVendor = data => {
+  createVendor = (data) => {
     return vendorApi.create(data);
   };
 
@@ -45,7 +45,7 @@ export class VendorForm extends Component {
     return vendorApi.update(pid, data);
   };
 
-  successCallback = response => {
+  successCallback = (response) => {
     goTo(
       AcquisitionRoutes.vendorDetailsFor(getIn(response, 'data.metadata.pid'))
     );

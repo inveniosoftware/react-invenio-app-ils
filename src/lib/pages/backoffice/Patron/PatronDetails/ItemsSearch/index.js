@@ -3,15 +3,15 @@ import { checkoutItem } from '../ItemsCheckout/state/actions';
 import ItemsSearchComponent from './ItemsSearch';
 import { clearResults, fetchItems, updateQueryString } from './state/actions';
 
-const mapDispatchToProps = dispatch => ({
-  fetchItems: barcode => dispatch(fetchItems(barcode)),
-  updateQueryString: qs => dispatch(updateQueryString(qs)),
+const mapDispatchToProps = (dispatch) => ({
+  fetchItems: (barcode) => dispatch(fetchItems(barcode)),
+  updateQueryString: (qs) => dispatch(updateQueryString(qs)),
   clearResults: () => dispatch(clearResults()),
   checkoutItem: (documentPid, itemPid, patronPid, force = false) =>
     dispatch(checkoutItem(documentPid, itemPid, patronPid, force)),
 });
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   checkoutData: state.patronItemsCheckout.data,
   checkoutHasError: state.patronItemsCheckout.hasError,
   checkoutLoading: state.patronItemsCheckout.isLoading,

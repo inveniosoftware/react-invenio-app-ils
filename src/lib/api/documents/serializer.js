@@ -1,7 +1,7 @@
 import { recordResponseSerializer } from '@api/utils';
 
 const DocumentSerializers = {
-  responseSerializer: function(hit) {
+  responseSerializer: function (hit) {
     return recordResponseSerializer(hit);
   },
 };

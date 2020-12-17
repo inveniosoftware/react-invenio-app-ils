@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import { fetchDocumentsDetails } from './actions';
 import DocumentDetailsComponent from './DocumentDetails';
 
-const mapDispatchToProps = dispatch => ({
-  fetchDocumentsDetails: documentPid =>
+const mapDispatchToProps = (dispatch) => ({
+  fetchDocumentsDetails: (documentPid) =>
     dispatch(fetchDocumentsDetails(documentPid, { fetchLoansInfo: true })),
 });
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isLoading: state.documentDetailsFront.isLoading,
   documentDetails: state.documentDetailsFront.data,
   loansInfo: state.documentDetailsFront.loansData,

@@ -31,7 +31,7 @@ describe('SeriesCard tests', () => {
       .find('SeriesCard')
       .find('Card')
       .filterWhere(
-        element => element.prop('data-test') === seriesData.metadata.pid
+        (element) => element.prop('data-test') === seriesData.metadata.pid
       );
     expect(rows).toHaveLength(1);
   });

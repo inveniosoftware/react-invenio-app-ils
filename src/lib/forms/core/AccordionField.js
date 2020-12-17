@@ -7,7 +7,7 @@ import { ErrorIcon } from './ErrorIcon';
 export class AccordionField extends Component {
   state = { active: false };
 
-  handleClick = showContent => {
+  handleClick = (showContent) => {
     this.setState({ active: !showContent });
   };
 
@@ -24,7 +24,7 @@ export class AccordionField extends Component {
     return false;
   }
 
-  renderAccordion = props => {
+  renderAccordion = (props) => {
     const {
       form: { errors, status },
     } = props;

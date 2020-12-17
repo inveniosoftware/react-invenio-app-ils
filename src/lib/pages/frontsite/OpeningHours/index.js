@@ -2,14 +2,14 @@ import { connect } from 'react-redux';
 import OpeningHoursComponent from './OpeningHours';
 import { fetchAllLocations } from '@pages/backoffice/Location/LocationList/state/actions';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   data: state.locations.data,
   error: state.locations.error,
   isLoading:
     state.locations.isLoading || state.authenticationManagement.isLoading,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchAllLocations: () => dispatch(fetchAllLocations()),
 });
 

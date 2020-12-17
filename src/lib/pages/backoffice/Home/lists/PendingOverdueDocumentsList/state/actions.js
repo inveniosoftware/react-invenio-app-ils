@@ -6,17 +6,14 @@ export const SUCCESS = 'fetchPendingOverdueDocuments/SUCCESS';
 export const HAS_ERROR = 'fetchPendingOverdueDocuments/HAS_ERROR';
 
 export const fetchPendingOverdueDocuments = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
 
     try {
       const response = await documentApi.list(
-        documentApi
-          .query()
-          .pendingOverdue()
-          .qs()
+        documentApi.query().pendingOverdue().qs()
       );
 
       dispatch({

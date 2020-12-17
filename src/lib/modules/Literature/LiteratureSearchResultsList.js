@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 export const LiteratureSearchResultsList = ({ results, overridableId }) => {
   return results && results.length ? (
     <Item.Group>
-      {results.map(result => {
+      {results.map((result) => {
         return recordToPidType(result) === 'docid' ? (
           <DocumentListEntry
             key={result.metadata.pid}

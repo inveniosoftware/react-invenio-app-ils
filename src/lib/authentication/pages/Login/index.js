@@ -2,13 +2,13 @@ import { connect } from 'react-redux';
 import { fetchUserProfile } from '@authentication/state/actions';
 import LoginComponent from './Login';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.authenticationManagement.data,
   isAnonymous: state.authenticationManagement.isAnonymous,
   isLoading: state.authenticationManagement.isLoading,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchUserProfile: () => dispatch(fetchUserProfile()),
 });
 

@@ -3,12 +3,12 @@ import ILSMenuComponent from './ILSMenu';
 import { addNotification } from '@components/Notifications/actions';
 import { logout } from '@authentication/state/actions';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.authenticationManagement.data,
   isAnonymous: state.authenticationManagement.isAnonymous,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   sendErrorNotification: (title, content) =>
     dispatch(addNotification(title, content, 'error')),
   logout: () => dispatch(logout()),

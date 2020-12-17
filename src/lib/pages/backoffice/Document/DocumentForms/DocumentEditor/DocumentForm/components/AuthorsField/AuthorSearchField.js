@@ -15,7 +15,7 @@ export class AuthorSearchField extends React.Component {
     this.state = this.initialState;
   }
 
-  search = debounce(async query => {
+  search = debounce(async (query) => {
     const { authors, showMaxResults } = this.props;
     if (query.length < 1) {
       this.setState({ isLoading: false, results: [] });
@@ -23,7 +23,7 @@ export class AuthorSearchField extends React.Component {
     }
 
     const reTitle = new RegExp(escapeRegExp(query), 'i');
-    const isMatch = result => reTitle.test(result);
+    const isMatch = (result) => reTitle.test(result);
 
     let numResults = 0;
     this.setState({

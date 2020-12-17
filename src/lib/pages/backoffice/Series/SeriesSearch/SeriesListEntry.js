@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import { Grid, Header, Icon, Item, List } from 'semantic-ui-react';
 
 export class SeriesListEntry extends Component {
-  renderImage = series => (
+  renderImage = (series) => (
     <LiteratureCover
       asItem
       linkTo={BackOfficeRoutes.seriesDetailsFor(series.pid)}
@@ -22,7 +22,7 @@ export class SeriesListEntry extends Component {
     />
   );
 
-  renderMiddleColumn = series => {
+  renderMiddleColumn = (series) => {
     const { renderMiddleColumn } = this.props;
     if (renderMiddleColumn) {
       return renderMiddleColumn(series);
@@ -40,7 +40,7 @@ export class SeriesListEntry extends Component {
     );
   };
 
-  renderRightColumn = series => {
+  renderRightColumn = (series) => {
     const { renderRightColumn } = this.props;
     if (renderRightColumn) {
       return renderRightColumn(series);
@@ -56,10 +56,10 @@ export class SeriesListEntry extends Component {
       'metadata.relations.multipart_monograph',
       []
     )
-      .map(rel => `pid:${rel.pid_value}`)
+      .map((rel) => `pid:${rel.pid_value}`)
       .join(' OR ');
     const partOfSeriesQuery = _get(series, 'metadata.relations.serial', [])
-      .map(rel => `pid:${rel.pid_value}`)
+      .map((rel) => `pid:${rel.pid_value}`)
       .join(' OR ');
     return (
       <Item.Description>

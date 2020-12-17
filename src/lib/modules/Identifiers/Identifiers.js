@@ -46,7 +46,7 @@ export const IdentifierRows = ({ includeSchemes, identifiers }) => {
   }
 
   return Object.entries(idsByScheme).map(([scheme, ids]) => {
-    const values = ids.map(id => (
+    const values = ids.map((id) => (
       <>
         {id.value}
         {id.material && (

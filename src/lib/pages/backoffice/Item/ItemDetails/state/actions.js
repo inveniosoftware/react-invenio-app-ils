@@ -17,8 +17,8 @@ export const DELETE_IS_LOADING = 'deleteItem/DELETE_IS_LOADING';
 export const DELETE_SUCCESS = 'deleteItem/DELETE_SUCCESS';
 export const DELETE_HAS_ERROR = 'deleteItem/DELETE_HAS_ERROR';
 
-export const fetchItemDetails = itemPid => {
-  return async dispatch => {
+export const fetchItemDetails = (itemPid) => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -39,8 +39,8 @@ export const fetchItemDetails = itemPid => {
   };
 };
 
-export const deleteItem = itemPid => {
-  return async dispatch => {
+export const deleteItem = (itemPid) => {
+  return async (dispatch) => {
     dispatch({
       type: DELETE_IS_LOADING,
     });
@@ -75,7 +75,7 @@ export const checkoutItem = (
   patronPid,
   force = false
 ) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

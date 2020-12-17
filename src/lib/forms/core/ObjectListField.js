@@ -26,7 +26,7 @@ export class ObjectListField extends Component {
     return <Icon name="list" />;
   };
 
-  renderFormField = props => {
+  renderFormField = (props) => {
     const { fieldPath, keyField, activeIndex } = this.props;
     const {
       form: { errors, values, isSubmitting },

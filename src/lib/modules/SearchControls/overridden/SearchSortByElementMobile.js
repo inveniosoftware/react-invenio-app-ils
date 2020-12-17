@@ -17,7 +17,7 @@ export const SortByElementMobile = ({
     >
       <Dropdown.Menu>
         <Dropdown.Header icon="sort" content="Sort by" />
-        {options.map(element => {
+        {options.map((element) => {
           return (
             <Dropdown.Item
               key={element.value}

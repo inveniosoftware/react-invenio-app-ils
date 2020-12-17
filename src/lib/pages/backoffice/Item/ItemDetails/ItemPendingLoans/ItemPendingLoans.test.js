@@ -5,7 +5,7 @@ import ItemPendingLoans from './ItemPendingLoans';
 
 jest.mock('react-router-dom');
 jest.mock('@config');
-BackOfficeRoutes.loanDetailsFor = jest.fn(pid => `url/${pid}`);
+BackOfficeRoutes.loanDetailsFor = jest.fn((pid) => `url/${pid}`);
 
 describe('ItemPendingLoans tests', () => {
   let component;
@@ -36,7 +36,7 @@ describe('ItemPendingLoans tests', () => {
     expect(component).toMatchSnapshot();
     const message = component
       .find('Message')
-      .filterWhere(element => element.prop('data-test') === 'no-results');
+      .filterWhere((element) => element.prop('data-test') === 'no-results');
     expect(message).toHaveLength(1);
   });
 });

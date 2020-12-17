@@ -7,9 +7,9 @@ export class ShowMoreItems extends Component {
     expanded: false,
   };
 
-  handleOnClick = e => {
+  handleOnClick = (e) => {
     e.preventDefault();
-    this.setState(state => {
+    this.setState((state) => {
       return {
         expanded: !state.expanded,
       };

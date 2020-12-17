@@ -7,7 +7,7 @@ export const SUCCESS = 'fetchAllPendingLoans/SUCCESS';
 export const HAS_ERROR = 'fetchAllPendingLoans/HAS_ERROR';
 
 export const fetchPendingLoans = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

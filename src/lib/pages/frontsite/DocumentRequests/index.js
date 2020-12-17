@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import DocumentRequestFormComponent from './DocumentRequestForm';
 import { sendSuccessNotification } from '@components/Notifications';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.authenticationManagement.data,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   sendSuccessNotification: (title, content) =>
     dispatch(sendSuccessNotification(title, content)),
 });

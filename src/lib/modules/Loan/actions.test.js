@@ -38,7 +38,7 @@ beforeEach(() => {
 
 describe('Loan details tests', () => {
   describe('Fetch loan action tests', () => {
-    it('should dispatch a loading action when performing loan action', done => {
+    it('should dispatch a loading action when performing loan action', (done) => {
       mockDoAction.mockResolvedValue(response);
 
       const expectedActions = [
@@ -62,7 +62,7 @@ describe('Loan details tests', () => {
         });
     });
 
-    it('should call loan action with itemPid when passed', done => {
+    it('should call loan action with itemPid when passed', (done) => {
       mockDoAction.mockResolvedValue(response);
       return store
         .dispatch(
@@ -81,7 +81,7 @@ describe('Loan details tests', () => {
         });
     });
 
-    it('should call loan action with cancelReason when passed', done => {
+    it('should call loan action with cancelReason when passed', (done) => {
       mockDoAction.mockResolvedValue(response);
       return store
         .dispatch(
@@ -103,7 +103,7 @@ describe('Loan details tests', () => {
         });
     });
 
-    it('should dispatch a success action when loan action succeeds', done => {
+    it('should dispatch a success action when loan action succeeds', (done) => {
       mockDoAction.mockResolvedValue(response);
 
       const expectedActions = [
@@ -128,7 +128,7 @@ describe('Loan details tests', () => {
         });
     });
 
-    it('should dispatch an error action when oan action fails', done => {
+    it('should dispatch an error action when oan action fails', (done) => {
       mockDoAction.mockRejectedValue([500, 'Error']);
 
       const expectedActions = [

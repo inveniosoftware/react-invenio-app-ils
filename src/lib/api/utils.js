@@ -26,7 +26,7 @@ export const prepareDateQuery = (field, date, dateFrom, dateTo) => {
   }
 };
 
-export const prepareSumQuery = param => {
+export const prepareSumQuery = (param) => {
   if (Array.isArray(param)) {
     const paramQuery = param.join(' OR ');
     return `(${paramQuery})`;
@@ -35,14 +35,14 @@ export const prepareSumQuery = param => {
   }
 };
 
-export const recordToPidType = record => {
+export const recordToPidType = (record) => {
   if (record.metadata.pidType) {
     return record.metadata.pidType;
   }
   return schemaToPidType(record.metadata['$schema']);
 };
 
-export const schemaToPidType = schema => {
+export const schemaToPidType = (schema) => {
   if (schema.includes('documents/document')) {
     return 'docid';
   } else if (schema.includes('eitems/eitem')) {
@@ -91,7 +91,7 @@ export const recordResponseSerializer = (hit, customSerializer = null) => {
   if (!_isEmpty(hit)) {
     result.id = hit.id;
 
-    DATETIME_FIELDS.forEach(field => {
+    DATETIME_FIELDS.forEach((field) => {
       const datetimeStr = _get(hit, field);
       if (datetimeStr) {
         _set(result, field, datetimeStr);
@@ -119,13 +119,13 @@ export const recordResponseSerializer = (hit, customSerializer = null) => {
  * @param promise the promise to wrap
  * @returns {Object} an object containing the promise to resolve and a `cancel` fn to reject the promise
  */
-export const withCancel = promise => {
+export const withCancel = (promise) => {
   let isCancelled = false;
 
   const wrappedPromise = new Promise((resolve, reject) => {
     promise.then(
-      val => (isCancelled ? reject('UNMOUNTED') : resolve(val)),
-      error => (isCancelled ? reject('UNMOUNTED') : reject(error))
+      (val) => (isCancelled ? reject('UNMOUNTED') : resolve(val)),
+      (error) => (isCancelled ? reject('UNMOUNTED') : reject(error))
     );
   });
 
@@ -142,7 +142,7 @@ export const withCancel = promise => {
  * @returns a blocking promise
  */
 export const searchReady = async () => {
-  return await new Promise(resolve =>
+  return await new Promise((resolve) =>
     setTimeout(resolve, invenioConfig.APP.SEARCH_READY_DELAY)
   );
 };

@@ -10,8 +10,8 @@ import PatronCurrentBorrowingRequests from './PatronCurrentBorrowingRequests';
 import 'jest-canvas-mock';
 
 jest.mock('@config');
-ILLRoutes.borrowingRequestDetailsFor = jest.fn(pid => `url/${pid}`);
-BackOfficeRoutes.documentDetailsFor = jest.fn(pid => `url/${pid}`);
+ILLRoutes.borrowingRequestDetailsFor = jest.fn((pid) => `url/${pid}`);
+BackOfficeRoutes.documentDetailsFor = jest.fn((pid) => `url/${pid}`);
 let mockViewDetails = jest.fn();
 
 const data = {
@@ -89,7 +89,7 @@ describe('PatronCurrentBorrowingRequests tests', () => {
     expect(component).toMatchSnapshot();
     const message = component
       .find('Message')
-      .filterWhere(element => element.prop('data-test') === 'no-results');
+      .filterWhere((element) => element.prop('data-test') === 'no-results');
     expect(message).toHaveLength(1);
   });
 
@@ -112,7 +112,7 @@ describe('PatronCurrentBorrowingRequests tests', () => {
     const rows = component
       .find('TableRow')
       .filterWhere(
-        element =>
+        (element) =>
           element.prop('data-test') === 'borrowing-request1' ||
           element.prop('data-test') === 'borrowing-request2'
       );
@@ -120,7 +120,7 @@ describe('PatronCurrentBorrowingRequests tests', () => {
 
     const footer = component
       .find('TableRow')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(0);
   });
 
@@ -143,7 +143,7 @@ describe('PatronCurrentBorrowingRequests tests', () => {
     expect(component).toMatchSnapshot();
     const footer = component
       .find('TableFooter')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(1);
   });
 
@@ -166,7 +166,7 @@ describe('PatronCurrentBorrowingRequests tests', () => {
     const firstId = data.hits[0].pid;
     component
       .find('TableCell')
-      .filterWhere(element => element.prop('data-test') === `0-${firstId}`)
+      .filterWhere((element) => element.prop('data-test') === `0-${firstId}`)
       .find('Link')
       .simulate('click');
     expect(ILLRoutes.borrowingRequestDetailsFor).toHaveBeenCalled();

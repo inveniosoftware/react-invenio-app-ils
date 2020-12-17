@@ -2,13 +2,13 @@ import { connect } from 'react-redux';
 import { fetchPatronCurrentBorrowingRequests } from '@modules/Patron/PatronCurrentBorrowingRequests/actions';
 import PatronCurrentBorrowingRequestsComponent from './PatronCurrentBorrowingRequests';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   patronDetails: state.patronDetails.data,
   ...state.patronCurrentBorrowingRequests,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchPatronCurrentBorrowingRequests: patronPid =>
+const mapDispatchToProps = (dispatch) => ({
+  fetchPatronCurrentBorrowingRequests: (patronPid) =>
     dispatch(fetchPatronCurrentBorrowingRequests(patronPid)),
 });
 

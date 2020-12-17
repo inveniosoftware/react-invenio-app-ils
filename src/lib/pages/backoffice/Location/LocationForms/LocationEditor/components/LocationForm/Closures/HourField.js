@@ -22,7 +22,7 @@ export class HourField extends Component {
     setFieldValue(name['name'], name['value']);
   };
 
-  renderFormField = props => {
+  renderFormField = (props) => {
     const {
       inline,
       width,

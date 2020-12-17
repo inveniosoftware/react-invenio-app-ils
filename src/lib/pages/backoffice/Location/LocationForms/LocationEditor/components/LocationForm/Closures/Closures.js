@@ -55,7 +55,7 @@ class Weekday extends Component {
     );
   };
 
-  renderField = props => {
+  renderField = (props) => {
     const { pathPrefix, weekday, arrayPath, errorRenderer } = this.props;
     const {
       form: { values },
@@ -125,7 +125,7 @@ Weekday.propTypes = {
 };
 
 export default class Closures extends Component {
-  renderError = fieldPath => {
+  renderError = (fieldPath) => {
     return (
       <Field
         name="error-message"

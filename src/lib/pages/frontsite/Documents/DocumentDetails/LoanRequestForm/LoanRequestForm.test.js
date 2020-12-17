@@ -64,7 +64,7 @@ describe('DocumentMetadata tests', () => {
     const fields = component
       .find('LoanRequestForm')
       .find('Message')
-      .filterWhere(element => element.prop('positive'));
+      .filterWhere((element) => element.prop('positive'));
     expect(fields).toHaveLength(1);
   });
 });

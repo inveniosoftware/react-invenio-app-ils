@@ -5,11 +5,11 @@ import React, { Component } from 'react';
 import { Container, Message } from 'semantic-ui-react';
 import { DefaultFallbackComponent } from './DefaultFallbackComponent';
 
-const isAPIError = error => {
+const isAPIError = (error) => {
   return get(error, 'response.data.message') !== undefined;
 };
 
-export const shouldShowErrorPage = error => {
+export const shouldShowErrorPage = (error) => {
   if (!isAPIError(error)) {
     return true;
   }

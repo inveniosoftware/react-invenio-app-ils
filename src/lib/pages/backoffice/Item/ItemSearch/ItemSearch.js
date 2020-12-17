@@ -43,7 +43,7 @@ export class ItemSearch extends Component {
     },
   });
 
-  renderError = error => {
+  renderError = (error) => {
     return <IlsError error={error} />;
   };
 

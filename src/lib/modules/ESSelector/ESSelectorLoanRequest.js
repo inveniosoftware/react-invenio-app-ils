@@ -29,7 +29,7 @@ export default class ESSelectorLoanRequest extends Component {
       invenioConfig.CIRCULATION.deliveryMethods
     );
     this.deliveryMethods = this.withDeliveryMethod
-      ? Object.keys(invenioConfig.CIRCULATION.deliveryMethods).map(key => ({
+      ? Object.keys(invenioConfig.CIRCULATION.deliveryMethods).map((key) => ({
           key: key,
           value: key,
           text: invenioConfig.CIRCULATION.deliveryMethods[key],
@@ -40,7 +40,7 @@ export default class ESSelectorLoanRequest extends Component {
       : null;
   }
 
-  onSelectionsUpdate = selections => this.setState({ selections });
+  onSelectionsUpdate = (selections) => this.setState({ selections });
 
   toggle = () => {
     const { visible } = this.state;
@@ -68,7 +68,7 @@ export default class ESSelectorLoanRequest extends Component {
     }
   };
 
-  handleRequestEndDateChange = value => {
+  handleRequestEndDateChange = (value) => {
     this.setState({ requestEndDate: value });
   };
 

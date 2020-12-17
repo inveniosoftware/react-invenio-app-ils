@@ -39,7 +39,7 @@ export default class ILLCard extends Component {
     return <NewButton fluid to={this.newILLUrl} />;
   };
 
-  renderCard = data => {
+  renderCard = (data) => {
     return (
       <RecordsBriefCard
         title="ILL Requests"

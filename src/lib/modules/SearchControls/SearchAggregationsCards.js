@@ -18,7 +18,7 @@ export default class SearchAggregationsCards extends Component {
       return <p>No filters available for this search.</p>;
     }
 
-    return searchConfig.FILTERS.map(filter => {
+    return searchConfig.FILTERS.map((filter) => {
       return (
         <BucketAggregation
           key={filter.field}

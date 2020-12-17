@@ -5,8 +5,8 @@ export const IS_LOADING = 'fetchPatronDetails/IS_LOADING';
 export const SUCCESS = 'fetchPatronDetails/SUCCESS';
 export const HAS_ERROR = 'fetchPatronDetails/HAS_ERROR';
 
-export const fetchPatronDetails = patronPid => {
-  return async dispatch => {
+export const fetchPatronDetails = (patronPid) => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

@@ -19,7 +19,7 @@ export const checkoutItem = (
   patronPid,
   force = false
 ) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

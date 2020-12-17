@@ -14,7 +14,7 @@ import { Container, Ref, Sticky } from 'semantic-ui-react';
 export class SeriesLiteratureSearchMobile extends React.Component {
   stickyRef = React.createRef();
 
-  renderError = error => {
+  renderError = (error) => {
     return <IlsError error={error} />;
   };
 

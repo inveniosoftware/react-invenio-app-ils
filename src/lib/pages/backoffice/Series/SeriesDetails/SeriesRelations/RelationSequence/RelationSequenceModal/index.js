@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import RelationSequenceModalComponent from './RelationSequenceModal';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   seriesDetails: state.seriesDetails.data,
   error: state.recordRelations.error,
   isLoading: state.recordRelations.isLoading,

@@ -55,13 +55,13 @@ export class ItemForm extends Component {
     this.config = invenioConfig.ITEMS;
   }
 
-  serializer = hit => ({
+  serializer = (hit) => ({
     key: hit.metadata.key,
     value: hit.metadata.key,
     text: hit.metadata.key,
   });
 
-  prepareData = data => {
+  prepareData = (data) => {
     return pick(data, [
       'acquisition_pid',
       'barcode',
@@ -88,11 +88,11 @@ export class ItemForm extends Component {
     return itemApi.update(pid, data);
   };
 
-  create = data => {
+  create = (data) => {
     return itemApi.create(data);
   };
 
-  successCallback = response => {
+  successCallback = (response) => {
     goTo(BackOfficeRoutes.itemDetailsFor(getIn(response, 'data.metadata.pid')));
   };
 

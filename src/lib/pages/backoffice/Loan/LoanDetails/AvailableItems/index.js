@@ -3,7 +3,7 @@ import { assignItemToLoan, fetchAvailableItems } from './state/actions';
 import { performLoanAction } from '@modules/Loan/actions';
 import AvailableItemsComponent from './AvailableItems';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   data: state.availableItems.data,
   error: state.availableItems.error,
   isLoading: state.availableItems.isLoading,
@@ -11,8 +11,8 @@ const mapStateToProps = state => ({
   hasError: state.availableItems.hasError,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchAvailableItems: documentPid =>
+const mapDispatchToProps = (dispatch) => ({
+  fetchAvailableItems: (documentPid) =>
     dispatch(fetchAvailableItems(documentPid)),
   assignItemToLoan: (itemPid, loanPid) =>
     dispatch(assignItemToLoan(itemPid, loanPid)),

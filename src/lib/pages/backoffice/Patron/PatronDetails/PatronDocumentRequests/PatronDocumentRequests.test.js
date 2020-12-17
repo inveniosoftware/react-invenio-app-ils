@@ -8,7 +8,7 @@ import PatronDocumentRequests from './PatronDocumentRequests';
 Settings.defaultZoneName = 'utc';
 const stringDate = '2018-01-01T11:05:00+01:00';
 
-BackOfficeRoutes.documentRequestDetailsFor = jest.fn(pid => `url/${pid}`);
+BackOfficeRoutes.documentRequestDetailsFor = jest.fn((pid) => `url/${pid}`);
 
 describe('PatronDocumentRequests tests', () => {
   let component;
@@ -52,7 +52,7 @@ describe('PatronDocumentRequests tests', () => {
     expect(component).toMatchSnapshot();
     const message = component
       .find('Message')
-      .filterWhere(element => element.prop('data-test') === 'no-results');
+      .filterWhere((element) => element.prop('data-test') === 'no-results');
     expect(message).toHaveLength(1);
   });
 
@@ -112,7 +112,7 @@ describe('PatronDocumentRequests tests', () => {
     const rows = component
       .find('TableRow')
       .filterWhere(
-        element =>
+        (element) =>
           element.prop('data-test') === 'documentRequest1' ||
           element.prop('data-test') === 'documentRequest2'
       );
@@ -120,7 +120,7 @@ describe('PatronDocumentRequests tests', () => {
 
     const footer = component
       .find('TableRow')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(0);
   });
 
@@ -179,7 +179,7 @@ describe('PatronDocumentRequests tests', () => {
     expect(component).toMatchSnapshot();
     const footer = component
       .find('TableFooter')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(1);
   });
 
@@ -222,7 +222,7 @@ describe('PatronDocumentRequests tests', () => {
     const firstId = data.hits[0].pid;
     component
       .find('TableCell')
-      .filterWhere(element => element.prop('data-test') === `0-${firstId}`)
+      .filterWhere((element) => element.prop('data-test') === `0-${firstId}`)
       .find('Link')
       .simulate('click');
     expect(BackOfficeRoutes.documentRequestDetailsFor).toHaveBeenCalled();

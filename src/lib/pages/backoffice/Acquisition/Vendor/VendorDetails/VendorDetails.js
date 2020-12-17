@@ -23,7 +23,7 @@ import {
 } from 'semantic-ui-react';
 import { VendorInformation } from './VendorInformation';
 
-const DeleteVendorButton = props => {
+const DeleteVendorButton = (props) => {
   return (
     <DeleteButton
       fluid
@@ -38,14 +38,10 @@ class ActionMenu extends React.Component {
   createRefProps(vendorPid) {
     const orderRefProps = {
       refType: 'Order',
-      onRefClick: orderPid => goTo(AcquisitionRoutes.orderDetailsFor(orderPid)),
+      onRefClick: (orderPid) =>
+        goTo(AcquisitionRoutes.orderDetailsFor(orderPid)),
       getRefData: () =>
-        orderApi.list(
-          orderApi
-            .query()
-            .withVendorPid(vendorPid)
-            .qs()
-        ),
+        orderApi.list(orderApi.query().withVendorPid(vendorPid).qs()),
     };
 
     return [orderRefProps];
@@ -73,10 +69,7 @@ class ActionMenu extends React.Component {
 
           <Link
             to={AcquisitionRoutes.ordersListWithQuery(
-              orderApi
-                .query()
-                .withVendorPid(vendor.pid)
-                .qs()
+              orderApi.query().withVendorPid(vendor.pid).qs()
             )}
           >
             <Icon name="search" />

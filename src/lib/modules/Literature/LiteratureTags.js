@@ -13,7 +13,7 @@ class LiteratureTags extends Component {
     return (
       <Overridable id="LiteratureTags.layout" {...this.props}>
         <>
-          {tags.map(tag => (
+          {tags.map((tag) => (
             <Label className="highlighted" key={tag} {...uiProps}>
               {tag}
             </Label>

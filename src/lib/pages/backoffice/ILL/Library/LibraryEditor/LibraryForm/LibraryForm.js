@@ -41,7 +41,7 @@ export class LibraryForm extends Component {
     return libraryApi.update(pid, data);
   };
 
-  createLibrary = data => {
+  createLibrary = (data) => {
     return libraryApi.create(data);
   };
 

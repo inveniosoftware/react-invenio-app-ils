@@ -43,8 +43,8 @@ class SeriesPanel extends Component {
                         subtitle={
                           !_isEmpty(series.metadata.alternative_titles)
                             ? series.metadata.alternative_titles
-                                .filter(e => e.type === 'SUBTITLE')
-                                .map(e => e.value)
+                                .filter((e) => e.type === 'SUBTITLE')
+                                .map((e) => e.value)
                                 .find(() => true)
                             : null
                         }

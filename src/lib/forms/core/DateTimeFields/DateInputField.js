@@ -22,7 +22,7 @@ export class DateInputField extends React.Component {
     }
   };
 
-  renderFormField = props => {
+  renderFormField = (props) => {
     const { required, placeholder, fieldPath, label } = this.props;
 
     return (

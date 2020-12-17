@@ -7,7 +7,7 @@ import _isObject from 'lodash/isObject';
  * @method
  * @param {object} obj - potentially empty object
  */
-export const removeEmptyValues = obj => {
+export const removeEmptyValues = (obj) => {
   Object.entries(obj).forEach(([key, val]) => {
     if (val && _isArray(val)) {
       val.forEach((elem, index) => {

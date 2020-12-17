@@ -8,7 +8,7 @@ import * as testData from '@testData/documents.json';
 jest.mock('react-router-dom');
 let mockViewDetails = jest.fn();
 
-BackOfficeRoutes.documentDetailsFor = jest.fn(pid => `url/${pid}`);
+BackOfficeRoutes.documentDetailsFor = jest.fn((pid) => `url/${pid}`);
 
 Settings.defaultZoneName = 'utc';
 const stringDate = '2018-01-01T11:05:00+01:00';
@@ -54,7 +54,7 @@ describe('PendingOverdueDocumentsList tests', () => {
     expect(component).toMatchSnapshot();
     const message = component
       .find('Message')
-      .filterWhere(element => element.prop('data-test') === 'no-results');
+      .filterWhere((element) => element.prop('data-test') === 'no-results');
     expect(message).toHaveLength(1);
   });
 
@@ -93,7 +93,7 @@ describe('PendingOverdueDocumentsList tests', () => {
     const rows = component
       .find('TableRow')
       .filterWhere(
-        element =>
+        (element) =>
           element.prop('data-test') === 'document1' ||
           element.prop('data-test') === 'document2'
       );
@@ -101,7 +101,7 @@ describe('PendingOverdueDocumentsList tests', () => {
 
     const footer = component
       .find('TableRow')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(0);
   });
 });

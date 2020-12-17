@@ -6,7 +6,7 @@ import { DateTime } from 'luxon';
  *  @param {DateTime} date luxon DateTime
  *  @returns {String}
  */
-export const toShortDateTime = date => {
+export const toShortDateTime = (date) => {
   return date instanceof DateTime ? date.toFormat('yyyy-MM-dd HH:mm') : date;
 };
 
@@ -15,7 +15,7 @@ export const toShortDateTime = date => {
  *  @param {DateTime} date luxon DateTime
  *  @returns {String}
  */
-export const toShortDate = date => {
+export const toShortDate = (date) => {
   return date instanceof DateTime ? date.toFormat('yyyy-MM-dd') : date;
 };
 

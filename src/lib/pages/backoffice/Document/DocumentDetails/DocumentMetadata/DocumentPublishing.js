@@ -18,7 +18,7 @@ export class DocumentPublishing extends Component {
     ];
   };
 
-  preparePublicationInfo = element => {
+  preparePublicationInfo = (element) => {
     return [
       { name: 'Article ID', value: element.artid },
       { name: 'Journal title', value: element.journal_title },
@@ -41,7 +41,7 @@ export class DocumentPublishing extends Component {
       if (Array.isArray(val)) {
         const arrayVals = (
           <List>
-            {val.map(entry => (
+            {val.map((entry) => (
               <List.Item key={entry.value}>
                 <List.Content>
                   <List.Header>{entry.scheme}</List.Header>
@@ -83,7 +83,7 @@ export class DocumentPublishing extends Component {
           {document.metadata.publication_info && (
             <>
               <Header as="h3">Publication info</Header>
-              {document.metadata.publication_info.map(element => (
+              {document.metadata.publication_info.map((element) => (
                 // eslint-disable-next-line react/jsx-key
                 <MetadataTable rows={this.preparePublicationInfo(element)} />
               ))}

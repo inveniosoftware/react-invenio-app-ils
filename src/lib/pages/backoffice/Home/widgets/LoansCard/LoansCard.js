@@ -29,7 +29,7 @@ export default class LoansCard extends Component {
     return <SeeAllButton fluid to={path} />;
   };
 
-  renderCard = data => {
+  renderCard = (data) => {
     return (
       <RecordsBriefCard
         title="Loans"

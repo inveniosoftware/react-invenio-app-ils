@@ -5,14 +5,14 @@ export const BANNER_SUCCESS = 'fetchBanner/SUCCESS';
 export const BANNER_HAS_ERROR = 'fetchBanner/HAS_ERROR';
 
 export const resetBanner = () => {
-  return async dispatch =>
+  return async (dispatch) =>
     dispatch({
       type: BANNER_RESET,
     });
 };
 
 export const fetchBanner = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     try {
       const response = await bannerApi.getActive();
       dispatch({

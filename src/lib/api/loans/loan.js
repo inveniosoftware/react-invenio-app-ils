@@ -17,7 +17,7 @@ const apiPaths = {
   updateDates: '/circulation/loans/:loanPid/update-dates',
 };
 
-const get = async loanPid => {
+const get = async (loanPid) => {
   const path = generatePath(apiPaths.item, { loanPid: loanPid });
   const response = await http.get(path);
   response.data = serializer.fromJSON(response.data);
@@ -260,23 +260,23 @@ const queryBuilder = () => {
   return new QueryBuilder();
 };
 
-const list = async query => {
+const list = async (query) => {
   const response = await http.get(`${apiPaths.list}?q=${query}`);
   response.data.total = response.data.hits.total;
-  response.data.hits = response.data.hits.hits.map(hit =>
+  response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
   return response;
 };
 
-const sendOverdueLoansMailReminder = async payload => {
+const sendOverdueLoansMailReminder = async (payload) => {
   const path = generatePath(apiPaths.emailOverdue, {
     loanPid: payload.loanPid,
   });
   return await http.post(path, payload);
 };
 
-const count = async query => {
+const count = async (query) => {
   const response = await http.get(`${apiPaths.list}?q=${query}`);
   response.data = response.data.hits.total;
   return response;

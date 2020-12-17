@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom';
 import { Header, List, Segment } from 'semantic-ui-react';
 
 class SeriesSequences extends Component {
-  renderSequenceLinks = sequences => {
+  renderSequenceLinks = (sequences) => {
     return (
       <>
         <List>
-          {sequences.map(sequence => (
+          {sequences.map((sequence) => (
             <List.Item key={sequence.pid_value}>
               <List.Content>
                 <Link to={FrontSiteRoutes.seriesDetailsFor(sequence.pid_value)}>
@@ -33,12 +33,12 @@ class SeriesSequences extends Component {
     if (!hasSequenceRelations) return null;
 
     const predecessors = sequenceRelations.filter(
-      rel => rel.relation_order === 'continues'
+      (rel) => rel.relation_order === 'continues'
     );
     const hasPredecessors = predecessors.length > 0;
 
     const continuations = sequenceRelations.filter(
-      rel => rel.relation_order === 'is_continued_by'
+      (rel) => rel.relation_order === 'is_continued_by'
     );
     const hasContinuations = continuations.length > 0;
 

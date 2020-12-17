@@ -47,7 +47,7 @@ const EnvironmentLabelComponent = ({
 }) => {
   const environment = process.env.REACT_APP_ENV_NAME;
   const environmentConfig = invenioConfig.APP.ENVIRONMENTS.find(
-    env => env.name === environment
+    (env) => env.name === environment
   );
   const display = _get(environmentConfig, 'display');
   if (display) {

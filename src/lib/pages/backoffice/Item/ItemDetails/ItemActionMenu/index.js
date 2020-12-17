@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import { deleteItem, checkoutItem } from '../state/actions';
 import ItemActionMenuComponent from './ItemActionMenu';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isLoading: state.itemDetails.isLoading,
   error: state.itemDetails.error,
   item: state.itemDetails.data,
   checkOutitemList: state.checkOut.itemList,
 });
 
-const mapDispatchToProps = dispatch => ({
-  deleteItem: itemPid => dispatch(deleteItem(itemPid)),
+const mapDispatchToProps = (dispatch) => ({
+  deleteItem: (itemPid) => dispatch(deleteItem(itemPid)),
   checkoutItem: (documentPid, itemPid, patronPid, force = false) =>
     dispatch(checkoutItem(documentPid, itemPid, patronPid, force)),
 });

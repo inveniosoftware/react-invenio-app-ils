@@ -74,7 +74,7 @@ describe('DocumentStats tests', () => {
     const avgCell = component
       .find('TableBody')
       .find('TableCell')
-      .filterWhere(element => element.prop('data-test') === 'cell-average');
+      .filterWhere((element) => element.prop('data-test') === 'cell-average');
 
     expect(parseFloat(avgCell.text())).toEqual(
       mockDocument.metadata.circulation.past_loans_count /

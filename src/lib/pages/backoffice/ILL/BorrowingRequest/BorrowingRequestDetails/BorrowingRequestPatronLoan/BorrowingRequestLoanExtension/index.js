@@ -6,16 +6,16 @@ import {
 } from './actions';
 import BorrowingRequestLoanExtensionComponent from './BorrowingRequestLoanExtension';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isLoading: state.borrowingRequestLoanExtension.isLoading,
   error: state.borrowingRequestLoanExtension.error,
   hasError: state.borrowingRequestLoanExtension.hasError,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   borrowingRequestLoanExtensionAccept: (brwReqPid, loanEndDate) =>
     dispatch(borrowingRequestLoanExtensionAccept(brwReqPid, loanEndDate)),
-  borrowingRequestLoanExtensionDecline: brwReqPid =>
+  borrowingRequestLoanExtensionDecline: (brwReqPid) =>
     dispatch(borrowingRequestLoanExtensionDecline(brwReqPid)),
 });
 

@@ -7,7 +7,7 @@ import _isEmpty from 'lodash/isEmpty';
 import { Header } from 'semantic-ui-react';
 
 export default class ItemsSearch extends Component {
-  executeCheckinAndClearInput = async queryString => {
+  executeCheckinAndClearInput = async (queryString) => {
     const { checkin } = this.props;
     if (queryString.trim() === '') return;
     await checkin(queryString);

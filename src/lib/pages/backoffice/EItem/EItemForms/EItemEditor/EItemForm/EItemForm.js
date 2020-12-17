@@ -31,15 +31,13 @@ const EItemSchema = Yup.object().shape({
   ),
   urls: Yup.array().of(
     Yup.object().shape({
-      value: Yup.string()
-        .url('not a valid url')
-        .required(),
+      value: Yup.string().url('not a valid url').required(),
     })
   ),
 });
 
 export class EItemForm extends Component {
-  prepareData = data => {
+  prepareData = (data) => {
     return pick(data, [
       'bucket_id',
       'description',
@@ -57,11 +55,11 @@ export class EItemForm extends Component {
     return eItemApi.update(pid, data);
   };
 
-  create = data => {
+  create = (data) => {
     return eItemApi.create(data);
   };
 
-  successCallback = response => {
+  successCallback = (response) => {
     goTo(
       BackOfficeRoutes.eitemDetailsFor(getIn(response, 'data.metadata.pid'))
     );

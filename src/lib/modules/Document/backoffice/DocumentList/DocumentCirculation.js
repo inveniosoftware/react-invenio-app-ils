@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Icon, List } from 'semantic-ui-react';
 
 export default class DocumentCirculation extends Component {
-  renderOverbookIcon = isOverbooked => {
+  renderOverbookIcon = (isOverbooked) => {
     const name = isOverbooked ? 'warning sign' : 'minus';
     const color = isOverbooked ? 'red' : 'green';
     return <Icon name={name} color={color} size="small" />;

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { sendSuccessNotification } from '@components/Notifications';
 import { BaseForm as BaseFormComponent } from './BaseForm';
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   sendSuccessNotification: (title, content) =>
     dispatch(sendSuccessNotification(title, content)),
 });

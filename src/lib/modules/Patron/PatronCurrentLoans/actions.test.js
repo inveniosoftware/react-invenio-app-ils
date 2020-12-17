@@ -37,7 +37,7 @@ beforeEach(() => {
 
 describe('Patron current loans tests', () => {
   describe('fetch Patron current loans tests', () => {
-    it('should dispatch a loading action when fetching patron loans', done => {
+    it('should dispatch a loading action when fetching patron loans', (done) => {
       mockFetchPatronCurrentLoans.mockResolvedValue(mockResponse);
 
       const expectedAction = {
@@ -54,7 +54,7 @@ describe('Patron current loans tests', () => {
       });
     });
 
-    it('should dispatch a success action when patron loans fetch succeeds', done => {
+    it('should dispatch a success action when patron loans fetch succeeds', (done) => {
       mockFetchPatronCurrentLoans.mockResolvedValue(mockResponse);
 
       const expectedAction = {
@@ -72,7 +72,7 @@ describe('Patron current loans tests', () => {
       });
     });
 
-    it('should dispatch an error action when patron loans fetch fails', done => {
+    it('should dispatch an error action when patron loans fetch fails', (done) => {
       mockFetchPatronCurrentLoans.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {
@@ -90,14 +90,14 @@ describe('Patron current loans tests', () => {
       });
     });
 
-    it('should dispatch a delayed loading action when fetching patron loans', done => {
+    it('should dispatch a delayed loading action when fetching patron loans', (done) => {
       mockFetchPatronCurrentLoans.mockResolvedValue(mockResponse);
 
       const expectedAction = {
         type: actions.IS_LOADING,
       };
 
-      store.dispatch(actions.fetchPatronCurrentLoans(2)).then(e => {
+      store.dispatch(actions.fetchPatronCurrentLoans(2)).then((e) => {
         expect(mockFetchPatronCurrentLoans).toHaveBeenCalledWith(
           '(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created&size=15&page=1'
         );

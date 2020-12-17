@@ -8,8 +8,8 @@ export const IS_LOADING = 'overdueLoanSendMailModal/IS_LOADING';
 export const SUCCESS = 'overdueLoanSendMailModal/SUCCESS';
 export const HAS_ERROR = 'overdueLoanSendMailModal/HAS_ERROR';
 
-export const sendOverdueLoansMailReminder = loanPid => {
-  return async dispatch => {
+export const sendOverdueLoansMailReminder = (loanPid) => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

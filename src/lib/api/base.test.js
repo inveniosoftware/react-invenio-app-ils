@@ -142,7 +142,7 @@ describe('Axios response interceptor tests for CSRF errors', () => {
     };
 
     // mock the request
-    http.request = jest.fn(data => Promise.resolve(data));
+    http.request = jest.fn((data) => Promise.resolve(data));
 
     const promise = expect(
       errorInterceptor.rejected(errorPayload)

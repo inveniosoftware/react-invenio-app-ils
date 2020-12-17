@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { rejectRequest } from '../state/actions';
 import DocumentRequestActionsComponent from './DocumentRequestActions';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   ...state.documentRequestDetails,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   rejectRequest: (pid, data) => dispatch(rejectRequest(pid, data)),
 });
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 export default class CheckOutSearch extends Component {
-  executeCheckoutAndClearInput = async query => {
+  executeCheckoutAndClearInput = async (query) => {
     const { checkOutSearch } = this.props;
     if (query.trim() === '') return;
     await checkOutSearch(query);

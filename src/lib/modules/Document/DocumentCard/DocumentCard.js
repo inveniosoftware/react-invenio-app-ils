@@ -46,7 +46,7 @@ class DocumentCard extends Component {
           centered
           className="fs-book-card"
           href={url}
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault();
             goTo(url);
           }}

@@ -10,7 +10,7 @@ import _keys from 'lodash/keys';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const getFormComponent = fieldType => {
+const getFormComponent = (fieldType) => {
   switch (fieldType) {
     case 'string':
       return StringField;
@@ -28,7 +28,7 @@ const getFormComponent = fieldType => {
 export const SeriesMetadataExtensions = ({ extensions }) => {
   const { label, fields } = invenioConfig.SERIES.extensions;
   const configDefaults = {};
-  _keys(fields).map(key => (configDefaults[key] = fields[key]['default']));
+  _keys(fields).map((key) => (configDefaults[key] = fields[key]['default']));
   const allExtensions = _merge(configDefaults, extensions);
 
   let components = [];
@@ -51,7 +51,7 @@ export const SeriesMetadataExtensions = ({ extensions }) => {
     <AccordionField
       label={label}
       fieldPath="extensions"
-      content={<>{components.map(cmp => cmp)}</>}
+      content={<>{components.map((cmp) => cmp)}</>}
     />
   );
 };

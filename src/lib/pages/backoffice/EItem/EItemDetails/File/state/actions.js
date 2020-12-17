@@ -15,7 +15,7 @@ export const SUCCESS = 'upload/SUCCESS';
 export const IS_LOADING = 'upload/IS_LOADING';
 
 export const uploadFile = (eitemPid, bucket, file) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -49,7 +49,7 @@ export const uploadFile = (eitemPid, bucket, file) => {
 };
 
 export const deleteFile = (bucket, filename) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: UPLOAD_IS_LOADING,
     });

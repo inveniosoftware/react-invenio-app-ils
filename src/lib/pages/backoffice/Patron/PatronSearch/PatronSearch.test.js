@@ -46,13 +46,13 @@ describe('PatronsSearch ResultsList tests', () => {
     const firstResult = data[0];
     const resultRows = component
       .find('TableRow')
-      .filterWhere(element => element.prop('data-test') === firstResult.id);
+      .filterWhere((element) => element.prop('data-test') === firstResult.id);
     expect(resultRows).toHaveLength(1);
 
     const nameElement = resultRows
       .find('TableCell')
       .filterWhere(
-        element => element.prop('data-test') === `2-${firstResult.id}`
+        (element) => element.prop('data-test') === `2-${firstResult.id}`
       );
     expect(nameElement).toHaveLength(1);
     expect(nameElement.text()).toEqual(firstResult.metadata.name);
@@ -60,7 +60,7 @@ describe('PatronsSearch ResultsList tests', () => {
     const emailElement = resultRows
       .find('TableCell')
       .filterWhere(
-        element => element.prop('data-test') === `3-${firstResult.id}`
+        (element) => element.prop('data-test') === `3-${firstResult.id}`
       );
     expect(emailElement).toHaveLength(1);
     expect(emailElement.text()).toEqual(firstResult.metadata.email);
@@ -71,7 +71,7 @@ describe('PatronsSearch ResultsList tests', () => {
     const firstId = data[0].id;
     const button = component
       .find('TableCell')
-      .filterWhere(element => element.prop('data-test') === `0-${firstId}`)
+      .filterWhere((element) => element.prop('data-test') === `0-${firstId}`)
       .find('button');
     button.simulate('click');
     expect(mockViewDetails).toHaveBeenCalled();

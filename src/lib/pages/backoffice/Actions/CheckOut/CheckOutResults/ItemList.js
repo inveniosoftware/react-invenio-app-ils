@@ -8,7 +8,7 @@ export const ItemList = ({ items }) => (
     <Header>Physical copies</Header>
     <Segment>
       <Item.Group divided className="bo-item-search">
-        {items.map(item => (
+        {items.map((item) => (
           <ItemListEntry
             record={item}
             key={item.id}

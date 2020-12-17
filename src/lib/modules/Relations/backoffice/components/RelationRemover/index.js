@@ -2,7 +2,7 @@ import { deleteRelation } from '../../state/actions';
 import RelationRemoverComponent from './RelationRemover';
 import { connect } from 'react-redux';
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   deleteRelation: (referrer, related) =>
     dispatch(deleteRelation(referrer, related)),
 });

@@ -29,7 +29,7 @@ export default class PatronCurrentLoans extends Component {
     });
   }
 
-  showSuccessMessage = msg => {
+  showSuccessMessage = (msg) => {
     this.setState({ isSuccessMessageVisible: true, successMessage: msg });
   };
 
@@ -70,17 +70,17 @@ export default class PatronCurrentLoans extends Component {
               activePage={activePage}
               isLoading={isLoading}
               loans={loans}
-              onPageChange={newPage => {
+              onPageChange={(newPage) => {
                 this.setState(
                   { activePage: newPage },
                   this.fetchPatronCurrentLoans
                 );
               }}
               rowsPerPage={rowsPerPage}
-              renderListEntry={loan => (
+              renderListEntry={(loan) => (
                 <LoansListEntry
                   loan={loan}
-                  onSuccess={msg => {
+                  onSuccess={(msg) => {
                     this.fetchPatronCurrentLoans();
                     this.showSuccessMessage(msg);
                   }}

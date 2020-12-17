@@ -3,7 +3,7 @@ import { internalLocationSerializer as serializer } from './serializer';
 
 const internalLocationURL = '/internal-locations/';
 
-const get = async internalLocationPid => {
+const get = async (internalLocationPid) => {
   const response = await http.get(
     `${internalLocationURL}${internalLocationPid}`
   );
@@ -11,12 +11,12 @@ const get = async internalLocationPid => {
   return response;
 };
 
-const del = async ilocPid => {
+const del = async (ilocPid) => {
   const response = await http.delete(`${internalLocationURL}${ilocPid}`);
   return response;
 };
 
-const create = async data => {
+const create = async (data) => {
   const resp = await http.post(`${internalLocationURL}`, data);
   resp.data = serializer.fromJSON(resp.data);
   return resp;
@@ -32,7 +32,7 @@ const list = async (query = '', size = 100) => {
   const queryString = `${internalLocationURL}?q=${query}&size=${size}`;
   const response = await http.get(queryString);
   response.data.total = response.data.hits.total;
-  response.data.hits = response.data.hits.hits.map(hit =>
+  response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
   return response;

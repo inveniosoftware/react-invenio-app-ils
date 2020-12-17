@@ -35,7 +35,7 @@ export default (state = initialState, action) => {
       };
     case ADD_FILE: {
       let fileAdded = false;
-      const files = state.files.map(file => {
+      const files = state.files.map((file) => {
         if (file.key === action.payload.key) {
           fileAdded = true;
           return action.payload;
@@ -54,7 +54,7 @@ export default (state = initialState, action) => {
     case DELETE_FILE:
       return {
         ...state,
-        files: state.files.filter(file => file.key !== action.payload),
+        files: state.files.filter((file) => file.key !== action.payload),
         isFilesLoading: false,
       };
     case HAS_ERROR:

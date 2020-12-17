@@ -4,7 +4,7 @@ import { List, Grid } from 'semantic-ui-react';
 import { withState } from 'react-searchkit';
 
 class _QueryBuildHelper extends Component {
-  addToQuery = field => {
+  addToQuery = (field) => {
     const { currentQueryState, updateQueryState } = this.props;
     const { queryString } = currentQueryState;
 
@@ -21,7 +21,7 @@ class _QueryBuildHelper extends Component {
     }
   };
 
-  renderListItems = fields => {
+  renderListItems = (fields) => {
     let components = [];
 
     for (let i = 0; i < fields.length; i++) {
@@ -41,7 +41,7 @@ class _QueryBuildHelper extends Component {
     return components;
   };
 
-  renderHelperFields = fields => {
+  renderHelperFields = (fields) => {
     return (
       <List bulleted horizontal>
         {this.renderListItems(fields)}

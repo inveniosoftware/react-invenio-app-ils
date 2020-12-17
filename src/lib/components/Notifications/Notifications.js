@@ -28,7 +28,7 @@ export default class Notifications extends Component {
     const { notifications, className } = this.props;
     return (
       <div id="notifications" className={className}>
-        {notifications.map(message => this.renderNotification(message))}
+        {notifications.map((message) => this.renderNotification(message))}
       </div>
     );
   }

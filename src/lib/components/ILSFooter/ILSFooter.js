@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Container, Grid, Header, List } from 'semantic-ui-react';
 import { FrontSiteRoutes } from '@routes/urls';
 
-const FooterLayout = props => {
+const FooterLayout = (props) => {
   return (
     <Overridable id="Footer.layout">
       <footer>

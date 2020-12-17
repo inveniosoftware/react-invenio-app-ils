@@ -16,7 +16,7 @@ export default class LoanActions extends Component {
       actions = omit(actions, 'checkout');
     }
 
-    return Object.keys(actions).map(action => {
+    return Object.keys(actions).map((action) => {
       const cancelAction = (cancelReason = null) =>
         performLoanAction(actions[action], documentPid, patronPid, {
           cancelReason: cancelReason,

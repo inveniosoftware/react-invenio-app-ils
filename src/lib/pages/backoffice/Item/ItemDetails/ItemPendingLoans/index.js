@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchPendingLoans } from './../../../Document/DocumentDetails/DocumentPendingLoans/state/actions';
 import ItemPendingLoansComponent from './ItemPendingLoans';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   data: state.documentPendingLoans.data,
   itemDetails: state.itemDetails.data,
   error: state.documentPendingLoans.error,
@@ -11,8 +11,8 @@ const mapStateToProps = state => ({
   hasError: state.documentPendingLoans.hasError,
   isPendingLoansLoading: state.loanActions.isLoading,
 });
-const mapDispatchToProps = dispatch => ({
-  fetchPendingLoans: documentPid => dispatch(fetchPendingLoans(documentPid)),
+const mapDispatchToProps = (dispatch) => ({
+  fetchPendingLoans: (documentPid) => dispatch(fetchPendingLoans(documentPid)),
   performCheckoutAction: (
     url,
     documentPid,

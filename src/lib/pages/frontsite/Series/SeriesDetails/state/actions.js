@@ -4,8 +4,8 @@ export const IS_LOADING = 'fetchSeriesDetails/IS_LOADING';
 export const SUCCESS = 'fetchSeriesDetails/SUCCESS';
 export const HAS_ERROR = 'fetchSeriesDetails/HAS_ERROR';
 
-export const fetchSeriesDetails = pid => {
-  return async dispatch => {
+export const fetchSeriesDetails = (pid) => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

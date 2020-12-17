@@ -6,18 +6,14 @@ export const SUCCESS = 'fetchRequestedWithAvailableItems/SUCCESS';
 export const HAS_ERROR = 'fetchRequestedWithAvailableItems/HAS_ERROR';
 
 export const fetchRequestedWithAvailableItems = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
 
     try {
       const response = await documentApi.count(
-        documentApi
-          .query()
-          .withAvailableItems()
-          .withPendingLoans()
-          .qs()
+        documentApi.query().withAvailableItems().withPendingLoans().qs()
       );
 
       dispatch({

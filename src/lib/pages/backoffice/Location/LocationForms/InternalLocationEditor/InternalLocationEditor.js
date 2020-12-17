@@ -33,7 +33,7 @@ export class InternalLocationEditor extends Component {
       this.cancellableFetchInternalLocation.cancel();
   }
 
-  fetchInternalLocation = async ilocationPid => {
+  fetchInternalLocation = async (ilocationPid) => {
     this.cancellableFetchInternalLocation = withCancel(
       internalLocationApi.get(ilocationPid)
     );
@@ -47,7 +47,7 @@ export class InternalLocationEditor extends Component {
     }
   };
 
-  renderEditForm = pid => {
+  renderEditForm = (pid) => {
     const { isLoading, error, data } = this.state;
     return (
       <Loader isLoading={isLoading}>

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import DocumentRequestMetadataComponent from './DocumentRequestMetadata';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   ...state.documentRequestDetails,
 });
 

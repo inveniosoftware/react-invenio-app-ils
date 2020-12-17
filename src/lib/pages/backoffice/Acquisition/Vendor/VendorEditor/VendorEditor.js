@@ -32,7 +32,7 @@ export class VendorEditor extends Component {
     this.cancellableFetchVendor && this.cancellableFetchVendor.cancel();
   }
 
-  fetchVendor = async vendorPid => {
+  fetchVendor = async (vendorPid) => {
     this.cancellableFetchVendor = withCancel(vendorApi.get(vendorPid));
     try {
       const response = await this.cancellableFetchVendor.promise;
@@ -44,7 +44,7 @@ export class VendorEditor extends Component {
     }
   };
 
-  renderEditForm = pid => {
+  renderEditForm = (pid) => {
     const { isLoading, error, data } = this.state;
     return (
       <Loader isLoading={isLoading}>

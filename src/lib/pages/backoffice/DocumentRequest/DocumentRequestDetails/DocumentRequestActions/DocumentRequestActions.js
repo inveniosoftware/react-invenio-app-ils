@@ -4,7 +4,7 @@ import { RejectAction } from './RejectAction';
 import { Container } from 'semantic-ui-react';
 
 export default class DocumentRequestActions extends Component {
-  onReject = data => {
+  onReject = (data) => {
     const { rejectRequest, data: docRequest } = this.props;
     rejectRequest(docRequest.pid, data);
   };

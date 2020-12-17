@@ -37,7 +37,7 @@ export default class BorrowingRequestLoanExtension extends Component {
     this.handleCloseModal();
   };
 
-  handleEndDateChange = value => {
+  handleEndDateChange = (value) => {
     this.setState({ acceptEndDate: value });
   };
 
@@ -118,7 +118,7 @@ export default class BorrowingRequestLoanExtension extends Component {
                                 minDate={toShortDate(DateTime.local())}
                                 maxDate={toShortDate(max)}
                                 placeholder="End date"
-                                handleDateChange={value =>
+                                handleDateChange={(value) =>
                                   this.handleEndDateChange(value)
                                 }
                               />

@@ -4,7 +4,7 @@ import { Field, getIn } from 'formik';
 import { Form } from 'semantic-ui-react';
 
 export class GroupField extends React.Component {
-  hasGroupErrors = errors => {
+  hasGroupErrors = (errors) => {
     const { fieldPath } = this.props;
     for (const field in errors) {
       if (field.startsWith(fieldPath)) {
@@ -23,7 +23,7 @@ export class GroupField extends React.Component {
     );
   };
 
-  renderFormField = props => {
+  renderFormField = (props) => {
     const {
       action,
       basic,

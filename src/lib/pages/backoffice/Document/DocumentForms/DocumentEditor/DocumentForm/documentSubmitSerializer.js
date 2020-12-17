@@ -1,4 +1,4 @@
-export default values => {
+export default (values) => {
   const submitValues = { ...values };
   delete submitValues.circulation;
   delete submitValues.eitems;
