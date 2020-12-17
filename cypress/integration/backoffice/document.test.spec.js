@@ -1,11 +1,4 @@
 describe('backoffice document', () => {
-  const login = () => {
-    cy.visit('/login');
-    cy.get('input#email').type('librarian@test.ch');
-    cy.get('input#password').type('123456');
-    cy.contains('button.primary', 'Sign in').click();
-    cy.visit('/backoffice');
-  };
   const fieldFor = (label, find) => {
     return cy
       .contains('.field > label', label)
@@ -14,7 +7,8 @@ describe('backoffice document', () => {
   };
 
   it('create a document and search for it in the backoffice', () => {
-    login();
+    cy.login({ email: 'librarian@test.ch', password: '123456' });
+    cy.visit('/backoffice');
 
     const nameId = Math.random()
       .toString()

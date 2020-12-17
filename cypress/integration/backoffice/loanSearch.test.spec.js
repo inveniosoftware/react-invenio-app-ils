@@ -31,7 +31,7 @@ describe('backoffice loan search page', () => {
 
   it('should have links in each item to new tabs', () => {
     cy.login({ email: 'librarian@test.ch', password: '123456' });
-    cy.visit(loansSearchRoute);
+    cy.visit(`${loansSearchRoute}?f=state%3AITEM_ON_LOAN`);
 
     cy.get('.bo-document-search div.item')
       .first()
@@ -88,15 +88,13 @@ describe('backoffice loan search page', () => {
         cy.get('button')
           .should('contain', 'Send reminder')
           .click();
-        cy.get('.modal.visible')
-          .should('contain', 'Send reminder')
-          .click();
-        cy.get('.button')
-          .should('have.class', 'red')
-          .and('contain', 'Cancel');
-        cy.get('.button')
-          .should('have.class', 'green')
-          .and('contain', 'Send');
       });
+    cy.get('.modal.visible');
+    cy.get('.button')
+      .should('have.class', 'red')
+      .and('contain', 'Cancel');
+    cy.get('.button')
+      .should('have.class', 'green')
+      .and('contain', 'Send');
   });
 });

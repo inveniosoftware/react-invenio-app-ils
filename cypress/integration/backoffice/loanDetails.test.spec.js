@@ -47,6 +47,8 @@ describe('backoffice loan details page', () => {
           .contains('extend')
           .click()
           .then(() => {
+            cy.wait(3000); // ES delay
+
             cy.get('td')
               .contains('Extensions')
               .siblings()
