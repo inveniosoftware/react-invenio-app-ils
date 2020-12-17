@@ -18,16 +18,16 @@ const CSRF_ERROR_REASON_NO_COOKIE = 'CSRF cookie';
 const CSRF_ERROR_REASON_BAD_TOKEN = 'CSRF token';
 const CSRF_ERROR_REASON_BAD_SIGNATURE = 'CSRF error';
 
-const urlShouldRedirect = url => {
+const urlShouldRedirect = (url) => {
   const urlPath = url.split('?', 1)[0];
-  const pathsNoRedirect = URLS_NOT_TO_REDIRECT_IF_UNAUTHORIZED.filter(val =>
+  const pathsNoRedirect = URLS_NOT_TO_REDIRECT_IF_UNAUTHORIZED.filter((val) =>
     urlPath.endsWith(val)
   );
   const containsUrlNotRedirect = pathsNoRedirect.length > 0;
   return !containsUrlNotRedirect;
 };
 
-const goToErrorPage = errorResponse => {
+const goToErrorPage = (errorResponse) => {
   const state = {
     errorCode: errorResponse.status,
   };
@@ -52,7 +52,7 @@ const isCSRFError = (errorStatus, errorResponse) => {
   return false;
 };
 
-const responseRejectInterceptor = error => {
+const responseRejectInterceptor = (error) => {
   const errorResponse = error.response;
   if (errorResponse) {
     const errorStatus = errorResponse.status;

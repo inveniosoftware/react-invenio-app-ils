@@ -134,7 +134,7 @@ class SeriesDetails extends React.Component {
    * It replaces the updateSearchQuery behaviour of react-searchkit
    * @param searchQuery current search phrase
    */
-  onSearchClick = searchQuery => {
+  onSearchClick = (searchQuery) => {
     const query = encodeURIComponent(searchQuery);
     goTo(FrontSiteRoutes.documentsListWithQuery(query));
   };

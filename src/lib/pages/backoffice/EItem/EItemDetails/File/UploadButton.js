@@ -8,14 +8,14 @@ export default class UploadButton extends React.Component {
     this.filesRef = React.createRef();
   }
 
-  onChange = event => {
+  onChange = (event) => {
     const file = this.filesRef.current.files[0];
     if (file) {
       this.onSelectFile(file);
     }
   };
 
-  onSelectFile = async file => {
+  onSelectFile = async (file) => {
     const { uploadFile, files, sendErrorNotification, eitem } = this.props;
     if (files.length >= this.maxFiles) {
       sendErrorNotification(

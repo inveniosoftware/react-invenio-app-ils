@@ -21,7 +21,7 @@ export class ObjectArrayStringField extends Component {
           />
         }
       >
-        {objectKeysArray.map(keyObj => (
+        {objectKeysArray.map((keyObj) => (
           <StringField
             inline
             key={keyObj.key}

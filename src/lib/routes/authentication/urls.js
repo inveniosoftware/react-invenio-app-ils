@@ -8,7 +8,7 @@ const AuthenticationRoutesList = {
 };
 
 const AuthenticationRoutesGenerators = {
-  redirectAfterLogin: nextUrl =>
+  redirectAfterLogin: (nextUrl) =>
     generatePath(AuthenticationRoutesList.redirectUrlAfterLogin, {
       nextUrl: nextUrl,
     }),

@@ -37,7 +37,7 @@ beforeEach(() => {
 
 describe('Patron document requests tests', () => {
   describe('fetch Patron document requests tests', () => {
-    it('should dispatch a loading action when fetching patron document requests', done => {
+    it('should dispatch a loading action when fetching patron document requests', (done) => {
       mockFetchPatronDocumentRequests.mockResolvedValue(mockResponse);
 
       const expectedAction = {
@@ -54,7 +54,7 @@ describe('Patron document requests tests', () => {
       });
     });
 
-    it('should dispatch a success action when patron document requests fetch succeeds', done => {
+    it('should dispatch a success action when patron document requests fetch succeeds', (done) => {
       mockFetchPatronDocumentRequests.mockResolvedValue(mockResponse);
 
       const expectedAction = {
@@ -72,7 +72,7 @@ describe('Patron document requests tests', () => {
       });
     });
 
-    it('should dispatch an error action when patron document requests fetch fails', done => {
+    it('should dispatch an error action when patron document requests fetch fails', (done) => {
       mockFetchPatronDocumentRequests.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {
@@ -90,14 +90,14 @@ describe('Patron document requests tests', () => {
       });
     });
 
-    it('should dispatch a delayed loading action when fetching patron document requests', done => {
+    it('should dispatch a delayed loading action when fetching patron document requests', (done) => {
       mockFetchPatronDocumentRequests.mockResolvedValue(mockResponse);
 
       const expectedAction = {
         type: actions.IS_LOADING,
       };
 
-      store.dispatch(actions.fetchPatronDocumentRequests(2)).then(e => {
+      store.dispatch(actions.fetchPatronDocumentRequests(2)).then((e) => {
         expect(mockFetchPatronDocumentRequests).toHaveBeenCalledWith(
           '(patron_pid:2)&sort=-created&page=1'
         );

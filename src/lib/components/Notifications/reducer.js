@@ -20,7 +20,9 @@ export const notificationsReducer = (state = initialState, action) => {
       const notificationId = action.payload;
       return {
         ...state,
-        notifications: state.notifications.filter(n => n.id !== notificationId),
+        notifications: state.notifications.filter(
+          (n) => n.id !== notificationId
+        ),
       };
     }
     case CLEAR_ALL:

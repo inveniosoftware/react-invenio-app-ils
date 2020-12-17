@@ -9,7 +9,7 @@ import SeriesDocuments from './SeriesDocuments';
 jest.mock('react-router-dom');
 Settings.defaultZoneName = 'utc';
 const stringDate = '2018-01-01T11:05:00+01:00';
-BackOfficeRoutes.documentDetailsFor = jest.fn(pid => `url/${pid}`);
+BackOfficeRoutes.documentDetailsFor = jest.fn((pid) => `url/${pid}`);
 let mockViewDetails = jest.fn();
 
 jest.mock('@components/backoffice/InfoMessage', () => {
@@ -64,7 +64,7 @@ describe('SeriesDocuments tests', () => {
 
     const message = component
       .find('InfoMessage')
-      .filterWhere(element => element.prop('data-test') === 'no-results');
+      .filterWhere((element) => element.prop('data-test') === 'no-results');
     expect(message).toHaveLength(1);
   });
 
@@ -107,7 +107,7 @@ describe('SeriesDocuments tests', () => {
     const rows = component
       .find('TableRow')
       .filterWhere(
-        element =>
+        (element) =>
           element.prop('data-test') === 'document1' ||
           element.prop('data-test') === 'document2'
       );
@@ -115,7 +115,7 @@ describe('SeriesDocuments tests', () => {
 
     const footer = component
       .find('TableRow')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(0);
   });
 
@@ -155,7 +155,7 @@ describe('SeriesDocuments tests', () => {
 
     const footer = component
       .find('TableFooter')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(1);
   });
 });

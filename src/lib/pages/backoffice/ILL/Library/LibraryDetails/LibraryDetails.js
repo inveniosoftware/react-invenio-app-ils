@@ -23,7 +23,7 @@ import {
 } from 'semantic-ui-react';
 import { LibraryInformation } from './LibraryInformation';
 
-const DeleteLibraryButton = props => {
+const DeleteLibraryButton = (props) => {
   return (
     <DeleteButton
       fluid
@@ -38,14 +38,11 @@ class ActionMenu extends React.Component {
   createRefProps(libraryPid) {
     const brwReqRefProps = {
       refType: 'Borrowing Requests',
-      onRefClick: brwReqPid =>
+      onRefClick: (brwReqPid) =>
         goTo(ILLRoutes.borrowinRequestDetailsFor(brwReqPid)),
       getRefData: () =>
         borrowingRequestApi.list(
-          borrowingRequestApi
-            .query()
-            .withLibraryPid(libraryPid)
-            .qs()
+          borrowingRequestApi.query().withLibraryPid(libraryPid).qs()
         ),
     };
 
@@ -74,10 +71,7 @@ class ActionMenu extends React.Component {
 
           <Link
             to={ILLRoutes.borrowingRequestListWithQuery(
-              borrowingRequestApi
-                .query()
-                .withLibraryPid(library.pid)
-                .qs()
+              borrowingRequestApi.query().withLibraryPid(library.pid).qs()
             )}
           >
             <Icon name="search" />

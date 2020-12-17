@@ -6,7 +6,7 @@ export default class MetadataTable extends Component {
   renderRows() {
     const { labelWidth, rows } = this.props;
 
-    return rows.map(row => (
+    return rows.map((row) => (
       <Table.Row key={row.name}>
         <Table.Cell width={labelWidth}>
           {row.icon} {row.name}

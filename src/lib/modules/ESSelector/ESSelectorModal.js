@@ -13,7 +13,7 @@ export default class ESSelectorModal extends Component {
     };
   }
 
-  onSelectionsUpdate = selections => this.setState({ selections });
+  onSelectionsUpdate = (selections) => this.setState({ selections });
 
   toggle = () => {
     const { visible } = this.state;

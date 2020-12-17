@@ -18,10 +18,7 @@ export default class DocumentEItems extends Component {
   seeAllButton = () => {
     const { documentDetails } = this.props;
     const path = BackOfficeRoutes.eitemsListWithQuery(
-      eItemApi
-        .query()
-        .withDocPid(documentDetails.pid)
-        .qs()
+      eItemApi.query().withDocPid(documentDetails.pid).qs()
     );
     return <SeeAllButton to={path} />;
   };

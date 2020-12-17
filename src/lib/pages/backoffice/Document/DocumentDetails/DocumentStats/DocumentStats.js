@@ -34,7 +34,7 @@ export default class DocumentStats extends Component {
     const { isLoading, error, documentStats, documentDetails } = this.props;
     const renewalCount = sumBy(
       documentStats.hits,
-      loan => loan.metadata.extension_count
+      (loan) => loan.metadata.extension_count
     );
     const pastLoans = documentStats.total || 0;
     const itemsCount =
@@ -85,11 +85,11 @@ export default class DocumentStats extends Component {
     });
   }
 
-  handleFromDateChange = value => {
+  handleFromDateChange = (value) => {
     this.setState({ fromDate: value }, this._fetchDocumentStats);
   };
 
-  handleToDateChange = value => {
+  handleToDateChange = (value) => {
     this.setState({ toDate: value }, this._fetchDocumentStats);
   };
 

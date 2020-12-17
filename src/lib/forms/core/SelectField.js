@@ -12,7 +12,7 @@ export class SelectField extends Component {
     if (!Array.isArray(value)) {
       if (
         !_isEmpty(options) &&
-        !options.find(o => _isEqual(o.value, value)) &&
+        !options.find((o) => _isEqual(o.value, value)) &&
         !_isEmpty(value)
       ) {
         error = `The current value "${value}" is invalid, please select another value.`;
@@ -48,7 +48,7 @@ export class SelectField extends Component {
     }
     if (!loading) {
       for (const value of values) {
-        if (!_isEmpty(value) && !options.find(o => o.value === value)) {
+        if (!_isEmpty(value) && !options.find((o) => o.value === value)) {
           options.push({
             key: value,
             value: value,
@@ -69,7 +69,7 @@ export class SelectField extends Component {
     return item.text;
   };
 
-  renderFormField = props => {
+  renderFormField = (props) => {
     const {
       form: { values, setFieldValue, handleBlur, errors, isSubmitting },
     } = props;

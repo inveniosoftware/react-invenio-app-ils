@@ -10,7 +10,7 @@ import { TextField } from '@forms/core/TextField';
 import _pickBy from 'lodash/pickBy';
 
 export class LicensesField extends React.Component {
-  serializer = hit => {
+  serializer = (hit) => {
     const {
       metadata: {
         id,
@@ -21,7 +21,7 @@ export class LicensesField extends React.Component {
     const value = { id, status, maintainer, title: text, url };
     return {
       key: id,
-      value: _pickBy(value, o => o), // Remove empty fields
+      value: _pickBy(value, (o) => o), // Remove empty fields
       text: text,
     };
   };

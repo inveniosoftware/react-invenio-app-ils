@@ -38,7 +38,7 @@ export class FrontSite extends Component {
             <Route
               exact
               path={FrontSiteRoutes.home}
-              render={props => <Home {...props} {...this.props} />}
+              render={(props) => <Home {...props} {...this.props} />}
             />
             <Route
               exact
@@ -71,7 +71,7 @@ export class FrontSite extends Component {
               component={OpeningHours}
             />
             <Route exact path={FrontSiteRoutes.errors} component={ErrorsPage} />
-            {staticPagesRoutes.map(route => (
+            {staticPagesRoutes.map((route) => (
               <Route key={route} exact path={route} component={StaticPage} />
             ))}
             {this.renderCustomStaticPages()}

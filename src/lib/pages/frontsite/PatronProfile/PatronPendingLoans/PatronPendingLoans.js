@@ -95,7 +95,7 @@ class ButtonCancelRequest extends Component {
     }
   };
 
-  showError = msg => {
+  showError = (msg) => {
     this.setState({
       errorMsgOpened: true,
       errorMsg: (
@@ -242,7 +242,7 @@ export default class PatronPendingLoans extends Component {
     });
   }
 
-  showSuccessMessage = msg => {
+  showSuccessMessage = (msg) => {
     this.setState({ isSuccessMessageVisible: true, successMessage: msg });
   };
 
@@ -282,17 +282,17 @@ export default class PatronPendingLoans extends Component {
               activePage={activePage}
               isLoading={isLoading}
               loans={loans}
-              onPageChange={newPage => {
+              onPageChange={(newPage) => {
                 this.setState(
                   { activePage: newPage },
                   this.fetchPatronPendingLoans
                 );
               }}
               rowsPerPage={rowsPerPage}
-              renderListEntry={loan => (
+              renderListEntry={(loan) => (
                 <LoansListEntry
                   loan={loan}
-                  onSuccess={msg => {
+                  onSuccess={(msg) => {
                     this.fetchPatronPendingLoans();
                     this.showSuccessMessage(msg);
                   }}

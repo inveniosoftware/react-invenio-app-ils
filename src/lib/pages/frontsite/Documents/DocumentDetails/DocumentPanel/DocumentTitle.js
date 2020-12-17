@@ -9,7 +9,7 @@ export class DocumentTitle extends Component {
       metadata: { alternative_titles },
     } = this.props;
     if (!_isEmpty(alternative_titles)) {
-      const subtitle = alternative_titles.find(e => e.type === 'SUBTITLE');
+      const subtitle = alternative_titles.find((e) => e.type === 'SUBTITLE');
       if (!_isEmpty(subtitle)) {
         return <Header.Subheader>{subtitle.value}</Header.Subheader>;
       }

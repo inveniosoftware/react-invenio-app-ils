@@ -17,13 +17,13 @@ export class RejectAction extends React.Component {
     this.setState({ open: false });
   };
 
-  onConfirm = type => {
+  onConfirm = (type) => {
     const { onReject } = this.props;
     this.setState({ open: false });
     onReject({ reject_reason: type });
   };
 
-  onRejectWithDocument = selections => {
+  onRejectWithDocument = (selections) => {
     const { onReject } = this.props;
 
     onReject({
@@ -71,7 +71,7 @@ export class RejectAction extends React.Component {
         icon: 'minus',
       },
     ];
-    return options.map(option => {
+    return options.map((option) => {
       const dropdown = <Dropdown.Item {...option} onClick={this.onClick} />;
       if (option.value === 'IN_CATALOG') {
         return (

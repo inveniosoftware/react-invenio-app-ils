@@ -14,8 +14,8 @@ export const DELETE_IS_LOADING = 'deleteDocumentRequest/DELETE_IS_LOADING';
 export const DELETE_SUCCESS = 'deleteDocumentRequest/DELETE_SUCCESS';
 export const DELETE_HAS_ERROR = 'deleteDocumentRequest/DELETE_HAS_ERROR';
 
-export const fetchDocumentRequestDetails = documentRequestPid => {
-  return async dispatch => {
+export const fetchDocumentRequestDetails = (documentRequestPid) => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -35,8 +35,8 @@ export const fetchDocumentRequestDetails = documentRequestPid => {
   };
 };
 
-export const deleteRequest = requestPid => {
-  return async dispatch => {
+export const deleteRequest = (requestPid) => {
+  return async (dispatch) => {
     dispatch({
       type: DELETE_IS_LOADING,
     });
@@ -65,8 +65,8 @@ export const deleteRequest = requestPid => {
   };
 };
 
-export const acceptRequest = pid => {
-  return async dispatch => {
+export const acceptRequest = (pid) => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -91,7 +91,7 @@ export const acceptRequest = pid => {
 };
 
 export const rejectRequest = (pid, data) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -116,7 +116,7 @@ export const rejectRequest = (pid, data) => {
 };
 
 export const addProvider = (provDataPid, pid, pidType) => {
-  return async dispatch => {
+  return async (dispatch) => {
     try {
       const response = await documentRequestApi.addProvider(pid, {
         physical_item_provider: {
@@ -138,7 +138,7 @@ export const addProvider = (provDataPid, pid, pidType) => {
 };
 
 export const addDocument = (pid, key) => {
-  return async dispatch => {
+  return async (dispatch) => {
     try {
       const response = await documentRequestApi.addDocument(pid, {
         document_pid: key,
@@ -157,7 +157,7 @@ export const addDocument = (pid, key) => {
 };
 
 export const removeProvider = (pid, provPid) => {
-  return async dispatch => {
+  return async (dispatch) => {
     try {
       const response = await documentRequestApi.removeProvider(pid, {
         physical_item_provider_pid: provPid,
@@ -176,7 +176,7 @@ export const removeProvider = (pid, provPid) => {
 };
 
 export const removeDocument = (pid, documentPid) => {
-  return async dispatch => {
+  return async (dispatch) => {
     try {
       const response = await documentRequestApi.removeDocument(pid, {
         document_pid: documentPid,

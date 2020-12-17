@@ -21,11 +21,7 @@ export default class PatronDocumentRequests extends Component {
 
     const patronPid = patronDetails.user_pid;
     const path = BackOfficeRoutes.documentRequestsListWithQuery(
-      documentRequestApi
-        .query()
-        .withPatronPid(patronPid)
-        .sortByNewest()
-        .qs()
+      documentRequestApi.query().withPatronPid(patronPid).sortByNewest().qs()
     );
     return <SeeAllButton to={path} />;
   };

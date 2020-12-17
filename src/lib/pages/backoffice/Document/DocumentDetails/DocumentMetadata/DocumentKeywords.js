@@ -17,7 +17,7 @@ export class DocumentKeywords extends Component {
           name: scheme,
           value: (
             <List>
-              {idsList.map(entry => (
+              {idsList.map((entry) => (
                 <List.Item key={entry.value}>
                   <List.Content>{entry.value}</List.Content>
                 </List.Item>

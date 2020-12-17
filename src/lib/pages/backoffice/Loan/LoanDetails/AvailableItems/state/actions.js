@@ -11,8 +11,8 @@ import {
 export const IS_LOADING = 'fetchAvailableItems/IS_LOADING';
 export const SUCCESS = 'fetchAvailableItems/SUCCESS';
 export const HAS_ERROR = 'fetchAvailableItems/HAS_ERROR';
-export const fetchAvailableItems = documentPid => {
-  return async dispatch => {
+export const fetchAvailableItems = (documentPid) => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -42,7 +42,7 @@ export const fetchAvailableItems = documentPid => {
 };
 
 export const assignItemToLoan = (itemId, loanId) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: FETCH_LOAN_IS_LOADING,
     });

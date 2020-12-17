@@ -16,7 +16,7 @@ export class LocationDatePicker extends Component {
     };
   }
 
-  fetchLocation = async locationPid => {
+  fetchLocation = async (locationPid) => {
     this.setState({ isLoading: true });
     try {
       const response = await locationApi.get(locationPid);
@@ -44,7 +44,7 @@ export class LocationDatePicker extends Component {
     while (date <= dateMax) {
       const dateISO = date.toISODate();
       let isOpen = weekdays[date.weekday - 1].is_open;
-      exceptions.forEach(exception => {
+      exceptions.forEach((exception) => {
         if (exception.start_date <= dateISO && dateISO <= exception.end_date) {
           isOpen = exception.is_open;
         }

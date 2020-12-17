@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Grid, Item, List } from 'semantic-ui-react';
 
 export default class BorrowingRequestListEntry extends Component {
-  renderLeftColumn = brwReqMetadata => {
+  renderLeftColumn = (brwReqMetadata) => {
     const {
       status,
       library_pid: libraryPid,
@@ -34,7 +34,7 @@ export default class BorrowingRequestListEntry extends Component {
     );
   };
 
-  renderMiddleColumn = brwReqMetadata => {
+  renderMiddleColumn = (brwReqMetadata) => {
     const { renderMiddleColumn } = this.props;
     if (renderMiddleColumn) {
       return renderMiddleColumn(brwReqMetadata);
@@ -76,7 +76,7 @@ export default class BorrowingRequestListEntry extends Component {
     );
   };
 
-  renderRightColumn = brwReqMetadata => {
+  renderRightColumn = (brwReqMetadata) => {
     const { renderRightColumn } = this.props;
     if (renderRightColumn) {
       return renderRightColumn(brwReqMetadata);

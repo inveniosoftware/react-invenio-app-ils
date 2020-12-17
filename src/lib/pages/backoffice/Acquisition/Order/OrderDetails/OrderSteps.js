@@ -42,7 +42,7 @@ OrderStep.defaultProps = {
   iconName: null,
 };
 
-const toLabel = status => {
+const toLabel = (status) => {
   return getDisplayVal('ACQ_ORDERS.statuses', status);
 };
 

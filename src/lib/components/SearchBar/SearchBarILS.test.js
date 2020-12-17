@@ -37,10 +37,7 @@ describe('SearchBar tests', () => {
     component = mount(
       <SearchBar onSearchHandler={mockedOnSearchHandler} placeholder="Search" />
     );
-    const input = component
-      .find('Input')
-      .find('Icon')
-      .find('i');
+    const input = component.find('Input').find('Icon').find('i');
     input.simulate('click');
     expect(mockedOnSearchHandler).toHaveBeenCalled();
   });

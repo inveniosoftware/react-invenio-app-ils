@@ -56,7 +56,7 @@ class DocumentItems extends Component {
     }
   };
 
-  renderInternalLocations = internalLocations => {
+  renderInternalLocations = (internalLocations) => {
     const locations = [];
     const { activeInternalLocation } = this.state;
 
@@ -161,7 +161,7 @@ class DocumentItems extends Component {
             {activeInternalLocation && ` (${activeInternalLocation})`}
           </Header>
           <List divided>
-            {items.slice(0, 20).map(item => (
+            {items.slice(0, 20).map((item) => (
               <DocumentItem key={item.pid} item={item} />
             ))}
           </List>

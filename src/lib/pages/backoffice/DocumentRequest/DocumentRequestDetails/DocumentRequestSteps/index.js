@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import { fetchDocumentRequestDetails } from '../state/actions';
 import DocumentRequestStepsComponent from './DocumentRequestSteps';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   ...state.documentRequestDetails,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchDocumentRequestDetails: documentRequestPid =>
+const mapDispatchToProps = (dispatch) => ({
+  fetchDocumentRequestDetails: (documentRequestPid) =>
     dispatch(fetchDocumentRequestDetails(documentRequestPid)),
 });
 

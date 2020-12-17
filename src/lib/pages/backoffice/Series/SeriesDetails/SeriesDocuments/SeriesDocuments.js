@@ -29,10 +29,7 @@ export default class SeriesDocuments extends Component {
       },
     } = this.props;
     const path = BackOfficeRoutes.documentsListWithQuery(
-      documentApi
-        .query()
-        .withSeriesPid(seriesPid, seriesType)
-        .qs()
+      documentApi.query().withSeriesPid(seriesPid, seriesType).qs()
     );
     return <SeeAllButton to={path} />;
   };
@@ -66,7 +63,7 @@ export default class SeriesDocuments extends Component {
       `metadata.relations.${seriesType.toLowerCase()}`,
       []
     ).find(
-      relation =>
+      (relation) =>
         relation.pid_value === seriesPid && relation.pid_type === 'serid'
     );
     return relation ? relation.volume : '-';

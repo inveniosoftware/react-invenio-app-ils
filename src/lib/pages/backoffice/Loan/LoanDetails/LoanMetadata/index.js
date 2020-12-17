@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import LoanMetadataComponent from './LoanMetadata';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   error: state.loanDetails.error,
   isLoading: state.loanDetails.isLoading,
   loanDetails: state.loanDetails.data,

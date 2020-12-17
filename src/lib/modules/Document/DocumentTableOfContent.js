@@ -9,7 +9,7 @@ export class DocumentTableOfContent extends Component {
   }
 
   renderTOCList = () => {
-    return this.toc.map(entry => (
+    return this.toc.map((entry) => (
       <List.Item key={entry}>
         <List.Content>{entry}</List.Content>
       </List.Item>

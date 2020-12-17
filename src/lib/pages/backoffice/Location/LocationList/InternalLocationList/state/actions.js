@@ -13,7 +13,7 @@ export const DELETE_SUCCESS = 'deleteInternalLocation/DELETE_SUCCESS';
 export const DELETE_HAS_ERROR = 'deleteInternalLocation/DELETE_HAS_ERROR';
 
 export const fetchInternalLocations = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -33,8 +33,8 @@ export const fetchInternalLocations = () => {
   };
 };
 
-export const deleteInternalLocation = ilocPid => {
-  return async dispatch => {
+export const deleteInternalLocation = (ilocPid) => {
+  return async (dispatch) => {
     dispatch({
       type: DELETE_IS_LOADING,
     });

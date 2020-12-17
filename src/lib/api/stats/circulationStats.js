@@ -35,7 +35,7 @@ const getMostLoanedDocuments = async (fromDate, toDate) => {
   };
   const response = await http.get(mostLoanedURL, params);
   response.data.total = response.data.hits.total;
-  response.data.hits = response.data.hits.hits.map(hit =>
+  response.data.hits = response.data.hits.hits.map((hit) =>
     documentApi.serializer.fromJSON(hit)
   );
   return response;

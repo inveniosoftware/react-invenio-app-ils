@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import DocumentSiblingsComponent from './DocumentSiblings';
 import DocumentSeriesComponent from './DocumentSeries';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   documentDetails: state.documentDetails.data,
   error: state.recordRelations.error,
   isLoading: state.recordRelations.isLoading,

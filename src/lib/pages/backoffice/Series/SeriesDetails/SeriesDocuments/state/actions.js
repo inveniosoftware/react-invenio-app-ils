@@ -6,17 +6,14 @@ export const SUCCESS = 'fetchSeriesDocuments/SUCCESS';
 export const HAS_ERROR = 'fetchSeriesDocuments/HAS_ERROR';
 
 export const fetchSeriesDocuments = (seriesPid, moi) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
 
     try {
       const response = await documentApi.list(
-        documentApi
-          .query()
-          .withSeriesPid(seriesPid, moi)
-          .qs()
+        documentApi.query().withSeriesPid(seriesPid, moi).qs()
       );
 
       dispatch({

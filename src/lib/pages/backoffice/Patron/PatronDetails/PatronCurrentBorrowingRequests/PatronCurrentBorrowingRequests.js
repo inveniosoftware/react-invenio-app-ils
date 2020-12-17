@@ -28,11 +28,7 @@ export default class PatronCurrentBorrowingRequests extends Component {
     );
     const patronPid = patronDetails.user_pid;
     const path = ILLRoutes.borrowingRequestListWithQuery(
-      borrowingRequestApi
-        .query()
-        .withPatron(patronPid)
-        .withState(statuses)
-        .qs()
+      borrowingRequestApi.query().withPatron(patronPid).withState(statuses).qs()
     );
     return <SeeAllButton to={path} />;
   };
@@ -76,7 +72,7 @@ export default class PatronCurrentBorrowingRequests extends Component {
     );
   };
 
-  viewDate = date => {
+  viewDate = (date) => {
     return <> {dateFormatter({ ...date }, '-')} </>;
   };
 

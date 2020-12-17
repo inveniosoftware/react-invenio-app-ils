@@ -10,7 +10,7 @@ export default class MultipleSelections extends Component {
     const { selections, removeSelection } = this.props;
     return (
       <Item.Group divided>
-        {selections.map(selection => (
+        {selections.map((selection) => (
           <RelationListEntry
             record={selection}
             key={selection.metadata.pid}

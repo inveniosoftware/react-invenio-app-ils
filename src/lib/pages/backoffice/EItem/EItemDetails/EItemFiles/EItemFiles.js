@@ -13,7 +13,7 @@ import React, { Component } from 'react';
 import { Header, Icon, Segment } from 'semantic-ui-react';
 
 export default class EItemFiles extends Component {
-  onDelete = row => {
+  onDelete = (row) => {
     const { deleteFile } = this.props;
     deleteFile(row.bucket, row.key);
   };
@@ -33,10 +33,7 @@ export default class EItemFiles extends Component {
 
   filenameFormatter = ({ row }) => {
     const filename = row.key;
-    const extension = filename
-      .split('.')
-      .pop()
-      .toLowerCase();
+    const extension = filename.split('.').pop().toLowerCase();
     let icon = 'file outline';
     if (extension === 'pdf') {
       icon = 'file pdf outline';

@@ -14,7 +14,7 @@ export class TextField extends Component {
       : null;
   }
 
-  renderFormField = props => {
+  renderFormField = (props) => {
     const { fieldPath, optimized, ...uiProps } = this.props;
     const {
       form: { values, handleChange, handleBlur, errors, isSubmitting },

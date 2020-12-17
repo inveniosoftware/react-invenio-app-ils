@@ -18,12 +18,9 @@ export default class SeriesMultipartMonographs extends Component {
     fetchSeriesMultipartMonographs(seriesPid);
   }
 
-  seeAllButton = seriesPid => {
+  seeAllButton = (seriesPid) => {
     const path = BackOfficeRoutes.seriesListWithQuery(
-      seriesApi
-        .query()
-        .withSerialPid(seriesPid)
-        .qs()
+      seriesApi.query().withSerialPid(seriesPid).qs()
     );
     return <SeeAllButton to={path} />;
   };
@@ -54,7 +51,7 @@ export default class SeriesMultipartMonographs extends Component {
       `metadata.relations.${seriesType.toLowerCase()}`,
       []
     ).find(
-      relation =>
+      (relation) =>
         relation.pid_value === seriesPid && relation.pid_type === 'serid'
     );
     return relation ? relation.volume : '-';

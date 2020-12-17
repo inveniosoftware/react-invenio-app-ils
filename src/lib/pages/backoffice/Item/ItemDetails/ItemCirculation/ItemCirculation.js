@@ -146,7 +146,7 @@ ItemStatusMessageNotOnLoan.propTypes = {
 };
 
 export default class ItemCirculation extends Component {
-  hasActiveLoan = circulationState => {
+  hasActiveLoan = (circulationState) => {
     return (
       circulationState &&
       invenioConfig.CIRCULATION.loanActiveStates.includes(circulationState)

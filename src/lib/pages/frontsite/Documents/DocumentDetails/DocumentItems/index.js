@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import DocumentItemsComponent from './DocumentItems';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   documentDetails: state.documentDetailsFront.data,
 });
 

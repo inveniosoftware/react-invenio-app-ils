@@ -12,7 +12,7 @@ export const findVolume = (record, parentPid) => {
   }
   const serials = _get(record, 'metadata.relations.serial', []);
   const parent = serials.find(
-    relation =>
+    (relation) =>
       relation.pid_value === parentPid && relation.pid_type === 'serid'
   );
   return parent ? parent.volume : null;

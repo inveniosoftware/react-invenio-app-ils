@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchPatronCurrentLoans } from '@modules/Patron/PatronCurrentLoans/actions';
 import PatronCurrentLoansComponent from './PatronCurrentLoans';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   data: state.patronCurrentLoans.data,
   error: state.patronCurrentLoans.error,
   isLoading: state.patronCurrentLoans.isLoading,
@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
   patronDetails: state.patronDetails.data,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchPatronCurrentLoans: (patronPid, optionalParams = {}) =>
     dispatch(fetchPatronCurrentLoans(patronPid, optionalParams)),
 });

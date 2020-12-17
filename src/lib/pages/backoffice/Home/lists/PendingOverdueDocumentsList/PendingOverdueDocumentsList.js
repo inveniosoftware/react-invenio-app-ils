@@ -17,10 +17,7 @@ export default class PendingOverdueDocumentsList extends Component {
 
   seeAllButton = () => {
     const path = BackOfficeRoutes.documentsListWithQuery(
-      documentApi
-        .query()
-        .pendingOverdue()
-        .qs()
+      documentApi.query().pendingOverdue().qs()
     );
     return <SeeAllButton to={path} />;
   };

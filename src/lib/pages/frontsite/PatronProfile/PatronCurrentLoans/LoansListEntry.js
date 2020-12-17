@@ -12,13 +12,13 @@ export default class LoansListEntry extends Component {
     this.state = { actionMsgOpened: false, actionMsg: '' };
   }
 
-  showSuccess = msg => {
+  showSuccess = (msg) => {
     const { onSuccess } = this.props;
     // trigger a refresh of the list of the results
     onSuccess(msg);
   };
 
-  showError = msg => {
+  showError = (msg) => {
     this.setState({
       actionMsgOpened: true,
       actionMsg: (
@@ -43,7 +43,7 @@ export default class LoansListEntry extends Component {
     </h4>
   );
 
-  getReturnLabel = endDate => (
+  getReturnLabel = (endDate) => (
     <h4>
       Please return the literature before date
       <Header size="large">{DateTime.fromISO(endDate).toLocaleString()}</Header>

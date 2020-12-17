@@ -5,8 +5,8 @@ export const IS_LOADING = 'fetchSeriesMultipartMonographs/IS_LOADING';
 export const SUCCESS = 'fetchSeriesMultipartMonographs/SUCCESS';
 export const HAS_ERROR = 'fetchSeriesMultipartMonographs/HAS_ERROR';
 
-export const fetchSeriesMultipartMonographs = seriesPid => {
-  return async dispatch => {
+export const fetchSeriesMultipartMonographs = (seriesPid) => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

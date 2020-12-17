@@ -13,7 +13,7 @@ export const borrowingRequestLoanExtensionAccept = (
   borrowingRequestPid,
   loanEndDate
 ) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -46,8 +46,8 @@ export const borrowingRequestLoanExtensionAccept = (
   };
 };
 
-export const borrowingRequestLoanExtensionDecline = borrowingRequestPid => {
-  return async dispatch => {
+export const borrowingRequestLoanExtensionDecline = (borrowingRequestPid) => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

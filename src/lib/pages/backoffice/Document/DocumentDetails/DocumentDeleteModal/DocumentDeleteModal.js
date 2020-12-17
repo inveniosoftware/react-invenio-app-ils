@@ -10,7 +10,7 @@ import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-const deleteDocButton = props => {
+const deleteDocButton = (props) => {
   return (
     <DeleteButton
       fluid
@@ -67,11 +67,7 @@ export default class DocumentDeleteModal extends Component {
       onRefClick: this.handleOnLoanRefClick,
       getRefData: () =>
         loanApi.list(
-          loanApi
-            .query()
-            .withDocPid(documentPid)
-            .withState(loanStates)
-            .qs()
+          loanApi.query().withDocPid(documentPid).withState(loanStates).qs()
         ),
     };
 
@@ -79,12 +75,7 @@ export default class DocumentDeleteModal extends Component {
       refType: 'Items',
       onRefClick: this.handleOnItemRefClick,
       getRefData: () =>
-        itemApi.list(
-          itemApi
-            .query()
-            .withDocPid(documentPid)
-            .qs()
-        ),
+        itemApi.list(itemApi.query().withDocPid(documentPid).qs()),
     };
 
     const relationRefProps = {
@@ -98,10 +89,7 @@ export default class DocumentDeleteModal extends Component {
       onRefClick: this.handleOnRequestRefClick,
       getRefData: () =>
         documentRequestApi.list(
-          documentRequestApi
-            .query()
-            .withDocPid(documentPid)
-            .qs()
+          documentRequestApi.query().withDocPid(documentPid).qs()
         ),
     };
 

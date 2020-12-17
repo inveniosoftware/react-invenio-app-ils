@@ -1,6 +1,6 @@
 import { getIn } from 'formik';
 
-export default values => {
+export default (values) => {
   const submit = { ...values };
 
   submit.document_pid = getIn(submit, 'document.pid');

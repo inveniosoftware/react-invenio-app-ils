@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { Grid, Item, List } from 'semantic-ui-react';
 
 export default class OrderListEntry extends Component {
-  renderLeftColumn = order => {
+  renderLeftColumn = (order) => {
     const totalMainCurrency = formatPrice(
       order.metadata.grand_total_main_currency
     );
@@ -73,7 +73,7 @@ export default class OrderListEntry extends Component {
     );
   };
 
-  renderMiddleColumn = order => {
+  renderMiddleColumn = (order) => {
     const { renderMiddleColumn } = this.props;
     if (renderMiddleColumn) {
       return renderMiddleColumn(order);
@@ -94,7 +94,7 @@ export default class OrderListEntry extends Component {
     );
   };
 
-  renderRightColumn = order => {
+  renderRightColumn = (order) => {
     const { renderRightColumn } = this.props;
     if (renderRightColumn) {
       return renderRightColumn(order);

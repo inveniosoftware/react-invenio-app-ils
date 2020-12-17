@@ -7,12 +7,12 @@ export {
   sendSuccessNotification,
 } from '@components/Notifications/actions';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   notifications: state.notifications.notifications,
 });
 
-const mapDispatchToProps = dispatch => ({
-  removeNotification: notificationId =>
+const mapDispatchToProps = (dispatch) => ({
+  removeNotification: (notificationId) =>
     dispatch({
       type: REMOVE,
       payload: notificationId,

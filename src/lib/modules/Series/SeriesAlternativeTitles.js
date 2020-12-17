@@ -38,7 +38,7 @@ export const SeriesAlternativeTitles = ({ alternativeTitles }) => {
         <Divider horizontal>Alternative titles</Divider>
         <Table definition>
           <Table.Body>
-            {alternativeTitles.map(title => (
+            {alternativeTitles.map((title) => (
               <AlternativeTitle title={title} key={title.type} />
             ))}
           </Table.Body>

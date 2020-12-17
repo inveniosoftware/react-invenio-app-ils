@@ -28,9 +28,7 @@ const DocumentSchema = Yup.object().shape({
   ),
   urls: Yup.array().of(
     Yup.object().shape({
-      value: Yup.string()
-        .url()
-        .required(),
+      value: Yup.string().url().required(),
     })
   ),
   subjects: Yup.array().of(
@@ -97,7 +95,7 @@ export class DocumentForm extends Component {
     return documentApi.update(pid, data);
   };
 
-  createDocument = data => {
+  createDocument = (data) => {
     return documentApi.create(data);
   };
 

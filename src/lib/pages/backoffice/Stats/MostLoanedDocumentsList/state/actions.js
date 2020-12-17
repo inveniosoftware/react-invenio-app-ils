@@ -6,7 +6,7 @@ export const SUCCESS = 'statsMostLoanedDocuments/SUCCESS';
 export const HAS_ERROR = 'statsMostLoanedDocuments/HAS_ERROR';
 
 export const fetchMostLoanedDocuments = (fromDate, toDate) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

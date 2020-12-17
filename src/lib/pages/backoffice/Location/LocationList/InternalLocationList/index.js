@@ -5,16 +5,17 @@ import {
 } from './state/actions';
 import InternalLocationListComponent from './InternalLocationList';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   data: state.internalLocations.data,
   error: state.internalLocations.error,
   isLoading: state.internalLocations.isLoading,
   hasError: state.internalLocations.hasError,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchInternalLocations: () => dispatch(fetchInternalLocations()),
-  deleteInternalLocation: ilocPid => dispatch(deleteInternalLocation(ilocPid)),
+  deleteInternalLocation: (ilocPid) =>
+    dispatch(deleteInternalLocation(ilocPid)),
 });
 
 export const InternalLocationList = connect(

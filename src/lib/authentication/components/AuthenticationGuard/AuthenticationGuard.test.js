@@ -6,8 +6,8 @@ import { Button } from 'semantic-ui-react';
 
 describe('AuthenticationGuard tests', () => {
   let component;
-  let Authorized = props => 'Authorized';
-  let UnAuthorized = props => 'UnAuthorized';
+  let Authorized = (props) => 'Authorized';
+  let UnAuthorized = (props) => 'UnAuthorized';
 
   afterEach(() => {
     if (component) {
@@ -63,7 +63,7 @@ describe('AuthenticationGuard tests', () => {
 
     const redirected = component
       .find('Button')
-      .filterWhere(element => element.prop('data-test') === 'login');
+      .filterWhere((element) => element.prop('data-test') === 'login');
 
     expect(redirected).toHaveLength(1);
   });

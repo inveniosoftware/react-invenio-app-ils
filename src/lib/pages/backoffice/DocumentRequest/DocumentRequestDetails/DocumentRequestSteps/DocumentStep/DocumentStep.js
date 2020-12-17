@@ -33,7 +33,7 @@ DocumentStep.propTypes = {
 };
 
 export default class DocumentStepContent extends Component {
-  onSelectResult = data => {
+  onSelectResult = (data) => {
     const {
       data: { metadata },
       addDocument,

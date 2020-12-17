@@ -23,7 +23,7 @@ beforeEach(() => {
 
 describe('Patron details actions', () => {
   describe('Fetch patron details tests', () => {
-    it('should dispatch an action when fetching a patron', done => {
+    it('should dispatch an action when fetching a patron', (done) => {
       mockGet.mockResolvedValue(response);
 
       const expectedActions = [
@@ -40,7 +40,7 @@ describe('Patron details actions', () => {
       });
     });
 
-    it('should dispatch an action when user fetch succeeds', done => {
+    it('should dispatch an action when user fetch succeeds', (done) => {
       mockGet.mockResolvedValue(response);
 
       const expectedActions = [
@@ -58,7 +58,7 @@ describe('Patron details actions', () => {
       });
     });
 
-    it('should dispatch an action when patron fetch fails', done => {
+    it('should dispatch an action when patron fetch fails', (done) => {
       mockGet.mockRejectedValue([500, 'Error']);
 
       const expectedActions = [

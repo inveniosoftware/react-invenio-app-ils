@@ -11,7 +11,7 @@ const get = async () => {
   return res;
 };
 
-const loans = documentPid => {
+const loans = (documentPid) => {
   const loansURL = '/loans';
   return http.get(`${userURL}${loansURL}?document_pid=${documentPid}`);
 };

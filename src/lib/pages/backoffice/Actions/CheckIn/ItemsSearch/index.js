@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import ItemsSearchComponent from './ItemsSearch';
 import { checkin } from './state/actions';
 
-const mapDispatchToProps = dispatch => ({
-  checkin: barcode => dispatch(checkin(barcode)),
+const mapDispatchToProps = (dispatch) => ({
+  checkin: (barcode) => dispatch(checkin(barcode)),
 });
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   loans: state.itemsCheckIn.data,
 });
 

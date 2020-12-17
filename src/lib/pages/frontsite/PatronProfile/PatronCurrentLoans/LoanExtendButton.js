@@ -9,10 +9,10 @@ import { Button, Icon, Popup } from 'semantic-ui-react';
 import { DateTime } from 'luxon';
 
 const INFO_MESSAGES = {
-  SUCCESS: documentTitle =>
+  SUCCESS: (documentTitle) =>
     `Your loan for "${documentTitle}" has been extended.`,
   MISSING_ACTION_URL: 'It is not possible to extend this loan!',
-  TOO_EARLY: reqDate =>
+  TOO_EARLY: (reqDate) =>
     `It is too early for extending the loan. You can request an extension from
     ${reqDate
       .minus({ days: invenioConfig.CIRCULATION.loanWillExpireDays })
@@ -64,7 +64,7 @@ class LoanExtendButton extends Component {
     );
   }
 
-  validate = loan => {
+  validate = (loan) => {
     const hasExtendAction = _has(loan, 'availableActions.extend');
     if (!hasExtendAction)
       return { isValid: false, msg: INFO_MESSAGES.MISSING_ACTION_URL };

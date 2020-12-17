@@ -5,7 +5,7 @@ import { Image, Item } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 class LiteratureCover extends Component {
-  getLabel = isRestricted => {
+  getLabel = (isRestricted) => {
     return isRestricted
       ? {
           corner: 'left',
@@ -36,7 +36,7 @@ class LiteratureCover extends Component {
             disabled={isRestricted}
             label={this.getLabel(isRestricted)}
             {...link}
-            onError={e => (e.target.style.display = 'none')}
+            onError={(e) => (e.target.style.display = 'none')}
             src={url}
             size={size}
             {...uiProps}

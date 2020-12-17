@@ -35,7 +35,7 @@ export default class ACQRequestsCard extends Component {
     return <NewButton fluid to={this.newAcqURL} />;
   };
 
-  renderCard = data => {
+  renderCard = (data) => {
     return (
       <RecordsBriefCard
         title="ACQ Requests"

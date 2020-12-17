@@ -31,21 +31,21 @@ class ESSelector extends Component {
     };
   }
 
-  updateSelections = selections => {
+  updateSelections = (selections) => {
     const { onSelectionsUpdate } = this.props;
     this.setState({ selections });
     onSelectionsUpdate(selections);
   };
 
-  addSingleSelection = selection => {
+  addSingleSelection = (selection) => {
     const selections = [selection];
     this.updateSelections(selections);
   };
 
-  addMultiSelection = selection => {
+  addMultiSelection = (selection) => {
     const { selections } = this.state;
     const currentSelections = [...selections];
-    let hasMatch = find(currentSelections, sel => sel.id === selection.id);
+    let hasMatch = find(currentSelections, (sel) => sel.id === selection.id);
 
     if (!hasMatch) {
       currentSelections.push(selection);
@@ -53,7 +53,7 @@ class ESSelector extends Component {
     }
   };
 
-  onSelectResult = result => {
+  onSelectResult = (result) => {
     const { onSelectResult, multiple } = this.props;
     if (onSelectResult) {
       onSelectResult(result);
@@ -63,12 +63,12 @@ class ESSelector extends Component {
       : this.addSingleSelection(result);
   };
 
-  removeSelection = selection => {
+  removeSelection = (selection) => {
     const { selections } = this.state;
     const { onRemoveSelection } = this.props;
     // Remove from state
     const newSelections = selections.filter(
-      currentSelection => currentSelection.id !== selection.id
+      (currentSelection) => currentSelection.id !== selection.id
     );
     this.updateSelections(newSelections);
     if (onRemoveSelection) {
@@ -115,7 +115,7 @@ class ESSelector extends Component {
     return (
       <Container className="result-selections">
         <List>
-          {selections.map(selection =>
+          {selections.map((selection) =>
             renderSelection(selection, removeSelection)
           )}
         </List>
@@ -171,7 +171,7 @@ class ESSelector extends Component {
           onResults={onResults}
           onSelect={this.onSelectResult}
           onSearchChange={onSearchChange}
-          ref={element => (this.searchRef = element)}
+          ref={(element) => (this.searchRef = element)}
         />
         {error && (
           <Label prompt pointing={error.pointing}>

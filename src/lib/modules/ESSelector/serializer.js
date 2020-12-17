@@ -1,4 +1,4 @@
-export const serializeError = error => ({
+export const serializeError = (error) => ({
   id: 'error',
   key: 'error',
   title: error.toString(),
@@ -6,7 +6,7 @@ export const serializeError = error => ({
   extra: '',
 });
 
-export const serializeDocument = doc => {
+export const serializeDocument = (doc) => {
   const {
     pid,
     title,
@@ -28,7 +28,7 @@ export const serializeDocument = doc => {
   };
 };
 
-export const serializeEItem = eitem => ({
+export const serializeEItem = (eitem) => ({
   id: eitem.metadata.pid,
   key: eitem.metadata.pid,
   title: eitem.metadata.document.title,
@@ -37,7 +37,7 @@ export const serializeEItem = eitem => ({
   metadata: eitem.metadata,
 });
 
-export const serializeInternalLocation = iloc => ({
+export const serializeInternalLocation = (iloc) => ({
   id: iloc.metadata.pid,
   key: iloc.metadata.pid,
   title: iloc.metadata.name,
@@ -46,7 +46,7 @@ export const serializeInternalLocation = iloc => ({
   metadata: iloc.metadata,
 });
 
-export const serializeItem = item => ({
+export const serializeItem = (item) => ({
   id: item.metadata.pid,
   key: item.metadata.pid,
   title: item.metadata.medium,
@@ -55,7 +55,7 @@ export const serializeItem = item => ({
   metadata: item.metadata,
 });
 
-export const serializeLoan = loan => ({
+export const serializeLoan = (loan) => ({
   id: loan.metadata.pid,
   key: loan.metadata.pid,
   title: loan.metadata.state,
@@ -64,7 +64,7 @@ export const serializeLoan = loan => ({
   metadata: loan.metadata,
 });
 
-export const serializeLocation = location => ({
+export const serializeLocation = (location) => ({
   id: location.metadata.pid,
   key: location.metadata.pid,
   title: location.metadata.name,
@@ -73,7 +73,7 @@ export const serializeLocation = location => ({
   metadata: location.metadata,
 });
 
-export const serializePatron = patron => ({
+export const serializePatron = (patron) => ({
   id: patron.metadata.id,
   key: patron.metadata.id,
   title: patron.metadata.email,
@@ -82,7 +82,7 @@ export const serializePatron = patron => ({
   metadata: patron.metadata,
 });
 
-export const serializeSeries = series => {
+export const serializeSeries = (series) => {
   const {
     pid,
     title,
@@ -104,14 +104,14 @@ export const serializeSeries = series => {
   };
 };
 
-export const serializeLibrary = library => ({
+export const serializeLibrary = (library) => ({
   id: library.metadata.pid,
   key: library.metadata.pid,
   title: library.metadata.name,
   metadata: library.metadata,
 });
 
-export const serializeVendor = vendor => ({
+export const serializeVendor = (vendor) => ({
   id: vendor.metadata.pid,
   key: vendor.metadata.pid,
   title: vendor.metadata.name,
@@ -120,7 +120,7 @@ export const serializeVendor = vendor => ({
   metadata: vendor.metadata,
 });
 
-export const serializeAcqOrder = order => ({
+export const serializeAcqOrder = (order) => ({
   id: order.metadata.pid,
   key: order.metadata.pid,
   pid: order.metadata.pid,
@@ -129,7 +129,7 @@ export const serializeAcqOrder = order => ({
   extra: `${order.metadata.grand_total.currency} ${order.metadata.grand_total.value}`,
 });
 
-export const serializeBorrowingRequest = request => ({
+export const serializeBorrowingRequest = (request) => ({
   id: request.metadata.pid,
   key: request.metadata.pid,
   pid: request.metadata.pid,

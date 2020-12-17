@@ -7,7 +7,7 @@ export const HAS_ERROR = 'updateLoanDates/HAS_ERROR';
 export const CLEAR = 'updateLoanDates/CLEAR';
 
 export const loanUpdateDates = (pid, data) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -29,7 +29,7 @@ export const loanUpdateDates = (pid, data) => {
 };
 
 export const clearError = () => {
-  return dispatch => {
+  return (dispatch) => {
     dispatch({
       type: CLEAR,
     });

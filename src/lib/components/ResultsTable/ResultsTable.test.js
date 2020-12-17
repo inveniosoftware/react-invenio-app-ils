@@ -71,7 +71,7 @@ describe('ResultsTable tests', () => {
     expect(component).toMatchSnapshot();
     const footer = component
       .find('TableFooter')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     const seeAll = footer.find('button');
     expect(footer).toHaveLength(1);
     expect(seeAll).toHaveLength(1);
@@ -85,7 +85,7 @@ describe('ResultsTable tests', () => {
     expect(component).toMatchSnapshot();
     const footer = component
       .find('TableFooter')
-      .filterWhere(element => element.prop('data-test') === 'footer');
+      .filterWhere((element) => element.prop('data-test') === 'footer');
     expect(footer).toHaveLength(0);
   });
 
@@ -94,7 +94,7 @@ describe('ResultsTable tests', () => {
     const firstId = data[0].pid;
     const button = component
       .find('TableCell')
-      .filterWhere(element => element.prop('data-test') === `0-${firstId}`)
+      .filterWhere((element) => element.prop('data-test') === `0-${firstId}`)
       .find('button');
     button.simulate('click');
     expect(mockViewDetails).toHaveBeenCalled();

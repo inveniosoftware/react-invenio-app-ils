@@ -5,19 +5,19 @@ import { add as addRelation, remove as removeRelation } from '@api/relations';
 
 const seriesURL = '/series/';
 
-const get = async seriesPid => {
+const get = async (seriesPid) => {
   const resp = await http.get(`${seriesURL}${seriesPid}`);
   resp.data = serializer.fromJSON(resp.data);
   return resp;
 };
 
-const create = async data => {
+const create = async (data) => {
   const resp = await http.post(`${seriesURL}`, data);
   resp.data = serializer.fromJSON(resp.data);
   return resp;
 };
 
-const del = async seriesPid => {
+const del = async (seriesPid) => {
   const response = await http.delete(`${seriesURL}${seriesPid}`);
   return response;
 };
@@ -92,7 +92,7 @@ class QueryBuilder {
       throw TypeError('series argument missing');
     }
     const pids = prepareSumQuery(
-      series.map(o => {
+      series.map((o) => {
         if (Object.prototype.hasOwnProperty.call(o, 'metadata')) {
           return o.metadata.pid;
         } else if (Object.prototype.hasOwnProperty.call(o, 'pid')) {
@@ -117,23 +117,23 @@ const queryBuilder = () => {
   return new QueryBuilder();
 };
 
-const list = async query => {
+const list = async (query) => {
   const response = await http.get(`${seriesURL}?q=${query}`);
   response.data.total = response.data.hits.total;
-  response.data.hits = response.data.hits.hits.map(hit =>
+  response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
   return response;
 };
 
-const serials = searchText => {
+const serials = (searchText) => {
   const builder = queryBuilder();
   let query = builder.withModeOfIssuance('SERIAL').withSearchText(searchText);
 
   return list(query.qs());
 };
 
-const multipartMonographs = query => {
+const multipartMonographs = (query) => {
   return list(
     queryBuilder()
       .withModeOfIssuance('MULTIPART_MONOGRAPH')
@@ -142,7 +142,7 @@ const multipartMonographs = query => {
   );
 };
 
-const count = async query => {
+const count = async (query) => {
   const response = await http.get(`${seriesURL}?q=${query}`);
   response.data = response.data.hits.total;
   return response;

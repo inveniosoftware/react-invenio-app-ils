@@ -3,11 +3,11 @@ import { addNotification } from '@components/Notifications';
 import { connect } from 'react-redux';
 import SidebarComponent from './Sidebar';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.authenticationManagement.data,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   sendErrorNotification: (title, content) =>
     dispatch(addNotification(title, content, 'error')),
   logout: () => dispatch(logout()),

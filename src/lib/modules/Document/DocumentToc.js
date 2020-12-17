@@ -13,7 +13,7 @@ class DocumentToc extends Component {
     return (
       <Overridable id="DocumentToc.layout" {...this.props}>
         <List ordered>
-          {tableOfContent.map(entry => (
+          {tableOfContent.map((entry) => (
             <List.Item key={entry}>{entry}</List.Item>
           ))}
         </List>

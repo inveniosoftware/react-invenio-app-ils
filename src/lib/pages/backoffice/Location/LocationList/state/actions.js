@@ -13,7 +13,7 @@ export const DELETE_SUCCESS = 'deleteLocation/DELETE_SUCCESS';
 export const DELETE_HAS_ERROR = 'deleteLocation/DELETE_HAS_ERROR';
 
 export const fetchAllLocations = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -33,8 +33,8 @@ export const fetchAllLocations = () => {
   };
 };
 
-export const deleteLocation = locationPid => {
-  return async dispatch => {
+export const deleteLocation = (locationPid) => {
+  return async (dispatch) => {
     dispatch({
       type: DELETE_IS_LOADING,
     });

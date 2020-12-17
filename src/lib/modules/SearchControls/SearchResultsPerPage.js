@@ -10,7 +10,7 @@ export default class SearchResultsPerPage extends Component {
     return (
       <ResultsPerPage
         values={searchConfig.RESULTS_PER_PAGE}
-        label={cmp => <> Show {cmp} results per page</>}
+        label={(cmp) => <> Show {cmp} results per page</>}
         {...uiProps}
       />
     );

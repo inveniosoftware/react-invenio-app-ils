@@ -22,7 +22,7 @@ import { goTo } from '@history';
 import { internalLocationApi } from '@api/locations';
 import { LocationOpeningHours } from '@pages/frontsite/OpeningHours';
 
-const DeleteLocationButton = props => {
+const DeleteLocationButton = (props) => {
   return (
     <DeleteButton
       fluid
@@ -38,7 +38,7 @@ class ActionMenu extends React.Component {
     return [
       {
         refType: 'Internal Location',
-        onRefClick: iLocPid => {
+        onRefClick: (iLocPid) => {
           goTo(BackOfficeRoutes.ilocationsEditFor(iLocPid));
         },
         getRefData: () =>

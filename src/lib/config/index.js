@@ -12,7 +12,7 @@ class Config {
     Object.assign(this, { ...RECORDS_CONFIG });
   }
 
-  merge = newConfig => {
+  merge = (newConfig) => {
     Object.assign(this, _merge(this, newConfig));
     Object.freeze(this);
   };
@@ -48,12 +48,12 @@ export const getSearchConfig = (modelName, extraOptions = {}) => {
 
 const findBySortTypeOrReturnFirst = (searchConfig, sortType) => {
   const getCreatedSort = searchConfig.SORT_BY.find(
-    elem => elem.sortBy === sortType
+    (elem) => elem.sortBy === sortType
   );
   return !_isEmpty(getCreatedSort) ? getCreatedSort : searchConfig.SORT_BY[0];
 };
 
-export const setReactSearchKitInitialQueryState = modelName => {
+export const setReactSearchKitInitialQueryState = (modelName) => {
   const searchConfig = getSearchConfig(modelName);
   let initialState = {};
   if (searchConfig.DEFAULT_PAGE) {
@@ -73,7 +73,9 @@ export const setReactSearchKitInitialQueryState = modelName => {
   return initialState;
 };
 
-export const setReactSearchKitDefaultSortingOnEmptyQueryString = modelName => {
+export const setReactSearchKitDefaultSortingOnEmptyQueryString = (
+  modelName
+) => {
   const searchConfig = getSearchConfig(modelName);
   let sortObject = {};
   if (searchConfig.SORT_BY) {
@@ -97,10 +99,10 @@ class ILSUrlParamValidator {
     } else {
       switch (key) {
         case 'sortBy':
-          return this.searchConfig.SORT_BY.some(opt => value === opt.sortBy);
+          return this.searchConfig.SORT_BY.some((opt) => value === opt.sortBy);
         case 'size':
           return this.searchConfig.RESULTS_PER_PAGE.some(
-            opt => value === opt.value
+            (opt) => value === opt.value
           );
         default:
           return true;
@@ -128,7 +130,7 @@ export const setReactSearchKitUrlHandler = (
 };
 
 export function getDisplayVal(configField, value) {
-  return _get(invenioConfig, configField).find(entry => entry.value === value)
+  return _get(invenioConfig, configField).find((entry) => entry.value === value)
     .text;
 }
 
@@ -136,10 +138,10 @@ export const getStaticPagesRoutes = () => {
   return _map(invenioConfig.APP.STATIC_PAGES, 'route');
 };
 
-export const getStaticPageByRoute = path => {
+export const getStaticPageByRoute = (path) => {
   return _find(invenioConfig.APP.STATIC_PAGES, ['route', path]);
 };
 
-export const getStaticPageByName = name => {
+export const getStaticPageByName = (name) => {
   return _find(invenioConfig.APP.STATIC_PAGES, ['name', name]);
 };

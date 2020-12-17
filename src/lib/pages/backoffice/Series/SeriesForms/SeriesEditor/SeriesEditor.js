@@ -32,7 +32,7 @@ export class SeriesEditor extends Component {
     this.cancellableFetchSeries && this.cancellableFetchSeries.cancel();
   }
 
-  fetchSeries = async seriesPid => {
+  fetchSeries = async (seriesPid) => {
     this.cancellableFetchSeries = withCancel(seriesApi.get(seriesPid));
     try {
       const response = await this.cancellableFetchSeries.promise;
@@ -44,7 +44,7 @@ export class SeriesEditor extends Component {
     }
   };
 
-  renderEditForm = pid => {
+  renderEditForm = (pid) => {
     const { isLoading, error, data } = this.state;
     return (
       <Loader isLoading={isLoading}>

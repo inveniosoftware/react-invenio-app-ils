@@ -11,7 +11,7 @@ import { add as addSequence, remove as removeSequence } from './sequence';
 
 const relationsURL = '/relations';
 
-const apiSelector = relationType => {
+const apiSelector = (relationType) => {
   const isParentChild = ['serial', 'multipart_monograph'].includes(
     relationType
   );

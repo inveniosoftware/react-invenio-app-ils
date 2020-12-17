@@ -14,7 +14,7 @@ import { documentRequestApi } from '@api/documentRequests';
 import { BackOfficeRoutes } from '@routes/urls';
 import { invenioConfig } from '@config';
 
-const submitSerializer = values => {
+const submitSerializer = (values) => {
   const submitValues = { ...values };
   _isEmpty(values.library)
     ? (submitValues.library_pid = undefined)
@@ -34,7 +34,7 @@ export class BorrowingRequestForm extends Component {
     return borrowingRequestApi.update(pid, data);
   };
 
-  createBorrowingRequest = data => {
+  createBorrowingRequest = (data) => {
     return borrowingRequestApi.create(data);
   };
 

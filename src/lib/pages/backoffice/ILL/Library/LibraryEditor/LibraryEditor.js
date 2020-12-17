@@ -28,7 +28,7 @@ export class LibraryEditor extends Component {
     this.cancellableFetchLibrary && this.cancellableFetchLibrary.cancel();
   }
 
-  fetchLibrary = async libraryPid => {
+  fetchLibrary = async (libraryPid) => {
     this.cancellableFetchLibrary = withCancel(libraryApi.get(libraryPid));
     try {
       const response = await this.cancellableFetchLibrary.promise;
@@ -40,7 +40,7 @@ export class LibraryEditor extends Component {
     }
   };
 
-  renderEditForm = pid => {
+  renderEditForm = (pid) => {
     const { isLoading, error, data } = this.state;
     return (
       <Loader isLoading={isLoading}>

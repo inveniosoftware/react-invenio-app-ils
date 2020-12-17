@@ -36,7 +36,7 @@ beforeEach(() => {
 
 describe('Pending loans tests', () => {
   describe('Fetch pending loans tests', () => {
-    it('should dispatch a loading action when fetching pending loans', done => {
+    it('should dispatch a loading action when fetching pending loans', (done) => {
       mockFetchPendingOnDocument.mockResolvedValue(mockResponse);
 
       const expectedAction = {
@@ -53,7 +53,7 @@ describe('Pending loans tests', () => {
       });
     });
 
-    it('should dispatch a success action when pending loans fetch succeeds', done => {
+    it('should dispatch a success action when pending loans fetch succeeds', (done) => {
       mockFetchPendingOnDocument.mockResolvedValue(mockResponse);
 
       const expectedAction = {
@@ -71,7 +71,7 @@ describe('Pending loans tests', () => {
       });
     });
 
-    it('should dispatch an error action when pending loans fetch fails', done => {
+    it('should dispatch an error action when pending loans fetch fails', (done) => {
       mockFetchPendingOnDocument.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {

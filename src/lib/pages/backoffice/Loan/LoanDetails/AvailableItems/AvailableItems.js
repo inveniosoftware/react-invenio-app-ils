@@ -40,12 +40,7 @@ export default class AvailableItems extends Component {
         metadata: { document_pid },
       },
     } = this.props;
-    const path = this.seeAllUrl(
-      itemApi
-        .query()
-        .withDocPid(document_pid)
-        .qs()
-    );
+    const path = this.seeAllUrl(itemApi.query().withDocPid(document_pid).qs());
     return <SeeAllButton to={path} />;
   };
 
@@ -194,11 +189,11 @@ export default class AvailableItems extends Component {
     }
   };
 
-  onChangeHandler = query => {
+  onChangeHandler = (query) => {
     const { data } = this.props;
     if (query) {
       const barcode = query.trim();
-      const filteredData = data.hits.filter(hit =>
+      const filteredData = data.hits.filter((hit) =>
         hit.metadata.barcode.startsWith(barcode)
       );
       this.setState({
@@ -213,11 +208,13 @@ export default class AvailableItems extends Component {
     }
   };
 
-  onSearchExecute = query => {
+  onSearchExecute = (query) => {
     const { data, loan } = this.props;
     if (query) {
       const barcode = query.trim();
-      const matches = data.hits.filter(hit => hit.metadata.barcode === barcode);
+      const matches = data.hits.filter(
+        (hit) => hit.metadata.barcode === barcode
+      );
       const isRequested = invenioConfig.CIRCULATION.loanRequestStates.includes(
         loan.metadata.state
       );

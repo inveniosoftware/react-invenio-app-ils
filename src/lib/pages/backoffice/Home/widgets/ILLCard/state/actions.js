@@ -7,7 +7,7 @@ export const SUCCESS = 'fetchOngoingILLRequests/SUCCESS';
 export const HAS_ERROR = 'fetchOngoingILLRequests/HAS_ERROR';
 
 export const fetchOngoingILLRequests = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

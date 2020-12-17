@@ -25,7 +25,7 @@ const LocationSchema = Yup.object().shape({
 });
 
 export class LocationForm extends Component {
-  prepareData = data => {
+  prepareData = (data) => {
     return pick(data, [
       'name',
       'address',
@@ -82,18 +82,18 @@ export class LocationForm extends Component {
     };
   };
 
-  processData = data => {
-    data['opening_weekdays'].forEach(element => {
+  processData = (data) => {
+    data['opening_weekdays'].forEach((element) => {
       if (!element['is_open']) {
         delete element['times'];
       } else if (element['times']) {
-        element['times'] = element['times'].filter(e => e);
+        element['times'] = element['times'].filter((e) => e);
       }
     });
     if (data['opening_exceptions'] === undefined) {
       data['opening_exceptions'] = [];
     } else {
-      data['opening_exceptions'].forEach(element => {
+      data['opening_exceptions'].forEach((element) => {
         if (element['is_open'] === undefined) {
           element['is_open'] = false;
         }
@@ -109,14 +109,14 @@ export class LocationForm extends Component {
     return response;
   };
 
-  createLocation = async data => {
+  createLocation = async (data) => {
     data = this.processData(data);
     const response = await locationApi.create(data);
     await searchReady();
     return response;
   };
 
-  successCallback = result =>
+  successCallback = (result) =>
     goTo(BackOfficeRoutes.locationsDetailsFor(result.data.pid));
 
   render() {

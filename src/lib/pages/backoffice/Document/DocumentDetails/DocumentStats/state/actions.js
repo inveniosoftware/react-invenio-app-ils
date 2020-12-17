@@ -7,7 +7,7 @@ export const SUCCESS = 'fetchDocumentStats/SUCCESS';
 export const HAS_ERROR = 'fetchDocumentStats/HAS_ERROR';
 
 export const fetchDocumentStats = ({ documentPid, fromDate, toDate }) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

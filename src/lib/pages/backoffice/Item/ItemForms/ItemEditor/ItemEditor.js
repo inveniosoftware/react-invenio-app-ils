@@ -48,7 +48,7 @@ export default class ItemEditor extends Component {
     };
   }
 
-  fetchItem = async itemPid => {
+  fetchItem = async (itemPid) => {
     this.cancellableFetchItem = withCancel(itemApi.get(itemPid));
     try {
       const response = await this.cancellableFetchItem.promise;
@@ -60,7 +60,7 @@ export default class ItemEditor extends Component {
     }
   };
 
-  renderEditForm = pid => {
+  renderEditForm = (pid) => {
     const { isLoading, error, data } = this.state;
     const { itemPastLoans, isLoadingPastLoans } = this.props;
 

@@ -5,7 +5,7 @@ import { FrontSiteRoutes } from '@routes/urls';
 import React, { Component } from 'react';
 
 export class HomeSearchBar extends Component {
-  onSearchExecute = query => {
+  onSearchExecute = (query) => {
     const encodedQuery = encodeURIComponent(query);
     goTo(FrontSiteRoutes.documentsListWithQuery(encodedQuery));
   };

@@ -11,8 +11,8 @@ export const SEARCH_ITEM_SUCCESS = 'checkOutSearch/SEARCH_ITEM_SUCCESS  ';
 export const SEARCH_PATRON_SUCCESS = 'checkOutSearch/SEARCH_PATRON_SUCCESS  ';
 export const UPDATE_RESULT_MESSAGE = 'checkOutSearch/UPDATE_RESULT_MESSAGE';
 
-export const updateResultMessage = message => {
-  return dispatch => {
+export const updateResultMessage = (message) => {
+  return (dispatch) => {
     dispatch({
       type: UPDATE_RESULT_MESSAGE,
       payload: message,
@@ -21,7 +21,7 @@ export const updateResultMessage = message => {
 };
 
 export const clearResults = () => {
-  return dispatch => {
+  return (dispatch) => {
     dispatch({
       type: CLEAR_RESULTS,
     });
@@ -48,12 +48,7 @@ const searchPatrons = async (dispatch, term) => {
 };
 
 const searchItems = async (dispatch, term) => {
-  const response = await itemApi.list(
-    itemApi
-      .query()
-      .withBarcode(term)
-      .qs()
-  );
+  const response = await itemApi.list(itemApi.query().withBarcode(term).qs());
 
   dispatch({
     type: SEARCH_ITEM_SUCCESS,
@@ -63,8 +58,8 @@ const searchItems = async (dispatch, term) => {
   return response.data.hits;
 };
 
-export const checkOutSearch = term => {
-  return async dispatch => {
+export const checkOutSearch = (term) => {
+  return async (dispatch) => {
     dispatch({
       type: SEARCH_IS_LOADING,
     });

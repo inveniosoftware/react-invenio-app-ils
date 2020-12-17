@@ -12,7 +12,7 @@ export const requestLoanForDocument = (
   documentPid,
   { requestEndDate = null, deliveryMethod = null } = {}
 ) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -42,7 +42,7 @@ export const requestLoanForDocument = (
 };
 
 export const initializeState = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: INITIAL,
     });

@@ -26,8 +26,8 @@ describe('HitsSearch tests', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should search when text input changes', done => {
-    const mockedApi = query => {
+  it('should search when text input changes', (done) => {
+    const mockedApi = (query) => {
       expect(query).toBe('test');
       done();
     };
@@ -45,8 +45,8 @@ describe('HitsSearch tests', () => {
     });
   });
 
-  it('should return no result', done => {
-    const api = async query => {
+  it('should return no result', (done) => {
+    const api = async (query) => {
       const response = {
         data: {
           hits: [],
@@ -55,7 +55,7 @@ describe('HitsSearch tests', () => {
       return await response;
     };
 
-    const onResults = results => {
+    const onResults = (results) => {
       expect(results.length).toBe(0);
       done();
     };
@@ -73,7 +73,7 @@ describe('HitsSearch tests', () => {
     });
   });
 
-  it('should return one result', done => {
+  it('should return one result', (done) => {
     const api = async () => {
       const response = {
         data: {
@@ -96,7 +96,7 @@ describe('HitsSearch tests', () => {
       return await response;
     };
 
-    const onResults = results => {
+    const onResults = (results) => {
       expect(results.length).toBe(1);
       expect(results[0].title).toBe('Central Library');
       done();

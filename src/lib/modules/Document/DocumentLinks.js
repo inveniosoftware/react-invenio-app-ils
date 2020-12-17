@@ -10,7 +10,7 @@ import { DownloadLink } from '@modules/EItem/DownloadLink';
 import { sessionManager } from '@authentication/services/SessionManager';
 
 export class DocumentLinks extends Component {
-  renderTitle = title => {
+  renderTitle = (title) => {
     const { dividers } = this.props;
     return dividers ? (
       <Divider horizontal>{title}</Divider>
@@ -19,7 +19,7 @@ export class DocumentLinks extends Component {
     );
   };
 
-  userCanSeeFiles = eitem => {
+  userCanSeeFiles = (eitem) => {
     return eitem.open_access || sessionManager.isAuthenticated();
   };
 
@@ -32,14 +32,16 @@ export class DocumentLinks extends Component {
     return (
       <>
         {this.renderTitle('Read online')}
-        <LiteratureAccessUrls urls={eitems.hits.flatMap(eitem => eitem.urls)} />
+        <LiteratureAccessUrls
+          urls={eitems.hits.flatMap((eitem) => eitem.urls)}
+        />
       </>
     );
   };
 
   hasReadable = () => {
     const { eitems } = this.props;
-    return eitems.hits.some(eitem => eitem.urls.length > 0);
+    return eitems.hits.some((eitem) => eitem.urls.length > 0);
   };
 
   renderDownloadLink = (eitem, file) => (
@@ -57,16 +59,16 @@ export class DocumentLinks extends Component {
   renderDownloadableList = () => {
     const { eitems, dividers } = this.props;
     const hasRestrictedFiles = eitems.hits.some(
-      eitem => !this.userCanSeeFiles(eitem)
+      (eitem) => !this.userCanSeeFiles(eitem)
     );
     return (
       <>
         {this.renderTitle('Download')}
         <ShowMoreItems lines={invenioConfig.DOCUMENTS.frontsiteMaxLinks}>
           {eitems.hits
-            .filter(eitem => this.userCanSeeFiles(eitem))
-            .flatMap(eitem =>
-              eitem.files.map(file => this.renderDownloadLink(eitem, file))
+            .filter((eitem) => this.userCanSeeFiles(eitem))
+            .flatMap((eitem) =>
+              eitem.files.map((file) => this.renderDownloadLink(eitem, file))
             )}
         </ShowMoreItems>
         {hasRestrictedFiles && !dividers && this.renderFileLogin()}
@@ -76,7 +78,7 @@ export class DocumentLinks extends Component {
 
   hasDownloadable = () => {
     const { eitems } = this.props;
-    return eitems.hits.some(eitem => eitem.files.length > 0);
+    return eitems.hits.some((eitem) => eitem.files.length > 0);
   };
 
   render() {

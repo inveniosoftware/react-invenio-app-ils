@@ -20,7 +20,7 @@ export default class ItemMetadata extends Component {
         value: (
           <List>
             {itemDetails.metadata.isbns &&
-              itemDetails.metadata.isbns.map(isbn => (
+              itemDetails.metadata.isbns.map((isbn) => (
                 <List.Item key={isbn.value}>
                   {isbn.value}
                   {isbn.description && ` (${isbn.description})`}

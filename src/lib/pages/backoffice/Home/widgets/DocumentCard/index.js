@@ -2,14 +2,14 @@ import { connect } from 'react-redux';
 import { fetchRequestedWithAvailableItems } from './state/actions';
 import DocumentsCardComponent from './DocumentCard';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   data: state.documentCard.data,
   error: state.documentCard.error,
   isLoading: state.documentCard.isLoading,
   hasError: state.documentCard.hasError,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchRequestedWithAvailableItems: () =>
     dispatch(fetchRequestedWithAvailableItems()),
 });

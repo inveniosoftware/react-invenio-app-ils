@@ -27,26 +27,28 @@ class OpeningHours extends Component {
       data: { hits },
     } = this.props;
     const locationPid = _get(sessionManager, 'user.locationPid');
-    return _sortBy(hits, h => [h.pid !== locationPid, h.pid]).map(location => (
-      <Grid.Row key={location.pid}>
-        <Grid.Column stretched>
-          <Header as="h3">
-            {location.metadata.name}{' '}
-            <AuthenticationGuard
-              silent
-              authorizedComponent={() => (
-                <Link to={BackOfficeRoutes.locationsEditFor(location.pid)}>
-                  <Icon name="edit" fitted />
-                </Link>
-              )}
-              roles={['admin', 'librarian']}
-              loginComponent={() => null}
-            />
-          </Header>
-          <LocationOpeningHours location={location} />
-        </Grid.Column>
-      </Grid.Row>
-    ));
+    return _sortBy(hits, (h) => [h.pid !== locationPid, h.pid]).map(
+      (location) => (
+        <Grid.Row key={location.pid}>
+          <Grid.Column stretched>
+            <Header as="h3">
+              {location.metadata.name}{' '}
+              <AuthenticationGuard
+                silent
+                authorizedComponent={() => (
+                  <Link to={BackOfficeRoutes.locationsEditFor(location.pid)}>
+                    <Icon name="edit" fitted />
+                  </Link>
+                )}
+                roles={['admin', 'librarian']}
+                loginComponent={() => null}
+              />
+            </Header>
+            <LocationOpeningHours location={location} />
+          </Grid.Column>
+        </Grid.Row>
+      )
+    );
   };
 
   render() {

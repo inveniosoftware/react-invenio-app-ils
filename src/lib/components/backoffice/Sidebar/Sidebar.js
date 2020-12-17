@@ -35,7 +35,7 @@ class Sidebar extends Component {
     }
   };
 
-  removeTrailingSlashes = path => path.replace(/\/+$/, '');
+  removeTrailingSlashes = (path) => path.replace(/\/+$/, '');
   render() {
     const { location, user } = this.props;
     const isAdmin = authenticationService.hasRoles(user, ['admin']);

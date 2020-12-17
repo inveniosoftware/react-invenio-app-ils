@@ -18,8 +18,8 @@ export const DELETE_HAS_ERROR = 'fetchEItemDetails/DELETE_HAS_ERROR';
 export const ADD_FILE = 'fetchEItemDetails/ADD_FILE';
 export const DELETE_FILE = 'fetchEItemDetails/DELETE_FILE';
 export const UPLOAD_IS_LOADING = 'fetchEItemDetails/UPLOAD_IS_LOADING';
-export const deleteEItem = eitemPid => {
-  return async dispatch => {
+export const deleteEItem = (eitemPid) => {
+  return async (dispatch) => {
     dispatch({
       type: DELETE_IS_LOADING,
     });
@@ -48,8 +48,8 @@ export const deleteEItem = eitemPid => {
   };
 };
 
-export const fetchEItemDetails = eitemPid => {
-  return async dispatch => {
+export const fetchEItemDetails = (eitemPid) => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

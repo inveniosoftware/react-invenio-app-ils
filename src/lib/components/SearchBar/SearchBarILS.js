@@ -19,7 +19,7 @@ export class SearchBarILS extends Component {
     }
   };
 
-  onPasteHandler = event => {
+  onPasteHandler = (event) => {
     const { onSearchHandler } = this.props;
     const queryString = (event.clipboardData || window.clipboardData).getData(
       'text'
@@ -54,7 +54,7 @@ export class SearchBarILS extends Component {
         size="big"
         placeholder={placeholder}
         className={`${parentClass} ils-searchbar`}
-        ref={input => {
+        ref={(input) => {
           this.focusInput = input;
         }}
         {...rest}

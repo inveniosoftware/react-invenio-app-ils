@@ -4,8 +4,8 @@ export const IS_LOADING = 'fetchReferences/IS_LOADING';
 export const SUCCESS = 'fetchReferences/SUCCESS';
 export const HAS_ERROR = 'fetchReferences/HAS_ERROR';
 
-export const fetchReferences = promiseArray => {
-  return async dispatch => {
+export const fetchReferences = (promiseArray) => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -13,7 +13,7 @@ export const fetchReferences = promiseArray => {
       const responses = await Promise.all(promiseArray);
       dispatch({
         type: SUCCESS,
-        payload: responses.map(resp => resp.data),
+        payload: responses.map((resp) => resp.data),
       });
     } catch (error) {
       dispatch({

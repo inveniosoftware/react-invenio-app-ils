@@ -21,7 +21,7 @@ export default class CurrentItem extends Component {
     return metadata.item_pid.type === 'illbid';
   };
 
-  getTitle = loanState => {
+  getTitle = (loanState) => {
     const isRequest = invenioConfig.CIRCULATION.loanRequestStates.includes(
       loanState
     );

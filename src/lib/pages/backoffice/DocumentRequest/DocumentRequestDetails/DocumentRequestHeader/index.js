@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import DocumentRequestHeaderComponent from './DocumentRequestHeader';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   ...state.documentRequestDetails,
 });
 

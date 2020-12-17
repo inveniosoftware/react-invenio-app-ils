@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FastField, Field, getIn } from 'formik';
 
 export class CalendarInputField extends React.Component {
-  renderFormField = props => {
+  renderFormField = (props) => {
     const { fieldPath, component } = this.props;
     const {
       form: { values, errors, setFieldValue },

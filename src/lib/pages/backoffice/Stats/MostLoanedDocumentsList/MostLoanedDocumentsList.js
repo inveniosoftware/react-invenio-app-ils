@@ -52,11 +52,11 @@ export default class MostLoanedDocumentsList extends Component {
     fetchMostLoanedDocuments(fromDate, toDate);
   }
 
-  handleFromDateChange = value => {
+  handleFromDateChange = (value) => {
     this.setState({ fromDate: value }, this.fetchDocuments);
   };
 
-  handleToDateChange = value => {
+  handleToDateChange = (value) => {
     this.setState({ toDate: value }, this.fetchDocuments);
   };
 
@@ -148,7 +148,7 @@ export default class MostLoanedDocumentsList extends Component {
     const { data, isLoading, error } = this.props;
     const { fromDate, toDate } = this.state;
 
-    const hitsWithLinks = data.hits.map(hit => {
+    const hitsWithLinks = data.hits.map((hit) => {
       hit.metadata.loan_count_url = this.createLoansUrl(hit, fromDate, toDate);
       return hit;
     });
@@ -162,7 +162,7 @@ export default class MostLoanedDocumentsList extends Component {
               <SearchResultsList
                 results={hitsWithLinks}
                 ListEntryElement={DocumentListEntry}
-                renderMiddleColumn={doc => (
+                renderMiddleColumn={(doc) => (
                   <DocumentStats metadata={doc.metadata} />
                 )}
               />

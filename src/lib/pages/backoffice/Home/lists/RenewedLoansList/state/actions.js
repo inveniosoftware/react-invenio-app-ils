@@ -7,7 +7,7 @@ export const SUCCESS = 'fetchRenewedLoans/SUCCESS';
 export const HAS_ERROR = 'fetchRenewedLoans/HAS_ERROR';
 
 export const fetchRenewedLoans = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

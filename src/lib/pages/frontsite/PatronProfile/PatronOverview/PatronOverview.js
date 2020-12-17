@@ -27,15 +27,15 @@ export default class PatronOverview extends Component {
         <Statistic.Group widths="three" size="small">
           {this.renderStatistic(
             currentLoans,
-            isPlural => `ongoing loan${isPlural ? 's' : ''}`
+            (isPlural) => `ongoing loan${isPlural ? 's' : ''}`
           )}
           {this.renderStatistic(
             loanRequests,
-            isPlural => `loan request${isPlural ? 's' : ''}`
+            (isPlural) => `loan request${isPlural ? 's' : ''}`
           )}
           {this.renderStatistic(
             documentRequests,
-            isPlural => `Request${isPlural ? 's' : ''} for new literature`
+            (isPlural) => `Request${isPlural ? 's' : ''} for new literature`
           )}
         </Statistic.Group>
       </Container>

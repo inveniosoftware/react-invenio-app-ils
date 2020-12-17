@@ -57,7 +57,7 @@ export default class SearchAggregationsMenu extends Component {
         <Dropdown.Menu key="sub-menu">
           <Dropdown.Header>Refine search</Dropdown.Header>
           <Accordion styled fluid>
-            {searchConfig.FILTERS.map(filter => (
+            {searchConfig.FILTERS.map((filter) => (
               <BucketAggregation
                 key={filter.field}
                 title={filter.title}

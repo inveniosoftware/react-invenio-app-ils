@@ -14,7 +14,7 @@ import { Divider, Grid, Header, Segment } from 'semantic-ui-react';
 import { BorrowingRequestPatronLoan } from './BorrowingRequestPatronLoan';
 
 class Loan extends React.Component {
-  dateOrDefault = value => {
+  dateOrDefault = (value) => {
     return value ? value : '-';
   };
 

@@ -33,7 +33,7 @@ export class OrderEditor extends Component {
     this.cancellableFetchOrder && this.cancellableFetchOrder.cancel();
   }
 
-  fetchOrder = async orderPid => {
+  fetchOrder = async (orderPid) => {
     this.cancellableFetchOrder = withCancel(orderApi.get(orderPid));
     try {
       const response = await this.cancellableFetchOrder.promise;
@@ -45,7 +45,7 @@ export class OrderEditor extends Component {
     }
   };
 
-  renderForm = pid => {
+  renderForm = (pid) => {
     const { isLoading, error, data } = this.state;
     return (
       <Loader isLoading={isLoading}>

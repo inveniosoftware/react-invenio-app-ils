@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import CheckOutSearchComponent from './CheckOutSearch';
 import { checkOutSearch } from '../state/actions';
 
-const mapDispatchToProps = dispatch => ({
-  checkOutSearch: term => dispatch(checkOutSearch(term)),
+const mapDispatchToProps = (dispatch) => ({
+  checkOutSearch: (term) => dispatch(checkOutSearch(term)),
 });
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   item: state.checkOut.item,
   patron: state.checkOut.patron,
   isLoading: state.checkOut.isLoading,

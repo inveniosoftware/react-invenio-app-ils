@@ -4,8 +4,8 @@ export const IS_LOADING = 'fetchBorrowingRequestDetails/IS_LOADING';
 export const SUCCESS = 'fetchBorrowingRequestDetails/SUCCESS';
 export const HAS_ERROR = 'fetchBorrowingRequestDetails/HAS_ERROR';
 
-export const fetchBorrowingRequestDetails = borrowingRequestPid => {
-  return async dispatch => {
+export const fetchBorrowingRequestDetails = (borrowingRequestPid) => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });

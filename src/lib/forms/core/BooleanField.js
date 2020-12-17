@@ -14,7 +14,7 @@ export class BooleanField extends Component {
       : null;
   }
 
-  renderFormField = props => {
+  renderFormField = (props) => {
     const {
       fieldPath,
       leftLabel,

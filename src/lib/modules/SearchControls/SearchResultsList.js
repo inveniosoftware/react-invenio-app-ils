@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Item } from 'semantic-ui-react';
 
 export default class SearchResultsList extends Component {
-  renderListEntry = record => {
+  renderListEntry = (record) => {
     const { ListEntryElement, ...entryProps } = this.props;
     return (
       <ListEntryElement
@@ -18,7 +18,7 @@ export default class SearchResultsList extends Component {
     const { results } = this.props;
     return (
       <Item.Group divided className="bo-document-search">
-        {results.map(hit => {
+        {results.map((hit) => {
           return this.renderListEntry(hit);
         })}
       </Item.Group>

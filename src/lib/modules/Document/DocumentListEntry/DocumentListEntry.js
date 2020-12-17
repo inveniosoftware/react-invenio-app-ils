@@ -17,7 +17,7 @@ export default class DocumentListEntry extends Component {
     this.metadata = props.metadata;
   }
 
-  renderCirculationInfo = meta => {
+  renderCirculationInfo = (meta) => {
     if (
       meta.circulation &&
       (meta.circulation.available_items_for_loan_count > 0 ||

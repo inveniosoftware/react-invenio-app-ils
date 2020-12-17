@@ -5,13 +5,13 @@ import { documentSerializer as serializer } from './serializer';
 
 const documentURL = '/documents/';
 
-const get = async documentPid => {
+const get = async (documentPid) => {
   const response = await http.get(`${documentURL}${documentPid}`);
   response.data = serializer.fromJSON(response.data);
   return response;
 };
 
-const create = async data => {
+const create = async (data) => {
   const resp = await http.post(`${documentURL}`, data);
   resp.data = serializer.fromJSON(resp.data);
   return resp;
@@ -23,11 +23,11 @@ const update = async (docPid, data) => {
   return response;
 };
 
-const del = async docPid => {
+const del = async (docPid) => {
   return await http.delete(`${documentURL}${docPid}`);
 };
 
-const viewEvent = async docPid => {
+const viewEvent = async (docPid) => {
   return await http.post(`${documentURL}${docPid}/stats`, {
     event: 'record-view',
   });
@@ -169,16 +169,16 @@ const queryBuilder = () => {
   return new QueryBuilder();
 };
 
-const list = async query => {
+const list = async (query) => {
   const response = await http.get(`${documentURL}?q=${query}`);
   response.data.total = response.data.hits.total;
-  response.data.hits = response.data.hits.hits.map(hit =>
+  response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
   return response;
 };
 
-const count = async query => {
+const count = async (query) => {
   const response = await http.get(`${documentURL}?q=${query}`);
   response.data = response.data.hits.total;
   return response;

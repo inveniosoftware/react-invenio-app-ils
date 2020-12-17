@@ -8,7 +8,7 @@ export const HAS_ERROR = 'fetchDocumentsDetails/HAS_ERROR';
 export const SHOW_TAB = 'fetchDocumentsDetails/SHOW_TAB';
 
 export const fetchDocumentsDetails = (documentPid, fetchLoansInfo = false) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
@@ -33,8 +33,8 @@ export const fetchDocumentsDetails = (documentPid, fetchLoansInfo = false) => {
   };
 };
 
-export const showTab = activeIndex => {
-  return async dispatch => {
+export const showTab = (activeIndex) => {
+  return async (dispatch) => {
     dispatch({
       type: SHOW_TAB,
       payload: activeIndex,

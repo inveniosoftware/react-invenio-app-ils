@@ -15,19 +15,15 @@ export const CHECKIN_SUCCESS = 'itemCheckin/SUCCESS';
 export const CHECKIN_HAS_ERROR = 'itemCheckin/HAS_ERROR';
 export const CLEAR = 'itemCheckin/CLEAR';
 
-export const checkin = barcode => {
-  return async dispatch => {
+export const checkin = (barcode) => {
+  return async (dispatch) => {
     dispatch({
       type: LOAN_IS_LOADING,
     });
 
     try {
       const response = await loanApi.list(
-        loanApi
-          .query()
-          .withItemBarcode(barcode)
-          .withState('ITEM_ON_LOAN')
-          .qs()
+        loanApi.query().withItemBarcode(barcode).withState('ITEM_ON_LOAN').qs()
       );
 
       if (response.data.hits.length > 1) {
@@ -72,7 +68,7 @@ export const checkin = barcode => {
 };
 
 export const checkInLoan = (checkinUrl, documentPid, patronPid, itemPid) => {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch({
       type: CHECKIN_IS_LOADING,
     });
@@ -89,11 +85,7 @@ export const checkInLoan = (checkinUrl, documentPid, patronPid, itemPid) => {
       const hasLoanRequests =
         (
           await loanApi.count(
-            loanApi
-              .query()
-              .withDocPid(documentPid)
-              .withState('PENDING')
-              .qs()
+            loanApi.query().withDocPid(documentPid).withState('PENDING').qs()
           )
         ).data > 0;
 
@@ -114,7 +106,7 @@ export const checkInLoan = (checkinUrl, documentPid, patronPid, itemPid) => {
 };
 
 export const clearResults = () => {
-  return dispatch => {
+  return (dispatch) => {
     dispatch({
       type: CLEAR,
     });

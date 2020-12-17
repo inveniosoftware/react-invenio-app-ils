@@ -25,7 +25,7 @@ export default class CancelModal extends Component {
   hide = () => this.setState({ open: false, showPopup: false, value: '' });
   show = () => this.setState({ open: true, showPopup: false, value: '' });
 
-  updateInputRef = element => {
+  updateInputRef = (element) => {
     this.inputRef = element
       ? // eslint-disable-next-line react/no-find-dom-node
         ReactDOM.findDOMNode(element).querySelector('input')

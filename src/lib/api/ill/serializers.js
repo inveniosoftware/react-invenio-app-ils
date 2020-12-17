@@ -1,13 +1,13 @@
 import { recordResponseSerializer } from '@api/utils';
 
 const LibrarySerializers = {
-  responseSerializer: function(hit) {
+  responseSerializer: function (hit) {
     return recordResponseSerializer(hit);
   },
 };
 
 const BorrowingRequestSerializers = {
-  responseSerializer: function(hit) {
+  responseSerializer: function (hit) {
     return recordResponseSerializer(hit);
   },
 };

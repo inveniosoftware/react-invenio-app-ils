@@ -53,13 +53,13 @@ describe('LoansSearch ResultsTable tests', () => {
     const firstResult = data[0];
     const resultRows = component
       .find('TableRow')
-      .filterWhere(element => element.prop('data-test') === firstResult.id);
+      .filterWhere((element) => element.prop('data-test') === firstResult.id);
     expect(resultRows).toHaveLength(1);
 
     const mappedStatusElements = resultRows
       .find('TableCell')
       .filterWhere(
-        element => element.prop('data-test') === `1-${firstResult.id}`
+        (element) => element.prop('data-test') === `1-${firstResult.id}`
       );
     expect(mappedStatusElements).toHaveLength(1);
     expect(mappedStatusElements.text()).toEqual(firstResult.metadata.state);
@@ -70,7 +70,7 @@ describe('LoansSearch ResultsTable tests', () => {
     const firstId = data[0].id;
     const button = component
       .find('TableCell')
-      .filterWhere(element => element.prop('data-test') === `0-${firstId}`)
+      .filterWhere((element) => element.prop('data-test') === `0-${firstId}`)
       .find('button');
     button.simulate('click');
     expect(mockViewDetails).toHaveBeenCalled();
