@@ -39,6 +39,7 @@ class LiteratureCover extends Component {
             onError={e => (e.target.style.display = 'none')}
             src={url}
             size={size}
+            className="image-cover"
             {...uiProps}
           />
         )}
