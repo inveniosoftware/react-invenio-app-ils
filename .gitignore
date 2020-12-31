@@ -16,8 +16,9 @@ lib-cov
 coverage
 *.lcov
 
-# Dist folder
+# Dist folders
 dist
+build
 
 # Dependency directories
 node_modules/

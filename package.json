@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "start": "HOST=127.0.0.1 HTTPS=true craco start",
-    "build": "rimraf dist && NODE_ENV=production rollup -c",
+    "lib-build": "rimraf dist && NODE_ENV=production rollup -c",
+    "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
     "lint": "eslint src/lib/**/*.js",
