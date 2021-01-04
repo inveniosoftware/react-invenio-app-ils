@@ -31,7 +31,7 @@ export class Imprint extends Component {
               />
               <StringField
                 label="Date of reprint"
-                fieldPath="imprint.reprint_date"
+                fieldPath="imprint.reprint"
                 optimized
               />
             </GroupField>
