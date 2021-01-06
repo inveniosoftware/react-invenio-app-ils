@@ -6,37 +6,9 @@ import { getSearchConfig } from '@config';
 import PropTypes from 'prop-types';
 
 export default class SearchAggregationsMenu extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { menuOpen: false };
-  }
-
-  toggleMenuOpen = (e, elem) => {
-    const { menuOpen } = this.state;
-    this.setState({ menuOpen: !menuOpen });
-  };
-
-  closeMenu = (e, elem) => {
-    this.setState({ menuOpen: false });
-  };
-
   render() {
     const { modelName } = this.props;
-    const { menuOpen } = this.state;
     const searchConfig = getSearchConfig(modelName);
-    // this element is needed to prevent the Dropdown menu
-    // children from closing on click
-    const trigger = (
-      <div
-        className="text"
-        role="alert"
-        aria-live="polite"
-        aria-atomic="true"
-        onClick={this.toggleMenuOpen}
-      >
-        Filters
-      </div>
-    );
 
     return (
       <Dropdown
@@ -44,14 +16,12 @@ export default class SearchAggregationsMenu extends Component {
         upward={false}
         size="small"
         pointing="top left"
+        simple
         className="link item mobile-filters-dropdown"
-        onChange={() => {}}
         disabled={_isEmpty(searchConfig.FILTERS)}
-        open={menuOpen}
-        trigger={trigger}
-        // closeOnBlur
+        text="Filters"
+        closeOnBlur
         closeOnEscape
-        onBlur={this.closeMenu}
         scrolling
       >
         <Dropdown.Menu key="sub-menu">
