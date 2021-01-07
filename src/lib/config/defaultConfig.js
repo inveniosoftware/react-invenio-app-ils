@@ -645,12 +645,6 @@ export const RECORDS_CONFIG = {
           aggName: 'language',
         },
         {
-          title: 'Related content',
-          field: 'relations',
-          aggName: 'relation',
-          labels: DOCUMENT_RELATIONS,
-        },
-        {
           title: 'Medium',
           field: 'stock.mediums',
           aggName: 'medium',
