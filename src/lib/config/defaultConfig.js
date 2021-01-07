@@ -390,6 +390,11 @@ export const RECORDS_CONFIG = {
             { value: 1, label: 'Yes' },
           ],
         },
+        {
+          title: 'Has files',
+          field: 'files',
+          aggName: 'has_files',
+        },
       ],
       sort: [
         {
