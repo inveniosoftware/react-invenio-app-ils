@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Grid, Header, Item, List } from 'semantic-ui-react';
+import { invenioConfig } from '@config';
 
 class ItemCirculation extends Component {
   render() {
@@ -85,7 +86,7 @@ export class ItemListEntry extends Component {
                   authors={item.metadata.document.authors}
                   hasOtherAuthors={item.metadata.document.other_authors}
                   prefix="by "
-                  limit={10}
+                  limit={invenioConfig.LITERATURE.authors.maxDisplay}
                 />
                 <List>
                   <List.Item>

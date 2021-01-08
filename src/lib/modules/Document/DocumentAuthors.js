@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Icon, List, Popup } from 'semantic-ui-react';
+import { invenioConfig } from '@config';
 
 const ET_AL_LABEL = 'et al.';
 
@@ -170,6 +171,7 @@ class DocumentAuthors extends Component {
       withPopUpShowMoreFields,
       showAllFieldsInPopUp,
       listItemAs,
+      withVerticalScroll,
     } = this.props;
     const { isExpanded } = this.state;
 
@@ -179,47 +181,57 @@ class DocumentAuthors extends Component {
       displayedAuthors = allAuthors.slice(0, limit);
     }
 
-    const isShowingAllAuthors = displayedAuthors.length === allAuthors.length;
+    const isShowingAllAuthors =
+      allAuthors.slice(0, limit).length === allAuthors.length;
     const showAllAuthorsCmp =
       !isShowingAllAuthors && expandable ? (
-        <>
+        <div>
           {' '}
           <span
             className="button-show-more"
             onClick={this.toggleShowAllAuthors}
           >
-            {isExpanded ? 'Show less' : ET_AL_LABEL}
+            {isExpanded ? 'Show less' : `Show all ${allAuthors.length} authors`}
           </span>
-        </>
+        </div>
       ) : null;
 
     const scrollableClass =
       displayedAuthors.length > scrollLimit && isExpanded ? 'expanded' : '';
     return (
       <Overridable id="DocumentAuthors.layout" {...this.props}>
-        <div className={`document-authors-list-wrapper ${scrollableClass}`}>
-          {prefix}
-          <List horizontal className="document-authors-list" as={listItemAs}>
-            {displayedAuthors.map((author, index) => {
-              const isLast = index === displayedAuthors.length - 1;
-              return (
-                <List.Item key={author.full_name}>
-                  {author.full_name}
-                  {withPopUpShowMoreFields && (
-                    <PopUpShowMoreFields
-                      author={author}
-                      showAllFields={showAllFieldsInPopUp}
-                    />
-                  )}
-                  {!isLast ? delimiter : null}
-                </List.Item>
-              );
-            })}
-            {hasOtherAuthors && ET_AL_LABEL}
-          </List>
-
+        <>
+          <div
+            className={
+              !withVerticalScroll
+                ? `default-margin-bottom`
+                : `document-authors-list-wrapper ${scrollableClass}`
+            }
+          >
+            {prefix}
+            <List horizontal className="document-authors-list" as={listItemAs}>
+              {displayedAuthors.map((author, index) => {
+                const isLast = index === displayedAuthors.length - 1;
+                return (
+                  <List.Item key={author.full_name}>
+                    {author.full_name}
+                    {withPopUpShowMoreFields &&
+                      allAuthors.length <
+                        invenioConfig.LITERATURE.authors.maxDisplay && (
+                        <PopUpShowMoreFields
+                          author={author}
+                          showAllFields={showAllFieldsInPopUp}
+                        />
+                      )}
+                    {!isLast ? delimiter : null}
+                  </List.Item>
+                );
+              })}
+              {hasOtherAuthors && ET_AL_LABEL}
+            </List>
+          </div>
           {showAllAuthorsCmp}
-        </div>
+        </>
       </Overridable>
     );
   }
@@ -236,6 +248,7 @@ DocumentAuthors.propTypes = {
   withPopUpShowMoreFields: PropTypes.bool,
   showAllFieldsInPopUp: PropTypes.bool,
   listItemAs: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
+  withVerticalScroll: PropTypes.bool,
 };
 
 DocumentAuthors.defaultProps = {
@@ -248,6 +261,7 @@ DocumentAuthors.defaultProps = {
   withPopUpShowMoreFields: false,
   showAllFieldsInPopUp: true,
   listItemAs: null,
+  withVerticalScroll: false,
 };
 
 export default Overridable.component('DocumentAuthors', DocumentAuthors);

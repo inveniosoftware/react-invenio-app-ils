@@ -83,10 +83,10 @@ export class AuthorSearchField extends React.Component {
 
   render() {
     const { isLoading, results, value } = this.state;
-    const { minCharacters } = this.props;
+    const { minCharacters, authors } = this.props;
     return (
       <Form.Field>
-        <label>Authors</label>
+        <label>{authors.length} authors in total</label>
         <Form.Button
           type="button"
           content="New author"
@@ -94,6 +94,7 @@ export class AuthorSearchField extends React.Component {
           onClick={this.onNewAuthor}
         />
         <Search
+          placeholder="Search for an author..."
           fluid
           input={{ icon: 'search', iconPosition: 'left' }}
           loading={isLoading}

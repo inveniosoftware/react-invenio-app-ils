@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Icon, Item, List } from 'semantic-ui-react';
+import { invenioConfig } from '@config';
 
 export default class EItemListEntry extends Component {
   render() {
@@ -30,7 +31,7 @@ export default class EItemListEntry extends Component {
                   authors={eitem.metadata.document.authors}
                   hasOtherAuthors={eitem.metadata.document.other_authors}
                   prefix="by "
-                  limit={10}
+                  limit={invenioConfig.LITERATURE.authors.maxDisplay}
                 />
               </Item.Meta>
               {eitem.metadata.doi && (

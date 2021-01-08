@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Divider, Table } from 'semantic-ui-react';
 import LiteratureKeywords from '@modules/Literature/LiteratureKeywords';
+import { invenioConfig } from '@config';
 
 export class DocumentInfo extends Component {
   renderLanguages() {
@@ -49,9 +50,10 @@ export class DocumentInfo extends Component {
                   authors={metadata.authors}
                   hasOtherAuthors={metadata.other_authors}
                   withPopUpShowMoreFields
-                  limit={20}
+                  limit={invenioConfig.LITERATURE.authors.maxDisplay}
                   scrollLimit={300}
                   expandable
+                  withVerticalScroll
                 />
               </Table.Cell>
             </Table.Row>

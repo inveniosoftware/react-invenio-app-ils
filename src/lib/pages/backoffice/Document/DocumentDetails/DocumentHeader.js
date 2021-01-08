@@ -14,6 +14,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Header, Icon, Label } from 'semantic-ui-react';
 import { DateTime } from 'luxon';
+import { invenioConfig } from '@config';
 
 export class DocumentHeader extends Component {
   render() {
@@ -61,7 +62,7 @@ export class DocumentHeader extends Component {
             authors={data.metadata.authors}
             hasOtherAuthors={data.metadata.other_authors}
             prefix="by "
-            limit={10}
+            limit={invenioConfig.LITERATURE.authors.maxDisplay}
           />
         }
         pid={data.metadata.pid}

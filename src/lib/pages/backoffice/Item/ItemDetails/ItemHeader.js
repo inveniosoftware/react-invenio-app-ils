@@ -76,7 +76,7 @@ export class ItemHeader extends Component {
             authors={data.metadata.document.authors}
             hasOtherAuthors={data.metadata.document.other_authors}
             prefix="by "
-            limit={10}
+            limit={invenioConfig.LITERATURE.authors.maxDisplay}
           />
         }
         pid={data.metadata.pid}

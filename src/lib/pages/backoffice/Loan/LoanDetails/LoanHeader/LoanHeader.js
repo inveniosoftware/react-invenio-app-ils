@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, Label } from 'semantic-ui-react';
 import { DateTime } from 'luxon';
+import { invenioConfig } from '@config';
 
 export default class LoanHeader extends Component {
   render() {
@@ -64,7 +65,7 @@ export default class LoanHeader extends Component {
               authors={data.metadata.document.authors}
               hasOtherAuthors={data.metadata.document.other_authors}
               prefix="by: "
-              limit={10}
+              limit={invenioConfig.LITERATURE.authors.maxDisplay}
             />
           </>
         }

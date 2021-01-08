@@ -10,6 +10,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Divider } from 'semantic-ui-react';
 import { groupedSchemeValueList } from '@components/backoffice/utils';
+import { invenioConfig } from '@config';
 
 export class DocumentMetadataGeneral extends Component {
   prepareGeneral = () => {
@@ -32,9 +33,10 @@ export class DocumentMetadataGeneral extends Component {
             hasOtherAuthors={document.metadata.other_authors}
             withPopUpShowMoreFields
             showAllFieldsInPopUp
-            limit={20}
+            limit={invenioConfig.LITERATURE.authors.maxDisplay}
             scrollLimit={300}
             expandable
+            withVerticalScroll
           />
         ),
       },

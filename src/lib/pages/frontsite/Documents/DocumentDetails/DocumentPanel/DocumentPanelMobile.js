@@ -13,6 +13,7 @@ import Overridable from 'react-overridable';
 import { Grid, Header } from 'semantic-ui-react';
 import { DocumentCirculation } from '../DocumentCirculation';
 import { DocumentTitle } from './DocumentTitle';
+import { invenioConfig } from '@config';
 
 class DocumentPanelMobile extends Component {
   render() {
@@ -43,7 +44,7 @@ class DocumentPanelMobile extends Component {
                     hasOtherAuthors={doc.metadata.other_authors}
                     prefix="by "
                     listItemAs="h4"
-                    limit={10}
+                    limit={invenioConfig.LITERATURE.authors.maxDisplay}
                   />
                 </ILSParagraphPlaceholder>
                 <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>

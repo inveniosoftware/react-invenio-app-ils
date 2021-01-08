@@ -5,11 +5,12 @@ List Overrides - REACT-INVENIO-APP-ILS
 /* GLOBAL */
 .document-authors-list-wrapper {
   width: 100%;
-  margin-bottom: 1rem;
 
   &.expanded {
-    max-height: 5em;
+    max-height: 10em;
     overflow-y: scroll;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    border-radius: 5px;
   }
 }
 
