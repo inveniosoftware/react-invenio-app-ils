@@ -14,6 +14,7 @@ import { Grid } from 'semantic-ui-react';
 import { DocumentCirculation } from '../DocumentCirculation';
 import DocumentPanelMobile from './DocumentPanelMobile';
 import { DocumentTitle } from './DocumentTitle';
+import { invenioConfig } from '@config';
 
 class DocumentPanel extends Component {
   render() {
@@ -58,7 +59,7 @@ class DocumentPanel extends Component {
                         hasOtherAuthors={doc.metadata.other_authors}
                         prefix="by "
                         listItemAs="h4"
-                        limit={10}
+                        limit={invenioConfig.LITERATURE.authors.maxDisplay}
                       />
                     </ILSParagraphPlaceholder>
                     <ILSParagraphPlaceholder

@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Grid, Item } from 'semantic-ui-react';
+import { invenioConfig } from '@config';
 
 export default class LoansListEntry extends Component {
   render() {
@@ -57,7 +58,7 @@ export default class LoansListEntry extends Component {
                   <DocumentAuthors
                     authors={documentAuthors}
                     hasOtherAuthors={documentHasOtherAuthors}
-                    limit={10}
+                    limit={invenioConfig.LITERATURE.authors.maxDisplay}
                   />
                   {itemMetaCmp}
                 </Item.Meta>

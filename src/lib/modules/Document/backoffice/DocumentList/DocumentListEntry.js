@@ -12,6 +12,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Header, Icon, Item, List } from 'semantic-ui-react';
 import DocumentCirculation from './DocumentCirculation';
+import { invenioConfig } from '@config';
 
 export default class DocumentListEntry extends Component {
   renderMiddleColumn = (document) => {
@@ -113,7 +114,7 @@ export default class DocumentListEntry extends Component {
                   authors={document.metadata.authors}
                   hasOtherAuthors={document.metadata.other_authors}
                   prefix="by "
-                  limit={10}
+                  limit={invenioConfig.LITERATURE.authors.maxDisplay}
                 />
               </Item.Meta>
               <DocumentLanguages

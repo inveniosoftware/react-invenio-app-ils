@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import { Grid, Header, Item, Label, List } from 'semantic-ui-react';
 import LiteratureTitle from '../../../Literature/LiteratureTitle';
 import { LoanDates } from './LoanDates';
+import { invenioConfig } from '@config';
 
 export class LoanListEntry extends Component {
   render() {
@@ -46,7 +47,7 @@ export class LoanListEntry extends Component {
                   authors={loan.metadata.document.authors}
                   hasOtherAuthors={loan.metadata.document.other_authors}
                   prefix="by "
-                  limit={10}
+                  limit={invenioConfig.LITERATURE.authors.maxDisplay}
                 />
               </Item.Meta>
             </Grid.Column>

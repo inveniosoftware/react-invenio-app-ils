@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { Component, default as React } from 'react';
 import Overridable from 'react-overridable';
 import { Card, Label } from 'semantic-ui-react';
+import { invenioConfig } from '@config';
 
 class DocumentCard extends Component {
   renderImage = () => {
@@ -64,7 +65,7 @@ class DocumentCard extends Component {
               <DocumentAuthors
                 authors={data.metadata.authors}
                 hasOtherAuthors={data.metadata.other_authors}
-                limit={10}
+                limit={invenioConfig.LITERATURE.authors.maxDisplay}
               />
               <div>
                 {!_isEmpty(metadata.imprints) ? (

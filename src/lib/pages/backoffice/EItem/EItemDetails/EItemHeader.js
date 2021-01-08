@@ -10,6 +10,7 @@ import { DateTime } from 'luxon';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { invenioConfig } from '@config';
 
 export class EItemHeader extends Component {
   render() {
@@ -44,7 +45,7 @@ export class EItemHeader extends Component {
             authors={data.metadata.document.authors}
             hasOtherAuthors={data.metadata.document.other_authors}
             prefix="by "
-            limit={10}
+            limit={invenioConfig.LITERATURE.authors.maxDisplay}
           />
         }
         pid={data.metadata.pid}

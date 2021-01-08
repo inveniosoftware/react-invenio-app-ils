@@ -11,6 +11,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Truncate from 'react-truncate';
 import { Grid, Item, Label, List } from 'semantic-ui-react';
+import { invenioConfig } from '@config';
 
 export default class DocumentListEntry extends Component {
   constructor(props) {
@@ -112,7 +113,7 @@ export default class DocumentListEntry extends Component {
               authors={this.metadata.authors}
               hasOtherAuthors={this.metadata.other_authors}
               prefix="by "
-              limit={10}
+              limit={invenioConfig.LITERATURE.authors.maxDisplay}
             />
           </Item.Meta>
           <Item.Description>

@@ -59,7 +59,7 @@ exports[`should render correctly 1`] = `
             },
           ]
         }
-        limit={10}
+        limit={5}
         prefix="by "
       />
     </ItemMeta>
