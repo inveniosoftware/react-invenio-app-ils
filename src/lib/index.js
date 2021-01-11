@@ -36,3 +36,4 @@ export { default as store } from './store';
 export { NotFound } from '@components/HttpErrors';
 export { ResultsTable } from '@components/ResultsTable/ResultsTable';
 export { withCancel, recordToPidType } from '@api/utils';
+export { Media } from '@components/Media';
