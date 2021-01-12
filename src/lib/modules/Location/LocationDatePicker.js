@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { DatePicker } from '@components/DatePicker';
 import { locationApi } from '@api/locations';
+import { DatePicker } from '@components/DatePicker';
 import _isEmpty from 'lodash/isEmpty';
 import { DateTime } from 'luxon';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 export class LocationDatePicker extends Component {
   constructor(props) {

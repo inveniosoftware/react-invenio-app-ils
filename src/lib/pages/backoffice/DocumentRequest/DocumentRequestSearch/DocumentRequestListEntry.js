@@ -1,9 +1,9 @@
 import { DocumentRequestIcon } from '@components/backoffice/icons';
 import { BackOfficeRoutes } from '@routes/urls';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Header, Item, List } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
 
 export class DocumentRequestListEntry extends Component {
   render() {
@@ -60,7 +60,7 @@ export class DocumentRequestListEntry extends Component {
                 {documentRequest.metadata.reject_reason && (
                   <List.Item>
                     <List.Content>
-                      <label>Reject reason </label>
+                      <label>Reason </label>
                       {documentRequest.metadata.reject_reason}
                     </List.Content>
                   </List.Item>

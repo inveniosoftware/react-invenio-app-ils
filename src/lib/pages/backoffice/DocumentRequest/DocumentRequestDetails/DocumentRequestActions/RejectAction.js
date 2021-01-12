@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Dropdown, Confirm, Menu } from 'semantic-ui-react';
 import { documentApi } from '@api/documents';
 import { ESSelectorModal } from '@modules/ESSelector';
 import { serializeDocument } from '@modules/ESSelector/serializer';
 import get from 'lodash/get';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Confirm, Dropdown, Menu } from 'semantic-ui-react';
 
 export class RejectAction extends React.Component {
   state = {
@@ -80,11 +80,11 @@ export class RejectAction extends React.Component {
             trigger={dropdown}
             query={documentApi.list}
             serializer={serializeDocument}
-            title="Reject request: Already in the catalog"
-            content="Select document to attach to the reject."
-            emptySelectionInfoText="No document selected"
+            title="Decline request: already in the catalog"
+            content="Select literature to attach."
+            emptySelectionInfoText="No literature selected"
             onSave={this.onRejectWithDocument}
-            saveButtonContent="Reject request"
+            saveButtonContent="Decline request"
           />
         );
       }
@@ -100,7 +100,7 @@ export class RejectAction extends React.Component {
         <Menu.Menu position="right">
           <Dropdown
             disabled={disabled}
-            text="Reject request"
+            text="Decline request"
             icon="cancel"
             floating
             labeled
@@ -109,14 +109,14 @@ export class RejectAction extends React.Component {
           >
             <Dropdown.Menu>
               <Confirm
-                confirmButton="Reject request"
-                content="Are you sure you want to reject this request?"
-                header={`Reject: ${header}`}
+                confirmButton="Decline request"
+                content="Are you sure you want to decline this request?"
+                header={`Decline: ${header}`}
                 open={open}
                 onCancel={this.onCancel}
                 onConfirm={() => this.onConfirm(type)}
               />
-              <Dropdown.Header content="Specify a reject reason" />
+              <Dropdown.Header content="Specify a reason" />
               {this.renderOptions()}
             </Dropdown.Menu>
           </Dropdown>

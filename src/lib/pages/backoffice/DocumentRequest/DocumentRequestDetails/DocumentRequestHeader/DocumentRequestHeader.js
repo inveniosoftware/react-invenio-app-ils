@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { BackOfficeRoutes } from '@routes/urls';
-import { Label } from 'semantic-ui-react';
 import { toShortDate } from '@api/date';
-import { CopyButton } from '@components/CopyButton';
-import { DocumentRequestIcon } from '@components/backoffice/icons';
 import { DetailsHeader } from '@components/backoffice/DetailsHeader';
+import { DocumentRequestIcon } from '@components/backoffice/icons';
+import { CopyButton } from '@components/CopyButton';
+import { BackOfficeRoutes } from '@routes/urls';
 import { DateTime } from 'luxon';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Label } from 'semantic-ui-react';
 
 export default class DocumentRequestHeader extends Component {
   renderStatus(status) {
     switch (status) {
       case 'REJECTED':
-        return <Label color="grey">Rejected</Label>;
+        return <Label color="grey">Declined</Label>;
       case 'PENDING':
         return <Label color="yellow">Pending</Label>;
       case 'ACCEPTED':

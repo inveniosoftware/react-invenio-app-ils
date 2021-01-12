@@ -1,8 +1,8 @@
 import { apiConfig, http } from '@api/base';
 import { prepareSumQuery } from '@api/utils';
 import { sessionManager } from '@authentication/services/SessionManager';
-import { borrowingRequestSerializer as serializer } from './serializers';
 import { invenioConfig } from '@config';
+import { borrowingRequestSerializer as serializer } from './serializers';
 
 const borrowingRequestUrl = '/ill/borrowing-requests/';
 
@@ -109,6 +109,7 @@ class QueryBuilder {
     this.size = '';
     this.sortByQuery = '';
     this.stateQuery = [];
+    this.patronLoanExtensionStatusQuery = [];
   }
 
   withState(state) {
@@ -124,6 +125,16 @@ class QueryBuilder {
       throw TypeError('Patron PID argument missing');
     }
     this.patronQuery.push(`patron_pid:${patronPid}`);
+    return this;
+  }
+
+  withPatronLoanExtensionStatus(status) {
+    if (!status) {
+      throw TypeError('Status argument missing');
+    }
+    this.patronLoanExtensionStatusQuery.push(
+      `patron_loan.extension.status:${prepareSumQuery(status)}`
+    );
     return this;
   }
 
@@ -170,6 +181,7 @@ class QueryBuilder {
     const searchCriteria = this.patronQuery
       .concat(this.libraryQuery, this.libraryPidQuery)
       .concat(this.stateQuery)
+      .concat(this.patronLoanExtensionStatusQuery)
       .concat(this.query)
       .join(' AND ');
     return `(${searchCriteria})${this.sortByQuery}${this.size}${this.page}`;

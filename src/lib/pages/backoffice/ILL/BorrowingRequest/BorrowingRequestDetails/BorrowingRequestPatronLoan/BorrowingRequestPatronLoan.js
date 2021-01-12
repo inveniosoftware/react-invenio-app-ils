@@ -1,8 +1,8 @@
 import { toShortDate } from '@api/date';
 import { LoanIcon } from '@components/backoffice/icons';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
-import { invenioConfig } from '@config';
-import { getDisplayVal } from '@config';
+import { getDisplayVal, invenioConfig } from '@config';
+import { LocationDatePicker } from '@modules/Location';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
@@ -21,7 +21,6 @@ import {
   Modal,
 } from 'semantic-ui-react';
 import { BorrowingRequestLoanExtension } from './BorrowingRequestLoanExtension';
-import { LocationDatePicker } from '@modules/Location';
 
 class CreateLoanButton extends React.Component {
   render() {
@@ -136,9 +135,10 @@ class CreateLoan extends React.Component {
   render() {
     const { brwReq, isLoading, hasError, error } = this.props;
     const { modalOpen } = this.state;
-    const today = DateTime.local();
     const max = new DateTime(
-      today.plus({ days: invenioConfig.CIRCULATION.requestDuration })
+      DateTime.local().plus({
+        days: invenioConfig.ILL_BORROWING_REQUESTS.loanMaxDuration,
+      })
     );
     return (
       <>
@@ -285,6 +285,7 @@ export default class BorrowingRequestPatronLoan extends React.Component {
 
         {!_isEmpty(brwReq.patron_loan) && (
           <BorrowingRequestLoanExtension
+            patron={brwReq.patron}
             patronLoan={brwReq.patron_loan}
             brwReqPid={brwReq.pid}
           />

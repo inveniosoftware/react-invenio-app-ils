@@ -43,7 +43,7 @@ export default class DocumentRequestMetadata extends Component {
     this.addRow(rows, 'Publication Year', data.metadata.publication_year);
     this.addRow(rows, 'Medium', data.metadata.medium);
     this.addRow(rows, 'Note', data.metadata.note);
-    this.addRow(rows, 'Reject Reason', data.metadata.reject_reason);
+    this.addRow(rows, 'Reason', data.metadata.reject_reason);
     this.addRow(rows, 'Payment info', data.metadata.payment_info);
     return rows;
   }
