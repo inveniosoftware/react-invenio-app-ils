@@ -1,5 +1,15 @@
 # Changes
 
+Version 1.0.0-alpha.21 (released 2021-01-12)
+
+- fix the way the 404 route can be overridden
+- update Cypress tests
+- fix visualization of reprint field
+- fix checkbox filter that was not clickable
+- remove unused facet "related content" in the literature search page
+- improve book covers visualization
+- update semantic-ui to the latest
+
 Version 1.0.0-alpha.20 (released 2020-11-30)
 
 - bugfix in the literature request workflow
