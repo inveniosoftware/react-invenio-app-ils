@@ -63,6 +63,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
       }
       searchApi={
         InvenioSearchApi {
+          "axiosCancelToken": [Function],
           "axiosConfig": Object {
             "url": "https://127.0.0.1:5000/api/literature/",
             "withCredentials": true,

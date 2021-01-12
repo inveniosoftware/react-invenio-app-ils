@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.22 (released 2021-01-12)
+
+- update RSK 
+- export media component
+
 Version 1.0.0-alpha.21 (released 2021-01-12)
 
 - fix the way the 404 route can be overridden
