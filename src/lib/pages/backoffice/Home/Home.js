@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
-import { LoansCard, DocumentCard, ACQRequestsCard, ILLCard } from './widgets';
 import {
+  IdleLoansList,
   OverbookedDocumentsList,
   OverdueLoansList,
-  IdleLoansList,
-  RenewedLoansList,
+  PendingILLPatronLoanExtensions,
   PendingOverdueDocumentsList,
+  RenewedLoansList,
 } from './lists';
+import { ACQRequestsCard, DocumentCard, ILLCard, LoansCard } from './widgets';
 
 export default class Home extends Component {
   render() {
@@ -37,6 +38,7 @@ export default class Home extends Component {
           <Grid.Column>
             <OverbookedDocumentsList />
             <PendingOverdueDocumentsList />
+            <PendingILLPatronLoanExtensions />
           </Grid.Column>
         </Grid.Row>
       </Grid>

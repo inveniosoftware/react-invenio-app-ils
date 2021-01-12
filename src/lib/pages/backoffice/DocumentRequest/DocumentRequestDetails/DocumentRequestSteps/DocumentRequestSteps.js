@@ -1,15 +1,15 @@
 import _get from 'lodash/get';
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Container, Message, Step, Divider } from 'semantic-ui-react';
-import { DocumentStep } from './DocumentStep/DocumentStep';
+import React, { Component } from 'react';
+import { Container, Divider, Message, Step } from 'semantic-ui-react';
 import { DocumentStepContent } from './DocumentStep';
-import { ProviderStep } from './ProviderStep/ProviderStep';
+import { DocumentStep } from './DocumentStep/DocumentStep';
 import { ProviderStepContent } from './ProviderStep/';
-import { ReviewStep } from './ReviewStep/ReviewStep';
+import { ProviderStep } from './ProviderStep/ProviderStep';
 import { ReviewStepContent } from './ReviewStep';
-import { StepsActions } from './StepsActions';
+import { ReviewStep } from './ReviewStep/ReviewStep';
 import { STEPS } from './Steps';
+import { StepsActions } from './StepsActions';
 
 export default class DocumentRequestSteps extends Component {
   calculateStep = (docPid = undefined, providerPid = undefined) => {
@@ -47,8 +47,8 @@ export default class DocumentRequestSteps extends Component {
       </Container>
     ) : (
       <Message info>
-        <Message.Header>Rejected request!</Message.Header>
-        <p>You cannot modify a rejected document request.</p>
+        <Message.Header>Declined request!</Message.Header>
+        <p>You cannot modify a declined request.</p>
       </Message>
     );
   }

@@ -1,7 +1,9 @@
-import { DatePicker } from '@components/DatePicker';
+import { toShortDate } from '@api/date';
 import { InfoMessage } from '@components/InfoMessage';
 import { invenioConfig } from '@config';
+import { LocationDatePicker } from '@modules/Location';
 import _isEmpty from 'lodash/isEmpty';
+import { DateTime } from 'luxon';
 import { PropTypes } from 'prop-types';
 import React, { Component } from 'react';
 import {
@@ -14,7 +16,6 @@ import {
   Modal,
   Table,
 } from 'semantic-ui-react';
-import { DateTime } from 'luxon';
 
 export default class BorrowingRequestLoanExtension extends Component {
   constructor(props) {
@@ -51,10 +52,16 @@ export default class BorrowingRequestLoanExtension extends Component {
   render() {
     const {
       isLoading,
+      patron,
       patronLoan,
       patronLoan: { extension },
     } = this.props;
     const { modalOpen } = this.state;
+    const max = new DateTime(
+      DateTime.local().plus({
+        days: invenioConfig.ILL_BORROWING_REQUESTS.loanMaxDuration,
+      })
+    );
     return (
       <Container>
         <Divider horizontal>Loan extension</Divider>
@@ -105,9 +112,11 @@ export default class BorrowingRequestLoanExtension extends Component {
                           <Form.Group>
                             <Form.Field inline required>
                               <label>Extension end date</label>
-                              <DatePicker
-                                minDate={this.today}
+                              <LocationDatePicker
+                                locationPid={patron.location_pid}
                                 defaultValue={this.endDate}
+                                minDate={toShortDate(DateTime.local())}
+                                maxDate={toShortDate(max)}
                                 placeholder="End date"
                                 handleDateChange={value =>
                                   this.handleEndDateChange(value)
@@ -160,6 +169,7 @@ export default class BorrowingRequestLoanExtension extends Component {
 }
 
 BorrowingRequestLoanExtension.propTypes = {
+  patron: PropTypes.object.isRequired,
   patronLoan: PropTypes.object.isRequired,
   brwReqPid: PropTypes.string.isRequired,
   isLoading: PropTypes.bool,

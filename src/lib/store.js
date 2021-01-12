@@ -36,6 +36,7 @@ import {
   loansCardReducer,
   overbookedDocumentsReducer,
   overdueLoansReducer,
+  pendingILLPatronLoanExtensions,
   pendingOverdueDocumentsReducer,
   renewedLoansReducer,
 } from '@pages/backoffice/Home/reducer';
@@ -104,6 +105,7 @@ const rootReducer = combineReducers({
   overdueLoans: overdueLoansReducer,
   pendingOverdueDocuments: pendingOverdueDocumentsReducer,
   idlePendingLoans: idleLoansReducer,
+  pendingILLPatronLoanExtensions: pendingILLPatronLoanExtensions,
   latestRenewedLoans: renewedLoansReducer,
   overdueLoanSendMailModal: overdueLoanSendMailModalReducer,
   loanDetails: loanDetailsReducer,

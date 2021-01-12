@@ -353,7 +353,7 @@ export const RECORDS_CONFIG = {
           aggName: 'state',
         },
         {
-          title: 'Reject reason',
+          title: 'Decline reason',
           field: 'reject_reason',
           aggName: 'reject_reason',
         },
@@ -430,6 +430,7 @@ export const RECORDS_CONFIG = {
     completedStatuses: ['CANCELLED', 'RETURNED'],
     extensionDeclinedStatuses: ['DECLINED'],
     extensionPendingStatuses: ['PENDING'],
+    loanMaxDuration: 180,
     statuses: ILL_BORROWING_REQUESTS_STATUSES,
     search: {
       filters: [
@@ -440,12 +441,18 @@ export const RECORDS_CONFIG = {
           labels: ILL_BORROWING_REQUESTS_STATUSES,
         },
         {
+          title: 'Loan extension',
+          field: 'patron_loan_extension',
+          aggName: 'patron_loan_extension',
+          labels: ILL_BORROWING_REQUESTS_STATUSES,
+        },
+        {
           title: 'Library',
           field: 'library.name',
           aggName: 'library',
         },
         {
-          title: 'Type',
+          title: 'Item type',
           field: 'type',
           aggName: 'type',
         },
