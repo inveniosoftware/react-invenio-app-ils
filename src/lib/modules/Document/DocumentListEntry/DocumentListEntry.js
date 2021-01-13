@@ -2,6 +2,7 @@ import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureTags from '@modules/Literature/LiteratureTags';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
@@ -104,7 +105,7 @@ export default class DocumentListEntry extends Component {
             as={Link}
             to={FrontSiteRoutes.documentDetailsFor(this.metadata.pid)}
           >
-            {this.metadata.title}
+            <LiteratureTitle title={this.metadata.title} />
           </Item.Header>
           <Item.Meta>
             <DocumentAuthors

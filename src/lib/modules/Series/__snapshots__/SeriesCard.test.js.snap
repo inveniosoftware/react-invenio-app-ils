@@ -89,7 +89,53 @@ exports[`SeriesCard tests should go to book details when clicking on a book 1`] 
             <div
               className="header"
             >
-              Lorem
+              <Overridable(LiteratureTitle)
+                title="Lorem"
+                truncateLines={5}
+              >
+                <LiteratureTitle
+                  edition={null}
+                  extraCSS=""
+                  publicationYear={null}
+                  title="Lorem"
+                  truncate={true}
+                  truncateLines={5}
+                  truncateWidth={0}
+                >
+                  <Truncate
+                    ellipsis="... "
+                    lines={5}
+                    trimWhitespace={false}
+                    width={0}
+                  >
+                    <span
+                      width={0}
+                    >
+                      <span />
+                      <span>
+                        <div
+                          className="document-title "
+                        >
+                          Lorem
+                           
+                        </div>
+                      </span>
+                      <span
+                        style={
+                          Object {
+                            "left": 0,
+                            "position": "fixed",
+                            "top": 0,
+                            "visibility": "hidden",
+                          }
+                        }
+                      >
+                        ... 
+                      </span>
+                    </span>
+                  </Truncate>
+                </LiteratureTitle>
+              </Overridable(LiteratureTitle)>
             </div>
           </CardHeader>
           <CardMeta>
@@ -260,7 +306,53 @@ exports[`SeriesCard tests should render the SeriesCard 1`] = `
             <div
               className="header"
             >
-              Lorem
+              <Overridable(LiteratureTitle)
+                title="Lorem"
+                truncateLines={5}
+              >
+                <LiteratureTitle
+                  edition={null}
+                  extraCSS=""
+                  publicationYear={null}
+                  title="Lorem"
+                  truncate={true}
+                  truncateLines={5}
+                  truncateWidth={0}
+                >
+                  <Truncate
+                    ellipsis="... "
+                    lines={5}
+                    trimWhitespace={false}
+                    width={0}
+                  >
+                    <span
+                      width={0}
+                    >
+                      <span />
+                      <span>
+                        <div
+                          className="document-title "
+                        >
+                          Lorem
+                           
+                        </div>
+                      </span>
+                      <span
+                        style={
+                          Object {
+                            "left": 0,
+                            "position": "fixed",
+                            "top": 0,
+                            "visibility": "hidden",
+                          }
+                        }
+                      >
+                        ... 
+                      </span>
+                    </span>
+                  </Truncate>
+                </LiteratureTitle>
+              </Overridable(LiteratureTitle)>
             </div>
           </CardHeader>
           <CardMeta>

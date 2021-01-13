@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import find from 'lodash/find';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Overridable from 'react-overridable';
+import Truncate from 'react-truncate';
 import {
-  List,
   Container,
   Icon,
   Label,
-  Popup,
+  List,
   Message,
+  Popup,
 } from 'semantic-ui-react';
-import _isEmpty from 'lodash/isEmpty';
 import { HitsSearch } from './HitsSearch';
-import find from 'lodash/find';
 
 class ESSelector extends Component {
   constructor(props) {
@@ -89,7 +90,7 @@ class ESSelector extends Component {
     ) : (
       <Label>
         {icon}
-        {selection.title}
+        <Truncate ellipsis="... ">{selection.title}</Truncate>
         <Label.Detail>{selection.description}</Label.Detail>
         <Icon name="delete" onClick={() => removeSelection(selection)} />
       </Label>

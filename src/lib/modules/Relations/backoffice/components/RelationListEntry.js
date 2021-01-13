@@ -1,4 +1,5 @@
 import { recordToPidType } from '@api/utils';
+import { SeriesIcon } from '@components/backoffice/icons';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureEdition from '@modules/Literature/LiteratureEdition';
@@ -10,7 +11,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Item } from 'semantic-ui-react';
-import { SeriesIcon } from '@components/backoffice/icons';
 
 export class RelationListEntry extends Component {
   render() {
@@ -48,13 +48,7 @@ export class RelationListEntry extends Component {
             to={BackOfficeRoutes.documentDetailsFor(record.metadata.pid)}
             data-test={`navigate-${record.metadata.pid}`}
           >
-            <LiteratureTitle
-              title={record.metadata.title}
-              edition={record.metadata.edition}
-              publicationYear={record.metadata.publication_year}
-              showOnlyTitle
-              truncate
-            />
+            <LiteratureTitle title={record.metadata.title} />
           </Item.Header>
           <Grid columns={2}>
             <Grid.Column width={10}>

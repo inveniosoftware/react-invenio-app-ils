@@ -4,6 +4,7 @@ import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
 import { Pagination } from '@components/Pagination';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
 import _startCase from 'lodash/startCase';
 import PropTypes from 'prop-types';
@@ -62,7 +63,7 @@ class PatronPastDocumentRequests extends Component {
     }
     return (
       <Link to={FrontSiteRoutes.documentDetailsFor(row.metadata.document_pid)}>
-        {row.metadata.document.title}
+        <LiteratureTitle title={row.metadata.document.title} />
       </Link>
     );
   };

@@ -6,10 +6,11 @@ import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Grid, Header, Item, Label, List } from 'semantic-ui-react';
+import LiteratureTitle from '../../../Literature/LiteratureTitle';
 import { LoanDates } from './LoanDates';
-import Overridable from 'react-overridable';
 
 export class LoanListEntry extends Component {
   render() {
@@ -39,7 +40,7 @@ export class LoanListEntry extends Component {
               requested:
               <Item.Meta className="document-authors">
                 <Header className="loan-document-title" as="h5">
-                  {loan.metadata.document.title}
+                  <LiteratureTitle title={loan.metadata.document.title} />
                 </Header>
                 <DocumentAuthors
                   authors={loan.metadata.document.authors}

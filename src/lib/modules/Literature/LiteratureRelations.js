@@ -1,4 +1,5 @@
 import { SeparatedList } from '@components/SeparatedList';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
@@ -26,13 +27,16 @@ export default class LiteratureRelations extends Component {
 
     const cmp = relations.map(rel => {
       const volume = _get(rel, 'volume');
+      const text = volume
+        ? `${rel.record_metadata.title} (vol: ${volume})`
+        : rel.record_metadata.title;
       return (
-        <div key={rel.pid_value}>
+        <React.Fragment key={rel.pid_value}>
           This is part of the monograph{' '}
           <Link to={this.getLinkTo(rel)}>
-            {rel.record_metadata.title} {volume && `(vol: ${volume})`}
+            <LiteratureTitle title={text} />
           </Link>
-        </div>
+        </React.Fragment>
       );
     });
     return <List.Item>{cmp}</List.Item>;
@@ -44,10 +48,13 @@ export default class LiteratureRelations extends Component {
 
     const items = relations.map(rel => {
       const volume = _get(rel, 'volume');
+      const text = volume
+        ? `${rel.record_metadata.title} (vol: ${volume})`
+        : rel.record_metadata.title;
       return (
         <React.Fragment key={rel.pid_value}>
           <Link to={this.getLinkTo(rel)}>
-            {rel.record_metadata.title} {volume && `(vol: ${volume})`}
+            <LiteratureTitle title={text} />
           </Link>
         </React.Fragment>
       );

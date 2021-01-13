@@ -757,17 +757,16 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                           edition="1"
                                           publicationYear="1950"
                                           title="The Gulf: The Making of An American Sea"
-                                          truncate={true}
-                                          width={300}
+                                          truncateWidth={300}
                                         >
                                           <LiteratureTitle
                                             edition="1"
                                             extraCSS=""
                                             publicationYear="1950"
-                                            showOnlyTitle={false}
                                             title="The Gulf: The Making of An American Sea"
                                             truncate={true}
-                                            width={300}
+                                            truncateLines={2}
+                                            truncateWidth={300}
                                           >
                                             <Truncate
                                               ellipsis="... "
@@ -1010,17 +1009,16 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                           edition="1"
                                           publicationYear="1950"
                                           title="The Gulf: The Making of An American Sea"
-                                          truncate={true}
-                                          width={300}
+                                          truncateWidth={300}
                                         >
                                           <LiteratureTitle
                                             edition="1"
                                             extraCSS=""
                                             publicationYear="1950"
-                                            showOnlyTitle={false}
                                             title="The Gulf: The Making of An American Sea"
                                             truncate={true}
-                                            width={300}
+                                            truncateLines={2}
+                                            truncateWidth={300}
                                           >
                                             <Truncate
                                               ellipsis="... "
@@ -2037,17 +2035,16 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                           edition="1"
                                           publicationYear="1950"
                                           title="The Gulf: The Making of An American Sea"
-                                          truncate={true}
-                                          width={300}
+                                          truncateWidth={300}
                                         >
                                           <LiteratureTitle
                                             edition="1"
                                             extraCSS=""
                                             publicationYear="1950"
-                                            showOnlyTitle={false}
                                             title="The Gulf: The Making of An American Sea"
                                             truncate={true}
-                                            width={300}
+                                            truncateLines={2}
+                                            truncateWidth={300}
                                           >
                                             <Truncate
                                               ellipsis="... "

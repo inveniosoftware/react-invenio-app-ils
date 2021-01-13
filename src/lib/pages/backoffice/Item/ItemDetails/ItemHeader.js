@@ -2,15 +2,15 @@ import { toShortDate } from '@api/date';
 import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { DocumentIcon, ItemIcon } from '@components/backoffice/icons';
 import { CopyButton } from '@components/CopyButton';
+import { invenioConfig } from '@config';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
+import { DateTime } from 'luxon';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Header, Label } from 'semantic-ui-react';
-import { invenioConfig } from '@config';
-import { DateTime } from 'luxon';
 
 export class ItemHeader extends Component {
   statusLabel = () => {
@@ -67,13 +67,7 @@ export class ItemHeader extends Component {
           <>
             <Header.Subheader>Medium: {data.metadata.medium}</Header.Subheader>
             {data.metadata.barcode}:{' '}
-            <LiteratureTitle
-              title={data.metadata.document.title}
-              edition={data.metadata.document.edition}
-              publicationYear={data.metadata.document.publication_year}
-              showOnlyTitle
-              truncate
-            />
+            <LiteratureTitle title={data.metadata.document.title} />
             {this.statusLabel()}
           </>
         }

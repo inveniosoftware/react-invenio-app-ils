@@ -1,7 +1,8 @@
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
-import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureEdition from '@modules/Literature/LiteratureEdition';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
@@ -108,7 +109,7 @@ export class SeriesListEntry extends Component {
             to={BackOfficeRoutes.seriesDetailsFor(series.metadata.pid)}
             data-test={`navigate-${series.metadata.pid}`}
           >
-            {series.metadata.title}
+            <LiteratureTitle title={series.metadata.title} />
           </Item.Header>
           <Grid columns={3}>
             <Grid.Column computer={6} largeScreen={5}>

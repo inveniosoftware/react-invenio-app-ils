@@ -6,10 +6,10 @@ import { CopyButton } from '@components/CopyButton';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
+import { DateTime } from 'luxon';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { DateTime } from 'luxon';
 
 export class EItemHeader extends Component {
   render() {
@@ -36,13 +36,7 @@ export class EItemHeader extends Component {
         title={
           <>
             {data.metadata.pid}:{' '}
-            <LiteratureTitle
-              title={data.metadata.document.title}
-              edition={data.metadata.document.edition}
-              publicationYear={data.metadata.document.publication_year}
-              showOnlyTitle
-              truncate
-            />
+            <LiteratureTitle title={data.metadata.document.title} />
           </>
         }
         subTitle={
