@@ -10,7 +10,7 @@ export class VendorInformation extends React.Component {
   render() {
     const { vendor } = this.props;
 
-    const emailBody = `${vendor.name}, ${invenioConfig.APP.EMAILS_PREFILL.footer}`;
+    const emailBody = `${vendor.name},${invenioConfig.APP.EMAILS_PREFILL.footer}`;
 
     const leftTable = [
       { name: 'Name', value: vendor.name },

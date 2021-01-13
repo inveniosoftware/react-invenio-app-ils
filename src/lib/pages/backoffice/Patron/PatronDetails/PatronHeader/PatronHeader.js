@@ -18,14 +18,18 @@ export default class PatronHeader extends Component {
       </>
     );
 
-    const emailBody = `${data.metadata.name}, ${invenioConfig.APP.EMAILS_PREFILL.footer}`;
+    const emailBody = `${data.metadata.name},${invenioConfig.APP.EMAILS_PREFILL.footer}`;
 
     return (
       <DetailsHeader
         title={
           <>
             <Header.Subheader>
-              <EmailLink email={data.metadata.email} body={emailBody} />{' '}
+              <EmailLink
+                email={data.metadata.email}
+                subject={invenioConfig.APP.EMAILS_PREFILL.subjectPrefix}
+                body={emailBody}
+              />{' '}
               <CopyButton text={data.metadata.email} />
             </Header.Subheader>
             {data.metadata.name}

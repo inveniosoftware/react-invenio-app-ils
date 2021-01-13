@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Icon } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
 
 export const EmailLink = ({
   bcc,
@@ -18,7 +18,7 @@ export const EmailLink = ({
   if (cc) params.push(`cc=${encodeURIComponent(cc)}`);
   if (subject) params.push(`subject=${encodeURIComponent(subject)}`);
 
-  const url = params.length > 0 ? email + '?' + params : email;
+  const url = params ? email + '?' + params.join('&') : email;
 
   return asButton ? (
     <Button as="a" href={`mailto:${url}`} {...buttonUIProps}>
