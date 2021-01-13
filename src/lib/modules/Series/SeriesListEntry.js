@@ -1,6 +1,7 @@
-import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
-import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
+import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { SeriesLanguages } from '@modules/Series/SeriesLanguages';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
@@ -56,7 +57,7 @@ export default class SeriesListEntry extends Component {
             as={Link}
             to={FrontSiteRoutes.seriesDetailsFor(this.metadata.pid)}
           >
-            {this.metadata.title}
+            <LiteratureTitle title={this.metadata.title} />
           </Item.Header>
           <Item.Meta>
             <SeriesAuthors authors={this.metadata.authors} prefix="by " />

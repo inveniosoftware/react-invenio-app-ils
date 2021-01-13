@@ -1,10 +1,11 @@
-import LiteratureCover from '@modules/Literature/LiteratureCover';
-import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { goTo } from '@history';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
+import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import { Component, default as React } from 'react';
 import { Card, Label } from 'semantic-ui-react';
 
 export class SeriesCard extends Component {
@@ -46,7 +47,9 @@ export class SeriesCard extends Component {
         <Card.Meta className="discrete">Series</Card.Meta>
         {this.renderImage()}
         <Card.Content>
-          <Card.Header>{data.metadata.title}</Card.Header>
+          <Card.Header>
+            <LiteratureTitle title={data.metadata.title} truncateLines={5} />
+          </Card.Header>
           <Card.Meta>
             <div>
               <SeriesAuthors authors={data.metadata.authors} />

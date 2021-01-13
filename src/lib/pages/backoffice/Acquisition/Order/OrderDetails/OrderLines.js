@@ -1,10 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Message, Item, Icon, Grid, Popup } from 'semantic-ui-react';
-import { BackOfficeRoutes } from '@routes/urls';
 import { formatPrice } from '@api/utils';
 import { DocumentIcon, PatronIcon } from '@components/backoffice/icons';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
+import { BackOfficeRoutes } from '@routes/urls';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Grid, Icon, Item, Message, Popup } from 'semantic-ui-react';
 
 const OrderLineLeftColumn = ({ line }) => {
   return (
@@ -98,7 +99,7 @@ const OrderLine = ({ line }) => {
           to={BackOfficeRoutes.documentDetailsFor(line.document.pid)}
         >
           <DocumentIcon />
-          {line.document.title}
+          <LiteratureTitle title={line.document.title} />
         </Item.Header>
         <Grid columns={3}>
           <Grid.Column>

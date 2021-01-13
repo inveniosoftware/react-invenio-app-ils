@@ -81,7 +81,6 @@ class Metadata extends React.Component {
               title={brwReq.document.title}
               edition={brwReq.document.edition}
               publicationYear={brwReq.document.publication_year}
-              truncate
             />
           </Link>
         ),

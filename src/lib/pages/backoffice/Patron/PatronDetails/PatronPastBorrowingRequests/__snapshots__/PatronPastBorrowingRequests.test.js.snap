@@ -727,36 +727,62 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                             edition="1"
                                             extraCSS=""
                                             publicationYear="1950"
-                                            showOnlyTitle={false}
                                             title="The Gulf: The Making of An American Sea"
-                                            truncate={false}
-                                            width={0}
+                                            truncate={true}
+                                            truncateLines={2}
+                                            truncateWidth={0}
                                           >
-                                            <div
-                                              className="document-title "
+                                            <Truncate
+                                              ellipsis="... "
+                                              lines={2}
+                                              trimWhitespace={false}
+                                              width={0}
                                             >
-                                              The Gulf: The Making of An American Sea
-                                               
-                                              <EditionYear
-                                                edition="1"
-                                                publicationYear="1950"
+                                              <span
+                                                width={0}
                                               >
-                                                (
-                                                <Overridable(LiteratureEdition)
-                                                  edition="1"
-                                                >
-                                                  <LiteratureEdition
-                                                    edition="1"
-                                                    withLabel={false}
+                                                <span />
+                                                <span>
+                                                  <div
+                                                    className="document-title "
                                                   >
-                                                    ed. 1
-                                                  </LiteratureEdition>
-                                                </Overridable(LiteratureEdition)>
-                                                 - 
-                                                1950
-                                                )
-                                              </EditionYear>
-                                            </div>
+                                                    The Gulf: The Making of An American Sea
+                                                     
+                                                    <EditionYear
+                                                      edition="1"
+                                                      publicationYear="1950"
+                                                    >
+                                                      (
+                                                      <Overridable(LiteratureEdition)
+                                                        edition="1"
+                                                      >
+                                                        <LiteratureEdition
+                                                          edition="1"
+                                                          withLabel={false}
+                                                        >
+                                                          ed. 1
+                                                        </LiteratureEdition>
+                                                      </Overridable(LiteratureEdition)>
+                                                       - 
+                                                      1950
+                                                      )
+                                                    </EditionYear>
+                                                  </div>
+                                                </span>
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "left": 0,
+                                                      "position": "fixed",
+                                                      "top": 0,
+                                                      "visibility": "hidden",
+                                                    }
+                                                  }
+                                                >
+                                                  ... 
+                                                </span>
+                                              </span>
+                                            </Truncate>
                                           </LiteratureTitle>
                                         </Overridable(LiteratureTitle)>
                                       </a>
@@ -930,36 +956,62 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                             edition="1"
                                             extraCSS=""
                                             publicationYear="1950"
-                                            showOnlyTitle={false}
                                             title="The Gulf: The Making of An American Sea"
-                                            truncate={false}
-                                            width={0}
+                                            truncate={true}
+                                            truncateLines={2}
+                                            truncateWidth={0}
                                           >
-                                            <div
-                                              className="document-title "
+                                            <Truncate
+                                              ellipsis="... "
+                                              lines={2}
+                                              trimWhitespace={false}
+                                              width={0}
                                             >
-                                              The Gulf: The Making of An American Sea
-                                               
-                                              <EditionYear
-                                                edition="1"
-                                                publicationYear="1950"
+                                              <span
+                                                width={0}
                                               >
-                                                (
-                                                <Overridable(LiteratureEdition)
-                                                  edition="1"
-                                                >
-                                                  <LiteratureEdition
-                                                    edition="1"
-                                                    withLabel={false}
+                                                <span />
+                                                <span>
+                                                  <div
+                                                    className="document-title "
                                                   >
-                                                    ed. 1
-                                                  </LiteratureEdition>
-                                                </Overridable(LiteratureEdition)>
-                                                 - 
-                                                1950
-                                                )
-                                              </EditionYear>
-                                            </div>
+                                                    The Gulf: The Making of An American Sea
+                                                     
+                                                    <EditionYear
+                                                      edition="1"
+                                                      publicationYear="1950"
+                                                    >
+                                                      (
+                                                      <Overridable(LiteratureEdition)
+                                                        edition="1"
+                                                      >
+                                                        <LiteratureEdition
+                                                          edition="1"
+                                                          withLabel={false}
+                                                        >
+                                                          ed. 1
+                                                        </LiteratureEdition>
+                                                      </Overridable(LiteratureEdition)>
+                                                       - 
+                                                      1950
+                                                      )
+                                                    </EditionYear>
+                                                  </div>
+                                                </span>
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "left": 0,
+                                                      "position": "fixed",
+                                                      "top": 0,
+                                                      "visibility": "hidden",
+                                                    }
+                                                  }
+                                                >
+                                                  ... 
+                                                </span>
+                                              </span>
+                                            </Truncate>
                                           </LiteratureTitle>
                                         </Overridable(LiteratureTitle)>
                                       </a>
@@ -1872,36 +1924,62 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                                             edition="1"
                                             extraCSS=""
                                             publicationYear="1950"
-                                            showOnlyTitle={false}
                                             title="The Gulf: The Making of An American Sea"
-                                            truncate={false}
-                                            width={0}
+                                            truncate={true}
+                                            truncateLines={2}
+                                            truncateWidth={0}
                                           >
-                                            <div
-                                              className="document-title "
+                                            <Truncate
+                                              ellipsis="... "
+                                              lines={2}
+                                              trimWhitespace={false}
+                                              width={0}
                                             >
-                                              The Gulf: The Making of An American Sea
-                                               
-                                              <EditionYear
-                                                edition="1"
-                                                publicationYear="1950"
+                                              <span
+                                                width={0}
                                               >
-                                                (
-                                                <Overridable(LiteratureEdition)
-                                                  edition="1"
-                                                >
-                                                  <LiteratureEdition
-                                                    edition="1"
-                                                    withLabel={false}
+                                                <span />
+                                                <span>
+                                                  <div
+                                                    className="document-title "
                                                   >
-                                                    ed. 1
-                                                  </LiteratureEdition>
-                                                </Overridable(LiteratureEdition)>
-                                                 - 
-                                                1950
-                                                )
-                                              </EditionYear>
-                                            </div>
+                                                    The Gulf: The Making of An American Sea
+                                                     
+                                                    <EditionYear
+                                                      edition="1"
+                                                      publicationYear="1950"
+                                                    >
+                                                      (
+                                                      <Overridable(LiteratureEdition)
+                                                        edition="1"
+                                                      >
+                                                        <LiteratureEdition
+                                                          edition="1"
+                                                          withLabel={false}
+                                                        >
+                                                          ed. 1
+                                                        </LiteratureEdition>
+                                                      </Overridable(LiteratureEdition)>
+                                                       - 
+                                                      1950
+                                                      )
+                                                    </EditionYear>
+                                                  </div>
+                                                </span>
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "left": 0,
+                                                      "position": "fixed",
+                                                      "top": 0,
+                                                      "visibility": "hidden",
+                                                    }
+                                                  }
+                                                >
+                                                  ... 
+                                                </span>
+                                              </span>
+                                            </Truncate>
                                           </LiteratureTitle>
                                         </Overridable(LiteratureTitle)>
                                       </a>

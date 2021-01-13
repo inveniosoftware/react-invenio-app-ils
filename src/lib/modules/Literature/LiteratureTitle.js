@@ -44,22 +44,22 @@ class LiteratureTitle extends Component {
       title,
       edition,
       publicationYear,
-      showOnlyTitle,
       truncate,
+      truncateLines,
+      truncateWidth,
       extraCSS,
-      width,
     } = this.props;
     const cmp = (
       <div className={`document-title ${extraCSS}`}>
         {title}{' '}
-        {!showOnlyTitle && (
+        {(edition || publicationYear) && (
           <EditionYear edition={edition} publicationYear={publicationYear} />
         )}
       </div>
     );
 
     return truncate ? (
-      <Truncate lines={2} width={width} ellipsis="... ">
+      <Truncate lines={truncateLines} width={truncateWidth} ellipsis="... ">
         {cmp}
       </Truncate>
     ) : (
@@ -72,19 +72,19 @@ LiteratureTitle.propTypes = {
   title: PropTypes.string.isRequired,
   edition: PropTypes.string,
   publicationYear: PropTypes.string,
-  showOnlyTitle: PropTypes.bool,
   truncate: PropTypes.bool,
-  width: PropTypes.number,
+  truncateLines: PropTypes.number,
+  truncateWidth: PropTypes.number,
   extraCSS: PropTypes.string,
 };
 
 LiteratureTitle.defaultProps = {
   edition: null,
   publicationYear: null,
-  showOnlyTitle: false,
-  truncate: false,
+  truncate: true,
+  truncateLines: 2,
+  truncateWidth: 0,
   extraCSS: '',
-  width: 0,
 };
 
 export default Overridable.component('LiteratureTitle', LiteratureTitle);

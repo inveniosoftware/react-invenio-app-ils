@@ -1,8 +1,10 @@
+import { EItemIcon } from '@components/backoffice/icons';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
-import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureEdition from '@modules/Literature/LiteratureEdition';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
@@ -10,7 +12,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Header, Icon, Item, List } from 'semantic-ui-react';
 import DocumentCirculation from './DocumentCirculation';
-import { EItemIcon } from '@components/backoffice/icons';
 
 export default class DocumentListEntry extends Component {
   renderMiddleColumn = document => {
@@ -103,7 +104,7 @@ export default class DocumentListEntry extends Component {
             to={BackOfficeRoutes.documentDetailsFor(document.metadata.pid)}
             data-test={`navigate-${document.metadata.pid}`}
           >
-            {document.metadata.title}
+            <LiteratureTitle title={document.metadata.title} />
           </Item.Header>
           <Grid columns={3}>
             <Grid.Column computer={6} largeScreen={5}>

@@ -1,12 +1,11 @@
-import { MetadataTable } from '@components/backoffice/MetadataTable';
-import React from 'react';
-import { Component } from 'react';
-import { Grid, Header, List, Segment } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { BackOfficeRoutes } from '@routes/urls';
 import { DocumentIcon } from '@components/backoffice/icons';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
+import { BackOfficeRoutes } from '@routes/urls';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Grid, Header, List, Segment } from 'semantic-ui-react';
 
 export default class ItemMetadata extends Component {
   render() {
@@ -46,7 +45,6 @@ export default class ItemMetadata extends Component {
                 title={itemDetails.metadata.document.title}
                 edition={itemDetails.metadata.document.edition}
                 publicationYear={itemDetails.metadata.document.publication_year}
-                truncate
               />
             </Link>
           </span>

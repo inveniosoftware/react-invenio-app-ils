@@ -1,11 +1,12 @@
+import { SeriesIcon } from '@components/backoffice/icons';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { BackOfficeRoutes } from '@routes/urls';
-import React, { Component } from 'react';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from 'semantic-ui-react';
-import _isEmpty from 'lodash/isEmpty';
-import { SeriesIcon } from '@components/backoffice/icons';
 
 export default class SeriesCard extends Component {
   render() {
@@ -20,7 +21,7 @@ export default class SeriesCard extends Component {
         <SeriesIcon size="huge" color="grey" />
         <Card.Content>
           <Card.Header as={Link} to={linkTo} target="_blank">
-            {data.metadata.title}
+            <LiteratureTitle title={data.metadata.title} />
           </Card.Header>
           <Card.Meta>
             <SeriesAuthors authors={data.metadata.authors} />

@@ -7,6 +7,7 @@ import { InfoMessage } from '@components/InfoMessage';
 import { Pagination } from '@components/Pagination';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { invenioConfig } from '@config';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
 import _startCase from 'lodash/startCase';
 import PropTypes from 'prop-types';
@@ -22,6 +23,7 @@ import {
   Popup,
 } from 'semantic-ui-react';
 import PatronCancelModal from '../PatronCancelModal';
+
 class ButtonCancelRequest extends Component {
   constructor(props) {
     super(props);
@@ -182,7 +184,7 @@ class PatronCurrentDocumentRequests extends Component {
     }
     return (
       <Link to={FrontSiteRoutes.documentDetailsFor(row.metadata.document_pid)}>
-        {row.metadata.document.title}
+        <LiteratureTitle title={row.metadata.document.title} />
       </Link>
     );
   };

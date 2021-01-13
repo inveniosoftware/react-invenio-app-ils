@@ -1,3 +1,4 @@
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
@@ -15,7 +16,7 @@ class SeriesSequences extends Component {
             <List.Item key={sequence.pid_value}>
               <List.Content>
                 <Link to={FrontSiteRoutes.seriesDetailsFor(sequence.pid_value)}>
-                  {sequence.record_metadata.title}
+                  <LiteratureTitle title={sequence.record_metadata.title} />
                 </Link>
               </List.Content>
             </List.Item>

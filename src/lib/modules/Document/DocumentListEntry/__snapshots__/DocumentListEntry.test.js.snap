@@ -46,7 +46,9 @@ exports[`should render correctly 1`] = `
       }
       to="/literature/13"
     >
-      The Gulf: The Making of An American Sea
+      <Overridable(LiteratureTitle)
+        title="The Gulf: The Making of An American Sea"
+      />
     </ItemHeader>
     <ItemMeta>
       <Overridable(DocumentAuthors)

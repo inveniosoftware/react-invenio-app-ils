@@ -2,11 +2,12 @@ import { toShortDate } from '@api/date';
 import { goTo } from '@history';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import { Component, default as React } from 'react';
 import Overridable from 'react-overridable';
 import { Card, Label } from 'semantic-ui-react';
 
@@ -56,7 +57,9 @@ class DocumentCard extends Component {
             {this.renderImage()}
           </Overridable>
           <Card.Content>
-            <Card.Header>{metadata.title}</Card.Header>
+            <Card.Header>
+              <LiteratureTitle title={metadata.title} />
+            </Card.Header>
             <Card.Meta>
               <DocumentAuthors
                 authors={data.metadata.authors}

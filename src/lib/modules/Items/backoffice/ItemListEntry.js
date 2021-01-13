@@ -1,12 +1,13 @@
 import { DocumentIcon, ItemIcon } from '@components/backoffice/icons';
 import { getDisplayVal } from '@config';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Header, Item, List, Button } from 'semantic-ui-react';
+import { Button, Grid, Header, Item, List } from 'semantic-ui-react';
 
 class ItemCirculation extends Component {
   render() {
@@ -74,7 +75,9 @@ export class ItemListEntry extends Component {
           >
             <ItemIcon /> {item.metadata.barcode}
           </Item.Header>{' '}
-          <Header as="h5">{item.metadata.document.title}</Header>
+          <Header as="h5">
+            <LiteratureTitle title={item.metadata.document.title} />
+          </Header>
           <Grid columns={2}>
             <Grid.Column computer={6} largeScreen={6}>
               <Item.Meta className="metadata-fields">

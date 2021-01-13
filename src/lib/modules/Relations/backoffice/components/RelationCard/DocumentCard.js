@@ -1,4 +1,5 @@
 import { recordToPidType } from '@api/utils';
+import { SeriesIcon } from '@components/backoffice/icons';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
@@ -9,7 +10,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from 'semantic-ui-react';
-import { SeriesIcon } from '@components/backoffice/icons';
 
 export class DocumentCard extends Component {
   render() {
@@ -31,13 +31,7 @@ export class DocumentCard extends Component {
         )}
         <Card.Content>
           <Card.Header as={Link} to={linkTo} target="_blank">
-            <LiteratureTitle
-              title={data.metadata.title}
-              edition={data.metadata.edition}
-              publicationYear={data.metadata.publication_year}
-              showOnlyTitle
-              truncate
-            />
+            <LiteratureTitle title={data.metadata.title} />
           </Card.Header>
           <Card.Meta>
             <DocumentAuthors
