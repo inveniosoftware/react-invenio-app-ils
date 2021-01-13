@@ -26,11 +26,14 @@ ViewDetails.propTypes = {
 };
 
 const MailTo = ({ row }) => {
-  const emailBody = `${row.metadata.name}, ${invenioConfig.APP.EMAILS_PREFILL.footer}`;
-
+  const emailBody = `${row.metadata.name},${invenioConfig.APP.EMAILS_PREFILL.footer}`;
   return (
     <>
-      <EmailLink email={row.metadata.email} body={emailBody} />{' '}
+      <EmailLink
+        email={row.metadata.email}
+        subject={invenioConfig.APP.EMAILS_PREFILL.subjectPrefix}
+        body={emailBody}
+      />{' '}
       <CopyButton text={row.metadata.email} />
     </>
   );

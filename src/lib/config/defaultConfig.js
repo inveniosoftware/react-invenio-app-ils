@@ -38,7 +38,7 @@ export const APP_CONFIG = {
     { name: 'contact', route: '/contact', apiURL: '2' },
   ],
   EMAILS_PREFILL: {
-    subjectPrefix: 'InvenioILS',
+    subjectPrefix: 'InvenioILS:',
     footer: '\n\n\nKind regards,\nInvenioILS',
   },
   ENVIRONMENTS: [

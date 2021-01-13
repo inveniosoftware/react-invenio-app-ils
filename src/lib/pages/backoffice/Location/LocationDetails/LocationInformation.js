@@ -10,7 +10,7 @@ export class LocationInformation extends React.Component {
   render() {
     const { location } = this.props;
 
-    const emailBody = `${location.name}, ${invenioConfig.APP.EMAILS_PREFILL.footer}`;
+    const emailBody = `${location.name},${invenioConfig.APP.EMAILS_PREFILL.footer}`;
 
     const leftTable = [
       { name: 'Name', value: location.name },

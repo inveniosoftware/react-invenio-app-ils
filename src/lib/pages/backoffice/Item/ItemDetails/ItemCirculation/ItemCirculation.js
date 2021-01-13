@@ -25,8 +25,8 @@ class ItemStatusMessageOnLoan extends Component {
   render() {
     const { circulation, title } = this.props;
 
-    const emailBody = `${circulation.patron.name}, \n\n "${title}" ${invenioConfig.APP.EMAILS_PREFILL.footer}`;
-    const emailSubject = `${invenioConfig.APP.EMAILS_PREFILL.subjectPrefix} - "${title}"`;
+    const emailSubject = `${invenioConfig.APP.EMAILS_PREFILL.subjectPrefix} your loan for "${title}"`;
+    const emailBody = `Dear ${circulation.patron.name},\n\n"${title}"${invenioConfig.APP.EMAILS_PREFILL.footer}`;
 
     const patron = [
       {

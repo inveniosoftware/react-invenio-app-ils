@@ -10,7 +10,7 @@ export class LibraryInformation extends React.Component {
   render() {
     const { library } = this.props;
 
-    const emailBody = `${library.name}, ${invenioConfig.APP.EMAILS_PREFILL.footer}`;
+    const emailBody = `${library.name},${invenioConfig.APP.EMAILS_PREFILL.footer}`;
 
     const leftTable = [
       { name: 'Name', value: library.name },
