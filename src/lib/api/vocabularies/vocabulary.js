@@ -1,4 +1,4 @@
-import { http, apiConfig } from '@api/base';
+import { apiConfig, http } from '@api/base';
 import { serializer } from './serializer';
 
 const vocabulariesURL = '/vocabularies/';
@@ -22,7 +22,7 @@ class QueryBuilder {
     if (!searchText) {
       throw TypeError('Search text argument missing');
     }
-    this.withStringQuery.push(searchText);
+    this.withStringQuery.push(`text:${searchText}`);
     return this;
   }
 
