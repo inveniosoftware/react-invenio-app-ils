@@ -1,5 +1,13 @@
 # Changes
 
+Version 1.0.0-alpha.23 (released 2021-01-18)
+
+- fix `has files` search filter
+- add patron extension status
+- truncate long titles
+- fix email templates
+- improve authors display
+
 Version 1.0.0-alpha.22 (released 2021-01-12)
 
 - update RSK 
