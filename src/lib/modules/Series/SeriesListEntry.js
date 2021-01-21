@@ -26,7 +26,6 @@ export default class SeriesListEntry extends Component {
         to={FrontSiteRoutes.seriesDetailsFor(this.metadata.pid)}
       >
         <LiteratureCover
-          asItem
           size="small"
           url={_get(this, 'metadata.cover_metadata.urls.medium')}
         />

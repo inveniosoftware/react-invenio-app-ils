@@ -13,17 +13,21 @@ export class SeriesContent extends Component {
 
     return series.metadata.abstract ||
       series.metadata.keywords ||
-      series.metadata.keywords ? (
+      series.metadata.tags ? (
       <>
-        <Header as="h3">Abstract </Header>
-        <ShowMore
-          lines={10}
-          more="Show more"
-          less="Show less"
-          anchorClass="button-show-more"
-        >
-          {series.metadata.abstract}
-        </ShowMore>
+        {!_isEmpty(series.metadata.abstract) && (
+          <>
+            <Header as="h3">Abstract </Header>
+            <ShowMore
+              lines={10}
+              more="Show more"
+              less="Show less"
+              anchorClass="button-show-more"
+            >
+              {series.metadata.abstract}
+            </ShowMore>
+          </>
+        )}
         {!_isEmpty(series.metadata.tags) && (
           <>
             <Divider />

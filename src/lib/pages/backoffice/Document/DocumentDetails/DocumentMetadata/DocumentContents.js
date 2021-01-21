@@ -16,7 +16,8 @@ export class DocumentContents extends Component {
       !_isEmpty(document.metadata.abstract) ||
       !_isEmpty(document.metadata.table_of_content) ||
       !_isEmpty(document.metadata.subjects) ||
-      !_isEmpty(document.metadata.tags)
+      !_isEmpty(document.metadata.tags) ||
+      !_isEmpty(document.metadata.keywords)
     ) {
       return (
         <>
