@@ -21,7 +21,6 @@ exports[`should render correctly 1`] = `
     to="/series/serid-1"
   >
     <Overridable(LiteratureCover)
-      asItem={true}
       size="small"
     />
   </ItemImage>
