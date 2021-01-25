@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.24 (released 2021-01-25)
+
+- fix document and series metadata component
+
 Version 1.0.0-alpha.23 (released 2021-01-18)
 
 - fix `has files` search filter
