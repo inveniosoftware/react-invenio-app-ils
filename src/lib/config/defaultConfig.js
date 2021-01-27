@@ -735,6 +735,11 @@ export const RECORDS_CONFIG = {
           field: 'delivery.method',
           aggName: 'delivery',
         },
+        {
+          title: 'Availability',
+          field: 'available_items_for_loan_count',
+          aggName: 'availability',
+        },
       ],
       sort: [
         {
