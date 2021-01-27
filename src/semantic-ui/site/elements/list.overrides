@@ -121,3 +121,10 @@ List Overrides - REACT-INVENIO-APP-ILS
     }
   }
 }
+
+ul.ui.list.no-list-margin {
+  margin-left: 0em !important;
+  .item {
+    padding-left: 0em;
+  }
+}

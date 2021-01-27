@@ -3,7 +3,7 @@ import { MetadataTable } from '@components/backoffice/MetadataTable';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import get from 'lodash/get';
-import { Container, Divider } from 'semantic-ui-react';
+import { Container, Divider, List } from 'semantic-ui-react';
 import { UrlList } from '@components/backoffice/UrlList';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import _isEmpty from 'lodash/isEmpty';
@@ -14,6 +14,21 @@ export class SeriesUrls extends Component {
 
     return [{ name: 'Urls', value: <UrlList urls={urls} /> }];
   };
+
+  displayAccessRestriction = ({ col, row }) => {
+    return !_isEmpty(row[col.field]) ? (
+      <List className="no-list-margin" as="ul">
+        {row[col.field].map((item) => (
+          <List.Item key={item} as="td">
+            {item}
+          </List.Item>
+        ))}
+      </List>
+    ) : (
+      '-'
+    );
+  };
+
   render() {
     const { series } = this.props;
     const rows = this.prepareData();
@@ -27,7 +42,11 @@ export class SeriesUrls extends Component {
         field: 'description',
       },
       { title: 'Open access', field: 'open_access' },
-      { title: 'Restrictions', field: 'access_restriction' },
+      {
+        title: 'Restrictions',
+        field: 'access_restriction',
+        formatter: this.displayAccessRestriction,
+      },
     ];
 
     const hasAccessUrls = !_isEmpty(series.metadata.access_urls);
@@ -39,6 +58,7 @@ export class SeriesUrls extends Component {
           <>
             <Divider horizontal>Access URLS</Divider>
             <ResultsTable
+              fixed
               columns={columns}
               data={series.metadata.access_urls}
             />

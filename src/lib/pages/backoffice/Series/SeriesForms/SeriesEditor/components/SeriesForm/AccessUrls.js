@@ -29,6 +29,7 @@ export class AccessUrls extends Component {
           rightLabel="Open Access"
         />
         <VocabularyField
+          multiple
           type="series_url_access_restriction"
           fieldPath={`${objectPath}.access_restriction`}
           label="Access Restriction"
