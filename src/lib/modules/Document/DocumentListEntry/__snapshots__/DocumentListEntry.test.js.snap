@@ -21,6 +21,7 @@ exports[`should render correctly 1`] = `
     to="/literature/13"
   >
     <Overridable(LiteratureCover)
+      centered={false}
       isRestricted={false}
       size="small"
     />

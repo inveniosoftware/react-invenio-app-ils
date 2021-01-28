@@ -17,6 +17,7 @@ class DocumentCard extends Component {
     const { data, volume } = this.props;
     const image = (
       <LiteratureCover
+        isRestricted={_get(data, 'metadata.restricted', false)}
         size="small"
         url={_get(data, 'metadata.cover_metadata.urls.medium')}
       />

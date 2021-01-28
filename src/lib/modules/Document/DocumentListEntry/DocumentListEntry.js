@@ -75,6 +75,7 @@ export default class DocumentListEntry extends Component {
         to={FrontSiteRoutes.documentDetailsFor(this.metadata.pid)}
       >
         <LiteratureCover
+          centered={false}
           isRestricted={_get(this, 'metadata.restricted', false)}
           size="small"
           url={_get(this, 'metadata.cover_metadata.urls.medium')}
