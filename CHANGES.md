@@ -1,5 +1,11 @@
 # Changes
 
+Version 1.0.0-alpha.25 (released 2021-02-04)
+
+- add item availability filter to loan search
+- bugfixes for literature covers
+- update access restrictions for serials providers
+
 Version 1.0.0-alpha.24 (released 2021-01-25)
 
 - fix document and series metadata component
