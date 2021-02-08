@@ -16,6 +16,11 @@ export class DocumentContent extends Component {
               rows={5}
               optimized
             />
+            <TextField
+              label="Physical description"
+              fieldPath="physical_description"
+              rows={5}
+            />
             <Grid columns="equal">
               <Grid.Row>
                 <Grid.Column>
