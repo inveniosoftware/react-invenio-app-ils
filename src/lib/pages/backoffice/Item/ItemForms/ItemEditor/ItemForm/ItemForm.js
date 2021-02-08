@@ -248,11 +248,6 @@ export class ItemForm extends Component {
           </GroupField>
           <GroupField widths="equal">
             <TextField label="Description" fieldPath="description" rows={5} />
-            <TextField
-              label="Physical description"
-              fieldPath="physical_description"
-              rows={5}
-            />
           </GroupField>
         </Segment>
 

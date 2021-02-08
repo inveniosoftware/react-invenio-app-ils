@@ -26,7 +26,7 @@ export default class ItemContent extends Component {
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-              <Grid.Column width={8}>
+              <Grid.Column width={16}>
                 <Header as="h4">Description</Header>
                 <ShowMore
                   lines={5}
@@ -35,17 +35,6 @@ export default class ItemContent extends Component {
                   anchorClass="button-show-more"
                 >
                   {itemDetails.metadata.description}
-                </ShowMore>
-              </Grid.Column>
-              <Grid.Column width={8}>
-                <Header as="h4">Physical description</Header>
-                <ShowMore
-                  lines={5}
-                  more="Show more"
-                  less="Show less"
-                  anchorClass="button-show-more"
-                >
-                  {itemDetails.metadata.physical_description}
                 </ShowMore>
               </Grid.Column>
             </Grid.Row>

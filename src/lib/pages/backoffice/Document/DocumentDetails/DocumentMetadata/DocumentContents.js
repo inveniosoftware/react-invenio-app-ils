@@ -17,7 +17,8 @@ export class DocumentContents extends Component {
       !_isEmpty(document.metadata.table_of_content) ||
       !_isEmpty(document.metadata.subjects) ||
       !_isEmpty(document.metadata.tags) ||
-      !_isEmpty(document.metadata.keywords)
+      !_isEmpty(document.metadata.keywords) ||
+      !_isEmpty(document.metadata.physical_description)
     ) {
       return (
         <>
@@ -26,6 +27,16 @@ export class DocumentContents extends Component {
               <Header as="h3">Abstract</Header>
               <ShowMoreContent
                 content={document.metadata.abstract}
+                lines={10}
+              />
+            </>
+          )}
+
+          {!_isEmpty(document.metadata.physical_description) && (
+            <>
+              <Header as="h3">Physical description</Header>
+              <ShowMoreContent
+                content={document.metadata.physical_description}
                 lines={10}
               />
             </>
