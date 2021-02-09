@@ -14,6 +14,8 @@ export const APP_CONFIG = {
   INVENIO_UI_URL: process.env.REACT_APP_INVENIO_UI_URL,
   LOGO_SRC: process.env.PUBLIC_URL + '/logo-invenio-ils.svg',
   MAX_RESULTS_WINDOW: 10000,
+  VOCAB_MAX_RESULTS_WINDOW: 500,
+  EXPORT_MAX_RESULTS: 4000,
   OAUTH_PROVIDERS: {
     github: {
       enabled: true,

@@ -89,7 +89,7 @@ ExportDialog.propTypes = {
 };
 
 ExportDialog.defaultProps = {
-  max: invenioConfig.APP.MAX_RESULTS_WINDOW,
+  max: invenioConfig.APP.EXPORT_MAX_RESULTS,
 };
 
 /** Wrapper component to export search results retrieved using ReactSearchKit */
