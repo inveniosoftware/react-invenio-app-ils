@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.26 (released 2021-02-10)
+
+- fix max search results configuration
+
 Version 1.0.0-alpha.25 (released 2021-02-04)
 
 - add item availability filter to loan search
