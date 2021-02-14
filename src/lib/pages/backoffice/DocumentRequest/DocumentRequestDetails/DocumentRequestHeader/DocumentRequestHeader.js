@@ -12,7 +12,7 @@ import { Label } from 'semantic-ui-react';
 export default class DocumentRequestHeader extends Component {
   renderStatus(status) {
     switch (status) {
-      case 'REJECTED':
+      case 'DECLINED':
         return <Label color="grey">Declined</Label>;
       case 'PENDING':
         return <Label color="yellow">Pending</Label>;

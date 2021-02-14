@@ -9,13 +9,20 @@ const apiPaths = {
   accept: `${documentRequestURL}:docReqPid/accept`,
   item: `${documentRequestURL}:docReqPid`,
   list: documentRequestURL,
-  reject: `${documentRequestURL}:docReqPid/reject`,
+  decline: `${documentRequestURL}:docReqPid/decline`,
   document: `${documentRequestURL}:docReqPid/document`,
   provider: `${documentRequestURL}:docReqPid/provider`,
 };
 
 const create = async (data) => {
   const response = await http.post(apiPaths.list, data);
+  response.data = serializer.fromJSON(response.data);
+  return response;
+};
+
+const update = async (docRequestPid, data) => {
+  const path = generatePath(apiPaths.item, { docReqPid: docRequestPid });
+  const response = await http.put(path, data);
   response.data = serializer.fromJSON(response.data);
   return response;
 };
@@ -65,8 +72,8 @@ const removeProvider = async (docReqPid) => {
   return await http.delete(url);
 };
 
-const reject = async (docRequestPid, data) => {
-  const urlPath = generatePath(apiPaths.reject, { docReqPid: docRequestPid });
+const decline = async (docRequestPid, data) => {
+  const urlPath = generatePath(apiPaths.decline, { docReqPid: docRequestPid });
   return performAction(urlPath, data);
 };
 
@@ -152,11 +159,12 @@ export const documentRequestApi = {
   accept: accept,
   count: count,
   create: create,
+  update: update,
   delete: del,
   get: get,
   list: list,
   query: queryBuilder,
-  reject: reject,
+  decline: decline,
   removeDocument: removeDocument,
   removeProvider: removeProvider,
   searchBaseURL: `${apiConfig.baseURL}${documentRequestURL}`,

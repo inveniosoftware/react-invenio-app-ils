@@ -90,20 +90,20 @@ export const acceptRequest = (pid) => {
   };
 };
 
-export const rejectRequest = (pid, data) => {
+export const declineRequest = (pid, data) => {
   return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
 
     try {
-      const resp = await documentRequestApi.reject(pid, data);
+      const resp = await documentRequestApi.decline(pid, data);
       dispatch({
         type: SUCCESS,
         payload: resp.data,
       });
       dispatch(
-        sendSuccessNotification('Success!', `Request ${pid} has been rejected.`)
+        sendSuccessNotification('Success!', `Request ${pid} has been declined.`)
       );
     } catch (error) {
       dispatch({

@@ -2,13 +2,13 @@ import { EditButton } from '@components/backoffice/buttons/EditButton';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Container } from 'semantic-ui-react';
-import { RejectAction } from './RejectAction';
+import { Divider } from 'semantic-ui-react';
+import { DeclineAction } from './DeclineAction';
 
 export default class DocumentRequestActions extends Component {
-  onReject = (data) => {
-    const { rejectRequest, data: docRequest } = this.props;
-    rejectRequest(docRequest.pid, data);
+  onDecline = (data) => {
+    const { declineRequest, data: docRequest } = this.props;
+    declineRequest(docRequest.pid, data);
   };
 
   render() {
@@ -16,22 +16,26 @@ export default class DocumentRequestActions extends Component {
       data: { metadata },
     } = this.props;
     return (
-      <Container fluid textAlign="right">
+      <div className="bo-action-menu">
         <EditButton
+          fluid
           to={BackOfficeRoutes.documentRequestEditFor(metadata.pid)}
           text="Edit request"
         />
-        <RejectAction
+        <Divider horizontal>ACTIONS</Divider>
+        <DeclineAction
           pid={metadata.pid}
-          onReject={this.onReject}
+          onDecline={this.onDecline}
           disabled={metadata.state !== 'PENDING'}
         />
-      </Container>
+      </div>
     );
   }
 }
 
 DocumentRequestActions.propTypes = {
   data: PropTypes.object.isRequired,
-  rejectRequest: PropTypes.func.isRequired,
+  declineRequest: PropTypes.func.isRequired,
 };
+
+DocumentRequestActions.defaultProps = {};

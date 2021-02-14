@@ -57,11 +57,11 @@ export class DocumentRequestListEntry extends Component {
                     <label>State</label> {documentRequest.metadata.state}
                   </List.Content>
                 </List.Item>
-                {documentRequest.metadata.reject_reason && (
+                {documentRequest.metadata.decline_reason && (
                   <List.Item>
                     <List.Content>
                       <label>Reason </label>
-                      {documentRequest.metadata.reject_reason}
+                      {documentRequest.metadata.decline_reason}
                     </List.Content>
                   </List.Item>
                 )}

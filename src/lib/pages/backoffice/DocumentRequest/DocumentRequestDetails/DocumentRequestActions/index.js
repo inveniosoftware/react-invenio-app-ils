@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-
-import { rejectRequest } from '../state/actions';
+import { declineRequest } from '../state/actions';
 import DocumentRequestActionsComponent from './DocumentRequestActions';
 
 const mapStateToProps = (state) => ({
@@ -8,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  rejectRequest: (pid, data) => dispatch(rejectRequest(pid, data)),
+  declineRequest: (pid, data) => dispatch(declineRequest(pid, data)),
 });
 
 export const DocumentRequestActions = connect(

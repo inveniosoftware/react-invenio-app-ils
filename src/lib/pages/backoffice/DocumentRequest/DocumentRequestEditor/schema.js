@@ -1,3 +1,5 @@
+import { invenioConfig } from '@config';
+
 export const schema = {
   properties: {
     authors: {
@@ -5,7 +7,7 @@ export const schema = {
       type: 'string',
     },
     document_pid: {
-      title: 'Attached document PID',
+      title: 'Select document PID',
       type: 'string',
     },
     edition: {
@@ -60,9 +62,11 @@ export const schema = {
       title: 'Publication year',
       type: 'integer',
     },
-    reject_reason: {
-      title: 'The type of request reject',
+    decline_reason: {
+      title: 'Decline reason',
       type: 'string',
+      // add empty string in case the value must be reset
+      enum: ['', ...invenioConfig.DOCUMENT_REQUESTS.declineTypes],
     },
     request_type: {
       title: 'Request type',
@@ -73,8 +77,9 @@ export const schema = {
       type: 'string',
     },
     state: {
-      description: 'Current state',
+      title: 'State',
       type: 'string',
+      enum: invenioConfig.DOCUMENT_REQUESTS.states,
     },
     title: {
       title: 'Title',

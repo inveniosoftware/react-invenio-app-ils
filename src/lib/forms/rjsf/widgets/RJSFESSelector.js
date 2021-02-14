@@ -1,15 +1,16 @@
 import { withCancel } from '@api/utils';
-import { vocabularyApi } from '@api/vocabularies';
+import _debounce from 'lodash/debounce';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
 
 /**
- * React JSONSchema Form widget to retrieve all vocabularies
- * of a given type, without search feature.
- * It is meant to be used with vocabularies that have low cardinality.
+ * Generic React JSONSchema Form widget to search and select hits
+ * on Elasticsearch.
+ * It is meant to be wrapped in specialized component and not to
+ * be directly used.
  */
-export class RJSFVocabulary extends Component {
+export class RJSFESSelector extends Component {
   constructor(props) {
     super(props);
 
@@ -22,40 +23,61 @@ export class RJSFVocabulary extends Component {
     };
   }
 
-  componentDidMount() {
-    this.fetchAll();
+  async componentDidMount() {
+    const { value } = this.props;
+    if (value) {
+      this.fetchValue(value);
+    }
   }
 
   componentWillUnmount() {
     this.cancellableFetchData && this.cancellableFetchData.cancel();
   }
 
-  serializer = (hit) => ({
-    key: hit.metadata.key,
-    value: hit.metadata.key,
-    text: hit.metadata.text,
-  });
-
-  query = () => {
+  async fetchValue(value) {
     const { options } = this.props;
-    const { vocabularyType } = options;
-    const query = vocabularyApi.query().withType(vocabularyType).qs();
-    return vocabularyApi.list(query);
-  };
-
-  fetchAll = async () => {
-    const { required } = this.props;
-    this.cancellableFetchData = withCancel(this.query());
+    const { apiGetByValue, apiGetByValueResponseSerializer } = options;
+    this.cancellableFetchData = withCancel(apiGetByValue(value));
     try {
       this.setState({
         isLoading: true,
       });
 
       const response = await this.cancellableFetchData.promise;
-      const results = response.data.hits.map((hit) => this.serializer(hit));
-      if (!results) {
-        throw Error('No results? This is probably a misconfiguration.');
+      const singleOption = apiGetByValueResponseSerializer(response.data);
+
+      this.setState({
+        isLoading: false,
+        value: singleOption.value,
+        options: [singleOption],
+      });
+    } catch (error) {
+      if (error !== 'UNMOUNTED') {
+        this.setState({
+          isLoading: false,
+          error: 'Error loading results.',
+        });
       }
+    }
+  }
+
+  handleSearchChange = async (e, { searchQuery }) => {
+    const { options, required } = this.props;
+    const { apiQuery, apiQueryResponseSerializer } = options;
+    if (searchQuery === '') {
+      return;
+    }
+
+    this.cancellableFetchData = withCancel(apiQuery(searchQuery));
+    try {
+      this.setState({
+        isLoading: true,
+      });
+
+      const response = await this.cancellableFetchData.promise;
+      const results = response.data.hits.map((hit) =>
+        apiQueryResponseSerializer(hit)
+      );
 
       if (!required) {
         // add an empty element at the beginning so that if it is not required, you can select nothing
@@ -84,12 +106,20 @@ export class RJSFVocabulary extends Component {
   };
 
   render() {
-    const { autofocus, label, placeholder, readonly, required } = this.props;
+    const {
+      autofocus,
+      debounceDelay,
+      label,
+      placeholder,
+      readonly,
+      required,
+    } = this.props;
     const { options, isLoading, value, error } = this.state;
     return (
       <Form.Select
         fluid
         selection
+        search
         options={options}
         label={label}
         value={value}
@@ -98,6 +128,7 @@ export class RJSFVocabulary extends Component {
         readOnly={readonly}
         placeholder={placeholder}
         onChange={this.handleChange}
+        onSearchChange={_debounce(this.handleSearchChange, debounceDelay)}
         disabled={isLoading}
         loading={isLoading}
         noResultsMessage={error ? error : 'No results found'}
@@ -106,23 +137,28 @@ export class RJSFVocabulary extends Component {
   }
 }
 
-RJSFVocabulary.propTypes = {
+RJSFESSelector.propTypes = {
   label: PropTypes.string,
   autofocus: PropTypes.bool,
   readonly: PropTypes.bool,
   required: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string.isRequired,
   value: PropTypes.string,
+  placeholder: PropTypes.string.isRequired,
   options: PropTypes.shape({
-    vocabularyType: PropTypes.string.isRequired,
+    apiGetByValue: PropTypes.func.isRequired,
+    apiGetByValueResponseSerializer: PropTypes.func.isRequired,
+    apiQuery: PropTypes.func.isRequired,
+    apiQueryResponseSerializer: PropTypes.func.isRequired,
   }).isRequired,
+  debounceDelay: PropTypes.number,
 };
 
-RJSFVocabulary.defaultProps = {
+RJSFESSelector.defaultProps = {
   autofocus: false,
   label: '',
   readonly: false,
   required: false,
   value: '',
+  debounceDelay: 250,
 };

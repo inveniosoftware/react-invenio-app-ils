@@ -1,11 +1,12 @@
 import { responseRejectInterceptor } from '@api/base';
 import { documentRequestApi } from '@api/documentRequests';
+import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 import {
   invenioConfig,
-  setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitInitialQueryState,
   setReactSearchKitUrlHandler,
 } from '@config';
 import history from '@history';
@@ -13,6 +14,7 @@ import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsC
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
+import { BackOfficeRoutes } from '@routes/urls';
 import React, { Component } from 'react';
 import { OverridableContext } from 'react-overridable';
 import {
@@ -91,14 +93,26 @@ export class DocumentRequestSearch extends Component {
                     </Grid.Column>
                     <Grid.Column width={13}>
                       <Grid columns={2}>
-                        <Grid.Column width={8} />
+                        <Grid.Column width={8}>
+                          <NewButton
+                            text="Add request"
+                            to={BackOfficeRoutes.documentRequestCreate}
+                          />
+                        </Grid.Column>
                         <Grid.Column width={8} textAlign="right">
                           <ExportReactSearchKitResults
                             exportBaseUrl={documentRequestApi.searchBaseURL}
                           />
                         </Grid.Column>
                       </Grid>
-                      <EmptyResults />
+                      <EmptyResults
+                        extraContent={
+                          <NewButton
+                            text="Add request"
+                            to={BackOfficeRoutes.documentRequestCreate}
+                          />
+                        }
+                      />
                       <Error />
                       <SearchControls
                         modelName={this.modelName}
