@@ -1,5 +1,12 @@
-import React, { Component } from 'react';
+import { documentApi } from '@api/documents';
+import { DocumentIcon } from '@components/backoffice/icons';
+import { goTo } from '@history';
+import { ESSelector } from '@modules/ESSelector';
+import { serializeDocument } from '@modules/ESSelector/serializer';
+import { BackOfficeRoutes } from '@routes/urls';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import {
   Button,
   Divider,
@@ -9,21 +16,14 @@ import {
   Segment,
   Step,
 } from 'semantic-ui-react';
-import { ESSelector } from '@modules/ESSelector';
-import { serializeDocument } from '@modules/ESSelector/serializer';
-import { documentApi } from '@api/documents';
-import { DocumentIcon } from '@components/backoffice/icons';
-import { BackOfficeRoutes } from '@routes/urls';
-import { goTo } from '@history';
-import _isEmpty from 'lodash/isEmpty';
 import { STEPS } from '../Steps';
 
 export const DocumentStep = ({ step }) => (
   <Step active={step === STEPS.document}>
     <DocumentIcon />
     <Step.Content>
-      <Step.Title>Select Document</Step.Title>
-      <Step.Description>Select a document for your request</Step.Description>
+      <Step.Title>Attach document</Step.Title>
+      <Step.Description>Select a document for this request</Step.Description>
     </Step.Content>
   </Step>
 );

@@ -5,16 +5,23 @@ const vocabulariesURL = '/vocabularies/';
 
 class QueryBuilder {
   constructor() {
+    this.withVocabQuery = [];
     this.withSizeQuery = null;
-    this.withStringQuery = [];
-    this.withTypeQuery = [];
   }
 
   withType(type) {
     if (!type) {
       throw TypeError('Type argument missing');
     }
-    this.withTypeQuery.push(`type:${type}`);
+    this.withVocabQuery.push(`type:${type}`);
+    return this;
+  }
+
+  withKey(key) {
+    if (!key) {
+      throw TypeError('Key argument missing');
+    }
+    this.withVocabQuery.push(`key:${key}`);
     return this;
   }
 
@@ -22,7 +29,7 @@ class QueryBuilder {
     if (!searchText) {
       throw TypeError('Search text argument missing');
     }
-    this.withStringQuery.push(`text:${searchText}`);
+    this.withVocabQuery.push(`text:${searchText}`);
     return this;
   }
 
@@ -35,7 +42,7 @@ class QueryBuilder {
   }
 
   qs() {
-    const query = this.withTypeQuery.concat(this.withStringQuery).join(' AND ');
+    const query = this.withVocabQuery.join(' AND ');
     if (this.withSizeQuery) {
       return `${query}&size=${this.withSizeQuery}`;
     } else {

@@ -1,26 +1,34 @@
-import { withCancel } from '@api/utils';
 import { vocabularyApi } from '@api/vocabularies';
+import { RJSFESSelector } from '@forms/rjsf/widgets/RJSFESSelector';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Dropdown } from 'semantic-ui-react';
 
+/**
+ * React JSONSchema Form widget to to search and select hits
+ * on large vocabularies.
+ */
 export class RJSFVocabularySearch extends Component {
-  state = {
-    isLoading: false,
-    value: '',
-    error: null,
-    options: [],
-  };
-
-  componentWillUnmount() {
-    this.cancellableFetchData && this.cancellableFetchData.cancel();
-  }
-
-  serializer = (hit) => ({
-    key: hit.metadata.key,
-    value: hit.metadata.key,
-    text: hit.metadata.text,
+  responseSerializer = (record) => ({
+    key: record.metadata.key,
+    value: record.metadata.key,
+    text: record.metadata.text,
   });
+
+  getByKey = async (value) => {
+    const { options } = this.props;
+    const { vocabularyType } = options;
+    const query = vocabularyApi
+      .query()
+      .withType(vocabularyType)
+      .withKey(value)
+      .qs();
+
+    const response = await vocabularyApi.list(query);
+    if (response.data.hits.total !== 1) {
+      throw Error(`0 or multiple results with value ${value}`);
+    }
+    return response.data.hits[0];
+  };
 
   query = (searchQuery) => {
     const { options } = this.props;
@@ -33,59 +41,24 @@ export class RJSFVocabularySearch extends Component {
     return vocabularyApi.list(query);
   };
 
-  handleSearchChange = async (e, { searchQuery }) => {
-    if (searchQuery === '') {
-      return;
-    }
-    this.cancellableFetchData = withCancel(this.query(searchQuery));
-    try {
-      const response = await this.cancellableFetchData.promise;
-      const results = response.data.hits.map((hit) => this.serializer(hit));
-      this.setState({
-        isLoading: false,
-        options: results,
-        error: null,
-      });
-    } catch (error) {
-      if (error !== 'UNMOUNTED') {
-        this.setState({
-          isLoading: false,
-          error: 'Error loading results.',
-        });
-      }
-    }
-  };
-
-  handleChange = (e, { value }) => {
-    const { onChange } = this.props;
-    this.setState({ value: value });
-    onChange(value);
-  };
-
   render() {
-    const { placeholder } = this.props;
-    const { options, isLoading, value, error } = this.state;
+    const { options } = this.props;
     return (
-      <Dropdown
-        fluid
-        selection
-        search
-        options={options}
-        value={value}
-        placeholder={placeholder}
-        onChange={this.handleChange}
-        onSearchChange={this.handleSearchChange}
-        disabled={isLoading}
-        loading={isLoading}
-        noResultsMessage={error ? error : 'No results found'}
+      <RJSFESSelector
+        {...this.props}
+        options={{
+          apiGetByValue: this.getByKey,
+          apiGetByValueResponseSerializer: this.responseSerializer,
+          apiQuery: this.query,
+          apiQueryResponseSerializer: this.responseSerializer,
+          ...options,
+        }}
       />
     );
   }
 }
 
 RJSFVocabularySearch.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string.isRequired,
   options: PropTypes.shape({
     vocabularyType: PropTypes.string.isRequired,
   }).isRequired,

@@ -338,15 +338,12 @@ export const RECORDS_CONFIG = {
     },
   },
   DOCUMENT_REQUESTS: {
+    states: ['ACCEPTED', 'PENDING', 'DECLINED'],
     physicalItemProviders: {
       acq: { name: 'Acquisition', pid_type: 'acqoid' },
       ill: { name: 'InterLibrary', pid_type: 'illbid' },
     },
-    rejectTypes: {
-      userCancel: 'USER_CANCEL',
-      inCatalog: 'IN_CATALOG',
-      notFound: 'NOT_FOUND',
-    },
+    declineTypes: ['USER_CANCEL', 'IN_CATALOG', 'NOT_FOUND', 'OTHER'],
     search: {
       filters: [
         {
@@ -356,8 +353,8 @@ export const RECORDS_CONFIG = {
         },
         {
           title: 'Decline reason',
-          field: 'reject_reason',
-          aggName: 'reject_reason',
+          field: 'decline_reason',
+          aggName: 'decline_reason',
         },
       ],
       sort: [

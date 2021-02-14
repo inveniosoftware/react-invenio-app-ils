@@ -1,5 +1,9 @@
 import { orderApi } from '@api/acquisition';
 import { borrowingRequestApi } from '@api/ill';
+import {
+  AcquisitionOrderIcon,
+  ILLBorrowingRequestIcon,
+} from '@components/backoffice/icons';
 import { invenioConfig } from '@config';
 import { goTo } from '@history';
 import { ESSelector } from '@modules/ESSelector';
@@ -20,18 +24,14 @@ import {
   Step,
 } from 'semantic-ui-react';
 import { STEPS } from '../Steps';
-import {
-  AcquisitionOrderIcon,
-  ILLBorrowingRequestIcon,
-} from '@components/backoffice/icons';
 
 export const ProviderStep = ({ step }) => (
   <Step active={step === STEPS.provider} disabled={step === STEPS.document}>
     <Icon name="truck" />
     <Step.Content>
-      <Step.Title>Select Provider</Step.Title>
+      <Step.Title>Select provider</Step.Title>
       <Step.Description>
-        Purchase or borrow from another Library
+        Purchase or borrow from another library
       </Step.Description>
     </Step.Content>
   </Step>

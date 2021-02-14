@@ -6,7 +6,6 @@ import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
 import { Pagination } from '@components/Pagination';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
-import { invenioConfig } from '@config';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
 import _startCase from 'lodash/startCase';
@@ -60,8 +59,8 @@ class ButtonCancelRequest extends Component {
   };
 
   async cancelRequest(docReqPid) {
-    const response = await documentRequestApi.reject(docReqPid, {
-      reject_reason: invenioConfig.DOCUMENT_REQUESTS.rejectTypes.userCancel,
+    const response = await documentRequestApi.decline(docReqPid, {
+      decline_reason: 'USER_CANCEL',
     });
     await searchReady();
     return response;

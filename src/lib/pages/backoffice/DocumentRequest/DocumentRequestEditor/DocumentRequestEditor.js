@@ -2,7 +2,10 @@ import { documentRequestApi } from '@api/documentRequests';
 import { withCancel } from '@api/utils';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
-import { RJSForm } from '@forms/rjsf/RJSForm';
+import { RJSForm } from '@forms/rjsf';
+import { goTo } from '@history';
+import { BackOfficeRoutes } from '@routes/urls';
+import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { schema } from './schema';
@@ -45,9 +48,26 @@ export class DocumentRequestEditor extends Component {
     }
   };
 
-  onSubmit(formData) {
-    console.log('submit', formData);
-  }
+  submitAction = async (formData) => {
+    const {
+      match: {
+        params: { documentRequestPid },
+      },
+    } = this.props;
+
+    const isEditing = !!documentRequestPid;
+    return isEditing
+      ? await documentRequestApi.update(documentRequestPid, formData)
+      : await documentRequestApi.create(formData);
+  };
+
+  successCallback = (response) => {
+    goTo(
+      BackOfficeRoutes.documentRequestDetailsFor(
+        _get(response, 'data.metadata.pid')
+      )
+    );
+  };
 
   render() {
     const {
@@ -68,7 +88,9 @@ export class DocumentRequestEditor extends Component {
             schema={schema}
             uiSchema={uiSchema(formTitle)}
             formData={data.metadata}
-            submitAction={this.onSubmit}
+            submitAction={this.submitAction}
+            successCallback={this.successCallback}
+            successMessage="The new document request was successfully updated."
           />
         </Error>
       </Loader>
@@ -76,7 +98,9 @@ export class DocumentRequestEditor extends Component {
       <RJSForm
         schema={schema}
         uiSchema={uiSchema(formTitle)}
-        submitAction={this.onSubmit}
+        submitAction={this.submitAction}
+        successCallback={this.successCallback}
+        successMessage="The new document request was successfully created."
       />
     );
   }

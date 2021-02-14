@@ -1,17 +1,24 @@
 import {
+  ArrayFieldTemplateWithWrapper,
   FieldTemplateWithWrapper,
   ObjectFieldTemplateWithGrid,
 } from '@forms/rjsf/RJSFCustomTemplates';
+import { RJSFReferencedDocument } from '@forms/rjsf/widgets/RJSFReferencedDocument';
+import { RJSFReferencedPatron } from '@forms/rjsf/widgets/RJSFReferencedPatron';
 import { RJSFVocabulary } from '@forms/rjsf/widgets/RJSFVocabulary';
 import { RJSFVocabularySearch } from '@forms/rjsf/widgets/RJSFVocabularySearch';
 import Form from '@rjsf/semantic-ui';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
+import _isUndefined from 'lodash/isUndefined';
+import _omitBy from 'lodash/omitBy';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Container, Divider } from 'semantic-ui-react';
 
 const widgets = {
+  referencedDocument: RJSFReferencedDocument,
+  referencedPatron: RJSFReferencedPatron,
   vocabularySearch: RJSFVocabularySearch,
   vocabulary: RJSFVocabulary,
 };
@@ -21,45 +28,69 @@ export class RJSForm extends Component {
     super(props);
 
     this.state = {
+      isLoading: false,
       errors: {},
     };
   }
 
+  getGenericError(message) {
+    return { Error: { __errors: [message] } };
+  }
+
   onError(error) {
+    let extraErrors = {};
     const errors = _get(error, 'response.data.errors', []);
     if (_isEmpty(errors)) {
-      // TODO: unknown error here
-      const messages = _get(error, 'response.data.message', {});
-      const message = _get(messages, 'Unknown', 'Unknown error');
-      throw new Error(message);
+      // show a generic error message
+      const message = _get(error, 'response.data.message', 'Unknown error');
+      extraErrors = this.getGenericError(message);
     } else {
       // prepare errors for the form
-      const errorData = error.response.data;
-      const extraErrors = {};
-      for (const fieldError of errorData.errors) {
+      for (const fieldError of errors) {
+        // if the field is empty, the error was thrown by the backend
+        // after validating via Marshmallow loaders
+        if (_isEmpty(fieldError.field)) {
+          // it should be displayed only at the top of the form
+          extraErrors = this.getGenericError(fieldError.message);
+          break;
+        }
         extraErrors[fieldError.field] = {
           __errors: [fieldError.message],
         };
       }
-      this.setState({ errors: extraErrors });
     }
+    this.setState({ isLoading: false, errors: extraErrors });
   }
 
   onSubmit = async ({ formData }, _) => {
-    const { submitAction, successCallback } = this.props;
+    const {
+      sendSuccessNotification,
+      submitAction,
+      successCallback,
+      successMessage,
+    } = this.props;
+
+    // remove any `undefined` values, e.g. dropdowns with empty values
+    formData = _omitBy(formData, _isUndefined);
+
     try {
+      this.setState({ isLoading: true });
       const response = await submitAction(formData);
 
-      // sendSuccessNotification('Success!', successMessage);
+      // scroll to top to see success notification
+      window.scrollTo(0, 0);
+      sendSuccessNotification('Success!', successMessage);
       successCallback && successCallback(response);
     } catch (error) {
+      // scroll to top to see errors
+      window.scrollTo(0, 0);
       this.onError(error);
     }
   };
 
   render() {
     const { schema, uiSchema, formData } = this.props;
-    const { errors } = this.state;
+    const { errors, isLoading } = this.state;
     return (
       <Form
         schema={schema}
@@ -69,12 +100,18 @@ export class RJSForm extends Component {
         extraErrors={errors}
         ObjectFieldTemplate={ObjectFieldTemplateWithGrid}
         FieldTemplate={FieldTemplateWithWrapper}
-        // ArrayFieldTemplate={ArrayFieldTemplateWithWrapper}
+        ArrayFieldTemplate={ArrayFieldTemplateWithWrapper}
         onSubmit={this.onSubmit}
       >
         <Container textAlign="right">
           <Divider hidden />
-          <Button primary name="submit" type="submit" content="Submit" />
+          <Button
+            primary
+            name="submit"
+            type="submit"
+            content="Submit"
+            loading={isLoading}
+          />
         </Container>
       </Form>
     );
@@ -87,7 +124,8 @@ RJSForm.propTypes = {
   formData: PropTypes.object,
   submitAction: PropTypes.func.isRequired,
   successCallback: PropTypes.func,
-  // successMessage: PropTypes.string.isRequired,
+  sendSuccessNotification: PropTypes.func.isRequired,
+  successMessage: PropTypes.string.isRequired,
 };
 
 RJSForm.defaultProps = {

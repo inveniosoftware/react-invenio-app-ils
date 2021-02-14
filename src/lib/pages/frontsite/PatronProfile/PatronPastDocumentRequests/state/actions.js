@@ -13,7 +13,7 @@ const selectQuery = (patronPid, page, size) => {
     .withPage(page)
     .withSize(size)
     .sortByNewest()
-    .withState(['ACCEPTED', 'REJECTED'])
+    .withState(['ACCEPTED', 'DECLINED'])
     .qs();
 };
 

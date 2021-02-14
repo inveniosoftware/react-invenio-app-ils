@@ -10,6 +10,7 @@ const BackOfficeRoutesList = {
   documentDetails: `${BackOfficeBase}/documents/:documentPid`,
   documentEdit: `${BackOfficeBase}/documents/:documentPid/edit`,
   documentsList: `${BackOfficeBase}/documents`,
+  documentRequestCreate: `${BackOfficeBase}/document-requests/create`,
   documentRequestDetails: `${BackOfficeBase}/document-requests/:documentRequestPid`,
   documentRequestEdit: `${BackOfficeBase}/document-requests/:documentRequestPid/edit`,
   documentRequestsList: `${BackOfficeBase}/document-requests`,

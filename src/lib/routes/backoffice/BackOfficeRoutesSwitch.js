@@ -181,6 +181,11 @@ export default class BackOfficeRoutesSwitch extends Component {
         {/* document requests */}
         <Route
           exact
+          path={BackOfficeRoutes.documentRequestCreate}
+          component={DocumentRequestEditor}
+        />
+        <Route
+          exact
           path={BackOfficeRoutes.documentRequestDetails}
           component={DocumentRequestDetails}
         />

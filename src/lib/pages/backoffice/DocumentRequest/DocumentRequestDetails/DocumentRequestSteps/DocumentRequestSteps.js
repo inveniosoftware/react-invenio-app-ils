@@ -1,7 +1,7 @@
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Container, Divider, Message, Step } from 'semantic-ui-react';
+import { Divider, Message, Segment, Step } from 'semantic-ui-react';
 import { DocumentStepContent } from './DocumentStep';
 import { DocumentStep } from './DocumentStep/DocumentStep';
 import { ProviderStepContent } from './ProviderStep/';
@@ -31,24 +31,29 @@ export default class DocumentRequestSteps extends Component {
     } = this.props;
     const providerPid = _get(data, 'metadata.physical_item_provider.pid');
     const step = this.calculateStep(docPid, providerPid);
-    return state !== 'REJECTED' ? (
-      <Container>
+    return state !== 'DECLINED' ? (
+      <>
+        <Segment>
+          <Step.Group size="small" fluid widths={3}>
+            <DocumentStep step={step} />
+            <ProviderStep step={step} />
+            <ReviewStep step={step} />
+          </Step.Group>
+        </Segment>
         <StepsActions step={step} />
         <Divider />
-        <Step.Group attached="top" fluid>
-          <DocumentStep step={step} />
-          <ProviderStep step={step} />
-          <ReviewStep step={step} />
-        </Step.Group>
 
         <DocumentStepContent step={step} />
         <ProviderStepContent step={step} />
         <ReviewStepContent step={step} />
-      </Container>
+      </>
     ) : (
       <Message info>
-        <Message.Header>Declined request!</Message.Header>
-        <p>You cannot modify a declined request.</p>
+        <Message.Header>Declined request</Message.Header>
+        <p>
+          Change the state of the request to modify document or provider
+          information.
+        </p>
       </Message>
     );
   }

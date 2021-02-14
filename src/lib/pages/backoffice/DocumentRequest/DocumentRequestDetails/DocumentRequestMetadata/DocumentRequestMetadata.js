@@ -3,60 +3,76 @@ import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Grid } from 'semantic-ui-react';
+import { Divider, Grid, Header } from 'semantic-ui-react';
 
 export default class DocumentRequestMetadata extends Component {
-  addRow(rows, name, value) {
-    if (value) {
-      rows.push({ name, value });
-    }
+  userInputLeftColumn() {
+    const { data } = this.props;
+    return [
+      { name: 'Title', value: data.metadata.title },
+      { name: 'Authors', value: data.metadata.authors },
+      { name: 'Edition', value: data.metadata.edition },
+      { name: 'Publication Year', value: data.metadata.publication_year },
+      { name: 'Medium', value: data.metadata.medium },
+      { name: 'Standard Number', value: data.metadata.standard_number },
+      { name: 'ISBN', value: data.metadata.isbn },
+      { name: 'ISSN', value: data.metadata.issn },
+    ];
   }
 
-  leftColumn() {
+  userInputRightColumn() {
+    const { data } = this.props;
+    return [
+      { name: 'Volume', value: data.metadata.volume },
+      { name: 'Journal Title', value: data.metadata.journal_title },
+      { name: 'Page', value: data.metadata.page },
+      { name: 'Request Type', value: data.metadata.request_type },
+      { name: 'Payment method', value: data.metadata.payment_method },
+      { name: 'Payment info', value: data.metadata.payment_info },
+      { name: 'User note', value: data.metadata.note },
+    ];
+  }
+
+  adminLeftColumn() {
     const { data } = this.props;
     const patronLink = (
       <Link to={BackOfficeRoutes.patronDetailsFor(data.metadata.patron_pid)}>
         {data.metadata.patron.name}
       </Link>
     );
-    const rows = [
-      { name: 'Title', value: data.metadata.title },
-      { name: 'State', value: data.metadata.state },
+    return [
       { name: 'Patron', value: patronLink },
+      { name: 'State', value: data.metadata.state },
     ];
-    this.addRow(rows, 'Edition', data.metadata.edition);
-    this.addRow(rows, 'Standard Number', data.metadata.standard_number);
-    this.addRow(rows, 'ISBN', data.metadata.isbn);
-    this.addRow(rows, 'ISSN', data.metadata.issn);
-    this.addRow(rows, 'Request Type', data.metadata.request_type);
-    this.addRow(rows, 'Payment method', data.metadata.payment_method);
-    return rows;
   }
 
-  rightColumn() {
+  adminRightColumn() {
     const { data } = this.props;
-    const rows = [];
-    this.addRow(rows, 'Authors', data.metadata.authors);
-    this.addRow(rows, 'Volume', data.metadata.volume);
-    this.addRow(rows, 'Journal Title', data.metadata.journal_title);
-    this.addRow(rows, 'Page', data.metadata.page);
-    this.addRow(rows, 'Publication Year', data.metadata.publication_year);
-    this.addRow(rows, 'Medium', data.metadata.medium);
-    this.addRow(rows, 'Note', data.metadata.note);
-    this.addRow(rows, 'Reason', data.metadata.reject_reason);
-    this.addRow(rows, 'Payment info', data.metadata.payment_info);
-    return rows;
+    return [
+      { name: 'Decline reason', value: data.metadata.decline_reason },
+      { name: 'Internal note', value: data.metadata.internal_note },
+    ];
   }
 
   render() {
     return (
       <Grid padded columns={2}>
+        <Header>User submitted information</Header>
         <Grid.Row>
           <Grid.Column>
-            <MetadataTable rows={this.leftColumn()} />
+            <MetadataTable rows={this.userInputLeftColumn()} />
           </Grid.Column>
           <Grid.Column>
-            <MetadataTable rows={this.rightColumn()} />
+            <MetadataTable rows={this.userInputRightColumn()} />
+          </Grid.Column>
+        </Grid.Row>
+        <Divider />
+        <Grid.Row>
+          <Grid.Column>
+            <MetadataTable rows={this.adminLeftColumn()} />
+          </Grid.Column>
+          <Grid.Column>
+            <MetadataTable rows={this.adminRightColumn()} />
           </Grid.Column>
         </Grid.Row>
       </Grid>

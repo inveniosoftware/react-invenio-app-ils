@@ -1,12 +1,8 @@
 import { RJSFormWrapper } from '@forms/rjsf/RJSFormWrapper';
-import {
-  FieldTemplate as SUIFieldTemplate,
-  ObjectFieldTemplate as SUIObjectFieldTemplate,
-} from '@rjsf/semantic-ui';
 import _find from 'lodash/find';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Divider, Grid } from 'semantic-ui-react';
+import { Divider, Form, Grid } from 'semantic-ui-react';
 
 const Wrapper = ({ uiSchema, children }) => {
   const hasFormWrapper = 'custom:formWrapper' in uiSchema;
@@ -32,16 +28,32 @@ const Wrapper = ({ uiSchema, children }) => {
  * @param {*} props
  */
 export function FieldTemplateWithWrapper(props) {
-  const { uiSchema } = props;
-  return (
+  const { children, required, uiSchema, schema } = props;
+
+  // workaround of labels disappearing when specifying format or enum
+  // https://github.com/rjsf-team/react-jsonschema-form/issues/1946
+
+  return schema.format || schema.enum ? (
     <Wrapper uiSchema={uiSchema}>
-      <SUIFieldTemplate {...props} />
+      <Form.Field required={required}>
+        <label>{schema.title}</label>
+        {children}
+      </Form.Field>
     </Wrapper>
+  ) : (
+    <Wrapper uiSchema={uiSchema}>{children}</Wrapper>
   );
 }
 
 FieldTemplateWithWrapper.propTypes = {
+  required: PropTypes.bool,
   uiSchema: PropTypes.object.isRequired,
+  schema: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
+};
+
+FieldTemplateWithWrapper.defaultProps = {
+  required: false,
 };
 
 /**
@@ -49,16 +61,13 @@ FieldTemplateWithWrapper.propTypes = {
  * @param {*} props
  */
 export function ObjectFieldTemplateWithWrapper(props) {
-  const { uiSchema } = props;
-  return (
-    <Wrapper uiSchema={uiSchema}>
-      <SUIObjectFieldTemplate {...props} />
-    </Wrapper>
-  );
+  const { children, uiSchema } = props;
+  return <Wrapper uiSchema={uiSchema}>{children}</Wrapper>;
 }
 
 ObjectFieldTemplateWithWrapper.propTypes = {
   uiSchema: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 /**
@@ -68,7 +77,7 @@ function GridDivider(props) {
   const { colWidth } = props;
   return (
     <Grid.Column width={colWidth}>
-      <Divider />
+      <Divider fitted />
     </Grid.Column>
   );
 }
@@ -166,25 +175,16 @@ ObjectFieldTemplateWithGrid.defaultProps = {
   description: '',
 };
 
-// Commented out because `ArrayFieldTemplate` is not correctly exported from RJSF
-// and it causes issues with Jest tests. The code is to be kept like this for reference.
-// See: https://github.com/rjsf-team/react-jsonschema-form/pull/2231
-//
-// import SUIArrayFieldTemplate from '@rjsf/semantic-ui/dist/ArrayFieldTemplate';
-//
-//  /**
-//  * Component to allow wrapping the original RJSF ArrayFieldTemplate
-//  * @param {*} props
-//  */
-// export function ArrayFieldTemplateWithWrapper(props) {
-//   const { uiSchema } = props;
-//   return (
-//     <Wrapper uiSchema={uiSchema}>
-//       <SUIArrayFieldTemplate {...props} />
-//     </Wrapper>
-//   );
-// }
+/**
+ * Component to allow wrapping the original RJSF ArrayFieldTemplate
+ * @param {*} props
+ */
+export function ArrayFieldTemplateWithWrapper(props) {
+  const { children, uiSchema } = props;
+  return <Wrapper uiSchema={uiSchema}>{children}</Wrapper>;
+}
 
-// ArrayFieldTemplateWithWrapper.propTypes = {
-//   uiSchema: PropTypes.object.isRequired,
-// };
+ArrayFieldTemplateWithWrapper.propTypes = {
+  uiSchema: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
+};

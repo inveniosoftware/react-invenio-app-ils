@@ -12,10 +12,10 @@
   },
   {
     "pid": "dreq-2",
-    "state": "REJECTED",
+    "state": "DECLINED",
     "patron_pid": "2",
     "title": "Test title 2",
-    "reject_reason": "Test."
+    "decline_reason": "Test."
   },
   {
     "pid": "dreq-3",
