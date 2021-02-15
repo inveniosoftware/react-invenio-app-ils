@@ -3,21 +3,25 @@ import _keys from 'lodash/keys';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Divider, Table } from 'semantic-ui-react';
+import { prettyPrintBooleanValue } from '@components/utils';
 
 export const DocumentMetadataExtensions = ({ extensions, showDivider }) => {
+  const documentExtensions = invenioConfig.DOCUMENTS.extensions;
   return (
     <React.Fragment>
-      {showDivider && (
-        <Divider horizontal>{invenioConfig.DOCUMENTS.extensions.label}</Divider>
-      )}
+      {showDivider && <Divider horizontal>{documentExtensions.label}</Divider>}
       <Table definition>
         <Table.Body>
           {_keys(extensions).map((key) => (
             <Table.Row key={key}>
               <Table.Cell width={4}>
-                {invenioConfig.DOCUMENTS.extensions.fields[key].label}
+                {documentExtensions.fields[key].label}
               </Table.Cell>
-              <Table.Cell>{extensions[key]}</Table.Cell>
+              <Table.Cell>
+                {documentExtensions.fields[key].type === 'boolean'
+                  ? prettyPrintBooleanValue(extensions[key])
+                  : extensions[key]}
+              </Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>

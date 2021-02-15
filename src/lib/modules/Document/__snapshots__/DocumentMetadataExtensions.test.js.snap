@@ -85,7 +85,7 @@ exports[`DocumentMetadataExtensions tests should render the DocumentMetadataExte
                 <td
                   className=""
                 >
-                  barValue
+                  Yes
                 </td>
               </TableCell>
             </tr>
