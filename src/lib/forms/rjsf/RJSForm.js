@@ -10,8 +10,6 @@ import { RJSFVocabularySearch } from '@forms/rjsf/widgets/RJSFVocabularySearch';
 import Form from '@rjsf/semantic-ui';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
-import _isUndefined from 'lodash/isUndefined';
-import _omitBy from 'lodash/omitBy';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Container, Divider } from 'semantic-ui-react';
@@ -69,9 +67,6 @@ export class RJSForm extends Component {
       successCallback,
       successMessage,
     } = this.props;
-
-    // remove any `undefined` values, e.g. dropdowns with empty values
-    formData = _omitBy(formData, _isUndefined);
 
     try {
       this.setState({ isLoading: true });

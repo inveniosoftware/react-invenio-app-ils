@@ -36,22 +36,22 @@ export const uiSchema = (title) => ({
   'custom:grid': [
     {
       title: 8,
-      medium: 4,
-      patron_pid: 4,
+      medium: 3,
+      patron_pid: 5,
     },
     {
       'custom:divider': 16,
     },
     {
       state: 8,
-      decline_reason: 7,
+      decline_reason: 8,
     },
     {
       'custom:divider': 16,
     },
     {
-      document_pid: 6,
-      internal_note: 10,
+      document_pid: 8,
+      internal_note: 8,
     },
     {
       'custom:divider': 16,

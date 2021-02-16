@@ -1,5 +1,7 @@
 import { withCancel } from '@api/utils';
 import _debounce from 'lodash/debounce';
+import _find from 'lodash/find';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
@@ -62,7 +64,7 @@ export class RJSFESSelector extends Component {
   }
 
   handleSearchChange = async (e, { searchQuery }) => {
-    const { options, required } = this.props;
+    const { options } = this.props;
     const { apiQuery, apiQueryResponseSerializer } = options;
     if (searchQuery === '') {
       return;
@@ -75,14 +77,24 @@ export class RJSFESSelector extends Component {
       });
 
       const response = await this.cancellableFetchData.promise;
-      const results = response.data.hits.map((hit) =>
-        apiQueryResponseSerializer(hit)
-      );
 
-      if (!required) {
-        // add an empty element at the beginning so that if it is not required, you can select nothing
-        results.unshift({ key: '', value: undefined, text: '' });
-      }
+      /**
+       * The Dropdown search component in Semantic UI locally filters
+       * results based on the `text` value of each option.
+       * As result, each option that does not contain the `searchQuery` in
+       * the `text` field will be removed.
+       * The second `map` here is an hack to fix this behaviour: the Dropdown
+       * `content` field is used to display each options instead of the
+       * `text` field, and the `text` field simply contains the searchQuery.
+       */
+      const results = response.data.hits
+        .map((hit) => apiQueryResponseSerializer(hit))
+        .map((obj) => ({
+          ...obj,
+          text: searchQuery,
+          original: obj.text,
+          content: obj.content || obj.text,
+        }));
 
       this.setState({
         isLoading: false,
@@ -99,9 +111,17 @@ export class RJSFESSelector extends Component {
     }
   };
 
-  handleChange = (e, { value }) => {
+  handleChange = (e, { options, value }) => {
     const { onChange } = this.props;
-    this.setState({ value: value });
+
+    const newOptions = [];
+    if (!_isEmpty(value)) {
+      const selected = _find(options, { value: value });
+      selected.text = selected.original;
+      newOptions.push(selected);
+    }
+
+    this.setState({ options: newOptions, value: value });
     onChange(value);
   };
 
@@ -113,25 +133,30 @@ export class RJSFESSelector extends Component {
       placeholder,
       readonly,
       required,
+      options: rjsfOptions,
     } = this.props;
     const { options, isLoading, value, error } = this.state;
+    const { selectMultiple } = rjsfOptions;
+
     return (
       <Form.Select
         fluid
         selection
         search
+        icon="search"
+        clearable={!required}
         options={options}
         label={label}
         value={value}
+        multiple={selectMultiple || false}
         required={required}
         autoFocus={autofocus}
         readOnly={readonly}
-        placeholder={placeholder}
+        placeholder={placeholder || 'Type to search...'}
         onChange={this.handleChange}
         onSearchChange={_debounce(this.handleSearchChange, debounceDelay)}
-        disabled={isLoading}
         loading={isLoading}
-        noResultsMessage={error ? error : 'No results found'}
+        noResultsMessage={error || 'No results found'}
       />
     );
   }
@@ -150,6 +175,7 @@ RJSFESSelector.propTypes = {
     apiGetByValueResponseSerializer: PropTypes.func.isRequired,
     apiQuery: PropTypes.func.isRequired,
     apiQueryResponseSerializer: PropTypes.func.isRequired,
+    selectMultiple: PropTypes.bool,
   }).isRequired,
   debounceDelay: PropTypes.number,
 };
