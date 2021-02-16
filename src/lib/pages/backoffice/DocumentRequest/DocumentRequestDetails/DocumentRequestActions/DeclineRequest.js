@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Confirm, Dropdown } from 'semantic-ui-react';
 
-export class DeclineAction extends React.Component {
+export class DeclineRequest extends React.Component {
   state = {
     header: null,
     type: null,
@@ -122,12 +122,12 @@ export class DeclineAction extends React.Component {
   }
 }
 
-DeclineAction.propTypes = {
+DeclineRequest.propTypes = {
   pid: PropTypes.string.isRequired,
   onDecline: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
 };
 
-DeclineAction.defaultProps = {
+DeclineRequest.defaultProps = {
   disabled: false,
 };

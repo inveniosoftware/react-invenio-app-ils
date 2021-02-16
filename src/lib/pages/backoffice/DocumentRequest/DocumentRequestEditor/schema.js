@@ -7,7 +7,7 @@ export const schema = {
       type: 'string',
     },
     document_pid: {
-      title: 'Select document PID',
+      title: 'Attached document',
       type: 'string',
     },
     edition: {
@@ -47,7 +47,7 @@ export const schema = {
       type: 'string',
     },
     patron_pid: {
-      title: 'Patron PID',
+      title: 'Patron',
       type: 'string',
     },
     payment_info: {

@@ -2,27 +2,34 @@ import { documentApi } from '@api/documents';
 import { RJSFESSelector } from '@forms/rjsf/widgets/RJSFESSelector';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Header } from 'semantic-ui-react';
 
 /**
  * React JSONSchema Form widget to search and retrieve Documents.
  */
 export class RJSFReferencedDocument extends Component {
   responseSerializer = (record) => {
-    const { edition, pid, publicationYear, title } = record.metadata;
+    const {
+      edition,
+      pid,
+      publicationYear,
+      document_type: documentType,
+      title,
+    } = record.metadata;
 
-    let docTitle = `#${pid} - ${title}`;
-    if (edition && publicationYear) {
-      docTitle = `${docTitle} (${edition} - ${publicationYear})`;
-    } else if (edition) {
-      docTitle = `${docTitle} (${edition})`;
-    } else if (publicationYear) {
-      docTitle = `${docTitle} (${publicationYear})`;
-    }
+    const descriptions = [];
+    edition && descriptions.push(`Edition: ${edition}`);
+    publicationYear && descriptions.push(`Year: ${publicationYear}`);
+    descriptions.push(`Type: ${documentType}`);
+    descriptions.push(`PID: ${pid}`);
 
     return {
       key: pid,
       value: pid,
-      text: docTitle,
+      text: title,
+      content: (
+        <Header as="h5" content={title} subheader={descriptions.join(' - ')} />
+      ),
     };
   };
 
