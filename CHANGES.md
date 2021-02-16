@@ -1,5 +1,11 @@
 # Changes
 
+Version 1.0.0-alpha.27 (released 2021-02-16)
+
+- add react-jsonschema-forms
+- add backoffice literature request form
+- fix physical description fields
+
 Version 1.0.0-alpha.26 (released 2021-02-10)
 
 - fix max search results configuration
