@@ -33,6 +33,7 @@ export class DocumentLinks extends Component {
       <>
         {this.renderTitle('Read online')}
         <LiteratureAccessUrls
+          truncate
           urls={eitems.hits.flatMap((eitem) => eitem.urls)}
         />
       </>

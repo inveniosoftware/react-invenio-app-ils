@@ -15,6 +15,7 @@ const AccessUrl = ({ truncate, url }) => {
         <a href={url.login_required_url ? url.login_required_url : url.value}>
           {truncate ? _truncate(description, { length: 35 }) : description}{' '}
         </a>
+        {url.login_required ? '(login required)' : '(open access)'}
       </List.Content>
     </List.Item>
   );
@@ -26,6 +27,7 @@ AccessUrl.propTypes = {
     value: PropTypes.string.isRequired,
     login_required: PropTypes.bool,
     login_required_url: PropTypes.string,
+    open_access: PropTypes.bool,
   }).isRequired,
   truncate: PropTypes.bool,
 };
