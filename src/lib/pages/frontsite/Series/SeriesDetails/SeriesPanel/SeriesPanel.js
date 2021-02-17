@@ -1,9 +1,9 @@
-import { ShowMoreContent } from '@components/ShowMoreContent';
 import {
   ILSHeaderPlaceholder,
   ILSParagraphPlaceholder,
 } from '@components/ILSPlaceholder';
 import { Media } from '@components/Media';
+import { ShowMoreContent } from '@components/ShowMoreContent';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import { SeriesAccess } from '@modules/Series/SeriesAccess';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
@@ -49,6 +49,7 @@ class SeriesPanel extends Component {
                             : null
                         }
                         modeOfIssuance={series.metadata.mode_of_issuance}
+                        truncate={false}
                       />
                     )}
                   </ILSHeaderPlaceholder>

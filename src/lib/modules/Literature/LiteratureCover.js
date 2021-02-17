@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import { Image, Item } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { Image, Item } from 'semantic-ui-react';
 
 class LiteratureCover extends Component {
   getLabel = (isRestricted) => {
@@ -24,7 +24,6 @@ class LiteratureCover extends Component {
       size,
       url,
       isLoading,
-      centered,
       ...uiProps
     } = this.props;
     const Cmp = asItem ? Item.Image : Image;
@@ -33,7 +32,7 @@ class LiteratureCover extends Component {
       <Overridable id="LiteratureCover.layout" {...this.props}>
         {!isLoading && (
           <Cmp
-            centered={centered}
+            centered
             disabled={isRestricted}
             label={this.getLabel(isRestricted)}
             {...link}
@@ -56,7 +55,6 @@ LiteratureCover.propTypes = {
   size: PropTypes.string,
   url: PropTypes.string,
   isLoading: PropTypes.bool,
-  centered: PropTypes.bool,
 };
 
 LiteratureCover.defaultProps = {
@@ -66,7 +64,6 @@ LiteratureCover.defaultProps = {
   size: 'large',
   url: null,
   isLoading: false,
-  centered: true,
 };
 
 export default Overridable.component('LiteratureCover', LiteratureCover);

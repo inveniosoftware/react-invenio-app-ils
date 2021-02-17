@@ -1,9 +1,9 @@
+import { DocumentLinks } from '@modules/Document/DocumentLinks';
+import { FrontSiteRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Divider, Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { FrontSiteRoutes } from '@routes/urls';
-import { DocumentLinks } from '@modules/Document/DocumentLinks';
+import { Divider, Header } from 'semantic-ui-react';
 
 export class DocumentEItems extends Component {
   showAll = () => {
@@ -33,7 +33,7 @@ export class DocumentEItems extends Component {
           <>
             No electronic resources currently available.{' '}
             <Link to={this.onClickEItemRequestLink()}>
-              Request a new electronic copy.
+              Request a new electronic copy
             </Link>
           </>
         )}

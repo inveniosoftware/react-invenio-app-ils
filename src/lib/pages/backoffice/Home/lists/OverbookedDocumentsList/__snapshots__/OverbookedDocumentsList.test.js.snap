@@ -24,10 +24,11 @@ exports[`OverbookedDocumentsList tests should load the details component 1`] = `
           },
           Object {
             "field": "metadata.title",
+            "formatter": [Function],
             "title": "Title",
           },
           Object {
-            "field": "metadata.circulation.pending_loans",
+            "field": "metadata.circulation.pending_loans_count",
             "title": "Pending Requests",
           },
         ]
@@ -43,7 +44,7 @@ exports[`OverbookedDocumentsList tests should load the details component 1`] = `
         <SeeAllButton
           disabled={false}
           fluid={false}
-          to="/backoffice/documents?q=circulation.overbooked:true"
+          to="/backoffice/documents?q=circulation.overbooked:true&sort=loan_requests&order=desc"
         />
       }
       showAllResults={false}
@@ -150,10 +151,11 @@ exports[`OverbookedDocumentsList tests should render documents 1`] = `
                 },
                 Object {
                   "field": "metadata.title",
+                  "formatter": [Function],
                   "title": "Title",
                 },
                 Object {
-                  "field": "metadata.circulation.pending_loans",
+                  "field": "metadata.circulation.pending_loans_count",
                   "title": "Pending Requests",
                 },
               ]
@@ -221,7 +223,7 @@ exports[`OverbookedDocumentsList tests should render documents 1`] = `
               <SeeAllButton
                 disabled={false}
                 fluid={false}
-                to="/backoffice/documents?q=circulation.overbooked:true"
+                to="/backoffice/documents?q=circulation.overbooked:true&sort=loan_requests&order=desc"
               />
             }
             showAllResults={false}
@@ -312,10 +314,11 @@ exports[`OverbookedDocumentsList tests should render documents 1`] = `
                       },
                       Object {
                         "field": "metadata.title",
+                        "formatter": [Function],
                         "title": "Title",
                       },
                       Object {
-                        "field": "metadata.circulation.pending_loans",
+                        "field": "metadata.circulation.pending_loans_count",
                         "title": "Pending Requests",
                       },
                     ]
@@ -413,10 +416,11 @@ exports[`OverbookedDocumentsList tests should render documents 1`] = `
                       },
                       Object {
                         "field": "metadata.title",
+                        "formatter": [Function],
                         "title": "Title",
                       },
                       Object {
-                        "field": "metadata.circulation.pending_loans",
+                        "field": "metadata.circulation.pending_loans_count",
                         "title": "Pending Requests",
                       },
                     ]
@@ -1233,7 +1237,60 @@ exports[`OverbookedDocumentsList tests should render documents 1`] = `
                               data-label="Title"
                               data-test="2-doc1"
                             >
-                              The Gulf: The Making of An American Sea
+                              <Overridable(LiteratureTitle)
+                                edition="1"
+                                publicationYear="1950"
+                                title="The Gulf: The Making of An American Sea"
+                              >
+                                <LiteratureTitle
+                                  edition="1"
+                                  publicationYear="1950"
+                                  title="The Gulf: The Making of An American Sea"
+                                  truncate={true}
+                                  truncateLines={2}
+                                  truncateWidth={null}
+                                >
+                                  <Truncate
+                                    lines={2}
+                                    width={null}
+                                  >
+                                    <span
+                                      style={
+                                        Object {
+                                          "WebkitBoxOrient": "vertical",
+                                          "WebkitLineClamp": 2,
+                                          "display": "-webkit-box",
+                                          "overflow": "hidden",
+                                          "textOverflow": "ellipsis",
+                                          "whiteSpace": "normal",
+                                        }
+                                      }
+                                    >
+                                      The Gulf: The Making of An American Sea
+                                       
+                                      <EditionYear
+                                        edition="1"
+                                        publicationYear="1950"
+                                      >
+                                        (
+                                        <Overridable(LiteratureEdition)
+                                          edition="1"
+                                        >
+                                          <LiteratureEdition
+                                            edition="1"
+                                            withLabel={false}
+                                          >
+                                            ed. 1
+                                          </LiteratureEdition>
+                                        </Overridable(LiteratureEdition)>
+                                         - 
+                                        1950
+                                        )
+                                      </EditionYear>
+                                    </span>
+                                  </Truncate>
+                                </LiteratureTitle>
+                              </Overridable(LiteratureTitle)>
                             </td>
                           </TableCell>
                           <TableCell
@@ -2004,7 +2061,46 @@ exports[`OverbookedDocumentsList tests should render documents 1`] = `
                               data-label="Title"
                               data-test="2-doc2"
                             >
-                              Prairie Fires: The American Dreams of Laura Ingalls Wilder
+                              <Overridable(LiteratureTitle)
+                                publicationYear="1950"
+                                title="Prairie Fires: The American Dreams of Laura Ingalls Wilder"
+                              >
+                                <LiteratureTitle
+                                  edition={null}
+                                  publicationYear="1950"
+                                  title="Prairie Fires: The American Dreams of Laura Ingalls Wilder"
+                                  truncate={true}
+                                  truncateLines={2}
+                                  truncateWidth={null}
+                                >
+                                  <Truncate
+                                    lines={2}
+                                    width={null}
+                                  >
+                                    <span
+                                      style={
+                                        Object {
+                                          "WebkitBoxOrient": "vertical",
+                                          "WebkitLineClamp": 2,
+                                          "display": "-webkit-box",
+                                          "overflow": "hidden",
+                                          "textOverflow": "ellipsis",
+                                          "whiteSpace": "normal",
+                                        }
+                                      }
+                                    >
+                                      Prairie Fires: The American Dreams of Laura Ingalls Wilder
+                                       
+                                      <EditionYear
+                                        edition={null}
+                                        publicationYear="1950"
+                                      >
+                                        (1950)
+                                      </EditionYear>
+                                    </span>
+                                  </Truncate>
+                                </LiteratureTitle>
+                              </Overridable(LiteratureTitle)>
                             </td>
                           </TableCell>
                           <TableCell
@@ -2035,7 +2131,7 @@ exports[`OverbookedDocumentsList tests should render documents 1`] = `
                     <SeeAllButton
                       disabled={false}
                       fluid={false}
-                      to="/backoffice/documents?q=circulation.overbooked:true"
+                      to="/backoffice/documents?q=circulation.overbooked:true&sort=loan_requests&order=desc"
                     />
                   }
                   showAllResults={false}
@@ -2094,10 +2190,11 @@ exports[`OverbookedDocumentsList tests should render show a message with no docu
                 },
                 Object {
                   "field": "metadata.title",
+                  "formatter": [Function],
                   "title": "Title",
                 },
                 Object {
-                  "field": "metadata.circulation.pending_loans",
+                  "field": "metadata.circulation.pending_loans_count",
                   "title": "Pending Requests",
                 },
               ]
@@ -2113,7 +2210,7 @@ exports[`OverbookedDocumentsList tests should render show a message with no docu
               <SeeAllButton
                 disabled={false}
                 fluid={false}
-                to="/backoffice/documents?q=circulation.overbooked:true"
+                to="/backoffice/documents?q=circulation.overbooked:true&sort=loan_requests&order=desc"
               />
             }
             showAllResults={false}

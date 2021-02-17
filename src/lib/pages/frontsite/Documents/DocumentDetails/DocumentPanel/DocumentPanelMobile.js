@@ -3,9 +3,10 @@ import {
   ILSParagraphPlaceholder,
 } from '@components/ILSPlaceholder';
 import { ShowMoreContent } from '@components/ShowMoreContent';
+import { invenioConfig } from '@config';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
-import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -13,11 +14,10 @@ import Overridable from 'react-overridable';
 import { Grid, Header } from 'semantic-ui-react';
 import { DocumentCirculation } from '../DocumentCirculation';
 import { DocumentTitle } from './DocumentTitle';
-import { invenioConfig } from '@config';
 
 class DocumentPanelMobile extends Component {
   render() {
-    const { documentDetails: doc, isLoading } = this.props;
+    const { documentDetails: doc, isLoading, loansInfo } = this.props;
     return (
       <div
         className="document-panel"
@@ -56,6 +56,7 @@ class DocumentPanelMobile extends Component {
               <Grid.Column mobile={16}>
                 <DocumentCirculation
                   documentDetails={doc}
+                  loansInfo={loansInfo}
                   isLoading={isLoading}
                 />
               </Grid.Column>
@@ -77,6 +78,7 @@ class DocumentPanelMobile extends Component {
 
 DocumentPanelMobile.propTypes = {
   documentDetails: PropTypes.object.isRequired,
+  loansInfo: PropTypes.object.isRequired,
   isLoading: PropTypes.bool,
 };
 

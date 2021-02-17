@@ -1,6 +1,9 @@
 import { invenioConfig } from '@config';
 import { DocumentConference } from '@modules/Document/DocumentConference';
 import { DocumentInfo } from '@modules/Document/DocumentInfo';
+import { DocumentLinks } from '@modules/Document/DocumentLinks';
+import { DocumentMetadataExtensions } from '@modules/Document/DocumentMetadataExtensions';
+import { DocumentPublicationInfo } from '@modules/Document/DocumentPublicationInfo';
 import { DocumentTableOfContent } from '@modules/Document/DocumentTableOfContent';
 import { Identifiers } from '@modules/Identifiers';
 import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
@@ -11,7 +14,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Accordion, Icon } from 'semantic-ui-react';
-import { DocumentMetadataExtensions } from '@modules/Document/DocumentMetadataExtensions';
 
 class DocumentMetadataAccordion extends Component {
   state = { activeIndex: 'details' };
@@ -70,7 +72,6 @@ class DocumentMetadataAccordion extends Component {
             toc={metadata.table_of_content}
             abstract={metadata.abstract}
           />
-          <DocumentInfo metadata={metadata} />
         </Accordion.Content>
 
         <Accordion.Title
@@ -82,7 +83,7 @@ class DocumentMetadataAccordion extends Component {
           Publications
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 'publications'}>
-          TODO
+          <DocumentPublicationInfo publications={metadata.publication_info} />
         </Accordion.Content>
 
         <Accordion.Title
@@ -94,10 +95,7 @@ class DocumentMetadataAccordion extends Component {
           Conference
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 'conference'}>
-          <DocumentConference
-            conference={metadata.conference_info}
-            documentType={metadata.document_type}
-          />
+          <DocumentConference conference={metadata.conference_info} />
         </Accordion.Content>
 
         <Accordion.Title
@@ -113,24 +111,42 @@ class DocumentMetadataAccordion extends Component {
         </Accordion.Content>
 
         <Accordion.Title
-          active={activeIndex === invenioConfig.DOCUMENTS.extensions.label}
-          index={invenioConfig.DOCUMENTS.extensions.label}
+          active={activeIndex === 'resources'}
+          index="resources"
           onClick={this.handleClick}
         >
           <Icon name="dropdown" />
-          {invenioConfig.DOCUMENTS.extensions.label}
+          Resources
         </Accordion.Title>
+        <Accordion.Content active={activeIndex === 'resources'}>
+          <DocumentLinks dividers eitems={metadata.eitems} />
+        </Accordion.Content>
+
         {!_isEmpty(extensions) &&
           _isEmpty(invenioConfig.DOCUMENTS.extensions.fields) && (
-            <Accordion.Content
-              active={activeIndex === invenioConfig.DOCUMENTS.extensions.label}
-            >
-              <Overridable
-                id="DocumentMetadataTabs.Extensions.mobile"
-                extensions={extensions}
-              />
-              <DocumentMetadataExtensions extensions={extensions} />
-            </Accordion.Content>
+            <>
+              <Accordion.Title
+                active={
+                  activeIndex === invenioConfig.DOCUMENTS.extensions.label
+                }
+                index={invenioConfig.DOCUMENTS.extensions.label}
+                onClick={this.handleClick}
+              >
+                <Icon name="dropdown" />
+                {invenioConfig.DOCUMENTS.extensions.label}
+              </Accordion.Title>
+              <Accordion.Content
+                active={
+                  activeIndex === invenioConfig.DOCUMENTS.extensions.label
+                }
+              >
+                <Overridable
+                  id="DocumentMetadataTabs.Extensions.mobile"
+                  extensions={extensions}
+                />
+                <DocumentMetadataExtensions extensions={extensions} />
+              </Accordion.Content>
+            </>
           )}
       </Accordion>
     );

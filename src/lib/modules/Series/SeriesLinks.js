@@ -1,22 +1,20 @@
 import { LiteratureAccessUrls } from '@modules/Literature/LiteratureAccessUrls';
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Divider } from 'semantic-ui-react';
 import _isEmpty from 'lodash/isEmpty';
-import { InfoMessage } from '@components/InfoMessage';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Divider } from 'semantic-ui-react';
 import { SeriesUrls } from './SeriesUrls';
 
 export const SeriesLinks = ({ accessUrls, urls }) => {
-  return (
-    <InfoMessage
-      show={!(_isEmpty(accessUrls) && _isEmpty(urls))}
-      message="There are no links for this series."
-    >
+  return _isEmpty(accessUrls) && _isEmpty(urls) ? (
+    'No links'
+  ) : (
+    <>
       <Divider horizontal>Access online</Divider>
       <LiteratureAccessUrls urls={accessUrls} />
       <Divider horizontal>Links</Divider>
       <SeriesUrls url={urls} />
-    </InfoMessage>
+    </>
   );
 };
 

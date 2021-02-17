@@ -23,7 +23,7 @@ exports[`DocumentsCard tests should load the details component 1`] = `
         <SeeAllButton
           disabled={false}
           fluid={true}
-          to="/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0"
+          to="/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0"
         />
       }
       stats={0}
@@ -82,7 +82,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
               <SeeAllButton
                 disabled={false}
                 fluid={true}
-                to="/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0"
+                to="/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0"
               />
             }
             stats={2}
@@ -215,7 +215,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "innerRef",
                                             "Link",
@@ -236,7 +236,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "innerRef",
                                             "Link",
@@ -335,7 +335,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "onClick",
                                             "Link",
@@ -356,7 +356,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "onClick",
                                             "Link",
@@ -455,7 +455,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "replace",
                                             "Link",
@@ -476,7 +476,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "replace",
                                             "Link",
@@ -575,7 +575,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "target",
                                             "Link",
@@ -596,7 +596,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "target",
                                             "Link",
@@ -695,7 +695,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "to",
                                             "Link",
@@ -716,7 +716,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "to",
                                             "Link",
@@ -784,7 +784,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                             "onClick": [Function],
                                             "role": "button",
                                             "tabIndex": undefined,
-                                            "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                            "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                           },
                                           [Function],
                                         ],
@@ -847,7 +847,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                             <SeeAllButton
                               disabled={false}
                               fluid={true}
-                              to="/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0"
+                              to="/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0"
                             >
                               <Button
                                 as={
@@ -926,7 +926,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "innerRef",
                                             "Link",
@@ -947,7 +947,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "innerRef",
                                             "Link",
@@ -1046,7 +1046,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "onClick",
                                             "Link",
@@ -1067,7 +1067,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "onClick",
                                             "Link",
@@ -1166,7 +1166,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "replace",
                                             "Link",
@@ -1187,7 +1187,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "replace",
                                             "Link",
@@ -1286,7 +1286,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "target",
                                             "Link",
@@ -1307,7 +1307,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "target",
                                             "Link",
@@ -1406,7 +1406,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "to",
                                             "Link",
@@ -1427,7 +1427,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                               "onClick": [Function],
                                               "role": "button",
                                               "tabIndex": undefined,
-                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                              "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                             },
                                             "to",
                                             "Link",
@@ -1495,7 +1495,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                             "onClick": [Function],
                                             "role": "button",
                                             "tabIndex": undefined,
-                                            "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0",
+                                            "to": "/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0",
                                           },
                                           [Function],
                                         ],
@@ -1516,7 +1516,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                 disabled={false}
                                 fluid={true}
                                 size="small"
-                                to="/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0"
+                                to="/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0"
                               >
                                 <Ref
                                   innerRef={
@@ -1536,7 +1536,7 @@ exports[`DocumentsCard tests should render stats with 2 records 1`] = `
                                       className="ui small fluid button"
                                       onClick={[Function]}
                                       role="button"
-                                      to="/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0"
+                                      to="/backoffice/documents?q=circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0"
                                     />
                                   </RefForward>
                                 </Ref>

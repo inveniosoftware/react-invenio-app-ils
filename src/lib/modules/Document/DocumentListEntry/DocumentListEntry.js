@@ -1,3 +1,5 @@
+import { Truncate } from '@components/Truncate';
+import { invenioConfig } from '@config';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
@@ -9,9 +11,7 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Truncate from 'react-truncate';
 import { Grid, Item, Label, List } from 'semantic-ui-react';
-import { invenioConfig } from '@config';
 
 export default class DocumentListEntry extends Component {
   constructor(props) {
@@ -75,7 +75,6 @@ export default class DocumentListEntry extends Component {
         to={FrontSiteRoutes.documentDetailsFor(this.metadata.pid)}
       >
         <LiteratureCover
-          centered={false}
           isRestricted={_get(this, 'metadata.restricted', false)}
           size="small"
           url={_get(this, 'metadata.cover_metadata.urls.medium')}
@@ -118,9 +117,7 @@ export default class DocumentListEntry extends Component {
             />
           </Item.Meta>
           <Item.Description>
-            <Truncate lines={2} ellipsis="... ">
-              {this.metadata.abstract}
-            </Truncate>
+            <Truncate lines={2}>{this.metadata.abstract}</Truncate>
           </Item.Description>
           <Item.Meta>
             <Grid>

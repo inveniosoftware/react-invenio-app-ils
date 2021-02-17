@@ -1,7 +1,6 @@
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Truncate from 'react-truncate';
 import { Header } from 'semantic-ui-react';
 
 export class DocumentTitle extends Component {
@@ -23,9 +22,7 @@ export class DocumentTitle extends Component {
       <>
         {metadata.document_type}
         <Header as="h2" className="document-title">
-          <Truncate lines={10} ellipsis="... ">
-            {metadata.title}
-          </Truncate>
+          {metadata.title}
           {this.subtitle()}
         </Header>
       </>

@@ -1,13 +1,12 @@
 import { DocumentIcon, EItemIcon } from '@components/backoffice/icons';
 import { OpenAccessLabel } from '@components/backoffice/OpenAccessLabel';
-import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Icon, Item, List } from 'semantic-ui-react';
-import { invenioConfig } from '@config';
+import { Grid, Header, Icon, Item, List } from 'semantic-ui-react';
 
 export default class EItemListEntry extends Component {
   render() {
@@ -21,18 +20,18 @@ export default class EItemListEntry extends Component {
             to={BackOfficeRoutes.eitemDetailsFor(eitem.metadata.pid)}
             data-test={`navigate-${eitem.metadata.pid}`}
           >
-            <EItemIcon />
-            {eitem.metadata.document.title}{' '}
+            <EItemIcon /> {eitem.metadata.pid}
           </Item.Header>
+
           <Grid columns={4}>
             <Grid.Column computer={6} largeScreen={5}>
               <Item.Meta className="document-authors">
-                <DocumentAuthors
-                  authors={eitem.metadata.document.authors}
-                  hasOtherAuthors={eitem.metadata.document.other_authors}
-                  prefix="by "
-                  limit={invenioConfig.LITERATURE.authors.maxDisplay}
-                />
+                <Header as="h5">
+                  <LiteratureTitle
+                    title={eitem.metadata.document.title}
+                    truncateLines={1}
+                  />
+                </Header>
               </Item.Meta>
               {eitem.metadata.doi && (
                 <>

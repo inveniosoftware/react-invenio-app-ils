@@ -1,6 +1,5 @@
 import { DocumentIcon, ItemIcon } from '@components/backoffice/icons';
 import { getDisplayVal } from '@config';
-import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
@@ -8,7 +7,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Grid, Header, Item, List } from 'semantic-ui-react';
-import { invenioConfig } from '@config';
 
 class ItemCirculation extends Component {
   render() {
@@ -75,19 +73,16 @@ export class ItemListEntry extends Component {
             to={BackOfficeRoutes.itemDetailsFor(item.metadata.pid)}
           >
             <ItemIcon /> {item.metadata.barcode}
-          </Item.Header>{' '}
-          <Header as="h5">
-            <LiteratureTitle title={item.metadata.document.title} />
-          </Header>
+          </Item.Header>
           <Grid columns={2}>
             <Grid.Column computer={6} largeScreen={6}>
               <Item.Meta className="metadata-fields">
-                <DocumentAuthors
-                  authors={item.metadata.document.authors}
-                  hasOtherAuthors={item.metadata.document.other_authors}
-                  prefix="by "
-                  limit={invenioConfig.LITERATURE.authors.maxDisplay}
-                />
+                <Header as="h5">
+                  <LiteratureTitle
+                    title={item.metadata.document.title}
+                    truncateLines={1}
+                  />
+                </Header>
                 <List>
                   <List.Item>
                     <List.Content>

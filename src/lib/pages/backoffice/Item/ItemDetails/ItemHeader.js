@@ -66,7 +66,8 @@ export class ItemHeader extends Component {
         title={
           <>
             <Header.Subheader>Medium: {data.metadata.medium}</Header.Subheader>
-            {data.metadata.barcode}:{' '}
+            {data.metadata.barcode}
+            <br />
             <LiteratureTitle title={data.metadata.document.title} />
             {this.statusLabel()}
           </>

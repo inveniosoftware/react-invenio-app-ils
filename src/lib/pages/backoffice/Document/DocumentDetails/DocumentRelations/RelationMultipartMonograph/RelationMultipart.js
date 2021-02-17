@@ -8,7 +8,7 @@ import { RelationRemover } from '@modules/Relations/backoffice/components/Relati
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Icon, Popup } from 'semantic-ui-react';
+import { Button, Popup } from 'semantic-ui-react';
 import { RelationMultipartModal } from '../RelationMultipartMonograph/RelationMultipartModal';
 
 export default class RelationMultipart extends Component {
@@ -27,7 +27,6 @@ export default class RelationMultipart extends Component {
           title={row.record_metadata.title}
           edition={row.record_metadata.edition}
           publicationYear={row.record_metadata.publication_year}
-          truncateWidth={300}
         />
       </SeriesDetailsLink>
     );
@@ -64,17 +63,19 @@ export default class RelationMultipart extends Component {
     return (
       <Loader isLoading={isLoading}>
         <Error error={error}>
+          {!_isEmpty(multipartMonograph) && (
+            <Popup
+              content="A document can be attached only to one multipart monograph. Remove the existing relation to add a new one."
+              trigger={
+                <Button floated="left" circular icon="question circle" />
+              }
+            />
+          )}
           <RelationMultipartModal
             relationType={this.relationType}
             disabled={!_isEmpty(multipartMonograph)}
           />
 
-          {!_isEmpty(multipartMonograph) && (
-            <Popup
-              content="A document can be attached only to one multipart monotgraph. Remove the existing relation to add a new one."
-              trigger={<Icon name="question circle" />}
-            />
-          )}
           <ResultsTable
             data={multipartMonograph}
             columns={columns}

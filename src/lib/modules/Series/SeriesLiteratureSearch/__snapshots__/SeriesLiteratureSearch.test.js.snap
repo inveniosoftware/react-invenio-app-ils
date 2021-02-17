@@ -5,8 +5,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
   <Divider
     horizontal={true}
   >
-    Literature in this 
-    MULTIPART_MONOGRAPH
+    Literature in this series
   </Divider>
   <ContextProvider
     value={
@@ -111,39 +110,25 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
       </Container>
       <Media
         className=""
-        greaterThanOrEqual="tablet"
+        greaterThanOrEqual="computer"
       >
         <Connect(Overridable(ResultsLoader))
           renderElement={[Function]}
         >
           <Connect(Overridable(EmptyResults)) />
           <Connect(Overridable(Error$1)) />
-          <Media
-            className=""
-            greaterThanOrEqual="tablet"
-          >
-            <SearchControls
-              defaultLayout="grid"
-              modelName="LITERATURE"
-              withLayoutSwitcher={true}
-            />
-            <Connect(Overridable(ResultsMultiLayout)) />
-          </Media>
-          <Media
-            className=""
-            lessThan="computer"
-          >
-            <SearchControlsMobile
-              modelName="LITERATURE"
-              stickyRef={null}
-            />
-          </Media>
+          <SearchControls
+            defaultLayout="grid"
+            modelName="LITERATURE"
+            withLayoutSwitcher={true}
+          />
+          <Connect(Overridable(ResultsMultiLayout)) />
           <SearchFooter />
         </Connect(Overridable(ResultsLoader))>
       </Media>
       <Media
         className=""
-        lessThan="tablet"
+        lessThan="computer"
       >
         <SeriesLiteratureSearchMobile
           metadata={

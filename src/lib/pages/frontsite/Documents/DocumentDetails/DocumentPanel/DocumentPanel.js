@@ -4,6 +4,7 @@ import {
 } from '@components/ILSPlaceholder';
 import { Media } from '@components/Media';
 import { ShowMoreContent } from '@components/ShowMoreContent';
+import { invenioConfig } from '@config';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import _get from 'lodash/get';
@@ -14,7 +15,6 @@ import { Grid } from 'semantic-ui-react';
 import { DocumentCirculation } from '../DocumentCirculation';
 import DocumentPanelMobile from './DocumentPanelMobile';
 import { DocumentTitle } from './DocumentTitle';
-import { invenioConfig } from '@config';
 
 class DocumentPanel extends Component {
   render() {
@@ -83,7 +83,11 @@ class DocumentPanel extends Component {
             </div>
           </Media>
           <Media at="mobile">
-            <DocumentPanelMobile isLoading={isLoading} documentDetails={doc} />
+            <DocumentPanelMobile
+              isLoading={isLoading}
+              documentDetails={doc}
+              loansInfo={loansInfo}
+            />
           </Media>
         </>
       </Overridable>

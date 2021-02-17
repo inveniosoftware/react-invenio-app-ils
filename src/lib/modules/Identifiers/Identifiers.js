@@ -1,4 +1,3 @@
-import { InfoMessage } from '@components/InfoMessage';
 import { InfoPopup } from '@components/InfoPopup';
 import { SeparatedList } from '@components/SeparatedList';
 import capitalize from 'lodash/capitalize';
@@ -9,17 +8,18 @@ import { Divider, Table } from 'semantic-ui-react';
 
 export const Identifiers = ({ identifiers }) => {
   return (
-    <InfoMessage
-      show={!_isEmpty(identifiers)}
-      message="There are no identifiers."
-    >
+    <>
       <Divider horizontal>Identifiers</Divider>
-      <Table definition>
-        <Table.Body>
-          <IdentifierRows identifiers={identifiers} />
-        </Table.Body>
-      </Table>
-    </InfoMessage>
+      {_isEmpty(identifiers) ? (
+        'No identifiers'
+      ) : (
+        <Table definition>
+          <Table.Body>
+            <IdentifierRows identifiers={identifiers} />
+          </Table.Body>
+        </Table>
+      )}
+    </>
   );
 };
 
@@ -61,7 +61,7 @@ export const IdentifierRows = ({ includeSchemes, identifiers }) => {
     ));
     return (
       <Table.Row key={scheme}>
-        <Table.Cell>{scheme}</Table.Cell>
+        <Table.Cell width={4}>{scheme}</Table.Cell>
         <Table.Cell>
           <SeparatedList items={values} />
         </Table.Cell>

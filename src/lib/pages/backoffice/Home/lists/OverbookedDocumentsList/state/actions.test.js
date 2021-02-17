@@ -1,8 +1,8 @@
+import { documentApi } from '@api/documents';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import { documentApi } from '@api/documents';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -43,7 +43,7 @@ describe('Loans renewed more then 3 times (last week) fetch tests', () => {
 
     store.dispatch(actions.fetchOverbookedDocuments()).then(() => {
       expect(mockDocumentList).toHaveBeenCalledWith(
-        'circulation.overbooked:true'
+        'circulation.overbooked:true&sort=-loan_requests'
       );
       const actions = store.getActions();
       expect(actions[0]).toEqual(expectedAction);
@@ -61,7 +61,7 @@ describe('Loans renewed more then 3 times (last week) fetch tests', () => {
 
     store.dispatch(actions.fetchOverbookedDocuments()).then(() => {
       expect(mockDocumentList).toHaveBeenCalledWith(
-        'circulation.overbooked:true'
+        'circulation.overbooked:true&sort=-loan_requests'
       );
       const actions = store.getActions();
       expect(actions[1]).toEqual(expectedAction);
@@ -79,7 +79,7 @@ describe('Loans renewed more then 3 times (last week) fetch tests', () => {
 
     store.dispatch(actions.fetchOverbookedDocuments()).then(() => {
       expect(mockDocumentList).toHaveBeenCalledWith(
-        'circulation.overbooked:true'
+        'circulation.overbooked:true&sort=-loan_requests'
       );
       const actions = store.getActions();
       expect(actions[1]).toEqual(expectedAction);

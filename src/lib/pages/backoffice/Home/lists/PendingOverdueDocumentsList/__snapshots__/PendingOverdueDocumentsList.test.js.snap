@@ -24,14 +24,15 @@ exports[`PendingOverdueDocumentsList tests should load the details component 1`]
           },
           Object {
             "field": "metadata.title",
+            "formatter": [Function],
             "title": "Title",
           },
           Object {
-            "field": "metadata.circulation.overdue_loans",
+            "field": "metadata.circulation.overdue_loans_count",
             "title": "Overdue Loans",
           },
           Object {
-            "field": "metadata.circulation.pending_loans",
+            "field": "metadata.circulation.pending_loans_count",
             "title": "Pending Requests",
           },
         ]
@@ -47,7 +48,7 @@ exports[`PendingOverdueDocumentsList tests should load the details component 1`]
         <SeeAllButton
           disabled={false}
           fluid={false}
-          to="/backoffice/documents?q=circulation.available_items_for_loan_count:0%20AND%20circulation.pending_loans:%3E0%20AND%20circulation.overdue_loans:%3E0%20AND%20items.total:%3E0"
+          to="/backoffice/documents?q=circulation.available_items_for_loan_count:0%20AND%20circulation.pending_loans_count:%3E0%20AND%20circulation.overdue_loans_count:%3E0%20AND%20items.total:%3E0"
         />
       }
       showAllResults={false}
@@ -158,14 +159,15 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
                 },
                 Object {
                   "field": "metadata.title",
+                  "formatter": [Function],
                   "title": "Title",
                 },
                 Object {
-                  "field": "metadata.circulation.overdue_loans",
+                  "field": "metadata.circulation.overdue_loans_count",
                   "title": "Overdue Loans",
                 },
                 Object {
-                  "field": "metadata.circulation.pending_loans",
+                  "field": "metadata.circulation.pending_loans_count",
                   "title": "Pending Requests",
                 },
               ]
@@ -237,7 +239,7 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
               <SeeAllButton
                 disabled={false}
                 fluid={false}
-                to="/backoffice/documents?q=circulation.available_items_for_loan_count:0%20AND%20circulation.pending_loans:%3E0%20AND%20circulation.overdue_loans:%3E0%20AND%20items.total:%3E0"
+                to="/backoffice/documents?q=circulation.available_items_for_loan_count:0%20AND%20circulation.pending_loans_count:%3E0%20AND%20circulation.overdue_loans_count:%3E0%20AND%20items.total:%3E0"
               />
             }
             showAllResults={false}
@@ -328,14 +330,15 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
                       },
                       Object {
                         "field": "metadata.title",
+                        "formatter": [Function],
                         "title": "Title",
                       },
                       Object {
-                        "field": "metadata.circulation.overdue_loans",
+                        "field": "metadata.circulation.overdue_loans_count",
                         "title": "Overdue Loans",
                       },
                       Object {
-                        "field": "metadata.circulation.pending_loans",
+                        "field": "metadata.circulation.pending_loans_count",
                         "title": "Pending Requests",
                       },
                     ]
@@ -448,14 +451,15 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
                       },
                       Object {
                         "field": "metadata.title",
+                        "formatter": [Function],
                         "title": "Title",
                       },
                       Object {
-                        "field": "metadata.circulation.overdue_loans",
+                        "field": "metadata.circulation.overdue_loans_count",
                         "title": "Overdue Loans",
                       },
                       Object {
-                        "field": "metadata.circulation.pending_loans",
+                        "field": "metadata.circulation.pending_loans_count",
                         "title": "Pending Requests",
                       },
                     ]
@@ -1276,7 +1280,60 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
                               data-label="Title"
                               data-test="2-document1"
                             >
-                              The Gulf: The Making of An American Sea
+                              <Overridable(LiteratureTitle)
+                                edition="1"
+                                publicationYear="1950"
+                                title="The Gulf: The Making of An American Sea"
+                              >
+                                <LiteratureTitle
+                                  edition="1"
+                                  publicationYear="1950"
+                                  title="The Gulf: The Making of An American Sea"
+                                  truncate={true}
+                                  truncateLines={2}
+                                  truncateWidth={null}
+                                >
+                                  <Truncate
+                                    lines={2}
+                                    width={null}
+                                  >
+                                    <span
+                                      style={
+                                        Object {
+                                          "WebkitBoxOrient": "vertical",
+                                          "WebkitLineClamp": 2,
+                                          "display": "-webkit-box",
+                                          "overflow": "hidden",
+                                          "textOverflow": "ellipsis",
+                                          "whiteSpace": "normal",
+                                        }
+                                      }
+                                    >
+                                      The Gulf: The Making of An American Sea
+                                       
+                                      <EditionYear
+                                        edition="1"
+                                        publicationYear="1950"
+                                      >
+                                        (
+                                        <Overridable(LiteratureEdition)
+                                          edition="1"
+                                        >
+                                          <LiteratureEdition
+                                            edition="1"
+                                            withLabel={false}
+                                          >
+                                            ed. 1
+                                          </LiteratureEdition>
+                                        </Overridable(LiteratureEdition)>
+                                         - 
+                                        1950
+                                        )
+                                      </EditionYear>
+                                    </span>
+                                  </Truncate>
+                                </LiteratureTitle>
+                              </Overridable(LiteratureTitle)>
                             </td>
                           </TableCell>
                           <TableCell
@@ -2061,7 +2118,46 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
                               data-label="Title"
                               data-test="2-document2"
                             >
-                              Prairie Fires: The American Dreams of Laura Ingalls Wilder
+                              <Overridable(LiteratureTitle)
+                                publicationYear="1950"
+                                title="Prairie Fires: The American Dreams of Laura Ingalls Wilder"
+                              >
+                                <LiteratureTitle
+                                  edition={null}
+                                  publicationYear="1950"
+                                  title="Prairie Fires: The American Dreams of Laura Ingalls Wilder"
+                                  truncate={true}
+                                  truncateLines={2}
+                                  truncateWidth={null}
+                                >
+                                  <Truncate
+                                    lines={2}
+                                    width={null}
+                                  >
+                                    <span
+                                      style={
+                                        Object {
+                                          "WebkitBoxOrient": "vertical",
+                                          "WebkitLineClamp": 2,
+                                          "display": "-webkit-box",
+                                          "overflow": "hidden",
+                                          "textOverflow": "ellipsis",
+                                          "whiteSpace": "normal",
+                                        }
+                                      }
+                                    >
+                                      Prairie Fires: The American Dreams of Laura Ingalls Wilder
+                                       
+                                      <EditionYear
+                                        edition={null}
+                                        publicationYear="1950"
+                                      >
+                                        (1950)
+                                      </EditionYear>
+                                    </span>
+                                  </Truncate>
+                                </LiteratureTitle>
+                              </Overridable(LiteratureTitle)>
                             </td>
                           </TableCell>
                           <TableCell
@@ -2106,7 +2202,7 @@ exports[`PendingOverdueDocumentsList tests should render documents 1`] = `
                     <SeeAllButton
                       disabled={false}
                       fluid={false}
-                      to="/backoffice/documents?q=circulation.available_items_for_loan_count:0%20AND%20circulation.pending_loans:%3E0%20AND%20circulation.overdue_loans:%3E0%20AND%20items.total:%3E0"
+                      to="/backoffice/documents?q=circulation.available_items_for_loan_count:0%20AND%20circulation.pending_loans_count:%3E0%20AND%20circulation.overdue_loans_count:%3E0%20AND%20items.total:%3E0"
                     />
                   }
                   showAllResults={false}
@@ -2165,14 +2261,15 @@ exports[`PendingOverdueDocumentsList tests should render show a message with no 
                 },
                 Object {
                   "field": "metadata.title",
+                  "formatter": [Function],
                   "title": "Title",
                 },
                 Object {
-                  "field": "metadata.circulation.overdue_loans",
+                  "field": "metadata.circulation.overdue_loans_count",
                   "title": "Overdue Loans",
                 },
                 Object {
-                  "field": "metadata.circulation.pending_loans",
+                  "field": "metadata.circulation.pending_loans_count",
                   "title": "Pending Requests",
                 },
               ]
@@ -2188,7 +2285,7 @@ exports[`PendingOverdueDocumentsList tests should render show a message with no 
               <SeeAllButton
                 disabled={false}
                 fluid={false}
-                to="/backoffice/documents?q=circulation.available_items_for_loan_count:0%20AND%20circulation.pending_loans:%3E0%20AND%20circulation.overdue_loans:%3E0%20AND%20items.total:%3E0"
+                to="/backoffice/documents?q=circulation.available_items_for_loan_count:0%20AND%20circulation.pending_loans_count:%3E0%20AND%20circulation.overdue_loans_count:%3E0%20AND%20items.total:%3E0"
               />
             }
             showAllResults={false}

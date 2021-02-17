@@ -1,9 +1,10 @@
-import { ShowMoreContent } from '@components/ShowMoreContent';
 import {
   ILSHeaderPlaceholder,
   ILSParagraphPlaceholder,
 } from '@components/ILSPlaceholder';
+import { ShowMoreContent } from '@components/ShowMoreContent';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 import { SeriesAccess } from '@modules/Series/SeriesAccess';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { SeriesTitle } from '@modules/Series/SeriesTitle';
@@ -12,7 +13,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Grid, Header } from 'semantic-ui-react';
-import LiteratureTags from '@modules/Literature/LiteratureTags';
 
 class SeriesPanelMobile extends Component {
   render() {
@@ -33,6 +33,7 @@ class SeriesPanelMobile extends Component {
                 <SeriesTitle
                   title={series.metadata.title}
                   modeOfIssuance={series.metadata.mode_of_issuance}
+                  truncate={false}
                 />
               </ILSHeaderPlaceholder>
               <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>

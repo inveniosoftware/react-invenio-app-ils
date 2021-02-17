@@ -1,3 +1,4 @@
+import { Truncate } from '@components/Truncate';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
@@ -8,7 +9,6 @@ import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Truncate from 'react-truncate';
 import { Grid, Item, Label, List } from 'semantic-ui-react';
 
 export default class SeriesListEntry extends Component {
@@ -62,9 +62,7 @@ export default class SeriesListEntry extends Component {
             <SeriesAuthors authors={this.metadata.authors} prefix="by " />
           </Item.Meta>
           <Item.Description>
-            <Truncate lines={2} ellipsis="... ">
-              {this.metadata.abstract}
-            </Truncate>
+            <Truncate lines={2}>{this.metadata.abstract}</Truncate>
           </Item.Description>
           <Item.Meta>
             <Grid>

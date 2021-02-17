@@ -1,9 +1,9 @@
+import { Truncate } from '@components/Truncate';
 import find from 'lodash/find';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import Truncate from 'react-truncate';
 import {
   Container,
   Icon,
@@ -90,7 +90,7 @@ class ESSelector extends Component {
     ) : (
       <Label>
         {icon}
-        <Truncate ellipsis="... ">{selection.title}</Truncate>
+        <Truncate>{selection.title}</Truncate>
         <Label.Detail>{selection.description}</Label.Detail>
         <Icon name="delete" onClick={() => removeSelection(selection)} />
       </Label>

@@ -43,7 +43,7 @@ describe('Documents with items on shelf tests', () => {
 
     store.dispatch(actions.fetchRequestedWithAvailableItems()).then(() => {
       expect(mockDocumentsCount).toHaveBeenCalledWith(
-        'circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0'
+        'circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0'
       );
       const actions = store.getActions();
       expect(actions[0]).toEqual(expectedAction);
@@ -61,7 +61,7 @@ describe('Documents with items on shelf tests', () => {
 
     store.dispatch(actions.fetchRequestedWithAvailableItems()).then(() => {
       expect(mockDocumentsCount).toHaveBeenCalledWith(
-        'circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0'
+        'circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0'
       );
       const actions = store.getActions();
       expect(actions[1]).toEqual(expectedAction);
@@ -79,7 +79,7 @@ describe('Documents with items on shelf tests', () => {
 
     store.dispatch(actions.fetchRequestedWithAvailableItems()).then(() => {
       expect(mockDocumentsCount).toHaveBeenCalledWith(
-        'circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0'
+        'circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0'
       );
       const actions = store.getActions();
       expect(actions[1]).toEqual(expectedAction);

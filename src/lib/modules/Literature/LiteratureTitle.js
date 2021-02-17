@@ -1,7 +1,7 @@
+import { Truncate } from '@components/Truncate';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import Truncate from 'react-truncate';
 import LiteratureEdition from './LiteratureEdition';
 
 class EditionYear extends Component {
@@ -47,19 +47,18 @@ class LiteratureTitle extends Component {
       truncate,
       truncateLines,
       truncateWidth,
-      extraCSS,
     } = this.props;
     const cmp = (
-      <div className={`document-title ${extraCSS}`}>
+      <>
         {title}{' '}
         {(edition || publicationYear) && (
           <EditionYear edition={edition} publicationYear={publicationYear} />
         )}
-      </div>
+      </>
     );
 
     return truncate ? (
-      <Truncate lines={truncateLines} width={truncateWidth} ellipsis="... ">
+      <Truncate lines={truncateLines} width={truncateWidth}>
         {cmp}
       </Truncate>
     ) : (
@@ -74,8 +73,7 @@ LiteratureTitle.propTypes = {
   publicationYear: PropTypes.string,
   truncate: PropTypes.bool,
   truncateLines: PropTypes.number,
-  truncateWidth: PropTypes.number,
-  extraCSS: PropTypes.string,
+  truncateWidth: PropTypes.string,
 };
 
 LiteratureTitle.defaultProps = {
@@ -83,8 +81,7 @@ LiteratureTitle.defaultProps = {
   publicationYear: null,
   truncate: true,
   truncateLines: 2,
-  truncateWidth: 0,
-  extraCSS: '',
+  truncateWidth: null,
 };
 
 export default Overridable.component('LiteratureTitle', LiteratureTitle);

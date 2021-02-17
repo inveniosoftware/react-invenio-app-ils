@@ -3,18 +3,18 @@ import { CreatedBy } from '@components/backoffice/ChangedBy';
 import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { RestrictedAccessLabel } from '@components/backoffice/RestrictedAccessLabel';
 import { CopyButton } from '@components/CopyButton';
+import { invenioConfig } from '@config';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
-import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
+import { DateTime } from 'luxon';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Header, Icon, Label } from 'semantic-ui-react';
-import { DateTime } from 'luxon';
-import { invenioConfig } from '@config';
 
 export class DocumentHeader extends Component {
   render() {
@@ -54,6 +54,7 @@ export class DocumentHeader extends Component {
               title={data.metadata.title}
               edition={data.metadata.edition}
               publicationYear={data.metadata.publication_year}
+              truncate={false}
             />
           </>
         }

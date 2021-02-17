@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Header, Segment, Item } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
-import _isEmpty from 'lodash/isEmpty';
 import { ItemListEntry } from '@modules/Items/backoffice/ItemListEntry';
+import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Header, Item, Segment } from 'semantic-ui-react';
 
 export default class CheckedInItems extends Component {
   componentDidMount() {
