@@ -2,14 +2,13 @@ import { literatureApi } from '@api/literature';
 import { Media } from '@components/Media';
 import {
   invenioConfig,
-  setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitInitialQueryState,
   setReactSearchKitUrlHandler,
 } from '@config';
 import history from '@history';
 import { LiteratureSearchOverridesMap } from '@modules/Literature/LiteratureSearchOverrides';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
-import { SearchControlsMobile } from '@modules/SearchControls/SearchControlsMobile';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import PropTypes from 'prop-types';
@@ -56,9 +55,7 @@ export class SeriesLiteratureSearch extends React.Component {
     const urlHandler = setReactSearchKitUrlHandler(this.modelName, false);
     return (
       <>
-        <Divider horizontal>
-          Literature in this {metadata.mode_of_issuance.toUpperCase()}
-        </Divider>
+        <Divider horizontal>Literature in this series</Divider>
         <OverridableContext.Provider
           value={{
             ...SearchControlsOverridesMap,
@@ -79,23 +76,16 @@ export class SeriesLiteratureSearch extends React.Component {
                   {...invenioConfig.APP.SEARCH_BAR_PROPS}
                 />
               </Container>
-              <Media greaterThanOrEqual="tablet">
+              <Media greaterThanOrEqual="computer">
                 <ResultsLoader renderElement={this.renderLoader}>
                   <EmptyResults />
-
                   <Error />
-
-                  <Media greaterThanOrEqual="tablet">
-                    <SearchControls modelName={this.modelName} />
-                    <ResultsMultiLayout />
-                  </Media>
-                  <Media lessThan="computer">
-                    <SearchControlsMobile modelName={this.modelName} />
-                  </Media>
+                  <SearchControls modelName={this.modelName} />
+                  <ResultsMultiLayout />
                   <SearchFooter />
                 </ResultsLoader>
               </Media>
-              <Media lessThan="tablet">
+              <Media lessThan="computer">
                 <SeriesLiteratureSearchMobile metadata={metadata} />
               </Media>
             </>

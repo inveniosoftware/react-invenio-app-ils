@@ -49,7 +49,7 @@ export default class OverdueLoanSendMailModal extends Component {
         <Modal.Content>
           <Modal.Description>
             <p>
-              {'The loan for the literature '}
+              Overdue loan for the literature:
               <strong>
                 <Link
                   to={BackOfficeRoutes.documentDetailsFor(
@@ -62,11 +62,9 @@ export default class OverdueLoanSendMailModal extends Component {
                     title={loan.metadata.document.title}
                     edition={loan.metadata.document.edition}
                     publicationYear={loan.metadata.document.publication_year}
-                    extraCSS="display-inline-block"
                   />
                 </Link>
               </strong>
-              {' is overdue.'}
             </p>
             <p>
               {'Do you want to send a reminder e-mail to '}

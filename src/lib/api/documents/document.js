@@ -66,6 +66,7 @@ class QueryBuilder {
     this.pendingOverdueQuery = [];
     this.withSeriesQuery = [];
     this.sortByQuery = '';
+    this.sortOrderQuery = '';
   }
 
   overbooked() {
@@ -74,7 +75,7 @@ class QueryBuilder {
   }
 
   currentlyOnLoan() {
-    this.currentlyOnLoanQuery.push('circulation.active_loans:>0');
+    this.currentlyOnLoanQuery.push('circulation.active_loans_count:>0');
     return this;
   }
 
@@ -86,7 +87,7 @@ class QueryBuilder {
   }
 
   withPendingLoans() {
-    this.withPendingLoansQuery.push('circulation.pending_loans:>0');
+    this.withPendingLoansQuery.push('circulation.pending_loans_count:>0');
     return this;
   }
 
@@ -135,16 +136,21 @@ class QueryBuilder {
   pendingOverdue() {
     const query = [
       'circulation.available_items_for_loan_count:0',
-      'circulation.pending_loans:>0',
-      'circulation.overdue_loans:>0',
+      'circulation.pending_loans_count:>0',
+      'circulation.overdue_loans_count:>0',
       'items.total:>0',
     ];
     this.pendingOverdueQuery.push(encodeURI(query.join(' AND ')));
     return this;
   }
 
-  sortBy(order = 'bestmatch') {
-    this.sortByQuery = `&sort=${order}`;
+  sortBy(by = 'bestmatch') {
+    this.sortByQuery = `&sort=${by}`;
+    return this;
+  }
+
+  sortOrder(order = 'asc') {
+    this.sortOrderQuery = `&order=${order}`;
     return this;
   }
 
@@ -161,7 +167,7 @@ class QueryBuilder {
         this.withSeriesQuery
       )
       .join(' AND ');
-    return `${searchCriteria}${this.sortByQuery}${this.size}`;
+    return `${searchCriteria}${this.sortByQuery}${this.sortOrderQuery}${this.size}`;
   }
 }
 

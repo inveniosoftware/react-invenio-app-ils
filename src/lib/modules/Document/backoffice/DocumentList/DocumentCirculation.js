@@ -28,13 +28,13 @@ export default class DocumentCirculation extends Component {
         </List.Item>
         <List.Item>
           <List.Content floated="right">
-            <strong>{circulation.active_loans}</strong>
+            <strong>{circulation.active_loans_count}</strong>
           </List.Content>
           <List.Content>active loans</List.Content>
         </List.Item>
         <List.Item>
           <List.Content floated="right">
-            <strong>{circulation.pending_loans}</strong>
+            <strong>{circulation.pending_loans_count}</strong>
           </List.Content>
           <List.Content>loan requests</List.Content>
         </List.Item>

@@ -3,6 +3,7 @@ import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { DocumentIcon, EItemIcon } from '@components/backoffice/icons';
 import { OpenAccessLabel } from '@components/backoffice/OpenAccessLabel';
 import { CopyButton } from '@components/CopyButton';
+import { invenioConfig } from '@config';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
@@ -10,7 +11,6 @@ import { DateTime } from 'luxon';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { invenioConfig } from '@config';
 
 export class EItemHeader extends Component {
   render() {
@@ -34,12 +34,7 @@ export class EItemHeader extends Component {
     );
     return (
       <DetailsHeader
-        title={
-          <>
-            {data.metadata.pid}:{' '}
-            <LiteratureTitle title={data.metadata.document.title} />
-          </>
-        }
+        title={<LiteratureTitle title={data.metadata.document.title} />}
         subTitle={
           <DocumentAuthors
             authors={data.metadata.document.authors}

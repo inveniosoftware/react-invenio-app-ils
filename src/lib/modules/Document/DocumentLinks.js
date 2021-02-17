@@ -1,13 +1,13 @@
 import { RedirectToLoginButton } from '@authentication/components/RedirectToLoginButton';
+import { sessionManager } from '@authentication/services/SessionManager';
 import { ShowMoreItems } from '@components/ShowMoreItems';
 import { invenioConfig } from '@config';
+import { DownloadLink } from '@modules/EItem/DownloadLink';
 import { LiteratureAccessUrls } from '@modules/Literature/LiteratureAccessUrls';
 import prettyBytes from 'pretty-bytes';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Divider, Header, List } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
-import { DownloadLink } from '@modules/EItem/DownloadLink';
-import { sessionManager } from '@authentication/services/SessionManager';
 
 export class DocumentLinks extends Component {
   renderTitle = (title) => {
@@ -83,13 +83,14 @@ export class DocumentLinks extends Component {
   };
 
   render() {
+    const hasReadable = this.hasReadable();
+    const hasDownloadable = this.hasDownloadable();
+    const hasReadableOrDownloadable = hasReadable || hasDownloadable;
     return (
       <>
-        {this.hasReadable() && this.renderReadableList()}
-        {this.hasDownloadable() && this.renderDownloadableList()}
-        {!this.hasReadable() && !this.hasDownloadable() && (
-          <p>There are no online resources available.</p>
-        )}
+        {hasReadable && this.renderReadableList()}
+        {hasDownloadable && this.renderDownloadableList()}
+        {!hasReadableOrDownloadable && 'No online resources'}
       </>
     );
   }

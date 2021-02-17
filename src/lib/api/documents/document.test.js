@@ -8,12 +8,12 @@ describe('Document query builder tests', () => {
 
   it('should build the query string for the documents with items on loan', () => {
     const query = documentApi.query().currentlyOnLoan().qs();
-    expect(query).toEqual('circulation.active_loans:>0');
+    expect(query).toEqual('circulation.active_loans_count:>0');
   });
 
   it('should build the query string for documents with pending loans', () => {
     const query = documentApi.query().withPendingLoans().qs();
-    expect(query).toEqual('circulation.pending_loans:>0');
+    expect(query).toEqual('circulation.pending_loans_count:>0');
   });
 
   it('should build query for documents with items available for loan', () => {
@@ -28,7 +28,7 @@ describe('Document query builder tests', () => {
       .withPendingLoans()
       .qs();
     expect(query).toEqual(
-      'circulation.available_items_for_loan_count:>0 AND circulation.pending_loans:>0'
+      'circulation.available_items_for_loan_count:>0 AND circulation.pending_loans_count:>0'
     );
   });
 

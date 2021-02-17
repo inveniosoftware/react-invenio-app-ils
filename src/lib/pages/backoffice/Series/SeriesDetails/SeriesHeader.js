@@ -2,17 +2,17 @@ import { toShortDate } from '@api/date';
 import { CreatedBy } from '@components/backoffice/ChangedBy';
 import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { CopyButton } from '@components/CopyButton';
-import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
+import { DateTime } from 'luxon';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Header, Icon, Label } from 'semantic-ui-react';
-import { DateTime } from 'luxon';
 
 export class SeriesHeader extends Component {
   render() {
@@ -53,6 +53,7 @@ export class SeriesHeader extends Component {
               title={data.metadata.title}
               edition={data.metadata.edition}
               publicationYear={data.metadata.publication_year}
+              truncate={false}
             />
           </>
         }

@@ -331,6 +331,12 @@ export const RECORDS_CONFIG = {
           sortOrder: 'desc',
           text: 'Title [Z-A]',
         },
+        {
+          order: 9,
+          sortBy: 'loan_requests',
+          sortOrder: 'desc',
+          text: 'Most requested',
+        },
       ],
       defaultPage: 1,
       defaultSize: 15,

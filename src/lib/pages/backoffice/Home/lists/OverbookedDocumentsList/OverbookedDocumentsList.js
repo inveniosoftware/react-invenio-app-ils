@@ -1,13 +1,14 @@
+import { documentApi } from '@api/documents';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
-import React, { Component } from 'react';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
+import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
-import { Loader } from '@components/Loader';
-import { Error } from '@components/Error';
-import { documentApi } from '@api/documents';
-import { BackOfficeRoutes } from '@routes/urls';
-import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 
 export default class OverbookedDocumentsList extends Component {
   componentDidMount() {
@@ -17,7 +18,12 @@ export default class OverbookedDocumentsList extends Component {
 
   seeAllButton = () => {
     const path = BackOfficeRoutes.documentsListWithQuery(
-      documentApi.query().overbooked().qs()
+      documentApi
+        .query()
+        .overbooked()
+        .sortBy('loan_requests')
+        .sortOrder('desc')
+        .qs()
     );
 
     return <SeeAllButton to={path} />;
@@ -35,15 +41,29 @@ export default class OverbookedDocumentsList extends Component {
     );
   };
 
+  formatDocumentTitle = ({ row }) => {
+    return (
+      <LiteratureTitle
+        title={row.metadata.title}
+        edition={row.metadata.edition}
+        publicationYear={row.metadata.publication_year}
+      />
+    );
+  };
+
   renderTable(data) {
     const { showMaxEntries } = this.props;
     const columns = [
       { title: '', field: '', formatter: this.viewDetails },
       { title: 'ID', field: 'metadata.pid' },
-      { title: 'Title', field: 'metadata.title' },
+      {
+        title: 'Title',
+        field: 'metadata.title',
+        formatter: this.formatDocumentTitle,
+      },
       {
         title: 'Pending Requests',
-        field: 'metadata.circulation.pending_loans',
+        field: 'metadata.circulation.pending_loans_count',
       },
     ];
     return (

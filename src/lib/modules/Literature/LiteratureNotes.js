@@ -1,18 +1,14 @@
-import { InfoMessage } from '@components/InfoMessage';
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Divider } from 'semantic-ui-react';
 import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Divider } from 'semantic-ui-react';
 
 export const LiteratureNotes = ({ content }) => {
   return (
-    <InfoMessage
-      show={!_isEmpty(content)}
-      message="There is no note from the library."
-    >
-      <Divider horizontal>Librarian's note</Divider>
-      {content}
-    </InfoMessage>
+    <>
+      <Divider horizontal>Extra notes</Divider>
+      {_isEmpty(content) ? `No extra notes` : content}
+    </>
   );
 };
 

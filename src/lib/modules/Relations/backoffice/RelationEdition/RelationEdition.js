@@ -23,7 +23,6 @@ export default class RelationEdition extends Component {
         title={row.record_metadata.title}
         edition={row.record_metadata.edition}
         publicationYear={row.record_metadata.publication_year}
-        truncateWidth={300}
       />
     );
     if (row.pid_type === 'docid')

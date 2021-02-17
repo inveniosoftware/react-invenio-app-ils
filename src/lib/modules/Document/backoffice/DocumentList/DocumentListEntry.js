@@ -1,4 +1,5 @@
 import { EItemIcon } from '@components/backoffice/icons';
+import { invenioConfig } from '@config';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
@@ -12,7 +13,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Header, Icon, Item, List } from 'semantic-ui-react';
 import DocumentCirculation from './DocumentCirculation';
-import { invenioConfig } from '@config';
 
 export default class DocumentListEntry extends Component {
   renderMiddleColumn = (document) => {
@@ -105,7 +105,10 @@ export default class DocumentListEntry extends Component {
             to={BackOfficeRoutes.documentDetailsFor(document.metadata.pid)}
             data-test={`navigate-${document.metadata.pid}`}
           >
-            <LiteratureTitle title={document.metadata.title} />
+            <LiteratureTitle
+              title={document.metadata.title}
+              truncateWidth="500px"
+            />
           </Item.Header>
           <Grid columns={3}>
             <Grid.Column computer={6} largeScreen={5}>

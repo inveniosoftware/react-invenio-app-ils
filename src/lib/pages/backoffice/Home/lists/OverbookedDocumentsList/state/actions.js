@@ -13,7 +13,7 @@ export const fetchOverbookedDocuments = () => {
 
     try {
       const response = await documentApi.list(
-        documentApi.query().overbooked().qs()
+        documentApi.query().overbooked().sortBy('-loan_requests').qs()
       );
 
       dispatch({

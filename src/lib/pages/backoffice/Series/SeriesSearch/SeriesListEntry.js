@@ -109,7 +109,10 @@ export class SeriesListEntry extends Component {
             to={BackOfficeRoutes.seriesDetailsFor(series.metadata.pid)}
             data-test={`navigate-${series.metadata.pid}`}
           >
-            <LiteratureTitle title={series.metadata.title} />
+            <LiteratureTitle
+              title={series.metadata.title}
+              truncateWidth="500px"
+            />
           </Item.Header>
           <Grid columns={3}>
             <Grid.Column computer={6} largeScreen={5}>

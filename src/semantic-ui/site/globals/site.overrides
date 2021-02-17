@@ -246,10 +246,6 @@ a {
     padding: 1.5em;
   }
 
-  .document-title {
-    display: inline-block;
-  }
-
   .bo-details-header-status-labels {
     display: inline-block;
     margin-left: 1em;

@@ -126,7 +126,7 @@ Container Overrides - REACT-INVENIO-APP-ILS
     &.fs-headline-section {
       background-color: rgba(0, 0, 0, .3);
       background-image: @headlineBackground;
-      min-height: 75vh;
+      min-height: 60vh;
       background-size: cover;
       background-position: center;
       background-blend-mode: darken;

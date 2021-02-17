@@ -1,13 +1,16 @@
 import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
 import { Breadcrumbs } from '@components/Breadcrumbs';
 import { Error } from '@components/Error';
+import { NotFound } from '@components/HttpErrors';
 import { ILSParagraphPlaceholder } from '@components/ILSPlaceholder';
 import { Media } from '@components/Media';
 import { SearchBarILS } from '@components/SearchBar';
 import { invenioConfig } from '@config';
 import { goTo } from '@history';
+import LiteratureTags from '@modules/Literature/LiteratureTags';
 import { SeriesLiteratureSearch } from '@modules/Series/SeriesLiteratureSearch';
 import { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
+import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -16,9 +19,6 @@ import { Link } from 'react-router-dom';
 import { Container, Grid, Icon, Label } from 'semantic-ui-react';
 import { SeriesMetadata } from './SeriesMetadata';
 import SeriesPanel from './SeriesPanel/SeriesPanel';
-import { NotFound } from '@components/HttpErrors';
-import _get from 'lodash/get';
-import LiteratureTags from '@modules/Literature/LiteratureTags';
 
 const SeriesDetailsLayout = ({ error, isLoading, series }) => {
   const breadcrumbs = () => [
@@ -31,7 +31,7 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
         <Container className="document-details-container default-margin-top">
           <ILSParagraphPlaceholder isLoading={isLoading} linesNumber={1}>
             <Grid columns={2}>
-              <Grid.Column width={13}>
+              <Grid.Column computer={13} tablet={13} mobile={16}>
                 <Breadcrumbs
                   isLoading={isLoading}
                   elements={breadcrumbs()}
@@ -40,7 +40,12 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
                   }
                 />
               </Grid.Column>
-              <Grid.Column width={3} textAlign="right">
+              <Grid.Column
+                computer={3}
+                tablet={3}
+                mobile={16}
+                textAlign="right"
+              >
                 {!_isEmpty(series.metadata) && (
                   <AuthenticationGuard
                     silent

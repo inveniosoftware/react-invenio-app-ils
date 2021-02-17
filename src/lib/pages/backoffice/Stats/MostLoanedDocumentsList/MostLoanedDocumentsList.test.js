@@ -1,9 +1,9 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { Settings } from 'luxon';
-import MostLoanedDocumentsList from './MostLoanedDocumentsList';
-import { MemoryRouter } from 'react-router';
 import * as testData from '@testData/documents.json';
+import { mount, shallow } from 'enzyme';
+import { Settings } from 'luxon';
+import React from 'react';
+import { MemoryRouter } from 'react-router';
+import MostLoanedDocumentsList from './MostLoanedDocumentsList';
 
 jest.mock('@components/backoffice/ExportSearchResults');
 jest.mock('@config');

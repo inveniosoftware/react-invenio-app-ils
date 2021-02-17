@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Tab } from 'semantic-ui-react';
-import { SeriesUrls } from '../SeriesUrls';
+import { SeriesAdditionalInfo } from '../SeriesAdditionalInfo';
+import { SeriesContent } from '../SeriesContent';
+import { SeriesNotes } from '../SeriesNotes';
 import { SeriesPublication } from '../SeriesPublication';
 import { SeriesSystemInfo } from '../SeriesSystemInfo';
-import { SeriesAdditionalInfo } from '../SeriesAdditionalInfo';
-import { SeriesNotes } from '../SeriesNotes';
-import { SeriesContent } from '../SeriesContent';
+import { SeriesUrls } from '../SeriesUrls';
 import { SeriesMetadata } from './';
 
 export default class SeriesMetadataTabs extends Component {

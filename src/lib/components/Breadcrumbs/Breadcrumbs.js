@@ -1,7 +1,7 @@
+import { Truncate } from '@components/Truncate';
 import PropTypes from 'prop-types';
 import { Component, default as React } from 'react';
 import { Link } from 'react-router-dom';
-import Truncate from 'react-truncate';
 import { Breadcrumb } from 'semantic-ui-react';
 
 export default class Breadcrumbs extends Component {
@@ -34,9 +34,7 @@ export default class Breadcrumbs extends Component {
         <Breadcrumb>
           {this._renderBreadcrumbElements()}
           <Breadcrumb.Section active>
-            <Truncate width={200} ellipsis="... ">
-              {currentElement}
-            </Truncate>
+            <Truncate width="200px">{currentElement}</Truncate>
           </Breadcrumb.Section>
         </Breadcrumb>
       </div>

@@ -23,7 +23,6 @@ export default class RelationOther extends Component {
           title={row.record_metadata.title}
           edition={row.record_metadata.edition}
           publicationYear={row.record_metadata.publication_year}
-          truncateWidth={300}
         />
       </DocumentDetailsLink>
     );

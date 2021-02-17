@@ -48,7 +48,7 @@ export class SeriesCard extends Component {
         {this.renderImage()}
         <Card.Content>
           <Card.Header>
-            <LiteratureTitle title={data.metadata.title} truncateLines={5} />
+            <LiteratureTitle title={data.metadata.title} />
           </Card.Header>
           <Card.Meta>
             <div>

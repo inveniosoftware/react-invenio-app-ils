@@ -6,8 +6,6 @@ import { mount, shallow } from 'enzyme';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import PatronCurrentBorrowingRequests from './PatronCurrentBorrowingRequests';
-// jest-canvas-mock is needed to prevent errors while using the Truncate component from react-truncate
-import 'jest-canvas-mock';
 
 jest.mock('@config');
 ILLRoutes.borrowingRequestDetailsFor = jest.fn((pid) => `url/${pid}`);

@@ -2,6 +2,7 @@ import { invenioConfig } from '@config';
 import { DocumentConference } from '@modules/Document/DocumentConference';
 import { DocumentInfo } from '@modules/Document/DocumentInfo';
 import { DocumentLinks } from '@modules/Document/DocumentLinks';
+import { DocumentMetadataExtensions } from '@modules/Document/DocumentMetadataExtensions';
 import { DocumentPublicationInfo } from '@modules/Document/DocumentPublicationInfo';
 import { DocumentTableOfContent } from '@modules/Document/DocumentTableOfContent';
 import { Identifiers } from '@modules/Identifiers';
@@ -13,7 +14,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Tab } from 'semantic-ui-react';
-import { DocumentMetadataExtensions } from '@modules/Document/DocumentMetadataExtensions';
 
 class DocumentMetadataTabs extends Component {
   renderTabPanes = () => {
@@ -52,20 +52,14 @@ class DocumentMetadataTabs extends Component {
       {
         menuItem: 'Publications',
         render: () => (
-          <DocumentPublicationInfo
-            publications={metadata.publication_info}
-            documentType={metadata.document_type}
-          />
+          <DocumentPublicationInfo publications={metadata.publication_info} />
         ),
       },
       {
         menuItem: 'Conference',
         render: () => (
           <Tab.Pane>
-            <DocumentConference
-              conference={metadata.conference_info}
-              documentType={metadata.document_type}
-            />
+            <DocumentConference conference={metadata.conference_info} />
           </Tab.Pane>
         ),
       },
@@ -77,19 +71,15 @@ class DocumentMetadataTabs extends Component {
           </Tab.Pane>
         ),
       },
-    ];
-
-    const { eitems = {} } = metadata;
-    if (_get(eitems, 'total', 0) > 0) {
-      panes.push({
-        menuItem: 'Files',
+      {
+        menuItem: 'Resources',
         render: () => (
           <Tab.Pane>
-            <DocumentLinks dividers eitems={eitems} />
+            <DocumentLinks dividers eitems={metadata.eitems} />
           </Tab.Pane>
         ),
-      });
-    }
+      },
+    ];
 
     const { extensions = {} } = metadata;
     if (
