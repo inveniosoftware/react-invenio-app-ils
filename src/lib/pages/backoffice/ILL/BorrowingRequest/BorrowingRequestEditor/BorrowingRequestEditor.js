@@ -30,20 +30,28 @@ export class BorrowingRequestEditor extends Component {
       this.cancellableFetchBorrowingRequest.cancel();
   }
 
-  get initialData() {
-    const {
-      location: { state: request },
-    } = this.props;
-    if (!request) return null;
-    return {
-      documentRequestPid: request.metadata.pid,
-      metadata: {
-        title: _get(request, 'metadata.title'),
-        patron: request.metadata.patron,
-        document: request.metadata.document,
-        status: 'PENDING',
-      },
-    };
+  getPrefilledFormData() {
+    const shouldPrefillForm = _get(
+      this.props,
+      'location.state.prefillForm',
+      false
+    );
+
+    if (shouldPrefillForm) {
+      const {
+        location: { state },
+      } = this.props;
+      const { formData } = state;
+
+      // prepare the data for the form editor
+      return {
+        extraData: _get(state, 'extraData', {}),
+        metadata: {
+          ...formData,
+        },
+      };
+    }
+    return null;
   }
 
   fetchBorrowingRequest = async (borrowingRequestPid) => {
@@ -89,7 +97,7 @@ export class BorrowingRequestEditor extends Component {
       <BorrowingRequestForm
         title="Create new borrowing request"
         successSubmitMessage="The borrowing request was successfully created."
-        data={this.initialData}
+        data={this.getPrefilledFormData()}
       />
     );
   }

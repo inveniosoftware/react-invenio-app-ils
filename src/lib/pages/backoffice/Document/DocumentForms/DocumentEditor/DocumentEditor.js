@@ -33,20 +33,28 @@ export class DocumentEditor extends Component {
     this.cancellableFetchDocument && this.cancellableFetchDocument.cancel();
   }
 
-  get documentRequest() {
-    const request = _get(this.props, 'location.state', null);
-    if (!request) return null;
-    return {
-      documentRequestPid: request.metadata.pid,
-      metadata: {
-        title: _get(request, 'metadata.title'),
-        // NOTE: serializing authors for the document form
-        authors: [{ full_name: _get(request, 'metadata.authors') }],
-        journalTitle: _get(request, 'metadata.journal_title'),
-        edition: _get(request, 'metadata.edition'),
-        publication_year: String(_get(request, 'metadata.publication_year')),
-      },
-    };
+  getPrefilledFormData() {
+    const shouldPrefillForm = _get(
+      this.props,
+      'location.state.prefillForm',
+      false
+    );
+
+    if (shouldPrefillForm) {
+      const {
+        location: { state },
+      } = this.props;
+      const { formData } = state;
+
+      // prepare the data for the form editor
+      return {
+        extraData: _get(state, 'extraData', {}),
+        metadata: {
+          ...formData,
+        },
+      };
+    }
+    return null;
   }
 
   fetchDocument = async (documentPid) => {
@@ -91,7 +99,7 @@ export class DocumentEditor extends Component {
         isCreate
         title="Create new document"
         successSubmitMessage="The document was successfully created."
-        data={this.documentRequest}
+        data={this.getPrefilledFormData()}
       />
     );
   }
@@ -103,4 +111,16 @@ DocumentEditor.propTypes = {
       documentPid: PropTypes.string,
     }),
   }).isRequired,
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      formData: PropTypes.object,
+      extraData: PropTypes.object,
+    }),
+  }),
+};
+
+DocumentEditor.defaultProps = {
+  location: {
+    state: null,
+  },
 };

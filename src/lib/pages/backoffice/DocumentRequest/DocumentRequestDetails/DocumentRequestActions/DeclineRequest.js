@@ -81,7 +81,7 @@ export class DeclineRequest extends React.Component {
             query={documentApi.list}
             serializer={serializeDocument}
             title="Decline request: already in the catalog"
-            content="Select literature to attach."
+            content="Select document already in catalog."
             emptySelectionInfoText="No literature selected"
             onSave={this.onDeclineWithDocument}
             saveButtonContent="Decline request"

@@ -1,22 +1,22 @@
 import { orderApi } from '@api/acquisition';
+import { documentRequestApi } from '@api/documentRequests';
+import { withCancel } from '@api/utils';
 import { sessionManager } from '@authentication/services/SessionManager';
+import { invenioConfig } from '@config';
 import { BaseForm } from '@forms/core/BaseForm';
 import { goTo } from '@history';
-import { AcquisitionRoutes } from '@routes/urls';
+import { AcquisitionRoutes, BackOfficeRoutes } from '@routes/urls';
 import { getIn } from 'formik';
+import _get from 'lodash/get';
 import _has from 'lodash/has';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Grid, Header, Segment } from 'semantic-ui-react';
+import * as Yup from 'yup';
 import { OrderInfo } from './OrderInfo';
 import { OrderLines } from './OrderLines';
 import { Payment } from './Payment';
-import * as Yup from 'yup';
-import _get from 'lodash/get';
-import { documentRequestApi } from '@api/documentRequests';
-import { BackOfficeRoutes } from '@routes/urls';
-import { invenioConfig } from '@config';
 
 const orderSubmitSerializer = (values) => {
   const submitValues = { ...values };
@@ -73,6 +73,10 @@ const OrderSchema = Yup.object().shape({
 });
 
 export class OrderForm extends Component {
+  componentWillUnmount() {
+    this.cancellableAttachOrder && this.cancellableAttachOrder.cancel();
+  }
+
   get buttons() {
     const { pid: isEditing } = this.props;
     if (isEditing) {
@@ -104,24 +108,48 @@ export class OrderForm extends Component {
     return orderApi.update(pid, data);
   };
 
-  successCallback = async (response) => {
-    const order = getIn(response, 'data');
-    const documentRequestPid = _get(
-      this.props,
-      'data.documentRequestPid',
-      null
-    );
-    if (documentRequestPid) {
-      await documentRequestApi.addProvider(documentRequestPid, {
+  attachCreatedOrderToDocumentRequest = async (
+    orderPid,
+    documentRequestPid
+  ) => {
+    this.cancellableAttachOrder = withCancel(
+      documentRequestApi.addProvider(documentRequestPid, {
         physical_item_provider: {
-          pid: order.metadata.pid,
+          pid: orderPid,
           pid_type:
             invenioConfig.DOCUMENT_REQUESTS.physicalItemProviders.acq.pid_type,
         },
-      });
+      })
+    );
+    try {
+      await this.cancellableAttachOrder.promise;
+    } catch (error) {
+      if (error !== 'UNMOUNTED') {
+        const { sendErrorNotification } = this.props;
+        sendErrorNotification(error);
+      }
+    }
+  };
+
+  successCallback = async (response, _, extraData) => {
+    const order = getIn(response, 'data');
+    const newOrderPid = order.metadata.pid;
+
+    const shouldAttachCreatedOrderToDocumentRequest = _get(
+      extraData,
+      'attachCreatedOrderToDocumentRequest',
+      false
+    );
+    if (shouldAttachCreatedOrderToDocumentRequest) {
+      // attach order and go back to the document request details page
+      const documentRequestPid = extraData.documentRequestPid;
+      await this.attachCreatedOrderToDocumentRequest(
+        newOrderPid,
+        documentRequestPid
+      );
       goTo(BackOfficeRoutes.documentRequestDetailsFor(documentRequestPid));
     } else {
-      goTo(AcquisitionRoutes.orderDetailsFor(order.metadata.pid));
+      goTo(AcquisitionRoutes.orderDetailsFor(newOrderPid));
     }
   };
 
@@ -138,7 +166,13 @@ export class OrderForm extends Component {
         initialValues={data ? data.metadata : this.getDefaultValues()}
         editApiMethod={this.updateOrder}
         createApiMethod={this.createOrder}
-        successCallback={this.successCallback}
+        successCallback={(response, submitButton) =>
+          this.successCallback(
+            response,
+            submitButton,
+            _get(data, 'extraData', {})
+          )
+        }
         successSubmitMessage={successSubmitMessage}
         title={title}
         pid={pid}
@@ -182,6 +216,7 @@ OrderForm.propTypes = {
   title: PropTypes.string,
   pid: PropTypes.string,
   isCreate: PropTypes.bool,
+  sendErrorNotification: PropTypes.func.isRequired,
 };
 
 OrderForm.defaultProps = {

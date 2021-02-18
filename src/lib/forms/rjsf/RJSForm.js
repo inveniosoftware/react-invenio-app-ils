@@ -1,3 +1,4 @@
+import { RJSFDocumentRequestProvider } from '@forms/rjsf/fields/RJSFDocumentRequestProvider';
 import {
   ArrayFieldTemplateWithWrapper,
   FieldTemplateWithWrapper,
@@ -13,12 +14,18 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Container, Divider } from 'semantic-ui-react';
+import { removeEmptyValues } from './RecordSerializer';
 
-const widgets = {
+const customWidgets = {
   referencedDocument: RJSFReferencedDocument,
   referencedPatron: RJSFReferencedPatron,
   vocabularySearch: RJSFVocabularySearch,
   vocabulary: RJSFVocabulary,
+  documentRequestProvider: RJSFDocumentRequestProvider,
+};
+
+const customFields = {
+  documentRequestProvider: RJSFDocumentRequestProvider,
 };
 
 export class RJSForm extends Component {
@@ -68,6 +75,8 @@ export class RJSForm extends Component {
       successMessage,
     } = this.props;
 
+    formData = removeEmptyValues(formData);
+
     try {
       this.setState({ isLoading: true });
       const response = await submitAction(formData);
@@ -91,7 +100,8 @@ export class RJSForm extends Component {
         schema={schema}
         uiSchema={uiSchema}
         formData={formData}
-        widgets={widgets}
+        widgets={customWidgets}
+        fields={customFields}
         extraErrors={errors}
         ObjectFieldTemplate={ObjectFieldTemplateWithGrid}
         FieldTemplate={FieldTemplateWithWrapper}

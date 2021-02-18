@@ -1,4 +1,5 @@
 import { DocumentRequestIcon } from '@components/backoffice/icons';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -22,7 +23,7 @@ export class DocumentRequestListEntry extends Component {
             <DocumentRequestIcon /> Literature request #
             {documentRequest.metadata.pid}
           </Item.Header>
-          <Grid columns={5}>
+          <Grid columns={3}>
             <Grid.Column computer={7} largeScreen={7}>
               <label>Patron</label>{' '}
               <Link
@@ -50,7 +51,7 @@ export class DocumentRequestListEntry extends Component {
                 </>
               )}
             </Grid.Column>
-            <Grid.Column computer={3} largeScreen={3}>
+            <Grid.Column computer={5} largeScreen={5}>
               <List>
                 <List.Item>
                   <List.Content>
@@ -60,7 +61,7 @@ export class DocumentRequestListEntry extends Component {
                 {documentRequest.metadata.decline_reason && (
                   <List.Item>
                     <List.Content>
-                      <label>Reason </label>
+                      <label>Decline reason </label>
                       {documentRequest.metadata.decline_reason}
                     </List.Content>
                   </List.Item>
@@ -68,13 +69,19 @@ export class DocumentRequestListEntry extends Component {
                 {documentRequest.metadata.document_pid && (
                   <List.Item>
                     <List.Content>
-                      <label>Document </label>
+                      <label>Selected document</label>
                       <Link
                         to={BackOfficeRoutes.documentDetailsFor(
                           documentRequest.metadata.document_pid
                         )}
                       >
-                        {documentRequest.metadata.document.title}
+                        <LiteratureTitle
+                          title={documentRequest.metadata.document.title}
+                          edition={documentRequest.metadata.document.edition}
+                          publicationYear={
+                            documentRequest.metadata.document.publication_year
+                          }
+                        />
                       </Link>
                     </List.Content>
                   </List.Item>

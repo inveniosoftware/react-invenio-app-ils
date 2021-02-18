@@ -7,6 +7,9 @@ export const uiSchema = (title) => ({
   document_pid: {
     'ui:widget': 'referencedDocument',
   },
+  physical_item_provider: {
+    'ui:field': 'documentRequestProvider',
+  },
   medium: {
     'ui:widget': 'vocabulary',
     'ui:options': {
@@ -51,26 +54,29 @@ export const uiSchema = (title) => ({
     },
     {
       document_pid: 8,
-      internal_note: 8,
+      physical_item_provider: 8,
     },
     {
       'custom:divider': 16,
     },
     {
-      journal_title: 8,
       authors: 8,
+      edition: 4,
+      publication_year: 4,
     },
     {
       isbn: 8,
       issn: 8,
     },
     {
-      edition: 3,
-      publication_year: 2,
-      volume: 3,
-      issue: 3,
+      journal_title: 6,
+      volume: 2,
+      issue: 2,
       page: 2,
-      standard_number: 3,
+      standard_number: 4,
+    },
+    {
+      'custom:divider': 16,
     },
     {
       request_type: 4,
@@ -79,6 +85,9 @@ export const uiSchema = (title) => ({
     },
     {
       note: 16,
+    },
+    {
+      internal_note: 16,
     },
   ],
   'custom:root': {

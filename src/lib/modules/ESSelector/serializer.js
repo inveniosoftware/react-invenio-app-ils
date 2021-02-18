@@ -125,8 +125,8 @@ export const serializeAcqOrder = (order) => ({
   key: order.metadata.pid,
   pid: order.metadata.pid,
   title: order.metadata.pid,
+  description: order.metadata.vendor.name,
   metadata: order.metadata,
-  extra: `${order.metadata.grand_total.currency} ${order.metadata.grand_total.value}`,
 });
 
 export const serializeBorrowingRequest = (request) => ({
@@ -134,5 +134,6 @@ export const serializeBorrowingRequest = (request) => ({
   key: request.metadata.pid,
   pid: request.metadata.pid,
   title: request.metadata.pid,
+  description: request.metadata.library.name,
   metadata: request.metadata,
 });

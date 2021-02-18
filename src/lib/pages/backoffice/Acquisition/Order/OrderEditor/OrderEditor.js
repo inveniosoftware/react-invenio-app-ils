@@ -61,19 +61,28 @@ export class OrderEditor extends Component {
     );
   };
 
-  get documentRequest() {
-    const request = _get(this.props, 'location.state', null);
-    if (!request) return null;
-    return {
-      documentRequestPid: request.metadata.pid,
-      metadata: {
-        order_lines: [
-          {
-            document_pid: _get(request, 'metadata.document_pid'),
-          },
-        ],
-      },
-    };
+  getPrefilledFormData() {
+    const shouldPrefillForm = _get(
+      this.props,
+      'location.state.prefillForm',
+      false
+    );
+
+    if (shouldPrefillForm) {
+      const {
+        location: { state },
+      } = this.props;
+      const { formData } = state;
+
+      // prepare the data for the form editor
+      return {
+        extraData: _get(state, 'extraData', {}),
+        metadata: {
+          ...formData,
+        },
+      };
+    }
+    return null;
   }
 
   render() {
@@ -89,7 +98,7 @@ export class OrderEditor extends Component {
       <OrderForm
         title="Create new acquisition order"
         successSubmitMessage="The order was successfully created."
-        data={this.documentRequest}
+        data={this.getPrefilledFormData()}
         isCreate
       />
     );
@@ -102,4 +111,16 @@ OrderEditor.propTypes = {
       orderPid: PropTypes.string,
     }),
   }).isRequired,
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      formData: PropTypes.object,
+      extraData: PropTypes.object,
+    }),
+  }),
+};
+
+OrderEditor.defaultProps = {
+  location: {
+    state: null,
+  },
 };

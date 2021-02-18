@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Label } from 'semantic-ui-react';
 
-export default class DocumentRequestHeader extends Component {
+export class DocumentRequestHeader extends Component {
   renderStatus(status) {
     switch (status) {
       case 'DECLINED':
@@ -24,14 +24,14 @@ export default class DocumentRequestHeader extends Component {
   }
 
   recordInfo = () => {
-    const { data } = this.props;
+    const { created, docReq } = this.props;
     return (
       <>
-        <Label className="muted">Request</Label> {data.metadata.pid}
-        <CopyButton text={data.metadata.pid} />
+        <Label className="muted">Request</Label> {docReq.pid}
+        <CopyButton text={docReq.pid} />
         <br />
         <Label className="muted">Created on</Label>{' '}
-        {toShortDate(DateTime.fromISO(data.created))}
+        {toShortDate(DateTime.fromISO(created))}
       </>
     );
   };
@@ -48,16 +48,14 @@ export default class DocumentRequestHeader extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { docReq } = this.props;
     return (
       <DetailsHeader
         title={
-          <>
-            Request for new literature {this.renderStatus(data.metadata.state)}
-          </>
+          <>Request for new literature {this.renderStatus(docReq.state)}</>
         }
-        subTitle={this.patronLink(data.metadata.patron)}
-        pid={data.metadata.pid}
+        subTitle={this.patronLink(docReq.patron)}
+        pid={docReq.pid}
         icon={<DocumentRequestIcon />}
         recordInfo={this.recordInfo()}
       />
@@ -66,5 +64,6 @@ export default class DocumentRequestHeader extends Component {
 }
 
 DocumentRequestHeader.propTypes = {
-  data: PropTypes.object.isRequired,
+  created: PropTypes.string.isRequired,
+  docReq: PropTypes.object.isRequired,
 };

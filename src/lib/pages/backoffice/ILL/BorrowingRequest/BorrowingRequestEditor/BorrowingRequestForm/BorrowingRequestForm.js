@@ -1,18 +1,18 @@
+import { documentRequestApi } from '@api/documentRequests';
 import { borrowingRequestApi } from '@api/ill';
+import { withCancel } from '@api/utils';
+import { invenioConfig } from '@config';
 import { BaseForm } from '@forms/core/BaseForm';
 import { goTo } from '@history';
-import { ILLRoutes } from '@routes/urls';
+import { BackOfficeRoutes, ILLRoutes } from '@routes/urls';
 import { getIn } from 'formik';
+import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, Segment } from 'semantic-ui-react';
 import { OrderInfo } from './OrderInfo';
 import { Payment } from './Payment';
-import _get from 'lodash/get';
-import { documentRequestApi } from '@api/documentRequests';
-import { BackOfficeRoutes } from '@routes/urls';
-import { invenioConfig } from '@config';
 
 const submitSerializer = (values) => {
   const submitValues = { ...values };
@@ -30,6 +30,9 @@ const submitSerializer = (values) => {
 };
 
 export class BorrowingRequestForm extends Component {
+  componentWillUnmount() {
+    this.cancellableAttachBrwRew && this.cancellableAttachBrwRew.cancel();
+  }
   updateBorrowingRequest = (pid, data) => {
     return borrowingRequestApi.update(pid, data);
   };
@@ -38,24 +41,48 @@ export class BorrowingRequestForm extends Component {
     return borrowingRequestApi.create(data);
   };
 
-  successCallback = async (response, submitButton) => {
-    const borrowingRequest = getIn(response, 'data');
-    const documentRequestPid = _get(
-      this.props,
-      'data.documentRequestPid',
-      null
-    );
-    if (documentRequestPid) {
-      await documentRequestApi.addProvider(documentRequestPid, {
+  attachCreatedBrwReqToDocumentRequest = async (
+    newBrwReqPid,
+    documentRequestPid
+  ) => {
+    this.cancellableAttachBrwRew = withCancel(
+      documentRequestApi.addProvider(documentRequestPid, {
         physical_item_provider: {
-          pid: borrowingRequest.metadata.pid,
+          pid: newBrwReqPid,
           pid_type:
             invenioConfig.DOCUMENT_REQUESTS.physicalItemProviders.ill.pid_type,
         },
-      });
+      })
+    );
+    try {
+      await this.cancellableAttachBrwRew.promise;
+    } catch (error) {
+      if (error !== 'UNMOUNTED') {
+        const { sendErrorNotification } = this.props;
+        sendErrorNotification(error);
+      }
+    }
+  };
+
+  successCallback = async (response, _, extraData) => {
+    const borrowingRequest = getIn(response, 'data');
+    const newBrwReqPid = borrowingRequest.metadata.pid;
+
+    const shouldAttachCreatedBrwReqToDocumentRequest = _get(
+      extraData,
+      'attachCreatedBrwReqToDocumentRequest',
+      false
+    );
+    if (shouldAttachCreatedBrwReqToDocumentRequest) {
+      // attach borrowing request and go back to the document request details page
+      const documentRequestPid = extraData.documentRequestPid;
+      await this.attachCreatedBrwReqToDocumentRequest(
+        newBrwReqPid,
+        documentRequestPid
+      );
       goTo(BackOfficeRoutes.documentRequestDetailsFor(documentRequestPid));
     } else {
-      goTo(ILLRoutes.borrowingRequestDetailsFor(borrowingRequest.metadata.pid));
+      goTo(ILLRoutes.borrowingRequestDetailsFor(newBrwReqPid));
     }
   };
 
@@ -66,7 +93,13 @@ export class BorrowingRequestForm extends Component {
         initialValues={data ? data.metadata : {}}
         editApiMethod={this.updateBorrowingRequest}
         createApiMethod={this.createBorrowingRequest}
-        successCallback={this.successCallback}
+        successCallback={(response, submitButton) =>
+          this.successCallback(
+            response,
+            submitButton,
+            _get(data, 'extraData', {})
+          )
+        }
         successSubmitMessage={successSubmitMessage}
         title={title}
         pid={pid}
@@ -95,6 +128,7 @@ BorrowingRequestForm.propTypes = {
   successSubmitMessage: PropTypes.string,
   title: PropTypes.string,
   pid: PropTypes.string,
+  sendErrorNotification: PropTypes.func.isRequired,
 };
 
 BorrowingRequestForm.defaultProps = {

@@ -299,12 +299,12 @@ DocumentRequestForm.defaultProps = {
     placeholder: 'Select type...',
   },
   paymentMethod: {
-    label: 'Payment method',
+    label: 'Payment method (if purchase)',
     placeholder: 'Select method...',
   },
   paymentInfo: {
-    label: 'Payment information',
-    placeholder: 'Payment information',
+    label: 'Payment information (if purchase)',
+    placeholder: 'Any relevant information about the payment',
   },
   notes: {
     label: 'Notes',

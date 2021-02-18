@@ -347,7 +347,7 @@ export const RECORDS_CONFIG = {
     states: ['ACCEPTED', 'PENDING', 'DECLINED'],
     physicalItemProviders: {
       acq: { name: 'Acquisition', pid_type: 'acqoid' },
-      ill: { name: 'InterLibrary', pid_type: 'illbid' },
+      ill: { name: 'Interlibrary loan', pid_type: 'illbid' },
     },
     declineTypes: ['USER_CANCEL', 'IN_CATALOG', 'NOT_FOUND', 'OTHER'],
     search: {
