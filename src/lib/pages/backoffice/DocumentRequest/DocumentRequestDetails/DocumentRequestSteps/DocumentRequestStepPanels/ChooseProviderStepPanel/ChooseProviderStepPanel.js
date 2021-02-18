@@ -12,71 +12,46 @@ import {
   serializeBorrowingRequest,
 } from '@modules/ESSelector/serializer';
 import { AcquisitionRoutes, ILLRoutes } from '@routes/urls';
+import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import {
-  Button,
-  Divider,
-  Grid,
-  Icon,
-  Label,
-  Segment,
-  Step,
-} from 'semantic-ui-react';
-import { STEPS } from '../Steps';
-
-export const ProviderStep = ({ step }) => (
-  <Step active={step === STEPS.provider} disabled={step === STEPS.document}>
-    <Icon name="truck" />
-    <Step.Content>
-      <Step.Title>Select provider</Step.Title>
-      <Step.Description>
-        Purchase or borrow from another library
-      </Step.Description>
-    </Step.Content>
-  </Step>
-);
-
-ProviderStep.propTypes = {
-  step: PropTypes.string.isRequired,
-};
-
-export default class ProviderStepContent extends Component {
-  render() {
-    const { step, data, addProvider } = this.props;
-    return step === STEPS.provider ? (
-      <>
-        <AcqProvider data={data} addProvider={addProvider} />
-        <IllProvider data={data} addProvider={addProvider} />
-      </>
-    ) : null;
-  }
-}
-
-ProviderStepContent.propTypes = {
-  step: PropTypes.string.isRequired,
-  data: PropTypes.object.isRequired,
-  addProvider: PropTypes.func.isRequired,
-};
+import { Button, Divider, Grid, Label, Segment } from 'semantic-ui-react';
 
 class AcqProvider extends Component {
   onSelectResult = (provData) => {
-    const {
-      data: { metadata },
-      addProvider,
-    } = this.props;
+    const { docReq, addProvider } = this.props;
     const { acq } = invenioConfig.DOCUMENT_REQUESTS.physicalItemProviders;
-    addProvider(provData.pid, metadata.pid, acq.pid_type);
+    addProvider(provData.pid, docReq.pid, acq.pid_type);
+  };
+
+  goToCreateOrderAndPrefill = (docReq) => {
+    const createOrderFormData = {
+      prefillForm: true,
+      formData: {
+        order_lines: [
+          {
+            document_pid: _get(docReq, 'document_pid', ''),
+            patron_pid: docReq.patron_pid,
+          },
+        ],
+      },
+      extraData: {
+        attachCreatedOrderToDocumentRequest: true,
+        documentRequestPid: docReq.pid,
+      },
+    };
+
+    goTo(AcquisitionRoutes.orderCreate, createOrderFormData);
   };
 
   render() {
-    const { data } = this.props;
+    const { docReq } = this.props;
     return (
       <Segment raised>
-        <Label color="brown" ribbon>
-          Acquisition
+        <Label color="blue" ribbon>
+          Acquisition Order
         </Label>
-        <span>Search and select an existing Acquisition order</span>
+        <span>Search and select an existing Acquisition Order</span>
         <Grid columns={2} padded>
           <Grid.Column>
             <ESSelector
@@ -89,8 +64,9 @@ class AcqProvider extends Component {
           <Grid.Column textAlign="center" verticalAlign="middle">
             <Button
               positive
+              labelPosition="left"
               name="create-acq"
-              onClick={() => goTo(AcquisitionRoutes.orderCreate, data)}
+              onClick={() => this.goToCreateOrderAndPrefill(docReq)}
               icon="plus"
               content="Create new Acquisition Order"
             />
@@ -103,28 +79,42 @@ class AcqProvider extends Component {
 }
 
 AcqProvider.propTypes = {
-  data: PropTypes.object.isRequired,
+  docReq: PropTypes.object.isRequired,
   addProvider: PropTypes.func.isRequired,
 };
 
 class IllProvider extends Component {
   onSelectResult = (provData) => {
-    const {
-      data: { metadata },
-      addProvider,
-    } = this.props;
+    const { docReq, addProvider } = this.props;
     const { ill } = invenioConfig.DOCUMENT_REQUESTS.physicalItemProviders;
-    addProvider(provData.pid, metadata.pid, ill.pid_type);
+    addProvider(provData.pid, docReq.pid, ill.pid_type);
+  };
+
+  goToCreateBrwReqAndPrefill = (docReq) => {
+    const createBrwReqFormData = {
+      prefillForm: true,
+      formData: {
+        title: docReq.title,
+        document_pid: _get(docReq, 'document_pid', ''),
+        patron_pid: docReq.patron_pid,
+      },
+      extraData: {
+        attachCreatedBrwReqToDocumentRequest: true,
+        documentRequestPid: docReq.pid,
+      },
+    };
+
+    goTo(ILLRoutes.borrowingRequestCreate, createBrwReqFormData);
   };
 
   render() {
-    const { data } = this.props;
+    const { docReq } = this.props;
     return (
       <Segment raised>
-        <Label color="purple" ribbon>
-          Interlibrary
+        <Label color="blue" ribbon>
+          Interlibrary Loan
         </Label>
-        <span>Search and select an existing Inter Library loan</span>
+        <span>Search and select an existing ILL Borrowing Request</span>
         <Grid columns={2} padded>
           <Grid.Column>
             <ESSelector
@@ -137,10 +127,11 @@ class IllProvider extends Component {
           <Grid.Column textAlign="center" verticalAlign="middle">
             <Button
               positive
+              labelPosition="left"
               name="create-ill"
-              onClick={() => goTo(ILLRoutes.borrowingRequestCreate, data)}
+              onClick={() => this.goToCreateBrwReqAndPrefill(docReq)}
               icon="plus"
-              content="Create new Interlibrary Loan"
+              content="Create new ILL Borrowing Request"
             />
           </Grid.Column>
         </Grid>
@@ -151,6 +142,23 @@ class IllProvider extends Component {
 }
 
 IllProvider.propTypes = {
-  data: PropTypes.object.isRequired,
+  docReq: PropTypes.object.isRequired,
+  addProvider: PropTypes.func.isRequired,
+};
+
+export default class ChooseProviderStepPanel extends Component {
+  render() {
+    const { docReq, addProvider } = this.props;
+    return (
+      <>
+        <AcqProvider docReq={docReq} addProvider={addProvider} />
+        <IllProvider docReq={docReq} addProvider={addProvider} />
+      </>
+    );
+  }
+}
+
+ChooseProviderStepPanel.propTypes = {
+  docReq: PropTypes.object.isRequired,
   addProvider: PropTypes.func.isRequired,
 };

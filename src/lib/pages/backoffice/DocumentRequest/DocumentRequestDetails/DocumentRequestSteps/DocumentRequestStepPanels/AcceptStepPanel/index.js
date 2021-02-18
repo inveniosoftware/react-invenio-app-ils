@@ -1,17 +1,13 @@
-import { connect } from 'react-redux';
 import { acceptRequest } from '@pages/backoffice/DocumentRequest/DocumentRequestDetails/state/actions';
-import ReviewStepContentComponent from './ReviewStep';
-
-const mapStateToProps = (state) => ({
-  ...state.documentRequestDetails,
-});
+import { connect } from 'react-redux';
+import AcceptStepPanelComponent from './AcceptStepPanel';
 
 const mapDispatchToProps = (dispatch) => ({
   acceptRequest: (documentRequestPid) =>
     dispatch(acceptRequest(documentRequestPid)),
 });
 
-export const ReviewStepContent = connect(
-  mapStateToProps,
+export const AcceptStepPanel = connect(
+  null,
   mapDispatchToProps
-)(ReviewStepContentComponent);
+)(AcceptStepPanelComponent);

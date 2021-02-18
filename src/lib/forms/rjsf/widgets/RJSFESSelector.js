@@ -111,6 +111,12 @@ export class RJSFESSelector extends Component {
     }
   };
 
+  clearValue() {
+    // similar to the `clearable` prop
+    // can be called by wrapper components
+    this.handleChange(null, { value: undefined });
+  }
+
   handleChange = (e, { options, value }) => {
     const { onChange } = this.props;
 
@@ -129,6 +135,7 @@ export class RJSFESSelector extends Component {
     const {
       autofocus,
       debounceDelay,
+      disabled,
       label,
       placeholder,
       readonly,
@@ -151,8 +158,9 @@ export class RJSFESSelector extends Component {
         multiple={selectMultiple || false}
         required={required}
         autoFocus={autofocus}
+        disabled={disabled}
         readOnly={readonly}
-        placeholder={placeholder || 'Type to search...'}
+        placeholder={placeholder}
         onChange={this.handleChange}
         onSearchChange={_debounce(this.handleSearchChange, debounceDelay)}
         loading={isLoading}
@@ -165,11 +173,12 @@ export class RJSFESSelector extends Component {
 RJSFESSelector.propTypes = {
   label: PropTypes.string,
   autofocus: PropTypes.bool,
+  disabled: PropTypes.bool,
   readonly: PropTypes.bool,
   required: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string,
-  placeholder: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   options: PropTypes.shape({
     apiGetByValue: PropTypes.func.isRequired,
     apiGetByValueResponseSerializer: PropTypes.func.isRequired,
@@ -182,7 +191,9 @@ RJSFESSelector.propTypes = {
 
 RJSFESSelector.defaultProps = {
   autofocus: false,
+  disabled: false,
   label: '',
+  placeholder: 'Type to search...',
   readonly: false,
   required: false,
   value: '',

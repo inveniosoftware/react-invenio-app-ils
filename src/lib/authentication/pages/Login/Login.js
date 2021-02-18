@@ -258,8 +258,6 @@ Login.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   isAnonymous: PropTypes.bool.isRequired,
   user: PropTypes.object,
-  sendErrorNotification: PropTypes.func.isRequired,
-  clearNotifications: PropTypes.func.isRequired,
 };
 
 Login.defaultProps = {

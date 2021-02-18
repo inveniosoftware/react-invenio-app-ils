@@ -137,7 +137,6 @@ class LoginWithLocalAccount extends Component {
 LoginWithLocalAccount.propTypes = {
   /* Redux */
   fetchUserProfile: PropTypes.func.isRequired,
-  clearNotifications: PropTypes.func.isRequired,
   hasError: PropTypes.bool,
   errorMessage: PropTypes.string,
   errorHeader: PropTypes.string,

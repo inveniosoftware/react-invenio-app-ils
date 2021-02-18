@@ -1,13 +1,13 @@
 import { sendErrorNotification } from '@components/Notifications';
 import { connect } from 'react-redux';
-import { DocumentForm as DocumentFormComponent } from './DocumentForm';
+import { BorrowingRequestForm as BorrowingRequestFormComponent } from './BorrowingRequestForm';
 
 const mapDispatchToProps = (dispatch) => ({
   sendErrorNotification: (title, content) =>
     dispatch(sendErrorNotification(title, content)),
 });
 
-export const DocumentForm = connect(
+export const BorrowingRequestForm = connect(
   null,
   mapDispatchToProps
-)(DocumentFormComponent);
+)(BorrowingRequestFormComponent);

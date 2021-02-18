@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
-import { fetchDocumentRequestDetails } from './state/actions';
 import DocumentRequestDetailsComponent from './DocumentRequestDetails';
+import { fetchDocumentRequestDetails } from './state/actions';
 
 const mapStateToProps = (state) => ({
+  data: state.documentRequestDetails.data,
   isLoading: state.documentRequestDetails.isLoading,
   error: state.documentRequestDetails.error,
 });

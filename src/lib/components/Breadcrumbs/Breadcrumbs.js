@@ -1,6 +1,6 @@
 import { Truncate } from '@components/Truncate';
 import PropTypes from 'prop-types';
-import { Component, default as React } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumb } from 'semantic-ui-react';
 

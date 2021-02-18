@@ -5,7 +5,7 @@ import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
-import { Component, default as React } from 'react';
+import React, { Component } from 'react';
 import { Card, Label } from 'semantic-ui-react';
 
 export class SeriesCard extends Component {

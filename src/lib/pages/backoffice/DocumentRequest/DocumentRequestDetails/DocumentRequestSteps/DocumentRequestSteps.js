@@ -1,64 +1,38 @@
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Divider, Message, Segment, Step } from 'semantic-ui-react';
-import { DocumentStepContent } from './DocumentStep';
-import { DocumentStep } from './DocumentStep/DocumentStep';
-import { ProviderStepContent } from './ProviderStep/';
-import { ProviderStep } from './ProviderStep/ProviderStep';
-import { ReviewStepContent } from './ReviewStep';
-import { ReviewStep } from './ReviewStep/ReviewStep';
-import { STEPS } from './Steps';
-import { StepsActions } from './StepsActions';
+import { Segment } from 'semantic-ui-react';
+import { DocumentRequestStepPanels } from './DocumentRequestStepPanels';
+import { DocumentRequestStepsHeader } from './DocumentRequestStepsHeader';
+import { getCurrentStep } from './Steps';
 
-export default class DocumentRequestSteps extends Component {
-  calculateStep = (docPid = undefined, providerPid = undefined) => {
-    const hasDocument = !!docPid;
-    const hasProvider = !!providerPid;
-
-    let step = STEPS.document;
-    if (hasDocument && !hasProvider) step = STEPS.provider;
-    if (hasDocument && hasProvider) step = STEPS.review;
-    return step;
-  };
-
+export class DocumentRequestSteps extends Component {
   render() {
+    const { docReq } = this.props;
     const {
-      data,
-      data: {
-        metadata: { document_pid: docPid, state },
-      },
-    } = this.props;
-    const providerPid = _get(data, 'metadata.physical_item_provider.pid');
-    const step = this.calculateStep(docPid, providerPid);
-    return state !== 'DECLINED' ? (
+      state: currentState,
+      document_pid: documentPid,
+      physical_item_provider: provider,
+    } = docReq;
+    const currentStep = getCurrentStep(
+      currentState,
+      documentPid,
+      _get(provider, 'pid')
+    );
+    return (
       <>
-        <Segment>
-          <Step.Group size="small" fluid widths={3}>
-            <DocumentStep step={step} />
-            <ProviderStep step={step} />
-            <ReviewStep step={step} />
-          </Step.Group>
+        <DocumentRequestStepsHeader docReq={docReq} currentStep={currentStep} />
+        <Segment placeholder>
+          <DocumentRequestStepPanels
+            docReq={docReq}
+            currentStep={currentStep}
+          />
         </Segment>
-        <StepsActions step={step} />
-        <Divider />
-
-        <DocumentStepContent step={step} />
-        <ProviderStepContent step={step} />
-        <ReviewStepContent step={step} />
       </>
-    ) : (
-      <Message info>
-        <Message.Header>Declined request</Message.Header>
-        <p>
-          Change the state of the request to modify document or provider
-          information.
-        </p>
-      </Message>
     );
   }
 }
 
 DocumentRequestSteps.propTypes = {
-  data: PropTypes.object.isRequired,
+  docReq: PropTypes.object.isRequired,
 };

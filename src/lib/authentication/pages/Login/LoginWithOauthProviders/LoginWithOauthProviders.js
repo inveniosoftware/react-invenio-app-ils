@@ -76,7 +76,6 @@ export class LoginWithOauthProviders extends Component {
 
 LoginWithOauthProviders.propTypes = {
   /* Redux */
-  clearNotifications: PropTypes.func.isRequired,
   providerName: PropTypes.string.isRequired,
 };
 

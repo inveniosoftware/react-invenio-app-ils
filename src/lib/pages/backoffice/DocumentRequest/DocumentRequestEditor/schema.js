@@ -7,7 +7,7 @@ export const schema = {
       type: 'string',
     },
     document_pid: {
-      title: 'Attached document',
+      title: 'Selected document',
       type: 'string',
     },
     edition: {
@@ -57,6 +57,20 @@ export const schema = {
     payment_method: {
       title: 'Payment method',
       type: 'string',
+    },
+    physical_item_provider: {
+      properties: {
+        pid: {
+          title:
+            'The pid value of the Acquisition purchase order, or ILL borrow request',
+          type: 'string',
+        },
+        pid_type: {
+          title: 'The pid type of Acquisition or Interlibrary',
+          type: 'string',
+        },
+      },
+      type: 'object',
     },
     publication_year: {
       title: 'Publication year',
