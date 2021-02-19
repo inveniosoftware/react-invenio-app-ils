@@ -20,7 +20,6 @@ export class Payment extends Component {
               fieldPath="payment.mode"
               label="Payment mode"
               placeholder="Select payment mode..."
-              required
             />
           </Grid.Column>
           <Grid.Column>
