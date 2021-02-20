@@ -1,7 +1,7 @@
 import { invenioConfig } from '@config';
 import { DocumentConference } from '@modules/Document/DocumentConference';
 import { DocumentInfo } from '@modules/Document/DocumentInfo';
-import { DocumentLinks } from '@modules/Document/DocumentLinks';
+import { DocumentEItemUrls } from '@modules/Document/DocumentEItemUrls';
 import { DocumentMetadataExtensions } from '@modules/Document/DocumentMetadataExtensions';
 import { DocumentPublicationInfo } from '@modules/Document/DocumentPublicationInfo';
 import { DocumentTableOfContent } from '@modules/Document/DocumentTableOfContent';
@@ -75,7 +75,7 @@ class DocumentMetadataTabs extends Component {
         menuItem: 'Resources',
         render: () => (
           <Tab.Pane>
-            <DocumentLinks dividers eitems={metadata.eitems} />
+            <DocumentEItemUrls dividers eitems={metadata.eitems} />
           </Tab.Pane>
         ),
       },
