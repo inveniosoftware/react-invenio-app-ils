@@ -1,9 +1,9 @@
-import { DocumentLinks } from '@modules/Document/DocumentLinks';
 import { FrontSiteRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Divider, Header } from 'semantic-ui-react';
+import { DocumentEItemUrls } from '@modules/Document/DocumentEItemUrls';
 
 export class DocumentEItems extends Component {
   showAll = () => {
@@ -28,7 +28,7 @@ export class DocumentEItems extends Component {
       <>
         <Header as="h3">Access online</Header>
         {eitems.total > 0 ? (
-          <DocumentLinks eitems={eitems} />
+          <DocumentEItemUrls eitems={eitems} />
         ) : (
           <>
             No electronic resources currently available.{' '}

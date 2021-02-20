@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Divider, Header, List } from 'semantic-ui-react';
 
-export class DocumentLinks extends Component {
+export class DocumentEItemUrls extends Component {
   renderTitle = (title) => {
     const { dividers } = this.props;
     return dividers ? (
@@ -96,11 +96,11 @@ export class DocumentLinks extends Component {
   }
 }
 
-DocumentLinks.propTypes = {
+DocumentEItemUrls.propTypes = {
   eitems: PropTypes.object.isRequired,
   dividers: PropTypes.bool,
 };
 
-DocumentLinks.defaultProps = {
+DocumentEItemUrls.defaultProps = {
   dividers: false,
 };

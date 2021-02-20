@@ -1,4 +1,5 @@
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import LiteratureUrls from '@modules/Literature/LiteratureUrls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Divider, Table } from 'semantic-ui-react';
@@ -68,6 +69,12 @@ export class DocumentInfo extends Component {
             {this.renderKeywords()}
           </Table.Body>
         </Table>
+        {metadata.urls ? (
+          <>
+            <Divider horizontal>More information</Divider>
+            <LiteratureUrls urlArray={metadata.urls} />
+          </>
+        ) : null}
       </>
     );
   }
