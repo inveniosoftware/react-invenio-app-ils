@@ -12,10 +12,10 @@ export class OrderInformation extends React.Component {
       { name: 'Ordered at', value: order.order_date },
       {
         name: 'Expected delivery',
-        value: order.expected_delivery_date,
+        value: order.expected_delivery_date || '-',
       },
-      { name: 'Delivered on', value: order.received_date },
-      { name: 'Notes', value: order.notes },
+      { name: 'Delivered on', value: order.received_date || '-' },
+      { name: 'Notes', value: order.notes || '-' },
     ];
     const rightTable = [
       { name: 'Status', value: order.status },

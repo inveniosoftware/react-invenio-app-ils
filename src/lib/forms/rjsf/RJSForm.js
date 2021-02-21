@@ -1,9 +1,10 @@
 import { RJSFDocumentRequestProvider } from '@forms/rjsf/fields/RJSFDocumentRequestProvider';
+import { RJSFTitleField } from '@forms/rjsf/fields/RJSFTitleField';
 import {
-  ArrayFieldTemplateWithWrapper,
   FieldTemplateWithWrapper,
-  ObjectFieldTemplateWithGrid,
+  ObjectFieldTemplateWrapperGrid,
 } from '@forms/rjsf/RJSFCustomTemplates';
+import { RJSFReferencedAcqVendor } from '@forms/rjsf/widgets/RJSFReferencedAcqVendor';
 import { RJSFReferencedDocument } from '@forms/rjsf/widgets/RJSFReferencedDocument';
 import { RJSFReferencedPatron } from '@forms/rjsf/widgets/RJSFReferencedPatron';
 import { RJSFVocabulary } from '@forms/rjsf/widgets/RJSFVocabulary';
@@ -19,12 +20,14 @@ import { removeEmptyValues } from './RecordSerializer';
 const customWidgets = {
   referencedDocument: RJSFReferencedDocument,
   referencedPatron: RJSFReferencedPatron,
+  referencedAcqVendor: RJSFReferencedAcqVendor,
   vocabularySearch: RJSFVocabularySearch,
   vocabulary: RJSFVocabulary,
   documentRequestProvider: RJSFDocumentRequestProvider,
 };
 
 const customFields = {
+  TitleField: RJSFTitleField,
   documentRequestProvider: RJSFDocumentRequestProvider,
 };
 
@@ -81,15 +84,13 @@ export class RJSForm extends Component {
       this.setState({ isLoading: true });
       const response = await submitAction(formData);
 
-      // scroll to top to see success notification
-      window.scrollTo(0, 0);
       sendSuccessNotification('Success!', successMessage);
       successCallback && successCallback(response);
     } catch (error) {
-      // scroll to top to see errors
-      window.scrollTo(0, 0);
       this.onError(error);
     }
+    // scroll to top to see success/errors after backend call
+    window.scrollTo(0, 0);
   };
 
   render() {
@@ -102,10 +103,15 @@ export class RJSForm extends Component {
         formData={formData}
         widgets={customWidgets}
         fields={customFields}
+        transformErrors={(errors) => {
+          // scroll to top to see errors triggered by client validation
+          window.scrollTo(0, 0);
+          return errors;
+        }}
         extraErrors={errors}
-        ObjectFieldTemplate={ObjectFieldTemplateWithGrid}
+        ObjectFieldTemplate={ObjectFieldTemplateWrapperGrid}
         FieldTemplate={FieldTemplateWithWrapper}
-        ArrayFieldTemplate={ArrayFieldTemplateWithWrapper}
+        // ArrayFieldTemplate={ArrayFieldTemplateWithWrapper}
         onSubmit={this.onSubmit}
       >
         <Container textAlign="right">

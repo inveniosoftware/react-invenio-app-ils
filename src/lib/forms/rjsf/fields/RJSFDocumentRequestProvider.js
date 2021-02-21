@@ -28,8 +28,10 @@ class ProviderPidType extends Component {
 
   handleOnChange = (e, { value }) => {
     const { onChange } = this.props;
-    this.setState({ value: value });
-    onChange(value);
+    // if empty string, set it to `undefined` as needed by RJSF
+    const newValue = value || undefined;
+    this.setState({ value: newValue });
+    onChange(newValue);
   };
 
   render() {
@@ -176,8 +178,10 @@ class ProviderPidValue extends Component {
 
   handleOnChange = (value) => {
     const { onChange } = this.props;
-    this.setState({ value: value });
-    onChange(value);
+    // if empty string, set it to `undefined` as needed by RJSF
+    const newValue = value || undefined;
+    this.setState({ value: newValue });
+    onChange(newValue);
   };
 
   render() {
@@ -237,7 +241,7 @@ export class RJSFDocumentRequestProvider extends Component {
     this.setState({ pidType: value });
     onChange({
       pid_type: value,
-      pid: '',
+      pid: undefined,
     });
   };
 

@@ -1,7 +1,6 @@
 import { withCancel } from '@api/utils';
 import _debounce from 'lodash/debounce';
 import _find from 'lodash/find';
-import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
@@ -119,9 +118,11 @@ export class RJSFESSelector extends Component {
 
   handleChange = (e, { options, value }) => {
     const { onChange } = this.props;
+    // if empty string, set it to `undefined` as needed by RJSF
+    const newValue = value || undefined;
 
     const newOptions = [];
-    if (!_isEmpty(value)) {
+    if (newValue) {
       const selected = _find(options, { value: value });
       selected.text = selected.original;
       newOptions.push(selected);
@@ -151,15 +152,14 @@ export class RJSFESSelector extends Component {
         selection
         search
         icon="search"
-        clearable={!required}
+        clearable
         options={options}
         label={label}
         value={value}
         multiple={selectMultiple || false}
         required={required}
         autoFocus={autofocus}
-        disabled={disabled}
-        readOnly={readonly}
+        disabled={disabled || readonly}
         placeholder={placeholder}
         onChange={this.handleChange}
         onSearchChange={_debounce(this.handleSearchChange, debounceDelay)}

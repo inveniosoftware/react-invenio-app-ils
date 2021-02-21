@@ -44,7 +44,6 @@ export class RJSFVocabulary extends Component {
   };
 
   fetchAll = async () => {
-    const { required } = this.props;
     this.cancellableFetchData = withCancel(this.query());
     try {
       this.setState({
@@ -55,11 +54,6 @@ export class RJSFVocabulary extends Component {
       const results = response.data.hits.map((hit) => this.serializer(hit));
       if (!results) {
         throw Error('No results? This is probably a misconfiguration.');
-      }
-
-      if (!required) {
-        // add an empty element at the beginning so that if it is not required, you can select nothing
-        results.unshift({ key: '', value: undefined, text: '' });
       }
 
       this.setState({
@@ -79,8 +73,10 @@ export class RJSFVocabulary extends Component {
 
   handleChange = (e, { value }) => {
     const { onChange } = this.props;
-    this.setState({ value: value });
-    onChange(value);
+    // if empty string, set it to `undefined` as needed by RJSF
+    const newValue = value || undefined;
+    this.setState({ value: newValue });
+    onChange(newValue);
   };
 
   render() {
@@ -93,12 +89,12 @@ export class RJSFVocabulary extends Component {
         options={options}
         label={label}
         value={value}
+        clearable
         required={required}
         autoFocus={autofocus}
-        readOnly={readonly}
         placeholder={placeholder}
         onChange={this.handleChange}
-        disabled={isLoading}
+        disabled={isLoading || readonly}
         loading={isLoading}
         noResultsMessage={error ? error : 'No results found'}
       />

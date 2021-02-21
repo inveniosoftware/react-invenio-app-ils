@@ -1,8 +1,8 @@
-import React from 'react';
+import { formatPrice } from '@api/utils';
 import { getDisplayVal } from '@config';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { Statistic } from 'semantic-ui-react';
-import { formatPrice } from '@api/utils';
 
 export class OrderStatistics extends React.Component {
   renderStatusCancelled(status) {
@@ -22,7 +22,7 @@ export class OrderStatistics extends React.Component {
     return (
       <Statistic color="green">
         <Statistic.Label>Delivered</Statistic.Label>
-        <Statistic.Value>{order.received_date}</Statistic.Value>
+        <Statistic.Value>{order.received_date || '-'}</Statistic.Value>
       </Statistic>
     );
   }
@@ -33,7 +33,7 @@ export class OrderStatistics extends React.Component {
     return (
       <Statistic color="yellow">
         <Statistic.Label>Expected delivery</Statistic.Label>
-        <Statistic.Value>{order.expected_delivery_date}</Statistic.Value>
+        <Statistic.Value>{order.expected_delivery_date || '-'}</Statistic.Value>
       </Statistic>
     );
   }
@@ -91,14 +91,14 @@ export class OrderStatistics extends React.Component {
     return (
       <Statistic>
         <Statistic.Label>Total</Statistic.Label>
-        {order.grand_total ? (
-          <>
-            <Statistic.Value>
-              {formatPrice(order.grand_total, false)}
-            </Statistic.Value>
+        <>
+          <Statistic.Value>
+            {formatPrice(order.grand_total, false) || '-'}
+          </Statistic.Value>
+          {order.grand_total && (
             <Statistic.Label>{order.grand_total.currency}</Statistic.Label>
-          </>
-        ) : null}
+          )}
+        </>
       </Statistic>
     );
   }

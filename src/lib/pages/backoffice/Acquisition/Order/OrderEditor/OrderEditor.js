@@ -1,19 +1,26 @@
 import { orderApi } from '@api/acquisition';
+import { documentRequestApi } from '@api/documentRequests';
 import { withCancel } from '@api/utils';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
+import { invenioConfig } from '@config';
+import { RJSForm } from '@forms/rjsf';
+import { goTo } from '@history';
+import { AcquisitionRoutes, BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { OrderForm } from './OrderForm';
+import { schema } from './schema';
+import { uiSchema } from './uiSchema';
 
 export class OrderEditor extends Component {
   constructor(props) {
     super(props);
 
+    const isEditing = !!props.match.params.orderPid;
     this.state = {
       data: {},
-      isLoading: !!props.match.params.orderPid,
+      isLoading: isEditing,
       error: {},
     };
   }
@@ -45,22 +52,6 @@ export class OrderEditor extends Component {
     }
   };
 
-  renderForm = (pid) => {
-    const { isLoading, error, data } = this.state;
-    return (
-      <Loader isLoading={isLoading}>
-        <Error error={error}>
-          <OrderForm
-            pid={pid}
-            data={data}
-            title="Edit order"
-            successSubmitMessage="The order was successfully updated."
-          />
-        </Error>
-      </Loader>
-    );
-  };
-
   getPrefilledFormData() {
     const shouldPrefillForm = _get(
       this.props,
@@ -75,15 +66,69 @@ export class OrderEditor extends Component {
       const { formData } = state;
 
       // prepare the data for the form editor
-      return {
-        extraData: _get(state, 'extraData', {}),
-        metadata: {
-          ...formData,
-        },
-      };
+      return formData;
     }
     return null;
   }
+
+  submitAction = async (formData) => {
+    const {
+      match: {
+        params: { orderPid },
+      },
+    } = this.props;
+
+    const isEditing = !!orderPid;
+    return isEditing
+      ? await orderApi.update(orderPid, formData)
+      : await orderApi.create(formData);
+  };
+
+  attachCreatedOrderToDocumentRequest = async (
+    orderPid,
+    documentRequestPid
+  ) => {
+    this.cancellableAttachOrder = withCancel(
+      documentRequestApi.addProvider(documentRequestPid, {
+        physical_item_provider: {
+          pid: orderPid,
+          pid_type:
+            invenioConfig.DOCUMENT_REQUESTS.physicalItemProviders.acq.pid_type,
+        },
+      })
+    );
+    try {
+      await this.cancellableAttachOrder.promise;
+    } catch (error) {
+      if (error !== 'UNMOUNTED') {
+        const { sendErrorNotification } = this.props;
+        sendErrorNotification(error);
+      }
+    }
+  };
+
+  successCallback = async (response) => {
+    const order = _get(response, 'data');
+    const newOrderPid = order.metadata.pid;
+
+    const extraData = _get(this.props, 'location.state.extraData', {});
+    const shouldAttachCreatedOrderToDocumentRequest = _get(
+      extraData,
+      'attachCreatedOrderToDocumentRequest',
+      false
+    );
+    if (shouldAttachCreatedOrderToDocumentRequest) {
+      // attach order and go back to the document request details page
+      const documentRequestPid = extraData.documentRequestPid;
+      await this.attachCreatedOrderToDocumentRequest(
+        newOrderPid,
+        documentRequestPid
+      );
+      goTo(BackOfficeRoutes.documentRequestDetailsFor(documentRequestPid));
+    } else {
+      goTo(AcquisitionRoutes.orderDetailsFor(newOrderPid));
+    }
+  };
 
   render() {
     const {
@@ -91,15 +136,33 @@ export class OrderEditor extends Component {
         params: { orderPid },
       },
     } = this.props;
-    const isEditForm = !!orderPid;
-    return isEditForm ? (
-      this.renderForm(orderPid)
+    const { isLoading, error, data } = this.state;
+
+    const isEditing = !!orderPid;
+    const formTitle = isEditing
+      ? `Acquisition order - Edit #${orderPid}`
+      : 'Acquisition order - Create';
+    return isEditing ? (
+      <Loader isLoading={isLoading}>
+        <Error error={error}>
+          <RJSForm
+            schema={schema}
+            uiSchema={uiSchema(formTitle)}
+            formData={data.metadata}
+            submitAction={this.submitAction}
+            successCallback={this.successCallback}
+            successMessage="The acquisition order was successfully updated."
+          />
+        </Error>
+      </Loader>
     ) : (
-      <OrderForm
-        title="Create new acquisition order"
-        successSubmitMessage="The order was successfully created."
-        data={this.getPrefilledFormData()}
-        isCreate
+      <RJSForm
+        schema={schema}
+        uiSchema={uiSchema(formTitle)}
+        formData={this.getPrefilledFormData()}
+        submitAction={this.submitAction}
+        successCallback={this.successCallback}
+        successMessage="The acquisition order was successfully created."
       />
     );
   }
@@ -117,6 +180,7 @@ OrderEditor.propTypes = {
       extraData: PropTypes.object,
     }),
   }),
+  sendErrorNotification: PropTypes.func.isRequired,
 };
 
 OrderEditor.defaultProps = {
