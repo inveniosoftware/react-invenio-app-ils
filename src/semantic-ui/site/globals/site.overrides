@@ -267,3 +267,10 @@ a {
 .generate-margins(30, left, l);
 .generate-margins(30, bottom, b);
 .generate-margins(30, top, t);
+
+/* React-JSONSchema-Forms */
+
+// remove extra margin between field label and Dropdowns
+.ui.form .grouped.fields .field {
+  margin: 0 !important;
+}

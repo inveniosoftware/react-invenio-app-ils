@@ -1,11 +1,11 @@
 import { formatPrice } from '@api/utils';
-import { DocumentIcon, PatronIcon } from '@components/backoffice/icons';
+import { PatronIcon } from '@components/backoffice/icons';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Icon, Item, Message, Popup } from 'semantic-ui-react';
+import { Divider, Grid, Icon, Item, Message, Popup } from 'semantic-ui-react';
 
 const OrderLineLeftColumn = ({ line }) => {
   return (
@@ -45,15 +45,15 @@ const OrderLineMiddleColumn = ({ line }) => {
       </Item.Description>
       <Item.Description>
         <label>Copies received: </label>
-        {line.copies_received}
+        {line.copies_received || '-'}
       </Item.Description>
       <Item.Description>
         <label>Payment mode: </label>
-        {line.payment_mode}
+        {line.payment_mode || '-'}
       </Item.Description>
       <Item.Description>
         <label>IDT ID: </label>
-        {line.inter_departmental_transaction_id || 'None'}{' '}
+        {line.inter_departmental_transaction_id || '-'}{' '}
         <Popup
           content="Inter departmental transaction ID"
           trigger={<Icon name="info circle" />}
@@ -72,15 +72,19 @@ const OrderLineRightColumn = ({ line }) => {
     <>
       <Item.Description>
         <label>Budget code: </label>
-        {line.budget_code}
+        {line.budget_code || '-'}
       </Item.Description>
       <Item.Description>
         <label>Total price: </label>
-        {formatPrice(line.total_price)}
+        {formatPrice(line.total_price) || '-'}
       </Item.Description>
       <Item.Description>
         <label>Unit price: </label>
-        {formatPrice(line.unit_price)}
+        {formatPrice(line.unit_price) || '-'}
+      </Item.Description>
+      <Item.Description>
+        <label>Notes: </label>
+        {line.notes || '-'}
       </Item.Description>
     </>
   );
@@ -94,13 +98,14 @@ const OrderLine = ({ line }) => {
   return (
     <Item>
       <Item.Content>
-        <Item.Header
-          as={Link}
-          to={BackOfficeRoutes.documentDetailsFor(line.document.pid)}
-        >
-          <DocumentIcon />
-          <LiteratureTitle title={line.document.title} />
-        </Item.Header>
+        <Link to={BackOfficeRoutes.documentDetailsFor(line.document.pid)}>
+          <LiteratureTitle
+            title={line.document.title}
+            edition={line.document.edition}
+            publicationYear={line.document.publication_year}
+          />
+        </Link>
+        <Divider />
         <Grid columns={3}>
           <Grid.Column>
             <OrderLineLeftColumn line={line} />

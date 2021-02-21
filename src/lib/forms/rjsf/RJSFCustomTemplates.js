@@ -1,4 +1,5 @@
 import { RJSFormWrapper } from '@forms/rjsf/RJSFormWrapper';
+import { FieldTemplate, ObjectFieldTemplate } from '@rjsf/semantic-ui';
 import _find from 'lodash/find';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -20,6 +21,11 @@ const Wrapper = ({ uiSchema, children }) => {
     return uiSchema['custom:formWrapper'](children);
   }
 
+  const hasFieldWrapper = 'custom:fieldWrapper' in uiSchema;
+  if (hasFieldWrapper) {
+    return uiSchema['custom:fieldWrapper'](children);
+  }
+
   return children;
 };
 
@@ -37,11 +43,13 @@ export function FieldTemplateWithWrapper(props) {
     <Wrapper uiSchema={uiSchema}>
       <Form.Field required={required}>
         <label>{schema.title}</label>
-        {children}
+        <FieldTemplate {...props}>{children}</FieldTemplate>
       </Form.Field>
     </Wrapper>
   ) : (
-    <Wrapper uiSchema={uiSchema}>{children}</Wrapper>
+    <Wrapper uiSchema={uiSchema}>
+      <FieldTemplate {...props}>{children}</FieldTemplate>
+    </Wrapper>
   );
 }
 
@@ -62,7 +70,11 @@ FieldTemplateWithWrapper.defaultProps = {
  */
 export function ObjectFieldTemplateWithWrapper(props) {
   const { children, uiSchema } = props;
-  return <Wrapper uiSchema={uiSchema}>{children}</Wrapper>;
+  return (
+    <Wrapper uiSchema={uiSchema}>
+      <ObjectFieldTemplate {...props}>{children}</ObjectFieldTemplate>
+    </Wrapper>
+  );
 }
 
 ObjectFieldTemplateWithWrapper.propTypes = {
@@ -116,13 +128,13 @@ function GridRow(props) {
             formProps.properties,
             (obj) => obj.name === fieldName
           );
-          return (
+          return field ? (
             <GridCol
               field={field}
               colWidth={colWidth}
               key={field.content.key}
             />
-          );
+          ) : null;
         }
       })}
     </Grid.Row>
@@ -134,16 +146,19 @@ GridRow.propTypes = {
   row: PropTypes.object.isRequired,
 };
 
-/**
- * Wraps the entire form and adds a <Grid /> to organize components in Rows/Cols.
- * @param {*} props
- */
-export function ObjectFieldTemplateWithGrid(props) {
-  const { idSchema, uiSchema, title, description } = props;
-  const isRoot = idSchema.$id === 'root';
-  return isRoot ? (
-    <Wrapper uiSchema={uiSchema['custom:root'] || {}}>
-      {title}
+function ObjectFieldTemplateGrid(props) {
+  const { idSchema, uiSchema, title, TitleField, required } = props;
+  const fieldTitle = uiSchema['ui:title'] || title;
+  return (
+    <>
+      {fieldTitle && (
+        <TitleField
+          id={`${idSchema.$id}-title`}
+          title={fieldTitle}
+          options={uiSchema['ui:options']}
+          required={required}
+        />
+      )}
       <Grid>
         {uiSchema['custom:grid'].map((row, i) => {
           const firstFieldName = Object.keys(row)[0];
@@ -156,35 +171,65 @@ export function ObjectFieldTemplateWithGrid(props) {
           );
         })}
       </Grid>
-      {description}
-    </Wrapper>
-  ) : (
-    ObjectFieldTemplateWithWrapper(props)
+    </>
   );
 }
 
-ObjectFieldTemplateWithGrid.propTypes = {
+ObjectFieldTemplateGrid.propTypes = {
   idSchema: PropTypes.object.isRequired,
   uiSchema: PropTypes.object.isRequired,
-  title: PropTypes.string,
-  description: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  TitleField: PropTypes.node.isRequired,
+  required: PropTypes.bool,
 };
 
-ObjectFieldTemplateWithGrid.defaultProps = {
-  title: '',
-  description: '',
+ObjectFieldTemplateGrid.defaultProps = {
+  required: false,
 };
 
 /**
+ * Wraps the entire form and adds a <Grid /> to organize components in Rows/Cols.
+ * @param {*} props
+ */
+export function ObjectFieldTemplateWrapperGrid(props) {
+  const { idSchema, uiSchema } = props;
+  const isRoot = idSchema.$id === 'root';
+  return isRoot ? (
+    <Wrapper uiSchema={uiSchema['custom:root'] || {}}>
+      {ObjectFieldTemplateGrid(props)}
+    </Wrapper>
+  ) : (
+    ObjectFieldTemplateGrid(props)
+  );
+}
+
+ObjectFieldTemplateWrapperGrid.propTypes = {
+  idSchema: PropTypes.object.isRequired,
+  uiSchema: PropTypes.object.isRequired,
+};
+
+ObjectFieldTemplateWrapperGrid.defaultProps = {};
+
+/**
+ * PUT THIS BACK WHEN RJSF 2.4.3 is released
  * Component to allow wrapping the original RJSF ArrayFieldTemplate
  * @param {*} props
  */
-export function ArrayFieldTemplateWithWrapper(props) {
-  const { children, uiSchema } = props;
-  return <Wrapper uiSchema={uiSchema}>{children}</Wrapper>;
-}
+// export function ArrayFieldTemplateWithWrapper(props) {
+//   const { children, uiSchema } = props;
 
-ArrayFieldTemplateWithWrapper.propTypes = {
-  uiSchema: PropTypes.object.isRequired,
-  children: PropTypes.node.isRequired,
-};
+//   return (
+//     <Wrapper uiSchema={uiSchema}>
+//       <ArrayFieldTemplate {...props}>{children}</ArrayFieldTemplate>
+//     </Wrapper>
+//   );
+// }
+
+// ArrayFieldTemplateWithWrapper.propTypes = {
+//   uiSchema: PropTypes.object.isRequired,
+//   children: PropTypes.node,
+// };
+
+// ArrayFieldTemplateWithWrapper.defaultProps = {
+//   children: null,
+// };

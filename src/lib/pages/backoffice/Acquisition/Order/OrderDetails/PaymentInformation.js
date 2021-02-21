@@ -1,6 +1,6 @@
-import { InfoMessage } from '@components/InfoMessage';
 import { formatPrice } from '@api/utils';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
+import { InfoMessage } from '@components/InfoMessage';
 import { invenioConfig } from '@config';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -17,14 +17,14 @@ export class PaymentInformation extends React.Component {
     const leftTable = [
       {
         name: `Total (${invenioConfig.APP.DEFAULT_CURRENCY})`,
-        value: formatPrice(order.grand_total_main_currency),
+        value: formatPrice(order.grand_total_main_currency) || '-',
       },
       {
         name:
           order.grand_total && order.grand_total.currency
             ? `Total (${order.grand_total.currency})`
             : 'Total',
-        value: formatPrice(order.grand_total),
+        value: formatPrice(order.grand_total) || '-',
       },
       { name: 'Mode', value: payment.mode },
       {
@@ -37,27 +37,27 @@ export class PaymentInformation extends React.Component {
             />
           </>
         ),
-        value: payment.internal_purchase_requisition_id,
+        value: payment.internal_purchase_requisition_id || '-',
       },
-      { name: 'Notes', value: payment.debit_note },
+      { name: 'Notes', value: payment.debit_note || '-' },
     ];
     const rightTable = [
       {
         name: `Debit cost (${invenioConfig.APP.DEFAULT_CURRENCY})`,
-        value: formatPrice(payment.debit_cost_main_currency),
+        value: formatPrice(payment.debit_cost_main_currency) || '-',
       },
       {
         name:
           payment.debit_cost && payment.debit_cost.currency
             ? `Debit cost (${payment.debit_cost.currency})`
             : 'Debit cost',
-        value: formatPrice(payment.debit_cost),
+        value: formatPrice(payment.debit_cost) || '-',
       },
       {
         name: 'Debit date',
         value: payment.debit_date ? payment.debit_date : '-',
       },
-      { name: 'Funds', value: order.funds ? order.funds.join(', ') : null },
+      { name: 'Funds', value: order.funds ? order.funds.join(', ') : '-' },
     ];
     return (
       <Grid columns={2} id="payment-info">
