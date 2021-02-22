@@ -1,6 +1,7 @@
 import {
   ACQ_ORDER_STATUSES,
   DEFAULT_CURRENCY,
+  DEFAULT_LANGUAGE,
   DOCUMENT_RELATIONS,
   DOCUMENT_TYPES,
   ILL_BORROWING_REQUESTS_STATUSES,
@@ -30,6 +31,7 @@ export const APP_CONFIG = {
   REST_ENDOINTS_BASE_URL: process.env.REACT_APP_INVENIO_REST_ENDPOINTS_BASE_URL,
   SUCCESS_AUTO_DISMISS_SECONDS: 10,
   DEFAULT_CURRENCY: DEFAULT_CURRENCY,
+  DEFAULT_LANGUAGE: DEFAULT_LANGUAGE,
   DEFAULT_RESULTS_SIZE: 15,
   i18n: {
     priceLocale: 'fr-CH',
@@ -911,6 +913,8 @@ export const RECORDS_CONFIG = {
       license: 'license',
       tags: 'tag',
       type: 'document_type',
+      doc_subjects: 'doc_subjects',
+      doc_identifiers_materials: 'doc_identifiers_materials',
     },
     documentRequests: {
       doc_req_type: 'doc_req_type',
