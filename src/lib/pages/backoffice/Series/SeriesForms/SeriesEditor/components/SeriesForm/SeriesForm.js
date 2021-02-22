@@ -114,7 +114,9 @@ export class SeriesForm extends Component {
   render() {
     const { data, title, pid, successSubmitMessage } = this.props;
     const extensions = _get(data, 'metadata.extensions', {});
-    const initialValues = data ? this.prepareData(data.metadata) : {};
+    const initialValues = data
+      ? this.prepareData(data.metadata)
+      : { languages: [invenioConfig.APP.DEFAULT_LANGUAGE] };
     return (
       <BaseForm
         initialValues={{

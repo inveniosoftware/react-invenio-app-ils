@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Segment } from 'semantic-ui-react';
-import {
-  AlternativeAbstracts,
-  AlternativeIdentifiers,
-  AlternativeTitles,
-} from './components';
+import { AlternativeAbstracts, AlternativeIdentifiers } from './components';
 import Overridable from 'react-overridable';
 import { MetadataExtensions } from './components';
 import PropTypes from 'prop-types';
@@ -20,11 +16,6 @@ export class DocumentAdditionalInfo extends Component {
           <Grid.Column width={11}>
             <Grid columns="equal">
               <Grid.Row>
-                <Grid.Column>
-                  <Segment>
-                    <AlternativeTitles />
-                  </Segment>
-                </Grid.Column>
                 <Grid.Column>
                   <Segment>
                     <AlternativeIdentifiers />

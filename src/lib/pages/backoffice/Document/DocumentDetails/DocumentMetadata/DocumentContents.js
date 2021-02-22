@@ -53,7 +53,7 @@ export class DocumentContents extends Component {
           {!_isEmpty(document.metadata.subjects) && (
             <>
               <Divider />
-              <Header as="h3">Subjects</Header>
+              <Header as="h3">Subjects classification</Header>
               <DocumentSubjects document={document} />
             </>
           )}

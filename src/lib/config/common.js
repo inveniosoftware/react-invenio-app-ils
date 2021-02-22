@@ -2,6 +2,8 @@
 
 export const DEFAULT_CURRENCY = 'CHF';
 
+export const DEFAULT_LANGUAGE = 'ENG';
+
 // label key is used for labeling bucket values
 // text key is used for semantic ui dropdown options display
 

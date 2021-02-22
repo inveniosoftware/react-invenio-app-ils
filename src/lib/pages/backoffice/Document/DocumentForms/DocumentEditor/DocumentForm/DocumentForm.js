@@ -5,6 +5,7 @@ import { Loader } from '@components/Loader';
 import { BaseForm } from '@forms/core/BaseForm';
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
+import { invenioConfig } from '@config';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -159,7 +160,13 @@ export class DocumentForm extends Component {
     const extensions = _get(data, 'metadata.extensions', {});
     return (
       <BaseForm
-        initialValues={data ? data.metadata : {}}
+        initialValues={
+          data
+            ? data.metadata
+            : {
+                languages: [invenioConfig.APP.DEFAULT_LANGUAGE],
+              }
+        }
         editApiMethod={this.updateDocument}
         createApiMethod={this.createDocument}
         successCallback={(response, submitButton) =>
@@ -195,6 +202,15 @@ export class DocumentForm extends Component {
         </Segment>
 
         <Header as="h3" attached="top">
+          Publishing
+        </Header>
+        <Segment attached>
+          <Loader>
+            <DocumentPublishing />
+          </Loader>
+        </Segment>
+
+        <Header as="h3" attached="top">
           Curation & Cataloging
         </Header>
         <Segment attached>
@@ -209,15 +225,6 @@ export class DocumentForm extends Component {
         <Segment attached>
           <Loader>
             <DocumentLicensesCopyright />
-          </Loader>
-        </Segment>
-
-        <Header as="h3" attached="top">
-          Publishing
-        </Header>
-        <Segment attached>
-          <Loader>
-            <DocumentPublishing />
           </Loader>
         </Segment>
 

@@ -7,7 +7,13 @@ import { StringField } from '@forms/core/StringField';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Grid, Header, Segment } from 'semantic-ui-react';
-import { AuthorsField, Identifiers } from './components';
+import {
+  AuthorsField,
+  Identifiers,
+  AlternativeTitles,
+  Imprint,
+} from './components';
+import { VocabularyField } from '@forms/core/VocabularyField';
 
 export class DocumentBasicMetadata extends Component {
   render() {
@@ -72,6 +78,43 @@ export class DocumentBasicMetadata extends Component {
                     />
                   </Grid.Column>
                 </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column>
+                    <Grid.Row>
+                      <Segment>
+                        <AlternativeTitles />
+                      </Segment>
+                    </Grid.Row>
+                  </Grid.Column>
+                  <Grid.Column>
+                    <Grid.Row>
+                      <Segment>
+                        <Imprint />
+                      </Segment>
+                    </Grid.Row>
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column>
+                    <Segment>
+                      <Identifiers
+                        scheme={
+                          invenioConfig.VOCABULARIES.document.identifier.scheme
+                        }
+                        materialObject={{
+                          key: 'material',
+                          element: VocabularyField,
+                          props: {
+                            type:
+                              invenioConfig.VOCABULARIES.document
+                                .doc_identifiers_materials,
+                            label: 'Material',
+                          },
+                        }}
+                      />
+                    </Segment>
+                  </Grid.Column>
+                </Grid.Row>
               </Grid>
             </Grid.Column>
             <Grid.Column width={5}>
@@ -118,15 +161,6 @@ export class DocumentBasicMetadata extends Component {
             <Grid.Column width={11}>
               <Grid columns="equal">
                 <Grid.Row>
-                  <Grid.Column>
-                    <Segment>
-                      <Identifiers
-                        scheme={
-                          invenioConfig.VOCABULARIES.document.identifier.scheme
-                        }
-                      />
-                    </Segment>
-                  </Grid.Column>
                   <Grid.Column>
                     <Segment>
                       <UrlsField />

@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Segment } from 'semantic-ui-react';
-import {
-  ConferenceInfoField,
-  Imprint,
-  PublicationInfoField,
-} from './components';
+import { ConferenceInfoField, PublicationInfoField } from './components';
 
 export class DocumentPublishing extends Component {
   render() {
@@ -14,11 +10,6 @@ export class DocumentPublishing extends Component {
           <Grid.Column width={11}>
             <Grid columns="equal">
               <Grid.Row>
-                <Grid.Column>
-                  <Segment>
-                    <Imprint />
-                  </Segment>
-                </Grid.Column>
                 <Grid.Column>
                   <Segment>
                     <PublicationInfoField />
