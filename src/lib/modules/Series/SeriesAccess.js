@@ -14,7 +14,7 @@ export const SeriesAccess = ({ urls, isLoading }) => {
         It's not possible to loan an entire series, but you can loan individual
         volumes.
         <br />
-        Please see the list of available volumes and periodical issues below.
+        Please see the list of available volumes and issues below.
       </ILSImagePlaceholder>
     </Segment>
   );

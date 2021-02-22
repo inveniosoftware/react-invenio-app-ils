@@ -44,8 +44,9 @@ export const DOCUMENT_TYPES = [
   { value: 'PROCEEDING', text: 'Proceeding', label: 'Proceeding' },
   { value: 'STANDARD', text: 'Standard', label: 'Standard' },
   {
-    value: 'PERIODICAL_ISSUE',
-    text: 'Periodical issue',
-    label: 'Periodical issue',
+    value: 'SERIAL_ISSUE',
+    text: 'Serial issue',
+    label: 'Serial issue',
   },
+  { value: 'ARTICLE', text: 'Article', label: 'Article' },
 ];

@@ -61,8 +61,8 @@ export const schema = {
       type: 'string',
     },
     document_type: {
-      enum: ['BOOK', 'PROCEEDING', 'STANDARD', 'PERIODICAL_ISSUE'],
-      enumNames: ['Book', 'Proceeding', 'Standard', 'Periodical Issue'],
+      enum: ['BOOK', 'PROCEEDING', 'STANDARD', 'SERIAL_ISSUE', 'ARTICLE'],
+      enumNames: ['Book', 'Proceeding', 'Standard', 'Serial Issue', 'Article'],
       title: 'Document type', // title not displayed: https://github.com/rjsf-team/react-jsonschema-form/issues/1937
       type: 'string',
     },
