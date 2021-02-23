@@ -60,7 +60,7 @@ export default class LoansListEntry extends Component {
                 textAlign="right"
                 mobile={16}
                 tablet={8}
-                computer={8}
+                computer={6}
               >
                 <Item.Description>{itemDescriptionCmp}</Item.Description>
               </Grid.Column>
