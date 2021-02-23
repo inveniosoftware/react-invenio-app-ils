@@ -1,7 +1,7 @@
 import { invenioConfig } from '@config';
 import { DocumentConference } from '@modules/Document/DocumentConference';
+import { DocumentEItemUrls } from '@modules/Document/DocumentEItemUrls';
 import { DocumentInfo } from '@modules/Document/DocumentInfo';
-import { DocumentEItemsUrls } from '@modules/Document/DocumentEItemUrls';
 import { DocumentMetadataExtensions } from '@modules/Document/DocumentMetadataExtensions';
 import { DocumentPublicationInfo } from '@modules/Document/DocumentPublicationInfo';
 import { DocumentTableOfContent } from '@modules/Document/DocumentTableOfContent';
@@ -119,7 +119,7 @@ class DocumentMetadataAccordion extends Component {
           Resources
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 'resources'}>
-          <DocumentEItemsUrls dividers eitems={metadata.eitems} />
+          <DocumentEItemUrls dividers eitems={metadata.eitems} />
         </Accordion.Content>
 
         {!_isEmpty(extensions) &&
