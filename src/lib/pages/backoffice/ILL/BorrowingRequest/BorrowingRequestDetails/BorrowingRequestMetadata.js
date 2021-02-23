@@ -1,9 +1,5 @@
 import { CreatedBy, UpdatedBy } from '@components/backoffice/ChangedBy';
-import {
-  DocumentIcon,
-  ILLLibraryIcon,
-  PatronIcon,
-} from '@components/backoffice/icons';
+import { ILLLibraryIcon, PatronIcon } from '@components/backoffice/icons';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes, ILLRoutes } from '@routes/urls';
@@ -76,7 +72,6 @@ class Metadata extends React.Component {
         name: 'Document',
         value: (
           <Link to={BackOfficeRoutes.documentDetailsFor(brwReq.document_pid)}>
-            <DocumentIcon />{' '}
             <LiteratureTitle
               title={brwReq.document.title}
               edition={brwReq.document.edition}

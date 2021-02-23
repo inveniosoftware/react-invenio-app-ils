@@ -1,17 +1,39 @@
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { UrlList } from '@components/backoffice/UrlList';
+import { IdentifierRows } from '@modules/Identifiers';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
+import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import ShowMore from 'react-show-more';
 import { Grid, Header, Segment } from 'semantic-ui-react';
-import { IdentifierRows } from '@modules/Identifiers';
 
 export default class EItemMetadata extends Component {
   render() {
     const { eitemDetails } = this.props;
 
     const metadata = [
-      { name: 'Document PID', value: eitemDetails.metadata.document_pid },
+      {
+        name: 'Document',
+        value: (
+          <span>
+            <Link
+              to={BackOfficeRoutes.documentDetailsFor(
+                eitemDetails.metadata.document_pid
+              )}
+            >
+              <LiteratureTitle
+                title={eitemDetails.metadata.document.title}
+                edition={eitemDetails.metadata.document.edition}
+                publicationYear={
+                  eitemDetails.metadata.document.publication_year
+                }
+              />
+            </Link>
+          </span>
+        ),
+      },
       {
         name: 'Open access',
         value: eitemDetails.metadata.open_access ? 'Yes' : 'No',

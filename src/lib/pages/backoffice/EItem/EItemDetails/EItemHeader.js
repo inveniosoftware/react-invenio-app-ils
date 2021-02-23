@@ -3,8 +3,6 @@ import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { DocumentIcon, EItemIcon } from '@components/backoffice/icons';
 import { OpenAccessLabel } from '@components/backoffice/OpenAccessLabel';
 import { CopyButton } from '@components/CopyButton';
-import { invenioConfig } from '@config';
-import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import { DateTime } from 'luxon';
@@ -35,14 +33,7 @@ export class EItemHeader extends Component {
     return (
       <DetailsHeader
         title={<LiteratureTitle title={data.metadata.document.title} />}
-        subTitle={
-          <DocumentAuthors
-            authors={data.metadata.document.authors}
-            hasOtherAuthors={data.metadata.document.other_authors}
-            prefix="by "
-            limit={invenioConfig.LITERATURE.authors.maxDisplay}
-          />
-        }
+        subTitle={`by ${data.metadata.document.authors}`}
         pid={data.metadata.pid}
         icon={<EItemIcon />}
         recordInfo={recordInfo}

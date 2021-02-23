@@ -1,4 +1,3 @@
-import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
@@ -8,7 +7,6 @@ import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Grid, Item } from 'semantic-ui-react';
-import { invenioConfig } from '@config';
 
 export default class LoansListEntry extends Component {
   render() {
@@ -28,7 +26,6 @@ export default class LoansListEntry extends Component {
     const documentEdition = document.edition;
     const documentPublicationYear = document.publicationYear;
     const documentAuthors = document.authors;
-    const documentHasOtherAuthors = document.hasOtherAuthors;
     const coverUrl = _get(document, 'cover_metadata.urls.medium');
     return (
       <Overridable id="LoansListEntry.layout" {...this.props}>
@@ -55,11 +52,7 @@ export default class LoansListEntry extends Component {
             <Grid columns={2}>
               <Grid.Column mobile={16} tablet={8} computer={10}>
                 <Item.Meta>
-                  <DocumentAuthors
-                    authors={documentAuthors}
-                    hasOtherAuthors={documentHasOtherAuthors}
-                    limit={invenioConfig.LITERATURE.authors.maxDisplay}
-                  />
+                  {documentAuthors}
                   {itemMetaCmp}
                 </Item.Meta>
               </Grid.Column>

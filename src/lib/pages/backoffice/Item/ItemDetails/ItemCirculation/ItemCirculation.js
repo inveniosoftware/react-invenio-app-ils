@@ -5,7 +5,7 @@ import {
 } from '@components/backoffice/icons';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { EmailLink } from '@components/EmailLink';
-import { invenioConfig } from '@config';
+import { getDisplayVal, invenioConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
@@ -174,7 +174,10 @@ export default class ItemCirculation extends Component {
           Circulation
           <Label basic color="black" size="small">
             <Icon name="hourglass half" />
-            {metadata.circulation_restriction}
+            {getDisplayVal(
+              'ITEMS.circulationRestrictions',
+              metadata.circulation_restriction
+            )}
           </Label>{' '}
         </Header>
         <Segment attached className="bo-metadata-segment" id="circulation">

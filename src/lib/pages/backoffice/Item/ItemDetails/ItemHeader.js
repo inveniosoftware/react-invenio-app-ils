@@ -2,8 +2,7 @@ import { toShortDate } from '@api/date';
 import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { DocumentIcon, ItemIcon } from '@components/backoffice/icons';
 import { CopyButton } from '@components/CopyButton';
-import { invenioConfig } from '@config';
-import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import { getDisplayVal, invenioConfig } from '@config';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import { DateTime } from 'luxon';
@@ -65,21 +64,16 @@ export class ItemHeader extends Component {
       <DetailsHeader
         title={
           <>
-            <Header.Subheader>Medium: {data.metadata.medium}</Header.Subheader>
+            <Header.Subheader>
+              Medium: {getDisplayVal('ITEMS.mediums', data.metadata.medium)}
+            </Header.Subheader>
             {data.metadata.barcode}
             <br />
             <LiteratureTitle title={data.metadata.document.title} />
             {this.statusLabel()}
           </>
         }
-        subTitle={
-          <DocumentAuthors
-            authors={data.metadata.document.authors}
-            hasOtherAuthors={data.metadata.document.other_authors}
-            prefix="by "
-            limit={invenioConfig.LITERATURE.authors.maxDisplay}
-          />
-        }
+        subTitle={`by ${data.metadata.document.authors}`}
         pid={data.metadata.pid}
         icon={<ItemIcon />}
         recordInfo={recordInfo}
