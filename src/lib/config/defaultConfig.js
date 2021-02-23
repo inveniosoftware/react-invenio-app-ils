@@ -545,11 +545,10 @@ export const RECORDS_CONFIG = {
   },
   ITEMS: {
     circulationRestrictions: [
-      { value: 'NO_RESTRICTION', text: 'No restriction' },
+      { value: 'NO_RESTRICTION', text: 'No restriction (4 weeks)' },
       { value: 'ONE_WEEK', text: '1 week' },
       { value: 'TWO_WEEKS', text: '2 weeks' },
       { value: 'THREE_WEEKS', text: '3 weeks' },
-      { value: 'FOUR_WEEKS', text: '4 weeks' },
     ],
     mediums: ITEM_MEDIUMS,
     statuses: [

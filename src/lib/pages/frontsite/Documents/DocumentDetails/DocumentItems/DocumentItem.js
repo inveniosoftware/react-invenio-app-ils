@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import { getDisplayVal, invenioConfig } from '@config';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Grid, List } from 'semantic-ui-react';
-import { getDisplayVal } from '@config';
-import { invenioConfig } from '@config';
 
 class DocumentItem extends Component {
   render() {

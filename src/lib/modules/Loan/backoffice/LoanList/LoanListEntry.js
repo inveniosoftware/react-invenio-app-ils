@@ -1,5 +1,4 @@
 import { DocumentIcon, ItemIcon, LoanIcon } from '@components/backoffice/icons';
-import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LoanLinkToItem from '@modules/Loan/backoffice/LoanLinkToItem';
 import { OverdueLoanSendMailModal } from '@modules/Loan/backoffice/OverdueLoanSendMailModal';
 import { BackOfficeRoutes } from '@routes/urls';
@@ -11,7 +10,6 @@ import { Link } from 'react-router-dom';
 import { Grid, Header, Item, Label, List } from 'semantic-ui-react';
 import LiteratureTitle from '../../../Literature/LiteratureTitle';
 import { LoanDates } from './LoanDates';
-import { invenioConfig } from '@config';
 
 export class LoanListEntry extends Component {
   render() {
@@ -43,12 +41,7 @@ export class LoanListEntry extends Component {
                 <Header className="loan-document-title" as="h5">
                   <LiteratureTitle title={loan.metadata.document.title} />
                 </Header>
-                <DocumentAuthors
-                  authors={loan.metadata.document.authors}
-                  hasOtherAuthors={loan.metadata.document.other_authors}
-                  prefix="by "
-                  limit={invenioConfig.LITERATURE.authors.maxDisplay}
-                />
+                {`by ${loan.metadata.document.authors}`}
               </Item.Meta>
             </Grid.Column>
             <Grid.Column computer={3} largeScreen={3}>

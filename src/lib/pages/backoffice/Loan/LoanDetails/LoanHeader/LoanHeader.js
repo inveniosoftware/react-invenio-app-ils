@@ -4,13 +4,11 @@ import { DetailsHeader } from '@components/backoffice/DetailsHeader';
 import { LoanIcon, PatronIcon } from '@components/backoffice/icons';
 import { CopyButton } from '@components/CopyButton';
 import { getDisplayVal } from '@config';
-import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
+import { DateTime } from 'luxon';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header, Label } from 'semantic-ui-react';
-import { DateTime } from 'luxon';
-import { invenioConfig } from '@config';
 
 export default class LoanHeader extends Component {
   render() {
@@ -61,12 +59,7 @@ export default class LoanHeader extends Component {
                 publicationYear={data.metadata.document.publication_year}
               />
             </DocumentDetailsLink>
-            <DocumentAuthors
-              authors={data.metadata.document.authors}
-              hasOtherAuthors={data.metadata.document.other_authors}
-              prefix="by: "
-              limit={invenioConfig.LITERATURE.authors.maxDisplay}
-            />
+            by ${data.metadata.document.authors}
           </>
         }
         icon={<LoanIcon />}
