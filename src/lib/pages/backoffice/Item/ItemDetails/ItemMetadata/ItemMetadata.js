@@ -1,12 +1,13 @@
+import { formatPrice } from '@api/utils';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { getDisplayVal } from '@config';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
-import { BackOfficeRoutes } from '@routes/urls';
+import { AcquisitionRoutes, BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ShowMore from 'react-show-more';
-import { Grid, Header, List, Segment } from 'semantic-ui-react';
+import { Divider, Grid, Header, List, Segment } from 'semantic-ui-react';
 
 export default class ItemMetadata extends Component {
   render() {
@@ -110,6 +111,45 @@ export default class ItemMetadata extends Component {
               </Grid.Column>
               <Grid.Column width={8}>
                 <MetadataTable rows={rightMetadata} />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+          <Divider horizontal>acquisition</Divider>
+          <Grid padded columns={2}>
+            <Grid.Row>
+              <Grid.Column width={8}>
+                <MetadataTable
+                  rows={[
+                    {
+                      name: 'Acquisition Pid',
+                      value: itemDetails.metadata.acquisition_pid ? (
+                        <Link
+                          to={AcquisitionRoutes.orderDetailsFor(
+                            itemDetails.metadata.acquisition_pid
+                          )}
+                        >
+                          {itemDetails.metadata.acquisition_pid}
+                        </Link>
+                      ) : (
+                        '-'
+                      ),
+                    },
+                  ]}
+                />
+              </Grid.Column>
+              <Grid.Column width={8}>
+                <MetadataTable
+                  rows={[
+                    {
+                      name:
+                        itemDetails.metadata.price &&
+                        itemDetails.metadata.price.currency
+                          ? `Total (${itemDetails.metadata.price.currency})`
+                          : 'Total',
+                      value: formatPrice(itemDetails.metadata.price) || '-',
+                    },
+                  ]}
+                />
               </Grid.Column>
             </Grid.Row>
           </Grid>

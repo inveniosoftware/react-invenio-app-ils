@@ -26,7 +26,6 @@ class AcqProvider extends Component {
 
   goToCreateOrderAndPrefill = (docReq) => {
     const createOrderFormData = {
-      prefillForm: true,
       formData: {
         order_lines: [
           {
@@ -92,7 +91,6 @@ class IllProvider extends Component {
 
   goToCreateBrwReqAndPrefill = (docReq) => {
     const createBrwReqFormData = {
-      prefillForm: true,
       formData: {
         title: docReq.title,
         document_pid: _get(docReq, 'document_pid', ''),

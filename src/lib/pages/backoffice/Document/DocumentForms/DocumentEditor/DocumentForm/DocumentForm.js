@@ -84,13 +84,13 @@ export class DocumentForm extends Component {
         name: 'create-with-item',
         content: 'Create document and item',
         secondary: true,
-        type: 'button',
+        type: 'submit',
       },
       {
         name: 'create-with-eitem',
         content: 'Create document and eitem',
         secondary: true,
-        type: 'button',
+        type: 'submit',
       },
     ];
   }
@@ -135,7 +135,12 @@ export class DocumentForm extends Component {
     if (submitButton === 'create-with-item') {
       goTo(BackOfficeRoutes.itemCreate, { document: newlyCreatedDocument });
     } else if (submitButton === 'create-with-eitem') {
-      goTo(BackOfficeRoutes.eitemCreate, { document: newlyCreatedDocument });
+      const createEItemFormData = {
+        formData: {
+          document_pid: newDocumentPid,
+        },
+      };
+      goTo(BackOfficeRoutes.eitemCreate, createEItemFormData);
     } else if (shouldAttachCreatedDocumentToDocumentRequest) {
       // attach document and go back to the document request details page
       const documentRequestPid = extraData.documentRequestPid;

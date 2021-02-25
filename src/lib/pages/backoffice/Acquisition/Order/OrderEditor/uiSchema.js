@@ -146,6 +146,20 @@ export const uiSchema = (title) => ({
       notes: {
         'ui:widget': 'textarea',
       },
+      is_donation: {
+        'ui:options': {
+          semantic: {
+            toggle: true,
+          },
+        },
+      },
+      is_patron_suggestion: {
+        'ui:options': {
+          semantic: {
+            toggle: true,
+          },
+        },
+      },
       'custom:grid': [
         {
           document_pid: 8,
@@ -159,15 +173,15 @@ export const uiSchema = (title) => ({
           purchase_type: 4,
         },
         {
-          unit_price: 4,
-          total_price: 4,
-          payment_mode: 4,
-          budget_code: 4,
+          unit_price: 5,
+          total_price: 5,
+          payment_mode: 3,
+          budget_code: 3,
         },
         {
           inter_departmental_transaction_id: 4,
-          is_donation: 4,
-          is_patron_suggestion: 4,
+          is_donation: 6,
+          is_patron_suggestion: 6,
         },
         {
           notes: 16,

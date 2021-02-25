@@ -45,7 +45,10 @@ export class RJSFESSelector extends Component {
       });
 
       const response = await this.cancellableFetchData.promise;
-      const singleOption = apiGetByValueResponseSerializer(response.data);
+      const singleOption = apiGetByValueResponseSerializer(
+        response.data,
+        value
+      );
 
       this.setState({
         isLoading: false,

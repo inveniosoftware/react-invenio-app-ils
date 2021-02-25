@@ -5,6 +5,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Divider, Form, Grid } from 'semantic-ui-react';
 
+/**
+ * Wrapper component to wrap the entire form or a specific field with a
+ * given component
+ * @param {*} props
+ */
 const Wrapper = ({ uiSchema, children }) => {
   const hasFormWrapper = 'custom:formWrapper' in uiSchema;
   const hasFormTitle = 'custom:formTitle' in uiSchema;
@@ -146,6 +151,11 @@ GridRow.propTypes = {
   row: PropTypes.object.isRequired,
 };
 
+/**
+ * Custom ObjectFieldTemplate component to wrap each `object` field with <Grid />
+ * and render each subfield in Rows/Cols.
+ * @param {*} props
+ */
 function ObjectFieldTemplateGrid(props) {
   const { idSchema, uiSchema, title, TitleField, required } = props;
   const fieldTitle = uiSchema['ui:title'] || title;
@@ -188,7 +198,8 @@ ObjectFieldTemplateGrid.defaultProps = {
 };
 
 /**
- * Wraps the entire form and adds a <Grid /> to organize components in Rows/Cols.
+ * Wraps the form root component with a custom Wrapper cmp and renders each field
+ * in a Grid.
  * @param {*} props
  */
 export function ObjectFieldTemplateWrapperGrid(props) {

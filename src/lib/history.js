@@ -14,4 +14,8 @@ export const replaceTo = (path, state = {}) => {
   history.push(path, state);
 };
 
+export const goBack = () => {
+  history.goBack();
+};
+
 export default history;
