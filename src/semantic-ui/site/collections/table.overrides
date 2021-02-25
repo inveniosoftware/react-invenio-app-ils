@@ -90,7 +90,7 @@ Table Overrides - REACT-INVENIO-APP-ILS
       border-bottom: 1px solid @fsBorderColor;
       display: block;
       font-size: 0.8em;
-      text-align: right;
+      text-align: left;
 
       &:before {
         content: attr(data-label);
