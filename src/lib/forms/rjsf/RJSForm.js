@@ -4,23 +4,30 @@ import {
   FieldTemplateWithWrapper,
   ObjectFieldTemplateWrapperGrid,
 } from '@forms/rjsf/RJSFCustomTemplates';
+import { RJSFCheckboxWidget } from '@forms/rjsf/widgets/RJSFCheckboxWidget';
+import { RJSFReferencedAcqOrder } from '@forms/rjsf/widgets/RJSFReferencedAcqOrder';
 import { RJSFReferencedAcqVendor } from '@forms/rjsf/widgets/RJSFReferencedAcqVendor';
 import { RJSFReferencedDocument } from '@forms/rjsf/widgets/RJSFReferencedDocument';
+import { RJSFReferencedInternalLocation } from '@forms/rjsf/widgets/RJSFReferencedInternalLocation';
 import { RJSFReferencedPatron } from '@forms/rjsf/widgets/RJSFReferencedPatron';
 import { RJSFVocabulary } from '@forms/rjsf/widgets/RJSFVocabulary';
 import { RJSFVocabularySearch } from '@forms/rjsf/widgets/RJSFVocabularySearch';
+import { goBack } from '@history';
 import Form from '@rjsf/semantic-ui';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Button, Container, Divider } from 'semantic-ui-react';
+import { Button, Confirm, Container, Divider } from 'semantic-ui-react';
 import { removeEmptyValues } from './RecordSerializer';
 
 const customWidgets = {
+  CheckboxWidget: RJSFCheckboxWidget,
   referencedDocument: RJSFReferencedDocument,
   referencedPatron: RJSFReferencedPatron,
+  referencedAcqOrder: RJSFReferencedAcqOrder,
   referencedAcqVendor: RJSFReferencedAcqVendor,
+  referencedInternalLocation: RJSFReferencedInternalLocation,
   vocabularySearch: RJSFVocabularySearch,
   vocabulary: RJSFVocabulary,
   documentRequestProvider: RJSFDocumentRequestProvider,
@@ -38,6 +45,7 @@ export class RJSForm extends Component {
     this.state = {
       isLoading: false,
       errors: {},
+      discardConfirmOpen: false,
     };
   }
 
@@ -95,7 +103,7 @@ export class RJSForm extends Component {
 
   render() {
     const { schema, uiSchema, formData } = this.props;
-    const { errors, isLoading } = this.state;
+    const { discardConfirmOpen, errors, isLoading } = this.state;
     return (
       <Form
         schema={schema}
@@ -116,8 +124,24 @@ export class RJSForm extends Component {
       >
         <Container textAlign="right">
           <Divider hidden />
+          <Confirm
+            content="Are you sure you want to discard any change?"
+            open={discardConfirmOpen}
+            cancelButton="No, keep editing"
+            confirmButton="Yes, discard changes"
+            onCancel={() => this.setState({ discardConfirmOpen: false })}
+            onConfirm={() => goBack()}
+          />
           <Button
-            primary
+            type="button"
+            content="Discard"
+            disabled={isLoading}
+            onClick={() => this.setState({ discardConfirmOpen: true })}
+          />
+          <Button
+            positive
+            icon="check"
+            labelPosition="left"
             name="submit"
             type="submit"
             content="Submit"

@@ -58,8 +58,8 @@ export default class ItemPendingLoans extends Component {
     return (
       <Message info icon data-test="no-results">
         <Message.Content>
-          <Message.Header>No loans requests</Message.Header>
-          There are no loans requests for this item.
+          <Message.Header>No loan requests</Message.Header>
+          There are no loan requests for this item.
         </Message.Content>
       </Message>
     );
@@ -134,7 +134,7 @@ export default class ItemPendingLoans extends Component {
     return (
       <>
         <Header as="h3" attached="top" id="loans-request">
-          Loans request
+          Loan requests
         </Header>
         <Segment attached="bottom" className="bo-metadata-segment no-padding">
           <ResultsTable

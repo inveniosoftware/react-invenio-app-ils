@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container, Divider, Grid, Ref, Sticky } from 'semantic-ui-react';
 import { ItemActionMenu } from './ItemActionMenu';
-import { ItemCataloging } from './ItemCataloging';
 import { ItemCirculation } from './ItemCirculation';
 import { ItemHeader } from './ItemHeader';
 import { ItemMetadata } from './ItemMetadata';
@@ -54,7 +53,6 @@ export default class ItemDetails extends Component {
                         <Container className="spaced">
                           <ItemCirculation />
                           <ItemMetadata />
-                          <ItemCataloging />
                           <ItemPendingLoans />
                           <ItemPastLoans />
                         </Container>

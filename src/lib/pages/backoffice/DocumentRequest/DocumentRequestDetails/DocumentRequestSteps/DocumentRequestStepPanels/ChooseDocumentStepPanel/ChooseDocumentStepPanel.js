@@ -47,7 +47,6 @@ export default class ChooseDocumentStepPanel extends Component {
     }
 
     const createDocumentFormData = {
-      prefillForm: true,
       formData: {
         title: docReq.title,
         ...data,

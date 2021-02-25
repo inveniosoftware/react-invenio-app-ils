@@ -49,7 +49,7 @@ exports[`ItemPendingLoans tests should render show a message with no requested l
               className="ui top attached header"
               id="loans-request"
             >
-              Loans request
+              Loan requests
             </h3>
           </Header>
           <Segment
@@ -131,10 +131,10 @@ exports[`ItemPendingLoans tests should render show a message with no requested l
                           <div
                             className="header"
                           >
-                            No loans requests
+                            No loan requests
                           </div>
                         </MessageHeader>
-                        There are no loans requests for this item.
+                        There are no loan requests for this item.
                       </div>
                     </MessageContent>
                   </div>

@@ -14,7 +14,7 @@ import { DocumentRequestDetails } from '@pages/backoffice/DocumentRequest/Docume
 import { DocumentRequestEditor } from '@pages/backoffice/DocumentRequest/DocumentRequestEditor';
 import { DocumentRequestSearch } from '@pages/backoffice/DocumentRequest/DocumentRequestSearch';
 import { EItemDetails } from '@pages/backoffice/EItem/EItemDetails';
-import { EItemEditor } from '@pages/backoffice/EItem/EItemForms';
+import { EItemEditor } from '@pages/backoffice/EItem/EItemEditor';
 import { EItemSearch } from '@pages/backoffice/EItem/EItemSearch';
 import Home from '@pages/backoffice/Home/Home';
 import { BorrowingRequestDetails } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails';
@@ -26,7 +26,7 @@ import {
   LibrarySearch,
 } from '@pages/backoffice/ILL/Library';
 import { ItemDetails } from '@pages/backoffice/Item/ItemDetails';
-import { ItemEditor } from '@pages/backoffice/Item/ItemForms';
+import { ItemEditor } from '@pages/backoffice/Item/ItemEditor';
 import { ItemSearch } from '@pages/backoffice/Item/ItemSearch';
 import { LoanDetails } from '@pages/backoffice/Loan/LoanDetails';
 import { LoanSearch } from '@pages/backoffice/Loan/LoanSearch';

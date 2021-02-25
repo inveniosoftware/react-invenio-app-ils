@@ -31,15 +31,15 @@ export class DocumentRequestEditor extends Component {
   }
 
   componentWillUnmount() {
-    this.cancellableFetchItem && this.cancellableFetchItem.cancel();
+    this.cancellableFetchDocReq && this.cancellableFetchDocReq.cancel();
   }
 
   fetchDocReq = async (documentRequestPid) => {
-    this.cancellableFetchItem = withCancel(
+    this.cancellableFetchDocReq = withCancel(
       documentRequestApi.get(documentRequestPid)
     );
     try {
-      const response = await this.cancellableFetchItem.promise;
+      const response = await this.cancellableFetchDocReq.promise;
       this.setState({ data: response.data, isLoading: false, error: {} });
     } catch (error) {
       if (error !== 'UNMOUNTED') {

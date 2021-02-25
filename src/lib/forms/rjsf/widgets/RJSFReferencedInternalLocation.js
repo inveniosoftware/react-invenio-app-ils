@@ -1,17 +1,17 @@
-import { vendorApi } from '@api/acquisition';
+import { internalLocationApi } from '@api/locations';
 import { RJSFESSelector } from '@forms/rjsf/widgets/RJSFESSelector';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 /**
- * React JSONSchema Form widget to search and retrieve Acq Vendors.
+ * React JSONSchema Form widget to search and retrieve Internal Locations.
  */
-export class RJSFReferencedAcqVendor extends Component {
+export class RJSFReferencedInternalLocation extends Component {
   responseSerializer = (record) => {
     return {
       key: record.metadata.pid,
       value: record.metadata.pid,
-      text: `${record.metadata.name} (${record.metadata.pid})`,
+      text: `${record.metadata.name} (${record.metadata.location.name})`,
     };
   };
 
@@ -21,9 +21,10 @@ export class RJSFReferencedAcqVendor extends Component {
       <RJSFESSelector
         {...this.props}
         options={{
-          apiGetByValue: async (value) => await vendorApi.get(value),
+          apiGetByValue: async (value) => await internalLocationApi.get(value),
           apiGetByValueResponseSerializer: this.responseSerializer,
-          apiQuery: async (searchQuery) => await vendorApi.list(searchQuery),
+          apiQuery: async (searchQuery) =>
+            await internalLocationApi.list(searchQuery),
           apiQueryResponseSerializer: this.responseSerializer,
           ...options,
         }}
@@ -32,10 +33,10 @@ export class RJSFReferencedAcqVendor extends Component {
   }
 }
 
-RJSFReferencedAcqVendor.propTypes = {
+RJSFReferencedInternalLocation.propTypes = {
   options: PropTypes.object,
 };
 
-RJSFReferencedAcqVendor.defaultProps = {
+RJSFReferencedInternalLocation.defaultProps = {
   options: {},
 };

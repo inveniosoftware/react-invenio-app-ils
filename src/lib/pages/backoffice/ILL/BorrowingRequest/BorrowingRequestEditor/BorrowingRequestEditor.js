@@ -30,30 +30,6 @@ export class BorrowingRequestEditor extends Component {
       this.cancellableFetchBorrowingRequest.cancel();
   }
 
-  getPrefilledFormData() {
-    const shouldPrefillForm = _get(
-      this.props,
-      'location.state.prefillForm',
-      false
-    );
-
-    if (shouldPrefillForm) {
-      const {
-        location: { state },
-      } = this.props;
-      const { formData } = state;
-
-      // prepare the data for the form editor
-      return {
-        extraData: _get(state, 'extraData', {}),
-        metadata: {
-          ...formData,
-        },
-      };
-    }
-    return null;
-  }
-
   fetchBorrowingRequest = async (borrowingRequestPid) => {
     this.cancellableFetchBorrowingRequest = withCancel(
       borrowingRequestApi.get(borrowingRequestPid)
@@ -68,22 +44,6 @@ export class BorrowingRequestEditor extends Component {
     }
   };
 
-  renderEditForm = (pid) => {
-    const { isLoading, error, data } = this.state;
-    return (
-      <Loader isLoading={isLoading}>
-        <Error error={error}>
-          <BorrowingRequestForm
-            pid={pid}
-            data={data}
-            title="Edit borrowing request"
-            successSubmitMessage="The borrowing request was successfully updated."
-          />
-        </Error>
-      </Loader>
-    );
-  };
-
   render() {
     const {
       match: {
@@ -91,15 +51,31 @@ export class BorrowingRequestEditor extends Component {
       },
     } = this.props;
     const isEditForm = !!borrowingRequestPid;
-    return isEditForm ? (
-      this.renderEditForm(borrowingRequestPid)
-    ) : (
-      <BorrowingRequestForm
-        title="Create new borrowing request"
-        successSubmitMessage="The borrowing request was successfully created."
-        data={this.getPrefilledFormData()}
-      />
-    );
+    if (isEditForm) {
+      const { isLoading, error, data } = this.state;
+      return (
+        <Loader isLoading={isLoading}>
+          <Error error={error}>
+            <BorrowingRequestForm
+              pid={borrowingRequestPid}
+              data={data}
+              title="Edit borrowing request"
+              successSubmitMessage="The borrowing request was successfully updated."
+            />
+          </Error>
+        </Loader>
+      );
+    } else {
+      const extraData = _get(this.props, 'location.state.extraData', {});
+      const prefilledFormData = _get(this.props, 'location.state.formData', {});
+      return (
+        <BorrowingRequestForm
+          title="Create new borrowing request"
+          successSubmitMessage="The borrowing request was successfully created."
+          data={{ extraData: extraData, metadata: prefilledFormData }}
+        />
+      );
+    }
   }
 }
 

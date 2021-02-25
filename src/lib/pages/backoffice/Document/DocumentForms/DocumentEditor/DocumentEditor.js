@@ -33,30 +33,6 @@ export class DocumentEditor extends Component {
     this.cancellableFetchDocument && this.cancellableFetchDocument.cancel();
   }
 
-  getPrefilledFormData() {
-    const shouldPrefillForm = _get(
-      this.props,
-      'location.state.prefillForm',
-      false
-    );
-
-    if (shouldPrefillForm) {
-      const {
-        location: { state },
-      } = this.props;
-      const { formData } = state;
-
-      // prepare the data for the form editor
-      return {
-        extraData: _get(state, 'extraData', {}),
-        metadata: {
-          ...formData,
-        },
-      };
-    }
-    return null;
-  }
-
   fetchDocument = async (documentPid) => {
     this.cancellableFetchDocument = withCancel(documentApi.get(documentPid));
     try {
@@ -69,22 +45,6 @@ export class DocumentEditor extends Component {
     }
   };
 
-  renderEditForm = (pid) => {
-    const { isLoading, error, data } = this.state;
-    return (
-      <Loader isLoading={isLoading}>
-        <Error error={error}>
-          <DocumentForm
-            pid={pid}
-            data={data}
-            title="Edit document"
-            successSubmitMessage="The document was successfully updated."
-          />
-        </Error>
-      </Loader>
-    );
-  };
-
   render() {
     const {
       match: {
@@ -92,16 +52,32 @@ export class DocumentEditor extends Component {
       },
     } = this.props;
     const isEditForm = !!documentPid;
-    return isEditForm ? (
-      this.renderEditForm(documentPid)
-    ) : (
-      <DocumentForm
-        isCreate
-        title="Create new document"
-        successSubmitMessage="The document was successfully created."
-        data={this.getPrefilledFormData()}
-      />
-    );
+    if (isEditForm) {
+      const { isLoading, error, data } = this.state;
+      return (
+        <Loader isLoading={isLoading}>
+          <Error error={error}>
+            <DocumentForm
+              pid={documentPid}
+              data={data}
+              title="Edit document"
+              successSubmitMessage="The document was successfully updated."
+            />
+          </Error>
+        </Loader>
+      );
+    } else {
+      const extraData = _get(this.props, 'location.state.extraData', {});
+      const prefilledFormData = _get(this.props, 'location.state.formData', {});
+      return (
+        <DocumentForm
+          isCreate
+          title="Create new document"
+          successSubmitMessage="The document was successfully created."
+          data={{ extraData: extraData, metadata: prefilledFormData }}
+        />
+      );
+    }
   }
 }
 

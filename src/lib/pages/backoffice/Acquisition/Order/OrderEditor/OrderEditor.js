@@ -52,25 +52,6 @@ export class OrderEditor extends Component {
     }
   };
 
-  getPrefilledFormData() {
-    const shouldPrefillForm = _get(
-      this.props,
-      'location.state.prefillForm',
-      false
-    );
-
-    if (shouldPrefillForm) {
-      const {
-        location: { state },
-      } = this.props;
-      const { formData } = state;
-
-      // prepare the data for the form editor
-      return formData;
-    }
-    return null;
-  }
-
   submitAction = async (formData) => {
     const {
       match: {
@@ -139,32 +120,36 @@ export class OrderEditor extends Component {
     const { isLoading, error, data } = this.state;
 
     const isEditing = !!orderPid;
-    const formTitle = isEditing
-      ? `Acquisition order - Edit #${orderPid}`
-      : 'Acquisition order - Create';
-    return isEditing ? (
-      <Loader isLoading={isLoading}>
-        <Error error={error}>
-          <RJSForm
-            schema={schema}
-            uiSchema={uiSchema(formTitle)}
-            formData={data.metadata}
-            submitAction={this.submitAction}
-            successCallback={this.successCallback}
-            successMessage="The acquisition order was successfully updated."
-          />
-        </Error>
-      </Loader>
-    ) : (
-      <RJSForm
-        schema={schema}
-        uiSchema={uiSchema(formTitle)}
-        formData={this.getPrefilledFormData()}
-        submitAction={this.submitAction}
-        successCallback={this.successCallback}
-        successMessage="The acquisition order was successfully created."
-      />
-    );
+    if (isEditing) {
+      const formTitle = `Acquisition order - Edit #${orderPid}`;
+      return (
+        <Loader isLoading={isLoading}>
+          <Error error={error}>
+            <RJSForm
+              schema={schema}
+              uiSchema={uiSchema(formTitle)}
+              formData={data.metadata}
+              submitAction={this.submitAction}
+              successCallback={this.successCallback}
+              successMessage="The acquisition order was successfully updated."
+            />
+          </Error>
+        </Loader>
+      );
+    } else {
+      const formTitle = 'Acquisition order - Create';
+      const prefilledFormData = _get(this.props, 'location.state.formData', {});
+      return (
+        <RJSForm
+          schema={schema}
+          uiSchema={uiSchema(formTitle)}
+          formData={prefilledFormData}
+          submitAction={this.submitAction}
+          successCallback={this.successCallback}
+          successMessage="The acquisition order was successfully created."
+        />
+      );
+    }
   }
 }
 
