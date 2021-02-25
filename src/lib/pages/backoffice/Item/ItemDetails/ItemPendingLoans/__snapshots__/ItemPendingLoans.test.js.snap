@@ -104,7 +104,7 @@ exports[`ItemPendingLoans tests should render show a message with no requested l
                   <SeeAllButton
                     disabled={false}
                     fluid={false}
-                    to="/backoffice/loans?q=(document_pid:111 AND state:(PENDING))"
+                    to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
                   />
                 }
                 showAllResults={false}

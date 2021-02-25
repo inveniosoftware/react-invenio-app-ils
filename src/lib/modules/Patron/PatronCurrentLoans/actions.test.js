@@ -46,7 +46,7 @@ describe('Patron current loans tests', () => {
 
       store.dispatch(actions.fetchPatronCurrentLoans(2)).then(() => {
         expect(mockFetchPatronCurrentLoans).toHaveBeenCalledWith(
-          '(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created&size=15&page=1'
+          'patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created&size=15&page=1'
         );
         const actions = store.getActions();
         expect(actions[0]).toEqual(expectedAction);
@@ -64,7 +64,7 @@ describe('Patron current loans tests', () => {
 
       store.dispatch(actions.fetchPatronCurrentLoans(2)).then(() => {
         expect(mockFetchPatronCurrentLoans).toHaveBeenCalledWith(
-          '(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created&size=15&page=1'
+          'patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created&size=15&page=1'
         );
         const actions = store.getActions();
         expect(actions[1]).toEqual(expectedAction);
@@ -82,7 +82,7 @@ describe('Patron current loans tests', () => {
 
       store.dispatch(actions.fetchPatronCurrentLoans(2)).then(() => {
         expect(mockFetchPatronCurrentLoans).toHaveBeenCalledWith(
-          '(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created&size=15&page=1'
+          'patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created&size=15&page=1'
         );
         const actions = store.getActions();
         expect(actions[1]).toEqual(expectedAction);
@@ -99,7 +99,7 @@ describe('Patron current loans tests', () => {
 
       store.dispatch(actions.fetchPatronCurrentLoans(2)).then((e) => {
         expect(mockFetchPatronCurrentLoans).toHaveBeenCalledWith(
-          '(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created&size=15&page=1'
+          'patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created&size=15&page=1'
         );
         const actions = store.getActions();
         expect(actions[0]).toEqual(expectedAction);

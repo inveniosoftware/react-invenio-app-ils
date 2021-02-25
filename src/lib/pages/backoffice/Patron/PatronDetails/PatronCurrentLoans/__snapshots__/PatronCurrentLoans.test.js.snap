@@ -48,7 +48,7 @@ exports[`PatronCurrentLoans tests should load the details component 1`] = `
         <SeeAllButton
           disabled={false}
           fluid={false}
-          to="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created"
+          to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
         />
       }
       showAllResults={false}
@@ -266,7 +266,7 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                   <SeeAllButton
                     disabled={false}
                     fluid={false}
-                    to="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created"
+                    to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
                   />
                 }
                 showAllResults={false}
@@ -710,7 +710,7 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                         <SeeAllButton
                           disabled={false}
                           fluid={false}
-                          to="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created"
+                          to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
                         />
                       }
                       showAllResults={false}
@@ -815,7 +815,7 @@ exports[`PatronCurrentLoans tests should render show a message with no user loan
               <SeeAllButton
                 disabled={false}
                 fluid={false}
-                to="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created"
+                to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
               />
             }
             showAllResults={false}
@@ -1063,7 +1063,7 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                   <SeeAllButton
                     disabled={false}
                     fluid={false}
-                    to="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created"
+                    to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
                   />
                 }
                 showAllResults={false}
@@ -1384,7 +1384,7 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                         <SeeAllButton
                           disabled={false}
                           fluid={false}
-                          to="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created"
+                          to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
                         />
                       }
                       showAllResults={false}
@@ -1441,7 +1441,7 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                                         <SeeAllButton
                                           disabled={false}
                                           fluid={false}
-                                          to="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created"
+                                          to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
                                         >
                                           <Button
                                             as={
@@ -1461,14 +1461,14 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                                             disabled={false}
                                             fluid={false}
                                             size="small"
-                                            to="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created"
+                                            to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
                                           >
                                             <Ref
                                               innerRef={
                                                 Object {
                                                   "current": <a
                                                     class="ui small button"
-                                                    href="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created"
+                                                    href="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
                                                     role="button"
                                                   >
                                                     See all
@@ -1481,7 +1481,7 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                                                   Object {
                                                     "current": <a
                                                       class="ui small button"
-                                                      href="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created"
+                                                      href="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
                                                       role="button"
                                                     >
                                                       See all
@@ -1493,18 +1493,18 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                                                   className="ui small button"
                                                   onClick={[Function]}
                                                   role="button"
-                                                  to="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created"
+                                                  to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
                                                 >
                                                   <LinkAnchor
                                                     className="ui small button"
-                                                    href="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created"
+                                                    href="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
                                                     navigate={[Function]}
                                                     onClick={[Function]}
                                                     role="button"
                                                   >
                                                     <a
                                                       className="ui small button"
-                                                      href="/backoffice/loans?q=(patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE))&sort=-created"
+                                                      href="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
                                                       onClick={[Function]}
                                                       role="button"
                                                     >

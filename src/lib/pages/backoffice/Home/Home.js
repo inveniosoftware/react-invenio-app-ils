@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Divider, Grid } from 'semantic-ui-react';
 import {
   IdleLoansList,
   OverbookedDocumentsList,
   OverdueLoansList,
   PendingILLPatronLoanExtensions,
+  PendingNewDocumentRequests,
   PendingOverdueDocumentsList,
   RenewedLoansList,
 } from './lists';
@@ -31,14 +32,22 @@ export default class Home extends Component {
 
         <Grid.Row columns={2}>
           <Grid.Column>
+            <Divider hidden />
             <IdleLoansList />
+            <Divider hidden />
             <OverdueLoansList />
+            <Divider hidden />
             <RenewedLoansList />
           </Grid.Column>
           <Grid.Column>
+            <Divider hidden />
             <OverbookedDocumentsList />
+            <Divider hidden />
             <PendingOverdueDocumentsList />
+            <Divider hidden />
             <PendingILLPatronLoanExtensions />
+            <Divider hidden />
+            <PendingNewDocumentRequests />
           </Grid.Column>
         </Grid.Row>
       </Grid>

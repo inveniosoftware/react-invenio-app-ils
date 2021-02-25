@@ -252,7 +252,7 @@ class QueryBuilder {
         this.startDateQuery
       )
       .join(' AND ');
-    return `(${searchCriteria})${this.sortBy}${this.size}${this.page}`;
+    return `${searchCriteria}${this.sortBy}${this.size}${this.page}`;
   }
 }
 

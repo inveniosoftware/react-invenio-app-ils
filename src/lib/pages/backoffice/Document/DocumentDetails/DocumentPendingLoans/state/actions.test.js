@@ -1,8 +1,8 @@
+import { loanApi } from '@api/loans';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import { loanApi } from '@api/loans';
 
 jest.mock('@config');
 const middlewares = [thunk];
@@ -45,7 +45,7 @@ describe('Pending loans tests', () => {
 
       store.dispatch(actions.fetchPendingLoans('123')).then(() => {
         expect(mockFetchPendingOnDocument).toHaveBeenCalledWith(
-          '(document_pid:123 AND state:(PENDING))'
+          'document_pid:123 AND state:(PENDING)'
         );
         const actions = store.getActions();
         expect(actions[0]).toEqual(expectedAction);
@@ -63,7 +63,7 @@ describe('Pending loans tests', () => {
 
       store.dispatch(actions.fetchPendingLoans('123')).then(() => {
         expect(mockFetchPendingOnDocument).toHaveBeenCalledWith(
-          '(document_pid:123 AND state:(PENDING))'
+          'document_pid:123 AND state:(PENDING)'
         );
         const actions = store.getActions();
         expect(actions[1]).toEqual(expectedAction);
@@ -81,7 +81,7 @@ describe('Pending loans tests', () => {
 
       store.dispatch(actions.fetchPendingLoans('123')).then(() => {
         expect(mockFetchPendingOnDocument).toHaveBeenCalledWith(
-          '(document_pid:123 AND state:(PENDING))'
+          'document_pid:123 AND state:(PENDING)'
         );
         const actions = store.getActions();
         expect(actions[1]).toEqual(expectedAction);

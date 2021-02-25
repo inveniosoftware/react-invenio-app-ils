@@ -1,26 +1,26 @@
-import { loanApi } from './loan';
 import { toShortDate } from '@api/date';
 import { DateTime } from 'luxon';
+import { loanApi } from './loan';
 
 describe('Loan query builder tests', () => {
   it('should build query string with document PID', () => {
     const query = loanApi.query().withDocPid(5).qs();
-    expect(query).toEqual('(document_pid:5)');
+    expect(query).toEqual('document_pid:5');
   });
 
   it('should build query string with document PID 5 and pending state', () => {
     const query = loanApi.query().withDocPid(5).withState('PENDING').qs();
-    expect(query).toEqual('(document_pid:5 AND state:PENDING)');
+    expect(query).toEqual('document_pid:5 AND state:PENDING');
   });
 
   it('should build query string with pending state', () => {
     const query = loanApi.query().withState('PENDING').qs();
-    expect(query).toEqual('(state:PENDING)');
+    expect(query).toEqual('state:PENDING');
   });
 
   it('should build query string with item pid 5 and on loan state', () => {
     const query = loanApi.query().withItemPid(5).withState('ON_LOAN').qs();
-    expect(query).toEqual('(item_pid.value:5 AND state:ON_LOAN)');
+    expect(query).toEqual('item_pid.value:5 AND state:ON_LOAN');
   });
 
   it('should build query string with itemPid 10 and ITEM_RETURNED or CANCELLED state', () => {
@@ -30,7 +30,7 @@ describe('Loan query builder tests', () => {
       .withState(['ITEM_RETURNED', 'CANCELLED'])
       .qs();
     expect(query).toEqual(
-      '(item_pid.value:10 AND state:(ITEM_RETURNED OR CANCELLED))'
+      'item_pid.value:10 AND state:(ITEM_RETURNED OR CANCELLED)'
     );
   });
 
@@ -43,20 +43,20 @@ describe('Loan query builder tests', () => {
   it('should build query for overdue loans', () => {
     let now = toShortDate(DateTime.local());
     const query = loanApi.query().overdue().qs();
-    expect(decodeURI(query)).toEqual(`(end_date:{* TO ${now}})`);
+    expect(decodeURI(query)).toEqual(`end_date:{* TO ${now}}`);
   });
 
   it('should build query for update date range', () => {
     let date = { from: '2019-02-01', to: '2019-03-01' };
     const query = loanApi.query().withUpdated(date).qs();
-    expect(decodeURI(query)).toEqual(`(_updated:{${date.from} TO ${date.to}})`);
+    expect(decodeURI(query)).toEqual(`_updated:{${date.from} TO ${date.to}}`);
   });
 
   it('should build query for start_date date range', () => {
     let date = { fromDate: '2019-02-01', toDate: '2019-03-01' };
     const query = loanApi.query().withStartDate(date).qs();
     expect(decodeURI(query)).toEqual(
-      `(start_date:{${date.fromDate} TO ${date.toDate}})`
+      `start_date:{${date.fromDate} TO ${date.toDate}}`
     );
   });
 });

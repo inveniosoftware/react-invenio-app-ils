@@ -130,7 +130,7 @@ class QueryBuilder {
     const searchCriteria = this.documentQuery
       .concat(this.patronQuery, this.stateQuery)
       .join(' AND ');
-    return `(${searchCriteria})${this.sortBy}${this.size}${this.page}`;
+    return `${searchCriteria}${this.sortBy}${this.size}${this.page}`;
   }
 }
 
