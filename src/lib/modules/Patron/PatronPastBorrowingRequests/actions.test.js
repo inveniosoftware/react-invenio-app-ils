@@ -45,7 +45,7 @@ describe('Patron borrowing requests tests', () => {
 
       await store.dispatch(actions.fetchPatronPastBorrowingRequests(2));
       expect(mockFetchUserBorrowingRequest).toHaveBeenCalledWith(
-        '(patron_pid:2 AND status:(CANCELLED OR RETURNED))&size=15&page=1'
+        'patron_pid:2 AND status:(CANCELLED OR RETURNED)&size=15&page=1'
       );
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
@@ -60,7 +60,7 @@ describe('Patron borrowing requests tests', () => {
 
       await store.dispatch(actions.fetchPatronPastBorrowingRequests(2));
       expect(mockFetchUserBorrowingRequest).toHaveBeenCalledWith(
-        '(patron_pid:2 AND status:(CANCELLED OR RETURNED))&size=15&page=1'
+        'patron_pid:2 AND status:(CANCELLED OR RETURNED)&size=15&page=1'
       );
       expect(store.getActions()[1]).toEqual(expectedAction);
     });
@@ -75,7 +75,7 @@ describe('Patron borrowing requests tests', () => {
 
       await store.dispatch(actions.fetchPatronPastBorrowingRequests(2));
       expect(mockFetchUserBorrowingRequest).toHaveBeenCalledWith(
-        '(patron_pid:2 AND status:(CANCELLED OR RETURNED))&size=15&page=1'
+        'patron_pid:2 AND status:(CANCELLED OR RETURNED)&size=15&page=1'
       );
       expect(store.getActions()[1]).toEqual(expectedAction);
     });

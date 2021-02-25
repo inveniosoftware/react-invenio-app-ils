@@ -46,7 +46,7 @@ exports[`DocumentPendingLoans tests should load the details component 1`] = `
         <SeeAllButton
           disabled={false}
           fluid={false}
-          to="/backoffice/loans?q=(document_pid:111 AND state:(PENDING))"
+          to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
         />
       }
       showAllResults={false}
@@ -228,7 +228,7 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
               <SeeAllButton
                 disabled={false}
                 fluid={false}
-                to="/backoffice/loans?q=(document_pid:111 AND state:(PENDING))"
+                to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
               />
             }
             showAllResults={false}
@@ -601,7 +601,7 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
                     <SeeAllButton
                       disabled={false}
                       fluid={false}
-                      to="/backoffice/loans?q=(document_pid:111 AND state:(PENDING))"
+                      to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
                     />
                   }
                   showAllResults={false}
@@ -691,7 +691,7 @@ exports[`DocumentPendingLoans tests should render show a message with no pending
               <SeeAllButton
                 disabled={false}
                 fluid={false}
-                to="/backoffice/loans?q=(document_pid:111 AND state:(PENDING))"
+                to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
               />
             }
             showAllResults={false}
@@ -904,7 +904,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
               <SeeAllButton
                 disabled={false}
                 fluid={false}
-                to="/backoffice/loans?q=(document_pid:111 AND state:(PENDING))"
+                to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
               />
             }
             showAllResults={false}
@@ -1180,7 +1180,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                     <SeeAllButton
                       disabled={false}
                       fluid={false}
-                      to="/backoffice/loans?q=(document_pid:111 AND state:(PENDING))"
+                      to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
                     />
                   }
                   showAllResults={false}
@@ -1237,7 +1237,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                     <SeeAllButton
                                       disabled={false}
                                       fluid={false}
-                                      to="/backoffice/loans?q=(document_pid:111 AND state:(PENDING))"
+                                      to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
                                     >
                                       <Button
                                         as={
@@ -1329,7 +1329,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       "onClick": [Function],
                                                       "role": "button",
                                                       "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=(document_pid:111 AND state:(PENDING))",
+                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
                                                     },
                                                     "innerRef",
                                                     "Link",
@@ -1350,7 +1350,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       "onClick": [Function],
                                                       "role": "button",
                                                       "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=(document_pid:111 AND state:(PENDING))",
+                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
                                                     },
                                                     "innerRef",
                                                     "Link",
@@ -1478,7 +1478,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       "onClick": [Function],
                                                       "role": "button",
                                                       "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=(document_pid:111 AND state:(PENDING))",
+                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
                                                     },
                                                     "onClick",
                                                     "Link",
@@ -1499,7 +1499,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       "onClick": [Function],
                                                       "role": "button",
                                                       "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=(document_pid:111 AND state:(PENDING))",
+                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
                                                     },
                                                     "onClick",
                                                     "Link",
@@ -1627,7 +1627,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       "onClick": [Function],
                                                       "role": "button",
                                                       "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=(document_pid:111 AND state:(PENDING))",
+                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
                                                     },
                                                     "replace",
                                                     "Link",
@@ -1648,7 +1648,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       "onClick": [Function],
                                                       "role": "button",
                                                       "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=(document_pid:111 AND state:(PENDING))",
+                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
                                                     },
                                                     "replace",
                                                     "Link",
@@ -1776,7 +1776,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       "onClick": [Function],
                                                       "role": "button",
                                                       "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=(document_pid:111 AND state:(PENDING))",
+                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
                                                     },
                                                     "target",
                                                     "Link",
@@ -1797,7 +1797,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       "onClick": [Function],
                                                       "role": "button",
                                                       "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=(document_pid:111 AND state:(PENDING))",
+                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
                                                     },
                                                     "target",
                                                     "Link",
@@ -1925,7 +1925,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       "onClick": [Function],
                                                       "role": "button",
                                                       "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=(document_pid:111 AND state:(PENDING))",
+                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
                                                     },
                                                     "to",
                                                     "Link",
@@ -1946,7 +1946,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       "onClick": [Function],
                                                       "role": "button",
                                                       "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=(document_pid:111 AND state:(PENDING))",
+                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
                                                     },
                                                     "to",
                                                     "Link",
@@ -2051,7 +2051,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                     "onClick": [Function],
                                                     "role": "button",
                                                     "tabIndex": undefined,
-                                                    "to": "/backoffice/loans?q=(document_pid:111 AND state:(PENDING))",
+                                                    "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
                                                   },
                                                   [Function],
                                                 ],
@@ -2092,7 +2092,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                         disabled={false}
                                         fluid={false}
                                         size="small"
-                                        to="/backoffice/loans?q=(document_pid:111 AND state:(PENDING))"
+                                        to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
                                       >
                                         <Ref
                                           innerRef={
@@ -2112,7 +2112,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                               className="ui small button"
                                               onClick={[Function]}
                                               role="button"
-                                              to="/backoffice/loans?q=(document_pid:111 AND state:(PENDING))"
+                                              to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
                                             />
                                           </RefForward>
                                         </Ref>

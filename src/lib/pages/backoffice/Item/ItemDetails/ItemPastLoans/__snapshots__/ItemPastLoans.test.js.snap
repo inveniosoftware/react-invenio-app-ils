@@ -68,7 +68,7 @@ exports[`ItemPastLoans tests should load the past loans component 1`] = `
           <SeeAllButton
             disabled={false}
             fluid={false}
-            to="/backoffice/loans?q=(item_pid.value:222 AND state:(ITEM_RETURNED OR CANCELLED))"
+            to="/backoffice/loans?q=item_pid.value:222 AND state:(ITEM_RETURNED OR CANCELLED)"
           />
         }
         showAllResults={false}
@@ -281,7 +281,7 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
                   <SeeAllButton
                     disabled={false}
                     fluid={false}
-                    to="/backoffice/loans?q=(item_pid.value:222 AND state:(ITEM_RETURNED OR CANCELLED))"
+                    to="/backoffice/loans?q=item_pid.value:222 AND state:(ITEM_RETURNED OR CANCELLED)"
                   />
                 }
                 showAllResults={false}
@@ -2199,7 +2199,7 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
                         <SeeAllButton
                           disabled={false}
                           fluid={false}
-                          to="/backoffice/loans?q=(item_pid.value:222 AND state:(ITEM_RETURNED OR CANCELLED))"
+                          to="/backoffice/loans?q=item_pid.value:222 AND state:(ITEM_RETURNED OR CANCELLED)"
                         />
                       }
                       showAllResults={false}
@@ -2321,7 +2321,7 @@ exports[`ItemPastLoans tests should render show a message with no past loans 1`]
                   <SeeAllButton
                     disabled={false}
                     fluid={false}
-                    to="/backoffice/loans?q=(item_pid.value:222 AND state:(ITEM_RETURNED OR CANCELLED))"
+                    to="/backoffice/loans?q=item_pid.value:222 AND state:(ITEM_RETURNED OR CANCELLED)"
                   />
                 }
                 showAllResults={false}

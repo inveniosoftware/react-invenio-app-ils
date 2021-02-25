@@ -62,7 +62,7 @@ exports[`PatronCurrentBorrowingRequests tests should load the details component 
         <SeeAllButton
           disabled={false}
           fluid={false}
-          to="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
+          to="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN)"
         />
       }
       showAllResults={false}
@@ -351,7 +351,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                   <SeeAllButton
                     disabled={false}
                     fluid={false}
-                    to="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
+                    to="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN)"
                   />
                 }
                 showAllResults={false}
@@ -1163,7 +1163,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                         <SeeAllButton
                           disabled={false}
                           fluid={false}
-                          to="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
+                          to="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN)"
                         />
                       }
                       showAllResults={false}
@@ -1304,7 +1304,7 @@ exports[`PatronCurrentBorrowingRequests tests should render show a message with 
                   <SeeAllButton
                     disabled={false}
                     fluid={false}
-                    to="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
+                    to="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN)"
                   />
                 }
                 showAllResults={false}
@@ -1626,7 +1626,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                   <SeeAllButton
                     disabled={false}
                     fluid={false}
-                    to="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
+                    to="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN)"
                   />
                 }
                 showAllResults={false}
@@ -2169,7 +2169,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                         <SeeAllButton
                           disabled={false}
                           fluid={false}
-                          to="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
+                          to="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN)"
                         />
                       }
                       showAllResults={false}
@@ -2226,7 +2226,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                         <SeeAllButton
                                           disabled={false}
                                           fluid={false}
-                                          to="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
+                                          to="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN)"
                                         >
                                           <Button
                                             as={
@@ -2246,14 +2246,14 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                             disabled={false}
                                             fluid={false}
                                             size="small"
-                                            to="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
+                                            to="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN)"
                                           >
                                             <Ref
                                               innerRef={
                                                 Object {
                                                   "current": <a
                                                     class="ui small button"
-                                                    href="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
+                                                    href="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN)"
                                                     role="button"
                                                   >
                                                     See all
@@ -2266,7 +2266,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                                   Object {
                                                     "current": <a
                                                       class="ui small button"
-                                                      href="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
+                                                      href="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN)"
                                                       role="button"
                                                     >
                                                       See all
@@ -2278,18 +2278,18 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                                   className="ui small button"
                                                   onClick={[Function]}
                                                   role="button"
-                                                  to="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
+                                                  to="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN)"
                                                 >
                                                   <LinkAnchor
                                                     className="ui small button"
-                                                    href="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
+                                                    href="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN)"
                                                     navigate={[Function]}
                                                     onClick={[Function]}
                                                     role="button"
                                                   >
                                                     <a
                                                       className="ui small button"
-                                                      href="/backoffice/ill/borrowing-requests?q=(patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN))"
+                                                      href="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN)"
                                                       onClick={[Function]}
                                                       role="button"
                                                     >

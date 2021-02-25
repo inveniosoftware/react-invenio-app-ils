@@ -1,8 +1,8 @@
+import { loanApi } from '@api/loans';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import { loanApi } from '@api/loans';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -45,7 +45,7 @@ describe('Past loans tests', () => {
 
       store.dispatch(actions.fetchPastLoans('456')).then(() => {
         expect(mockFetchPastOnDocumentItem).toHaveBeenCalledWith(
-          '(item_pid.value:456 AND state:(ITEM_RETURNED OR CANCELLED))'
+          'item_pid.value:456 AND state:(ITEM_RETURNED OR CANCELLED)'
         );
         const actions = store.getActions();
         expect(actions[0]).toEqual(expectedAction);
@@ -63,7 +63,7 @@ describe('Past loans tests', () => {
 
       store.dispatch(actions.fetchPastLoans('456')).then(() => {
         expect(mockFetchPastOnDocumentItem).toHaveBeenCalledWith(
-          '(item_pid.value:456 AND state:(ITEM_RETURNED OR CANCELLED))'
+          'item_pid.value:456 AND state:(ITEM_RETURNED OR CANCELLED)'
         );
         const actions = store.getActions();
         expect(actions[1]).toEqual(expectedAction);
@@ -81,7 +81,7 @@ describe('Past loans tests', () => {
 
       store.dispatch(actions.fetchPastLoans('456')).then(() => {
         expect(mockFetchPastOnDocumentItem).toHaveBeenCalledWith(
-          '(item_pid.value:456 AND state:(ITEM_RETURNED OR CANCELLED))'
+          'item_pid.value:456 AND state:(ITEM_RETURNED OR CANCELLED)'
         );
         const actions = store.getActions();
         expect(actions[1]).toEqual(expectedAction);

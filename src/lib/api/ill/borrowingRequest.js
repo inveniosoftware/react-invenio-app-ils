@@ -184,7 +184,7 @@ class QueryBuilder {
       .concat(this.patronLoanExtensionStatusQuery)
       .concat(this.query)
       .join(' AND ');
-    return `(${searchCriteria})${this.sortByQuery}${this.size}${this.page}`;
+    return `${searchCriteria}${this.sortByQuery}${this.size}${this.page}`;
   }
 }
 

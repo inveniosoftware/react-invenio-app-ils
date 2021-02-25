@@ -35,7 +35,7 @@ describe('Document stats fetch tests', () => {
     store.dispatch(actions.fetchDocumentStats(ARGS)).then((done) => {
       const range = encodeURI(`{${ARGS.fromDate} TO ${ARGS.toDate}}`);
       expect(mockLoanList).toHaveBeenCalledWith(
-        `(document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED OR CANCELLED) AND start_date:${range})`
+        `document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED OR CANCELLED) AND start_date:${range}`
       );
       expect(store.getActions()[0]).toEqual(expectedAction);
       done();
@@ -52,7 +52,7 @@ describe('Document stats fetch tests', () => {
     store.dispatch(actions.fetchDocumentStats(ARGS)).then((done) => {
       const range = encodeURI(`{${ARGS.fromDate} TO ${ARGS.toDate}}`);
       expect(mockLoanList).toHaveBeenCalledWith(
-        `(document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED OR CANCELLED) AND start_date:${range})`
+        `document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED OR CANCELLED) AND start_date:${range}`
       );
       expect(store.getActions()[1]).toEqual(expectedAction);
       done();
@@ -69,7 +69,7 @@ describe('Document stats fetch tests', () => {
     store.dispatch(actions.fetchDocumentStats(ARGS)).then((done) => {
       const range = encodeURI(`{${ARGS.fromDate} TO ${ARGS.toDate}}`);
       expect(mockLoanList).toHaveBeenCalledWith(
-        `(document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED OR CANCELLED) AND start_date:${range})`
+        `document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED OR CANCELLED) AND start_date:${range}`
       );
       expect(store.getActions()[1]).toEqual(expectedAction);
       done();

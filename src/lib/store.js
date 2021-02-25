@@ -28,18 +28,6 @@ import {
 import { documentRequestDetailsReducer } from '@pages/backoffice/DocumentRequest/DocumentRequestDetails/reducer';
 import { eitemDetailsFileReducer } from '@pages/backoffice/EItem/EItemDetails/File/reducer';
 import { eitemDetailsReducer } from '@pages/backoffice/EItem/EItemDetails/reducer';
-import {
-  acquisitionCardReducer,
-  documentCardReducer,
-  idleLoansReducer,
-  illCardReducer,
-  loansCardReducer,
-  overbookedDocumentsReducer,
-  overdueLoansReducer,
-  pendingILLPatronLoanExtensions,
-  pendingOverdueDocumentsReducer,
-  renewedLoansReducer,
-} from '@pages/backoffice/Home/reducer';
 import { borrowingRequestLoanExtensionReducer } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/BorrowingRequestPatronLoan/BorrowingRequestLoanExtension/reducer';
 import { borrowingRequestPatronLoanCreateReducer } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/BorrowingRequestPatronLoan/reducer';
 import borrowingRequestDetailsReducer from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/state/reducer';
@@ -97,16 +85,6 @@ const rootReducer = combineReducers({
   patronPastBorrowingRequests: patronPastBorrowingRequestsReducer,
   staticPage: staticPageReducer,
   /* backoffice */
-  loansCard: loansCardReducer,
-  documentCard: documentCardReducer,
-  acquisitionCard: acquisitionCardReducer,
-  illCard: illCardReducer,
-  overbookedDocuments: overbookedDocumentsReducer,
-  overdueLoans: overdueLoansReducer,
-  pendingOverdueDocuments: pendingOverdueDocumentsReducer,
-  idlePendingLoans: idleLoansReducer,
-  pendingILLPatronLoanExtensions: pendingILLPatronLoanExtensions,
-  latestRenewedLoans: renewedLoansReducer,
   overdueLoanSendMailModal: overdueLoanSendMailModalReducer,
   loanDetails: loanDetailsReducer,
   loanActions: loanActionReducer,
