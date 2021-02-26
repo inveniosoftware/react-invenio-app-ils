@@ -30,11 +30,9 @@ import { ItemEditor } from '@pages/backoffice/Item/ItemEditor';
 import { ItemSearch } from '@pages/backoffice/Item/ItemSearch';
 import { LoanDetails } from '@pages/backoffice/Loan/LoanDetails';
 import { LoanSearch } from '@pages/backoffice/Loan/LoanSearch';
+import { InternalLocationEditor } from '@pages/backoffice/Location/InternalLocationEditor';
 import { LocationDetails } from '@pages/backoffice/Location/LocationDetails';
-import {
-  InternalLocationEditor,
-  LocationEditor,
-} from '@pages/backoffice/Location/LocationForms';
+import { LocationEditor } from '@pages/backoffice/Location/LocationEditor';
 import { LocationList } from '@pages/backoffice/Location/LocationList';
 import { PatronDetails } from '@pages/backoffice/Patron/PatronDetails';
 import { PatronSearch } from '@pages/backoffice/Patron/PatronSearch';

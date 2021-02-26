@@ -1,4 +1,4 @@
-import { groupBy } from 'lodash';
+import _groupBy from 'lodash/groupBy';
 import React from 'react';
 import { List } from 'semantic-ui-react';
 
@@ -14,7 +14,7 @@ export function formatPidTypeToName(pidType) {
 }
 
 export const groupedSchemeValueList = (schemeValueList) => {
-  const groupedIDs = groupBy(schemeValueList, 'scheme');
+  const groupedIDs = _groupBy(schemeValueList, 'scheme');
   let rows = [];
   for (const [scheme, idsList] of Object.entries(groupedIDs)) {
     rows.push({

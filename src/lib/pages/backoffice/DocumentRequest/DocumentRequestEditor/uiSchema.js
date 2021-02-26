@@ -8,7 +8,7 @@ export const uiSchema = (title) => ({
     'ui:widget': 'referencedDocument',
   },
   physical_item_provider: {
-    'ui:field': 'documentRequestProvider',
+    'ui:field': 'documentRequestProviderField',
   },
   medium: {
     'ui:widget': 'vocabulary',
