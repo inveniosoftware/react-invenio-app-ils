@@ -1,4 +1,5 @@
 import { RJSFDocumentRequestProvider } from '@forms/rjsf/fields/RJSFDocumentRequestProvider';
+import { RJSFLabelField } from '@forms/rjsf/fields/RJSFLabelField';
 import { RJSFTitleField } from '@forms/rjsf/fields/RJSFTitleField';
 import {
   FieldTemplateWithWrapper,
@@ -9,7 +10,9 @@ import { RJSFReferencedAcqOrder } from '@forms/rjsf/widgets/RJSFReferencedAcqOrd
 import { RJSFReferencedAcqVendor } from '@forms/rjsf/widgets/RJSFReferencedAcqVendor';
 import { RJSFReferencedDocument } from '@forms/rjsf/widgets/RJSFReferencedDocument';
 import { RJSFReferencedInternalLocation } from '@forms/rjsf/widgets/RJSFReferencedInternalLocation';
+import { RJSFReferencedLocation } from '@forms/rjsf/widgets/RJSFReferencedLocation';
 import { RJSFReferencedPatron } from '@forms/rjsf/widgets/RJSFReferencedPatron';
+import { RJSFTimeWidget } from '@forms/rjsf/widgets/RJSFTimeWidget';
 import { RJSFVocabulary } from '@forms/rjsf/widgets/RJSFVocabulary';
 import { RJSFVocabularySearch } from '@forms/rjsf/widgets/RJSFVocabularySearch';
 import { goBack } from '@history';
@@ -23,19 +26,21 @@ import { removeEmptyValues } from './RecordSerializer';
 
 const customWidgets = {
   CheckboxWidget: RJSFCheckboxWidget,
+  timeWidget: RJSFTimeWidget,
   referencedDocument: RJSFReferencedDocument,
   referencedPatron: RJSFReferencedPatron,
   referencedAcqOrder: RJSFReferencedAcqOrder,
   referencedAcqVendor: RJSFReferencedAcqVendor,
   referencedInternalLocation: RJSFReferencedInternalLocation,
+  referencedLocation: RJSFReferencedLocation,
   vocabularySearch: RJSFVocabularySearch,
   vocabulary: RJSFVocabulary,
-  documentRequestProvider: RJSFDocumentRequestProvider,
 };
 
 const customFields = {
   TitleField: RJSFTitleField,
-  documentRequestProvider: RJSFDocumentRequestProvider,
+  documentRequestProviderField: RJSFDocumentRequestProvider,
+  labelField: RJSFLabelField,
 };
 
 export class RJSForm extends Component {
@@ -113,13 +118,14 @@ export class RJSForm extends Component {
         fields={customFields}
         transformErrors={(errors) => {
           // scroll to top to see errors triggered by client validation
-          window.scrollTo(0, 0);
+          errors.length && window.scrollTo(0, 0);
           return errors;
         }}
         extraErrors={errors}
         ObjectFieldTemplate={ObjectFieldTemplateWrapperGrid}
         FieldTemplate={FieldTemplateWithWrapper}
         // ArrayFieldTemplate={ArrayFieldTemplateWithWrapper}
+        disabled={isLoading}
         onSubmit={this.onSubmit}
       >
         <Container textAlign="right">
