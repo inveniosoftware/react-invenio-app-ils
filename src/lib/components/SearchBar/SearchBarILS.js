@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Input } from 'semantic-ui-react';
+import { screenIsWiderThan } from '@components/utils';
+import { Breakpoints } from '@components/Media';
 
 export class SearchBarILS extends Component {
   state = { currentValue: '' };
@@ -35,9 +37,11 @@ export class SearchBarILS extends Component {
       onPasteHandler,
       onChangeHandler,
       placeholder,
+      responsiveAutofocus,
       ...rest
     } = this.props;
     const { currentValue } = this.state;
+    const autofocus = screenIsWiderThan(Breakpoints.computer);
     return (
       <Input
         action={{
@@ -55,7 +59,11 @@ export class SearchBarILS extends Component {
         placeholder={placeholder}
         className={`${parentClass} ils-searchbar`}
         ref={(input) => {
-          this.focusInput = input;
+          if (responsiveAutofocus && autofocus) {
+            this.focusInput = input;
+          } else if (!responsiveAutofocus) {
+            this.focusInput = input;
+          }
         }}
         {...rest}
       />
@@ -70,6 +78,7 @@ SearchBarILS.propTypes = {
   onChangeHandler: PropTypes.func,
   placeholder: PropTypes.string,
   className: PropTypes.string,
+  responsiveAutofocus: PropTypes.bool,
 };
 
 SearchBarILS.defaultProps = {
@@ -78,4 +87,5 @@ SearchBarILS.defaultProps = {
   onChangeHandler: null,
   placeholder: '',
   className: '',
+  responsiveAutofocus: false,
 };

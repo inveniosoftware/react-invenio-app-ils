@@ -142,7 +142,9 @@ a {
     margin-left: 1.6em;
   }
   &.frontsite-mobile {
+    position: absolute;
     margin-left: 1.6em;
+    margin-top: -1em;
     padding-left: 0.8em;
     padding-right: 0;
   }
@@ -154,6 +156,10 @@ a {
 .ui.pagination [type=ellipsisItem]:nth-last-child(3) + [type=pageItem] {
   /* Workaround to hide the last page item button */
   display: none !important;
+}
+
+.vertical-align-bottom {
+    vertical-align: bottom;
 }
 
 /* FRONTSITE */

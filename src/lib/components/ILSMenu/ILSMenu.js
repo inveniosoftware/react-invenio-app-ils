@@ -45,12 +45,12 @@ class ILSMenu extends Component {
 
     return (
       <>
-        <Media greaterThanOrEqual="tablet">
+        <Media greaterThanOrEqual="computer">
           <Dropdown item text={userMenuText} icon="caret down">
             {dropdownEntries}
           </Dropdown>
         </Media>
-        <Media at="mobile">
+        <Media lessThan="computer">
           <Dropdown item text={userMenuText} icon="bars">
             {dropdownEntries}
           </Dropdown>
@@ -78,7 +78,7 @@ class ILSMenu extends Component {
     return (
       <Overridable id="ILSMenu.layout" {...this.props}>
         <>
-          <Media greaterThanOrEqual="tablet">
+          <Media greaterThanOrEqual="computer">
             <Menu
               stackable
               borderless
@@ -123,7 +123,7 @@ class ILSMenu extends Component {
               </Container>
             </Menu>
           </Media>
-          <Media at="mobile">
+          <Media lessThan="computer">
             <Menu
               borderless
               inverted

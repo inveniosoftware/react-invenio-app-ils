@@ -33,7 +33,7 @@ export default class Breadcrumbs extends Component {
       <div className="breadcrumbs">
         <Breadcrumb>
           {this._renderBreadcrumbElements()}
-          <Breadcrumb.Section active>
+          <Breadcrumb.Section active className="vertical-align-bottom">
             <Truncate width="200px">{currentElement}</Truncate>
           </Breadcrumb.Section>
         </Breadcrumb>

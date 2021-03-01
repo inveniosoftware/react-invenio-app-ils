@@ -19,6 +19,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
         "Pagination.element": [Function],
         "ResultsGrid": [Function],
         "ResultsList": [Function],
+        "SearchBar": [Function],
         "SortBy.element.desktop": [Function],
         "SortBy.element.mobile": [Function],
       }
@@ -99,6 +100,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
           }
           autofocus={true}
           placeholder="Search for volumes or issues..."
+          responsiveAutofocus={true}
           uiProps={
             Object {
               "className": "ils-searchbar",

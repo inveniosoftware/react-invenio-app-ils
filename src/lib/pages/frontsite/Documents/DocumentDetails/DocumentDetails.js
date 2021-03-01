@@ -193,6 +193,7 @@ class DocumentDetails extends Component {
                 onSearchHandler={this.onSearchClick}
                 placeholder={invenioConfig.APP.HOME_SEARCH_BAR_PLACEHOLDER}
                 className="fs-headline"
+                responsiveAutofocus
               />
             </Container>
           </Container>

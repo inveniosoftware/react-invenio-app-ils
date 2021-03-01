@@ -144,6 +144,7 @@ export default class ESSelectorLoanRequest extends Component {
             <Selector
               onSelectionsUpdate={this.onSelectionsUpdate}
               {...this.props}
+              focus
             />
           </PatronSearchInputContext.Provider>
         </Modal.Content>
