@@ -25,6 +25,7 @@ import {
   SearchBar,
 } from 'react-searchkit';
 import { Container, Grid, Header, Loader } from 'semantic-ui-react';
+import { SearchBarOverridesMap } from '@components/SearchBar/SearchBarOverrides';
 import LiteratureSearchMobile from './LiteratureSearchMobile';
 import SearchMessage from './SearchMessage/SearchMessage';
 
@@ -53,12 +54,12 @@ class LiteratureSearch extends Component {
       this.modelName
     );
     const urlHandler = setReactSearchKitUrlHandler(this.modelName);
-
     return (
       <OverridableContext.Provider
         value={{
           ...SearchControlsOverridesMap,
           ...LiteratureSearchOverridesMap,
+          ...SearchBarOverridesMap,
         }}
       >
         <ReactSearchKit
@@ -76,6 +77,7 @@ class LiteratureSearch extends Component {
                   <SearchBar
                     placeholder={invenioConfig.APP.HOME_SEARCH_BAR_PLACEHOLDER}
                     {...invenioConfig.APP.SEARCH_BAR_PROPS}
+                    responsiveAutofocus
                   />
                 </Container>
               </Container>

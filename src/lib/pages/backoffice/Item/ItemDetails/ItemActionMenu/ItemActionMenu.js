@@ -145,6 +145,7 @@ export default class ItemActionMenu extends Component {
           emptySelectionInfoText="No patron selected yet"
           onSave={this.checkoutItem}
           saveButtonContent="Checkout physical copy"
+          focus
         />
         <Divider horizontal> Navigation </Divider>
         <ScrollingMenu offset={offset}>

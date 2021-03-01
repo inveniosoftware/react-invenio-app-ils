@@ -1,3 +1,8 @@
 /*******************************
  Breadcrumb Overrides - REACT-INVENIO-APP-ILS
 *******************************/
+
+
+.ui.breadcrumb {
+    line-height: 1.1;
+}

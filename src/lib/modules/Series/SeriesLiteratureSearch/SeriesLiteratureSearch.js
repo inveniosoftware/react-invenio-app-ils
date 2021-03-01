@@ -24,6 +24,7 @@ import {
   SearchBar,
 } from 'react-searchkit';
 import { Container, Divider, Loader } from 'semantic-ui-react';
+import { SearchBarOverridesMap } from '@components/SearchBar/SearchBarOverrides';
 import { qsBuilderForSeries } from './RequestSerializer';
 import { SeriesLiteratureSearchMobile } from './SeriesLiteratureSearchMobile';
 
@@ -60,6 +61,7 @@ export class SeriesLiteratureSearch extends React.Component {
           value={{
             ...SearchControlsOverridesMap,
             ...LiteratureSearchOverridesMap,
+            ...SearchBarOverridesMap,
           }}
         >
           <ReactSearchKit
@@ -74,6 +76,7 @@ export class SeriesLiteratureSearch extends React.Component {
                 <SearchBar
                   placeholder="Search for volumes or issues..."
                   {...invenioConfig.APP.SEARCH_BAR_PROPS}
+                  responsiveAutofocus
                 />
               </Container>
               <Media greaterThanOrEqual="computer">

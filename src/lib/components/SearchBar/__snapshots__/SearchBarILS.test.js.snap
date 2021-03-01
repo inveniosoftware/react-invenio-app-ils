@@ -8,6 +8,7 @@ exports[`SearchBar tests should match snapshot 1`] = `
   onPasteHandler={null}
   onSearchHandler={[Function]}
   placeholder="Search"
+  responsiveAutofocus={false}
 >
   <Input
     action={
