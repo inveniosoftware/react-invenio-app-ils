@@ -66,6 +66,7 @@ export default class LiteratureRelations extends Component {
           items={items}
           prefix={`This is part of the series: `}
           separator=";"
+          className="inline-list"
         />
       </List.Item>
     );
@@ -88,6 +89,7 @@ export default class LiteratureRelations extends Component {
           items={items}
           prefix="See other languages: "
           separator=";"
+          className="inline-list"
         />
       </List.Item>
     );
@@ -114,6 +116,7 @@ export default class LiteratureRelations extends Component {
           items={items}
           prefix="See other editions: "
           separator=";"
+          className="inline-list"
         />
       </List.Item>
     );

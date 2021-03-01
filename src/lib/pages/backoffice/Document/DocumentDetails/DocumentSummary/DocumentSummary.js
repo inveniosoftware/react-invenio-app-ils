@@ -40,7 +40,7 @@ export default class DocumentSummary extends Component {
           className="anchored"
         >
           <Statistic.Value>
-            {document.metadata.circulation.active_loans_count}
+            {document.metadata.circulation.active_loans}
           </Statistic.Value>
           <Statistic.Label>
             <LoanIcon />
@@ -52,7 +52,7 @@ export default class DocumentSummary extends Component {
           className="anchored"
         >
           <Statistic.Value>
-            {document.metadata.circulation.pending_loans_count}
+            {document.metadata.circulation.pending_loans}
           </Statistic.Value>
           <Statistic.Label>
             <Icon name="wait" />

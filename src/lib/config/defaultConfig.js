@@ -344,6 +344,12 @@ export const RECORDS_CONFIG = {
       defaultSize: 15,
       defaultLayout: 'list',
     },
+    alternativeTitles: [
+      {
+        value: 'ABBREVIATION',
+        text: 'Abbreviation',
+      },
+    ],
   },
   DOCUMENT_REQUESTS: {
     states: ['ACCEPTED', 'PENDING', 'DECLINED'],

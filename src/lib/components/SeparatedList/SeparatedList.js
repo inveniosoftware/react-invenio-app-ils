@@ -9,12 +9,13 @@ export const SeparatedList = ({
   prefix,
   separator,
   suffix,
+  className,
   ...listProps
 }) => {
   return _isEmpty(items) ? null : (
     <>
       {prefix}
-      <List horizontal {...listProps}>
+      <List horizontal className={className} {...listProps}>
         {items.map((item, index) => (
           <List.Item key={item} {...itemProps}>
             {item}
@@ -33,6 +34,7 @@ SeparatedList.propTypes = {
   prefix: PropTypes.node,
   separator: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   suffix: PropTypes.node,
+  className: PropTypes.string,
 };
 
 SeparatedList.defaultProps = {

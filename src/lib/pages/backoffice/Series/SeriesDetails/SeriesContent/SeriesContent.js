@@ -46,10 +46,7 @@ export class SeriesContent extends Component {
         )}
       </>
     ) : (
-      <InfoMessage
-        header="No stored content."
-        content="Edit series to add content"
-      />
+      <InfoMessage header="No content." content="Edit series to add content" />
     );
   }
 }

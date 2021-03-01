@@ -74,7 +74,7 @@ export class DocumentCuration extends Component {
     }
     return (
       <InfoMessage
-        header="No stored information."
+        header="No information."
         content="Edit document to add information"
       />
     );

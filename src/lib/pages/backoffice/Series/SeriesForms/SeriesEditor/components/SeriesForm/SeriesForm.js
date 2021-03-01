@@ -59,7 +59,6 @@ const SeriesSchema = Yup.object().shape({
 export class SeriesForm extends Component {
   prepareData = (data) => {
     return _pick(data, [
-      'abbreviated_title',
       'abstract',
       'access_urls',
       'alternative_titles',
@@ -137,10 +136,6 @@ export class SeriesForm extends Component {
         <Segment attached>
           <StringField label="Title" fieldPath="title" required />
           <GroupField widths="equal">
-            <StringField
-              label="Abbreviated title"
-              fieldPath="abbreviated_title"
-            />
             <SelectField
               required
               search

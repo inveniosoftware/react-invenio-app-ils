@@ -14,10 +14,6 @@ export default class SeriesMetadata extends Component {
     return [
       { name: 'Title', value: seriesDetails.metadata.title },
       {
-        name: 'Title abbreviation',
-        value: seriesDetails.metadata.abbreviated_title,
-      },
-      {
         name: 'Mode of Issuance',
         value: seriesDetails.metadata.mode_of_issuance,
       },

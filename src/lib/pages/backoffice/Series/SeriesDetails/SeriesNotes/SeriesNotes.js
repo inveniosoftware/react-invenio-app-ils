@@ -16,10 +16,7 @@ export class SeriesNotes extends Component {
         <p>{this.renderInternalNotes()}</p>
       </>
     ) : (
-      <InfoMessage
-        header="No stored notes."
-        content="Edit document to add a note"
-      />
+      <InfoMessage header="No notes." content="Edit document to add a note" />
     );
   }
 

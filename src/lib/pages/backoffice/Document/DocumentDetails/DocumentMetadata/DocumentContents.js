@@ -6,84 +6,59 @@ import { Divider, Header } from 'semantic-ui-react';
 import _isEmpty from 'lodash/isEmpty';
 import { ShowMoreContent } from '@components/ShowMoreContent';
 import LiteratureTags from '@modules/Literature/LiteratureTags';
-import { InfoMessage } from '@components/backoffice/InfoMessage';
 import LiteratureKeywords from '@modules/Literature/LiteratureKeywords';
 
 export class DocumentContents extends Component {
   render() {
-    const { document } = this.props;
-    if (
-      !_isEmpty(document.metadata.abstract) ||
-      !_isEmpty(document.metadata.table_of_content) ||
-      !_isEmpty(document.metadata.subjects) ||
-      !_isEmpty(document.metadata.tags) ||
-      !_isEmpty(document.metadata.keywords) ||
-      !_isEmpty(document.metadata.physical_description)
-    ) {
-      return (
-        <>
-          {!_isEmpty(document.metadata.abstract) && (
-            <>
-              <Header as="h3">Abstract</Header>
-              <ShowMoreContent
-                content={document.metadata.abstract}
-                lines={10}
-              />
-            </>
-          )}
+    const {
+      document: {
+        metadata: {
+          abstract,
+          physical_description: physicalDescription,
+          tags,
+          keywords,
+        },
+        metadata,
+      },
+    } = this.props;
 
-          {!_isEmpty(document.metadata.physical_description) && (
-            <>
-              <Header as="h3">Physical description</Header>
-              <ShowMoreContent
-                content={document.metadata.physical_description}
-                lines={10}
-              />
-            </>
-          )}
+    return (
+      <>
+        <Header as="h3">Abstract</Header>
+        {!_isEmpty(abstract) ? (
+          <ShowMoreContent content={abstract} lines={10} />
+        ) : (
+          'There is no abstract'
+        )}
 
-          {!_isEmpty(document.metadata.table_of_content) && (
-            <>
-              <Divider />
-              <Header as="h3">Table of content</Header>
-              <DocumentToc document={document} />
-            </>
-          )}
+        <Header as="h3">Physical description</Header>
+        {!_isEmpty(physicalDescription) ? (
+          <ShowMoreContent content={physicalDescription} lines={10} />
+        ) : (
+          'There is no physical description'
+        )}
 
-          {!_isEmpty(document.metadata.subjects) && (
-            <>
-              <Divider />
-              <Header as="h3">Subjects classification</Header>
-              <DocumentSubjects document={document} />
-            </>
-          )}
+        <Divider />
+        <Header as="h3">Table of content</Header>
+        <DocumentToc metadata={metadata} />
 
-          {!_isEmpty(document.metadata.tags) && (
-            <>
-              <Divider />
-              <Header as="h3">Tags</Header>
-              <LiteratureTags size="mini" tags={document.metadata.tags} />
-            </>
-          )}
+        <Divider />
+        <Header as="h3">Subjects classification</Header>
+        <DocumentSubjects metadata={metadata} />
 
-          {!_isEmpty(document.metadata.keywords) && (
-            <>
-              <Divider />
-              <Header as="h3">Keywords</Header>
-              <br />
-              <LiteratureKeywords keywords={document.metadata.keywords} />
-            </>
-          )}
-        </>
-      );
-    } else {
-      return (
-        <InfoMessage
-          header="No stored content information."
-          content="Edit document to add content information"
-        />
-      );
-    }
+        <Divider />
+        <Header as="h3">Tags</Header>
+        <LiteratureTags size="mini" tags={tags} />
+
+        <Divider />
+        <Header as="h3">Keywords</Header>
+        {!_isEmpty(keywords) ? (
+          <LiteratureKeywords keywords={keywords} />
+        ) : (
+          'No keywords.'
+        )}
+      </>
+    );
   }
 }
 

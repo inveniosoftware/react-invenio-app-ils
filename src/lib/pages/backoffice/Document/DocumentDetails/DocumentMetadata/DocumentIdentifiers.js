@@ -15,7 +15,7 @@ export class DocumentIdentifiers extends Component {
       <MetadataTable rows={identifiers.concat(alternativeIdentifiers)} />
     ) : (
       <InfoMessage
-        header="No stored identifiers."
+        header="No identifiers."
         content="Edit document to add identifiers"
       />
     );

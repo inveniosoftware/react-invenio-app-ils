@@ -1,10 +1,12 @@
 import { invenioConfig } from '@config';
 import { DocumentConference } from '@modules/Document/DocumentConference';
+import { DocumentCopyrights } from '@modules/Document/DocumentCopyrights';
+import { DocumentExtras } from '@modules/Document/DocumentExtras';
 import { DocumentInfo } from '@modules/Document/DocumentInfo';
 import { DocumentEItemUrls } from '@modules/Document/DocumentEItemUrls';
 import { DocumentMetadataExtensions } from '@modules/Document/DocumentMetadataExtensions';
 import { DocumentPublicationInfo } from '@modules/Document/DocumentPublicationInfo';
-import { DocumentTableOfContent } from '@modules/Document/DocumentTableOfContent';
+import { DocumentContent } from '@modules/Document/DocumentContent';
 import { Identifiers } from '@modules/Identifiers';
 import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
 import LiteratureRelations from '@modules/Literature/LiteratureRelations';
@@ -42,10 +44,7 @@ class DocumentMetadataTabs extends Component {
         menuItem: 'Content',
         render: () => (
           <Tab.Pane>
-            <DocumentTableOfContent
-              toc={metadata.table_of_content}
-              abstract={metadata.abstract}
-            />
+            <DocumentContent metadata={metadata} />
           </Tab.Pane>
         ),
       },
@@ -76,6 +75,22 @@ class DocumentMetadataTabs extends Component {
         render: () => (
           <Tab.Pane>
             <DocumentEItemUrls dividers eitems={metadata.eitems} />
+          </Tab.Pane>
+        ),
+      },
+      {
+        menuItem: 'Licenses & copyrights',
+        render: () => (
+          <Tab.Pane>
+            <DocumentCopyrights metadata={metadata} />
+          </Tab.Pane>
+        ),
+      },
+      {
+        menuItem: 'Other',
+        render: () => (
+          <Tab.Pane>
+            <DocumentExtras metadata={metadata} />
           </Tab.Pane>
         ),
       },

@@ -58,7 +58,9 @@ const DocumentSchema = Yup.object().shape({
   ),
   licenses: Yup.array().of(
     Yup.object().shape({
-      value: Yup.string().required(),
+      license: Yup.object().shape({
+        id: Yup.string().required(),
+      }),
     })
   ),
 });

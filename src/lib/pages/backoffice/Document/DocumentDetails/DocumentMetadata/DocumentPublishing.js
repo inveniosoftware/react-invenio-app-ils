@@ -104,7 +104,7 @@ export class DocumentPublishing extends Component {
     }
     return (
       <InfoMessage
-        header="No stored publishing information."
+        header="No publishing information."
         content="Edit document to add publishing information"
       />
     );

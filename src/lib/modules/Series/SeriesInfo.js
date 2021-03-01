@@ -36,6 +36,12 @@ export const SeriesInfo = ({ metadata }) => {
               <Table.Cell>{metadata.publisher}</Table.Cell>
             </Table.Row>
           )}
+          {metadata.publication_year && (
+            <Table.Row>
+              <Table.Cell>Publication year</Table.Cell>
+              <Table.Cell>{metadata.publication_year}</Table.Cell>
+            </Table.Row>
+          )}
           {metadata.edition && (
             <Table.Row>
               <Table.Cell>Edition</Table.Cell>
