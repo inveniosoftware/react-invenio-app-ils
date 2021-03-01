@@ -223,11 +223,13 @@ class DocumentAuthors extends Component {
                           showAllFields={showAllFieldsInPopUp}
                         />
                       )}
-                    {!isLast ? delimiter : null}
+                    {!isLast || hasOtherAuthors ? delimiter : null}
                   </List.Item>
                 );
               })}
-              {hasOtherAuthors && ET_AL_LABEL}
+              {hasOtherAuthors && (
+                <List.Item key="others">{ET_AL_LABEL}</List.Item>
+              )}
             </List>
           </div>
           {showAllAuthorsCmp}

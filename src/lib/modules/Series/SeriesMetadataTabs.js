@@ -39,7 +39,6 @@ class SeriesMetadataTabs extends Component {
           <Tab.Pane attached={false}>
             <SeriesAllTitles
               title={metadata.title}
-              abbreviatedTitle={metadata.abbreviated_title}
               alternativeTitles={metadata.alternative_titles}
             />
           </Tab.Pane>

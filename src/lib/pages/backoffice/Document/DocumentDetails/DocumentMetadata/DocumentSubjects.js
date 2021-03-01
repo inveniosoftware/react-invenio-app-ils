@@ -7,10 +7,10 @@ import { List } from 'semantic-ui-react';
 
 export class DocumentSubjects extends Component {
   render() {
-    const { document } = this.props;
+    const { metadata } = this.props;
 
-    if (!_isEmpty(document.metadata.subjects)) {
-      const groupedSubjects = _groupBy(document.metadata.subjects, 'scheme');
+    if (!_isEmpty(metadata.subjects)) {
+      const groupedSubjects = _groupBy(metadata.subjects, 'scheme');
       let rows = [];
       for (const [scheme, idsList] of Object.entries(groupedSubjects)) {
         rows.push({
@@ -28,10 +28,10 @@ export class DocumentSubjects extends Component {
       }
       return <MetadataTable rows={rows} />;
     }
-    return null;
+    return 'No subject classification information.';
   }
 }
 
 DocumentSubjects.propTypes = {
-  document: PropTypes.object.isRequired,
+  metadata: PropTypes.object.isRequired,
 };

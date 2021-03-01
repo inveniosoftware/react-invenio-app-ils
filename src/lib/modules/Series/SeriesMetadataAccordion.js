@@ -65,7 +65,6 @@ class SeriesMetadataAccordion extends Component {
         <Accordion.Content active={activeIndex === 'titles'}>
           <SeriesAllTitles
             title={metadata.title}
-            abbreviatedTitle={metadata.abbreviated_title}
             alternativeTitles={metadata.alternative_titles}
           />
         </Accordion.Content>

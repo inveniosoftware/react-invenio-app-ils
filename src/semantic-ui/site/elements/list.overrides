@@ -15,6 +15,13 @@ List Overrides - REACT-INVENIO-APP-ILS
 }
 
 .ui.horizontal.list {
+  &.inline-list{
+    padding: 0;
+    vertical-align: top;
+    .item{
+      padding: 0;
+    }
+  }
   &.document-authors-list {
     display: inline;
   }

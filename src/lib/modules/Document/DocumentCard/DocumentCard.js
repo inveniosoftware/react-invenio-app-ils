@@ -1,4 +1,3 @@
-import { toShortDate } from '@api/date';
 import { invenioConfig } from '@config';
 import { goTo } from '@history';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
@@ -6,7 +5,6 @@ import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
-import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
@@ -69,11 +67,7 @@ class DocumentCard extends Component {
                 limit={invenioConfig.LITERATURE.authors.maxDisplay}
               />
               <div>
-                {!_isEmpty(metadata.imprints) ? (
-                  <>
-                    {toShortDate(_get(metadata, 'imprints[0].date'))} <br />{' '}
-                  </>
-                ) : null}
+                {metadata.publication_year}
                 {metadata.edition && <>Edition {metadata.edition}</>}
               </div>
             </Card.Meta>

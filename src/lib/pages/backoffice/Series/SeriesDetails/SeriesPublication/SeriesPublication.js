@@ -33,7 +33,7 @@ export class SeriesPublication extends Component {
       </Container>
     ) : (
       <InfoMessage
-        header="No stored publication content."
+        header="No publication content."
         content="Edit series to add publication content"
       />
     );

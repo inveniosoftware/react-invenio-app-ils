@@ -1,4 +1,6 @@
 import { invenioConfig } from '@config';
+import { DocumentExtras } from '@modules/Document/DocumentExtras';
+import { DocumentCopyrights } from './DocumentCopyrights';
 import { DocumentMetadataExtensions } from '@modules/Document/DocumentMetadataExtensions';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
@@ -6,8 +8,6 @@ import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Tab } from 'semantic-ui-react';
 import { DocumentContents } from './DocumentContents';
-import { DocumentCopyrights } from './DocumentCopyrights';
-import { DocumentExtras } from './DocumentExtras';
 import { DocumentMetadataGeneral } from './DocumentMetadataGeneral';
 import { DocumentSystemInfo } from './DocumentSystemInfo';
 import { DocumentPublishing } from './DocumentPublishing';
@@ -46,7 +46,7 @@ export default class DocumentMetadata extends Component {
         menuItem: 'Licenses & Copyrights',
         render: () => (
           <Tab.Pane>
-            <DocumentCopyrights document={document} />
+            <DocumentCopyrights metadata={document.metadata} />
           </Tab.Pane>
         ),
       },
@@ -62,7 +62,7 @@ export default class DocumentMetadata extends Component {
         menuItem: 'Other',
         render: () => (
           <Tab.Pane>
-            <DocumentExtras document={document} />
+            <DocumentExtras metadata={document.metadata} />
           </Tab.Pane>
         ),
       },

@@ -2,14 +2,14 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { List } from 'semantic-ui-react';
+import _isEmpty from 'lodash/isEmpty';
 
 class DocumentToc extends Component {
   render() {
     const {
-      document: {
-        metadata: { table_of_content: tableOfContent },
-      },
+      metadata: { table_of_content: tableOfContent },
     } = this.props;
+    if (_isEmpty(tableOfContent)) return 'No table of content';
     return (
       <Overridable id="DocumentToc.layout" {...this.props}>
         <List ordered>
@@ -23,7 +23,7 @@ class DocumentToc extends Component {
 }
 
 DocumentToc.propTypes = {
-  document: PropTypes.object.isRequired,
+  metadata: PropTypes.object.isRequired,
 };
 
 export default Overridable.component('DocumentToc', DocumentToc);

@@ -1,3 +1,4 @@
+import { MetadataTable } from '@components/backoffice/MetadataTable';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureUrls from '@modules/Literature/LiteratureUrls';
 import PropTypes from 'prop-types';
@@ -5,6 +6,7 @@ import React, { Component } from 'react';
 import { Divider, Table } from 'semantic-ui-react';
 import LiteratureKeywords from '@modules/Literature/LiteratureKeywords';
 import { invenioConfig } from '@config';
+import isEmpty from 'lodash/isEmpty';
 
 export class DocumentInfo extends Component {
   renderLanguages() {
@@ -32,6 +34,18 @@ export class DocumentInfo extends Component {
     );
   }
 
+  prepareImprintInfo = () => {
+    const { metadata } = this.props;
+
+    return [
+      { name: 'Publisher', value: metadata.imprint.publisher },
+      { name: 'Date', value: metadata.imprint.date },
+      { name: 'Place', value: metadata.imprint.place },
+      { name: 'Reprint', value: metadata.imprint.reprint },
+      { name: 'Number of pages', value: metadata.number_of_pages },
+    ];
+  };
+
   render() {
     const { metadata } = this.props;
 
@@ -58,6 +72,10 @@ export class DocumentInfo extends Component {
                 />
               </Table.Cell>
             </Table.Row>
+            <Table.Row>
+              <Table.Cell>Publication year</Table.Cell>
+              <Table.Cell>{metadata.publication_year}</Table.Cell>
+            </Table.Row>
             {metadata.edition && (
               <Table.Row>
                 <Table.Cell>Edition</Table.Cell>
@@ -69,12 +87,18 @@ export class DocumentInfo extends Component {
             {this.renderKeywords()}
           </Table.Body>
         </Table>
-        {metadata.urls ? (
+        {!isEmpty(metadata.imprint) ? (
+          <>
+            <Divider horizontal>Publishing details</Divider>
+            <MetadataTable rows={this.prepareImprintInfo()} />
+          </>
+        ) : null}
+        {metadata.urls && (
           <>
             <Divider horizontal>More information</Divider>
             <LiteratureUrls urlArray={metadata.urls} />
           </>
-        ) : null}
+        )}
       </>
     );
   }

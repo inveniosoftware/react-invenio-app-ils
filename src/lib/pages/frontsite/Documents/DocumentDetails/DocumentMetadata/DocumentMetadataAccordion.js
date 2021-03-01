@@ -1,10 +1,12 @@
 import { invenioConfig } from '@config';
 import { DocumentConference } from '@modules/Document/DocumentConference';
+import { DocumentCopyrights } from '@modules/Document/DocumentCopyrights';
 import { DocumentEItemUrls } from '@modules/Document/DocumentEItemUrls';
+import { DocumentExtras } from '@modules/Document/DocumentExtras';
 import { DocumentInfo } from '@modules/Document/DocumentInfo';
 import { DocumentMetadataExtensions } from '@modules/Document/DocumentMetadataExtensions';
 import { DocumentPublicationInfo } from '@modules/Document/DocumentPublicationInfo';
-import { DocumentTableOfContent } from '@modules/Document/DocumentTableOfContent';
+import { DocumentContent } from '@modules/Document/DocumentContent';
 import { Identifiers } from '@modules/Identifiers';
 import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
 import LiteratureRelations from '@modules/Literature/LiteratureRelations';
@@ -68,10 +70,7 @@ class DocumentMetadataAccordion extends Component {
           Content
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 'content'}>
-          <DocumentTableOfContent
-            toc={metadata.table_of_content}
-            abstract={metadata.abstract}
-          />
+          <DocumentContent metadata={metadata} />
         </Accordion.Content>
 
         <Accordion.Title
@@ -148,6 +147,30 @@ class DocumentMetadataAccordion extends Component {
               </Accordion.Content>
             </>
           )}
+
+        <Accordion.Title
+          active={activeIndex === 'licenses'}
+          index="licenses"
+          onClick={this.handleClick}
+        >
+          <Icon name="dropdown" />
+          Licenses & copyrights
+        </Accordion.Title>
+        <Accordion.Content active={activeIndex === 'licenses'}>
+          <DocumentCopyrights metadata={metadata} />
+        </Accordion.Content>
+
+        <Accordion.Title
+          active={activeIndex === 'other'}
+          index="other"
+          onClick={this.handleClick}
+        >
+          <Icon name="dropdown" />
+          Other
+        </Accordion.Title>
+        <Accordion.Content active={activeIndex === 'other'}>
+          <DocumentExtras metadata={metadata} />
+        </Accordion.Content>
       </Accordion>
     );
   }

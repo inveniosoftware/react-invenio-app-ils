@@ -1,4 +1,3 @@
-import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
@@ -28,29 +27,27 @@ export class DocumentExtras extends Component {
   };
 
   render() {
-    const { document } = this.props;
+    const { metadata } = this.props;
     if (
-      !_isEmpty(document.metadata.alternative_titles) ||
-      !_isEmpty(document.metadata.alternative_abstracts)
+      !_isEmpty(metadata.alternative_titles) ||
+      !_isEmpty(metadata.alternative_abstracts)
     ) {
       return (
         <>
-          {!_isEmpty(document.metadata.alternative_titles) && (
+          {!_isEmpty(metadata.alternative_titles) && (
             <>
               <Header as="h3">Alternative titles</Header>
               <MetadataTable
-                rows={this.prepareAlternativeTitle(
-                  document.metadata.alternative_titles
-                )}
+                rows={this.prepareAlternativeTitle(metadata.alternative_titles)}
               />
             </>
           )}
 
-          {!_isEmpty(document.metadata.alternative_abstracts) && (
+          {!_isEmpty(metadata.alternative_abstracts) && (
             <>
               <Divider />
               <Header as="h3">Publication info</Header>
-              {document.metadata.alternative_abstracts.map((element) => (
+              {metadata.alternative_abstracts.map((element) => (
                 <MetadataTable
                   key={element}
                   rows={this.prepareAlternativeAbstracts(element)}
@@ -61,16 +58,11 @@ export class DocumentExtras extends Component {
         </>
       );
     } else {
-      return (
-        <InfoMessage
-          header="No additional information stored."
-          content="Edit document to add additional information"
-        />
-      );
+      return 'No additional information.';
     }
   }
 }
 
 DocumentExtras.propTypes = {
-  document: PropTypes.object.isRequired,
+  metadata: PropTypes.object.isRequired,
 };

@@ -66,7 +66,7 @@ export class SeriesUrls extends Component {
         )}
       </Container>
     ) : (
-      <InfoMessage header="No stored urls." content="Edit series to add urls" />
+      <InfoMessage header="No urls." content="Edit series to add urls" />
     );
   }
 }

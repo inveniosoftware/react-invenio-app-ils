@@ -1,11 +1,15 @@
+import { DocumentSubjects } from '@pages/backoffice/Document/DocumentDetails/DocumentMetadata/DocumentSubjects';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Divider, List } from 'semantic-ui-react';
 
-export class DocumentTableOfContent extends Component {
+export class DocumentContent extends Component {
   render() {
-    const { abstract, toc } = this.props;
+    const {
+      metadata,
+      metadata: { abstract, toc },
+    } = this.props;
 
     return (
       <>
@@ -21,19 +25,17 @@ export class DocumentTableOfContent extends Component {
         ) : (
           'No table of content'
         )}
+
         <Divider horizontal>Abstract</Divider>
         {abstract ? abstract : 'No abstract'}
+
+        <Divider horizontal>Subject classification</Divider>
+        <DocumentSubjects metadata={metadata} />
       </>
     );
   }
 }
 
-DocumentTableOfContent.propTypes = {
-  toc: PropTypes.array,
-  abstract: PropTypes.string,
-};
-
-DocumentTableOfContent.defaultProps = {
-  toc: [],
-  abstract: '',
+DocumentContent.propTypes = {
+  metadata: PropTypes.object.isRequired,
 };
