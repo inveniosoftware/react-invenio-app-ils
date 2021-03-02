@@ -143,7 +143,6 @@ export const schema = {
     },
     expected_delivery_date: {
       format: 'date',
-      minLength: 1,
       title: 'Expected delivery date',
       type: 'string',
     },
@@ -170,7 +169,6 @@ export const schema = {
     },
     order_date: {
       format: 'date',
-      minLength: 1,
       title: 'Order date',
       type: 'string',
     },

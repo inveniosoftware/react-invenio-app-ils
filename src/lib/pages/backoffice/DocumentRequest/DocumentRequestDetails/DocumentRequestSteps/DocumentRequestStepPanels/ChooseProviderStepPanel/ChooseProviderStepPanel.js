@@ -92,7 +92,6 @@ class IllProvider extends Component {
   goToCreateBrwReqAndPrefill = (docReq) => {
     const createBrwReqFormData = {
       formData: {
-        title: docReq.title,
         document_pid: _get(docReq, 'document_pid', ''),
         patron_pid: docReq.patron_pid,
       },

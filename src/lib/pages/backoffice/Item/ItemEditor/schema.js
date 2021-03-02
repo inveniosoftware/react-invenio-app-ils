@@ -44,7 +44,6 @@ export const schema = {
             type: 'string',
           },
           value: {
-            minLength: 1,
             title: 'Value',
             type: 'string',
           },

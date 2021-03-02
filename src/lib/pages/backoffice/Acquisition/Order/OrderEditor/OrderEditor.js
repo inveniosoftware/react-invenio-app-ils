@@ -78,14 +78,7 @@ export class OrderEditor extends Component {
         },
       })
     );
-    try {
-      await this.cancellableAttachOrder.promise;
-    } catch (error) {
-      if (error !== 'UNMOUNTED') {
-        const { sendErrorNotification } = this.props;
-        sendErrorNotification(error);
-      }
-    }
+    await this.cancellableAttachOrder.promise;
   };
 
   successCallback = async (response) => {
@@ -101,10 +94,15 @@ export class OrderEditor extends Component {
     if (shouldAttachCreatedOrderToDocumentRequest) {
       // attach order and go back to the document request details page
       const documentRequestPid = extraData.documentRequestPid;
-      await this.attachCreatedOrderToDocumentRequest(
-        newOrderPid,
-        documentRequestPid
-      );
+
+      try {
+        await this.attachCreatedOrderToDocumentRequest(
+          newOrderPid,
+          documentRequestPid
+        );
+      } catch (error) {
+        console.error(error);
+      }
       goTo(BackOfficeRoutes.documentRequestDetailsFor(documentRequestPid));
     } else {
       goTo(AcquisitionRoutes.orderDetailsFor(newOrderPid));
@@ -165,7 +163,6 @@ OrderEditor.propTypes = {
       extraData: PropTypes.object,
     }),
   }),
-  sendErrorNotification: PropTypes.func.isRequired,
 };
 
 OrderEditor.defaultProps = {
