@@ -37,3 +37,4 @@ export { NotFound } from '@components/HttpErrors';
 export { ResultsTable } from '@components/ResultsTable/ResultsTable';
 export { withCancel, recordToPidType } from '@api/utils';
 export { Media } from '@components/Media';
+export { IEFallback } from '@components/Fallbacks/IEFallback';
