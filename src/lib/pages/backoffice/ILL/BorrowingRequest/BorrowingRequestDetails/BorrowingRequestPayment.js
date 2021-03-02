@@ -40,14 +40,14 @@ class Payment extends React.Component {
     const rightTable = [
       {
         name: `Debit cost (${invenioConfig.APP.DEFAULT_CURRENCY})`,
-        value: formatPrice(payment.debit_cost_main_currency),
+        value: formatPrice(payment.debit_cost_main_currency) || '-',
       },
       {
         name:
           payment.debit_cost && payment.debit_cost.currency
             ? `Debit cost (${payment.debit_cost.currency})`
             : 'Debit cost',
-        value: formatPrice(payment.debit_cost),
+        value: formatPrice(payment.debit_cost) || '-',
       },
       {
         name: 'Debit date',

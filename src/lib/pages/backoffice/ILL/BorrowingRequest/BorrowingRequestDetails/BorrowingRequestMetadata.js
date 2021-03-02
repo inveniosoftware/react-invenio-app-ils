@@ -1,6 +1,8 @@
+import { formatPrice } from '@api/utils';
 import { CreatedBy, UpdatedBy } from '@components/backoffice/ChangedBy';
 import { ILLLibraryIcon, PatronIcon } from '@components/backoffice/icons';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
+import { invenioConfig } from '@config';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes, ILLRoutes } from '@routes/urls';
 import { PropTypes } from 'prop-types';
@@ -41,6 +43,17 @@ class Loan extends React.Component {
       {
         name: 'Due date',
         value: this.dateOrDefault(brwReq.due_date),
+      },
+      {
+        name: `Total (${invenioConfig.APP.DEFAULT_CURRENCY})`,
+        value: formatPrice(brwReq.total_main_currency) || '-',
+      },
+      {
+        name:
+          brwReq.total && brwReq.total.currency
+            ? `Total (${brwReq.total.currency})`
+            : 'Total',
+        value: formatPrice(brwReq.total) || '-',
       },
     ];
     return (
