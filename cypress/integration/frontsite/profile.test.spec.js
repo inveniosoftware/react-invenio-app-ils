@@ -8,9 +8,7 @@ describe('frontsite profile', () => {
     cy.visit('/profile');
     cy.url().should('eq', Cypress.config().baseUrl + '/profile');
     cy.get('a').should('contain', 'Current');
-    cy.get('a')
-      .contains('Current')
-      .should('have.class', 'active');
+    cy.get('a').contains('Current').should('have.class', 'active');
     cy.contains('h2', 'Your current loans');
   });
 
@@ -19,9 +17,7 @@ describe('frontsite profile', () => {
     cy.visit('/profile');
     cy.url().should('eq', Cypress.config().baseUrl + '/profile');
     cy.get('a').should('contain', 'History');
-    cy.get('a')
-      .contains('History')
-      .click();
+    cy.get('a').contains('History').click();
     cy.contains('h2', 'Your past loans');
   });
 
@@ -46,7 +42,7 @@ describe('frontsite profile', () => {
     cy.visit('/profile');
     cy.url().should('eq', Cypress.config().baseUrl + '/profile');
 
-    if (cy.get('table').contains('Cancel request')) {
+    if (cy.get('.ui.divided.items').contains('Cancel request')) {
       cy.get('table').within(() => {
         cy.contains('.button', 'Cancel request').click();
       });
@@ -60,10 +56,7 @@ describe('frontsite profile', () => {
     cy.visit('/profile');
     cy.url().should('eq', Cypress.config().baseUrl + '/profile');
 
-    cy.get('button')
-      .contains('Request extension')
-      .should('not.be.disabled')
-      .click();
+    cy.get('button').not('.disabled').contains('Request extension').click();
   });
 
   it('should go to details page when clicking a document', () => {
@@ -71,9 +64,7 @@ describe('frontsite profile', () => {
     cy.visit('/profile');
     cy.url().should('eq', Cypress.config().baseUrl + '/profile');
 
-    cy.get('.document-title')
-      .eq(0)
-      .click();
+    cy.get('a[href*="literature"]').eq(0).click();
     cy.url().should('contain', Cypress.config().baseUrl + '/literature');
   });
 });
