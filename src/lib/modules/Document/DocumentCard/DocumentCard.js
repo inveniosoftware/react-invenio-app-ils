@@ -66,6 +66,7 @@ class DocumentCard extends Component {
               />
               <div>
                 {metadata.publication_year}
+                <br />
                 {metadata.edition && <>Edition {metadata.edition}</>}
               </div>
             </Card.Meta>
