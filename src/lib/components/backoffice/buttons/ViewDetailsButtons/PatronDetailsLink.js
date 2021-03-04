@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export class PatronDetailsLink extends Component {
   render() {
     const { patronPid, children, ...props } = this.props;
-    return (
+    return patronPid > 0 ? (
       <Link
         to={BackOfficeRoutes.patronDetailsFor(patronPid)}
         data-test={patronPid}
@@ -14,6 +14,8 @@ export class PatronDetailsLink extends Component {
       >
         {children}
       </Link>
+    ) : (
+      <>{children}</>
     );
   }
 }

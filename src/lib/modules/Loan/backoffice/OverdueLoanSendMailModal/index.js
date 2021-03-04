@@ -3,7 +3,7 @@ import { sendOverdueLoansMailReminder } from './state/actions';
 import OverdueLoanSendMailModalComponent from './OverdueLoanSendMailModal';
 
 const mapStateToProps = (state) => ({
-  ...state.overdueLoanSendMailModal,
+  isLoading: state.overdueLoanSendMailModal.isLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({

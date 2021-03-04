@@ -2,10 +2,11 @@ import { OverdueLoanSendMailModal } from '@modules/Loan/backoffice/OverdueLoanSe
 import { InfoMessage } from '@components/backoffice/InfoMessage';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { List, Button, Grid } from 'semantic-ui-react';
+import { List, Button } from 'semantic-ui-react';
 import { omit } from 'lodash/object';
 import { CancelModal } from '@components/CancelModal';
 import _isEmpty from 'lodash/isEmpty';
+import capitalize from 'lodash/capitalize';
 
 export default class LoanActions extends Component {
   renderAvailableActions(pid, patronPid, documentPid, itemPid, actions = {}) {
@@ -31,18 +32,20 @@ export default class LoanActions extends Component {
               content={`You are about to cancel loan #${pid}.
                 Please enter a reason for cancelling this loan.`}
               cancelText="Cancel Loan"
-              buttonText="cancel"
+              buttonText={capitalize('cancel')}
               action={cancelAction}
               isLoading={isLoading}
             />
           ) : (
             <Button
+              size="small"
+              fluid
               primary
               onClick={loanAction}
               loading={isLoading}
               disabled={isLoading}
             >
-              {action}
+              {capitalize(action)}
             </Button>
           )}
         </List.Item>
@@ -56,7 +59,7 @@ export default class LoanActions extends Component {
     const { document_pid, item_pid, patron_pid } = loanDetails.metadata;
 
     const loanActions = !_isEmpty(availableActions) && (
-      <List horizontal>
+      <List>
         {this.renderAvailableActions(
           pid,
           patron_pid,
@@ -67,19 +70,14 @@ export default class LoanActions extends Component {
       </List>
     );
     const sendReminderButton = loanDetails.metadata.is_overdue && (
-      <OverdueLoanSendMailModal
-        loan={loanDetails}
-        buttonTriggerText="Send return reminder"
-      />
+      <OverdueLoanSendMailModal loan={loanDetails} />
     );
     if (!_isEmpty(availableActions) || loanDetails.metadata.is_overdue) {
       return (
-        <Grid columns={2}>
-          <Grid.Column width={12}>{loanActions}</Grid.Column>
-          <Grid.Column width={4} textAlign="right">
-            {sendReminderButton}
-          </Grid.Column>
-        </Grid>
+        <>
+          {loanActions}
+          {sendReminderButton}
+        </>
       );
     } else {
       return (

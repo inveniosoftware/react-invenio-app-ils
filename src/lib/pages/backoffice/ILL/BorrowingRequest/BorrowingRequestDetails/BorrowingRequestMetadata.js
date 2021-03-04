@@ -102,6 +102,9 @@ class Metadata extends React.Component {
         ),
       },
     ];
+    if (brwReq.patron_pid > 0) {
+      leftTable[1].value = <>{brwReq.patron.name}</>;
+    }
     const rightTable = [
       { name: 'Created by', value: <CreatedBy metadata={brwReq} /> },
       { name: 'Updated by', value: <UpdatedBy metadata={brwReq} /> },

@@ -62,6 +62,7 @@ export default class CancelModal extends Component {
         trigger={
           <Button
             primary
+            fluid
             content={buttonText}
             onClick={this.show}
             loading={isLoading}

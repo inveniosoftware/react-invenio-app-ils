@@ -14,10 +14,14 @@ const ChangedBy = ({ metadata, field }) => {
   } else {
     switch (byType) {
       case 'user_id':
-        return (
+        return byValue > 0 ? (
           <Link to={BackOfficeRoutes.patronDetailsFor(byValue)}>
             <PatronIcon /> {byValue}
           </Link>
+        ) : (
+          <>
+            <PatronIcon /> anonymous
+          </>
         );
       default:
         return `${byType}:${byValue}`;

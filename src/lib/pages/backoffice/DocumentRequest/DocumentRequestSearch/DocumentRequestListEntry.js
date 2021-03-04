@@ -9,7 +9,8 @@ import { Grid, Header, Item, List } from 'semantic-ui-react';
 export class DocumentRequestListEntry extends Component {
   render() {
     const { record: documentRequest } = this.props;
-
+    const patronPid = documentRequest.metadata.patron_pid;
+    const patronName = documentRequest.metadata.patron.name;
     return (
       <Item>
         <Item.Content>
@@ -26,13 +27,13 @@ export class DocumentRequestListEntry extends Component {
           <Grid columns={3}>
             <Grid.Column computer={7} largeScreen={7}>
               <label>Patron</label>{' '}
-              <Link
-                to={BackOfficeRoutes.patronDetailsFor(
-                  documentRequest.metadata.patron_pid
-                )}
-              >
-                {documentRequest.metadata.patron.name}
-              </Link>{' '}
+              {patronPid > 0 ? (
+                <Link to={BackOfficeRoutes.patronDetailsFor(patronPid)}>
+                  {patronName}
+                </Link>
+              ) : (
+                patronName
+              )}{' '}
               requested:
               <Item.Meta className="document-authors">
                 <Header className="list-entry-title" as="h5">
