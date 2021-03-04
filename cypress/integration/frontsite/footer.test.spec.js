@@ -8,12 +8,12 @@ describe('frontsite footer', () => {
   it('should have a link to the about page', () => {
     cy.visit('/');
     cy.contains('About').click();
-    cy.contains('h1', 'About');
+    cy.contains('a', 'About');
   });
 
   it('should have a link to the contact page', () => {
     cy.visit('/');
     cy.contains('Contact').click();
-    cy.contains('h1', 'Contact');
+    cy.contains('a', 'Contact');
   });
 });
