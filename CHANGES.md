@@ -1,5 +1,15 @@
 # Changes
 
+Version 1.0.0-alpha.28 (released 2021-03-04)
+
+- add overdue reminders counter to emails
+- replace forms with react-json-schema forms
+- update frontsite document detail page
+- restrict IE 
+- add document type article
+- fix truncate titles
+- styling fixes 
+
 Version 1.0.0-alpha.27 (released 2021-02-16)
 
 - add react-jsonschema-forms
