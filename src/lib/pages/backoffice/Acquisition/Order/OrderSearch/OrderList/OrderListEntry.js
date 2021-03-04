@@ -63,9 +63,13 @@ export default class OrderListEntry extends Component {
           <>
             {' '}
             - Patron{' '}
-            <Link to={BackOfficeRoutes.patronDetailsFor(patronPid)}>
-              <code>{patronPid}</code>
-            </Link>
+            {patronPid > 0 ? (
+              <Link to={BackOfficeRoutes.patronDetailsFor(patronPid)}>
+                <code>{patronPid}</code>
+              </Link>
+            ) : (
+              <>anonymous</>
+            )}
           </>
         )}{' '}
         - <em>{totalPrice}</em>

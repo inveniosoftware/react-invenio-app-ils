@@ -16,6 +16,7 @@ exports[`CancelModal tests should load the cancel loan modal component 1`] = `
       as="button"
       content="cancel"
       disabled={false}
+      fluid={true}
       loading={false}
       onClick={[Function]}
       primary={true}

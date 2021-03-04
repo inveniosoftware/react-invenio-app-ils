@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Divider, Header, Segment } from 'semantic-ui-react';
-import { LoanActions } from '../LoanActions';
+import { Header, Segment } from 'semantic-ui-react';
 import { LoanMetadata } from '../LoanMetadata';
 
 export default class Loan extends Component {
@@ -12,10 +11,6 @@ export default class Loan extends Component {
         </Header>
         <Segment attached className="bo-metadata-segment" id="loan-metadata">
           <LoanMetadata />
-          <Divider horizontal>Manage loan</Divider>
-          <div className="pb-default">
-            <LoanActions />
-          </div>
         </Segment>
       </>
     );

@@ -4,10 +4,43 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Icon, Modal } from 'semantic-ui-react';
+import { Button, Icon, Modal, Label, Popup } from 'semantic-ui-react';
+import { emailApi } from '@api/emails';
+import { withCancel } from '@api/utils';
 
 export default class OverdueLoanSendMailModal extends Component {
-  state = { isModalOpen: false };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      reminders: {},
+      isModalOpen: false,
+    };
+  }
+
+  componentDidMount() {
+    const { loan } = this.props;
+    this.fetchOverdueLoansMailReminders(loan.metadata.pid);
+  }
+
+  componentWillUnmount() {
+    this.cancellableFetchReminders && this.cancellableFetchReminders.cancel();
+  }
+
+  fetchOverdueLoansMailReminders = async (loanPid) => {
+    this.cancellableFetchReminders = withCancel(
+      emailApi.list(
+        emailApi
+          .query()
+          .withEmailAction('overdue_reminder')
+          .withPidType('loanid')
+          .withPidValue(loanPid)
+          .qs()
+      )
+    );
+    const response = await this.cancellableFetchReminders.promise;
+    this.setState({ reminders: response.data });
+  };
 
   toggle = () => {
     const { isModalOpen } = this.state;
@@ -23,18 +56,40 @@ export default class OverdueLoanSendMailModal extends Component {
   };
 
   renderTrigger = () => {
-    const { buttonTriggerText } = this.props;
+    const { isLoading } = this.props;
+    const remindersCount = this.state.reminders.length;
     return (
       <Button
-        size="small"
-        icon
-        labelPosition="left"
-        title="Send a reminder email to the user of the loan"
+        labelPosition="right"
+        fluid
         onClick={this.toggle}
-        className="send-overdue-reminder-button"
+        loading={isLoading}
+        disabled={isLoading}
       >
-        <Icon name="mail" />
-        {buttonTriggerText ? buttonTriggerText : 'Reminder'}
+        <Button
+          labelPosition="left"
+          fluid
+          icon
+          className="send-overdue-reminder-middle-button"
+        >
+          <Icon name="mail" />
+          Send return reminder
+        </Button>
+        <Label basic className="send-overdue-reminder-button">
+          {remindersCount}
+          <Popup
+            className="send-overdue-reminder-button"
+            trigger={
+              <Icon
+                name="question circle"
+                fitted
+                className="send-overdue-reminder-button"
+              />
+            }
+            content="Number of reminders sent might be inaccurate in case of queued emails not sent yet."
+            position="top left"
+          />
+        </Label>
       </Button>
     );
   };
@@ -98,10 +153,10 @@ export default class OverdueLoanSendMailModal extends Component {
 
 OverdueLoanSendMailModal.propTypes = {
   loan: PropTypes.object.isRequired,
-  buttonTriggerText: PropTypes.string,
   sendOverdueLoansMailReminder: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool,
 };
 
 OverdueLoanSendMailModal.defaultProps = {
-  buttonTriggerText: 'Send reminder',
+  isLoading: false,
 };

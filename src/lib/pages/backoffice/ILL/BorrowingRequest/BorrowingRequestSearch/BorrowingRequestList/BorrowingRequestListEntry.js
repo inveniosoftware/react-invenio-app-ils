@@ -56,11 +56,15 @@ export default class BorrowingRequestListEntry extends Component {
     const patronCmp = (
       <>
         Patron{' '}
-        <Link to={BackOfficeRoutes.patronDetailsFor(patronPid)}>
-          <code>
-            {patron.name} ({patronPid})
-          </code>
-        </Link>
+        {patronPid > 0 ? (
+          <Link to={BackOfficeRoutes.patronDetailsFor(patronPid)}>
+            <code>
+              {patron.name} ({patronPid})
+            </code>
+          </Link>
+        ) : (
+          <code>{patron.name}</code>
+        )}
       </>
     );
 

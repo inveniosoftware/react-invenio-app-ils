@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Divider, Message } from 'semantic-ui-react';
 import { LoanUpdateDates } from '@pages/backoffice/Loan/LoanDetails/LoanUpdateDates';
+import { LoanActions } from '@pages/backoffice/Loan/LoanDetails/LoanActions';
 
 export default class LoanActionMenu extends Component {
   render() {
@@ -22,6 +23,10 @@ export default class LoanActionMenu extends Component {
             dates by clicking on the button above.
           </p>
         </Message>
+        <Divider horizontal>Actions</Divider>
+        <div className="pb-default">
+          <LoanActions />
+        </div>
         <Divider horizontal>Navigation</Divider>
         <ScrollingMenu offset={offset}>
           <ScrollingMenuItem label="Loan" elementId="loan-metadata" />

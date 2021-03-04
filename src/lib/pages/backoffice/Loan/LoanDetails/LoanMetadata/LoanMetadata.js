@@ -136,7 +136,10 @@ export class LoanMetadata extends Component {
         }
       );
     }
-    rows.push({ name: 'Extensions', value: data.metadata.extension_count });
+    rows.push({
+      name: 'Extensions',
+      value: data.metadata.extension_count || 0,
+    });
     if (state === 'CANCELLED' && !_isEmpty(reason)) {
       rows.push({
         name: 'Cancel Reason',
@@ -165,6 +168,11 @@ export class LoanMetadata extends Component {
 
 LoanMetadata.propTypes = {
   loanDetails: PropTypes.object.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      loanPid: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export default Overridable.component('LoanMetadata', LoanMetadata);

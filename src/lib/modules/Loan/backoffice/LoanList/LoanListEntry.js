@@ -1,6 +1,6 @@
 import { DocumentIcon, ItemIcon, LoanIcon } from '@components/backoffice/icons';
 import LoanLinkToItem from '@modules/Loan/backoffice/LoanLinkToItem';
-import { OverdueLoanSendMailModal } from '@modules/Loan/backoffice/OverdueLoanSendMailModal';
+
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
@@ -14,7 +14,7 @@ import { LoanDates } from './LoanDates';
 export class LoanListEntry extends Component {
   render() {
     const { record: loan, target } = this.props;
-
+    const patronPid = loan.metadata.patron_pid;
     return (
       <Item>
         <Item.Content>
@@ -30,12 +30,16 @@ export class LoanListEntry extends Component {
           <Grid columns={5}>
             <Grid.Column computer={6} largeScreen={5}>
               <label>Patron</label>{' '}
-              <Link
-                target="_blank"
-                to={BackOfficeRoutes.patronDetailsFor(loan.metadata.patron_pid)}
-              >
-                {loan.metadata.patron.name}
-              </Link>{' '}
+              {patronPid > 0 ? (
+                <Link
+                  target="_blank"
+                  to={BackOfficeRoutes.patronDetailsFor(patronPid)}
+                >
+                  {loan.metadata.patron.name}
+                </Link>
+              ) : (
+                loan.metadata.patron.name
+              )}{' '}
               requested:
               <Item.Meta className="document-authors">
                 <Header className="loan-document-title" as="h5">
@@ -68,7 +72,6 @@ export class LoanListEntry extends Component {
               </List>
             </Grid.Column>
             <Grid.Column width={2} textAlign="center">
-              <OverdueLoanSendMailModal loan={loan} />
               <Overridable
                 id="LoanListEntry.DeliveryIcon"
                 deliveryMethod={

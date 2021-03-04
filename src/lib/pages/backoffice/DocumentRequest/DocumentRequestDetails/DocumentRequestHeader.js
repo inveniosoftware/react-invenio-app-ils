@@ -40,9 +40,13 @@ export class DocumentRequestHeader extends Component {
     return (
       <>
         by{' '}
-        <Link to={BackOfficeRoutes.patronDetailsFor(patron.id)}>
-          {patron.name}
-        </Link>
+        {patron.id > 0 ? (
+          <Link to={BackOfficeRoutes.patronDetailsFor(patron.id)}>
+            {patron.name}
+          </Link>
+        ) : (
+          <>{patron.name}</>
+        )}
       </>
     );
   }

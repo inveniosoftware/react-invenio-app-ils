@@ -55,8 +55,20 @@ Button Overrides - REACT-INVENIO-APP-ILS
   }
 
   .ui.button {
-    &.send-overdue-reminder-button {
+    .label.send-overdue-reminder-button {
+      color: @orange;
+      border-color: @orange;
+      padding: 9.889px 10px;
+    }
+    .icon.send-overdue-reminder-button {
+      margin-left: 0.5em !important;
+    }
+    &.send-overdue-reminder-middle-button {
       background-color: @orange;
+      color: @white;
+    }
+    .icon.button.send-overdue-reminder-middle-button {
+      padding-left: 4em !important;
     }
   }
 }

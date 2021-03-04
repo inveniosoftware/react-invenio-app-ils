@@ -3,7 +3,7 @@ import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
-
+import { fetchLoanDetails } from '@modules/Loan/actions';
 export const IS_LOADING = 'overdueLoanSendMailModal/IS_LOADING';
 export const SUCCESS = 'overdueLoanSendMailModal/SUCCESS';
 export const HAS_ERROR = 'overdueLoanSendMailModal/HAS_ERROR';
@@ -20,6 +20,7 @@ export const sendOverdueLoansMailReminder = (loanPid) => {
         type: SUCCESS,
         payload: response.data,
       });
+      dispatch(fetchLoanDetails(response.data.metadata.pid));
       dispatch(
         sendSuccessNotification(
           'Success!',
