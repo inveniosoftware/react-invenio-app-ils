@@ -15,13 +15,21 @@ export class StringField extends Component {
   }
 
   renderFormField = (props) => {
-    const { fieldPath, inline, width, optimized, ...uiProps } = this.props;
+    const {
+      fieldPath,
+      inline,
+      width,
+      optimized,
+      customLabel,
+      label,
+      ...uiProps
+    } = this.props;
     const {
       form: { values, handleChange, handleBlur, errors, status, isSubmitting },
     } = props;
-
     return (
       <Form.Field inline={inline} width={width} disabled={isSubmitting}>
+        {customLabel && customLabel}
         <Form.Input
           fluid
           id={fieldPath}
@@ -30,6 +38,7 @@ export class StringField extends Component {
           onBlur={handleBlur}
           value={getIn(values, fieldPath, '')}
           error={this.renderError(status || errors, fieldPath)}
+          label={!customLabel ? label : null}
           {...uiProps}
         />
       </Form.Field>
@@ -48,10 +57,17 @@ StringField.propTypes = {
   inline: PropTypes.bool,
   optimized: PropTypes.bool,
   width: PropTypes.number,
+  customLabel: PropTypes.PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]),
+  label: PropTypes.string,
 };
 
 StringField.defaultProps = {
   inline: false,
   optimized: true,
   width: 16,
+  customLabel: null,
+  label: '',
 };

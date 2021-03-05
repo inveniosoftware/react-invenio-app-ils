@@ -60,9 +60,12 @@ export const uiSchema = (title) => ({
       'custom:divider': 16,
     },
     {
-      authors: 8,
-      edition: 4,
-      publication_year: 4,
+      authors: 11,
+      edition: 5,
+    },
+    {
+      publisher: 11,
+      publication_year: 5,
     },
     {
       isbn: 8,

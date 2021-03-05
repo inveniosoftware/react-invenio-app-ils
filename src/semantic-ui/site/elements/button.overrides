@@ -16,6 +16,10 @@ Button Overrides - REACT-INVENIO-APP-ILS
     box-shadow: none;
     padding: 0.1rem;
   }
+  
+  &.formik-button-margin {
+    margin-bottom: 3em !important;
+  }
 }
 
 @{fs-parent-selector} {

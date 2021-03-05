@@ -6,6 +6,7 @@ export const InfoPopup = ({ children, message }) => {
   return (
     <Popup
       content={message}
+      wide="very"
       trigger={
         <span className="info-popup">
           {children}
