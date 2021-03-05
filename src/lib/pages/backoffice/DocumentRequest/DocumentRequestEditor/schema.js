@@ -35,7 +35,7 @@ export const schema = {
       type: 'string',
     },
     medium: {
-      title: 'Medium',
+      title: 'Format',
       type: 'string',
     },
     note: {
@@ -101,6 +101,10 @@ export const schema = {
     },
     volume: {
       title: 'Volume',
+      type: 'string',
+    },
+    publisher: {
+      title: 'Publisher',
       type: 'string',
     },
   },

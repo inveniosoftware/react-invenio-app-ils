@@ -82,16 +82,18 @@ export class SelectField extends Component {
       optimized,
       options,
       width,
+      customLabel,
       ...uiProps
     } = this.props;
     const value = getIn(values, fieldPath, multiple ? [] : '');
     return (
       <Form.Field width={width} disabled={isSubmitting}>
+        {customLabel && customLabel}
         <Form.Dropdown
           fluid
           selection
           searchInput={{ id: fieldPath }}
-          label={{ children: label, htmlFor: fieldPath }}
+          label={!customLabel ? { children: label, htmlFor: fieldPath } : null}
           loading={loading}
           multiple={multiple}
           id={fieldPath}
@@ -127,6 +129,10 @@ SelectField.propTypes = {
   options: PropTypes.array.isRequired,
   label: PropTypes.string,
   width: PropTypes.number,
+  customLabel: PropTypes.PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]),
 };
 
 SelectField.defaultProps = {
@@ -137,4 +143,5 @@ SelectField.defaultProps = {
   required: false,
   label: '',
   width: 16,
+  customLabel: null,
 };

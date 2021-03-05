@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
-import { Container, Header, Segment } from 'semantic-ui-react';
+import { Container, Divider, Header, Segment } from 'semantic-ui-react';
 import * as Yup from 'yup';
 const ERROR_MSGS = {
   publication_year: 'Not a valid year',
@@ -34,7 +34,7 @@ class DocumentRequestForm extends Component {
     this.state = {
       data: {
         title: getIn(props, 'location.state.queryString', ''),
-        medium: getIn(props, 'location.state.medium', ''),
+        medium: getIn(props, 'location.state.medium', 'PAPER'),
       },
     };
   }
@@ -78,7 +78,18 @@ class DocumentRequestForm extends Component {
       paymentMethod,
       paymentInfo,
       notes,
+      publisher,
     } = this.props;
+    const buttons = [
+      {
+        name: 'Submit',
+        content: 'Submit',
+        primary: true,
+        type: 'submit',
+        floated: 'right',
+        className: 'formik-button-margin',
+      },
+    ];
     return (
       <BaseForm
         initialValues={data}
@@ -87,6 +98,7 @@ class DocumentRequestForm extends Component {
         successCallback={this.onSubmitSuccess}
         successSubmitMessage="Your book request has been sent to the library."
         createApiMethod={this.createDocumentRequest}
+        buttons={buttons}
       >
         <GroupField>
           <StringField
@@ -95,6 +107,7 @@ class DocumentRequestForm extends Component {
             placeholder={title.placeholder}
             required
             width={14}
+            customLabel={title.customLabel}
           />
           <VocabularyField
             type={invenioConfig.VOCABULARIES.documentRequests.doc_req_medium}
@@ -103,65 +116,8 @@ class DocumentRequestForm extends Component {
             placeholder={medium.placeholder}
             required
             width={4}
+            customLabel={medium.customLabel}
           />
-        </GroupField>
-        <StringField
-          fieldPath="journal_title"
-          label={journalTitle.label}
-          placeholder={journalTitle.placeholder}
-        />
-        <StringField
-          fieldPath="authors"
-          label={authors.label}
-          placeholder={authors.placeholder}
-        />
-        <GroupField widths="equal">
-          <StringField
-            fieldPath="isbn"
-            label={isbn.label}
-            placeholder={isbn.placeholder}
-          />
-          <StringField
-            fieldPath="issn"
-            label={issn.label}
-            placeholder={issn.placeholder}
-          />
-        </GroupField>
-        <GroupField widths="equal">
-          <StringField
-            fieldPath="edition"
-            label={edition.label}
-            placeholder={edition.placeholder}
-          />
-          <StringField
-            fieldPath="volume"
-            label={volume.label}
-            placeholder={volume.placeholder}
-          />
-          <StringField
-            fieldPath="issue"
-            label={issue.label}
-            placeholder={issue.placeholder}
-          />
-          <StringField
-            fieldPath="standard_number"
-            label={standardNumber.label}
-            placeholder={standardNumber.placeholder}
-          />
-        </GroupField>
-        <GroupField widths="equal">
-          <StringField
-            fieldPath="page"
-            label={page.label}
-            placeholder={page.placeholder}
-          />
-          <YearInputField
-            fieldPath="publication_year"
-            label={publicationYear.label}
-            placeholder={publicationYear.placeholder}
-          />
-        </GroupField>
-        <GroupField>
           <VocabularyField
             type={invenioConfig.VOCABULARIES.documentRequests.doc_req_type}
             fieldPath="request_type"
@@ -169,7 +125,90 @@ class DocumentRequestForm extends Component {
             placeholder={requestType.placeholder}
             required
             width={4}
+            customLabel={requestType.customLabel}
           />
+        </GroupField>
+        <Divider className="grey-color" horizontal>
+          Additional information
+        </Divider>
+        <GroupField>
+          <StringField
+            fieldPath="authors"
+            label={authors.label}
+            placeholder={authors.placeholder}
+            width={13}
+            customLabel={authors.customLabel}
+          />
+          <YearInputField
+            fieldPath="publication_year"
+            label={publicationYear.label}
+            placeholder={publicationYear.placeholder}
+          />
+        </GroupField>
+        <GroupField width="equals">
+          <StringField
+            fieldPath="journal_title"
+            label={journalTitle.label}
+            placeholder={journalTitle.placeholder}
+            customLabel={journalTitle.customLabel}
+          />
+          <StringField
+            customLabel={issn.customLabel}
+            label={issn.label}
+            fieldPath="issn"
+            placeholder={issn.placeholder}
+          />
+        </GroupField>
+
+        <GroupField width="equals">
+          <StringField
+            fieldPath="volume"
+            label={volume.label}
+            placeholder={volume.placeholder}
+            customLabel={volume.customLabel}
+          />
+          <StringField
+            fieldPath="issue"
+            label={issue.label}
+            placeholder={issue.placeholder}
+            customLabel={issue.customLabel}
+          />
+          <StringField
+            fieldPath="page"
+            label={page.label}
+            placeholder={page.placeholder}
+            customLabel={page.customLabel}
+          />
+        </GroupField>
+
+        <GroupField widths="equal">
+          <StringField
+            fieldPath="publisher"
+            label={publisher.label}
+            placeholder={publisher.placeholder}
+            customLabel={publisher.customLabel}
+          />
+          <StringField
+            fieldPath="edition"
+            label={edition.label}
+            placeholder={edition.placeholder}
+            customLabel={edition.customLabel}
+          />
+          <StringField
+            fieldPath="standard_number"
+            label={standardNumber.label}
+            placeholder={standardNumber.placeholder}
+            customLabel={standardNumber.customLabel}
+          />
+          <StringField
+            fieldPath="isbn"
+            label={isbn.label}
+            placeholder={isbn.placeholder}
+            customLabel={isbn.customLabel}
+          />
+        </GroupField>
+
+        <GroupField>
           <VocabularyField
             type={
               invenioConfig.VOCABULARIES.documentRequests.doc_req_payment_method
@@ -178,17 +217,20 @@ class DocumentRequestForm extends Component {
             label={paymentMethod.label}
             placeholder={paymentMethod.placeholder}
             width={4}
+            customLabel={paymentMethod.customLabel}
           />
           <StringField
             fieldPath="payment_info"
             label={paymentInfo.label}
             placeholder={paymentInfo.placeholder}
-            width={8}
+            width={12}
+            customLabel={paymentInfo.customLabel}
           />
         </GroupField>
         <TextField
-          fieldPath="note"
           label={notes.label}
+          customLabel={notes.customLabel}
+          fieldPath="note"
           placeholder={notes.placeholder}
           rows={5}
         />
@@ -243,6 +285,7 @@ DocumentRequestForm.propTypes = {
   paymentMethod: PropTypes.object,
   paymentInfo: PropTypes.object,
   notes: PropTypes.object,
+  publisher: PropTypes.object,
 };
 
 DocumentRequestForm.defaultProps = {
@@ -251,8 +294,8 @@ DocumentRequestForm.defaultProps = {
     placeholder: 'Title',
   },
   medium: {
-    label: 'Medium type',
-    placeholder: 'Select medium ...',
+    label: 'Format',
+    placeholder: 'Select format ...',
   },
   journalTitle: {
     label: 'Journal title',
@@ -309,6 +352,10 @@ DocumentRequestForm.defaultProps = {
   notes: {
     label: 'Notes',
     placeholder: 'Notes for the library',
+  },
+  publisher: {
+    label: 'Publisher',
+    placeholder: 'Publisher',
   },
 };
 

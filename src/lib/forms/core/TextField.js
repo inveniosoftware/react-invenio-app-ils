@@ -15,12 +15,13 @@ export class TextField extends Component {
   }
 
   renderFormField = (props) => {
-    const { fieldPath, optimized, ...uiProps } = this.props;
+    const { fieldPath, optimized, label, customLabel, ...uiProps } = this.props;
     const {
       form: { values, handleChange, handleBlur, errors, isSubmitting },
     } = props;
     return (
       <Form.Field disabled={isSubmitting}>
+        {customLabel && customLabel}
         <Form.TextArea
           id={fieldPath}
           name={fieldPath}
@@ -28,6 +29,7 @@ export class TextField extends Component {
           onBlur={handleBlur}
           value={getIn(values, fieldPath, '')}
           error={this.renderError(errors, fieldPath)}
+          label={!customLabel ? label : null}
           {...uiProps}
         />
       </Form.Field>
@@ -44,8 +46,15 @@ export class TextField extends Component {
 TextField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   optimized: PropTypes.bool,
+  label: PropTypes.string,
+  customLabel: PropTypes.PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]),
 };
 
 TextField.defaultProps = {
   optimized: false,
+  label: '',
+  customLabel: null,
 };
