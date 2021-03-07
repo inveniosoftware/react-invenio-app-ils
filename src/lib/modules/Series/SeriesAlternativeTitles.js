@@ -9,7 +9,7 @@ export const AlternativeTitle = ({ title }) => {
   const type = capitalize(title.type.replace('_', ' '));
   return (
     <Table.Row>
-      <Table.Cell>{type}</Table.Cell>
+      <Table.Cell width={4}>{type}</Table.Cell>
       <Table.Cell>
         {title.value}
         {title.language && (
