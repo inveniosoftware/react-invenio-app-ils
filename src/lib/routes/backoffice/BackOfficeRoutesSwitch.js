@@ -37,7 +37,7 @@ import { LocationList } from '@pages/backoffice/Location/LocationList';
 import { PatronDetails } from '@pages/backoffice/Patron/PatronDetails';
 import { PatronSearch } from '@pages/backoffice/Patron/PatronSearch';
 import { SeriesDetails } from '@pages/backoffice/Series/SeriesDetails';
-import { SeriesEditor } from '@pages/backoffice/Series/SeriesForms';
+import { SeriesEditor } from '@pages/backoffice/Series/SeriesEditor';
 import { SeriesSearch } from '@pages/backoffice/Series/SeriesSearch';
 import Stats from '@pages/backoffice/Stats/Stats';
 import { AcquisitionRoutes, BackOfficeRoutes, ILLRoutes } from '@routes/urls';

@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Tab } from 'semantic-ui-react';
-import { SeriesAdditionalInfo } from '../SeriesAdditionalInfo';
 import { SeriesContent } from '../SeriesContent';
 import { SeriesNotes } from '../SeriesNotes';
 import { SeriesPublication } from '../SeriesPublication';
@@ -54,14 +53,6 @@ export default class SeriesMetadataTabs extends Component {
         render: () => (
           <Tab.Pane>
             <SeriesNotes series={series} />
-          </Tab.Pane>
-        ),
-      },
-      {
-        menuItem: 'Other',
-        render: () => (
-          <Tab.Pane>
-            <SeriesAdditionalInfo series={series} />
           </Tab.Pane>
         ),
       },
