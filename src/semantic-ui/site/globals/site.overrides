@@ -219,6 +219,10 @@ a {
   .mobile-count{
     line-height: 2em;
   }
+  .frontsite-list {
+    list-style-type:none;
+    padding-left: 0em;
+  }
 }
 
 /* BACKOFFICE */

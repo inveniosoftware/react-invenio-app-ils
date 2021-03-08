@@ -64,6 +64,32 @@ export const SeriesInfo = ({ metadata }) => {
               </Table.Cell>
             </Table.Row>
           )}
+          {metadata.electronic_volumes_description && (
+            <Table.Row>
+              <Table.Cell>Electronic volumes description</Table.Cell>
+              <Table.Cell>{metadata.electronic_volumes_description}</Table.Cell>
+            </Table.Row>
+          )}
+          {metadata.physical_volumes && (
+            <Table.Row>
+              <Table.Cell>Physical volumes</Table.Cell>
+              <Table.Cell>
+                {metadata.physical_volumes.map((elem, index) => {
+                  return (
+                    <ul key={index} className="frontsite-list">
+                      <li>
+                        <strong>Description:</strong> {elem.description}
+                      </li>
+                      <li>
+                        <strong>Location: </strong>
+                        {elem.location}
+                      </li>
+                    </ul>
+                  );
+                })}
+              </Table.Cell>
+            </Table.Row>
+          )}
         </Table.Body>
       </Table>
     </>
