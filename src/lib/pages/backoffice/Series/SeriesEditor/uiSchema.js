@@ -199,6 +199,24 @@ export const uiSchema = (title) => ({
       ],
     },
   },
+  physical_volumes: {
+    'ui:options': {
+      orderable: false,
+      semantic: {
+        wrapItem: true,
+      },
+    },
+    items: {
+      'custom:grid': [
+        {
+          description: 16,
+        },
+        {
+          location: 16,
+        },
+      ],
+    },
+  },
   'custom:grid': [
     {
       title: 8,
@@ -223,6 +241,10 @@ export const uiSchema = (title) => ({
     {
       publication_year: 8,
       publisher: 8,
+    },
+    {
+      electronic_volumes_description: 8,
+      physical_volumes: 8,
     },
     {
       urls: 8,

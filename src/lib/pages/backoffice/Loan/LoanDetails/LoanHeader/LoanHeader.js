@@ -50,16 +50,14 @@ export default class LoanHeader extends Component {
         }
         subTitle={
           <>
-            on:{' '}
             <DocumentDetailsLink pidValue={data.metadata.document_pid}>
-              {' '}
               <LiteratureTitle
                 title={data.metadata.document.title}
                 edition={data.metadata.document.edition}
                 publicationYear={data.metadata.document.publication_year}
               />
             </DocumentDetailsLink>
-            by ${data.metadata.document.authors}
+            by {data.metadata.document.authors}
           </>
         }
         icon={<LoanIcon />}

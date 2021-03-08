@@ -1,52 +1,60 @@
-import { InfoMessage } from '@components/backoffice/InfoMessage';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import ShowMore from 'react-show-more';
-import { Header, Divider } from 'semantic-ui-react';
+import { Header, Divider, Table } from 'semantic-ui-react';
 import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureKeywords from '@modules/Literature/LiteratureKeywords';
 import _isEmpty from 'lodash/isEmpty';
+import { SeriesPhysicalVolumes } from '../SeriesPhysicalVolumes';
+import { ShowMoreContent } from '../../../../../components/ShowMoreContent/ShowMoreContent';
+import isEmpty from 'lodash/isEmpty';
 
 export class SeriesContent extends Component {
   render() {
     const { series } = this.props;
-
-    return series.metadata.abstract ||
-      series.metadata.keywords ||
-      series.metadata.tags ? (
+    return (
       <>
-        {!_isEmpty(series.metadata.abstract) && (
-          <>
-            <Header as="h3">Abstract </Header>
-            <ShowMore
-              lines={10}
-              more="Show more"
-              less="Show less"
-              anchorClass="button-show-more"
-            >
-              {series.metadata.abstract}
-            </ShowMore>
-          </>
+        <Header as="h3">Abstract </Header>
+        {!_isEmpty(series.metadata.abstract) ? (
+          <ShowMoreContent content={series.metadata.abstract} lines={10} />
+        ) : (
+          'There is no abstract'
         )}
-        {!_isEmpty(series.metadata.tags) && (
-          <>
-            <Divider />
-            <Header as="h3">Tags</Header>
-            <LiteratureTags size="mini" tags={series.metadata.tags} />
-          </>
-        )}
+        <Divider />
+        <Header as="h3">Tags</Header>
+        <LiteratureTags size="mini" tags={series.metadata.tags} />
 
-        {!_isEmpty(series.metadata.keywords) && (
+        <Divider />
+        <Header as="h3">Keywords</Header>
+        <LiteratureKeywords
+          keywords={series.metadata.keywords}
+          noneMessage="No keywords"
+        />
+
+        <Divider />
+        <Header as="h3">Volumes description</Header>
+        {!_isEmpty(series.metadata.physical_volumes) ||
+        !isEmpty(series.metadata.electronic_volumes_description) ? (
           <>
-            <Divider />
-            <Header as="h3">Keywords</Header>
-            <br />
-            <LiteratureKeywords keywords={series.metadata.keywords} />
+            <Table definition>
+              <Table.Body>
+                {!_isEmpty(series.metadata.electronic_volumes_description) && (
+                  <Table.Row>
+                    <Table.Cell>Electronic volumes description</Table.Cell>
+                    <Table.Cell>
+                      {series.metadata.electronic_volumes_description}
+                    </Table.Cell>
+                  </Table.Row>
+                )}
+              </Table.Body>
+            </Table>
+            <SeriesPhysicalVolumes
+              physicalVolumes={series.metadata.physical_volumes}
+            />
           </>
+        ) : (
+          'There is no volumes description'
         )}
       </>
-    ) : (
-      <InfoMessage header="No content." content="Edit series to add content" />
     );
   }
 }

@@ -173,6 +173,31 @@ export const schema = {
       title: 'Publisher',
       type: 'string',
     },
+    electronic_volumes_description: {
+      title: 'Electronic volumes description',
+      type: 'string',
+    },
+    physical_volumes: {
+      items: {
+        properties: {
+          description: {
+            minLength: 1,
+            title: 'Description',
+            type: 'string',
+          },
+          location: {
+            minLength: 1,
+            title: 'Location',
+            type: 'string',
+          },
+        },
+        title: 'Physical volume',
+        type: 'object',
+      },
+      title: 'Physical volumes',
+      type: 'array',
+      uniqueItems: true,
+    },
     tags: {
       items: {
         title: 'Tag name',
