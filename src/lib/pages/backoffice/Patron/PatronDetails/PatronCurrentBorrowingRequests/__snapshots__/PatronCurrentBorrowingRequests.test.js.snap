@@ -23,7 +23,7 @@ exports[`PatronCurrentBorrowingRequests tests should load the details component 
           },
           Object {
             "formatter": [Function],
-            "title": "Library",
+            "title": "Provider",
           },
           Object {
             "field": "created",
@@ -129,13 +129,14 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                   "title": "The Gulf: The Making of An American Sea",
                 },
                 "document_pid": "docid-1",
-                "library": Object {
-                  "name": "Library 1",
-                  "pid": "illlid-1",
-                },
-                "library_pid": "illlid-1",
                 "patron_pid": "1",
                 "pid": "illbid-1",
+                "provider": Object {
+                  "name": "Library 1",
+                  "pid": "ill-provid-1",
+                  "type": "LIBRARY",
+                },
+                "provider_pid": "ill-provid-1",
                 "status": "PENDING",
                 "type": "PHYSICAL_COPY",
               },
@@ -166,13 +167,14 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                   "title": "The Gulf: The Making of An American Sea",
                 },
                 "document_pid": "docid-2",
-                "library": Object {
-                  "name": "Library 2",
-                  "pid": "illlid-2",
-                },
-                "library_pid": "illlid-1",
                 "patron_pid": "2",
                 "pid": "illbid-2",
+                "provider": Object {
+                  "name": "Library 2",
+                  "pid": "ill-provid-2",
+                  "type": "LIBRARY",
+                },
+                "provider_pid": "ill-provid-1",
                 "status": "REQUESTED",
                 "type": "ELECTRONIC",
               },
@@ -235,7 +237,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                     },
                     Object {
                       "formatter": [Function],
-                      "title": "Library",
+                      "title": "Provider",
                     },
                     Object {
                       "field": "created",
@@ -291,13 +293,14 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                           "title": "The Gulf: The Making of An American Sea",
                         },
                         "document_pid": "docid-1",
-                        "library": Object {
-                          "name": "Library 1",
-                          "pid": "illlid-1",
-                        },
-                        "library_pid": "illlid-1",
                         "patron_pid": "1",
                         "pid": "illbid-1",
+                        "provider": Object {
+                          "name": "Library 1",
+                          "pid": "ill-provid-1",
+                          "type": "LIBRARY",
+                        },
+                        "provider_pid": "ill-provid-1",
                         "status": "PENDING",
                         "type": "PHYSICAL_COPY",
                       },
@@ -328,13 +331,14 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                           "title": "The Gulf: The Making of An American Sea",
                         },
                         "document_pid": "docid-2",
-                        "library": Object {
-                          "name": "Library 2",
-                          "pid": "illlid-2",
-                        },
-                        "library_pid": "illlid-1",
                         "patron_pid": "2",
                         "pid": "illbid-2",
+                        "provider": Object {
+                          "name": "Library 2",
+                          "pid": "ill-provid-2",
+                          "type": "LIBRARY",
+                        },
+                        "provider_pid": "ill-provid-1",
                         "status": "REQUESTED",
                         "type": "ELECTRONIC",
                       },
@@ -392,7 +396,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                           },
                           Object {
                             "formatter": [Function],
-                            "title": "Library",
+                            "title": "Provider",
                           },
                           Object {
                             "field": "created",
@@ -468,7 +472,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                               </TableHeaderCell>
                               <TableHeaderCell
                                 as="th"
-                                key="Library"
+                                key="Provider"
                               >
                                 <TableCell
                                   as="th"
@@ -477,7 +481,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                   <th
                                     className=""
                                   >
-                                    Library
+                                    Provider
                                   </th>
                                 </TableCell>
                               </TableHeaderCell>
@@ -574,7 +578,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                           },
                           Object {
                             "formatter": [Function],
-                            "title": "Library",
+                            "title": "Provider",
                           },
                           Object {
                             "field": "created",
@@ -629,13 +633,14 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                 "title": "The Gulf: The Making of An American Sea",
                               },
                               "document_pid": "docid-1",
-                              "library": Object {
-                                "name": "Library 1",
-                                "pid": "illlid-1",
-                              },
-                              "library_pid": "illlid-1",
                               "patron_pid": "1",
                               "pid": "illbid-1",
+                              "provider": Object {
+                                "name": "Library 1",
+                                "pid": "ill-provid-1",
+                                "type": "LIBRARY",
+                              },
+                              "provider_pid": "ill-provid-1",
                               "status": "PENDING",
                               "type": "PHYSICAL_COPY",
                             },
@@ -666,13 +671,14 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                 "title": "The Gulf: The Making of An American Sea",
                               },
                               "document_pid": "docid-2",
-                              "library": Object {
-                                "name": "Library 2",
-                                "pid": "illlid-2",
-                              },
-                              "library_pid": "illlid-1",
                               "patron_pid": "2",
                               "pid": "illbid-2",
+                              "provider": Object {
+                                "name": "Library 2",
+                                "pid": "ill-provid-2",
+                                "type": "LIBRARY",
+                              },
+                              "provider_pid": "ill-provid-1",
                               "status": "REQUESTED",
                               "type": "ELECTRONIC",
                             },
@@ -814,27 +820,27 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                               </TableCell>
                               <TableCell
                                 as="td"
-                                data-label="Library"
+                                data-label="Provider"
                                 data-test="2-borrowing-request1"
                                 key="2-borrowing-request1"
                               >
                                 <td
                                   className=""
-                                  data-label="Library"
+                                  data-label="Provider"
                                   data-test="2-borrowing-request1"
                                 >
                                   <Link
                                     data-test="illbid-1"
-                                    to="/backoffice/ill/libraries/illlid-1"
+                                    to="/backoffice/providers/ill-provid-1"
                                   >
                                     <LinkAnchor
                                       data-test="illbid-1"
-                                      href="/backoffice/ill/libraries/illlid-1"
+                                      href="/backoffice/providers/ill-provid-1"
                                       navigate={[Function]}
                                     >
                                       <a
                                         data-test="illbid-1"
-                                        href="/backoffice/ill/libraries/illlid-1"
+                                        href="/backoffice/providers/ill-provid-1"
                                         onClick={[Function]}
                                       >
                                         Library 1
@@ -1046,27 +1052,27 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                               </TableCell>
                               <TableCell
                                 as="td"
-                                data-label="Library"
+                                data-label="Provider"
                                 data-test="2-borrowing-request2"
                                 key="2-borrowing-request2"
                               >
                                 <td
                                   className=""
-                                  data-label="Library"
+                                  data-label="Provider"
                                   data-test="2-borrowing-request2"
                                 >
                                   <Link
                                     data-test="illbid-2"
-                                    to="/backoffice/ill/libraries/illlid-1"
+                                    to="/backoffice/providers/ill-provid-1"
                                   >
                                     <LinkAnchor
                                       data-test="illbid-2"
-                                      href="/backoffice/ill/libraries/illlid-1"
+                                      href="/backoffice/providers/ill-provid-1"
                                       navigate={[Function]}
                                     >
                                       <a
                                         data-test="illbid-2"
-                                        href="/backoffice/ill/libraries/illlid-1"
+                                        href="/backoffice/providers/ill-provid-1"
                                         onClick={[Function]}
                                       >
                                         Library 2
@@ -1265,7 +1271,7 @@ exports[`PatronCurrentBorrowingRequests tests should render show a message with 
                     },
                     Object {
                       "formatter": [Function],
-                      "title": "Library",
+                      "title": "Provider",
                     },
                     Object {
                       "field": "created",
@@ -1404,13 +1410,14 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                   "title": "The Gulf: The Making of An American Sea",
                 },
                 "document_pid": "docid-1",
-                "library": Object {
-                  "name": "Library 1",
-                  "pid": "illlid-1",
-                },
-                "library_pid": "illlid-1",
                 "patron_pid": "1",
                 "pid": "illbid-1",
+                "provider": Object {
+                  "name": "Library 1",
+                  "pid": "ill-provid-1",
+                  "type": "LIBRARY",
+                },
+                "provider_pid": "ill-provid-1",
                 "status": "PENDING",
                 "type": "PHYSICAL_COPY",
               },
@@ -1441,13 +1448,14 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                   "title": "The Gulf: The Making of An American Sea",
                 },
                 "document_pid": "docid-2",
-                "library": Object {
-                  "name": "Library 2",
-                  "pid": "illlid-2",
-                },
-                "library_pid": "illlid-1",
                 "patron_pid": "2",
                 "pid": "illbid-2",
+                "provider": Object {
+                  "name": "Library 2",
+                  "pid": "ill-provid-2",
+                  "type": "LIBRARY",
+                },
+                "provider_pid": "ill-provid-1",
                 "status": "REQUESTED",
                 "type": "ELECTRONIC",
               },
@@ -1510,7 +1518,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                     },
                     Object {
                       "formatter": [Function],
-                      "title": "Library",
+                      "title": "Provider",
                     },
                     Object {
                       "field": "created",
@@ -1566,13 +1574,14 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                           "title": "The Gulf: The Making of An American Sea",
                         },
                         "document_pid": "docid-1",
-                        "library": Object {
-                          "name": "Library 1",
-                          "pid": "illlid-1",
-                        },
-                        "library_pid": "illlid-1",
                         "patron_pid": "1",
                         "pid": "illbid-1",
+                        "provider": Object {
+                          "name": "Library 1",
+                          "pid": "ill-provid-1",
+                          "type": "LIBRARY",
+                        },
+                        "provider_pid": "ill-provid-1",
                         "status": "PENDING",
                         "type": "PHYSICAL_COPY",
                       },
@@ -1603,13 +1612,14 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                           "title": "The Gulf: The Making of An American Sea",
                         },
                         "document_pid": "docid-2",
-                        "library": Object {
-                          "name": "Library 2",
-                          "pid": "illlid-2",
-                        },
-                        "library_pid": "illlid-1",
                         "patron_pid": "2",
                         "pid": "illbid-2",
+                        "provider": Object {
+                          "name": "Library 2",
+                          "pid": "ill-provid-2",
+                          "type": "LIBRARY",
+                        },
+                        "provider_pid": "ill-provid-1",
                         "status": "REQUESTED",
                         "type": "ELECTRONIC",
                       },
@@ -1667,7 +1677,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                           },
                           Object {
                             "formatter": [Function],
-                            "title": "Library",
+                            "title": "Provider",
                           },
                           Object {
                             "field": "created",
@@ -1743,7 +1753,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                               </TableHeaderCell>
                               <TableHeaderCell
                                 as="th"
-                                key="Library"
+                                key="Provider"
                               >
                                 <TableCell
                                   as="th"
@@ -1752,7 +1762,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                   <th
                                     className=""
                                   >
-                                    Library
+                                    Provider
                                   </th>
                                 </TableCell>
                               </TableHeaderCell>
@@ -1849,7 +1859,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                           },
                           Object {
                             "formatter": [Function],
-                            "title": "Library",
+                            "title": "Provider",
                           },
                           Object {
                             "field": "created",
@@ -1904,13 +1914,14 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                 "title": "The Gulf: The Making of An American Sea",
                               },
                               "document_pid": "docid-1",
-                              "library": Object {
-                                "name": "Library 1",
-                                "pid": "illlid-1",
-                              },
-                              "library_pid": "illlid-1",
                               "patron_pid": "1",
                               "pid": "illbid-1",
+                              "provider": Object {
+                                "name": "Library 1",
+                                "pid": "ill-provid-1",
+                                "type": "LIBRARY",
+                              },
+                              "provider_pid": "ill-provid-1",
                               "status": "PENDING",
                               "type": "PHYSICAL_COPY",
                             },
@@ -2052,27 +2063,27 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                               </TableCell>
                               <TableCell
                                 as="td"
-                                data-label="Library"
+                                data-label="Provider"
                                 data-test="2-borrowing-request1"
                                 key="2-borrowing-request1"
                               >
                                 <td
                                   className=""
-                                  data-label="Library"
+                                  data-label="Provider"
                                   data-test="2-borrowing-request1"
                                 >
                                   <Link
                                     data-test="illbid-1"
-                                    to="/backoffice/ill/libraries/illlid-1"
+                                    to="/backoffice/providers/ill-provid-1"
                                   >
                                     <LinkAnchor
                                       data-test="illbid-1"
-                                      href="/backoffice/ill/libraries/illlid-1"
+                                      href="/backoffice/providers/ill-provid-1"
                                       navigate={[Function]}
                                     >
                                       <a
                                         data-test="illbid-1"
-                                        href="/backoffice/ill/libraries/illlid-1"
+                                        href="/backoffice/providers/ill-provid-1"
                                         onClick={[Function]}
                                       >
                                         Library 1

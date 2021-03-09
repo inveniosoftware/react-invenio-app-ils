@@ -104,28 +104,12 @@ export const serializeSeries = (series) => {
   };
 };
 
-export const serializeLibrary = (library) => ({
-  id: library.metadata.pid,
-  key: library.metadata.pid,
-  title: library.metadata.name,
-  metadata: library.metadata,
-});
-
-export const serializeVendor = (vendor) => ({
-  id: vendor.metadata.pid,
-  key: vendor.metadata.pid,
-  title: vendor.metadata.name,
-  description: `Name: ${vendor.metadata.name}`,
-  extra: `Vendor #${vendor.metadata.pid}`,
-  metadata: vendor.metadata,
-});
-
 export const serializeAcqOrder = (order) => ({
   id: order.metadata.pid,
   key: order.metadata.pid,
   pid: order.metadata.pid,
   title: order.metadata.pid,
-  description: order.metadata.vendor.name,
+  description: order.metadata.provider.name,
   metadata: order.metadata,
 });
 
@@ -134,6 +118,6 @@ export const serializeBorrowingRequest = (request) => ({
   key: request.metadata.pid,
   pid: request.metadata.pid,
   title: request.metadata.pid,
-  description: request.metadata.library.name,
+  description: request.metadata.provider.name,
   metadata: request.metadata,
 });

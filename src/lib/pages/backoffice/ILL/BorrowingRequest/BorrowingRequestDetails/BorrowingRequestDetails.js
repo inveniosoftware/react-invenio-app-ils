@@ -9,7 +9,7 @@ import {
   ScrollingMenuItem,
 } from '@components/backoffice/buttons/ScrollingMenu';
 import { ILLBorrowingRequestIcon } from '@components/backoffice/icons';
-import { ILLRoutes } from '@routes/urls';
+import { ILLRoutes, ProviderRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -47,9 +47,11 @@ class BorrowingRequestHeader extends React.Component {
 
   render() {
     const { brwReq } = this.props;
-    const library = brwReq.library;
-    const libraryLink = (
-      <Link to={ILLRoutes.libraryDetailsFor(library.pid)}>{library.name}</Link>
+    const provider = brwReq.provider;
+    const providerLink = (
+      <Link to={ProviderRoutes.providerDetailsFor(provider.pid)}>
+        {provider.name}
+      </Link>
     );
     const pid = brwReq.pid;
     const recordInfo = (
@@ -77,7 +79,7 @@ class BorrowingRequestHeader extends React.Component {
             </div>
           </>
         }
-        subTitle={<>From library: {libraryLink}</>}
+        subTitle={<>From provider: {providerLink}</>}
         pid={brwReq.pid}
         icon={<ILLBorrowingRequestIcon />}
         recordType="BorrowingRequest"

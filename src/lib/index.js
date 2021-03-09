@@ -1,10 +1,10 @@
-export { orderApi, vendorApi } from '@api/acquisition';
+export { orderApi } from '@api/acquisition';
 export { bannerApi } from '@api/banners';
 export { documentRequestApi } from '@api/documentRequests';
 export { documentApi } from '@api/documents';
 export { eItemApi } from '@api/eitems';
 export { fileApi } from '@api/files';
-export { borrowingRequestApi, libraryApi } from '@api/ill';
+export { borrowingRequestApi } from '@api/ill';
 export { itemApi } from '@api/items';
 export { literatureApi } from '@api/literature';
 export { loanApi } from '@api/loans';

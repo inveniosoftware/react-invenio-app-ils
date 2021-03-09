@@ -101,9 +101,9 @@ export const RECORDS_CONFIG = {
           labels: ACQ_ORDER_STATUSES,
         },
         {
-          title: 'Vendor',
-          field: 'vendor.name',
-          aggName: 'vendor',
+          title: 'Provider',
+          field: 'provider.name',
+          aggName: 'provider',
         },
         {
           title: 'Payment mode',
@@ -152,40 +152,6 @@ export const RECORDS_CONFIG = {
           sortBy: 'grand_total',
           sortOrder: 'desc',
           text: `Total (${DEFAULT_CURRENCY})`,
-        },
-      ],
-      defaultPage: 1,
-      defaultSize: 15,
-      defaultLayout: 'list',
-    },
-  },
-  ACQ_VENDORS: {
-    search: {
-      filters: [],
-      sort: [
-        {
-          order: 1,
-          sortBy: 'created',
-          sortOrder: 'desc',
-          text: 'Recently added',
-        },
-        {
-          order: 2,
-          sortBy: 'bestmatch',
-          sortOrder: 'asc',
-          text: 'Most relevant',
-        },
-        {
-          order: 3,
-          sortBy: 'name',
-          sortOrder: 'asc',
-          text: 'Name [A-Z]',
-        },
-        {
-          order: 4,
-          sortBy: 'name',
-          sortOrder: 'desc',
-          text: 'Name [Z-A]',
         },
       ],
       defaultPage: 1,
@@ -465,9 +431,9 @@ export const RECORDS_CONFIG = {
           labels: ILL_BORROWING_REQUESTS_STATUSES,
         },
         {
-          title: 'Library',
-          field: 'library.name',
-          aggName: 'library',
+          title: 'Provider',
+          field: 'provider.name',
+          aggName: 'provider',
         },
         {
           title: 'Item type',
@@ -510,40 +476,6 @@ export const RECORDS_CONFIG = {
           sortBy: 'due_date',
           sortOrder: 'desc',
           text: 'Due date',
-        },
-      ],
-      defaultPage: 1,
-      defaultSize: 15,
-      defaultLayout: 'list',
-    },
-  },
-  ILL_LIBRARIES: {
-    search: {
-      filters: [],
-      sort: [
-        {
-          order: 1,
-          sortBy: 'created',
-          sortOrder: 'desc',
-          text: 'Recently added',
-        },
-        {
-          order: 2,
-          sortBy: 'bestmatch',
-          sortOrder: 'asc',
-          text: 'Most relevant',
-        },
-        {
-          order: 3,
-          sortBy: 'name',
-          sortOrder: 'asc',
-          text: 'Name [A-Z]',
-        },
-        {
-          order: 4,
-          sortBy: 'name',
-          sortOrder: 'desc',
-          text: 'Name [Z-A]',
         },
       ],
       defaultPage: 1,
@@ -857,6 +789,46 @@ export const RECORDS_CONFIG = {
       defaultLayout: 'list',
     },
   },
+  PROVIDERS: {
+    search: {
+      filters: [
+        {
+          title: 'Type',
+          field: 'type',
+          aggName: 'type',
+        },
+      ],
+      sort: [
+        {
+          order: 1,
+          sortBy: 'created',
+          sortOrder: 'desc',
+          text: 'Recently added',
+        },
+        {
+          order: 2,
+          sortBy: 'bestmatch',
+          sortOrder: 'asc',
+          text: 'Most relevant',
+        },
+        {
+          order: 3,
+          sortBy: 'name',
+          sortOrder: 'asc',
+          text: 'Name [A-Z]',
+        },
+        {
+          order: 4,
+          sortBy: 'name',
+          sortOrder: 'desc',
+          text: 'Name [Z-A]',
+        },
+      ],
+      defaultPage: 1,
+      defaultSize: 15,
+      defaultLayout: 'list',
+    },
+  },
   PATRONS: {
     customFields: {},
     search: {
@@ -937,6 +909,9 @@ export const RECORDS_CONFIG = {
     illBorrowingRequests: {
       ill_item_type: 'ill_item_type',
       ill_payment_mode: 'ill_payment_mode',
+    },
+    providers: {
+      provider_type: 'provider_type',
     },
   },
 };

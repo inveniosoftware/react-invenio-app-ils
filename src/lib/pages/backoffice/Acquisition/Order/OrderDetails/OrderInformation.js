@@ -8,7 +8,7 @@ export class OrderInformation extends React.Component {
   render() {
     const { order } = this.props;
     const leftTable = [
-      { name: 'Vendor', value: order.vendor.name },
+      { name: 'Provider', value: order.provider.name },
       { name: 'Ordered at', value: order.order_date },
       {
         name: 'Expected delivery',

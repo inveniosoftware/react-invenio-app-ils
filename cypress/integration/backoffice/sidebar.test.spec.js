@@ -38,9 +38,8 @@ describe('backoffice sidebar', () => {
       checkSidebarLinks('Physical Copies', '/items');
       checkSidebarLinks('Electronic Items', '/eitems');
       checkSidebarLinks('Purchase Orders', '/acquisition/orders');
-      checkSidebarLinks('Vendors', '/acquisition/vendors');
       checkSidebarLinks('Borrowing Requests', '/ill/borrowing-requests');
-      checkSidebarLinks('Libraries', '/ill/libraries');
+      checkSidebarLinks('Providers', '/providers');
       checkSidebarLinks('Patrons', '/patrons');
       checkSidebarLinks('Most Loaned', '/stats');
     });

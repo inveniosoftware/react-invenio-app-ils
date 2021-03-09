@@ -7,9 +7,8 @@ export {
   LoanIcon,
   PatronIcon,
   AcquisitionOrderIcon,
-  AcquisitionVendorIcon,
+  ProviderIcon,
   ILLBorrowingRequestIcon,
-  ILLLibraryIcon,
   InternalLocationIcon,
   LocationIcon,
 } from './Icons';

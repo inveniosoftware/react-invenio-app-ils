@@ -43,9 +43,9 @@ export class AcquisitionOrderIcon extends Component {
   }
 }
 
-export class AcquisitionVendorIcon extends Component {
+export class ProviderIcon extends Component {
   render() {
-    return <Icon name="industry" />;
+    return <Icon name="building" />;
   }
 }
 
@@ -58,12 +58,6 @@ export class DocumentRequestIcon extends Component {
 export class ILLBorrowingRequestIcon extends Component {
   render() {
     return <Icon name="sync alternate" />;
-  }
-}
-
-export class ILLLibraryIcon extends Component {
-  render() {
-    return <Icon name="boxes" />;
   }
 }
 

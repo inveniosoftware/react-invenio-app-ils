@@ -57,8 +57,8 @@ export class OrderSearch extends Component {
   render() {
     const helperFields = [
       {
-        name: 'vendor',
-        field: 'vendor.name',
+        name: 'provider',
+        field: 'provider.name',
         defaultValue: '"Dolor"',
       },
       {

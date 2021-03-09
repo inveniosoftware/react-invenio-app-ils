@@ -41,8 +41,8 @@ export class BorrowingRequestSearch extends Component {
   render() {
     const helperFields = [
       {
-        name: 'library',
-        field: 'library.name',
+        name: 'provider',
+        field: 'provider.name',
         defaultValue: '"Dolor"',
       },
       {

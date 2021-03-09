@@ -1,6 +1,6 @@
 import { getDisplayVal } from '@config';
 import { ILLBorrowingRequestIcon } from '@components/backoffice/icons';
-import { BackOfficeRoutes, ILLRoutes } from '@routes/urls';
+import { BackOfficeRoutes, ILLRoutes, ProviderRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -10,8 +10,8 @@ export default class BorrowingRequestListEntry extends Component {
   renderLeftColumn = (brwReqMetadata) => {
     const {
       status,
-      library_pid: libraryPid,
-      library,
+      provider_pid: providerPid,
+      provider,
       due_date: dueDate,
     } = brwReqMetadata;
     return (
@@ -21,9 +21,9 @@ export default class BorrowingRequestListEntry extends Component {
           {getDisplayVal('ILL_BORROWING_REQUESTS.statuses', status)}
         </Item.Description>
         <Item.Description>
-          <label>library </label>
-          <Link to={ILLRoutes.libraryDetailsFor(libraryPid)}>
-            {library.name}
+          <label>provider </label>
+          <Link to={ProviderRoutes.providerDetailsFor(providerPid)}>
+            {provider.name}
           </Link>
         </Item.Description>
         <Item.Description>

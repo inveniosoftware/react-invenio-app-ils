@@ -2,7 +2,11 @@ import { formatPrice } from '@api/utils';
 import { invenioConfig } from '@config';
 import { getDisplayVal } from '@config';
 import { AcquisitionOrderIcon } from '@components/backoffice/icons';
-import { AcquisitionRoutes, BackOfficeRoutes } from '@routes/urls';
+import {
+  AcquisitionRoutes,
+  BackOfficeRoutes,
+  ProviderRoutes,
+} from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -26,11 +30,11 @@ export default class OrderListEntry extends Component {
           {getDisplayVal('ACQ_ORDERS.statuses', order.metadata.status)}
         </Item.Description>
         <Item.Description>
-          <label>vendor </label>
+          <label>provider </label>
           <Link
-            to={AcquisitionRoutes.vendorDetailsFor(order.metadata.vendor_pid)}
+            to={ProviderRoutes.providerDetailsFor(order.metadata.provider_pid)}
           >
-            {order.metadata.vendor.name}
+            {order.metadata.provider.name}
           </Link>
         </Item.Description>
         <Item.Description>
