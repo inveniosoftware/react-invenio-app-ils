@@ -93,8 +93,8 @@ export const schema = {
       title: 'Expected delivery date',
       type: 'string',
     },
-    library_pid: {
-      title: 'Library',
+    provider_pid: {
+      title: 'Provider',
       type: 'string',
     },
     notes: {
@@ -139,6 +139,6 @@ export const schema = {
       type: 'string',
     },
   },
-  required: ['status', 'document_pid', 'patron_pid', 'library_pid', 'type'],
+  required: ['status', 'document_pid', 'patron_pid', 'provider_pid', 'type'],
   type: 'object',
 };

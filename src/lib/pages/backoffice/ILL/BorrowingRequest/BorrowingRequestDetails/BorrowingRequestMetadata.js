@@ -1,10 +1,10 @@
 import { formatPrice } from '@api/utils';
 import { CreatedBy, UpdatedBy } from '@components/backoffice/ChangedBy';
-import { ILLLibraryIcon, PatronIcon } from '@components/backoffice/icons';
+import { ProviderIcon, PatronIcon } from '@components/backoffice/icons';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { invenioConfig } from '@config';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
-import { BackOfficeRoutes, ILLRoutes } from '@routes/urls';
+import { BackOfficeRoutes, ProviderRoutes } from '@routes/urls';
 import { PropTypes } from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -20,10 +20,10 @@ class Loan extends React.Component {
     const { brwReq } = this.props;
     const table = [
       {
-        name: 'Library',
+        name: 'Provider',
         value: (
-          <Link to={ILLRoutes.libraryDetailsFor(brwReq.library_pid)}>
-            <ILLLibraryIcon /> {brwReq.library.name}
+          <Link to={ProviderRoutes.providerDetailsFor(brwReq.provider_pid)}>
+            <ProviderIcon /> {brwReq.provider.name}
           </Link>
         ),
       },

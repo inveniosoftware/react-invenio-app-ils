@@ -11,7 +11,7 @@ export class RJSFReferencedAcqOrder extends Component {
     return {
       key: record.metadata.pid,
       value: record.metadata.pid,
-      text: `#${record.metadata.pid} - Vendor: ${record.metadata.vendor.name}`,
+      text: `#${record.metadata.pid} - Provider: ${record.metadata.provider.name}`,
     };
   };
 

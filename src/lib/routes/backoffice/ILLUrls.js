@@ -4,10 +4,6 @@ import { generatePath } from 'react-router-dom';
 const ILLBase = `${BackOfficeBase}/ill`;
 
 const ILLRoutesList = {
-  libraryList: `${ILLBase}/libraries`,
-  libraryDetails: `${ILLBase}/libraries/:libraryPid`,
-  libraryEdit: `${ILLBase}/libraries/:libraryPid/edit`,
-  libraryCreate: `${ILLBase}/libraries/create`,
   borrowingRequestList: `${ILLBase}/borrowing-requests`,
   borrowingRequestDetails: `${ILLBase}/borrowing-requests/:borrowingRequestPid`,
   borrowingRequestEdit: `${ILLBase}/borrowing-requests/:borrowingRequestPid/edit`,
@@ -15,14 +11,6 @@ const ILLRoutesList = {
 };
 
 export const ILLRoutesGenerators = {
-  libraryDetailsFor: (libraryPid) =>
-    generatePath(ILLRoutesList.libraryDetails, {
-      libraryPid: libraryPid,
-    }),
-  libraryEditFor: (libraryPid) =>
-    generatePath(ILLRoutesList.libraryEdit, {
-      libraryPid: libraryPid,
-    }),
   borrowingRequestListWithQuery: (qs) =>
     `${ILLRoutesList.borrowingRequestList}?q=${qs}`,
   borrowingRequestDetailsFor: (borrowingRequestPid) =>

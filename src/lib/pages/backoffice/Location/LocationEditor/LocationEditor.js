@@ -128,9 +128,7 @@ export class LocationEditor extends Component {
   };
 
   successCallback = (response) => {
-    goTo(
-      BackOfficeRoutes.locationsDetailsFor(_get(response, 'data.metadata.pid'))
-    );
+    goTo(BackOfficeRoutes.locationsDetailsFor(response.data.metadata.pid));
   };
 
   render() {

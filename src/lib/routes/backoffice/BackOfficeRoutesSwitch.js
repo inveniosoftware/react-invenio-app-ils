@@ -2,9 +2,9 @@ import { NotFound } from '@components/HttpErrors';
 import { OrderDetails } from '@pages/backoffice/Acquisition/Order/OrderDetails';
 import { OrderEditor } from '@pages/backoffice/Acquisition/Order/OrderEditor';
 import { OrderSearch } from '@pages/backoffice/Acquisition/Order/OrderSearch';
-import { VendorDetails } from '@pages/backoffice/Acquisition/Vendor/VendorDetails';
-import { VendorEditor } from '@pages/backoffice/Acquisition/Vendor/VendorEditor';
-import { VendorSearch } from '@pages/backoffice/Acquisition/Vendor/VendorSearch';
+import { ProviderDetails } from '@pages/backoffice/Providers/ProviderDetails';
+import { ProviderEditor } from '@pages/backoffice/Providers/ProviderEditor';
+import { ProviderSearch } from '@pages/backoffice/Providers/ProviderSearch';
 import CheckIn from '@pages/backoffice/Actions/CheckIn/CheckIn';
 import { CheckOut } from '@pages/backoffice/Actions/CheckOut/CheckOut';
 import { DocumentDetails } from '@pages/backoffice/Document/DocumentDetails';
@@ -20,11 +20,6 @@ import Home from '@pages/backoffice/Home/Home';
 import { BorrowingRequestDetails } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails';
 import { BorrowingRequestEditor } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestEditor/BorrowingRequestEditor';
 import { BorrowingRequestSearch } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestSearch/BorrowingRequestSearch';
-import {
-  LibraryDetails,
-  LibraryEditor,
-  LibrarySearch,
-} from '@pages/backoffice/ILL/Library';
 import { ItemDetails } from '@pages/backoffice/Item/ItemDetails';
 import { ItemEditor } from '@pages/backoffice/Item/ItemEditor';
 import { ItemSearch } from '@pages/backoffice/Item/ItemSearch';
@@ -40,7 +35,12 @@ import { SeriesDetails } from '@pages/backoffice/Series/SeriesDetails';
 import { SeriesEditor } from '@pages/backoffice/Series/SeriesForms';
 import { SeriesSearch } from '@pages/backoffice/Series/SeriesSearch';
 import Stats from '@pages/backoffice/Stats/Stats';
-import { AcquisitionRoutes, BackOfficeRoutes, ILLRoutes } from '@routes/urls';
+import {
+  AcquisitionRoutes,
+  BackOfficeRoutes,
+  ILLRoutes,
+  ProviderRoutes,
+} from '@routes/urls';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Route, Switch } from 'react-router-dom';
@@ -144,6 +144,27 @@ export default class BackOfficeRoutesSwitch extends Component {
           path={BackOfficeRoutes.locationsDetails}
           component={LocationDetails}
         />
+        {/*/!* providers *!/*/}
+        <Route
+          exact
+          path={ProviderRoutes.providersList}
+          component={ProviderSearch}
+        />
+        <Route
+          exact
+          path={ProviderRoutes.providerCreate}
+          component={ProviderEditor}
+        />
+        <Route
+          exact
+          path={ProviderRoutes.providerEdit}
+          component={ProviderEditor}
+        />
+        <Route
+          exact
+          path={ProviderRoutes.providerDetails}
+          component={ProviderDetails}
+        />
         {/*/!* patrons *!/*/}
         <Route
           exact
@@ -197,27 +218,6 @@ export default class BackOfficeRoutesSwitch extends Component {
           path={BackOfficeRoutes.documentRequestsList}
           component={DocumentRequestSearch}
         />
-        {/* vendors */}
-        <Route
-          exact
-          path={AcquisitionRoutes.vendorsList}
-          component={VendorSearch}
-        />
-        <Route
-          exact
-          path={AcquisitionRoutes.vendorCreate}
-          component={VendorEditor}
-        />
-        <Route
-          exact
-          path={AcquisitionRoutes.vendorEdit}
-          component={VendorEditor}
-        />
-        <Route
-          exact
-          path={AcquisitionRoutes.vendorDetails}
-          component={VendorDetails}
-        />
         {/* orders */}
         <Route
           exact
@@ -240,14 +240,6 @@ export default class BackOfficeRoutesSwitch extends Component {
           component={OrderDetails}
         />
         {/*/!* ILL *!/*/}
-        <Route exact path={ILLRoutes.libraryList} component={LibrarySearch} />
-        <Route exact path={ILLRoutes.libraryCreate} component={LibraryEditor} />
-        <Route exact path={ILLRoutes.libraryEdit} component={LibraryEditor} />
-        <Route
-          exact
-          path={ILLRoutes.libraryDetails}
-          component={LibraryDetails}
-        />
         <Route
           exact
           path={ILLRoutes.borrowingRequestList}

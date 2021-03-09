@@ -60,7 +60,7 @@ export class EItemEditor extends Component {
   };
 
   successCallback = (response) => {
-    goTo(BackOfficeRoutes.eitemDetailsFor(_get(response, 'data.metadata.pid')));
+    goTo(BackOfficeRoutes.eitemDetailsFor(response.data.metadata.pid));
   };
 
   render() {

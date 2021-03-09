@@ -11,8 +11,8 @@ describe('Order query builder tests', () => {
     expect(query).toEqual('recipient:PATRON');
   });
 
-  it('should build the query string with vendor', () => {
-    const query = orderApi.query().withVendor('My vendor').qs();
-    expect(query).toEqual('vendor.name:"My vendor"');
+  it('should build the query string with provider', () => {
+    const query = orderApi.query().withProvider('My provider').qs();
+    expect(query).toEqual('provider.name:"My provider"');
   });
 });

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Card, Container, Header, Icon } from 'semantic-ui-react';
-import { ILLLibraryIcon } from '@components/backoffice/icons';
+import { AcquisitionOrderIcon } from '@components/backoffice/icons';
 
 export class SectionServices extends Component {
   render() {
@@ -33,7 +33,7 @@ export class SectionServices extends Component {
               <Card className="info-card">
                 <Card.Content>
                   <Card.Header className="advert">
-                    <ILLLibraryIcon /> Acquisition
+                    <AcquisitionOrderIcon /> Acquisition
                   </Card.Header>
                   <Card.Description>
                     If you think the library should buy literature, please let

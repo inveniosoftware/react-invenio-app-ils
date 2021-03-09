@@ -1,6 +1,6 @@
 import { http, apiConfig } from '@api/base';
 import { prepareSumQuery } from '@api/utils';
-import { orderSerializer as serializer } from './serializers';
+import { orderSerializer as serializer } from './serializer';
 import { invenioConfig } from '@config';
 
 const orderURL = '/acquisition/orders/';
@@ -56,8 +56,8 @@ class QueryBuilder {
   constructor() {
     this.patronQuery = [];
     this.recipientQuery = [];
-    this.vendorQuery = [];
-    this.vendorPidQuery = [];
+    this.providerQuery = [];
+    this.providerPidQuery = [];
     this.query = [];
     this.sortByQuery = '';
     this.stateQuery = [];
@@ -87,19 +87,19 @@ class QueryBuilder {
     return this;
   }
 
-  withVendor(name) {
+  withProvider(name) {
     if (!name) {
-      throw TypeError('Vendor name argument missing');
+      throw TypeError('Provider name argument missing');
     }
-    this.vendorQuery.push(`vendor.name:"${name}"`);
+    this.providerQuery.push(`provider.name:"${name}"`);
     return this;
   }
 
-  withVendorPid(pid) {
+  withProviderPid(pid) {
     if (!pid) {
-      throw TypeError('Vendor pid argument missing');
+      throw TypeError('Provider pid argument missing');
     }
-    this.vendorPidQuery.push(`vendor_pid:${pid}`);
+    this.providerPidQuery.push(`provider_pid:${pid}`);
     return this;
   }
 
@@ -118,7 +118,7 @@ class QueryBuilder {
 
   qs() {
     const searchCriteria = this.patronQuery
-      .concat(this.recipientQuery, this.vendorQuery, this.vendorPidQuery)
+      .concat(this.recipientQuery, this.providerQuery, this.providerPidQuery)
       .concat(this.stateQuery)
       .concat(this.query)
       .join(' AND ');

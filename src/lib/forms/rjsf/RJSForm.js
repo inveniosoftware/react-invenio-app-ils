@@ -7,9 +7,8 @@ import {
 } from '@forms/rjsf/RJSFCustomTemplates';
 import { RJSFCheckboxWidget } from '@forms/rjsf/widgets/RJSFCheckboxWidget';
 import { RJSFReferencedAcqOrder } from '@forms/rjsf/widgets/RJSFReferencedAcqOrder';
-import { RJSFReferencedAcqVendor } from '@forms/rjsf/widgets/RJSFReferencedAcqVendor';
 import { RJSFReferencedDocument } from '@forms/rjsf/widgets/RJSFReferencedDocument';
-import { RJSFReferencedILLLibrary } from '@forms/rjsf/widgets/RJSFReferencedILLLibrary';
+import { RJSFReferencedProvider } from '@forms/rjsf/widgets/RJSFReferencedProvider';
 import { RJSFReferencedInternalLocation } from '@forms/rjsf/widgets/RJSFReferencedInternalLocation';
 import { RJSFReferencedLocation } from '@forms/rjsf/widgets/RJSFReferencedLocation';
 import { RJSFReferencedPatron } from '@forms/rjsf/widgets/RJSFReferencedPatron';
@@ -31,8 +30,7 @@ const customWidgets = {
   referencedDocument: RJSFReferencedDocument,
   referencedPatron: RJSFReferencedPatron,
   referencedAcqOrder: RJSFReferencedAcqOrder,
-  referencedAcqVendor: RJSFReferencedAcqVendor,
-  referencedILLLibrary: RJSFReferencedILLLibrary,
+  referencedProvider: RJSFReferencedProvider,
   referencedInternalLocation: RJSFReferencedInternalLocation,
   referencedLocation: RJSFReferencedLocation,
   vocabularySearch: RJSFVocabularySearch,

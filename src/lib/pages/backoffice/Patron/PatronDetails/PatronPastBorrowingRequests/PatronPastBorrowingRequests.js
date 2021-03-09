@@ -6,7 +6,7 @@ import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { invenioConfig } from '@config';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
-import { BackOfficeRoutes, ILLRoutes } from '@routes/urls';
+import { BackOfficeRoutes, ILLRoutes, ProviderRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -57,13 +57,13 @@ export default class PatronPastBorrowingRequests extends Component {
     );
   };
 
-  viewLibrary = ({ row }) => {
+  viewProvider = ({ row }) => {
     return (
       <Link
-        to={ILLRoutes.libraryDetailsFor(row.metadata.library_pid)}
+        to={ProviderRoutes.providerDetailsFor(row.metadata.provider_pid)}
         data-test={row.metadata.pid}
       >
-        {row.metadata.library.name}
+        {row.metadata.provider.name}
       </Link>
     );
   };
@@ -83,8 +83,8 @@ export default class PatronPastBorrowingRequests extends Component {
         formatter: this.viewDocument,
       },
       {
-        title: 'Library',
-        formatter: this.viewLibrary,
+        title: 'Provider',
+        formatter: this.viewProvider,
       },
       {
         title: 'Created on',

@@ -15,7 +15,6 @@ import {
   relationSelectorReducer,
 } from '@modules/Relations/backoffice/reducer';
 import orderDetailsReducer from '@pages/backoffice/Acquisition/Order/OrderDetails/state/reducer';
-import vendorDetailsReducer from '@pages/backoffice/Acquisition/Vendor/VendorDetails/state/reducer';
 import { itemsCheckInReducer } from '@pages/backoffice/Actions/CheckIn/reducer';
 import { checkOutReducer } from '@pages/backoffice/Actions/CheckOut/reducer';
 import {
@@ -31,7 +30,7 @@ import { eitemDetailsReducer } from '@pages/backoffice/EItem/EItemDetails/reduce
 import { borrowingRequestLoanExtensionReducer } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/BorrowingRequestPatronLoan/BorrowingRequestLoanExtension/reducer';
 import { borrowingRequestPatronLoanCreateReducer } from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/BorrowingRequestPatronLoan/reducer';
 import borrowingRequestDetailsReducer from '@pages/backoffice/ILL/BorrowingRequest/BorrowingRequestDetails/state/reducer';
-import libraryDetailsReducer from '@pages/backoffice/ILL/Library/LibraryDetails/state/reducer';
+import providerDetailsReducer from '@pages/backoffice/Providers/ProviderDetails/state/reducer';
 import {
   itemDetailsReducer,
   itemPastLoansReducer,
@@ -112,10 +111,9 @@ const rootReducer = combineReducers({
   eitemDetailsFile: eitemDetailsFileReducer,
   orderDetails: orderDetailsReducer,
   patronItemsSearch: patronItemsSearchReducer,
-  vendorDetails: vendorDetailsReducer,
   borrowingRequestDetails: borrowingRequestDetailsReducer,
   borrowingRequestPatronLoanCreate: borrowingRequestPatronLoanCreateReducer,
-  libraryDetails: libraryDetailsReducer,
+  providerDetails: providerDetailsReducer,
   patronDetails: patronDetailsReducer,
   itemsSearchInput: itemsSearchByBarcodeReducer,
   patronItemsCheckout: patronItemCheckoutReducer,

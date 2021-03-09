@@ -4,8 +4,8 @@ export const uiSchema = (title) => ({
   document_pid: {
     'ui:widget': 'referencedDocument',
   },
-  library_pid: {
-    'ui:widget': 'referencedILLLibrary',
+  provider_pid: {
+    'ui:widget': 'referencedProvider',
   },
   notes: {
     'ui:widget': 'textarea',
@@ -86,7 +86,7 @@ export const uiSchema = (title) => ({
   },
   'custom:grid': [
     {
-      library_pid: 6,
+      provider_pid: 6,
       status: 3,
       cancel_reason: 7,
     },

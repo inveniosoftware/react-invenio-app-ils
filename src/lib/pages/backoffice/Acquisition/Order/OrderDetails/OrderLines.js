@@ -8,19 +8,17 @@ import { Link } from 'react-router-dom';
 import { Divider, Grid, Icon, Item, Message, Popup } from 'semantic-ui-react';
 
 const OrderLineLeftColumn = ({ line }) => {
-  const patronPid = line.patron_pid;
-  const patronName = line.patron.name;
   return (
     <>
       {line.patron && (
         <Item.Description>
           <label>Patron: </label>
-          {patronPid > 0 ? (
-            <Link to={BackOfficeRoutes.patronDetailsFor(patronPid)}>
-              <PatronIcon /> {patronName}
+          {line.patron_pid > 0 ? (
+            <Link to={BackOfficeRoutes.patronDetailsFor(line.patron_pid)}>
+              <PatronIcon /> {line.patron.name}
             </Link>
           ) : (
-            <>{patronName}</>
+            <>{line.patron.name}</>
           )}
         </Item.Description>
       )}

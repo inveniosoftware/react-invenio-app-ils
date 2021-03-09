@@ -197,11 +197,11 @@ export const schema = {
         (s) => s.value
       ),
     },
-    vendor_pid: {
-      title: 'Vendor',
+    provider_pid: {
+      title: 'Provider',
       type: 'string',
     },
   },
-  required: ['order_date', 'order_lines', 'status', 'vendor_pid'],
+  required: ['order_date', 'order_lines', 'status', 'provider_pid'],
   type: 'object',
 };

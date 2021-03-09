@@ -9,7 +9,7 @@ import {
   ScrollingMenuItem,
 } from '@components/backoffice/buttons/ScrollingMenu';
 import { AcquisitionOrderIcon } from '@components/backoffice/icons';
-import { AcquisitionRoutes } from '@routes/urls';
+import { AcquisitionRoutes, ProviderRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -48,10 +48,10 @@ class OrderHeader extends React.Component {
 
   render() {
     const { data } = this.props;
-    const vendor = data.metadata.vendor;
-    const vendorLink = (
-      <Link to={AcquisitionRoutes.vendorDetailsFor(vendor.pid)}>
-        {vendor.name}
+    const provider = data.metadata.provider;
+    const providerLink = (
+      <Link to={ProviderRoutes.providerDetailsFor(provider.pid)}>
+        {provider.name}
       </Link>
     );
     const pid = data.metadata.pid;
@@ -77,7 +77,7 @@ class OrderHeader extends React.Component {
             {this.renderStatus(data.metadata.status)}
           </>
         }
-        subTitle={<>From vendor: {vendorLink}</>}
+        subTitle={<>From provider: {providerLink}</>}
         pid={data.metadata.pid}
         icon={<AcquisitionOrderIcon />}
         recordInfo={recordInfo}

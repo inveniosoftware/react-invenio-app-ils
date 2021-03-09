@@ -8,10 +8,6 @@ const AcquisitionRoutesList = {
   orderDetails: `${AcquisitionBase}/orders/:orderPid`,
   orderEdit: `${AcquisitionBase}/orders/:orderPid/edit`,
   ordersList: `${AcquisitionBase}/orders`,
-  vendorCreate: `${AcquisitionBase}/vendors/create`,
-  vendorDetails: `${AcquisitionBase}/vendors/:vendorPid`,
-  vendorEdit: `${AcquisitionBase}/vendors/:vendorPid/edit`,
-  vendorsList: `${AcquisitionBase}/vendors`,
 };
 
 const AcquisitionRouteGenerators = {
@@ -20,11 +16,6 @@ const AcquisitionRouteGenerators = {
   orderEditFor: (orderPid) =>
     generatePath(AcquisitionRoutesList.orderEdit, { orderPid: orderPid }),
   ordersListWithQuery: (qs) => `${AcquisitionRoutesList.ordersList}?q=${qs}`,
-  vendorDetailsFor: (vendorPid) =>
-    generatePath(AcquisitionRoutesList.vendorDetails, { vendorPid: vendorPid }),
-  vendorEditFor: (vendorPid) =>
-    generatePath(AcquisitionRoutesList.vendorEdit, { vendorPid: vendorPid }),
-  vendorsListWithQuery: (qs) => `${AcquisitionRoutesList.vendorsList}?q=${qs}`,
 };
 
 export const AcquisitionRoutes = {

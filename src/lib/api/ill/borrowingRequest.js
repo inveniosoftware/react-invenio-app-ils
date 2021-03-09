@@ -2,7 +2,7 @@ import { apiConfig, http } from '@api/base';
 import { prepareSumQuery } from '@api/utils';
 import { sessionManager } from '@authentication/services/SessionManager';
 import { invenioConfig } from '@config';
-import { borrowingRequestSerializer as serializer } from './serializers';
+import { borrowingRequestSerializer as serializer } from './serializer';
 
 const borrowingRequestUrl = '/ill/borrowing-requests/';
 
@@ -103,8 +103,8 @@ class QueryBuilder {
   constructor() {
     this.page = '';
     this.patronQuery = [];
-    this.libraryQuery = [];
-    this.libraryPidQuery = [];
+    this.providerQuery = [];
+    this.providerPidQuery = [];
     this.query = [];
     this.size = '';
     this.sortByQuery = '';
@@ -148,19 +148,19 @@ class QueryBuilder {
     return this;
   }
 
-  withLibrary(name) {
+  withProvider(name) {
     if (!name) {
-      throw TypeError('Library name argument missing');
+      throw TypeError('Provider name argument missing');
     }
-    this.libraryQuery.push(`library.name:"${name}"`);
+    this.providerQuery.push(`provider.name:"${name}"`);
     return this;
   }
 
-  withLibraryPid(pid) {
+  withProviderPid(pid) {
     if (!pid) {
-      throw TypeError('Library pid argument missing');
+      throw TypeError('Provider pid argument missing');
     }
-    this.libraryPidQuery.push(`library_pid:${pid}`);
+    this.providerPidQuery.push(`provider_pid:${pid}`);
     return this;
   }
 
@@ -179,7 +179,7 @@ class QueryBuilder {
 
   qs() {
     const searchCriteria = this.patronQuery
-      .concat(this.libraryQuery, this.libraryPidQuery)
+      .concat(this.providerQuery, this.providerPidQuery)
       .concat(this.stateQuery)
       .concat(this.patronLoanExtensionStatusQuery)
       .concat(this.query)

@@ -3,6 +3,7 @@ import { authenticationService } from '@authentication/services/AuthenticationSe
 import { EnvironmentLabel } from '@components/EnvironmentLabel';
 import {
   AcquisitionRoutes,
+  ProviderRoutes,
   BackOfficeRoutes,
   FrontSiteRoutes,
   ILLRoutes,
@@ -48,13 +49,12 @@ class Sidebar extends Component {
     const eitemsActive = activePath.includes(BackOfficeRoutes.eitemsList);
     const loansActive = activePath.includes(BackOfficeRoutes.loansList);
     const locationsActive = activePath.includes(BackOfficeRoutes.locationsList);
-    const librariesActive = activePath.includes(ILLRoutes.libraryList);
     const documentsActive = activePath.includes(BackOfficeRoutes.documentsList);
     const documentRequestsActive = activePath.includes(
       BackOfficeRoutes.documentRequestsList
     );
     const ordersActive = activePath.includes(AcquisitionRoutes.ordersList);
-    const vendorsActive = activePath.includes(AcquisitionRoutes.vendorsList);
+    const providersActive = activePath.includes(ProviderRoutes.providersList);
     const patronsActive = activePath.includes(BackOfficeRoutes.patronsList);
     const seriesActive = activePath.includes(BackOfficeRoutes.seriesList);
     const statsActive = activePath.includes(BackOfficeRoutes.stats.home);
@@ -189,13 +189,6 @@ class Sidebar extends Component {
                     >
                       Purchase Orders
                     </Menu.Item>
-                    <Menu.Item
-                      as={Link}
-                      active={vendorsActive}
-                      to={AcquisitionRoutes.vendorsList}
-                    >
-                      Vendors
-                    </Menu.Item>
                   </Menu.Menu>
                 </Menu.Item>
 
@@ -209,12 +202,18 @@ class Sidebar extends Component {
                     >
                       Borrowing Requests
                     </Menu.Item>
+                  </Menu.Menu>
+                </Menu.Item>
+
+                <Menu.Item>
+                  <Menu.Header>Providers</Menu.Header>
+                  <Menu.Menu>
                     <Menu.Item
                       as={Link}
-                      active={librariesActive}
-                      to={ILLRoutes.libraryList}
+                      active={providersActive}
+                      to={ProviderRoutes.providersList}
                     >
-                      Libraries
+                      Providers
                     </Menu.Item>
                   </Menu.Menu>
                 </Menu.Item>

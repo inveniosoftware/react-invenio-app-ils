@@ -5,7 +5,6 @@ import { Loader } from '@components/Loader';
 import { RJSForm } from '@forms/rjsf';
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
-import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { schema } from './schema';
@@ -63,9 +62,7 @@ export class DocumentRequestEditor extends Component {
 
   successCallback = (response) => {
     goTo(
-      BackOfficeRoutes.documentRequestDetailsFor(
-        _get(response, 'data.metadata.pid')
-      )
+      BackOfficeRoutes.documentRequestDetailsFor(response.data.metadata.pid)
     );
   };
 

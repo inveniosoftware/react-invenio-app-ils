@@ -19,7 +19,7 @@ const data = {
       pid: 'borrowing-request1',
       metadata: {
         ...testData[0],
-        library: { ...libraryTestData[0] },
+        provider: { ...libraryTestData[0] },
         document: {
           ...documentTestData[0],
         },
@@ -30,7 +30,7 @@ const data = {
       pid: 'borrowing-request2',
       metadata: {
         ...testData[1],
-        library: { ...libraryTestData[1] },
+        provider: { ...libraryTestData[1] },
         document: {
           ...documentTestData[0],
         },

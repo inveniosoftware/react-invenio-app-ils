@@ -83,23 +83,23 @@ class ProviderPidValue extends Component {
   get acqOrderAPIs() {
     return {
       apiGetByValue: async (value) => await orderApi.get(value),
-      apiGetByValueResponseSerializer: this.acqOrderResponseSerializer,
+      apiGetByValueResponseSerializer: this.responseSerializer,
       apiQuery: async (searchQuery) => await orderApi.list(searchQuery),
-      apiQueryResponseSerializer: this.acqOrderResponseSerializer,
+      apiQueryResponseSerializer: this.responseSerializer,
     };
   }
 
   get brwReqAPIs() {
     return {
       apiGetByValue: async (value) => await borrowingRequestApi.get(value),
-      apiGetByValueResponseSerializer: this.illBrwRewResponseSerializer,
+      apiGetByValueResponseSerializer: this.responseSerializer,
       apiQuery: async (searchQuery) =>
         await borrowingRequestApi.list(searchQuery),
-      apiQueryResponseSerializer: this.illBrwRewResponseSerializer,
+      apiQueryResponseSerializer: this.responseSerializer,
     };
   }
 
-  acqOrderResponseSerializer(record) {
+  responseSerializer(record) {
     return {
       key: record.metadata.pid,
       value: record.metadata.pid,
@@ -107,22 +107,7 @@ class ProviderPidValue extends Component {
       content: (
         <Header
           as="h5"
-          content={record.metadata.vendor.name}
-          subheader={`PID: ${record.metadata.pid}`}
-        />
-      ),
-    };
-  }
-
-  illBrwRewResponseSerializer(record) {
-    return {
-      key: record.metadata.pid,
-      value: record.metadata.pid,
-      text: record.metadata.pid,
-      content: (
-        <Header
-          as="h5"
-          content={record.metadata.library.name}
+          content={record.metadata.provider.name}
           subheader={`PID: ${record.metadata.pid}`}
         />
       ),
