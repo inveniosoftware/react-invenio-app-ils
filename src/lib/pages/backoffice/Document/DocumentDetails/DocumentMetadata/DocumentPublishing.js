@@ -37,25 +37,31 @@ export class DocumentPublishing extends Component {
       },
     } = this.props;
     let rows = [];
-    for (const [key, val] of Object.entries(conference_info)) {
-      if (Array.isArray(val)) {
-        const arrayVals = (
-          <List>
-            {val.map((entry) => (
-              <List.Item key={entry.value}>
-                <List.Content>
-                  <List.Header>{entry.scheme}</List.Header>
-                  <List.Description>{entry.value}</List.Description>
-                </List.Content>
-              </List.Item>
-            ))}
-          </List>
-        );
-        rows.push({ name: capitalize(key), value: arrayVals });
-      } else {
-        rows.push({ name: capitalize(key), value: val });
+    conference_info.map((conf) => {
+      for (const [key, val] of Object.entries(conf)) {
+        if (Array.isArray(val)) {
+          const arrayVals = (
+            <List>
+              {val.map((entry) => (
+                <List.Item key={entry.value}>
+                  <List.Content>
+                    <List.Header>{entry.scheme}</List.Header>
+                    <List.Description>{entry.value}</List.Description>
+                  </List.Content>
+                </List.Item>
+              ))}
+            </List>
+          );
+          rows.push({ name: capitalize(key), value: arrayVals });
+        } else {
+          rows.push({ name: capitalize(key), value: val });
+        }
       }
-    }
+      if (conference_info.length > 1) {
+        rows.push(<br />);
+        rows.push(<br />);
+      }
+    });
     return rows;
   };
 

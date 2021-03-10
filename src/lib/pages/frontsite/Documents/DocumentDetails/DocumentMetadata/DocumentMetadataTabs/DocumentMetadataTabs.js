@@ -55,7 +55,7 @@ class DocumentMetadataTabs extends Component {
         ),
       },
       {
-        menuItem: 'Conference',
+        menuItem: 'Conferences',
         render: () => (
           <Tab.Pane>
             <DocumentConference conference={metadata.conference_info} />
