@@ -33,15 +33,17 @@ describe('removeEmptyValues', () => {
           affiliations: [],
         },
       ],
-      conference_info: {
-        place: 'Spain',
-        title: 'Ted talk',
-        year: '',
-        acronym: '',
-        series: '',
-        dates: '',
-        identifiers: [],
-      },
+      conference_info: [
+        {
+          place: 'Spain',
+          title: 'Ted talk',
+          year: '',
+          acronym: '',
+          series: '',
+          dates: '',
+          identifiers: [],
+        },
+      ],
       curated: true,
       document_type: 'BOOK',
       other_authors: true,
@@ -78,10 +80,12 @@ describe('removeEmptyValues', () => {
           full_name: 'asd',
         },
       ],
-      conference_info: {
-        place: 'Spain',
-        title: 'Ted talk',
-      },
+      conference_info: [
+        {
+          place: 'Spain',
+          title: 'Ted talk',
+        },
+      ],
       curated: true,
       document_type: 'BOOK',
       other_authors: true,
