@@ -1,5 +1,13 @@
 # Changes
 
+Version 1.0.0-alpha.29 (released 2021-03-10)
+
+- replace vendors and external libraries with providers
+- improve literature request form
+- replace series form with react-json-schema-forms
+- fix display of document card in search
+- fix cypress test
+
 Version 1.0.0-alpha.28 (released 2021-03-04)
 
 - add overdue reminders counter to emails
