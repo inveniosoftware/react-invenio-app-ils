@@ -38,7 +38,6 @@ const LoginWithLocalAccountLayout = ({
             type="email"
             icon="user"
             iconPosition="left"
-            required
           />
           <StringField
             fieldPath="password"
@@ -46,7 +45,6 @@ const LoginWithLocalAccountLayout = ({
             type="password"
             icon="lock"
             iconPosition="left"
-            required
           />
           {hasError && (
             <Message negative header={errorHeader} content={errorMessage} />

@@ -179,7 +179,6 @@ export const schema = {
       minItems: 1,
       title: 'Order lines',
       type: 'array',
-      uniqueItems: true,
     },
     payment: {
       $ref: '#/definitions/payment',

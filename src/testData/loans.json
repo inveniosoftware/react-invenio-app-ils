@@ -1,6 +1,11 @@
 [
   {
     "document_pid": "docid-1",
+    "document": {
+      "title": "The Gulf: The Making of An American Sea",
+      "edition": "1",
+      "publication_year": "1950"
+    },
     "end_date": "2018-07-28",
     "item_pid": {},
     "patron_pid": "1",
@@ -18,6 +23,10 @@
   },
   {
     "document_pid": "docid-1",
+    "document": {
+      "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
+      "publication_year": "1950"
+    },
     "end_date": "2018-07-28",
     "item_pid": {
       "type": "pitmid",
@@ -72,10 +81,17 @@
   },
   {
     "document_pid": "docid-7",
+    "document": {
+      "title": "Less: A Novel",
+      "publication_year": "1950"
+    },
     "end_date": "2018-07-28",
     "item_pid": {
       "type": "pitmid",
       "value": "itemid-56"
+    },
+    "item": {
+      "barcode": "123456789-54"
     },
     "patron_pid": "1",
     "pickup_location_pid": "1",
@@ -88,11 +104,18 @@
     "request_expire_date": "2019-06-28"
   },
   {
-    "document_pid": "docid-7",
+    "document_pid": "docid-8",
+    "document": {
+      "title": "Less: A Novel",
+      "publication_year": "1950"
+    },
     "end_date": "2018-07-28",
     "item_pid": {
       "type": "pitmid",
       "value": "itemid-57"
+    },
+    "item": {
+      "barcode": "123456789-54"
     },
     "patron_pid": "2",
     "pickup_location_pid": "1",

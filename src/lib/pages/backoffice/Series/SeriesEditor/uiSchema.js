@@ -5,40 +5,33 @@ const { uiSchemaExtensions, uiSchemaExtensionsGrid } = getUiSchemaExtensions(
   invenioConfig.SERIES.extensions
 );
 
+const arrayUiOptions = {
+  'ui:options': {
+    orderable: false,
+    semantic: {
+      wrapItem: true,
+    },
+  },
+};
+
 export const uiSchema = (title) => ({
   ...uiSchemaExtensions,
   abstract: {
     'ui:widget': 'textarea',
   },
   languages: {
-    'ui:options': {
-      orderable: false,
-      semantic: {
-        wrapItem: true,
-      },
-    },
+    ...arrayUiOptions,
     items: {
-      'ui:widget': 'vocabulary',
+      'ui:widget': 'vocabularySearch',
+      'ui:placeholder': 'Type a language...',
       'ui:options': {
-        vocabularyType: invenioConfig.VOCABULARIES.language,
+        vocabularyType: 'language',
       },
     },
   },
-  authors: {
-    'ui:options': {
-      orderable: false,
-      semantic: {
-        wrapItem: true,
-      },
-    },
-  },
+  authors: arrayUiOptions,
   identifiers: {
-    'ui:options': {
-      orderable: false,
-      semantic: {
-        wrapItem: true,
-      },
-    },
+    ...arrayUiOptions,
     items: {
       scheme: {
         'ui:widget': 'vocabulary',
@@ -56,12 +49,7 @@ export const uiSchema = (title) => ({
     },
   },
   urls: {
-    'ui:options': {
-      orderable: false,
-      semantic: {
-        wrapItem: true,
-      },
-    },
+    ...arrayUiOptions,
     items: {
       description: {
         'ui:widget': 'textarea',
@@ -77,12 +65,7 @@ export const uiSchema = (title) => ({
     },
   },
   access_urls: {
-    'ui:options': {
-      orderable: false,
-      semantic: {
-        wrapItem: true,
-      },
-    },
+    ...arrayUiOptions,
     items: {
       description: {
         'ui:widget': 'textarea',
@@ -117,12 +100,7 @@ export const uiSchema = (title) => ({
     },
   },
   keywords: {
-    'ui:options': {
-      orderable: false,
-      semantic: {
-        wrapItem: true,
-      },
-    },
+    ...arrayUiOptions,
     items: {
       'custom:grid': [
         {
@@ -133,12 +111,7 @@ export const uiSchema = (title) => ({
     },
   },
   tags: {
-    'ui:options': {
-      orderable: false,
-      semantic: {
-        wrapItem: true,
-      },
-    },
+    ...arrayUiOptions,
     items: {
       'ui:widget': 'vocabulary',
       'ui:options': {
@@ -147,12 +120,7 @@ export const uiSchema = (title) => ({
     },
   },
   internal_notes: {
-    'ui:options': {
-      orderable: false,
-      semantic: {
-        wrapItem: true,
-      },
-    },
+    ...arrayUiOptions,
     items: {
       'custom:grid': [
         {
@@ -167,18 +135,13 @@ export const uiSchema = (title) => ({
     'ui:widget': 'textarea',
   },
   alternative_titles: {
-    'ui:options': {
-      orderable: false,
-      semantic: {
-        wrapItem: true,
-      },
-    },
+    ...arrayUiOptions,
     items: {
       language: {
-        'ui:widget': 'vocabulary',
+        'ui:widget': 'vocabularySearch',
+        'ui:placeholder': 'Type a language...',
         'ui:options': {
-          vocabularyType:
-            invenioConfig.VOCABULARIES.document.alternativeTitle.language,
+          vocabularyType: 'language',
         },
       },
       type: {

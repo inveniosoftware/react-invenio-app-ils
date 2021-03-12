@@ -1,11 +1,12 @@
 import { orderApi } from '@api/acquisition';
+import { getSearchTotal } from '@api/utils';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 import {
   invenioConfig,
-  setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitInitialQueryState,
   setReactSearchKitUrlHandler,
 } from '@config';
 import history from '@history';
@@ -36,7 +37,7 @@ class OrderResponseSerializer {
     return {
       aggregations: results.aggregations || {},
       hits: hits,
-      total: results.hits.total,
+      total: getSearchTotal(results.hits),
     };
   }
 }

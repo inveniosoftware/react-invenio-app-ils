@@ -42,12 +42,19 @@ export default class PatronPastBorrowingRequests extends Component {
     );
   };
 
+  viewLoan = ({ row }) => {
+    return row.metadata.patron_loan && row.metadata.patron_loan.pid ? (
+      <Link to={BackOfficeRoutes.loanDetailsFor(row.metadata.patron_loan.pid)}>
+        {row.metadata.patron_loan.pid}
+      </Link>
+    ) : (
+      '-'
+    );
+  };
+
   viewDocument = ({ row }) => {
     return (
-      <Link
-        to={BackOfficeRoutes.documentDetailsFor(row.metadata.document_pid)}
-        data-test={row.metadata.pid}
-      >
+      <Link to={BackOfficeRoutes.documentDetailsFor(row.metadata.document_pid)}>
         <LiteratureTitle
           title={row.metadata.document.title}
           edition={row.metadata.document.edition}
@@ -59,10 +66,7 @@ export default class PatronPastBorrowingRequests extends Component {
 
   viewProvider = ({ row }) => {
     return (
-      <Link
-        to={ProviderRoutes.providerDetailsFor(row.metadata.provider_pid)}
-        data-test={row.metadata.pid}
-      >
+      <Link to={ProviderRoutes.providerDetailsFor(row.metadata.provider_pid)}>
         {row.metadata.provider.name}
       </Link>
     );
@@ -75,8 +79,12 @@ export default class PatronPastBorrowingRequests extends Component {
   renderTable(data) {
     const columns = [
       {
-        title: 'PID',
+        title: 'Borrowing Request',
         formatter: this.viewDetails,
+      },
+      {
+        title: 'Loan',
+        formatter: this.viewLoan,
       },
       {
         title: 'Document',

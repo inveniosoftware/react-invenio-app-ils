@@ -26,34 +26,37 @@ export class DocumentCopyrights extends Component {
       metadata: { licenses },
     } = this.props;
     return licenses.map((entry) => (
-      <Table key={entry.license.id} definition>
-        <Table.Body>
-          <Table.Row>
-            <Table.Cell>License</Table.Cell>
-            <Table.Cell>{entry.license.title}</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>Maintainer</Table.Cell>
-            <Table.Cell>{entry.license.maintainer}</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>Status</Table.Cell>
-            <Table.Cell>{entry.license.status}</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>Url</Table.Cell>
-            <Table.Cell>{entry.license.url}</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>Material</Table.Cell>
-            <Table.Cell>{entry.material}</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>Internal notes</Table.Cell>
-            <Table.Cell>{entry.internal_notes}</Table.Cell>
-          </Table.Row>
-        </Table.Body>
-      </Table>
+      <div key={entry.license.id}>
+        <Divider />
+        <Table definition>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell width={4}>License</Table.Cell>
+              <Table.Cell>{entry.license.title}</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell width={4}>Maintainer</Table.Cell>
+              <Table.Cell>{entry.license.maintainer}</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell width={4}>Status</Table.Cell>
+              <Table.Cell>{entry.license.status}</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell width={4}>Url</Table.Cell>
+              <Table.Cell>{entry.license.url}</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell width={4}>Material</Table.Cell>
+              <Table.Cell>{entry.material}</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell width={4}>Internal notes</Table.Cell>
+              <Table.Cell>{entry.internal_notes}</Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </Table>
+      </div>
     ));
   };
 

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 /**
- * React JSONSchema Form widget to search and retrieve ILL Libraries.
+ * React JSONSchema Form widget to search and retrieve Acq/ILLs Providers.
  */
 export class RJSFReferencedProvider extends Component {
   responseSerializer = (record) => {
@@ -21,7 +21,7 @@ export class RJSFReferencedProvider extends Component {
       <RJSFESSelector
         {...this.props}
         options={{
-          apiGetByValue: async (value) => await providerApi.get(value),
+          apiGetByValue: async (value) => (await providerApi.get(value)).data,
           apiGetByValueResponseSerializer: this.responseSerializer,
           apiQuery: async (searchQuery) => await providerApi.list(searchQuery),
           apiQueryResponseSerializer: this.responseSerializer,

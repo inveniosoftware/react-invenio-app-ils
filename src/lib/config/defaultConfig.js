@@ -208,7 +208,9 @@ export const RECORDS_CONFIG = {
       label: 'Other',
       fields: {},
     },
-    frontsiteMaxLinks: 5, // maximum number of links to show on details page
+    authors: {
+      maxEditable: 10,
+    },
     types: DOCUMENT_TYPES,
     search: {
       filters: [
@@ -310,12 +312,6 @@ export const RECORDS_CONFIG = {
       defaultSize: 15,
       defaultLayout: 'list',
     },
-    alternativeTitles: [
-      {
-        value: 'ABBREVIATION',
-        text: 'Abbreviation',
-      },
-    ],
   },
   DOCUMENT_REQUESTS: {
     states: ['ACCEPTED', 'PENDING', 'DECLINED'],
@@ -577,6 +573,7 @@ export const RECORDS_CONFIG = {
     authors: {
       maxDisplay: 5,
     },
+    frontsiteMaxLinks: 5, // maximum number of links to show on details page
     search: {
       filters: [
         {
@@ -848,7 +845,6 @@ export const RECORDS_CONFIG = {
   },
   VOCABULARIES: {
     currencies: 'currencies',
-    language: 'language',
     acqOrders: {
       acq_medium: 'acq_medium',
       acq_order_line_payment_mode: 'acq_order_line_payment_mode',
@@ -861,7 +857,6 @@ export const RECORDS_CONFIG = {
         scheme: 'alternative_identifier_scheme',
       },
       alternativeTitle: {
-        language: 'language',
         type: 'alternative_title_type',
       },
       author: {
@@ -879,7 +874,6 @@ export const RECORDS_CONFIG = {
         type: 'author_type',
       },
       conferenceInfo: {
-        country: 'country',
         identifier: {
           scheme: 'conference_identifier_scheme',
         },
@@ -887,9 +881,7 @@ export const RECORDS_CONFIG = {
       identifier: {
         scheme: 'identifier_scheme',
       },
-      license: 'license',
       tags: 'tag',
-      type: 'document_type',
       doc_subjects: 'doc_subjects',
       doc_identifiers_materials: 'doc_identifiers_materials',
     },

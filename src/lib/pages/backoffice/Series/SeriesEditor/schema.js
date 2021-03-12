@@ -30,13 +30,11 @@ export const schema = {
             default: true,
           },
           description: {
-            minLength: 1,
             title: 'Description',
             type: 'string',
           },
           value: {
             format: 'uri',
-            minLength: 1,
             title: 'URL',
             type: 'string',
           },
@@ -47,7 +45,6 @@ export const schema = {
       },
       title: 'Access URLs',
       type: 'array',
-      uniqueItems: true,
     },
     alternative_titles: {
       items: {
@@ -57,7 +54,6 @@ export const schema = {
             type: 'string',
           },
           value: {
-            minLength: 1,
             title: 'Value',
             type: 'string',
           },
@@ -80,6 +76,7 @@ export const schema = {
       },
       title: 'Authors',
       type: 'array',
+      uniqueItems: true,
     },
     edition: {
       title: 'Edition',
@@ -89,7 +86,7 @@ export const schema = {
       items: {
         properties: {
           material: {
-            title: 'Material',
+            title: 'Refers to material',
             type: 'string',
           },
           scheme: {
@@ -153,6 +150,7 @@ export const schema = {
       },
       type: 'array',
       title: 'Languages',
+      uniqueItems: true,
     },
     mode_of_issuance: {
       title: 'Mode of issuance',
@@ -165,7 +163,6 @@ export const schema = {
       type: 'string',
     },
     publication_year: {
-      minLength: 1,
       title: 'Publication year',
       type: 'string',
     },
@@ -215,13 +212,11 @@ export const schema = {
       items: {
         properties: {
           description: {
-            minLength: 1,
             title: 'Description',
             type: 'string',
           },
           value: {
             format: 'uri',
-            minLength: 1,
             title: 'Value',
             type: 'string',
           },
@@ -232,7 +227,6 @@ export const schema = {
       },
       title: 'URLs',
       type: 'array',
-      uniqueItems: true,
     },
   },
 };

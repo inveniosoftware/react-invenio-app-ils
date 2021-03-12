@@ -77,7 +77,7 @@ export default class PatronCurrentBorrowingRequests extends Component {
   renderTable(data) {
     const columns = [
       {
-        title: 'PID',
+        title: 'Loan',
         formatter: this.viewDetails,
       },
       {

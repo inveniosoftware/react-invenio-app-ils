@@ -41,7 +41,7 @@ export class RJSFReferencedDocument extends Component {
       <RJSFESSelector
         {...this.props}
         options={{
-          apiGetByValue: async (value) => await documentApi.get(value),
+          apiGetByValue: async (value) => (await documentApi.get(value)).data,
           apiGetByValueResponseSerializer: this.responseSerializer,
           apiQuery: async (searchQuery) => await documentApi.list(searchQuery),
           apiQueryResponseSerializer: this.responseSerializer,

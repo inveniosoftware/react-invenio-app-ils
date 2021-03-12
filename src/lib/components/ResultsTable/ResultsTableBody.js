@@ -1,3 +1,4 @@
+import { prettyPrintBooleanValue } from '@components/utils';
 import _get from 'lodash/get';
 import _isFunction from 'lodash/isFunction';
 import PropTypes from 'prop-types';
@@ -10,7 +11,7 @@ export default class ResultsTableBody extends Component {
       return col.formatter({ col: col, row: row, rowIndex: rowIndex });
     }
     if (typeof row[col.field] === 'boolean') {
-      return row[col.field] ? 'Yes' : 'No';
+      return prettyPrintBooleanValue(row[col.field]);
     }
     return _get(row, col.field) || '-';
   };

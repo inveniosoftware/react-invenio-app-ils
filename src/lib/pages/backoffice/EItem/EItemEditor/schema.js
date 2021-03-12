@@ -21,7 +21,7 @@ export const schema = {
       items: {
         properties: {
           material: {
-            title: 'Material',
+            title: 'Refers to material',
             type: 'string',
           },
           scheme: {
@@ -64,7 +64,6 @@ export const schema = {
       },
       title: 'URLs',
       type: 'array',
-      uniqueItems: true,
     },
   },
   required: ['document_pid'],

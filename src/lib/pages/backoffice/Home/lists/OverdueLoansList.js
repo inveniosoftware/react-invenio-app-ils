@@ -78,7 +78,7 @@ export class OverdueLoansList extends Component {
     const { showMaxEntries } = this.props;
     const columns = [
       { title: '', field: '', formatter: this.viewDetails },
-      { title: 'ID', field: 'metadata.pid' },
+      { title: 'Loan', field: 'metadata.pid' },
       { title: 'Patron', field: 'metadata.patron.name' },
       {
         title: 'Title',

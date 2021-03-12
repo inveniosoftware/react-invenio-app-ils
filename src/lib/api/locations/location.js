@@ -1,4 +1,5 @@
 import { http } from '@api/base';
+import { getSearchTotal } from '@api/utils';
 import { locationSerializer as serializer } from './serializer';
 
 const locationURL = '/locations/';
@@ -27,7 +28,7 @@ const update = async (locationPid, data) => {
 
 const list = async (query = '', size = 100) => {
   const response = await http.get(`${locationURL}?q=${query}&size=${size}`);
-  response.data.total = response.data.hits.total;
+  response.data.total = getSearchTotal(response.data.hits);
   response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );

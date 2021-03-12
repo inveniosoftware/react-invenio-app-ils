@@ -1,10 +1,11 @@
 import { InfoMessage } from '@components/backoffice/InfoMessage';
+import { MetadataTable } from '@components/backoffice/MetadataTable';
+import { ShowMoreContent } from '@components/ShowMoreContent';
+import { prettyPrintBooleanValue } from '@components/utils';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Header, Divider } from 'semantic-ui-react';
-import { ShowMoreContent } from '@components/ShowMoreContent';
-import _isEmpty from 'lodash/isEmpty';
-import { MetadataTable } from '@components/backoffice/MetadataTable';
+import { Divider, Header } from 'semantic-ui-react';
 
 export class DocumentCuration extends Component {
   renderInternalNotes = () => {
@@ -27,9 +28,7 @@ export class DocumentCuration extends Component {
     let rows = [
       {
         name: 'Curated',
-        value: _isEmpty(document.metadata.curated)
-          ? false
-          : document.metadata.curated,
+        value: prettyPrintBooleanValue(document.metadata.curated),
       },
     ];
 

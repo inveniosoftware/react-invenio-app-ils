@@ -61,12 +61,9 @@ export const schema = {
     physical_item_provider: {
       properties: {
         pid: {
-          title:
-            'The pid value of the Acquisition purchase order, or ILL borrow request',
           type: 'string',
         },
         pid_type: {
-          title: 'The pid type of Acquisition or Interlibrary',
           type: 'string',
         },
       },

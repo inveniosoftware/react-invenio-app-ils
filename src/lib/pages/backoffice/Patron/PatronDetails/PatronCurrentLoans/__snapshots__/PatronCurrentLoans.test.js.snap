@@ -15,10 +15,14 @@ exports[`PatronCurrentLoans tests should load the details component 1`] = `
         Array [
           Object {
             "formatter": [Function],
-            "title": "PID",
+            "title": "Loan",
           },
           Object {
-            "field": "metadata.item.barcode",
+            "formatter": [Function],
+            "title": "Document",
+          },
+          Object {
+            "formatter": [Function],
             "title": "Item barcode",
           },
           Object {
@@ -93,19 +97,26 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
             Object {
               "id": 1,
               "metadata": Object {
-                "document_pid": "docid-1",
+                "document": Object {
+                  "publication_year": "1950",
+                  "title": "Less: A Novel",
+                },
+                "document_pid": "docid-7",
                 "end_date": "2018-07-28",
-                "item_pid": Object {},
-                "patron": Object {
-                  "email": "patron1@test.ch",
+                "item": Object {
+                  "barcode": "123456789-54",
+                },
+                "item_pid": Object {
+                  "type": "pitmid",
+                  "value": "itemid-56",
                 },
                 "patron_pid": "1",
                 "pickup_location_pid": "1",
-                "pid": "loanid-1",
+                "pid": "loanid-5",
                 "request_expire_date": "2019-06-28",
                 "request_start_date": "2018-06-28",
                 "start_date": "2018-06-28",
-                "state": "PENDING",
+                "state": "ITEM_ON_LOAN",
                 "transaction_date": "2018-06-29",
                 "transaction_location_pid": "1",
               },
@@ -114,22 +125,26 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
             Object {
               "id": 2,
               "metadata": Object {
-                "document_pid": "docid-1",
+                "document": Object {
+                  "publication_year": "1950",
+                  "title": "Less: A Novel",
+                },
+                "document_pid": "docid-8",
                 "end_date": "2018-07-28",
+                "item": Object {
+                  "barcode": "123456789-54",
+                },
                 "item_pid": Object {
                   "type": "pitmid",
-                  "value": "itemid-2",
+                  "value": "itemid-57",
                 },
-                "patron": Object {
-                  "email": "patron2@test.ch",
-                },
-                "patron_pid": "1",
+                "patron_pid": "2",
                 "pickup_location_pid": "1",
-                "pid": "loanid-2",
+                "pid": "loanid-6",
                 "request_expire_date": "2019-06-28",
                 "request_start_date": "2018-06-28",
                 "start_date": "2018-06-28",
-                "state": "PENDING",
+                "state": "ITEM_ON_LOAN",
                 "transaction_date": "2018-06-29",
                 "transaction_location_pid": "1",
               },
@@ -185,10 +200,14 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                   Array [
                     Object {
                       "formatter": [Function],
-                      "title": "PID",
+                      "title": "Loan",
                     },
                     Object {
-                      "field": "metadata.item.barcode",
+                      "formatter": [Function],
+                      "title": "Document",
+                    },
+                    Object {
+                      "formatter": [Function],
                       "title": "Item barcode",
                     },
                     Object {
@@ -213,19 +232,26 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                     Object {
                       "id": 1,
                       "metadata": Object {
-                        "document_pid": "docid-1",
+                        "document": Object {
+                          "publication_year": "1950",
+                          "title": "Less: A Novel",
+                        },
+                        "document_pid": "docid-7",
                         "end_date": "2018-07-28",
-                        "item_pid": Object {},
-                        "patron": Object {
-                          "email": "patron1@test.ch",
+                        "item": Object {
+                          "barcode": "123456789-54",
+                        },
+                        "item_pid": Object {
+                          "type": "pitmid",
+                          "value": "itemid-56",
                         },
                         "patron_pid": "1",
                         "pickup_location_pid": "1",
-                        "pid": "loanid-1",
+                        "pid": "loanid-5",
                         "request_expire_date": "2019-06-28",
                         "request_start_date": "2018-06-28",
                         "start_date": "2018-06-28",
-                        "state": "PENDING",
+                        "state": "ITEM_ON_LOAN",
                         "transaction_date": "2018-06-29",
                         "transaction_location_pid": "1",
                       },
@@ -234,22 +260,26 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                     Object {
                       "id": 2,
                       "metadata": Object {
-                        "document_pid": "docid-1",
+                        "document": Object {
+                          "publication_year": "1950",
+                          "title": "Less: A Novel",
+                        },
+                        "document_pid": "docid-8",
                         "end_date": "2018-07-28",
+                        "item": Object {
+                          "barcode": "123456789-54",
+                        },
                         "item_pid": Object {
                           "type": "pitmid",
-                          "value": "itemid-2",
+                          "value": "itemid-57",
                         },
-                        "patron": Object {
-                          "email": "patron2@test.ch",
-                        },
-                        "patron_pid": "1",
+                        "patron_pid": "2",
                         "pickup_location_pid": "1",
-                        "pid": "loanid-2",
+                        "pid": "loanid-6",
                         "request_expire_date": "2019-06-28",
                         "request_start_date": "2018-06-28",
                         "start_date": "2018-06-28",
-                        "state": "PENDING",
+                        "state": "ITEM_ON_LOAN",
                         "transaction_date": "2018-06-29",
                         "transaction_location_pid": "1",
                       },
@@ -299,10 +329,14 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "PID",
+                            "title": "Loan",
                           },
                           Object {
-                            "field": "metadata.item.barcode",
+                            "formatter": [Function],
+                            "title": "Document",
+                          },
+                          Object {
+                            "formatter": [Function],
                             "title": "Item barcode",
                           },
                           Object {
@@ -339,7 +373,7 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                             >
                               <TableHeaderCell
                                 as="th"
-                                key="PID"
+                                key="Loan"
                               >
                                 <TableCell
                                   as="th"
@@ -348,7 +382,22 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                                   <th
                                     className=""
                                   >
-                                    PID
+                                    Loan
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
+                                as="th"
+                                key="Document"
+                              >
+                                <TableCell
+                                  as="th"
+                                  className=""
+                                >
+                                  <th
+                                    className=""
+                                  >
+                                    Document
                                   </th>
                                 </TableCell>
                               </TableHeaderCell>
@@ -422,10 +471,14 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "PID",
+                            "title": "Loan",
                           },
                           Object {
-                            "field": "metadata.item.barcode",
+                            "formatter": [Function],
+                            "title": "Document",
+                          },
+                          Object {
+                            "formatter": [Function],
                             "title": "Item barcode",
                           },
                           Object {
@@ -449,19 +502,26 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                           Object {
                             "id": 1,
                             "metadata": Object {
-                              "document_pid": "docid-1",
+                              "document": Object {
+                                "publication_year": "1950",
+                                "title": "Less: A Novel",
+                              },
+                              "document_pid": "docid-7",
                               "end_date": "2018-07-28",
-                              "item_pid": Object {},
-                              "patron": Object {
-                                "email": "patron1@test.ch",
+                              "item": Object {
+                                "barcode": "123456789-54",
+                              },
+                              "item_pid": Object {
+                                "type": "pitmid",
+                                "value": "itemid-56",
                               },
                               "patron_pid": "1",
                               "pickup_location_pid": "1",
-                              "pid": "loanid-1",
+                              "pid": "loanid-5",
                               "request_expire_date": "2019-06-28",
                               "request_start_date": "2018-06-28",
                               "start_date": "2018-06-28",
-                              "state": "PENDING",
+                              "state": "ITEM_ON_LOAN",
                               "transaction_date": "2018-06-29",
                               "transaction_location_pid": "1",
                             },
@@ -470,22 +530,26 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                           Object {
                             "id": 2,
                             "metadata": Object {
-                              "document_pid": "docid-1",
+                              "document": Object {
+                                "publication_year": "1950",
+                                "title": "Less: A Novel",
+                              },
+                              "document_pid": "docid-8",
                               "end_date": "2018-07-28",
+                              "item": Object {
+                                "barcode": "123456789-54",
+                              },
                               "item_pid": Object {
                                 "type": "pitmid",
-                                "value": "itemid-2",
+                                "value": "itemid-57",
                               },
-                              "patron": Object {
-                                "email": "patron2@test.ch",
-                              },
-                              "patron_pid": "1",
+                              "patron_pid": "2",
                               "pickup_location_pid": "1",
-                              "pid": "loanid-2",
+                              "pid": "loanid-6",
                               "request_expire_date": "2019-06-28",
                               "request_start_date": "2018-06-28",
                               "start_date": "2018-06-28",
-                              "state": "PENDING",
+                              "state": "ITEM_ON_LOAN",
                               "transaction_date": "2018-06-29",
                               "transaction_location_pid": "1",
                             },
@@ -512,30 +576,100 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                             >
                               <TableCell
                                 as="td"
-                                data-label="PID"
+                                data-label="Loan"
                                 data-test="0-loan1"
                                 key="0-loan1"
                               >
                                 <td
                                   className=""
-                                  data-label="PID"
+                                  data-label="Loan"
                                   data-test="0-loan1"
                                 >
                                   <Link
-                                    data-test="loanid-1"
-                                    to="url/loanid-1"
+                                    data-test="loanid-5"
+                                    to="url/loanid-5"
                                   >
                                     <LinkAnchor
-                                      data-test="loanid-1"
-                                      href="/url/loanid-1"
+                                      data-test="loanid-5"
+                                      href="/url/loanid-5"
                                       navigate={[Function]}
                                     >
                                       <a
-                                        data-test="loanid-1"
-                                        href="/url/loanid-1"
+                                        data-test="loanid-5"
+                                        href="/url/loanid-5"
                                         onClick={[Function]}
                                       >
-                                        loanid-1
+                                        loanid-5
+                                      </a>
+                                    </LinkAnchor>
+                                  </Link>
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="Document"
+                                data-test="1-loan1"
+                                key="1-loan1"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Document"
+                                  data-test="1-loan1"
+                                >
+                                  <Link
+                                    data-test="loanid-5"
+                                    to="/backoffice/documents/docid-7"
+                                  >
+                                    <LinkAnchor
+                                      data-test="loanid-5"
+                                      href="/backoffice/documents/docid-7"
+                                      navigate={[Function]}
+                                    >
+                                      <a
+                                        data-test="loanid-5"
+                                        href="/backoffice/documents/docid-7"
+                                        onClick={[Function]}
+                                      >
+                                        <Overridable(LiteratureTitle)
+                                          publicationYear="1950"
+                                          title="Less: A Novel"
+                                        >
+                                          <LiteratureTitle
+                                            edition={null}
+                                            publicationYear="1950"
+                                            title="Less: A Novel"
+                                            truncate={true}
+                                            truncateLines={2}
+                                            truncateWidth={null}
+                                          >
+                                            <Truncate
+                                              lines={2}
+                                              width={null}
+                                            >
+                                              <span
+                                                style={
+                                                  Object {
+                                                    "WebkitBoxOrient": "vertical",
+                                                    "WebkitLineClamp": 2,
+                                                    "display": "-webkit-box",
+                                                    "overflow": "hidden",
+                                                    "textOverflow": "ellipsis",
+                                                    "whiteSpace": "normal",
+                                                  }
+                                                }
+                                              >
+                                                Less: A Novel
+                                                 
+                                                <EditionYear
+                                                  edition={null}
+                                                  publicationYear="1950"
+                                                >
+                                                  (1950)
+                                                </EditionYear>
+                                              </span>
+                                            </Truncate>
+                                          </LiteratureTitle>
+                                        </Overridable(LiteratureTitle)>
                                       </a>
                                     </LinkAnchor>
                                   </Link>
@@ -544,27 +678,41 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                               <TableCell
                                 as="td"
                                 data-label="Item barcode"
-                                data-test="1-loan1"
-                                key="1-loan1"
-                              >
-                                <td
-                                  className=""
-                                  data-label="Item barcode"
-                                  data-test="1-loan1"
-                                >
-                                  -
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Start date"
                                 data-test="2-loan1"
                                 key="2-loan1"
                               >
                                 <td
                                   className=""
-                                  data-label="Start date"
+                                  data-label="Item barcode"
                                   data-test="2-loan1"
+                                >
+                                  <Link
+                                    to="/backoffice/items/123456789-54"
+                                  >
+                                    <LinkAnchor
+                                      href="/backoffice/items/123456789-54"
+                                      navigate={[Function]}
+                                    >
+                                      <a
+                                        href="/backoffice/items/123456789-54"
+                                        onClick={[Function]}
+                                      >
+                                        123456789-54
+                                      </a>
+                                    </LinkAnchor>
+                                  </Link>
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="Start date"
+                                data-test="3-loan1"
+                                key="3-loan1"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Start date"
+                                  data-test="3-loan1"
                                 >
                                   6/28/2018
                                 </td>
@@ -572,13 +720,13 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                               <TableCell
                                 as="td"
                                 data-label="End date"
-                                data-test="3-loan1"
-                                key="3-loan1"
+                                data-test="4-loan1"
+                                key="4-loan1"
                               >
                                 <td
                                   className=""
                                   data-label="End date"
-                                  data-test="3-loan1"
+                                  data-test="4-loan1"
                                 >
                                   7/28/2018
                                 </td>
@@ -586,13 +734,13 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                               <TableCell
                                 as="td"
                                 data-label="Renewals"
-                                data-test="4-loan1"
-                                key="4-loan1"
+                                data-test="5-loan1"
+                                key="5-loan1"
                               >
                                 <td
                                   className=""
                                   data-label="Renewals"
-                                  data-test="4-loan1"
+                                  data-test="5-loan1"
                                 >
                                   -
                                 </td>
@@ -611,30 +759,100 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                             >
                               <TableCell
                                 as="td"
-                                data-label="PID"
+                                data-label="Loan"
                                 data-test="0-loan2"
                                 key="0-loan2"
                               >
                                 <td
                                   className=""
-                                  data-label="PID"
+                                  data-label="Loan"
                                   data-test="0-loan2"
                                 >
                                   <Link
-                                    data-test="loanid-2"
-                                    to="url/loanid-2"
+                                    data-test="loanid-6"
+                                    to="url/loanid-6"
                                   >
                                     <LinkAnchor
-                                      data-test="loanid-2"
-                                      href="/url/loanid-2"
+                                      data-test="loanid-6"
+                                      href="/url/loanid-6"
                                       navigate={[Function]}
                                     >
                                       <a
-                                        data-test="loanid-2"
-                                        href="/url/loanid-2"
+                                        data-test="loanid-6"
+                                        href="/url/loanid-6"
                                         onClick={[Function]}
                                       >
-                                        loanid-2
+                                        loanid-6
+                                      </a>
+                                    </LinkAnchor>
+                                  </Link>
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="Document"
+                                data-test="1-loan2"
+                                key="1-loan2"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Document"
+                                  data-test="1-loan2"
+                                >
+                                  <Link
+                                    data-test="loanid-6"
+                                    to="/backoffice/documents/docid-8"
+                                  >
+                                    <LinkAnchor
+                                      data-test="loanid-6"
+                                      href="/backoffice/documents/docid-8"
+                                      navigate={[Function]}
+                                    >
+                                      <a
+                                        data-test="loanid-6"
+                                        href="/backoffice/documents/docid-8"
+                                        onClick={[Function]}
+                                      >
+                                        <Overridable(LiteratureTitle)
+                                          publicationYear="1950"
+                                          title="Less: A Novel"
+                                        >
+                                          <LiteratureTitle
+                                            edition={null}
+                                            publicationYear="1950"
+                                            title="Less: A Novel"
+                                            truncate={true}
+                                            truncateLines={2}
+                                            truncateWidth={null}
+                                          >
+                                            <Truncate
+                                              lines={2}
+                                              width={null}
+                                            >
+                                              <span
+                                                style={
+                                                  Object {
+                                                    "WebkitBoxOrient": "vertical",
+                                                    "WebkitLineClamp": 2,
+                                                    "display": "-webkit-box",
+                                                    "overflow": "hidden",
+                                                    "textOverflow": "ellipsis",
+                                                    "whiteSpace": "normal",
+                                                  }
+                                                }
+                                              >
+                                                Less: A Novel
+                                                 
+                                                <EditionYear
+                                                  edition={null}
+                                                  publicationYear="1950"
+                                                >
+                                                  (1950)
+                                                </EditionYear>
+                                              </span>
+                                            </Truncate>
+                                          </LiteratureTitle>
+                                        </Overridable(LiteratureTitle)>
                                       </a>
                                     </LinkAnchor>
                                   </Link>
@@ -643,27 +861,41 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                               <TableCell
                                 as="td"
                                 data-label="Item barcode"
-                                data-test="1-loan2"
-                                key="1-loan2"
-                              >
-                                <td
-                                  className=""
-                                  data-label="Item barcode"
-                                  data-test="1-loan2"
-                                >
-                                  -
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Start date"
                                 data-test="2-loan2"
                                 key="2-loan2"
                               >
                                 <td
                                   className=""
-                                  data-label="Start date"
+                                  data-label="Item barcode"
                                   data-test="2-loan2"
+                                >
+                                  <Link
+                                    to="/backoffice/items/123456789-54"
+                                  >
+                                    <LinkAnchor
+                                      href="/backoffice/items/123456789-54"
+                                      navigate={[Function]}
+                                    >
+                                      <a
+                                        href="/backoffice/items/123456789-54"
+                                        onClick={[Function]}
+                                      >
+                                        123456789-54
+                                      </a>
+                                    </LinkAnchor>
+                                  </Link>
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="Start date"
+                                data-test="3-loan2"
+                                key="3-loan2"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Start date"
+                                  data-test="3-loan2"
                                 >
                                   6/28/2018
                                 </td>
@@ -671,13 +903,13 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                               <TableCell
                                 as="td"
                                 data-label="End date"
-                                data-test="3-loan2"
-                                key="3-loan2"
+                                data-test="4-loan2"
+                                key="4-loan2"
                               >
                                 <td
                                   className=""
                                   data-label="End date"
-                                  data-test="3-loan2"
+                                  data-test="4-loan2"
                                 >
                                   7/28/2018
                                 </td>
@@ -685,13 +917,13 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                               <TableCell
                                 as="td"
                                 data-label="Renewals"
-                                data-test="4-loan2"
-                                key="4-loan2"
+                                data-test="5-loan2"
+                                key="5-loan2"
                               >
                                 <td
                                   className=""
                                   data-label="Renewals"
-                                  data-test="4-loan2"
+                                  data-test="5-loan2"
                                 >
                                   -
                                 </td>
@@ -703,7 +935,7 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                     </ResultsTableBody>
                     <ResultsTableFooter
                       allRowsNumber={2}
-                      columnsNumber={5}
+                      columnsNumber={6}
                       currentPage={1}
                       paginationComponent={null}
                       seeAllComponent={
@@ -782,10 +1014,14 @@ exports[`PatronCurrentLoans tests should render show a message with no user loan
               Array [
                 Object {
                   "formatter": [Function],
-                  "title": "PID",
+                  "title": "Loan",
                 },
                 Object {
-                  "field": "metadata.item.barcode",
+                  "formatter": [Function],
+                  "title": "Document",
+                },
+                Object {
+                  "formatter": [Function],
                   "title": "Item barcode",
                 },
                 Object {
@@ -891,19 +1127,26 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
             Object {
               "id": 1,
               "metadata": Object {
-                "document_pid": "docid-1",
+                "document": Object {
+                  "publication_year": "1950",
+                  "title": "Less: A Novel",
+                },
+                "document_pid": "docid-7",
                 "end_date": "2018-07-28",
-                "item_pid": Object {},
-                "patron": Object {
-                  "email": "patron1@test.ch",
+                "item": Object {
+                  "barcode": "123456789-54",
+                },
+                "item_pid": Object {
+                  "type": "pitmid",
+                  "value": "itemid-56",
                 },
                 "patron_pid": "1",
                 "pickup_location_pid": "1",
-                "pid": "loanid-1",
+                "pid": "loanid-5",
                 "request_expire_date": "2019-06-28",
                 "request_start_date": "2018-06-28",
                 "start_date": "2018-06-28",
-                "state": "PENDING",
+                "state": "ITEM_ON_LOAN",
                 "transaction_date": "2018-06-29",
                 "transaction_location_pid": "1",
               },
@@ -912,22 +1155,26 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
             Object {
               "id": 2,
               "metadata": Object {
-                "document_pid": "docid-1",
+                "document": Object {
+                  "publication_year": "1950",
+                  "title": "Less: A Novel",
+                },
+                "document_pid": "docid-8",
                 "end_date": "2018-07-28",
+                "item": Object {
+                  "barcode": "123456789-54",
+                },
                 "item_pid": Object {
                   "type": "pitmid",
-                  "value": "itemid-2",
+                  "value": "itemid-57",
                 },
-                "patron": Object {
-                  "email": "patron2@test.ch",
-                },
-                "patron_pid": "1",
+                "patron_pid": "2",
                 "pickup_location_pid": "1",
-                "pid": "loanid-2",
+                "pid": "loanid-6",
                 "request_expire_date": "2019-06-28",
                 "request_start_date": "2018-06-28",
                 "start_date": "2018-06-28",
-                "state": "PENDING",
+                "state": "ITEM_ON_LOAN",
                 "transaction_date": "2018-06-29",
                 "transaction_location_pid": "1",
               },
@@ -982,10 +1229,14 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                   Array [
                     Object {
                       "formatter": [Function],
-                      "title": "PID",
+                      "title": "Loan",
                     },
                     Object {
-                      "field": "metadata.item.barcode",
+                      "formatter": [Function],
+                      "title": "Document",
+                    },
+                    Object {
+                      "formatter": [Function],
                       "title": "Item barcode",
                     },
                     Object {
@@ -1010,19 +1261,26 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                     Object {
                       "id": 1,
                       "metadata": Object {
-                        "document_pid": "docid-1",
+                        "document": Object {
+                          "publication_year": "1950",
+                          "title": "Less: A Novel",
+                        },
+                        "document_pid": "docid-7",
                         "end_date": "2018-07-28",
-                        "item_pid": Object {},
-                        "patron": Object {
-                          "email": "patron1@test.ch",
+                        "item": Object {
+                          "barcode": "123456789-54",
+                        },
+                        "item_pid": Object {
+                          "type": "pitmid",
+                          "value": "itemid-56",
                         },
                         "patron_pid": "1",
                         "pickup_location_pid": "1",
-                        "pid": "loanid-1",
+                        "pid": "loanid-5",
                         "request_expire_date": "2019-06-28",
                         "request_start_date": "2018-06-28",
                         "start_date": "2018-06-28",
-                        "state": "PENDING",
+                        "state": "ITEM_ON_LOAN",
                         "transaction_date": "2018-06-29",
                         "transaction_location_pid": "1",
                       },
@@ -1031,22 +1289,26 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                     Object {
                       "id": 2,
                       "metadata": Object {
-                        "document_pid": "docid-1",
+                        "document": Object {
+                          "publication_year": "1950",
+                          "title": "Less: A Novel",
+                        },
+                        "document_pid": "docid-8",
                         "end_date": "2018-07-28",
+                        "item": Object {
+                          "barcode": "123456789-54",
+                        },
                         "item_pid": Object {
                           "type": "pitmid",
-                          "value": "itemid-2",
+                          "value": "itemid-57",
                         },
-                        "patron": Object {
-                          "email": "patron2@test.ch",
-                        },
-                        "patron_pid": "1",
+                        "patron_pid": "2",
                         "pickup_location_pid": "1",
-                        "pid": "loanid-2",
+                        "pid": "loanid-6",
                         "request_expire_date": "2019-06-28",
                         "request_start_date": "2018-06-28",
                         "start_date": "2018-06-28",
-                        "state": "PENDING",
+                        "state": "ITEM_ON_LOAN",
                         "transaction_date": "2018-06-29",
                         "transaction_location_pid": "1",
                       },
@@ -1096,10 +1358,14 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "PID",
+                            "title": "Loan",
                           },
                           Object {
-                            "field": "metadata.item.barcode",
+                            "formatter": [Function],
+                            "title": "Document",
+                          },
+                          Object {
+                            "formatter": [Function],
                             "title": "Item barcode",
                           },
                           Object {
@@ -1136,7 +1402,7 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                             >
                               <TableHeaderCell
                                 as="th"
-                                key="PID"
+                                key="Loan"
                               >
                                 <TableCell
                                   as="th"
@@ -1145,7 +1411,22 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                                   <th
                                     className=""
                                   >
-                                    PID
+                                    Loan
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
+                                as="th"
+                                key="Document"
+                              >
+                                <TableCell
+                                  as="th"
+                                  className=""
+                                >
+                                  <th
+                                    className=""
+                                  >
+                                    Document
                                   </th>
                                 </TableCell>
                               </TableHeaderCell>
@@ -1219,10 +1500,14 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "PID",
+                            "title": "Loan",
                           },
                           Object {
-                            "field": "metadata.item.barcode",
+                            "formatter": [Function],
+                            "title": "Document",
+                          },
+                          Object {
+                            "formatter": [Function],
                             "title": "Item barcode",
                           },
                           Object {
@@ -1246,19 +1531,26 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                           Object {
                             "id": 1,
                             "metadata": Object {
-                              "document_pid": "docid-1",
+                              "document": Object {
+                                "publication_year": "1950",
+                                "title": "Less: A Novel",
+                              },
+                              "document_pid": "docid-7",
                               "end_date": "2018-07-28",
-                              "item_pid": Object {},
-                              "patron": Object {
-                                "email": "patron1@test.ch",
+                              "item": Object {
+                                "barcode": "123456789-54",
+                              },
+                              "item_pid": Object {
+                                "type": "pitmid",
+                                "value": "itemid-56",
                               },
                               "patron_pid": "1",
                               "pickup_location_pid": "1",
-                              "pid": "loanid-1",
+                              "pid": "loanid-5",
                               "request_expire_date": "2019-06-28",
                               "request_start_date": "2018-06-28",
                               "start_date": "2018-06-28",
-                              "state": "PENDING",
+                              "state": "ITEM_ON_LOAN",
                               "transaction_date": "2018-06-29",
                               "transaction_location_pid": "1",
                             },
@@ -1285,30 +1577,100 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                             >
                               <TableCell
                                 as="td"
-                                data-label="PID"
+                                data-label="Loan"
                                 data-test="0-loan1"
                                 key="0-loan1"
                               >
                                 <td
                                   className=""
-                                  data-label="PID"
+                                  data-label="Loan"
                                   data-test="0-loan1"
                                 >
                                   <Link
-                                    data-test="loanid-1"
-                                    to="url/loanid-1"
+                                    data-test="loanid-5"
+                                    to="url/loanid-5"
                                   >
                                     <LinkAnchor
-                                      data-test="loanid-1"
-                                      href="/url/loanid-1"
+                                      data-test="loanid-5"
+                                      href="/url/loanid-5"
                                       navigate={[Function]}
                                     >
                                       <a
-                                        data-test="loanid-1"
-                                        href="/url/loanid-1"
+                                        data-test="loanid-5"
+                                        href="/url/loanid-5"
                                         onClick={[Function]}
                                       >
-                                        loanid-1
+                                        loanid-5
+                                      </a>
+                                    </LinkAnchor>
+                                  </Link>
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="Document"
+                                data-test="1-loan1"
+                                key="1-loan1"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Document"
+                                  data-test="1-loan1"
+                                >
+                                  <Link
+                                    data-test="loanid-5"
+                                    to="/backoffice/documents/docid-7"
+                                  >
+                                    <LinkAnchor
+                                      data-test="loanid-5"
+                                      href="/backoffice/documents/docid-7"
+                                      navigate={[Function]}
+                                    >
+                                      <a
+                                        data-test="loanid-5"
+                                        href="/backoffice/documents/docid-7"
+                                        onClick={[Function]}
+                                      >
+                                        <Overridable(LiteratureTitle)
+                                          publicationYear="1950"
+                                          title="Less: A Novel"
+                                        >
+                                          <LiteratureTitle
+                                            edition={null}
+                                            publicationYear="1950"
+                                            title="Less: A Novel"
+                                            truncate={true}
+                                            truncateLines={2}
+                                            truncateWidth={null}
+                                          >
+                                            <Truncate
+                                              lines={2}
+                                              width={null}
+                                            >
+                                              <span
+                                                style={
+                                                  Object {
+                                                    "WebkitBoxOrient": "vertical",
+                                                    "WebkitLineClamp": 2,
+                                                    "display": "-webkit-box",
+                                                    "overflow": "hidden",
+                                                    "textOverflow": "ellipsis",
+                                                    "whiteSpace": "normal",
+                                                  }
+                                                }
+                                              >
+                                                Less: A Novel
+                                                 
+                                                <EditionYear
+                                                  edition={null}
+                                                  publicationYear="1950"
+                                                >
+                                                  (1950)
+                                                </EditionYear>
+                                              </span>
+                                            </Truncate>
+                                          </LiteratureTitle>
+                                        </Overridable(LiteratureTitle)>
                                       </a>
                                     </LinkAnchor>
                                   </Link>
@@ -1317,27 +1679,41 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                               <TableCell
                                 as="td"
                                 data-label="Item barcode"
-                                data-test="1-loan1"
-                                key="1-loan1"
-                              >
-                                <td
-                                  className=""
-                                  data-label="Item barcode"
-                                  data-test="1-loan1"
-                                >
-                                  -
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Start date"
                                 data-test="2-loan1"
                                 key="2-loan1"
                               >
                                 <td
                                   className=""
-                                  data-label="Start date"
+                                  data-label="Item barcode"
                                   data-test="2-loan1"
+                                >
+                                  <Link
+                                    to="/backoffice/items/123456789-54"
+                                  >
+                                    <LinkAnchor
+                                      href="/backoffice/items/123456789-54"
+                                      navigate={[Function]}
+                                    >
+                                      <a
+                                        href="/backoffice/items/123456789-54"
+                                        onClick={[Function]}
+                                      >
+                                        123456789-54
+                                      </a>
+                                    </LinkAnchor>
+                                  </Link>
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="Start date"
+                                data-test="3-loan1"
+                                key="3-loan1"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Start date"
+                                  data-test="3-loan1"
                                 >
                                   6/28/2018
                                 </td>
@@ -1345,13 +1721,13 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                               <TableCell
                                 as="td"
                                 data-label="End date"
-                                data-test="3-loan1"
-                                key="3-loan1"
+                                data-test="4-loan1"
+                                key="4-loan1"
                               >
                                 <td
                                   className=""
                                   data-label="End date"
-                                  data-test="3-loan1"
+                                  data-test="4-loan1"
                                 >
                                   7/28/2018
                                 </td>
@@ -1359,13 +1735,13 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                               <TableCell
                                 as="td"
                                 data-label="Renewals"
-                                data-test="4-loan1"
-                                key="4-loan1"
+                                data-test="5-loan1"
+                                key="5-loan1"
                               >
                                 <td
                                   className=""
                                   data-label="Renewals"
-                                  data-test="4-loan1"
+                                  data-test="5-loan1"
                                 >
                                   -
                                 </td>
@@ -1377,7 +1753,7 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                     </ResultsTableBody>
                     <ResultsTableFooter
                       allRowsNumber={2}
-                      columnsNumber={5}
+                      columnsNumber={6}
                       currentPage={1}
                       paginationComponent={null}
                       seeAllComponent={
@@ -1413,18 +1789,18 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                               >
                                 <TableHeaderCell
                                   as="th"
-                                  colSpan={6}
+                                  colSpan={7}
                                   textAlign="right"
                                 >
                                   <TableCell
                                     as="th"
                                     className=""
-                                    colSpan={6}
+                                    colSpan={7}
                                     textAlign="right"
                                   >
                                     <th
                                       className="right aligned"
-                                      colSpan={6}
+                                      colSpan={7}
                                     >
                                       <span
                                         className="results-table-compact-summary"

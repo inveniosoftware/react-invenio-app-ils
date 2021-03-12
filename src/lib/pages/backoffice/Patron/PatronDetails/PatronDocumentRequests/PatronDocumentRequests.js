@@ -1,13 +1,13 @@
+import { dateFormatter } from '@api/date';
+import { documentRequestApi } from '@api/documentRequests/documentRequest';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import { BackOfficeRoutes } from '@routes/urls';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { Loader } from '@components/Loader';
-import { Error } from '@components/Error';
-import { documentRequestApi } from '@api/documentRequests/documentRequest';
-import { BackOfficeRoutes } from '@routes/urls';
-import { dateFormatter } from '@api/date';
-import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 
 export default class PatronDocumentRequests extends Component {
   componentDidMount() {
@@ -40,9 +40,9 @@ export default class PatronDocumentRequests extends Component {
   render() {
     const { data, isLoading, error, showMaxDocumentRequests } = this.props;
     const columns = [
-      { title: 'ID', formatter: this.viewDetails },
-      { title: 'Document ID', field: 'metadata.document_pid' },
-      { title: 'Document title', field: 'metadata.title' },
+      { title: 'Request', formatter: this.viewDetails },
+      { title: 'Document', field: 'metadata.document_pid' },
+      { title: 'Title', field: 'metadata.title' },
       { title: 'State', field: 'metadata.state' },
       { title: 'Created on ', field: 'created', formatter: dateFormatter },
     ];

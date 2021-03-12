@@ -24,7 +24,7 @@ export class RJSFESSelector extends Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const { value } = this.props;
     if (value) {
       this.fetchValue(value);
@@ -44,11 +44,8 @@ export class RJSFESSelector extends Component {
         isLoading: true,
       });
 
-      const response = await this.cancellableFetchData.promise;
-      const singleOption = apiGetByValueResponseSerializer(
-        response.data,
-        value
-      );
+      const record = await this.cancellableFetchData.promise;
+      const singleOption = apiGetByValueResponseSerializer(record, value);
 
       this.setState({
         isLoading: false,

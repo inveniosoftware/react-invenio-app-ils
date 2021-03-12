@@ -21,7 +21,7 @@ export class RJSFReferencedAcqOrder extends Component {
       <RJSFESSelector
         {...this.props}
         options={{
-          apiGetByValue: async (value) => await orderApi.get(value),
+          apiGetByValue: async (value) => (await orderApi.get(value)).data,
           apiGetByValueResponseSerializer: this.responseSerializer,
           apiQuery: async (searchQuery) => await orderApi.list(searchQuery),
           apiQueryResponseSerializer: this.responseSerializer,

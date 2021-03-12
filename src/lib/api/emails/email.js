@@ -1,5 +1,5 @@
 import { http } from '@api/base';
-import { prepareSumQuery } from '@api/utils';
+import { getSearchTotal, prepareSumQuery } from '@api/utils';
 
 const apiPaths = {
   list: '/emails',
@@ -64,7 +64,7 @@ const queryBuilder = () => {
 
 const list = async (query) => {
   const response = await http.get(`${apiPaths.list}?q=${query}`);
-  response.data.total = response.data.hits.total;
+  response.data.total = getSearchTotal(response.data.hits);
   response.data = response.data.hits;
   return response;
 };

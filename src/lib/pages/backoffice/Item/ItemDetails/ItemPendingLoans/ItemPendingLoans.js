@@ -35,17 +35,6 @@ export default class ItemPendingLoans extends Component {
     return <SeeAllButton to={path} />;
   };
 
-  viewDetails = ({ row }) => {
-    return (
-      <Link
-        to={BackOfficeRoutes.loanDetailsFor(row.metadata.pid)}
-        data-test={row.metadata.pid}
-      >
-        {row.metadata.pid}
-      </Link>
-    );
-  };
-
   patronDetails = ({ row }) => {
     return (
       <Link to={BackOfficeRoutes.patronDetailsFor(row.metadata.patron_pid)}>
@@ -107,9 +96,19 @@ export default class ItemPendingLoans extends Component {
   renderTable() {
     const { data, showMaxPendingLoans } = this.props;
     const columns = [
-      { title: 'ID', field: 'metadata.pid', formatter: this.viewDetails },
       {
-        title: 'Patron ID',
+        title: 'Loan',
+        formatter: ({ row }) => (
+          <Link
+            to={BackOfficeRoutes.loanDetailsFor(row.metadata.pid)}
+            data-test={row.metadata.pid}
+          >
+            {row.metadata.pid}
+          </Link>
+        ),
+      },
+      {
+        title: 'Patron',
         field: 'metadata.patron.name',
         formatter: this.patronDetails,
       },

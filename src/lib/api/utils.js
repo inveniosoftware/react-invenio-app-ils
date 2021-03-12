@@ -146,3 +146,12 @@ export const searchReady = async () => {
     setTimeout(resolve, invenioConfig.APP.SEARCH_READY_DELAY)
   );
 };
+
+/**
+ * Get the total number of results from a search API call, to
+ * support ES 6 and ES 7.
+ * @param {*} responseData the response data object
+ * @returns the total number of results
+ */
+export const getSearchTotal = (hits) =>
+  _get(hits, 'total.value') || _get(hits, 'total') || 0;

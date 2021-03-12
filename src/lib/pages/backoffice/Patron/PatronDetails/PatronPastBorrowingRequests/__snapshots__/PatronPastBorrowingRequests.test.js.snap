@@ -15,7 +15,11 @@ exports[`PatronPastBorrowingRequests tests should load the details component 1`]
         Array [
           Object {
             "formatter": [Function],
-            "title": "PID",
+            "title": "Borrowing Request",
+          },
+          Object {
+            "formatter": [Function],
+            "title": "Loan",
           },
           Object {
             "formatter": [Function],
@@ -224,7 +228,11 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                   Array [
                     Object {
                       "formatter": [Function],
-                      "title": "PID",
+                      "title": "Borrowing Request",
+                    },
+                    Object {
+                      "formatter": [Function],
+                      "title": "Loan",
                     },
                     Object {
                       "formatter": [Function],
@@ -378,7 +386,11 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "PID",
+                            "title": "Borrowing Request",
+                          },
+                          Object {
+                            "formatter": [Function],
+                            "title": "Loan",
                           },
                           Object {
                             "formatter": [Function],
@@ -427,7 +439,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                             >
                               <TableHeaderCell
                                 as="th"
-                                key="PID"
+                                key="Borrowing Request"
                               >
                                 <TableCell
                                   as="th"
@@ -436,7 +448,22 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                   <th
                                     className=""
                                   >
-                                    PID
+                                    Borrowing Request
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
+                                as="th"
+                                key="Loan"
+                              >
+                                <TableCell
+                                  as="th"
+                                  className=""
+                                >
+                                  <th
+                                    className=""
+                                  >
+                                    Loan
                                   </th>
                                 </TableCell>
                               </TableHeaderCell>
@@ -540,7 +567,11 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "PID",
+                            "title": "Borrowing Request",
+                          },
+                          Object {
+                            "formatter": [Function],
+                            "title": "Loan",
                           },
                           Object {
                             "formatter": [Function],
@@ -670,13 +701,13 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                             >
                               <TableCell
                                 as="td"
-                                data-label="PID"
+                                data-label="Borrowing Request"
                                 data-test="0-borrowing-request1"
                                 key="0-borrowing-request1"
                               >
                                 <td
                                   className=""
-                                  data-label="PID"
+                                  data-label="Borrowing Request"
                                   data-test="0-borrowing-request1"
                                 >
                                   <Link
@@ -701,26 +732,37 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                               </TableCell>
                               <TableCell
                                 as="td"
-                                data-label="Document"
+                                data-label="Loan"
                                 data-test="1-borrowing-request1"
                                 key="1-borrowing-request1"
                               >
                                 <td
                                   className=""
-                                  data-label="Document"
+                                  data-label="Loan"
                                   data-test="1-borrowing-request1"
                                 >
+                                  -
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="Document"
+                                data-test="2-borrowing-request1"
+                                key="2-borrowing-request1"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Document"
+                                  data-test="2-borrowing-request1"
+                                >
                                   <Link
-                                    data-test="illbid-1"
                                     to="url/docid-1"
                                   >
                                     <LinkAnchor
-                                      data-test="illbid-1"
                                       href="/url/docid-1"
                                       navigate={[Function]}
                                     >
                                       <a
-                                        data-test="illbid-1"
                                         href="/url/docid-1"
                                         onClick={[Function]}
                                       >
@@ -786,25 +828,22 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                               <TableCell
                                 as="td"
                                 data-label="Provider"
-                                data-test="2-borrowing-request1"
-                                key="2-borrowing-request1"
+                                data-test="3-borrowing-request1"
+                                key="3-borrowing-request1"
                               >
                                 <td
                                   className=""
                                   data-label="Provider"
-                                  data-test="2-borrowing-request1"
+                                  data-test="3-borrowing-request1"
                                 >
                                   <Link
-                                    data-test="illbid-1"
                                     to="/backoffice/providers/ill-provid-1"
                                   >
                                     <LinkAnchor
-                                      data-test="illbid-1"
                                       href="/backoffice/providers/ill-provid-1"
                                       navigate={[Function]}
                                     >
                                       <a
-                                        data-test="illbid-1"
                                         href="/backoffice/providers/ill-provid-1"
                                         onClick={[Function]}
                                       >
@@ -817,25 +856,25 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                               <TableCell
                                 as="td"
                                 data-label="Created on"
-                                data-test="3-borrowing-request1"
-                                key="3-borrowing-request1"
-                              >
-                                <td
-                                  className=""
-                                  data-label="Created on"
-                                  data-test="3-borrowing-request1"
-                                />
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="State"
                                 data-test="4-borrowing-request1"
                                 key="4-borrowing-request1"
                               >
                                 <td
                                   className=""
-                                  data-label="State"
+                                  data-label="Created on"
                                   data-test="4-borrowing-request1"
+                                />
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="State"
+                                data-test="5-borrowing-request1"
+                                key="5-borrowing-request1"
+                              >
+                                <td
+                                  className=""
+                                  data-label="State"
+                                  data-test="5-borrowing-request1"
                                 >
                                   PENDING
                                 </td>
@@ -843,13 +882,13 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                               <TableCell
                                 as="td"
                                 data-label="Requested on"
-                                data-test="5-borrowing-request1"
-                                key="5-borrowing-request1"
+                                data-test="6-borrowing-request1"
+                                key="6-borrowing-request1"
                               >
                                 <td
                                   className=""
                                   data-label="Requested on"
-                                  data-test="5-borrowing-request1"
+                                  data-test="6-borrowing-request1"
                                 >
                                    
                                   -
@@ -859,13 +898,13 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                               <TableCell
                                 as="td"
                                 data-label="Received on"
-                                data-test="6-borrowing-request1"
-                                key="6-borrowing-request1"
+                                data-test="7-borrowing-request1"
+                                key="7-borrowing-request1"
                               >
                                 <td
                                   className=""
                                   data-label="Received on"
-                                  data-test="6-borrowing-request1"
+                                  data-test="7-borrowing-request1"
                                 >
                                    
                                   -
@@ -886,13 +925,13 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                             >
                               <TableCell
                                 as="td"
-                                data-label="PID"
+                                data-label="Borrowing Request"
                                 data-test="0-borrowing-request2"
                                 key="0-borrowing-request2"
                               >
                                 <td
                                   className=""
-                                  data-label="PID"
+                                  data-label="Borrowing Request"
                                   data-test="0-borrowing-request2"
                                 >
                                   <Link
@@ -917,26 +956,37 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                               </TableCell>
                               <TableCell
                                 as="td"
-                                data-label="Document"
+                                data-label="Loan"
                                 data-test="1-borrowing-request2"
                                 key="1-borrowing-request2"
                               >
                                 <td
                                   className=""
-                                  data-label="Document"
+                                  data-label="Loan"
                                   data-test="1-borrowing-request2"
                                 >
+                                  -
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="Document"
+                                data-test="2-borrowing-request2"
+                                key="2-borrowing-request2"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Document"
+                                  data-test="2-borrowing-request2"
+                                >
                                   <Link
-                                    data-test="illbid-2"
                                     to="url/docid-2"
                                   >
                                     <LinkAnchor
-                                      data-test="illbid-2"
                                       href="/url/docid-2"
                                       navigate={[Function]}
                                     >
                                       <a
-                                        data-test="illbid-2"
                                         href="/url/docid-2"
                                         onClick={[Function]}
                                       >
@@ -1002,25 +1052,22 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                               <TableCell
                                 as="td"
                                 data-label="Provider"
-                                data-test="2-borrowing-request2"
-                                key="2-borrowing-request2"
+                                data-test="3-borrowing-request2"
+                                key="3-borrowing-request2"
                               >
                                 <td
                                   className=""
                                   data-label="Provider"
-                                  data-test="2-borrowing-request2"
+                                  data-test="3-borrowing-request2"
                                 >
                                   <Link
-                                    data-test="illbid-2"
                                     to="/backoffice/providers/ill-provid-1"
                                   >
                                     <LinkAnchor
-                                      data-test="illbid-2"
                                       href="/backoffice/providers/ill-provid-1"
                                       navigate={[Function]}
                                     >
                                       <a
-                                        data-test="illbid-2"
                                         href="/backoffice/providers/ill-provid-1"
                                         onClick={[Function]}
                                       >
@@ -1033,25 +1080,25 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                               <TableCell
                                 as="td"
                                 data-label="Created on"
-                                data-test="3-borrowing-request2"
-                                key="3-borrowing-request2"
-                              >
-                                <td
-                                  className=""
-                                  data-label="Created on"
-                                  data-test="3-borrowing-request2"
-                                />
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="State"
                                 data-test="4-borrowing-request2"
                                 key="4-borrowing-request2"
                               >
                                 <td
                                   className=""
-                                  data-label="State"
+                                  data-label="Created on"
                                   data-test="4-borrowing-request2"
+                                />
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="State"
+                                data-test="5-borrowing-request2"
+                                key="5-borrowing-request2"
+                              >
+                                <td
+                                  className=""
+                                  data-label="State"
+                                  data-test="5-borrowing-request2"
                                 >
                                   REQUESTED
                                 </td>
@@ -1059,13 +1106,13 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                               <TableCell
                                 as="td"
                                 data-label="Requested on"
-                                data-test="5-borrowing-request2"
-                                key="5-borrowing-request2"
+                                data-test="6-borrowing-request2"
+                                key="6-borrowing-request2"
                               >
                                 <td
                                   className=""
                                   data-label="Requested on"
-                                  data-test="5-borrowing-request2"
+                                  data-test="6-borrowing-request2"
                                 >
                                    
                                   -
@@ -1075,13 +1122,13 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                               <TableCell
                                 as="td"
                                 data-label="Received on"
-                                data-test="6-borrowing-request2"
-                                key="6-borrowing-request2"
+                                data-test="7-borrowing-request2"
+                                key="7-borrowing-request2"
                               >
                                 <td
                                   className=""
                                   data-label="Received on"
-                                  data-test="6-borrowing-request2"
+                                  data-test="7-borrowing-request2"
                                 >
                                    
                                   -
@@ -1095,7 +1142,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                     </ResultsTableBody>
                     <ResultsTableFooter
                       allRowsNumber={2}
-                      columnsNumber={7}
+                      columnsNumber={8}
                       currentPage={1}
                       paginationComponent={null}
                       seeAllComponent={
@@ -1196,7 +1243,11 @@ exports[`PatronPastBorrowingRequests tests should render show a message with no 
                   Array [
                     Object {
                       "formatter": [Function],
-                      "title": "PID",
+                      "title": "Borrowing Request",
+                    },
+                    Object {
+                      "formatter": [Function],
+                      "title": "Loan",
                     },
                     Object {
                       "formatter": [Function],
@@ -1438,7 +1489,11 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                   Array [
                     Object {
                       "formatter": [Function],
-                      "title": "PID",
+                      "title": "Borrowing Request",
+                    },
+                    Object {
+                      "formatter": [Function],
+                      "title": "Loan",
                     },
                     Object {
                       "formatter": [Function],
@@ -1592,7 +1647,11 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "PID",
+                            "title": "Borrowing Request",
+                          },
+                          Object {
+                            "formatter": [Function],
+                            "title": "Loan",
                           },
                           Object {
                             "formatter": [Function],
@@ -1641,7 +1700,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                             >
                               <TableHeaderCell
                                 as="th"
-                                key="PID"
+                                key="Borrowing Request"
                               >
                                 <TableCell
                                   as="th"
@@ -1650,7 +1709,22 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                                   <th
                                     className=""
                                   >
-                                    PID
+                                    Borrowing Request
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
+                                as="th"
+                                key="Loan"
+                              >
+                                <TableCell
+                                  as="th"
+                                  className=""
+                                >
+                                  <th
+                                    className=""
+                                  >
+                                    Loan
                                   </th>
                                 </TableCell>
                               </TableHeaderCell>
@@ -1754,7 +1828,11 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "PID",
+                            "title": "Borrowing Request",
+                          },
+                          Object {
+                            "formatter": [Function],
+                            "title": "Loan",
                           },
                           Object {
                             "formatter": [Function],
@@ -1846,13 +1924,13 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                             >
                               <TableCell
                                 as="td"
-                                data-label="PID"
+                                data-label="Borrowing Request"
                                 data-test="0-borrowing-request1"
                                 key="0-borrowing-request1"
                               >
                                 <td
                                   className=""
-                                  data-label="PID"
+                                  data-label="Borrowing Request"
                                   data-test="0-borrowing-request1"
                                 >
                                   <Link
@@ -1877,26 +1955,37 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                               </TableCell>
                               <TableCell
                                 as="td"
-                                data-label="Document"
+                                data-label="Loan"
                                 data-test="1-borrowing-request1"
                                 key="1-borrowing-request1"
                               >
                                 <td
                                   className=""
-                                  data-label="Document"
+                                  data-label="Loan"
                                   data-test="1-borrowing-request1"
                                 >
+                                  -
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="Document"
+                                data-test="2-borrowing-request1"
+                                key="2-borrowing-request1"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Document"
+                                  data-test="2-borrowing-request1"
+                                >
                                   <Link
-                                    data-test="illbid-1"
                                     to="url/docid-1"
                                   >
                                     <LinkAnchor
-                                      data-test="illbid-1"
                                       href="/url/docid-1"
                                       navigate={[Function]}
                                     >
                                       <a
-                                        data-test="illbid-1"
                                         href="/url/docid-1"
                                         onClick={[Function]}
                                       >
@@ -1962,25 +2051,22 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                               <TableCell
                                 as="td"
                                 data-label="Provider"
-                                data-test="2-borrowing-request1"
-                                key="2-borrowing-request1"
+                                data-test="3-borrowing-request1"
+                                key="3-borrowing-request1"
                               >
                                 <td
                                   className=""
                                   data-label="Provider"
-                                  data-test="2-borrowing-request1"
+                                  data-test="3-borrowing-request1"
                                 >
                                   <Link
-                                    data-test="illbid-1"
                                     to="/backoffice/providers/ill-provid-1"
                                   >
                                     <LinkAnchor
-                                      data-test="illbid-1"
                                       href="/backoffice/providers/ill-provid-1"
                                       navigate={[Function]}
                                     >
                                       <a
-                                        data-test="illbid-1"
                                         href="/backoffice/providers/ill-provid-1"
                                         onClick={[Function]}
                                       >
@@ -1993,25 +2079,25 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                               <TableCell
                                 as="td"
                                 data-label="Created on"
-                                data-test="3-borrowing-request1"
-                                key="3-borrowing-request1"
-                              >
-                                <td
-                                  className=""
-                                  data-label="Created on"
-                                  data-test="3-borrowing-request1"
-                                />
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="State"
                                 data-test="4-borrowing-request1"
                                 key="4-borrowing-request1"
                               >
                                 <td
                                   className=""
-                                  data-label="State"
+                                  data-label="Created on"
                                   data-test="4-borrowing-request1"
+                                />
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="State"
+                                data-test="5-borrowing-request1"
+                                key="5-borrowing-request1"
+                              >
+                                <td
+                                  className=""
+                                  data-label="State"
+                                  data-test="5-borrowing-request1"
                                 >
                                   PENDING
                                 </td>
@@ -2019,13 +2105,13 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                               <TableCell
                                 as="td"
                                 data-label="Requested on"
-                                data-test="5-borrowing-request1"
-                                key="5-borrowing-request1"
+                                data-test="6-borrowing-request1"
+                                key="6-borrowing-request1"
                               >
                                 <td
                                   className=""
                                   data-label="Requested on"
-                                  data-test="5-borrowing-request1"
+                                  data-test="6-borrowing-request1"
                                 >
                                    
                                   -
@@ -2035,13 +2121,13 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                               <TableCell
                                 as="td"
                                 data-label="Received on"
-                                data-test="6-borrowing-request1"
-                                key="6-borrowing-request1"
+                                data-test="7-borrowing-request1"
+                                key="7-borrowing-request1"
                               >
                                 <td
                                   className=""
                                   data-label="Received on"
-                                  data-test="6-borrowing-request1"
+                                  data-test="7-borrowing-request1"
                                 >
                                    
                                   -
@@ -2055,7 +2141,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                     </ResultsTableBody>
                     <ResultsTableFooter
                       allRowsNumber={2}
-                      columnsNumber={7}
+                      columnsNumber={8}
                       currentPage={1}
                       paginationComponent={null}
                       seeAllComponent={
@@ -2091,18 +2177,18 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                               >
                                 <TableHeaderCell
                                   as="th"
-                                  colSpan={8}
+                                  colSpan={9}
                                   textAlign="right"
                                 >
                                   <TableCell
                                     as="th"
                                     className=""
-                                    colSpan={8}
+                                    colSpan={9}
                                     textAlign="right"
                                   >
                                     <th
                                       className="right aligned"
-                                      colSpan={8}
+                                      colSpan={9}
                                     >
                                       <span
                                         className="results-table-compact-summary"

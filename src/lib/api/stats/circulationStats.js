@@ -1,5 +1,6 @@
 import { apiConfig, http } from '@api/base';
 import { documentApi } from '@api/documents';
+import { getSearchTotal } from '@api/utils';
 import { invenioConfig } from '@config';
 
 const circulationStatsURL = '/circulation/stats/';
@@ -34,7 +35,7 @@ const getMostLoanedDocuments = async (fromDate, toDate) => {
     params: getMostLoanedDocumentsParams(fromDate, toDate),
   };
   const response = await http.get(mostLoanedURL, params);
-  response.data.total = response.data.hits.total;
+  response.data.total = getSearchTotal(response.data.hits);
   response.data.hits = response.data.hits.hits.map((hit) =>
     documentApi.serializer.fromJSON(hit)
   );

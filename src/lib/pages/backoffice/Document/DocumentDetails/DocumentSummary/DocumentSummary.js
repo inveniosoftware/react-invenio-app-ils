@@ -20,7 +20,9 @@ export default class DocumentSummary extends Component {
           onClick={() => this.scrollTo(anchors.attachedItemsRef)}
           className="anchored"
         >
-          <Statistic.Value>{document.metadata.items.total}</Statistic.Value>
+          <Statistic.Value>
+            {document.metadata.items.total || 0}
+          </Statistic.Value>
           <Statistic.Label>
             <ItemIcon />
             Physical copies
@@ -30,7 +32,9 @@ export default class DocumentSummary extends Component {
           onClick={() => this.scrollTo(anchors.attachedEItemsRef)}
           className="anchored"
         >
-          <Statistic.Value>{document.metadata.eitems.total}</Statistic.Value>
+          <Statistic.Value>
+            {document.metadata.eitems.total || 0}
+          </Statistic.Value>
           <Statistic.Label>
             <EItemIcon /> E-items
           </Statistic.Label>
@@ -40,7 +44,7 @@ export default class DocumentSummary extends Component {
           className="anchored"
         >
           <Statistic.Value>
-            {document.metadata.circulation.active_loans}
+            {document.metadata.circulation.active_loans || 0}
           </Statistic.Value>
           <Statistic.Label>
             <LoanIcon />
@@ -52,7 +56,7 @@ export default class DocumentSummary extends Component {
           className="anchored"
         >
           <Statistic.Value>
-            {document.metadata.circulation.pending_loans}
+            {document.metadata.circulation.pending_loans || 0}
           </Statistic.Value>
           <Statistic.Label>
             <Icon name="wait" />

@@ -24,7 +24,8 @@ export class RJSFVocabularySearch extends Component {
       .qs();
 
     const response = await vocabularyApi.list(query);
-    if (response.data.hits.total !== 1) {
+    const total = response.data.total;
+    if (total !== 1) {
       throw Error(`0 or multiple results with value ${value}`);
     }
     return response.data.hits[0];
