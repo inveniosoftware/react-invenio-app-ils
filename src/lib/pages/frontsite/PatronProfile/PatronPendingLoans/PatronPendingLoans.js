@@ -165,28 +165,31 @@ ButtonCancelRequest.propTypes = {
 };
 
 class LoansListEntry extends Component {
-  renderRequestDetails = (startDate, endDate, delivery) => (
-    <div className="pt-default">
-      <Label basic>
-        Requested on
-        <Label.Detail>
-          {DateTime.fromISO(startDate).toLocaleString()}
-        </Label.Detail>
-      </Label>
-      <Label basic>
-        Valid until
-        <Label.Detail>
-          {DateTime.fromISO(endDate).toLocaleString()}
-        </Label.Detail>
-      </Label>
-      <Label basic>
-        <Icon className={delivery === 'PICKUP' ? 'university' : 'dolly'} />
-        <Label.Detail>
-          {invenioConfig.CIRCULATION.deliveryMethods[delivery]}
-        </Label.Detail>
-      </Label>
-    </div>
-  );
+  renderRequestDetails = (startDate, endDate, delivery) => {
+    const deliveryMethod = invenioConfig.CIRCULATION.deliveryMethods[delivery];
+    return (
+      <div className="pt-default">
+        <Label basic>
+          Requested on
+          <Label.Detail>
+            {DateTime.fromISO(startDate).toLocaleString()}
+          </Label.Detail>
+        </Label>
+        <Label basic>
+          Valid until
+          <Label.Detail>
+            {DateTime.fromISO(endDate).toLocaleString()}
+          </Label.Detail>
+        </Label>
+        <Label basic>
+          {deliveryMethod.iconClass && (
+            <Icon className={deliveryMethod.iconClass} />
+          )}
+          <Label.Detail>{deliveryMethod.text}</Label.Detail>
+        </Label>
+      </div>
+    );
+  };
 
   render() {
     const { loan, onSuccess } = this.props;

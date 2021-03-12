@@ -161,8 +161,11 @@ export const RECORDS_CONFIG = {
   },
   CIRCULATION: {
     deliveryMethods: {
-      PICKUP: 'Pick it up at the library desk',
-      DELIVERY: 'Have it delivered to my office',
+      PICKUP: {
+        text: 'Pick it up at the library desk',
+        iconClass: 'warehouse',
+      },
+      DELIVERY: { text: 'Have it delivered to my office', iconClass: 'dolly' },
     },
     extensionsMaxCount: 3,
     loanWillExpireDays: 7,

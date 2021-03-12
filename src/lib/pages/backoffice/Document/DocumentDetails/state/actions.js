@@ -6,6 +6,7 @@ import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
+import { invenioConfig } from '@config';
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
 import { DateTime } from 'luxon';
@@ -13,6 +14,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
+import { Icon } from 'semantic-ui-react';
+
 export const IS_LOADING = 'fetchDocumentDetails/IS_LOADING';
 export const SUCCESS = 'fetchDocumentDetails/SUCCESS';
 export const HAS_ERROR = 'fetchDocumentDetails/HAS_ERROR';
@@ -149,6 +152,9 @@ export const requestLoanForPatron = (
 export class RequestForPatronMessage extends Component {
   render() {
     const { deliveryMethod, loanPid } = this.props;
+    const deliveryIcon = deliveryMethod
+      ? invenioConfig.CIRCULATION.deliveryMethods[deliveryMethod].iconClass
+      : '';
     return (
       <p>
         The loan {loanPid} has been requested.{' '}
@@ -156,12 +162,11 @@ export class RequestForPatronMessage extends Component {
           You can now view the loan details.
         </Link>
         <br />
-        <Overridable
-          id="RequestForPatronMessage.DeliveryIcon"
-          deliveryMethod={deliveryMethod}
-          showName
-          asListItem
-        />
+        {deliveryMethod && (
+          <>
+            {deliveryMethod} {deliveryIcon && <Icon className={deliveryIcon} />}
+          </>
+        )}
       </p>
     );
   }

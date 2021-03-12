@@ -28,14 +28,15 @@ export class LoanMetadata extends Component {
   }
 
   getDelivery(delivery) {
+    const deliveryMethod =
+      invenioConfig.CIRCULATION.deliveryMethods[delivery.method];
     if (delivery && 'method' in delivery) {
       return (
         <>
-          {invenioConfig.CIRCULATION.deliveryMethods[delivery.method]}{' '}
-          <Overridable
-            id="LoanMetadata.DeliveryIcon"
-            deliveryMethod={delivery.method}
-          />
+          {deliveryMethod.text}{' '}
+          {deliveryMethod.iconClass && (
+            <Icon className={deliveryMethod.iconClass} />
+          )}
         </>
       );
     }
