@@ -1,5 +1,11 @@
 # Changes
 
+Version 1.0.0-alpha.30 (released 2021-03-12)
+
+- add volume description fields to series
+- fix table of content display on document
+- change type of conference field of document
+
 Version 1.0.0-alpha.29 (released 2021-03-10)
 
 - replace vendors and external libraries with providers
