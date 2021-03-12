@@ -32,7 +32,7 @@ export default class ESSelectorLoanRequest extends Component {
       ? Object.keys(invenioConfig.CIRCULATION.deliveryMethods).map((key) => ({
           key: key,
           value: key,
-          text: invenioConfig.CIRCULATION.deliveryMethods[key],
+          text: invenioConfig.CIRCULATION.deliveryMethods[key].text,
         }))
       : [];
     this.state['deliveryMethod'] = this.withDeliveryMethod

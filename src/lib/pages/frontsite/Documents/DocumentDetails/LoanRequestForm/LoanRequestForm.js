@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import { Checkbox, Form, Message } from 'semantic-ui-react';
+import { Checkbox, Form, Message, Header, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { invenioConfig } from '@config';
 import { DateTime } from 'luxon';
@@ -16,6 +16,7 @@ class LoanRequestForm extends Component {
     this.state = {
       requestEndDate: '',
       deliveryMethod: '',
+      activeDeliveryDate: false,
     };
 
     // init delivery method
@@ -26,7 +27,7 @@ class LoanRequestForm extends Component {
       ? Object.keys(invenioConfig.CIRCULATION.deliveryMethods).map((key) => ({
           key: key,
           value: key,
-          text: invenioConfig.CIRCULATION.deliveryMethods[key],
+          text: invenioConfig.CIRCULATION.deliveryMethods[key].text,
         }))
       : [];
     this.state['deliveryMethod'] = this.withDeliveryMethod
@@ -67,22 +68,35 @@ class LoanRequestForm extends Component {
 
   renderDeliveryRadioButtons = () => {
     const { deliveryMethod } = this.state;
-    return this.deliveryMethods.map((method) => (
-      <Checkbox
-        radio
-        label={method.text}
-        name="deliveryMethodRadioGroup"
-        value={method.value}
-        checked={deliveryMethod === method.value}
-        onChange={this.handleDeliveryMethodChange}
-        key={method.value}
-      />
-    ));
+    return this.deliveryMethods.map((method) => {
+      return (
+        <Checkbox
+          radio
+          label={
+            <label>
+              {method.text}{' '}
+              <Icon
+                className={
+                  invenioConfig.CIRCULATION.deliveryMethods[method.key]
+                    .iconClass
+                }
+              />
+            </label>
+          }
+          name="deliveryMethodRadioGroup"
+          value={method.value}
+          checked={deliveryMethod === method.value}
+          onChange={this.handleDeliveryMethodChange}
+          key={method.value}
+        />
+      );
+    });
   };
 
   renderDeliveryMethodSelector = () => {
     return this.withDeliveryMethod ? (
       <>
+        <Header as="h4">Delivery</Header>
         <Form.Field required>
           <label>I would like to</label>
         </Form.Field>
@@ -97,17 +111,28 @@ class LoanRequestForm extends Component {
     const max = new DateTime(
       today.plus({ days: invenioConfig.CIRCULATION.requestDuration })
     );
+    const { activeDeliveryDate } = this.state;
     return (
       <Form.Field>
-        <label>Do you require it before a certain date? (optional)</label>
-        <LocationDatePicker
-          locationPid={sessionManager.user.locationPid}
-          initialDate={toShortDate(initialDate)}
-          minDate={toShortDate(today)}
-          maxDate={toShortDate(max)}
-          placeholder="Choose the date"
-          handleDateChange={this.handleRequestEndDateChange}
+        <Checkbox
+          className="loan-request-delivery-date"
+          label="I require it before a certain date."
+          onClick={() => {
+            this.setState({ activeDeliveryDate: !activeDeliveryDate });
+          }}
+          checked={activeDeliveryDate}
+          fitted
         />
+        {activeDeliveryDate && (
+          <LocationDatePicker
+            locationPid={sessionManager.user.locationPid}
+            initialDate={toShortDate(initialDate)}
+            minDate={toShortDate(today)}
+            maxDate={toShortDate(max)}
+            placeholder="Choose the date"
+            handleDateChange={this.handleRequestEndDateChange}
+          />
+        )}
       </Form.Field>
     );
   };

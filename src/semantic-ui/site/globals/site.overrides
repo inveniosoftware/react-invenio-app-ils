@@ -223,7 +223,13 @@ a {
     list-style-type:none;
     padding-left: 0em;
   }
+
+  .loan-request-delivery-date { 
+      margin-bottom: 0.5em;
+  }
 }
+
+
 
 /* BACKOFFICE */
 

@@ -7,14 +7,22 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
-import { Grid, Header, Item, Label, List } from 'semantic-ui-react';
+import { Grid, Header, Item, Label, List, Icon } from 'semantic-ui-react';
 import LiteratureTitle from '../../../Literature/LiteratureTitle';
 import { LoanDates } from './LoanDates';
+import { invenioConfig } from '@config';
 
 export class LoanListEntry extends Component {
   render() {
     const { record: loan, target } = this.props;
     const patronPid = loan.metadata.patron_pid;
+    const deliveryMethod =
+      loan.metadata.delivery && loan.metadata.state === 'PENDING'
+        ? invenioConfig.CIRCULATION.deliveryMethods[
+            loan.metadata.delivery.method
+          ]
+        : '';
+
     return (
       <Item>
         <Item.Content>
@@ -72,15 +80,14 @@ export class LoanListEntry extends Component {
               </List>
             </Grid.Column>
             <Grid.Column width={2} textAlign="center">
-              <Overridable
-                id="LoanListEntry.DeliveryIcon"
-                deliveryMethod={
-                  loan.metadata.delivery ? loan.metadata.delivery.method : null
-                }
-                showName
-                asListItem
-                loanState={loan.metadata.state}
-              />
+              {deliveryMethod && (
+                <>
+                  {loan.metadata.delivery.method}{' '}
+                  {deliveryMethod.iconClass && (
+                    <Icon className={deliveryMethod.iconClass} />
+                  )}
+                </>
+              )}
             </Grid.Column>
             <Grid.Column computer={3} largeScreen={3}>
               {!_isEmpty(loan.metadata.item_pid) && (
