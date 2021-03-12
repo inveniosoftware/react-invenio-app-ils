@@ -1,10 +1,10 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
 import { BackOfficeRoutes } from '@routes/urls';
+import testData from '@testData/loans.json';
+import { mount, shallow } from 'enzyme';
+import _isEmpty from 'lodash/isEmpty';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import PatronCurrentLoans from './PatronCurrentLoans';
-import testData from '@testData/loans.json';
-import _isEmpty from 'lodash/isEmpty';
 
 jest.mock('@config');
 BackOfficeRoutes.loanDetailsFor = jest.fn((pid) => `url/${pid}`);
@@ -15,12 +15,12 @@ const data = {
     {
       id: 1,
       pid: 'loan1',
-      metadata: testData[0],
+      metadata: testData[4],
     },
     {
       id: 2,
       pid: 'loan2',
-      metadata: testData[1],
+      metadata: testData[5],
     },
   ],
   total: 2,

@@ -1,19 +1,19 @@
 import { patronApi } from '@api/patrons';
-import ESSelectorLoanRequest from '@modules/ESSelector/ESSelectorLoanRequest';
-import { serializePatron } from '@modules/ESSelector/serializer';
 import { EditButton } from '@components/backoffice/buttons/EditButton';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
-import { LoanIcon } from '@components/backoffice/icons';
 import {
   ScrollingMenu,
   ScrollingMenuItem,
 } from '@components/backoffice/buttons/ScrollingMenu';
-import { DocumentDeleteModal } from '../DocumentDeleteModal';
+import { LoanIcon } from '@components/backoffice/icons';
+import ESSelectorLoanRequest from '@modules/ESSelector/ESSelectorLoanRequest';
+import { serializePatron } from '@modules/ESSelector/serializer';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Divider } from 'semantic-ui-react';
+import { DocumentDeleteModal } from '../DocumentDeleteModal';
 
 export default class DocumentActionMenu extends Component {
   requestLoanButton = (
@@ -62,7 +62,7 @@ export default class DocumentActionMenu extends Component {
           fluid
           to={{
             pathname: BackOfficeRoutes.itemCreate,
-            state: { document },
+            state: { formData: { document_pid: document.metadata.pid } },
           }}
         />
         <NewButton
@@ -70,7 +70,7 @@ export default class DocumentActionMenu extends Component {
           fluid
           to={{
             pathname: BackOfficeRoutes.eitemCreate,
-            state: { document },
+            state: { formData: { document_pid: document.metadata.pid } },
           }}
         />
         <ESSelectorLoanRequest

@@ -21,7 +21,7 @@ export class RJSFReferencedLocation extends Component {
       <RJSFESSelector
         {...this.props}
         options={{
-          apiGetByValue: async (value) => await locationApi.get(value),
+          apiGetByValue: async (value) => (await locationApi.get(value)).data,
           apiGetByValueResponseSerializer: this.responseSerializer,
           apiQuery: async (searchQuery) => await locationApi.list(searchQuery),
           apiQueryResponseSerializer: this.responseSerializer,

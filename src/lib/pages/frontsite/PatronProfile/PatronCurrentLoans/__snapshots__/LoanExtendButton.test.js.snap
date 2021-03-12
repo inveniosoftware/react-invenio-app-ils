@@ -8,6 +8,11 @@ exports[`Extend loan button tests should match snapshot 1`] = `
         "extend": "url/extend",
       },
       "metadata": Object {
+        "document": Object {
+          "edition": "1",
+          "publication_year": "1950",
+          "title": "The Gulf: The Making of An American Sea",
+        },
         "document_pid": "docid-1",
         "end_date": "2020-02-01T10:05:00.000Z",
         "extension_count": 0,

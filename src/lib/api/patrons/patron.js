@@ -1,8 +1,8 @@
-import { http, apiConfig } from '@api/base';
-import { serializer } from './serializer';
+import { apiConfig, http } from '@api/base';
+import { getSearchTotal, prepareSumQuery } from '@api/utils';
 import { invenioConfig } from '@config';
-import { prepareSumQuery } from '@api/utils';
 import _forOwn from 'lodash/forOwn';
+import { serializer } from './serializer';
 
 const listUrl = '/patrons/';
 // Here we use a different url to access Patron details
@@ -21,7 +21,7 @@ const list = async (queryText, wildcard = true) => {
   const response = await http.get(
     `${listUrl}?q=${queryText}${wildcard ? '*' : ''}`
   );
-  response.data.total = response.data.hits.total;
+  response.data.total = getSearchTotal(response.data.hits);
   response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );

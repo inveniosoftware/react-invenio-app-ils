@@ -67,10 +67,9 @@ export class ItemHeader extends Component {
             <Header.Subheader>
               Medium: {getDisplayVal('ITEMS.mediums', data.metadata.medium)}
             </Header.Subheader>
-            {data.metadata.barcode}
+            {data.metadata.barcode} {this.statusLabel()}
             <br />
             <LiteratureTitle title={data.metadata.document.title} />
-            {this.statusLabel()}
           </>
         }
         subTitle={`by ${data.metadata.document.authors}`}

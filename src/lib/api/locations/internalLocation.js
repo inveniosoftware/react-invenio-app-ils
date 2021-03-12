@@ -1,4 +1,5 @@
 import { http } from '@api/base';
+import { getSearchTotal } from '@api/utils';
 import { internalLocationSerializer as serializer } from './serializer';
 
 const internalLocationURL = '/internal-locations/';
@@ -31,7 +32,7 @@ const update = async (ilocPid, data) => {
 const list = async (query = '', size = 100) => {
   const queryString = `${internalLocationURL}?q=${query}&size=${size}`;
   const response = await http.get(queryString);
-  response.data.total = response.data.hits.total;
+  response.data.total = getSearchTotal(response.data.hits);
   response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );

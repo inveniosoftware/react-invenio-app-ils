@@ -27,10 +27,12 @@ export class DocumentCopyrights extends Component {
       <List bulleted>
         {licenses.map((entry) => (
           <List.Item key={entry.license.id}>
-            <a href={entry.url}>{entry.license.title}</a> ({entry.material})
-            {entry.license.maintainer ? (
-              <>maintained by {entry.license.maintainer}</>
-            ) : null}
+            <a href={entry.url} target="_blank" rel="noopener noreferrer">
+              {entry.license.title}
+            </a>{' '}
+            {entry.material && `(${entry.material})`}
+            {entry.license.maintainer &&
+              `maintained by ${entry.license.maintainer}`}
           </List.Item>
         ))}
       </List>

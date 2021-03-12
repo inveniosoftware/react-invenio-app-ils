@@ -1,9 +1,9 @@
 import { eItemApi } from '@api/eitems';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
+import { OpenAccessLabel } from '@components/backoffice/OpenAccessLabel';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
-import { OpenAccessLabel } from '@components/backoffice/OpenAccessLabel';
-import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -48,8 +48,7 @@ export default class DocumentEItems extends Component {
     const { showMaxItems } = this.props;
     const columns = [
       {
-        title: 'PID',
-        field: '',
+        title: 'EItem',
         formatter: this.viewDetails,
       },
       {

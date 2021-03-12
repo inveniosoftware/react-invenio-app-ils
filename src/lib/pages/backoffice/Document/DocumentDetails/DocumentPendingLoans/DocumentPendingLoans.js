@@ -1,14 +1,14 @@
-import { ResultsTable } from '@components/ResultsTable/ResultsTable';
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { Loader } from '@components/Loader';
-import { Error } from '@components/Error';
-import { loanApi } from '@api/loans';
 import { dateFormatter } from '@api/date';
+import { loanApi } from '@api/loans';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { invenioConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';
-import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class DocumentPendingLoans extends Component {
   componentDidMount() {
@@ -47,7 +47,7 @@ export default class DocumentPendingLoans extends Component {
   renderTable(data) {
     const { showMaxPendingLoans } = this.props;
     const columns = [
-      { title: 'Loan ID', field: 'metadata.pid', formatter: this.viewDetails },
+      { title: 'Loan', formatter: this.viewDetails },
       {
         title: 'Patron',
         field: 'metadata.patron.name',

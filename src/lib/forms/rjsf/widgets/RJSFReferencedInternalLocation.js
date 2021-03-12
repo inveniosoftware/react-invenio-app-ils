@@ -21,7 +21,8 @@ export class RJSFReferencedInternalLocation extends Component {
       <RJSFESSelector
         {...this.props}
         options={{
-          apiGetByValue: async (value) => await internalLocationApi.get(value),
+          apiGetByValue: async (value) =>
+            (await internalLocationApi.get(value)).data,
           apiGetByValueResponseSerializer: this.responseSerializer,
           apiQuery: async (searchQuery) =>
             await internalLocationApi.list(searchQuery),

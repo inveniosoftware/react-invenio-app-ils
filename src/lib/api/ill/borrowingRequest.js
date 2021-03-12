@@ -1,5 +1,5 @@
 import { apiConfig, http } from '@api/base';
-import { prepareSumQuery } from '@api/utils';
+import { getSearchTotal, prepareSumQuery } from '@api/utils';
 import { sessionManager } from '@authentication/services/SessionManager';
 import { invenioConfig } from '@config';
 import { borrowingRequestSerializer as serializer } from './serializer';
@@ -70,7 +70,7 @@ const declineExtension = async (borrowingRequestPid) => {
 
 const list = async (query) => {
   const response = await http.get(`${borrowingRequestUrl}?q=${query}`);
-  response.data.total = response.data.hits.total;
+  response.data.total = getSearchTotal(response.data.hits);
   response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
@@ -86,7 +86,7 @@ const listWithPendingStatus = async (query) => {
     .withQuery(query)
     .qs();
   const response = await http.get(`${borrowingRequestUrl}?q=${searchCriteria}`);
-  response.data.total = response.data.hits.total;
+  response.data.total = getSearchTotal(response.data.hits);
   response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
@@ -95,7 +95,7 @@ const listWithPendingStatus = async (query) => {
 
 const count = async (query) => {
   const response = await http.get(`${borrowingRequestUrl}?q=${query}`);
-  response.data = response.data.hits.total;
+  response.data = getSearchTotal(response.data.hits);
   return response;
 };
 

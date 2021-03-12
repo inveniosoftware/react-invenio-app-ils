@@ -1,3 +1,5 @@
+import { prettyPrintBooleanValue } from '@components/utils';
+
 export const serializeError = (error) => ({
   id: 'error',
   key: 'error',
@@ -32,7 +34,9 @@ export const serializeEItem = (eitem) => ({
   id: eitem.metadata.pid,
   key: eitem.metadata.pid,
   title: eitem.metadata.document.title,
-  description: `Open access: ${eitem.metadata.open_access ? 'Yes' : 'No'}`,
+  description: `Open access: ${prettyPrintBooleanValue(
+    eitem.metadata.open_access
+  )}`,
   extra: `EItem #${eitem.metadata.pid}`,
   metadata: eitem.metadata,
 });

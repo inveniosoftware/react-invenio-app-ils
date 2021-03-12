@@ -1,5 +1,6 @@
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { UrlList } from '@components/backoffice/UrlList';
+import { prettyPrintBooleanValue } from '@components/utils';
 import { IdentifierRows } from '@modules/Identifiers';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
@@ -36,7 +37,7 @@ export default class EItemMetadata extends Component {
       },
       {
         name: 'Open access',
-        value: eitemDetails.metadata.open_access ? 'Yes' : 'No',
+        value: prettyPrintBooleanValue(eitemDetails.metadata.open_access),
       },
       {
         name: 'Available urls',

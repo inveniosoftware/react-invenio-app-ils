@@ -65,7 +65,7 @@ export default class PatronPastLoans extends Component {
   renderTable(data) {
     const columns = [
       {
-        title: 'Loan request PID',
+        title: 'Loan',
         formatter: this.viewDetails,
       },
       {

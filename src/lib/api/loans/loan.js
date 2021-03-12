@@ -1,6 +1,6 @@
 import { apiConfig, http } from '@api/base';
 import { toShortDate } from '@api/date';
-import { prepareDateQuery, prepareSumQuery } from '@api/utils';
+import { getSearchTotal, prepareDateQuery, prepareSumQuery } from '@api/utils';
 import { sessionManager } from '@authentication/services/SessionManager';
 import _isEmpty from 'lodash/isEmpty';
 import { DateTime } from 'luxon';
@@ -262,7 +262,7 @@ const queryBuilder = () => {
 
 const list = async (query) => {
   const response = await http.get(`${apiPaths.list}?q=${query}`);
-  response.data.total = response.data.hits.total;
+  response.data.total = getSearchTotal(response.data.hits);
   response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
@@ -278,7 +278,7 @@ const sendOverdueLoansMailReminder = async (payload) => {
 
 const count = async (query) => {
   const response = await http.get(`${apiPaths.list}?q=${query}`);
-  response.data = response.data.hits.total;
+  response.data = getSearchTotal(response.data.hits);
   return response;
 };
 

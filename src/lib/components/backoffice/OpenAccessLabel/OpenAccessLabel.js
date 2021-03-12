@@ -9,14 +9,16 @@ export default class OpenAccessLabel extends Component {
   render() {
     const { openAccess, size } = this.props;
     return openAccess ? (
-      <>
-        <Label size={size} color="green">
-          <Icon name="lock open" />
-          Open access
-        </Label>
-        <br />
-      </>
-    ) : null;
+      <Label size={size} color="green">
+        <Icon name="lock open" />
+        Open access
+      </Label>
+    ) : (
+      <Label size={size}>
+        <Icon name="lock" />
+        Not open access
+      </Label>
+    );
   }
 }
 
@@ -26,5 +28,5 @@ OpenAccessLabel.propTypes = {
 };
 
 OpenAccessLabel.defaultProps = {
-  size: 'large',
+  size: 'medium',
 };

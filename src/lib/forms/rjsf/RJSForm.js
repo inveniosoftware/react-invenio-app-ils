@@ -1,4 +1,4 @@
-import { RJSFDocumentRequestProvider } from '@forms/rjsf/fields/RJSFDocumentRequestProvider';
+import { RJSFDocumentRequestProviderField } from '@forms/rjsf/fields/RJSFDocumentRequestProviderField';
 import { RJSFLabelField } from '@forms/rjsf/fields/RJSFLabelField';
 import { RJSFTitleField } from '@forms/rjsf/fields/RJSFTitleField';
 import {
@@ -8,10 +8,10 @@ import {
 import { RJSFCheckboxWidget } from '@forms/rjsf/widgets/RJSFCheckboxWidget';
 import { RJSFReferencedAcqOrder } from '@forms/rjsf/widgets/RJSFReferencedAcqOrder';
 import { RJSFReferencedDocument } from '@forms/rjsf/widgets/RJSFReferencedDocument';
-import { RJSFReferencedProvider } from '@forms/rjsf/widgets/RJSFReferencedProvider';
 import { RJSFReferencedInternalLocation } from '@forms/rjsf/widgets/RJSFReferencedInternalLocation';
 import { RJSFReferencedLocation } from '@forms/rjsf/widgets/RJSFReferencedLocation';
 import { RJSFReferencedPatron } from '@forms/rjsf/widgets/RJSFReferencedPatron';
+import { RJSFReferencedProvider } from '@forms/rjsf/widgets/RJSFReferencedProvider';
 import { RJSFTimeWidget } from '@forms/rjsf/widgets/RJSFTimeWidget';
 import { RJSFVocabulary } from '@forms/rjsf/widgets/RJSFVocabulary';
 import { RJSFVocabularySearch } from '@forms/rjsf/widgets/RJSFVocabularySearch';
@@ -39,7 +39,7 @@ const customWidgets = {
 
 const customFields = {
   TitleField: RJSFTitleField,
-  documentRequestProviderField: RJSFDocumentRequestProvider,
+  documentRequestProviderField: RJSFDocumentRequestProviderField,
   labelField: RJSFLabelField,
 };
 

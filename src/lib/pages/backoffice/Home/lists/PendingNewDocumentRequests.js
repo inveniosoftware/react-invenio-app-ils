@@ -5,6 +5,7 @@ import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import { Truncate } from '@components/Truncate';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -66,9 +67,14 @@ export class PendingNewDocumentRequests extends Component {
     const { showMaxEntries } = this.props;
     const columns = [
       { title: '', field: '', formatter: this.viewDetails },
-      { title: 'ID', field: 'metadata.pid' },
+      { title: 'Request', field: 'metadata.pid' },
       { title: 'Patron', field: 'metadata.patron.name' },
-      { title: 'Title', field: 'metadata.title' },
+      {
+        title: 'Title',
+        formatter: ({ row }) => (
+          <Truncate lines={2}>{row.metadata.title}</Truncate>
+        ),
+      },
       {
         title: 'Created',
         field: 'created',

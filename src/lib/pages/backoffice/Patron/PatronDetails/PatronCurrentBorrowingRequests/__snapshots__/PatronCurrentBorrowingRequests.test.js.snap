@@ -15,7 +15,7 @@ exports[`PatronCurrentBorrowingRequests tests should load the details component 
         Array [
           Object {
             "formatter": [Function],
-            "title": "PID",
+            "title": "Loan",
           },
           Object {
             "formatter": [Function],
@@ -229,7 +229,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                   Array [
                     Object {
                       "formatter": [Function],
-                      "title": "PID",
+                      "title": "Loan",
                     },
                     Object {
                       "formatter": [Function],
@@ -388,7 +388,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "PID",
+                            "title": "Loan",
                           },
                           Object {
                             "formatter": [Function],
@@ -442,7 +442,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                             >
                               <TableHeaderCell
                                 as="th"
-                                key="PID"
+                                key="Loan"
                               >
                                 <TableCell
                                   as="th"
@@ -451,7 +451,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                   <th
                                     className=""
                                   >
-                                    PID
+                                    Loan
                                   </th>
                                 </TableCell>
                               </TableHeaderCell>
@@ -570,7 +570,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "PID",
+                            "title": "Loan",
                           },
                           Object {
                             "formatter": [Function],
@@ -705,13 +705,13 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                             >
                               <TableCell
                                 as="td"
-                                data-label="PID"
+                                data-label="Loan"
                                 data-test="0-borrowing-request1"
                                 key="0-borrowing-request1"
                               >
                                 <td
                                   className=""
-                                  data-label="PID"
+                                  data-label="Loan"
                                   data-test="0-borrowing-request1"
                                 >
                                   <Link
@@ -937,13 +937,13 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                             >
                               <TableCell
                                 as="td"
-                                data-label="PID"
+                                data-label="Loan"
                                 data-test="0-borrowing-request2"
                                 key="0-borrowing-request2"
                               >
                                 <td
                                   className=""
-                                  data-label="PID"
+                                  data-label="Loan"
                                   data-test="0-borrowing-request2"
                                 >
                                   <Link
@@ -1263,7 +1263,7 @@ exports[`PatronCurrentBorrowingRequests tests should render show a message with 
                   Array [
                     Object {
                       "formatter": [Function],
-                      "title": "PID",
+                      "title": "Loan",
                     },
                     Object {
                       "formatter": [Function],
@@ -1510,7 +1510,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                   Array [
                     Object {
                       "formatter": [Function],
-                      "title": "PID",
+                      "title": "Loan",
                     },
                     Object {
                       "formatter": [Function],
@@ -1669,7 +1669,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "PID",
+                            "title": "Loan",
                           },
                           Object {
                             "formatter": [Function],
@@ -1723,7 +1723,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                             >
                               <TableHeaderCell
                                 as="th"
-                                key="PID"
+                                key="Loan"
                               >
                                 <TableCell
                                   as="th"
@@ -1732,7 +1732,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                   <th
                                     className=""
                                   >
-                                    PID
+                                    Loan
                                   </th>
                                 </TableCell>
                               </TableHeaderCell>
@@ -1851,7 +1851,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "PID",
+                            "title": "Loan",
                           },
                           Object {
                             "formatter": [Function],
@@ -1948,13 +1948,13 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                             >
                               <TableCell
                                 as="td"
-                                data-label="PID"
+                                data-label="Loan"
                                 data-test="0-borrowing-request1"
                                 key="0-borrowing-request1"
                               >
                                 <td
                                   className=""
-                                  data-label="PID"
+                                  data-label="Loan"
                                   data-test="0-borrowing-request1"
                                 >
                                   <Link

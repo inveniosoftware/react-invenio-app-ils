@@ -1,7 +1,6 @@
 import { formatPrice } from '@api/utils';
-import { invenioConfig } from '@config';
-import { getDisplayVal } from '@config';
 import { AcquisitionOrderIcon } from '@components/backoffice/icons';
+import { getDisplayVal, invenioConfig } from '@config';
 import {
   AcquisitionRoutes,
   BackOfficeRoutes,

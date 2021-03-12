@@ -63,14 +63,13 @@ exports[`ItemPendingLoans tests should render show a message with no requested l
                 columns={
                   Array [
                     Object {
-                      "field": "metadata.pid",
                       "formatter": [Function],
-                      "title": "ID",
+                      "title": "Loan",
                     },
                     Object {
                       "field": "metadata.patron.name",
                       "formatter": [Function],
-                      "title": "Patron ID",
+                      "title": "Patron",
                     },
                     Object {
                       "field": "metadata.state",

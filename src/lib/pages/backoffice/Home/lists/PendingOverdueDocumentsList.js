@@ -66,7 +66,7 @@ export class PendingOverdueDocumentsList extends Component {
     const { showMaxEntries } = this.props;
     const columns = [
       { title: '', field: '', formatter: this.viewDetails },
-      { title: 'ID', field: 'metadata.pid' },
+      { title: 'Document', field: 'metadata.pid' },
       {
         title: 'Title',
         field: '',

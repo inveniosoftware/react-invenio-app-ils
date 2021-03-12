@@ -1,12 +1,12 @@
 import { toShortDate } from '@api/date';
 import { invenioConfig } from '@config';
+import { LocationDatePicker } from '@modules/Location';
 import _isEmpty from 'lodash/isEmpty';
 import { DateTime } from 'luxon';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Form, Header, Modal, Segment } from 'semantic-ui-react';
 import ESSelector from './ESSelector';
-import { LocationDatePicker } from '@modules/Location';
 
 export const PatronSearchInputContext = React.createContext({
   patronSelectionError: 'false',
@@ -157,14 +157,17 @@ export default class ESSelectorLoanRequest extends Component {
               {this.renderDeliveryMethodSelector()}
               {this.renderOptionalRequestExpirationDate()}
             </Segment>
-            <Segment>
+            <Segment textAlign="right">
               <Modal.Actions>
-                <Button color="black" onClick={this.toggle}>
-                  Close
-                </Button>
-                <Button onClick={this.save} disabled={_isEmpty(selections)}>
-                  Request
-                </Button>
+                <Button onClick={this.toggle}>Cancel</Button>
+                <Button
+                  positive
+                  icon="check"
+                  labelPosition="left"
+                  content="Request"
+                  onClick={this.save}
+                  disabled={_isEmpty(selections)}
+                />
               </Modal.Actions>
             </Segment>
           </Segment.Group>

@@ -4,7 +4,6 @@ import { Header } from 'semantic-ui-react';
 
 /**
  * Overrides the default TitleField to set as default:
- * - change from `h4` to `h3`
  * - add `dividing` prop
  */
 export class RJSFTitleField extends Component {
@@ -12,7 +11,7 @@ export class RJSFTitleField extends Component {
     const { options, title } = this.props;
     const { semantic } = options;
     return title ? (
-      <Header {...semantic} dividing as="h3">
+      <Header dividing as="h4" {...semantic}>
         {title}
       </Header>
     ) : null;

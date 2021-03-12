@@ -3,7 +3,6 @@ import { vocabularyApi } from '@api/vocabularies';
 import { invenioConfig } from '@config';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { AccordionField } from './AccordionField';
 import { SelectField } from './SelectField';
 
 export class VocabularyField extends React.Component {
@@ -67,7 +66,6 @@ export class VocabularyField extends React.Component {
 
   render() {
     const {
-      accordion,
       fieldPath,
       label,
       multiple,
@@ -80,11 +78,11 @@ export class VocabularyField extends React.Component {
     const noResultsMessage = isLoading
       ? 'Loading options...'
       : `No ${type} vocabularies found.`;
-    const selectField = (
+    return (
       <SelectField
         search
         fieldPath={fieldPath}
-        label={accordion ? null : label}
+        label={label}
         multiple={multiple}
         error={error}
         options={options}
@@ -95,23 +93,10 @@ export class VocabularyField extends React.Component {
         {...uiProps}
       />
     );
-
-    if (accordion) {
-      return (
-        <AccordionField
-          fieldPath={fieldPath}
-          label={label}
-          content={selectField}
-        />
-      );
-    }
-
-    return selectField;
   }
 }
 
 VocabularyField.propTypes = {
-  accordion: PropTypes.bool,
   fieldPath: PropTypes.string.isRequired,
   label: PropTypes.string,
   multiple: PropTypes.bool,
@@ -121,7 +106,6 @@ VocabularyField.propTypes = {
 };
 
 VocabularyField.defaultProps = {
-  accordion: false,
   multiple: false,
   label: '',
   serializer: null,

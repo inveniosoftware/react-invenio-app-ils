@@ -18,11 +18,10 @@
     "format": "prettier --config ./.prettierrc --ignore-path ./.prettierignore --write \"**/*.js\"",
     "watch": "NODE_ENV=production rollup --watch -c"
   },
-  "dependencies": {},
   "peerDependencies": {
     "@babel/runtime": "^7.9.2",
-    "@rjsf/core": "^2.4.2",
-    "@rjsf/semantic-ui": "^2.4.2",
+    "@rjsf/core": "^2.5.0",
+    "@rjsf/semantic-ui": "^2.5.0",
     "axios": "^0.19.2",
     "formik": "^2.2.6",
     "less": "^3.13.1",
@@ -48,8 +47,7 @@
     "redux-thunk": "^2.3.0",
     "semantic-ui-calendar-react": "^0.15.3",
     "semantic-ui-less": "^2.4.1",
-    "semantic-ui-react": "^2.0.1",
-    "yup": "^0.32.8"
+    "semantic-ui-react": "^2.0.1"
   },
   "devDependencies": {
     "@artsy/fresnel": "^1.3.1",
@@ -59,8 +57,8 @@
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-commonjs": "^12.0.0",
     "@rollup/plugin-node-resolve": "^8.0.1",
-    "@rjsf/core": "^2.4.2",
-    "@rjsf/semantic-ui": "^2.4.2",
+    "@rjsf/core": "^2.5.0",
+    "@rjsf/semantic-ui": "^2.5.0",
     "@semantic-ui-react/craco-less": "^1.2.1",
     "@types/jest": "^24.9.1",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
@@ -115,8 +113,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.2",
     "semantic-ui-calendar-react": "^0.15.3",
     "semantic-ui-less": "^2.4.1",
-    "semantic-ui-react": "^2.0.1",
-    "yup": "^0.32.8"
+    "semantic-ui-react": "^2.0.1"
   },
   "author": {
     "name": "CERN",
@@ -158,5 +155,6 @@
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]
-  }
+  },
+  "dependencies": {}
 }

@@ -1,6 +1,6 @@
 import { apiConfig, http } from '@api/base';
 import { add as addRelation, remove as removeRelation } from '@api/relations';
-import { prepareSumQuery } from '@api/utils';
+import { getSearchTotal, prepareSumQuery } from '@api/utils';
 import { documentSerializer as serializer } from './serializer';
 
 const documentURL = '/documents/';
@@ -177,7 +177,7 @@ const queryBuilder = () => {
 
 const list = async (query) => {
   const response = await http.get(`${documentURL}?q=${query}`);
-  response.data.total = response.data.hits.total;
+  response.data.total = getSearchTotal(response.data.hits);
   response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
@@ -186,7 +186,7 @@ const list = async (query) => {
 
 const count = async (query) => {
   const response = await http.get(`${documentURL}?q=${query}`);
-  response.data = response.data.hits.total;
+  response.data = getSearchTotal(response.data.hits);
   return response;
 };
 

@@ -15,15 +15,15 @@ exports[`PatronDocumentRequests tests should load the details component 1`] = `
         Array [
           Object {
             "formatter": [Function],
-            "title": "ID",
+            "title": "Request",
           },
           Object {
             "field": "metadata.document_pid",
-            "title": "Document ID",
+            "title": "Document",
           },
           Object {
             "field": "metadata.title",
-            "title": "Document title",
+            "title": "Title",
           },
           Object {
             "field": "metadata.state",
@@ -174,15 +174,15 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                   Array [
                     Object {
                       "formatter": [Function],
-                      "title": "ID",
+                      "title": "Request",
                     },
                     Object {
                       "field": "metadata.document_pid",
-                      "title": "Document ID",
+                      "title": "Document",
                     },
                     Object {
                       "field": "metadata.title",
-                      "title": "Document title",
+                      "title": "Title",
                     },
                     Object {
                       "field": "metadata.state",
@@ -276,15 +276,15 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "ID",
+                            "title": "Request",
                           },
                           Object {
                             "field": "metadata.document_pid",
-                            "title": "Document ID",
+                            "title": "Document",
                           },
                           Object {
                             "field": "metadata.title",
-                            "title": "Document title",
+                            "title": "Title",
                           },
                           Object {
                             "field": "metadata.state",
@@ -315,7 +315,7 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                             >
                               <TableHeaderCell
                                 as="th"
-                                key="ID"
+                                key="Request"
                               >
                                 <TableCell
                                   as="th"
@@ -324,13 +324,13 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                                   <th
                                     className=""
                                   >
-                                    ID
+                                    Request
                                   </th>
                                 </TableCell>
                               </TableHeaderCell>
                               <TableHeaderCell
                                 as="th"
-                                key="Document ID"
+                                key="Document"
                               >
                                 <TableCell
                                   as="th"
@@ -339,13 +339,13 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                                   <th
                                     className=""
                                   >
-                                    Document ID
+                                    Document
                                   </th>
                                 </TableCell>
                               </TableHeaderCell>
                               <TableHeaderCell
                                 as="th"
-                                key="Document title"
+                                key="Title"
                               >
                                 <TableCell
                                   as="th"
@@ -354,7 +354,7 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                                   <th
                                     className=""
                                   >
-                                    Document title
+                                    Title
                                   </th>
                                 </TableCell>
                               </TableHeaderCell>
@@ -398,15 +398,15 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "ID",
+                            "title": "Request",
                           },
                           Object {
                             "field": "metadata.document_pid",
-                            "title": "Document ID",
+                            "title": "Document",
                           },
                           Object {
                             "field": "metadata.title",
-                            "title": "Document title",
+                            "title": "Title",
                           },
                           Object {
                             "field": "metadata.state",
@@ -476,13 +476,13 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                             >
                               <TableCell
                                 as="td"
-                                data-label="ID"
+                                data-label="Request"
                                 data-test="0-documentRequest1"
                                 key="0-documentRequest1"
                               >
                                 <td
                                   className=""
-                                  data-label="ID"
+                                  data-label="Request"
                                   data-test="0-documentRequest1"
                                 >
                                   <Link
@@ -507,13 +507,13 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                               </TableCell>
                               <TableCell
                                 as="td"
-                                data-label="Document ID"
+                                data-label="Document"
                                 data-test="1-documentRequest1"
                                 key="1-documentRequest1"
                               >
                                 <td
                                   className=""
-                                  data-label="Document ID"
+                                  data-label="Document"
                                   data-test="1-documentRequest1"
                                 >
                                   -
@@ -521,13 +521,13 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                               </TableCell>
                               <TableCell
                                 as="td"
-                                data-label="Document title"
+                                data-label="Title"
                                 data-test="2-documentRequest1"
                                 key="2-documentRequest1"
                               >
                                 <td
                                   className=""
-                                  data-label="Document title"
+                                  data-label="Title"
                                   data-test="2-documentRequest1"
                                 >
                                   Test
@@ -575,13 +575,13 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                             >
                               <TableCell
                                 as="td"
-                                data-label="ID"
+                                data-label="Request"
                                 data-test="0-documentRequest2"
                                 key="0-documentRequest2"
                               >
                                 <td
                                   className=""
-                                  data-label="ID"
+                                  data-label="Request"
                                   data-test="0-documentRequest2"
                                 >
                                   <Link
@@ -606,13 +606,13 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                               </TableCell>
                               <TableCell
                                 as="td"
-                                data-label="Document ID"
+                                data-label="Document"
                                 data-test="1-documentRequest2"
                                 key="1-documentRequest2"
                               >
                                 <td
                                   className=""
-                                  data-label="Document ID"
+                                  data-label="Document"
                                   data-test="1-documentRequest2"
                                 >
                                   -
@@ -620,13 +620,13 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                               </TableCell>
                               <TableCell
                                 as="td"
-                                data-label="Document title"
+                                data-label="Title"
                                 data-test="2-documentRequest2"
                                 key="2-documentRequest2"
                               >
                                 <td
                                   className=""
-                                  data-label="Document title"
+                                  data-label="Title"
                                   data-test="2-documentRequest2"
                                 >
                                   Test
@@ -770,15 +770,15 @@ exports[`PatronDocumentRequests tests should render show a message with no user 
                   Array [
                     Object {
                       "formatter": [Function],
-                      "title": "ID",
+                      "title": "Request",
                     },
                     Object {
                       "field": "metadata.document_pid",
-                      "title": "Document ID",
+                      "title": "Document",
                     },
                     Object {
                       "field": "metadata.title",
-                      "title": "Document title",
+                      "title": "Title",
                     },
                     Object {
                       "field": "metadata.state",
@@ -962,15 +962,15 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                   Array [
                     Object {
                       "formatter": [Function],
-                      "title": "ID",
+                      "title": "Request",
                     },
                     Object {
                       "field": "metadata.document_pid",
-                      "title": "Document ID",
+                      "title": "Document",
                     },
                     Object {
                       "field": "metadata.title",
-                      "title": "Document title",
+                      "title": "Title",
                     },
                     Object {
                       "field": "metadata.state",
@@ -1064,15 +1064,15 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "ID",
+                            "title": "Request",
                           },
                           Object {
                             "field": "metadata.document_pid",
-                            "title": "Document ID",
+                            "title": "Document",
                           },
                           Object {
                             "field": "metadata.title",
-                            "title": "Document title",
+                            "title": "Title",
                           },
                           Object {
                             "field": "metadata.state",
@@ -1103,7 +1103,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                             >
                               <TableHeaderCell
                                 as="th"
-                                key="ID"
+                                key="Request"
                               >
                                 <TableCell
                                   as="th"
@@ -1112,13 +1112,13 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                   <th
                                     className=""
                                   >
-                                    ID
+                                    Request
                                   </th>
                                 </TableCell>
                               </TableHeaderCell>
                               <TableHeaderCell
                                 as="th"
-                                key="Document ID"
+                                key="Document"
                               >
                                 <TableCell
                                   as="th"
@@ -1127,13 +1127,13 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                   <th
                                     className=""
                                   >
-                                    Document ID
+                                    Document
                                   </th>
                                 </TableCell>
                               </TableHeaderCell>
                               <TableHeaderCell
                                 as="th"
-                                key="Document title"
+                                key="Title"
                               >
                                 <TableCell
                                   as="th"
@@ -1142,7 +1142,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                   <th
                                     className=""
                                   >
-                                    Document title
+                                    Title
                                   </th>
                                 </TableCell>
                               </TableHeaderCell>
@@ -1186,15 +1186,15 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                         Array [
                           Object {
                             "formatter": [Function],
-                            "title": "ID",
+                            "title": "Request",
                           },
                           Object {
                             "field": "metadata.document_pid",
-                            "title": "Document ID",
+                            "title": "Document",
                           },
                           Object {
                             "field": "metadata.title",
-                            "title": "Document title",
+                            "title": "Title",
                           },
                           Object {
                             "field": "metadata.state",
@@ -1247,13 +1247,13 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                             >
                               <TableCell
                                 as="td"
-                                data-label="ID"
+                                data-label="Request"
                                 data-test="0-documentRequest1"
                                 key="0-documentRequest1"
                               >
                                 <td
                                   className=""
-                                  data-label="ID"
+                                  data-label="Request"
                                   data-test="0-documentRequest1"
                                 >
                                   <Link
@@ -1278,13 +1278,13 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                               </TableCell>
                               <TableCell
                                 as="td"
-                                data-label="Document ID"
+                                data-label="Document"
                                 data-test="1-documentRequest1"
                                 key="1-documentRequest1"
                               >
                                 <td
                                   className=""
-                                  data-label="Document ID"
+                                  data-label="Document"
                                   data-test="1-documentRequest1"
                                 >
                                   -
@@ -1292,13 +1292,13 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                               </TableCell>
                               <TableCell
                                 as="td"
-                                data-label="Document title"
+                                data-label="Title"
                                 data-test="2-documentRequest1"
                                 key="2-documentRequest1"
                               >
                                 <td
                                   className=""
-                                  data-label="Document title"
+                                  data-label="Title"
                                   data-test="2-documentRequest1"
                                 >
                                   Test

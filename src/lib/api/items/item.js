@@ -1,6 +1,6 @@
-import { invenioConfig } from '@config';
 import { apiConfig, http } from '@api/base';
-import { prepareSumQuery } from '@api/utils';
+import { getSearchTotal, prepareSumQuery } from '@api/utils';
+import { invenioConfig } from '@config';
 import { serializer } from './serializer';
 
 const itemURL = '/items/';
@@ -29,7 +29,7 @@ const update = async (itemPid, data) => {
 
 const list = async (query) => {
   const response = await http.get(`${itemURL}?q=${query}`);
-  response.data.total = response.data.hits.total;
+  response.data.total = getSearchTotal(response.data.hits);
   response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );

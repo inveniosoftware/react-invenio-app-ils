@@ -32,7 +32,8 @@ export class RJSFReferencedPatron extends Component {
       <RJSFESSelector
         {...this.props}
         options={{
-          apiGetByValue: async (value) => await patronApi.get(`"${value}"`),
+          apiGetByValue: async (value) =>
+            (await patronApi.get(`"${value}"`)).data,
           apiGetByValueResponseSerializer: this.getResponseSerializer,
           apiQuery: async (searchQuery) => await patronApi.list(searchQuery),
           apiQueryResponseSerializer: this.responseSerializer,

@@ -65,7 +65,7 @@ export class DocumentEItemUrls extends Component {
     return (
       <>
         {this.renderTitle('Download')}
-        <ShowMoreItems lines={invenioConfig.DOCUMENTS.frontsiteMaxLinks}>
+        <ShowMoreItems lines={invenioConfig.LITERATURE.frontsiteMaxLinks}>
           {eitems.hits
             .filter((eitem) => this.userCanSeeFiles(eitem))
             .flatMap((eitem) =>

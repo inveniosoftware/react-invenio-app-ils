@@ -1,14 +1,15 @@
+import { dateFormatter } from '@api/date';
+import { loanApi } from '@api/loans';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import { invenioConfig } from '@config';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
+import { BackOfficeRoutes } from '@routes/urls';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { Loader } from '@components/Loader';
-import { Error } from '@components/Error';
-import { loanApi } from '@api/loans';
-import { invenioConfig } from '@config';
-import { BackOfficeRoutes } from '@routes/urls';
-import { dateFormatter } from '@api/date';
-import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 
 export default class PatronCurrentLoans extends Component {
   componentDidMount() {
@@ -42,11 +43,40 @@ export default class PatronCurrentLoans extends Component {
     );
   };
 
+  viewDocument = ({ row }) => {
+    return (
+      <Link
+        to={BackOfficeRoutes.documentDetailsFor(row.metadata.document_pid)}
+        data-test={row.metadata.pid}
+      >
+        <LiteratureTitle
+          title={row.metadata.document.title}
+          edition={row.metadata.document.edition}
+          publicationYear={row.metadata.document.publication_year}
+        />
+      </Link>
+    );
+  };
+
   render() {
     const { data, isLoading, error, showMaxLoans } = this.props;
     const columns = [
-      { title: 'PID', formatter: this.viewDetails },
-      { title: 'Item barcode', field: 'metadata.item.barcode' },
+      {
+        title: 'Loan',
+        formatter: this.viewDetails,
+      },
+      {
+        title: 'Document',
+        formatter: this.viewDocument,
+      },
+      {
+        title: 'Item barcode',
+        formatter: ({ row }) => (
+          <Link to={BackOfficeRoutes.itemDetailsFor(row.metadata.item.barcode)}>
+            {row.metadata.item.barcode}
+          </Link>
+        ),
+      },
       {
         title: 'Start date',
         field: 'metadata.start_date',

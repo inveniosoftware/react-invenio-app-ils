@@ -1,7 +1,7 @@
-import { http, apiConfig } from '@api/base';
-import { serializer } from './serializer';
-import { prepareSumQuery } from '@api/utils';
+import { apiConfig, http } from '@api/base';
 import { add as addRelation, remove as removeRelation } from '@api/relations';
+import { getSearchTotal, prepareSumQuery } from '@api/utils';
+import { serializer } from './serializer';
 
 const seriesURL = '/series/';
 
@@ -119,7 +119,7 @@ const queryBuilder = () => {
 
 const list = async (query) => {
   const response = await http.get(`${seriesURL}?q=${query}`);
-  response.data.total = response.data.hits.total;
+  response.data.total = getSearchTotal(response.data.hits);
   response.data.hits = response.data.hits.hits.map((hit) =>
     serializer.fromJSON(hit)
   );
@@ -144,7 +144,7 @@ const multipartMonographs = (query) => {
 
 const count = async (query) => {
   const response = await http.get(`${seriesURL}?q=${query}`);
-  response.data = response.data.hits.total;
+  response.data = getSearchTotal(response.data.hits);
   return response;
 };
 

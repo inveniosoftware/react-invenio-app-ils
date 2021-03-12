@@ -204,7 +204,7 @@ ProviderPidValue.defaultProps = {
  * - a dropdown to select first if the provider is Acquisition or Interlibrary loan
  * - the selected provider value
  */
-export class RJSFDocumentRequestProvider extends Component {
+export class RJSFDocumentRequestProviderField extends Component {
   constructor(props) {
     super(props);
 
@@ -267,11 +267,11 @@ export class RJSFDocumentRequestProvider extends Component {
   }
 }
 
-RJSFDocumentRequestProvider.propTypes = {
+RJSFDocumentRequestProviderField.propTypes = {
   formData: PropTypes.object,
   onChange: PropTypes.func.isRequired,
 };
 
-RJSFDocumentRequestProvider.defaultProps = {
+RJSFDocumentRequestProviderField.defaultProps = {
   formData: {},
 };

@@ -1,15 +1,15 @@
-import { ResultsTable } from '@components/ResultsTable/ResultsTable';
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Button, Header, Segment, Message } from 'semantic-ui-react';
-import { Loader } from '@components/Loader';
-import { Error } from '@components/Error';
+import { dateFormatter } from '@api/date';
 import { loanApi } from '@api/loans';
+import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
+import { Error } from '@components/Error';
+import { Loader } from '@components/Loader';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { invenioConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';
-import { dateFormatter } from '@api/date';
-import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Button, Header, Message, Segment } from 'semantic-ui-react';
 
 export default class ItemPastLoans extends Component {
   componentDidMount() {
@@ -57,9 +57,18 @@ export default class ItemPastLoans extends Component {
   renderTable() {
     const { data, showMaxPastLoans } = this.props;
     const columns = [
-      { title: '', field: '', formatter: this.viewDetails },
-      { title: 'ID', field: 'metadata.pid' },
-      { title: 'Patron ID', field: 'metadata.patron.name' },
+      {
+        title: 'Loan',
+        formatter: ({ row }) => (
+          <Link
+            to={BackOfficeRoutes.loanDetailsFor(row.metadata.pid)}
+            data-test={row.metadata.pid}
+          >
+            {row.metadata.pid}
+          </Link>
+        ),
+      },
+      { title: 'Patron', field: 'metadata.patron.name' },
       { title: 'State', field: 'metadata.state' },
       {
         title: 'Start date',
