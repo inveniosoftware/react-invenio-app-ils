@@ -146,7 +146,7 @@ export class LocationEditor extends Component {
         <Loader isLoading={isLoading}>
           <Error error={error}>
             <RJSForm
-              schema={schema}
+              schema={schema()}
               uiSchema={uiSchema(formTitle)}
               formData={data.metadata}
               submitAction={this.submitAction}
@@ -164,7 +164,7 @@ export class LocationEditor extends Component {
         : this.prepareDataForCreation();
       return (
         <RJSForm
-          schema={schema}
+          schema={schema()}
           uiSchema={uiSchema(formTitle)}
           formData={formInitialData}
           submitAction={this.submitAction}

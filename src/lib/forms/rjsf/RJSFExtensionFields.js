@@ -13,16 +13,13 @@ const getSchemaFieldProps = (fieldConfig) => {
       schemaProps['type'] = 'string';
       schemaProps['format'] = 'date';
       break;
-    case 'vocabulary':
-      schemaProps['type'] = 'string';
-      break;
     case 'array':
       schemaProps['type'] = 'array';
       schemaProps['items'] = getSchemaFieldProps(fieldConfig.items);
       break;
     default:
       throw new Error(
-        `Unknown field type ${fieldConfig.type}. Supported types: string, number, date, boolean, vocabulary or array.`
+        `Unknown field type ${fieldConfig.type}. Supported types: string, number, date, boolean or array.`
       );
   }
 
@@ -67,10 +64,11 @@ export const getSchemaExtensions = (extensions) => {
   return schemaExtensions;
 };
 
+const ALLOWED_UI_WIDGETS_VOCABULARIES = ['vocabulary', 'vocabularySearch'];
+
 const getUiSchemaFieldProps = (fieldConfig) => {
   const uiSchemaProps = {};
   switch (fieldConfig.type) {
-    case 'string':
     case 'number':
     case 'date':
       // no extra props
@@ -82,11 +80,21 @@ const getUiSchemaFieldProps = (fieldConfig) => {
         },
       };
       break;
-    case 'vocabulary':
-      uiSchemaProps['ui:widget'] = 'vocabulary';
-      uiSchemaProps['ui:options'] = {
-        vocabularyType: fieldConfig.vocabularyType,
-      };
+    case 'string':
+      if ('widget' in fieldConfig) {
+        if (!ALLOWED_UI_WIDGETS_VOCABULARIES.includes(fieldConfig.widget)) {
+          throw new Error(
+            `Unknown widget ${fieldConfig.widget} for field ${fieldConfig}.
+            Supported types are ${ALLOWED_UI_WIDGETS_VOCABULARIES}.`
+          );
+        }
+
+        uiSchemaProps['ui:widget'] = fieldConfig.widget;
+        uiSchemaProps['ui:options'] = {
+          vocabularyType: fieldConfig.vocabularyType,
+        };
+      }
+      // no extra props if not a vocabulary
       break;
     case 'array': {
       uiSchemaProps['ui:options'] = {
@@ -103,7 +111,7 @@ const getUiSchemaFieldProps = (fieldConfig) => {
     }
     default:
       throw new Error(
-        `Unknown field type ${fieldConfig.type}. Supported types: string, number, date, boolean, vocabulary or array.`
+        `Unknown field type ${fieldConfig.type}. Supported types: string, number, date, boolean or array.`
       );
   }
 

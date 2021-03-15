@@ -80,7 +80,7 @@ export class SeriesEditor extends Component {
         <Loader isLoading={isLoading}>
           <Error error={error}>
             <RJSForm
-              schema={schema}
+              schema={schema()}
               uiSchema={uiSchema(formTitle)}
               formData={data.metadata}
               submitAction={this.submitAction}
@@ -95,7 +95,7 @@ export class SeriesEditor extends Component {
       const prefilledFormData = _get(this.props, 'location.state.formData', {});
       return (
         <RJSForm
-          schema={schema}
+          schema={schema()}
           uiSchema={uiSchema(formTitle)}
           formData={prefilledFormData}
           submitAction={this.submitAction}

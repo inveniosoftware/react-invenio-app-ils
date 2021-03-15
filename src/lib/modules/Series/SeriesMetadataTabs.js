@@ -1,5 +1,6 @@
 import { invenioConfig } from '@config';
 import { Identifiers } from '@modules/Identifiers';
+import { LiteratureMetadataExtensions } from '@modules/Literature/LiteratureMetadataExtensions';
 import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
 import LiteratureRelations from '@modules/Literature/LiteratureRelations';
 import _isEmpty from 'lodash/isEmpty';
@@ -10,7 +11,6 @@ import { Tab } from 'semantic-ui-react';
 import { SeriesAllTitles } from './SeriesAllTitles';
 import { SeriesInfo } from './SeriesInfo';
 import { SeriesLinks } from './SeriesLinks';
-import { SeriesMetadataExtensions } from './SeriesMetadataExtensions';
 
 class SeriesMetadataTabs extends Component {
   renderTabPanes = () => {
@@ -77,7 +77,10 @@ class SeriesMetadataTabs extends Component {
               id="SeriesMetadataTabs.Extensions"
               extensions={extensions}
             >
-              <SeriesMetadataExtensions extensions={extensions} />
+              <LiteratureMetadataExtensions
+                metadataExtensions={extensions}
+                configuredExtensions={invenioConfig.SERIES.extensions}
+              />
             </Overridable>
           </Tab.Pane>
         ),

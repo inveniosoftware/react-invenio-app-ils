@@ -7,16 +7,17 @@ import {
   PatronIcon,
 } from '@components/backoffice/icons';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
-import { invenioConfig } from '@config';
-import { getDisplayVal } from '@config';
+import { getDisplayVal, invenioConfig } from '@config';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import LoanLinkToItem from '@modules/Loan/backoffice/LoanLinkToItem';
+import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
+import { DateTime } from 'luxon';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Grid, Icon, Label } from 'semantic-ui-react';
 import Overridable from 'react-overridable';
-import { DateTime } from 'luxon';
+import { Link } from 'react-router-dom';
+import { Grid, Icon, Label } from 'semantic-ui-react';
 
 export class LoanMetadata extends Component {
   getPickupLocation(metadata) {
@@ -57,11 +58,15 @@ export class LoanMetadata extends Component {
         name: 'Document',
         icon: <DocumentIcon />,
         value: (
-          <LiteratureTitle
-            title={data.metadata.document.title}
-            edition={data.metadata.document.edition}
-            publicationYear={data.metadata.document.publication_year}
-          />
+          <Link
+            to={BackOfficeRoutes.documentDetailsFor(data.metadata.document_pid)}
+          >
+            <LiteratureTitle
+              title={data.metadata.document.title}
+              edition={data.metadata.document.edition}
+              publicationYear={data.metadata.document.publication_year}
+            />
+          </Link>
         ),
       },
       {

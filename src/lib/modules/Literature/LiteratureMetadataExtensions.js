@@ -1,21 +1,24 @@
-import { invenioConfig } from '@config';
 import _keys from 'lodash/keys';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Divider, Table } from 'semantic-ui-react';
 
-export const SeriesMetadataExtensions = ({ extensions, showDivider }) => {
+export const LiteratureMetadataExtensions = ({
+  metadataExtensions,
+  configuredExtensions,
+  showDivider,
+}) => {
   return (
     <React.Fragment>
       {showDivider && (
-        <Divider horizontal>{invenioConfig.SERIES.extensions.label}</Divider>
+        <Divider horizontal>{configuredExtensions.label}</Divider>
       )}
       <Table definition>
         <Table.Body>
-          {_keys(extensions).map((key) => {
-            const fieldConfig = invenioConfig.SERIES.extensions.fields[key];
+          {_keys(metadataExtensions).map((key) => {
+            const fieldConfig = configuredExtensions.fields[key];
             const fieldType = fieldConfig.type;
-            const value = extensions[key];
+            const value = metadataExtensions[key];
             // make sure bool (toString()) and array are displayed correctly
             const displayValue =
               fieldType === 'array'
@@ -34,11 +37,12 @@ export const SeriesMetadataExtensions = ({ extensions, showDivider }) => {
   );
 };
 
-SeriesMetadataExtensions.propTypes = {
-  extensions: PropTypes.object.isRequired,
+LiteratureMetadataExtensions.propTypes = {
+  metadataExtensions: PropTypes.object.isRequired,
+  configuredExtensions: PropTypes.object.isRequired,
   showDivider: PropTypes.bool,
 };
 
-SeriesMetadataExtensions.defaultProps = {
+LiteratureMetadataExtensions.defaultProps = {
   showDivider: true,
 };

@@ -909,4 +909,7 @@ export const RECORDS_CONFIG = {
       provider_type: 'provider_type',
     },
   },
+  // required if config overridden in overlay
+  INTERNAL_LOCATIONS: {},
+  LOCATIONS: {},
 };

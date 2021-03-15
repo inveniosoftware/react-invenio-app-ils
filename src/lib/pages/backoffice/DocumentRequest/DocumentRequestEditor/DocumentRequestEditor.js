@@ -82,7 +82,7 @@ export class DocumentRequestEditor extends Component {
       <Loader isLoading={isLoading}>
         <Error error={error}>
           <RJSForm
-            schema={schema}
+            schema={schema()}
             uiSchema={uiSchema(formTitle)}
             formData={data.metadata}
             submitAction={this.submitAction}
@@ -93,7 +93,7 @@ export class DocumentRequestEditor extends Component {
       </Loader>
     ) : (
       <RJSForm
-        schema={schema}
+        schema={schema()}
         uiSchema={uiSchema(formTitle)}
         submitAction={this.submitAction}
         successCallback={this.successCallback}

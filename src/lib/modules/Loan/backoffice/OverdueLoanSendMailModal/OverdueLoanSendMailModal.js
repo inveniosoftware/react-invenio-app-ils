@@ -1,12 +1,13 @@
+import { emailApi } from '@api/emails';
+import { withCancel } from '@api/utils';
+import { Truncate } from '@components/Truncate';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Icon, Modal, Label, Popup } from 'semantic-ui-react';
-import { emailApi } from '@api/emails';
-import { withCancel } from '@api/utils';
+import { Button, Icon, Label, Modal, Popup } from 'semantic-ui-react';
 
 export default class OverdueLoanSendMailModal extends Component {
   constructor(props) {
@@ -73,7 +74,7 @@ export default class OverdueLoanSendMailModal extends Component {
           className="send-overdue-reminder-middle-button"
         >
           <Icon name="mail" />
-          Send return reminder
+          <Truncate>Send return reminder</Truncate>
         </Button>
         <Label basic className="send-overdue-reminder-button">
           {remindersCount}

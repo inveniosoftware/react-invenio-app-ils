@@ -1,5 +1,5 @@
 import { invenioConfig } from '@config';
-import { SeriesMetadataExtensions } from '@modules/Series/SeriesMetadataExtensions';
+import { LiteratureMetadataExtensions } from '@modules/Literature/LiteratureMetadataExtensions';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -78,8 +78,9 @@ export default class SeriesMetadataTabs extends Component {
               id="BackofficeSeriesMetadataTabs.Extensions"
               extensions={extensions}
             >
-              <SeriesMetadataExtensions
-                extensions={extensions}
+              <LiteratureMetadataExtensions
+                metadataExtensions={extensions}
+                configuredExtensions={invenioConfig.SERIES.extensions}
                 showDivider={false}
               />
             </Overridable>
