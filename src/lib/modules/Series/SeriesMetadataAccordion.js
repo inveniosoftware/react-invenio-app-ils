@@ -1,10 +1,13 @@
-import LiteratureRelations from '@modules/Literature/LiteratureRelations';
+import { invenioConfig } from '@config';
+import { Identifiers } from '@modules/Identifiers';
+import { LiteratureMetadataExtensions } from '@modules/Literature/LiteratureMetadataExtensions';
 import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
+import LiteratureRelations from '@modules/Literature/LiteratureRelations';
+import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Accordion, Icon } from 'semantic-ui-react';
-import { Identifiers } from '@modules/Identifiers';
 import { SeriesAllTitles } from './SeriesAllTitles';
 import { SeriesAlternativeTitles } from './SeriesAlternativeTitles';
 import { SeriesInfo } from './SeriesInfo';
@@ -24,6 +27,7 @@ class SeriesMetadataAccordion extends Component {
   render() {
     const { metadata } = this.props;
     const { activeIndex } = this.state;
+    const { extensions = {} } = metadata;
     return (
       <Accordion fluid styled>
         <Accordion.Title
@@ -92,6 +96,32 @@ class SeriesMetadataAccordion extends Component {
         <Accordion.Content active={activeIndex === 'links'}>
           <SeriesLinks accessUrls={metadata.access_urls} urls={metadata.urls} />
         </Accordion.Content>
+
+        {!_isEmpty(extensions) &&
+          !_isEmpty(invenioConfig.SERIES.extensions.fields) && (
+            <>
+              <Accordion.Title
+                active={activeIndex === invenioConfig.SERIES.extensions.label}
+                index={invenioConfig.SERIES.extensions.label}
+                onClick={this.handleClick}
+              >
+                <Icon name="dropdown" />
+                {invenioConfig.SERIES.extensions.label}
+              </Accordion.Title>
+              <Accordion.Content
+                active={activeIndex === invenioConfig.SERIES.extensions.label}
+              >
+                <Overridable
+                  id="SeriesMetadataTabs.Extensions.mobile"
+                  extensions={extensions}
+                />
+                <LiteratureMetadataExtensions
+                  metadataExtensions={extensions}
+                  configuredExtensions={invenioConfig.SERIES.extensions}
+                />
+              </Accordion.Content>
+            </>
+          )}
       </Accordion>
     );
   }

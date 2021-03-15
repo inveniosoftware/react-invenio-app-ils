@@ -1,13 +1,13 @@
 import { invenioConfig } from '@config';
 import { DocumentConference } from '@modules/Document/DocumentConference';
+import { DocumentContent } from '@modules/Document/DocumentContent';
 import { DocumentCopyrights } from '@modules/Document/DocumentCopyrights';
+import { DocumentEItemUrls } from '@modules/Document/DocumentEItemUrls';
 import { DocumentExtras } from '@modules/Document/DocumentExtras';
 import { DocumentInfo } from '@modules/Document/DocumentInfo';
-import { DocumentEItemUrls } from '@modules/Document/DocumentEItemUrls';
-import { DocumentMetadataExtensions } from '@modules/Document/DocumentMetadataExtensions';
 import { DocumentPublicationInfo } from '@modules/Document/DocumentPublicationInfo';
-import { DocumentContent } from '@modules/Document/DocumentContent';
 import { Identifiers } from '@modules/Identifiers';
+import { LiteratureMetadataExtensions } from '@modules/Literature/LiteratureMetadataExtensions';
 import { LiteratureNotes } from '@modules/Literature/LiteratureNotes';
 import LiteratureRelations from '@modules/Literature/LiteratureRelations';
 import _get from 'lodash/get';
@@ -109,7 +109,11 @@ class DocumentMetadataTabs extends Component {
               id="DocumentMetadataTabs.Extensions"
               extensions={extensions}
             />
-            <DocumentMetadataExtensions extensions={extensions} />
+
+            <LiteratureMetadataExtensions
+              metadataExtensions={extensions}
+              configuredExtensions={invenioConfig.DOCUMENTS.extensions}
+            />
           </Tab.Pane>
         ),
       });

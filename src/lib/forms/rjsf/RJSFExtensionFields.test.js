@@ -35,7 +35,14 @@ const EXTENSIONS = {
     },
     vocabulary_field: {
       label: 'Vocabulary title',
-      type: 'vocabulary',
+      type: 'string',
+      widget: 'vocabulary',
+      vocabularyType: 'vocabulary_name',
+    },
+    vocabulary_search_field: {
+      label: 'Vocabulary Search title',
+      type: 'string',
+      widget: 'vocabularySearch',
       vocabularyType: 'vocabulary_name',
     },
     array_string_field: {
@@ -110,6 +117,10 @@ describe('test schema extensions', () => {
             title: 'Vocabulary title',
             type: 'string',
           },
+          vocabulary_search_field: {
+            title: 'Vocabulary Search title',
+            type: 'string',
+          },
           array_string_field: {
             title: 'Array string title',
             type: 'array',
@@ -180,6 +191,12 @@ describe('test ui schema extensions', () => {
             vocabularyType: 'vocabulary_name',
           },
         },
+        vocabulary_search_field: {
+          'ui:widget': 'vocabularySearch',
+          'ui:options': {
+            vocabularyType: 'vocabulary_name',
+          },
+        },
         array_string_field: {
           'ui:options': {
             orderable: false,
@@ -218,9 +235,10 @@ describe('test ui schema extensions', () => {
           },
           {
             vocabulary_field: 8,
-            array_string_field: 8,
+            vocabulary_search_field: 8,
           },
           {
+            array_string_field: 8,
             array_boolean_field: 8,
           },
         ],

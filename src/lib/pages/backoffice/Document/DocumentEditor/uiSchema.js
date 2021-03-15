@@ -1,9 +1,6 @@
 import { invenioConfig } from '@config';
 import { getUiSchemaExtensions } from '@forms/rjsf/RJSFExtensionFields';
-
-const { uiSchemaExtensions, uiSchemaExtensionsGrid } = getUiSchemaExtensions(
-  invenioConfig.DOCUMENTS.extensions
-);
+import _merge from 'lodash/merge';
 
 const booleanUiOptions = {
   'ui:options': {
@@ -51,10 +48,14 @@ const identifierWithMaterialUiSchema = (schemeVocabulary) => {
 };
 
 export const uiSchema = (title, { tooManyAuthors = false } = {}) => {
+  const { uiSchemaExtensions, uiSchemaExtensionsGrid } = getUiSchemaExtensions(
+    invenioConfig.DOCUMENTS.extensions
+  );
   const authorsField = tooManyAuthors
     ? { _tooManyAuthorsCustomField: 16 }
     : { authors: 16 };
-  return {
+
+  const _uiSchema = {
     ...uiSchemaExtensions,
     abstract: {
       'ui:widget': 'textarea',
@@ -342,4 +343,5 @@ export const uiSchema = (title, { tooManyAuthors = false } = {}) => {
       'custom:formTitle': title,
     },
   };
+  return _merge(_uiSchema, invenioConfig.DOCUMENTS.editorUiSchema);
 };

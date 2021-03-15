@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { Button, Divider, Form, Icon, Message, Modal } from 'semantic-ui-react';
-import { DatePicker } from '@components/DatePicker';
 import { toShortDate } from '@api/date';
+import { DatePicker } from '@components/DatePicker';
+import { invenioConfig } from '@config';
 import { DateTime } from 'luxon';
 import { PropTypes } from 'prop-types';
-import { invenioConfig } from '@config';
+import React, { Component } from 'react';
+import { Button, Divider, Form, Icon, Message, Modal } from 'semantic-ui-react';
 
 export default class LoanUpdateDates extends Component {
   constructor(props) {
@@ -157,7 +157,6 @@ export default class LoanUpdateDates extends Component {
         <Button
           icon
           primary
-          size="small"
           labelPosition="left"
           fluid
           onClick={this.handleOpenModal}

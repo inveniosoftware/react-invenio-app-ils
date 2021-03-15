@@ -1,17 +1,17 @@
 import { invenioConfig } from '@config';
 import { DocumentExtras } from '@modules/Document/DocumentExtras';
-import { DocumentCopyrights } from './DocumentCopyrights';
-import { DocumentMetadataExtensions } from '@modules/Document/DocumentMetadataExtensions';
+import { LiteratureMetadataExtensions } from '@modules/Literature/LiteratureMetadataExtensions';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Tab } from 'semantic-ui-react';
 import { DocumentContents } from './DocumentContents';
-import { DocumentMetadataGeneral } from './DocumentMetadataGeneral';
-import { DocumentSystemInfo } from './DocumentSystemInfo';
-import { DocumentPublishing } from './DocumentPublishing';
+import { DocumentCopyrights } from './DocumentCopyrights';
 import { DocumentCuration } from './DocumentCuration';
+import { DocumentMetadataGeneral } from './DocumentMetadataGeneral';
+import { DocumentPublishing } from './DocumentPublishing';
+import { DocumentSystemInfo } from './DocumentSystemInfo';
 
 export default class DocumentMetadata extends Component {
   panes = () => {
@@ -89,8 +89,9 @@ export default class DocumentMetadata extends Component {
               id="BackofficeDocumentMetadataTabs.Extensions"
               extensions={extensions}
             >
-              <DocumentMetadataExtensions
-                extensions={extensions}
+              <LiteratureMetadataExtensions
+                metadataExtensions={extensions}
+                configuredExtensions={invenioConfig.DOCUMENTS.extensions}
                 showDivider={false}
               />
             </Overridable>
