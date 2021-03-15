@@ -43,7 +43,7 @@ export const DOCUMENT_RELATIONS = [
 
 export const DOCUMENT_TYPES = [
   { value: 'BOOK', text: 'Book', label: 'Book' },
-  { value: 'PROCEEDING', text: 'Proceeding', label: 'Proceeding' },
+  { value: 'PROCEEDINGS', text: 'Proceedings', label: 'Proceedings' },
   { value: 'STANDARD', text: 'Standard', label: 'Standard' },
   {
     value: 'SERIAL_ISSUE',
