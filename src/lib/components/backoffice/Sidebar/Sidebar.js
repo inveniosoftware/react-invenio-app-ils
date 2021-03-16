@@ -174,7 +174,7 @@ class Sidebar extends Component {
                       active={eitemsActive}
                       to={BackOfficeRoutes.eitemsList}
                     >
-                      Electronic Items
+                      E-Items
                     </Menu.Item>
                   </Menu.Menu>
                 </Menu.Item>

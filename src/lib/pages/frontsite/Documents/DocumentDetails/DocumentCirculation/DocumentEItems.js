@@ -14,7 +14,7 @@ export class DocumentEItems extends Component {
   };
 
   onClickEItemRequestLink = () => {
-    const medium = 'ELECTRONIC';
+    const medium = 'E-BOOK';
     return {
       pathname: FrontSiteRoutes.documentRequestForm,
       state: { medium },
@@ -31,10 +31,8 @@ export class DocumentEItems extends Component {
           <DocumentEItemUrls eitems={eitems} />
         ) : (
           <>
-            No electronic resources currently available.{' '}
-            <Link to={this.onClickEItemRequestLink()}>
-              Request a new electronic copy
-            </Link>
+            No e-resources currently available.{' '}
+            <Link to={this.onClickEItemRequestLink()}>Request the e-book</Link>
           </>
         )}
         <Divider horizontal>Or</Divider>

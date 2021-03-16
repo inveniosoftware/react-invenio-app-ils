@@ -39,7 +39,7 @@ export class SeriesContent extends Component {
               <Table.Body>
                 {!_isEmpty(series.metadata.electronic_volumes_description) && (
                   <Table.Row>
-                    <Table.Cell>Electronic volumes description</Table.Cell>
+                    <Table.Cell>E-journal description</Table.Cell>
                     <Table.Cell>
                       {series.metadata.electronic_volumes_description}
                     </Table.Cell>

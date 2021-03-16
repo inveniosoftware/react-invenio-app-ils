@@ -36,7 +36,7 @@ describe('backoffice sidebar', () => {
       checkSidebarLinks('Books / Articles', '/documents');
       checkSidebarLinks('Series / Monographs', '/series');
       checkSidebarLinks('Physical Copies', '/items');
-      checkSidebarLinks('Electronic Items', '/eitems');
+      checkSidebarLinks('E-Items', '/eitems');
       checkSidebarLinks('Purchase Orders', '/acquisition/orders');
       checkSidebarLinks('Borrowing Requests', '/ill/borrowing-requests');
       checkSidebarLinks('Providers', '/providers');

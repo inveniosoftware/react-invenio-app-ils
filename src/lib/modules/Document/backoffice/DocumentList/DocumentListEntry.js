@@ -75,7 +75,7 @@ export default class DocumentListEntry extends Component {
               <List.Content floated="right">
                 <EItemIcon />
               </List.Content>
-              <List.Content>Has electronic items</List.Content>
+              <List.Content>Has e-items</List.Content>
             </List.Item>
           ) : null}
         </List>

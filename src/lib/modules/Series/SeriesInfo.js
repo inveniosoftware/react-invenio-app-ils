@@ -66,7 +66,7 @@ export const SeriesInfo = ({ metadata }) => {
           )}
           {metadata.electronic_volumes_description && (
             <Table.Row>
-              <Table.Cell>Electronic volumes description</Table.Cell>
+              <Table.Cell>E-journal description</Table.Cell>
               <Table.Cell>{metadata.electronic_volumes_description}</Table.Cell>
             </Table.Row>
           )}

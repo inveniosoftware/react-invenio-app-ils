@@ -101,7 +101,7 @@ export default class EItemFiles extends Component {
                 showMaxRows={invenioConfig.EITEMS.maxFiles}
                 renderEmptyResultsElement={() => (
                   <InfoMessage
-                    content="Upload a file to attach it to this electronic item"
+                    content="Upload a file to attach it to this e-item"
                     header="No uploaded files"
                   />
                 )}

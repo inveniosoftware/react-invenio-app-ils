@@ -16,7 +16,7 @@ export default class EItemActionMenu extends Component {
     return (
       <DeleteButton
         fluid
-        content="Delete electronic item"
+        content="Delete e-item"
         labelPosition="left"
         {...props}
       />
@@ -34,7 +34,7 @@ export default class EItemActionMenu extends Component {
         />
         <DeleteRecordModal
           trigger={this.deleteRecordButton}
-          deleteHeader={`Are you sure you want to delete this electronic item
+          deleteHeader={`Are you sure you want to delete this e-item
             with PID ${eitem.metadata.pid}?`}
           onDelete={() => deleteEItem(eitem.metadata.pid)}
         />

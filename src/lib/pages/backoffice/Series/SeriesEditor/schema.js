@@ -171,7 +171,7 @@ export const schema = {
       type: 'string',
     },
     electronic_volumes_description: {
-      title: 'Electronic volumes description',
+      title: 'E-journal description',
       type: 'string',
     },
     physical_volumes: {

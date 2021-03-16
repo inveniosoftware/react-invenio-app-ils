@@ -5,7 +5,7 @@ import { Checkbox, Label, List } from 'semantic-ui-react';
 const generateLabel = (key) => {
   return (
     key.charAt(0).toUpperCase() +
-    key.slice(1).replaceAll('_', ' ').replaceAll('-', ' ').toLowerCase()
+    key.slice(1).replaceAll('_', ' ').toLowerCase()
   );
 };
 
@@ -19,7 +19,6 @@ export const CardBucketAggregationValueElementOverrides = ({
 }) => {
   const childAggCmps = getChildAggCmps(bucket);
   const key = bucket.key_as_string ? bucket.key_as_string : bucket.key;
-  // TODO: Remove this label when it is injected in the bucket
   const label = generateLabel(key);
 
   return (

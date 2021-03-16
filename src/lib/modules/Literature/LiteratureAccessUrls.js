@@ -40,7 +40,7 @@ export class LiteratureAccessUrls extends React.Component {
   render() {
     const { urls, truncate } = this.props;
     return _isEmpty(urls) ? (
-      <p>There are no online resources.</p>
+      <p>There are no e-resources.</p>
     ) : (
       <ShowMoreItems lines={invenioConfig.LITERATURE.frontsiteMaxLinks}>
         {urls.map((url, index) => (

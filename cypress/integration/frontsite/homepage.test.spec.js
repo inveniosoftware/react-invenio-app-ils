@@ -18,7 +18,7 @@ describe('frontsite homepage', () => {
       .and('include', 'sort=created')
       .and('include', 'order=desc')
       .and('include', 'doctype%3ABOOK')
-      .and('include', 'medium%3AELECTRONIC_VERSION');
+      .and('include', 'medium%3AE-BOOK');
   };
 
   it('should be able to search from a query', () => {
