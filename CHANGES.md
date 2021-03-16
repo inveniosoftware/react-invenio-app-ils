@@ -1,5 +1,12 @@
 # Changes
 
+Version 1.0.0-alpha.31 (released 2021-03-16)
+
+- replace document form with react-json-schema form
+- rename proceedings and ebooks
+- small fixes in loan request form in frontsite
+- add overridable component for standard number in frontsite
+
 Version 1.0.0-alpha.30 (released 2021-03-12)
 
 - add volume description fields to series
