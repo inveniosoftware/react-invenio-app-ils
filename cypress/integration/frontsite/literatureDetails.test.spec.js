@@ -11,10 +11,8 @@ describe('frontsite literature details', () => {
   };
 
   const goToEBookDetails = () => {
-    cy.visit('/search?f=medium%3AELECTRONIC_VERSION');
-    cy.get('.fs-book-card')
-      .first()
-      .click();
+    cy.visit('/search?f=medium%3AE-BOOK');
+    cy.get('.fs-book-card').first().click();
   };
 
   it('should require login to request loan and access files', () => {

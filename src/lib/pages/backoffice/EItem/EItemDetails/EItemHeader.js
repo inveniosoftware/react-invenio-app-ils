@@ -15,7 +15,7 @@ export class EItemHeader extends Component {
     const { data } = this.props;
     const recordInfo = (
       <>
-        <label className="muted">Electronic copy</label> {data.metadata.pid}{' '}
+        <label className="muted">E-item</label> {data.metadata.pid}{' '}
         <CopyButton text={data.metadata.pid} />
         <br />
         <label className="muted">Created on</label>{' '}

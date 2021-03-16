@@ -63,7 +63,7 @@ export default class SectionsWrapper extends Component {
               .withSize(size)
               .qs()}
             viewAllUrl={FrontSiteRoutes.documentsListWithQuery(
-              '&f=doctype%3ABOOK&f=medium%3AELECTRONIC_VERSION&sort=created&order=desc'
+              '&f=doctype%3ABOOK&f=medium%3AE-BOOK&sort=created&order=desc'
             )}
           />
         </Container>

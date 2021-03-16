@@ -38,7 +38,7 @@ export class DocumentContent extends Component {
       },
       {
         key: 'document-eitems',
-        title: 'Electronic items',
+        title: 'E-items',
         content: (
           <Accordion.Content>
             <div ref={anchors.attachedEItemsRef} id="document-eitems">

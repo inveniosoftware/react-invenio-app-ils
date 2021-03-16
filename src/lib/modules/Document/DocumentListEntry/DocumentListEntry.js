@@ -36,7 +36,7 @@ export default class DocumentListEntry extends Component {
           {meta.eitems.total > 0 ? (
             <List.Item>
               <List.Icon name="desktop" />
-              <List.Content>Electronic version</List.Content>
+              <List.Content>E-book</List.Content>
             </List.Item>
           ) : null}
         </List>

@@ -79,7 +79,7 @@ export class EItemSearch extends Component {
     const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
-        <Header as="h2">Electronic items</Header>
+        <Header as="h2">E-items</Header>
         <OverridableContext.Provider
           value={{
             ...SearchControlsOverridesMap,
@@ -111,7 +111,7 @@ export class EItemSearch extends Component {
                       <Grid columns={2}>
                         <Grid.Column width={8}>
                           <NewButton
-                            text="Add electronic item"
+                            text="Add e-item"
                             to={BackOfficeRoutes.eitemCreate}
                           />
                         </Grid.Column>
@@ -129,7 +129,7 @@ export class EItemSearch extends Component {
                       <EmptyResults
                         extraContent={
                           <NewButton
-                            text="Add electronic item"
+                            text="Add e-item"
                             to={BackOfficeRoutes.eitemCreate}
                           />
                         }

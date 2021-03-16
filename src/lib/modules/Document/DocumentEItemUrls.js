@@ -90,7 +90,7 @@ export class DocumentEItemUrls extends Component {
       <>
         {hasReadable && this.renderReadableList()}
         {hasDownloadable && this.renderDownloadableList()}
-        {!hasReadableOrDownloadable && 'No online resources'}
+        {!hasReadableOrDownloadable && 'No e-resources'}
       </>
     );
   }

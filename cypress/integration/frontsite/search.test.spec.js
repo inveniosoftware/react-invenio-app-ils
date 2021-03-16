@@ -85,7 +85,6 @@ describe('frontsite search', () => {
     goToSearch();
 
     // Aggregation buckets
-    // TODO is there a better way to express this temporal logic?
     cy.contains('.checkbox', 'Book').then($books => {
       const bucket1Total = parseInt(
         $books

@@ -71,7 +71,7 @@ const HeadlineLayout = (props) => {
                     className="headline-quick-access"
                     as={Link}
                     to={FrontSiteRoutes.documentsListWithQuery(
-                      '&f=doctype%3ABOOK&f=medium%3AELECTRONIC_VERSION&sort=created&order=desc'
+                      '&f=doctype%3ABOOK&f=medium%3AE-BOOK&sort=created&order=desc'
                     )}
                     primary
                   >
