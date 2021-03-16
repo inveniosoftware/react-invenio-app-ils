@@ -46,6 +46,10 @@ class DocumentPanelMobile extends Component {
                     listItemAs="h4"
                     limit={invenioConfig.LITERATURE.authors.maxDisplay}
                   />
+                  <Overridable
+                    id="DocumentPanelMobile.AfterAuthors"
+                    metadata={doc.metadata}
+                  />
                 </ILSParagraphPlaceholder>
                 <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
                   <LiteratureTags tags={doc.metadata.tags} />

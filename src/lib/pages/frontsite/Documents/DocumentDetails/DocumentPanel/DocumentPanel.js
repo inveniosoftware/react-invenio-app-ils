@@ -61,6 +61,10 @@ class DocumentPanel extends Component {
                         listItemAs="h4"
                         limit={invenioConfig.LITERATURE.authors.maxDisplay}
                       />
+                      <Overridable
+                        id="DocumentPanel.AfterAuthors"
+                        metadata={doc.metadata}
+                      />
                     </ILSParagraphPlaceholder>
                     <ILSParagraphPlaceholder
                       linesNumber={20}
