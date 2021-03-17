@@ -1,12 +1,12 @@
 import { MetadataTable } from '@components/backoffice/MetadataTable';
+import { invenioConfig } from '@config';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
+import LiteratureKeywords from '@modules/Literature/LiteratureKeywords';
 import LiteratureUrls from '@modules/Literature/LiteratureUrls';
+import isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Divider, Table } from 'semantic-ui-react';
-import LiteratureKeywords from '@modules/Literature/LiteratureKeywords';
-import { invenioConfig } from '@config';
-import isEmpty from 'lodash/isEmpty';
 
 export class DocumentInfo extends Component {
   renderLanguages() {
@@ -55,11 +55,11 @@ export class DocumentInfo extends Component {
         <Table definition>
           <Table.Body>
             <Table.Row>
-              <Table.Cell>Title</Table.Cell>
+              <Table.Cell width={4}>Title</Table.Cell>
               <Table.Cell>{metadata.title}</Table.Cell>
             </Table.Row>
             <Table.Row>
-              <Table.Cell>Authors</Table.Cell>
+              <Table.Cell width={4}>Authors</Table.Cell>
               <Table.Cell>
                 <DocumentAuthors
                   authors={metadata.authors}
@@ -73,12 +73,12 @@ export class DocumentInfo extends Component {
               </Table.Cell>
             </Table.Row>
             <Table.Row>
-              <Table.Cell>Publication year</Table.Cell>
+              <Table.Cell width={4}>Publication year</Table.Cell>
               <Table.Cell>{metadata.publication_year}</Table.Cell>
             </Table.Row>
             {metadata.edition && (
               <Table.Row>
-                <Table.Cell>Edition</Table.Cell>
+                <Table.Cell width={4}>Edition</Table.Cell>
                 <Table.Cell>{metadata.edition}</Table.Cell>
               </Table.Row>
             )}
