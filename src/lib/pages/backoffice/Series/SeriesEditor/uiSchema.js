@@ -208,7 +208,6 @@ export const uiSchema = (title) => {
         publisher: 8,
       },
       {
-        electronic_volumes_description: 8,
         physical_volumes: 8,
       },
       {
