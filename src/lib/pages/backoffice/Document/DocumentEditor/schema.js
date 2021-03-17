@@ -168,7 +168,7 @@ export const schema = () => {
               type: 'string',
             },
             series: {
-              title: 'Is part of the series',
+              title: 'Conference series',
               type: 'string',
             },
             title: {

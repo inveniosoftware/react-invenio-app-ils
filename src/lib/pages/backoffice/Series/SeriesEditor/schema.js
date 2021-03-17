@@ -171,10 +171,6 @@ export const schema = () => {
         title: 'Publisher',
         type: 'string',
       },
-      electronic_volumes_description: {
-        title: 'E-journal volumes description',
-        type: 'string',
-      },
       physical_volumes: {
         items: {
           properties: {

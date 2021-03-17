@@ -32,25 +32,10 @@ export class SeriesContent extends Component {
 
         <Divider />
         <Header as="h3">Volumes description</Header>
-        {!_isEmpty(series.metadata.physical_volumes) ||
-        !isEmpty(series.metadata.electronic_volumes_description) ? (
-          <>
-            <Table definition>
-              <Table.Body>
-                {!_isEmpty(series.metadata.electronic_volumes_description) && (
-                  <Table.Row>
-                    <Table.Cell>E-journal description</Table.Cell>
-                    <Table.Cell>
-                      {series.metadata.electronic_volumes_description}
-                    </Table.Cell>
-                  </Table.Row>
-                )}
-              </Table.Body>
-            </Table>
-            <SeriesPhysicalVolumes
-              physicalVolumes={series.metadata.physical_volumes}
-            />
-          </>
+        {!_isEmpty(series.metadata.physical_volumes) ? (
+          <SeriesPhysicalVolumes
+            physicalVolumes={series.metadata.physical_volumes}
+          />
         ) : (
           'There is no volumes description'
         )}
