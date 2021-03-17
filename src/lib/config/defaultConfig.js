@@ -13,7 +13,7 @@ export const APP_CONFIG = {
   ENABLE_OAUTH_LOGIN: true,
   SEARCH_READY_DELAY: 2000,
   INVENIO_UI_URL: process.env.REACT_APP_INVENIO_UI_URL,
-  LOGO_SRC: process.env.PUBLIC_URL + '/logo-invenio-ils.svg',
+  LOGO_SRC: process.env.PUBLIC_URL + '/images/logo-invenio-ils.svg',
   MAX_RESULTS_WINDOW: 10000,
   VOCAB_MAX_RESULTS_WINDOW: 500,
   EXPORT_MAX_RESULTS: 4000,
