@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.32 (released 2021-03-18)
+
+- remove electronic volumes field
+- logo changes
+
 Version 1.0.0-alpha.31 (released 2021-03-16)
 
 - replace document form with react-json-schema form
