@@ -37,6 +37,13 @@ const identifierUiSchema = (schemeVocabulary) => ({
 
 const identifierWithMaterialUiSchema = (schemeVocabulary) => {
   const identifier = identifierUiSchema(schemeVocabulary);
+  identifier['items']['material'] = {
+    'ui:widget': 'vocabulary',
+    'ui:options': {
+      vocabularyType:
+        invenioConfig.VOCABULARIES.document.doc_identifiers_materials,
+    },
+  };
   identifier['items']['custom:grid'] = [
     {
       material: 4,

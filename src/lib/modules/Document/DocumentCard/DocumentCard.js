@@ -1,4 +1,3 @@
-import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
@@ -9,6 +8,7 @@ import Overridable from 'react-overridable';
 import { Card, Label } from 'semantic-ui-react';
 import { invenioConfig } from '@config';
 import { Link } from 'react-router-dom';
+import { Truncate } from '@components/Truncate';
 
 class DocumentCard extends Component {
   renderImage = () => {
@@ -39,6 +39,13 @@ class DocumentCard extends Component {
     const { data } = this.props;
     const { metadata } = data;
     const url = FrontSiteRoutes.documentDetailsFor(metadata.pid);
+    let authors = data.metadata.authors
+      .slice(0, invenioConfig.LITERATURE.authors.maxDisplay)
+      .map((elem) => elem['full_name'])
+      .join('; ');
+    if (data.metadata.other_authors) {
+      authors = authors + 'et al';
+    }
     return (
       <Overridable id="DocumentCard.layout" {...this.props}>
         <Card
@@ -59,11 +66,11 @@ class DocumentCard extends Component {
               <LiteratureTitle title={metadata.title} />
             </Card.Header>
             <Card.Meta>
-              <DocumentAuthors
-                authors={data.metadata.authors}
-                hasOtherAuthors={data.metadata.other_authors}
-                limit={invenioConfig.LITERATURE.authors.maxDisplay}
-              />
+              <div className="default-margin-bottom">
+                <Truncate lines={1}>
+                  <div>{authors}</div>
+                </Truncate>
+              </div>
               <div>
                 {metadata.publication_year}
                 <br />
