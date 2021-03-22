@@ -56,7 +56,7 @@ class AcqProvider extends Component {
             <ESSelector
               icon={<AcquisitionOrderIcon />}
               onSelectResult={this.onSelectResult}
-              query={orderApi.listWithPendingStatus}
+              query={orderApi.list}
               serializer={serializeAcqOrder}
             />
           </Grid.Column>
@@ -117,7 +117,7 @@ class IllProvider extends Component {
             <ESSelector
               icon={<ILLBorrowingRequestIcon />}
               onSelectResult={this.onSelectResult}
-              query={borrowingRequestApi.listWithPendingStatus}
+              query={borrowingRequestApi.list}
               serializer={serializeBorrowingRequest}
             />
           </Grid.Column>
