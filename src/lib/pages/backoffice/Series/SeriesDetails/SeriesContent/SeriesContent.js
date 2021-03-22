@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Header, Divider, Table } from 'semantic-ui-react';
+import { Header, Divider } from 'semantic-ui-react';
 import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureKeywords from '@modules/Literature/LiteratureKeywords';
 import _isEmpty from 'lodash/isEmpty';
 import { SeriesPhysicalVolumes } from '../SeriesPhysicalVolumes';
 import { ShowMoreContent } from '../../../../../components/ShowMoreContent/ShowMoreContent';
-import isEmpty from 'lodash/isEmpty';
 
 export class SeriesContent extends Component {
   render() {

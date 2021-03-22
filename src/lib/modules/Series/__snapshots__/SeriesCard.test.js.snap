@@ -128,67 +128,30 @@ exports[`SeriesCard tests should go to book details when clicking on a book 1`] 
             <div
               className="meta"
             >
-              <div>
-                <SeriesAuthors
-                  authors={
-                    Array [
-                      "Author1",
-                      "Author2",
-                    ]
-                  }
+              <div
+                className="default-margin-bottom"
+              >
+                <Truncate
+                  lines={1}
+                  width={null}
                 >
-                  <div
-                    className="document-authors-list-wrapper"
-                  >
-                    <SeparatedList
-                      className="document-authors-list"
-                      itemProps={Object {}}
-                      items={
-                        Array [
-                          "Author1",
-                          "Author2",
-                        ]
+                  <span
+                    style={
+                      Object {
+                        "WebkitBoxOrient": "vertical",
+                        "WebkitLineClamp": 1,
+                        "display": "-webkit-box",
+                        "overflow": "hidden",
+                        "textOverflow": "ellipsis",
+                        "whiteSpace": "normal",
                       }
-                      prefix={null}
-                      separator="; "
-                      suffix={null}
-                    >
-                      <List
-                        className="document-authors-list"
-                        horizontal={true}
-                      >
-                        <div
-                          className="ui horizontal list document-authors-list"
-                          role="list"
-                        >
-                          <ListItem
-                            key="Author1"
-                          >
-                            <div
-                              className="item"
-                              onClick={[Function]}
-                              role="listitem"
-                            >
-                              Author1
-                              ; 
-                            </div>
-                          </ListItem>
-                          <ListItem
-                            key="Author2"
-                          >
-                            <div
-                              className="item"
-                              onClick={[Function]}
-                              role="listitem"
-                            >
-                              Author2
-                            </div>
-                          </ListItem>
-                        </div>
-                      </List>
-                    </SeparatedList>
-                  </div>
-                </SeriesAuthors>
+                    }
+                  >
+                    <div>
+                      Author1; Author2
+                    </div>
+                  </span>
+                </Truncate>
               </div>
               <div>
                 Edition 
@@ -331,67 +294,30 @@ exports[`SeriesCard tests should render the SeriesCard 1`] = `
             <div
               className="meta"
             >
-              <div>
-                <SeriesAuthors
-                  authors={
-                    Array [
-                      "Author1",
-                      "Author2",
-                    ]
-                  }
+              <div
+                className="default-margin-bottom"
+              >
+                <Truncate
+                  lines={1}
+                  width={null}
                 >
-                  <div
-                    className="document-authors-list-wrapper"
-                  >
-                    <SeparatedList
-                      className="document-authors-list"
-                      itemProps={Object {}}
-                      items={
-                        Array [
-                          "Author1",
-                          "Author2",
-                        ]
+                  <span
+                    style={
+                      Object {
+                        "WebkitBoxOrient": "vertical",
+                        "WebkitLineClamp": 1,
+                        "display": "-webkit-box",
+                        "overflow": "hidden",
+                        "textOverflow": "ellipsis",
+                        "whiteSpace": "normal",
                       }
-                      prefix={null}
-                      separator="; "
-                      suffix={null}
-                    >
-                      <List
-                        className="document-authors-list"
-                        horizontal={true}
-                      >
-                        <div
-                          className="ui horizontal list document-authors-list"
-                          role="list"
-                        >
-                          <ListItem
-                            key="Author1"
-                          >
-                            <div
-                              className="item"
-                              onClick={[Function]}
-                              role="listitem"
-                            >
-                              Author1
-                              ; 
-                            </div>
-                          </ListItem>
-                          <ListItem
-                            key="Author2"
-                          >
-                            <div
-                              className="item"
-                              onClick={[Function]}
-                              role="listitem"
-                            >
-                              Author2
-                            </div>
-                          </ListItem>
-                        </div>
-                      </List>
-                    </SeparatedList>
-                  </div>
-                </SeriesAuthors>
+                    }
+                  >
+                    <div>
+                      Author1; Author2
+                    </div>
+                  </span>
+                </Truncate>
               </div>
               <div>
                 Edition 

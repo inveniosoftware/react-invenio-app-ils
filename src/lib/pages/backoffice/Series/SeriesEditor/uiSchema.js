@@ -41,6 +41,13 @@ export const uiSchema = (title) => {
             vocabularyType: invenioConfig.VOCABULARIES.series.identifier.scheme,
           },
         },
+        material: {
+          'ui:widget': 'vocabulary',
+          'ui:options': {
+            vocabularyType:
+              invenioConfig.VOCABULARIES.series.ser_identifiers_materials,
+          },
+        },
         'custom:grid': [
           {
             material: 4,
@@ -73,10 +80,11 @@ export const uiSchema = (title) => {
           'ui:widget': 'textarea',
         },
         access_restriction: {
-          'ui:options': {
-            orderable: false,
-            semantic: {
-              wrapItem: true,
+          items: {
+            'ui:widget': 'vocabulary',
+            'ui:options': {
+              vocabularyType:
+                invenioConfig.VOCABULARIES.series.access_restrictions,
             },
           },
         },

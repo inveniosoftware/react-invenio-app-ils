@@ -900,6 +900,8 @@ export const RECORDS_CONFIG = {
       identifier: {
         scheme: 'series_identifier_scheme',
       },
+      access_restrictions: 'series_url_access_restriction',
+      ser_identifiers_materials: 'doc_identifiers_materials',
     },
     illBorrowingRequests: {
       ill_item_type: 'ill_item_type',

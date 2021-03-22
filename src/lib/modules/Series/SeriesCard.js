@@ -1,12 +1,13 @@
 import { goTo } from '@history';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
-import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Card, Label } from 'semantic-ui-react';
+import { Truncate } from '@components/Truncate';
+import { invenioConfig } from '@config';
 
 export class SeriesCard extends Component {
   renderImage = () => {
@@ -34,6 +35,11 @@ export class SeriesCard extends Component {
 
   render() {
     const { data } = this.props;
+    const authors = data.metadata.authors
+      ? data.metadata.authors
+          .slice(0, invenioConfig.LITERATURE.authors.maxDisplay)
+          .join('; ')
+      : null;
     return (
       <Card
         link
@@ -51,8 +57,10 @@ export class SeriesCard extends Component {
             <LiteratureTitle title={data.metadata.title} />
           </Card.Header>
           <Card.Meta>
-            <div>
-              <SeriesAuthors authors={data.metadata.authors} />
+            <div className="default-margin-bottom">
+              <Truncate lines={1}>
+                <div>{authors}</div>
+              </Truncate>
             </div>
             {data.metadata.edition && (
               <div>Edition {data.metadata.edition}</div>
