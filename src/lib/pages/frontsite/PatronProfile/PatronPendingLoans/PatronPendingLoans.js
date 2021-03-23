@@ -4,6 +4,7 @@ import { Error } from '@components/Error';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
 import _has from 'lodash/has';
+import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { invenioConfig } from '@config';
@@ -166,7 +167,8 @@ ButtonCancelRequest.propTypes = {
 
 class LoansListEntry extends Component {
   renderRequestDetails = (startDate, endDate, delivery) => {
-    const deliveryMethod = invenioConfig.CIRCULATION.deliveryMethods[delivery];
+    const deliveryMethod =
+      delivery && invenioConfig.CIRCULATION.deliveryMethods[delivery];
     return (
       <div className="pt-default">
         <Label basic>
@@ -181,12 +183,14 @@ class LoansListEntry extends Component {
             {DateTime.fromISO(endDate).toLocaleString()}
           </Label.Detail>
         </Label>
-        <Label basic>
-          {deliveryMethod.iconClass && (
-            <Icon className={deliveryMethod.iconClass} />
-          )}
-          <Label.Detail>{deliveryMethod.text}</Label.Detail>
-        </Label>
+        {delivery && (
+          <Label basic>
+            {deliveryMethod.iconClass && (
+              <Icon className={deliveryMethod.iconClass} />
+            )}
+            <Label.Detail>{deliveryMethod.text}</Label.Detail>
+          </Label>
+        )}
       </div>
     );
   };
@@ -200,7 +204,7 @@ class LoansListEntry extends Component {
           itemMetaCmp: this.renderRequestDetails(
             loan.metadata.request_start_date,
             loan.metadata.request_expire_date,
-            loan.metadata.delivery.method
+            _get(loan.metadata.delivery, 'method')
           ),
           itemExtraCmp: _has(loan, 'availableActions.cancel') && (
             <ButtonCancelRequest

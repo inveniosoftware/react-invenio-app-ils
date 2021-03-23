@@ -2,6 +2,7 @@ import { DocumentIcon, ItemIcon, LoanIcon } from '@components/backoffice/icons';
 import LoanLinkToItem from '@modules/Loan/backoffice/LoanLinkToItem';
 
 import { BackOfficeRoutes } from '@routes/urls';
+import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -16,13 +17,11 @@ export class LoanListEntry extends Component {
   render() {
     const { record: loan, target } = this.props;
     const patronPid = loan.metadata.patron_pid;
+    const delivery = _get(loan.metadata.delivery, 'method');
     const deliveryMethod =
-      loan.metadata.delivery && loan.metadata.state === 'PENDING'
-        ? invenioConfig.CIRCULATION.deliveryMethods[
-            loan.metadata.delivery.method
-          ]
+      delivery && loan.metadata.state === 'PENDING'
+        ? invenioConfig.CIRCULATION.deliveryMethods[delivery]
         : '';
-
     return (
       <Item>
         <Item.Content>
@@ -82,7 +81,7 @@ export class LoanListEntry extends Component {
             <Grid.Column width={2} textAlign="center">
               {deliveryMethod && (
                 <>
-                  {loan.metadata.delivery.method}{' '}
+                  {delivery}{' '}
                   {deliveryMethod.iconClass && (
                     <Icon className={deliveryMethod.iconClass} />
                   )}

@@ -18,6 +18,7 @@ import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Grid, Icon, Label } from 'semantic-ui-react';
+import _get from 'lodash/get';
 
 export class LoanMetadata extends Component {
   getPickupLocation(metadata) {
@@ -28,10 +29,11 @@ export class LoanMetadata extends Component {
     ) : null;
   }
 
-  getDelivery(delivery) {
-    const deliveryMethod =
-      invenioConfig.CIRCULATION.deliveryMethods[delivery.method];
-    if (delivery && 'method' in delivery) {
+  getDelivery(_delivery) {
+    const delivery = _get(_delivery, 'method');
+    if (delivery) {
+      const deliveryMethod =
+        invenioConfig.CIRCULATION.deliveryMethods[delivery];
       return (
         <>
           {deliveryMethod.text}{' '}
