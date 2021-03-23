@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.33 (released 2021-03-23)
+
+- fix authors display in searches
+- bugfix delivery method
+
 Version 1.0.0-alpha.32 (released 2021-03-18)
 
 - remove electronic volumes field
