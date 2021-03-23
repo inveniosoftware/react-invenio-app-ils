@@ -44,7 +44,7 @@ export default class PatronPastLoans extends Component {
 
   viewDocument = ({ row }) => {
     return (
-      <DocumentDetailsLink pidValue={row.pid}>
+      <DocumentDetailsLink pidValue={row.metadata.document_pid}>
         <LiteratureTitle
           title={row.metadata.document.title}
           edition={row.metadata.document.edition}
@@ -56,7 +56,7 @@ export default class PatronPastLoans extends Component {
 
   viewItem = ({ row }) => {
     return (
-      <ItemDetailsLink itemPid={row.metadata.pid}>
+      <ItemDetailsLink itemPid={row.metadata.item_pid.value}>
         {row.metadata.item.barcode}
       </ItemDetailsLink>
     );
