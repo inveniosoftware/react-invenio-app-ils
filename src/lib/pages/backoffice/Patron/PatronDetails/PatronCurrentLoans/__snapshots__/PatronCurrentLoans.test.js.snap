@@ -687,14 +687,14 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                                   data-test="2-loan1"
                                 >
                                   <Link
-                                    to="/backoffice/items/123456789-54"
+                                    to="/backoffice/items/itemid-56"
                                   >
                                     <LinkAnchor
-                                      href="/backoffice/items/123456789-54"
+                                      href="/backoffice/items/itemid-56"
                                       navigate={[Function]}
                                     >
                                       <a
-                                        href="/backoffice/items/123456789-54"
+                                        href="/backoffice/items/itemid-56"
                                         onClick={[Function]}
                                       >
                                         123456789-54
@@ -870,14 +870,14 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                                   data-test="2-loan2"
                                 >
                                   <Link
-                                    to="/backoffice/items/123456789-54"
+                                    to="/backoffice/items/itemid-57"
                                   >
                                     <LinkAnchor
-                                      href="/backoffice/items/123456789-54"
+                                      href="/backoffice/items/itemid-57"
                                       navigate={[Function]}
                                     >
                                       <a
-                                        href="/backoffice/items/123456789-54"
+                                        href="/backoffice/items/itemid-57"
                                         onClick={[Function]}
                                       >
                                         123456789-54
@@ -1688,14 +1688,14 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                                   data-test="2-loan1"
                                 >
                                   <Link
-                                    to="/backoffice/items/123456789-54"
+                                    to="/backoffice/items/itemid-56"
                                   >
                                     <LinkAnchor
-                                      href="/backoffice/items/123456789-54"
+                                      href="/backoffice/items/itemid-56"
                                       navigate={[Function]}
                                     >
                                       <a
-                                        href="/backoffice/items/123456789-54"
+                                        href="/backoffice/items/itemid-56"
                                         onClick={[Function]}
                                       >
                                         123456789-54

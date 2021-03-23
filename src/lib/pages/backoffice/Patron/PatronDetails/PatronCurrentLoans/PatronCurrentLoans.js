@@ -72,7 +72,9 @@ export default class PatronCurrentLoans extends Component {
       {
         title: 'Item barcode',
         formatter: ({ row }) => (
-          <Link to={BackOfficeRoutes.itemDetailsFor(row.metadata.item.barcode)}>
+          <Link
+            to={BackOfficeRoutes.itemDetailsFor(row.metadata.item_pid.value)}
+          >
             {row.metadata.item.barcode}
           </Link>
         ),
