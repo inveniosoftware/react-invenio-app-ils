@@ -31,8 +31,8 @@ export class DocumentEItems extends Component {
           <DocumentEItemUrls eitems={eitems} />
         ) : (
           <>
-            No e-resources currently available.{' '}
-            <Link to={this.onClickEItemRequestLink()}>Request the e-book</Link>
+            No e-resources currently available. <br />
+            <Link to={this.onClickEItemRequestLink()}>Request the e-book.</Link>
           </>
         )}
         <Divider horizontal>Or</Divider>

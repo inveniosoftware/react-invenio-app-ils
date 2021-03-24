@@ -12,8 +12,9 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Item, Label, List } from 'semantic-ui-react';
+import Overridable from 'react-overridable';
 
-export default class DocumentListEntry extends Component {
+class DocumentListEntry extends Component {
   constructor(props) {
     super(props);
     this.metadata = props.metadata;
@@ -108,6 +109,10 @@ export default class DocumentListEntry extends Component {
           >
             <LiteratureTitle title={this.metadata.title} />
           </Item.Header>
+          <Overridable
+            id="DocumentListEntry.BeforeAuthors"
+            metadata={this.metadata}
+          />
           <Item.Meta>
             <DocumentAuthors
               authors={this.metadata.authors}
@@ -166,3 +171,5 @@ DocumentListEntry.propTypes = {
 DocumentListEntry.defaultProps = {
   volume: null,
 };
+
+export default Overridable.component('DocumentListEntry', DocumentListEntry);

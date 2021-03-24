@@ -3,5 +3,6 @@
 exports[`DocumentsSearch tests should load the DocumentsSearch component 1`] = `
 <LiteratureSearch
   layoutToggle={[MockFunction]}
+  overriddenSearchAppCmps={null}
 />
 `;
