@@ -71,10 +71,10 @@ class DocumentCard extends Component {
                   <div>{authors}</div>
                 </Truncate>
               </div>
+              <Overridable id="DocumentCard.AfterAuthors" metadata={metadata} />
               <div>
                 {metadata.publication_year}
-                <br />
-                {metadata.edition && <>Edition {metadata.edition}</>}
+                {metadata.edition && <> - Edition {metadata.edition}</>}
               </div>
             </Card.Meta>
           </Card.Content>

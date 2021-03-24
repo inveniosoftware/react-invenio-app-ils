@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { invenioConfig } from '@config';
 import { Icon, List } from 'semantic-ui-react';
+import { toShortDate } from '@api/date';
+import { DateTime } from 'luxon';
 
 export class LoanDates extends Component {
   render() {
@@ -9,16 +11,19 @@ export class LoanDates extends Component {
     const isRequest = invenioConfig.CIRCULATION.loanRequestStates.includes(
       loan.metadata.state
     );
+
     return isRequest ? (
       <>
         <List.Content floated="right">
-          {loan.metadata.request_start_date}
+          {loan.metadata.request_start_date &&
+            toShortDate(DateTime.fromISO(loan.metadata.request_start_date))}
         </List.Content>
         <List.Content>
           <label> Requested on </label>
         </List.Content>
         <List.Content floated="right">
-          {loan.metadata.request_expire_date}
+          {loan.metadata.request_expire_date &&
+            toShortDate(DateTime.fromISO(loan.metadata.request_expire_date))}
         </List.Content>
         <List.Content>
           <label> Expires on </label>
@@ -32,7 +37,8 @@ export class LoanDates extends Component {
         </List.Content>
         <List.Content floated="right">
           {loan.metadata.is_overdue && <Icon name="warning" />}
-          {loan.metadata.end_date}
+          {loan.metadata.end_date &&
+            toShortDate(DateTime.fromISO(loan.metadata.end_date))}
         </List.Content>
         <List.Content>
           <label> End date </label>

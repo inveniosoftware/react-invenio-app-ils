@@ -25,6 +25,7 @@ export {
 } from '@config';
 export { DocumentCardGroup } from '@modules/Document/DocumentCardGroup';
 export { DocumentRequestForm } from '@pages/frontsite/DocumentRequests';
+export { default as LiteratureSearch } from '@pages/frontsite/Literature/LiteratureSearch/LiteratureSearch';
 export { Headline } from '@pages/frontsite/Home/Headline';
 export { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
 export { http } from '@api/base';

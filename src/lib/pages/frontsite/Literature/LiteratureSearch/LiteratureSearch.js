@@ -28,6 +28,7 @@ import { Container, Grid, Header, Loader } from 'semantic-ui-react';
 import { SearchBarOverridesMap } from '@components/SearchBar/SearchBarOverrides';
 import LiteratureSearchMobile from './LiteratureSearchMobile';
 import SearchMessage from './SearchMessage/SearchMessage';
+import PropTypes from 'prop-types';
 
 class LiteratureSearch extends Component {
   modelName = 'LITERATURE';
@@ -53,72 +54,82 @@ class LiteratureSearch extends Component {
     const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
       this.modelName
     );
+    const { overriddenSearchAppCmps } = this.props;
+
     const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
-      <OverridableContext.Provider
-        value={{
-          ...SearchControlsOverridesMap,
-          ...LiteratureSearchOverridesMap,
-          ...SearchBarOverridesMap,
-        }}
-      >
-        <ReactSearchKit
-          searchApi={this.searchApi}
-          history={history}
-          urlHandlerApi={urlHandler}
-          overridableId="LiteratureSearchOverridable"
-          initialQueryState={initialState}
-          defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
+      <Overridable id="LiteratureSearch.searchAppCmps" {...this.props}>
+        <OverridableContext.Provider
+          value={{
+            ...SearchControlsOverridesMap,
+            ...LiteratureSearchOverridesMap,
+            ...SearchBarOverridesMap,
+            ...overriddenSearchAppCmps,
+          }}
         >
-          <Overridable id="LiteratureSearch.layout">
-            <>
-              <Container fluid className="literature-search-container">
-                <Container>
-                  <SearchBar
-                    placeholder={invenioConfig.APP.HOME_SEARCH_BAR_PLACEHOLDER}
-                    {...invenioConfig.APP.SEARCH_BAR_PROPS}
-                    responsiveAutofocus
-                  />
+          <ReactSearchKit
+            searchApi={this.searchApi}
+            history={history}
+            urlHandlerApi={urlHandler}
+            overridableId="LiteratureSearchOverridable"
+            initialQueryState={initialState}
+            defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
+          >
+            <Overridable id="LiteratureSearch.layout">
+              <>
+                <Container fluid className="literature-search-container">
+                  <Container>
+                    <SearchBar
+                      placeholder={
+                        invenioConfig.APP.HOME_SEARCH_BAR_PLACEHOLDER
+                      }
+                      {...invenioConfig.APP.SEARCH_BAR_PROPS}
+                      responsiveAutofocus
+                    />
+                  </Container>
                 </Container>
-              </Container>
-              <Media greaterThanOrEqual="computer">
-                <Container fluid className="fs-search-body">
-                  <Grid
-                    columns={2}
-                    stackable
-                    relaxed
-                    className="grid-documents-search"
-                  >
-                    <ResultsLoader renderElement={this.renderLoader}>
-                      <Grid.Column width={3} className="search-aggregations">
-                        <Header content="Filter by" />
-                        <SearchAggregationsCards modelName={this.modelName} />
-                      </Grid.Column>
-                      <Grid.Column width={13} className="search-results">
-                        <EmptyResults />
-                        <Error />
-                        <SearchControls modelName={this.modelName} />
-                        <ResultsMultiLayout />
-                        <Container fluid className="search-results-footer">
-                          <SearchFooter />
-                          <Container className="search-results-message">
-                            <SearchMessage />
+                <Media greaterThanOrEqual="computer">
+                  <Container fluid className="fs-search-body">
+                    <Grid
+                      columns={2}
+                      stackable
+                      relaxed
+                      className="grid-documents-search"
+                    >
+                      <ResultsLoader renderElement={this.renderLoader}>
+                        <Grid.Column width={3} className="search-aggregations">
+                          <Header content="Filter by" />
+                          <SearchAggregationsCards modelName={this.modelName} />
+                        </Grid.Column>
+                        <Grid.Column width={13} className="search-results">
+                          <EmptyResults />
+                          <Error />
+                          <SearchControls modelName={this.modelName} />
+                          <ResultsMultiLayout />
+                          <Container fluid className="search-results-footer">
+                            <SearchFooter />
+                            <Container className="search-results-message">
+                              <SearchMessage />
+                            </Container>
                           </Container>
-                        </Container>
-                      </Grid.Column>
-                    </ResultsLoader>
-                  </Grid>
-                </Container>
-              </Media>
-              <Media lessThan="computer">
-                <LiteratureSearchMobile />
-              </Media>
-            </>
-          </Overridable>
-        </ReactSearchKit>
-      </OverridableContext.Provider>
+                        </Grid.Column>
+                      </ResultsLoader>
+                    </Grid>
+                  </Container>
+                </Media>
+                <Media lessThan="computer">
+                  <LiteratureSearchMobile />
+                </Media>
+              </>
+            </Overridable>
+          </ReactSearchKit>
+        </OverridableContext.Provider>
+      </Overridable>
     );
   }
 }
+
+LiteratureSearch.propTypes = { overriddenSearchAppCmps: PropTypes.object };
+LiteratureSearch.defaultProps = { overriddenSearchAppCmps: null };
 
 export default Overridable.component('LiteratureSearch', LiteratureSearch);
