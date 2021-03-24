@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Card } from 'semantic-ui-react';
 import { DatePicker } from '@components/DatePicker';
 import { withState } from 'react-searchkit';
-import _isEmpty from 'lodash/isEmpty';
 
 export class _SearchDateRange extends Component {
   getCurrentDates() {
@@ -20,17 +19,10 @@ export class _SearchDateRange extends Component {
     return [fromDate, toDate];
   }
 
-  /** react-searchkit allows having the same filter multiple times with
-   * different values. For this range dates filters, we want each filter to
-   * appear only one time with one value (e.g. loan_start_date = `<date>`)
-   */
   onDateChange = (newFilter) => {
     const { currentQueryState, updateQueryState } = this.props;
-    const [name, value] = newFilter;
-    const filters = currentQueryState.filters.filter(
-      (filter) => filter[0] === name
-    );
-    if (!_isEmpty(value)) filters.push(newFilter);
+    const filters = currentQueryState.filters;
+    filters.push(newFilter);
     return updateQueryState({ filters: filters });
   };
 
