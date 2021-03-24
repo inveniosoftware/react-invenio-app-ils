@@ -1,5 +1,5 @@
-import { borrowingRequestApi } from '@api/ill';
 import { orderApi } from '@api/acquisition';
+import { borrowingRequestApi } from '@api/ill';
 import { EditButton } from '@components/backoffice/buttons/EditButton';
 import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
 import { DeleteButton } from '@components/backoffice/DeleteRecordModal/DeleteButton';
@@ -9,7 +9,7 @@ import { CopyButton } from '@components/CopyButton';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import { goTo } from '@history';
-import { ILLRoutes, ProviderRoutes, AcquisitionRoutes } from '@routes/urls';
+import { AcquisitionRoutes, ILLRoutes, ProviderRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -19,9 +19,9 @@ import {
   Divider,
   Grid,
   Icon,
+  List,
   Ref,
   Sticky,
-  List,
 } from 'semantic-ui-react';
 import { ProviderInformation } from './ProviderInformation';
 
@@ -129,13 +129,16 @@ class ProviderHeader extends React.Component {
     return (
       <DetailsHeader
         title={data.metadata.name}
+        subTitle={data.metadata.type}
         pid={data.metadata.pid}
         icon={<ProviderIcon />}
-        recordType="Provider"
-      >
-        <label>Provider</label> #{data.metadata.pid}
-        <CopyButton text={data.metadata.pid} />
-      </DetailsHeader>
+        recordInfo={
+          <>
+            <label>Provider</label> #{data.metadata.pid}
+            <CopyButton text={data.metadata.pid} />
+          </>
+        }
+      />
     );
   }
 }

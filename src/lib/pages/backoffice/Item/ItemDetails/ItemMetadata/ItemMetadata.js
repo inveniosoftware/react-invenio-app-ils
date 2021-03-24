@@ -13,7 +13,7 @@ export default class ItemMetadata extends Component {
   render() {
     const { itemDetails } = this.props;
 
-    let leftMetadata = [
+    const leftMetadata = [
       {
         name: 'Document',
         value: (
@@ -58,7 +58,7 @@ export default class ItemMetadata extends Component {
       },
     ];
 
-    let rightMetadata = [
+    const rightMetadata = [
       {
         name: 'Status',
         value: getDisplayVal('ITEMS.statuses', itemDetails.metadata.status),
@@ -97,6 +97,18 @@ export default class ItemMetadata extends Component {
         ),
       },
     ];
+
+    itemDetails.metadata.legacy_id &&
+      rightMetadata.push({
+        name: 'Legacy ID',
+        value: itemDetails.metadata.legacy_id,
+      });
+
+    itemDetails.metadata.legacy_library_id &&
+      rightMetadata.push({
+        name: 'Legacy Library ID',
+        value: itemDetails.metadata.legacy_library_id,
+      });
 
     return (
       <>

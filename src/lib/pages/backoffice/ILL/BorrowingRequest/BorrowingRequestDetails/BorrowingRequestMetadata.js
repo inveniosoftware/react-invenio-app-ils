@@ -1,6 +1,6 @@
 import { formatPrice } from '@api/utils';
 import { CreatedBy, UpdatedBy } from '@components/backoffice/ChangedBy';
-import { ProviderIcon, PatronIcon } from '@components/backoffice/icons';
+import { PatronIcon, ProviderIcon } from '@components/backoffice/icons';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { invenioConfig } from '@config';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
@@ -101,15 +101,17 @@ class Metadata extends React.Component {
           </Link>
         ),
       },
+      { name: 'Notes', value: brwReq.notes },
     ];
-    if (brwReq.patron_pid > 0) {
-      leftTable[1].value = <>{brwReq.patron.name}</>;
-    }
+
     const rightTable = [
       { name: 'Created by', value: <CreatedBy metadata={brwReq} /> },
       { name: 'Updated by', value: <UpdatedBy metadata={brwReq} /> },
-      { name: 'Notes', value: brwReq.notes },
     ];
+
+    brwReq.legacy_id &&
+      rightTable.push({ name: 'Legacy ID', value: brwReq.legacy_id });
+
     return (
       <Grid columns={2}>
         <Grid.Row>

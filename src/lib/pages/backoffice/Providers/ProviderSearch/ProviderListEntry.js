@@ -1,11 +1,11 @@
+import { orderApi } from '@api/acquisition';
+import { borrowingRequestApi } from '@api/ill';
+import { ProviderIcon } from '@components/backoffice/icons';
+import { AcquisitionRoutes, ILLRoutes, ProviderRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Item, List, Icon } from 'semantic-ui-react';
-import { ProviderIcon } from '@components/backoffice/icons';
-import { ProviderRoutes, AcquisitionRoutes, ILLRoutes } from '@routes/urls';
-import { orderApi } from '@api/acquisition';
-import { borrowingRequestApi } from '@api/ill';
+import { Grid, Icon, Item, List } from 'semantic-ui-react';
 
 const ProviderListInfo = ({ providerMetadata }) => (
   <List verticalAlign="middle" className="document-circulation">
@@ -17,11 +17,6 @@ const ProviderListInfo = ({ providerMetadata }) => (
     <List.Item>
       <List.Content>
         phone <strong>{providerMetadata.phone}</strong>
-      </List.Content>
-    </List.Item>
-    <List.Item>
-      <List.Content>
-        type <strong>{providerMetadata.type}</strong>
       </List.Content>
     </List.Item>
   </List>
@@ -122,7 +117,9 @@ export default class ProviderListEntry extends Component {
             <ProviderIcon />
             {providerMetadata.name}
           </Item.Header>
-          <Item.Meta>Address:</Item.Meta>
+          <Item.Meta>
+            Type: <strong>{providerMetadata.type}</strong>
+          </Item.Meta>
           <Grid highlight={3}>
             <Grid.Column computer={6} largeScreen={6}>
               {this.renderAddress()}

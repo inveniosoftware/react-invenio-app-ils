@@ -23,7 +23,6 @@ export const schema = () => {
               },
               title: 'Restriction types',
               type: 'array',
-              uniqueItems: true,
             },
             open_access: {
               type: 'boolean',
@@ -77,7 +76,6 @@ export const schema = () => {
         },
         title: 'Authors',
         type: 'array',
-        uniqueItems: true,
       },
       edition: {
         title: 'Edition',
@@ -151,7 +149,6 @@ export const schema = () => {
         },
         type: 'array',
         title: 'Languages',
-        uniqueItems: true,
       },
       mode_of_issuance: {
         title: 'Mode of issuance',
@@ -190,7 +187,6 @@ export const schema = () => {
         },
         title: 'Physical volumes',
         type: 'array',
-        uniqueItems: true,
       },
       tags: {
         items: {
@@ -199,7 +195,6 @@ export const schema = () => {
         },
         title: 'Tags',
         type: 'array',
-        uniqueItems: true,
       },
       title: {
         title: 'Title',

@@ -2,6 +2,7 @@ import { RJSFDocumentRequestProviderField } from '@forms/rjsf/fields/RJSFDocumen
 import { RJSFLabelField } from '@forms/rjsf/fields/RJSFLabelField';
 import { RJSFTitleField } from '@forms/rjsf/fields/RJSFTitleField';
 import {
+  ArrayFieldTemplateWithWrapper,
   FieldTemplateWithWrapper,
   ObjectFieldTemplateWrapperGrid,
 } from '@forms/rjsf/RJSFCustomTemplates';
@@ -124,7 +125,7 @@ export class RJSForm extends Component {
         extraErrors={errors}
         ObjectFieldTemplate={ObjectFieldTemplateWrapperGrid}
         FieldTemplate={FieldTemplateWithWrapper}
-        // ArrayFieldTemplate={ArrayFieldTemplateWithWrapper}
+        ArrayFieldTemplate={ArrayFieldTemplateWithWrapper}
         disabled={isLoading}
         onSubmit={this.onSubmit}
       >

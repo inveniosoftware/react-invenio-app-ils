@@ -1,5 +1,9 @@
 import { RJSFormWrapper } from '@forms/rjsf/RJSFormWrapper';
-import { FieldTemplate, ObjectFieldTemplate } from '@rjsf/semantic-ui';
+import {
+  ArrayFieldTemplate,
+  FieldTemplate,
+  ObjectFieldTemplate,
+} from '@rjsf/semantic-ui';
 import _find from 'lodash/find';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -222,25 +226,24 @@ ObjectFieldTemplateWrapperGrid.propTypes = {
 ObjectFieldTemplateWrapperGrid.defaultProps = {};
 
 /**
- * PUT THIS BACK WHEN RJSF 2.4.3 is released
  * Component to allow wrapping the original RJSF ArrayFieldTemplate
  * @param {*} props
  */
-// export function ArrayFieldTemplateWithWrapper(props) {
-//   const { children, uiSchema } = props;
+export function ArrayFieldTemplateWithWrapper(props) {
+  const { children, uiSchema } = props;
 
-//   return (
-//     <Wrapper uiSchema={uiSchema}>
-//       <ArrayFieldTemplate {...props}>{children}</ArrayFieldTemplate>
-//     </Wrapper>
-//   );
-// }
+  return (
+    <Wrapper uiSchema={uiSchema}>
+      <ArrayFieldTemplate {...props}>{children}</ArrayFieldTemplate>
+    </Wrapper>
+  );
+}
 
-// ArrayFieldTemplateWithWrapper.propTypes = {
-//   uiSchema: PropTypes.object.isRequired,
-//   children: PropTypes.node,
-// };
+ArrayFieldTemplateWithWrapper.propTypes = {
+  uiSchema: PropTypes.object.isRequired,
+  children: PropTypes.node,
+};
 
-// ArrayFieldTemplateWithWrapper.defaultProps = {
-//   children: null,
-// };
+ArrayFieldTemplateWithWrapper.defaultProps = {
+  children: null,
+};

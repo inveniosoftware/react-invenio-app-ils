@@ -22,11 +22,16 @@ export class OrderInformation extends React.Component {
       { name: 'Created by', value: <CreatedBy metadata={order} /> },
       { name: 'Updated by', value: <UpdatedBy metadata={order} /> },
     ];
+
     order.status === 'CANCELLED' &&
       rightTable.splice(1, 0, {
         name: 'Cancel reason',
         value: order.cancel_reason,
       });
+
+    order.legacy_id &&
+      rightTable.push({ name: 'Legacy ID', value: order.legacy_id });
+
     return (
       <Grid columns={2} id="order-info">
         <Grid.Row>

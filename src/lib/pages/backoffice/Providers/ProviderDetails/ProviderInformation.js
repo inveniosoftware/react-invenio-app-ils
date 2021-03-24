@@ -23,13 +23,20 @@ export class ProviderInformation extends React.Component {
           </span>
         ),
       },
-      { name: 'Notes', value: provider.notes },
+      { name: 'Type', value: provider.type },
     ];
     const rightTable = [
       { name: 'Phone', value: provider.phone },
       { name: 'Address', value: provider.address },
-      { name: 'Type', value: provider.type },
+      { name: 'Notes', value: provider.notes },
     ];
+
+    provider.legacy_ids &&
+      rightTable.push({
+        name: 'Legacy IDs',
+        value: provider.legacy_ids.join(', '),
+      });
+
     return (
       <Grid columns={2} id="provider-info">
         <Grid.Row>

@@ -4,8 +4,8 @@ import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearch
 import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 import {
   invenioConfig,
-  setReactSearchKitInitialQueryState,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
+  setReactSearchKitInitialQueryState,
   setReactSearchKitUrlHandler,
 } from '@config';
 import history from '@history';
@@ -111,7 +111,7 @@ export class BorrowingRequestSearch extends Component {
                         <EmptyResults
                           extraContent={
                             <NewButton
-                              text="Create borrowing request"
+                              text="Create new request"
                               to={ILLRoutes.borrowingRequestCreate}
                             />
                           }

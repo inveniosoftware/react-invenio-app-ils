@@ -155,7 +155,6 @@ export const schema = () => {
         },
         title: 'Funds',
         type: 'array',
-        uniqueItems: true,
       },
       grand_total: {
         $ref: '#/definitions/price',

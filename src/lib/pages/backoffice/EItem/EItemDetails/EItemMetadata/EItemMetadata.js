@@ -51,6 +51,12 @@ export default class EItemMetadata extends Component {
       },
     ];
 
+    eitemDetails.metadata.legacy_id &&
+      metadata.push({
+        name: 'Legacy ID',
+        value: eitemDetails.metadata.legacy_id,
+      });
+
     return (
       <>
         <Header as="h3" attached="top">
