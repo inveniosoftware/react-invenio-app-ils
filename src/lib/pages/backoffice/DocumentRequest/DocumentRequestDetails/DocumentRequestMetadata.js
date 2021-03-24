@@ -29,7 +29,7 @@ export class DocumentRequestMetadata extends Component {
 
   userInputRightColumn() {
     const { docReq } = this.props;
-    return [
+    const rows = [
       { name: 'Volume', value: docReq.volume || '-' },
       { name: 'Journal Title', value: docReq.journal_title || '-' },
       { name: 'Page', value: docReq.page || '-' },
@@ -42,6 +42,11 @@ export class DocumentRequestMetadata extends Component {
       { name: 'Payment info', value: docReq.payment_info || '-' },
       { name: 'User note', value: docReq.note || '-' },
     ];
+
+    docReq.legacy_id &&
+      rows.push({ name: 'Legacy ID', value: docReq.legacy_id });
+
+    return rows;
   }
 
   adminLeftColumn() {

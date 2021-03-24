@@ -56,7 +56,6 @@ export const schema = () => {
         },
         title: 'ISBNs',
         type: 'array',
-        uniqueItems: true,
       },
       medium: {
         enum: invenioConfig.ITEMS.mediums.map((status) => status.value),

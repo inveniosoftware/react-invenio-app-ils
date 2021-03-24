@@ -38,7 +38,6 @@ export const schema = () => {
         },
         title: 'Supplementary abstracts',
         type: 'array',
-        uniqueItems: true,
       },
       alternative_identifiers: {
         items: {
@@ -105,7 +104,6 @@ export const schema = () => {
               },
               title: 'Alternative names',
               type: 'array',
-              uniqueItems: true,
             },
             full_name: {
               title: 'Full name',
@@ -125,7 +123,6 @@ export const schema = () => {
               },
               title: 'Roles',
               type: 'array',
-              uniqueItems: true,
             },
             type: {
               title: 'Type',
@@ -319,7 +316,6 @@ export const schema = () => {
         },
         title: 'Languages',
         type: 'array',
-        uniqueItems: true,
       },
       licenses: {
         items: {
@@ -439,7 +435,6 @@ export const schema = () => {
         },
         title: 'Table of content',
         type: 'array',
-        uniqueItems: true,
       },
       tags: {
         items: {
@@ -448,7 +443,6 @@ export const schema = () => {
         },
         title: 'Tags',
         type: 'array',
-        uniqueItems: true,
       },
       title: {
         title: 'Title',
