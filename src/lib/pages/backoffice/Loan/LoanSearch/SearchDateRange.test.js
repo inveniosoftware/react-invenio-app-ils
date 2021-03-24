@@ -76,7 +76,9 @@ describe('SearchDateRange tests', () => {
       />
     );
     wrapper.instance().onDateChange(newFilter);
-    const expected = { filters: [newFilter] };
+    const expected = {
+      filters: mockCurrentQueryState.filters,
+    };
     const mockFn = wrapper.instance().props.updateQueryState;
     expect(mockFn).toBeCalledWith(expected);
     expect(mockFn).toHaveBeenCalledTimes(1);
