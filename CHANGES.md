@@ -1,5 +1,12 @@
 # Changes
 
+Version 1.0.0-alpha.34 (released 2021-03-29)
+
+- fix patron details links
+- add display of legacy ids in details page
+- add overridable cmp for standard number
+- fix date picker for loans and add date sorting
+
 Version 1.0.0-alpha.33 (released 2021-03-23)
 
 - fix authors display in searches
