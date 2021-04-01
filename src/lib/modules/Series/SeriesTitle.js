@@ -7,13 +7,13 @@ import { Header } from 'semantic-ui-react';
 export const SeriesTitle = ({
   title,
   subtitle,
-  modeOfIssuance,
+  TypeOrModeOfIssuance,
   truncate,
   truncateLines,
   truncateWidth,
 }) => (
   <>
-    {modeOfIssuance.toUpperCase()}
+    {TypeOrModeOfIssuance.toUpperCase()}
     <Header as="h2" className="document-title">
       {truncate ? (
         <Truncate lines={truncateLines} width={truncateWidth}>
@@ -30,7 +30,7 @@ export const SeriesTitle = ({
 SeriesTitle.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
-  modeOfIssuance: PropTypes.string.isRequired,
+  TypeOrModeOfIssuance: PropTypes.string.isRequired,
   truncate: PropTypes.bool,
   truncateLines: PropTypes.number,
   truncateWidth: PropTypes.number,

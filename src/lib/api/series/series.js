@@ -54,6 +54,7 @@ class QueryBuilder {
     this.withSeriesQuery = [];
     this.withStringQuery = [];
     this.withExcludeQuery = [];
+    this.withSeriesTypeQuery = [];
   }
 
   withModeOfIssuance(moi) {
@@ -87,6 +88,14 @@ class QueryBuilder {
     return this;
   }
 
+  withSeriesType(seriesType) {
+    if (!seriesType) {
+      throw TypeError('seriesType argument missing');
+    }
+    this.withSeriesTypeQuery.push(`series_type:"${seriesType}"`);
+    return this;
+  }
+
   exclude(series) {
     if (!series) {
       throw TypeError('series argument missing');
@@ -108,7 +117,12 @@ class QueryBuilder {
 
   qs() {
     return this.withModeOfIssuanceQuery
-      .concat(this.withSeriesQuery, this.withStringQuery, this.withExcludeQuery)
+      .concat(
+        this.withSeriesQuery,
+        this.withStringQuery,
+        this.withExcludeQuery,
+        this.withSeriesTypeQuery
+      )
       .join(' AND ');
   }
 }

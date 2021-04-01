@@ -188,6 +188,15 @@ export const schema = () => {
         title: 'Physical volumes',
         type: 'array',
       },
+      series_type: {
+        enum: ['', ...invenioConfig.SERIES.types.map((status) => status.value)],
+        enumNames: [
+          'None',
+          ...invenioConfig.SERIES.types.map((status) => status.text),
+        ],
+        title: 'Series type',
+        type: 'string',
+      },
       tags: {
         items: {
           title: 'Tag name',

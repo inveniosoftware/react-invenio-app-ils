@@ -47,7 +47,7 @@ export class SeriesHeader extends Component {
         title={
           <>
             <Header.Subheader>
-              {data.metadata.mode_of_issuance}
+              {data.metadata.series_type || data.metadata.mode_of_issuance}
             </Header.Subheader>
             <LiteratureTitle
               title={data.metadata.title}

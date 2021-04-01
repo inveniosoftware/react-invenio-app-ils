@@ -38,7 +38,9 @@ export class RelationListEntry extends Component {
         <div className="item-image-wrapper">
           {cover}
           <div className="document-type discrete tiny ellipsis">
-            {record.metadata.document_type || record.metadata.mode_of_issuance}
+            {record.metadata.document_type ||
+              record.metadata.series_type ||
+              record.metadata.mode_of_issuance}
           </div>
         </div>
         <Item.Content>

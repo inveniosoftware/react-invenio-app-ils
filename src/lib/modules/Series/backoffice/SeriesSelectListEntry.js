@@ -10,7 +10,8 @@ export default class SeriesSelectListEntry extends Component {
         className={disabled ? 'select-disabled' : ''}
       >
         <div className="price">
-          {series.metadata.mode_of_issuance} #{series.metadata.pid}
+          {series.metadata.series_type || series.metadata.mode_of_issuance} #
+          {series.metadata.pid}
         </div>
         <div className="title">{series.metadata.title}</div>
         <div className="description">{description}</div>

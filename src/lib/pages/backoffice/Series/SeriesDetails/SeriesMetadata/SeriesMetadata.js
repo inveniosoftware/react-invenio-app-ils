@@ -19,6 +19,10 @@ export default class SeriesMetadata extends Component {
         value: seriesDetails.metadata.mode_of_issuance,
       },
       {
+        name: 'Type',
+        value: seriesDetails.metadata.series_type,
+      },
+      {
         name: 'Languages',
         value: <SeriesLanguages languages={seriesDetails.metadata.languages} />,
       },

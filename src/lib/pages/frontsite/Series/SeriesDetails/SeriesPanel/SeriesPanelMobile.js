@@ -32,7 +32,10 @@ class SeriesPanelMobile extends Component {
               <ILSHeaderPlaceholder isLoading={isLoading} center="true">
                 <SeriesTitle
                   title={series.metadata.title}
-                  modeOfIssuance={series.metadata.mode_of_issuance}
+                  TypeOrModeOfIssuance={
+                    series.metadata.series_type ||
+                    series.metadata.mode_of_issuance
+                  }
                   truncate={false}
                 />
               </ILSHeaderPlaceholder>

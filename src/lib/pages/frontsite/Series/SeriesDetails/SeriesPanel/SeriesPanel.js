@@ -48,7 +48,10 @@ class SeriesPanel extends Component {
                                 .find(() => true)
                             : null
                         }
-                        modeOfIssuance={series.metadata.mode_of_issuance}
+                        TypeOrModeOfIssuance={
+                          series.metadata.series_type ||
+                          series.metadata.mode_of_issuance
+                        }
                         truncate={false}
                       />
                     )}
