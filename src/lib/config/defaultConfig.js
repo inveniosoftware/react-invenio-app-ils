@@ -4,6 +4,7 @@ import {
   DEFAULT_LANGUAGE,
   DOCUMENT_RELATIONS,
   DOCUMENT_TYPES,
+  SERIES_TYPES,
   ILL_BORROWING_REQUESTS_STATUSES,
   ITEM_MEDIUMS,
 } from './common';
@@ -234,11 +235,6 @@ export const RECORDS_CONFIG = {
           aggName: 'tag',
         },
         {
-          title: 'Languages',
-          field: 'languages',
-          aggName: 'language',
-        },
-        {
           title: 'Related content',
           field: 'relations',
           aggName: 'relation',
@@ -253,6 +249,11 @@ export const RECORDS_CONFIG = {
           title: 'Restricted',
           field: 'restricted',
           aggName: 'access',
+        },
+        {
+          title: 'Languages',
+          field: 'languages',
+          aggName: 'language',
         },
       ],
       sort: [
@@ -583,7 +584,7 @@ export const RECORDS_CONFIG = {
           title: 'Literature types',
           field: 'document_type',
           aggName: 'doctype',
-          labels: DOCUMENT_TYPES,
+          labels: DOCUMENT_TYPES + SERIES_TYPES,
         },
         {
           title: 'Availability',
@@ -596,14 +597,14 @@ export const RECORDS_CONFIG = {
           aggName: 'tag',
         },
         {
-          title: 'Languages',
-          field: 'languages',
-          aggName: 'language',
-        },
-        {
           title: 'Medium',
           field: 'stock.mediums',
           aggName: 'medium',
+        },
+        {
+          title: 'Languages',
+          field: 'languages',
+          aggName: 'language',
         },
       ],
       sort: [
@@ -763,23 +764,30 @@ export const RECORDS_CONFIG = {
       label: 'Other',
       fields: {},
     },
+    types: SERIES_TYPES,
     search: {
       filters: [
+        {
+          title: 'Series types',
+          field: 'series_type',
+          aggName: 'sertype',
+          labels: SERIES_TYPES,
+        },
         {
           title: 'Mode of Issuance',
           field: 'mode_of_issuance',
           aggName: 'moi',
         },
         {
-          title: 'Languages',
-          field: 'languages',
-          aggName: 'language',
-        },
-        {
           title: 'Related content',
           field: 'relations',
           aggName: 'relation',
           labels: DOCUMENT_RELATIONS,
+        },
+        {
+          title: 'Languages',
+          field: 'languages',
+          aggName: 'language',
         },
       ],
       sort: [

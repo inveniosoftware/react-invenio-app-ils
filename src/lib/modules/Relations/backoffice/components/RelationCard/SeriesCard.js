@@ -16,7 +16,7 @@ export default class SeriesCard extends Component {
       <Card centered className="bo-relation-card" data-test={data.metadata.pid}>
         <Card.Meta className="discrete">
           {actions}
-          {data.metadata.document_type || data.metadata.mode_of_issuance}
+          {data.metadata.series_type || data.metadata.mode_of_issuance}
         </Card.Meta>
         <SeriesIcon size="huge" color="grey" />
         <Card.Content>

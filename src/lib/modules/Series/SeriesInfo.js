@@ -30,6 +30,12 @@ export const SeriesInfo = ({ metadata }) => {
               />
             </Table.Cell>
           </Table.Row>
+          {metadata.series_type && (
+            <Table.Row>
+              <Table.Cell>Type</Table.Cell>
+              <Table.Cell>{metadata.series_type}</Table.Cell>
+            </Table.Row>
+          )}
           {metadata.publisher && (
             <Table.Row>
               <Table.Cell>Publisher</Table.Cell>

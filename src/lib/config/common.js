@@ -52,3 +52,8 @@ export const DOCUMENT_TYPES = [
   },
   { value: 'ARTICLE', text: 'Article', label: 'Article' },
 ];
+
+export const SERIES_TYPES = [
+  { value: 'SERIAL', text: 'Serial', label: 'Serial' },
+  { value: 'PERIODICAL', text: 'Periodical', label: 'Periodical' },
+];

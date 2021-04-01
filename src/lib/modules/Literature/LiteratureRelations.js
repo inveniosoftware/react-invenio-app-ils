@@ -79,7 +79,8 @@ export default class LiteratureRelations extends Component {
       <Link key={rel.pid_value} to={this.getLinkTo(rel)}>
         {rel.record_metadata.languages
           ? rel.record_metadata.languages.join(' ')
-          : rel.record_metadata.mode_of_issuance}
+          : rel.record_metadata.series_type ||
+            rel.record_metadata.mode_of_issuance}
       </Link>
     ));
 

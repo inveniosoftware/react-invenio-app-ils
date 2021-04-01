@@ -196,9 +196,10 @@ export const uiSchema = (title) => {
         alternative_titles: 8,
       },
       {
-        mode_of_issuance: 6,
+        mode_of_issuance: 4,
+        series_type: 4,
         edition: 3,
-        languages: 7,
+        languages: 5,
       },
       {
         abstract: 16,

@@ -101,7 +101,7 @@ export class SeriesListEntry extends Component {
         {this.renderImage(series.metadata)}
         <Item.Content>
           <Header disabled size="tiny" className="document-type">
-            {series.metadata.mode_of_issuance}
+            {series.metadata.series_type || series.metadata.mode_of_issuance}
           </Header>
           <br />
           <Item.Header
