@@ -95,10 +95,20 @@ export const uiSchema = (title) => {
             },
           },
         },
+        login_required: {
+          'ui:options': {
+            semantic: {
+              toggle: true,
+            },
+          },
+        },
         'custom:grid': [
           {
-            value: 10,
-            open_access: 6,
+            value: 16,
+          },
+          {
+            open_access: 8,
+            login_required: 8,
           },
           {
             description: 16,

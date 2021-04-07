@@ -33,6 +33,11 @@ export const schema = () => {
               title: 'Description',
               type: 'string',
             },
+            login_required: {
+              type: 'boolean',
+              title: 'user login required',
+              default: false,
+            },
             value: {
               format: 'uri',
               title: 'URL',

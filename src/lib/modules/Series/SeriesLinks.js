@@ -13,7 +13,7 @@ export const SeriesLinks = ({ accessUrls, urls }) => {
       <Divider horizontal>Access online</Divider>
       <LiteratureAccessUrls urls={accessUrls} />
       <Divider horizontal>Links</Divider>
-      <SeriesUrls url={urls} />
+      <SeriesUrls urls={urls} />
     </>
   );
 };

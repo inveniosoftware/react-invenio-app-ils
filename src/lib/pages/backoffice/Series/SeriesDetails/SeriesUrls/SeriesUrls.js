@@ -42,6 +42,7 @@ export class SeriesUrls extends Component {
         field: 'description',
       },
       { title: 'Open access', field: 'open_access' },
+      { title: 'Login required', field: 'login_required' },
       {
         title: 'Restrictions',
         field: 'access_restriction',
