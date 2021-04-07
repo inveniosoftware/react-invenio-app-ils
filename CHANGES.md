@@ -1,5 +1,11 @@
 # Changes
 
+Version 1.0.0-alpha.35 (released 2021-04-07)
+
+- add login_required flag to access urls of series
+- add volume display to multipart volumes
+- add series type field to series objects
+
 Version 1.0.0-alpha.34 (released 2021-03-29)
 
 - fix patron details links
