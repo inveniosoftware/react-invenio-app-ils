@@ -32,6 +32,5 @@ exports[`should render correctly 1`] = `
       "title": "The Gulf: The Making of An American Sea",
     }
   }
-  volume={null}
 />
 `;

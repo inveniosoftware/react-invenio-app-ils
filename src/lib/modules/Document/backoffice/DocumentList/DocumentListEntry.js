@@ -45,6 +45,11 @@ export default class DocumentListEntry extends Component {
       .map((rel) => `pid:${rel.pid_value}`)
       .join(' OR ');
 
+    const volume = _get(
+      document,
+      'metadata.relations.multipart_monograph[0].volume'
+    );
+
     return (
       <Item.Description>
         <List verticalAlign="middle" className="document-relations">
@@ -53,6 +58,7 @@ export default class DocumentListEntry extends Component {
               <List.Content floated="right">
                 <Link to={BackOfficeRoutes.seriesListWithQuery(partOfMMQuery)}>
                   <Icon name="paperclip" />
+                  {volume && <>vol. {volume}</>}
                 </Link>
               </List.Content>
               <List.Content>Part of multipart monograph</List.Content>

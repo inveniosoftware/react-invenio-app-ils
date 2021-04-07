@@ -99,6 +99,7 @@ exports[`SeriesCard tests should go to book details when clicking on a book 1`] 
                   truncate={true}
                   truncateLines={2}
                   truncateWidth={null}
+                  volume={null}
                 >
                   <Truncate
                     lines={2}
@@ -265,6 +266,7 @@ exports[`SeriesCard tests should render the SeriesCard 1`] = `
                   truncate={true}
                   truncateLines={2}
                   truncateWidth={null}
+                  volume={null}
                 >
                   <Truncate
                     lines={2}

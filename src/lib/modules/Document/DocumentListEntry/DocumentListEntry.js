@@ -11,8 +11,8 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Item, Label, List } from 'semantic-ui-react';
 import Overridable from 'react-overridable';
+import { Grid, Item, List } from 'semantic-ui-react';
 
 class DocumentListEntry extends Component {
   constructor(props) {
@@ -49,26 +49,32 @@ class DocumentListEntry extends Component {
   renderImprintInfo = () => {
     if (!_isEmpty(this.metadata.imprint)) {
       return (
-        <Grid.Column width={4}>
-          <List>
-            <List.Item>
-              <List.Content>
-                <span>Published by </span>
-                {this.metadata.imprint.publisher}
-              </List.Content>
-            </List.Item>
-            <List.Item>
-              {this.metadata.imprint.place}, {this.metadata.imprint.date}
-            </List.Item>
-          </List>
-        </Grid.Column>
+        <List>
+          <List.Item>
+            <List.Content>
+              <span>Published by </span>
+              {this.metadata.imprint.publisher}
+            </List.Content>
+          </List.Item>
+          <List.Item>
+            {this.metadata.imprint.place}, {this.metadata.imprint.date}
+          </List.Item>
+        </List>
       );
     }
     return null;
   };
 
+  renderVolume = () => {
+    const volume = _get(
+      this,
+      'metadata.relations.multipart_monograph[0].volume'
+    );
+
+    return volume ? <>Volume: {volume}</> : null;
+  };
+
   renderImage = () => {
-    const { volume } = this.props;
     const image = (
       <Item.Image
         floated="left"
@@ -82,18 +88,6 @@ class DocumentListEntry extends Component {
         />
       </Item.Image>
     );
-
-    if (volume) {
-      return (
-        <div className="search-result-image">
-          <Label floating color="black">
-            Volume {volume}
-          </Label>
-          {image}
-        </div>
-      );
-    }
-
     return image;
   };
 
@@ -125,12 +119,12 @@ class DocumentListEntry extends Component {
             <Truncate lines={2}>{this.metadata.abstract}</Truncate>
           </Item.Description>
           <Item.Meta>
-            <Grid>
-              <Grid.Column width={4}>
+            <Grid columns="equal">
+              <Grid.Column>
                 {this.renderCirculationInfo(this.metadata)}
               </Grid.Column>
-              {this.renderImprintInfo()}
-              <Grid.Column width={4}>
+              <Grid.Column>{this.renderImprintInfo()}</Grid.Column>
+              <Grid.Column>
                 <List>
                   {this.metadata.edition && (
                     <List.Item>
@@ -152,6 +146,7 @@ class DocumentListEntry extends Component {
                   )}
                 </List>
               </Grid.Column>
+              <Grid.Column>{this.renderVolume()}</Grid.Column>
             </Grid>
           </Item.Meta>
           <Item.Extra>
@@ -165,11 +160,6 @@ class DocumentListEntry extends Component {
 
 DocumentListEntry.propTypes = {
   metadata: PropTypes.object.isRequired,
-  volume: PropTypes.string,
-};
-
-DocumentListEntry.defaultProps = {
-  volume: null,
 };
 
 export default Overridable.component('DocumentListEntry', DocumentListEntry);

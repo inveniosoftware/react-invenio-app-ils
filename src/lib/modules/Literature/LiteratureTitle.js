@@ -4,17 +4,19 @@ import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import LiteratureEdition from './LiteratureEdition';
 
-class EditionYear extends Component {
+class EditionYearVolume extends Component {
   render() {
-    const { edition, publicationYear } = this.props;
+    const { edition, publicationYear, volume } = this.props;
+    let displayedElements = [];
+    if (publicationYear) {
+      displayedElements.push(publicationYear);
+    }
+    if (volume) {
+      displayedElements.push('vol. ' + volume);
+    }
+    displayedElements = displayedElements.join(' - ');
 
-    /* render both edition and year, or only edition, or only year or nothing
-     * title (edition - year)
-     * title (edition)
-     * title (year)
-     * title
-     */
-    return edition && publicationYear ? (
+    return edition && displayedElements ? (
       <>
         (<LiteratureEdition edition={edition} /> - {publicationYear})
       </>
@@ -22,20 +24,22 @@ class EditionYear extends Component {
       <>
         (<LiteratureEdition edition={edition} />)
       </>
-    ) : publicationYear ? (
-      `(${publicationYear})`
+    ) : displayedElements ? (
+      `(${displayedElements})`
     ) : null;
   }
 }
 
-EditionYear.propTypes = {
+EditionYearVolume.propTypes = {
   edition: PropTypes.string,
   publicationYear: PropTypes.string,
+  volume: PropTypes.string,
 };
 
-EditionYear.defaultProps = {
+EditionYearVolume.defaultProps = {
   edition: null,
   publicationYear: null,
+  volume: null,
 };
 
 class LiteratureTitle extends Component {
@@ -44,6 +48,7 @@ class LiteratureTitle extends Component {
       title,
       edition,
       publicationYear,
+      volume,
       truncate,
       truncateLines,
       truncateWidth,
@@ -51,8 +56,12 @@ class LiteratureTitle extends Component {
     const cmp = (
       <>
         {title}{' '}
-        {(edition || publicationYear) && (
-          <EditionYear edition={edition} publicationYear={publicationYear} />
+        {(edition || publicationYear || volume) && (
+          <EditionYearVolume
+            edition={edition}
+            publicationYear={publicationYear}
+            volume={volume}
+          />
         )}
       </>
     );
@@ -71,6 +80,7 @@ LiteratureTitle.propTypes = {
   title: PropTypes.string.isRequired,
   edition: PropTypes.string,
   publicationYear: PropTypes.string,
+  volume: PropTypes.string,
   truncate: PropTypes.bool,
   truncateLines: PropTypes.number,
   truncateWidth: PropTypes.string,
@@ -80,6 +90,7 @@ LiteratureTitle.defaultProps = {
   edition: null,
   publicationYear: null,
   truncate: true,
+  volume: null,
   truncateLines: 2,
   truncateWidth: null,
 };

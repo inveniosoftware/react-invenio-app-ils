@@ -771,6 +771,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                             truncate={true}
                                             truncateLines={2}
                                             truncateWidth={null}
+                                            volume={null}
                                           >
                                             <Truncate
                                               lines={2}
@@ -790,9 +791,10 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                               >
                                                 The Gulf: The Making of An American Sea
                                                  
-                                                <EditionYear
+                                                <EditionYearVolume
                                                   edition="1"
                                                   publicationYear="1950"
+                                                  volume={null}
                                                 >
                                                   (
                                                   <Overridable(LiteratureEdition)
@@ -808,7 +810,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                                    - 
                                                   1950
                                                   )
-                                                </EditionYear>
+                                                </EditionYearVolume>
                                               </span>
                                             </Truncate>
                                           </LiteratureTitle>
@@ -1003,6 +1005,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                             truncate={true}
                                             truncateLines={2}
                                             truncateWidth={null}
+                                            volume={null}
                                           >
                                             <Truncate
                                               lines={2}
@@ -1022,9 +1025,10 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                               >
                                                 The Gulf: The Making of An American Sea
                                                  
-                                                <EditionYear
+                                                <EditionYearVolume
                                                   edition="1"
                                                   publicationYear="1950"
+                                                  volume={null}
                                                 >
                                                   (
                                                   <Overridable(LiteratureEdition)
@@ -1040,7 +1044,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                                    - 
                                                   1950
                                                   )
-                                                </EditionYear>
+                                                </EditionYearVolume>
                                               </span>
                                             </Truncate>
                                           </LiteratureTitle>
@@ -2014,6 +2018,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                             truncate={true}
                                             truncateLines={2}
                                             truncateWidth={null}
+                                            volume={null}
                                           >
                                             <Truncate
                                               lines={2}
@@ -2033,9 +2038,10 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                               >
                                                 The Gulf: The Making of An American Sea
                                                  
-                                                <EditionYear
+                                                <EditionYearVolume
                                                   edition="1"
                                                   publicationYear="1950"
+                                                  volume={null}
                                                 >
                                                   (
                                                   <Overridable(LiteratureEdition)
@@ -2051,7 +2057,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                                    - 
                                                   1950
                                                   )
-                                                </EditionYear>
+                                                </EditionYearVolume>
                                               </span>
                                             </Truncate>
                                           </LiteratureTitle>

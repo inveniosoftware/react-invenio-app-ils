@@ -45,6 +45,10 @@ export class DocumentHeader extends Component {
         </Label>
       </>
     );
+    const volume = _get(
+      data,
+      'metadata.relations.multipart_monograph[0].volume'
+    );
     return (
       <DetailsHeader
         title={
@@ -54,6 +58,7 @@ export class DocumentHeader extends Component {
               title={data.metadata.title}
               edition={data.metadata.edition}
               publicationYear={data.metadata.publication_year}
+              volume={volume}
               truncate={false}
             />
           </>
