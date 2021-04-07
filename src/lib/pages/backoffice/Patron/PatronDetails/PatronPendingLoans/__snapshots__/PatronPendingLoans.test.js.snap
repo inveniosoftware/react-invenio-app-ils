@@ -673,6 +673,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                             truncate={true}
                                             truncateLines={2}
                                             truncateWidth={null}
+                                            volume={null}
                                           >
                                             <Truncate
                                               lines={2}
@@ -692,9 +693,10 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                               >
                                                 The Gulf: The Making of An American Sea
                                                  
-                                                <EditionYear
+                                                <EditionYearVolume
                                                   edition="1"
                                                   publicationYear="1950"
+                                                  volume={null}
                                                 >
                                                   (
                                                   <Overridable(LiteratureEdition)
@@ -710,7 +712,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                                    - 
                                                   1950
                                                   )
-                                                </EditionYear>
+                                                </EditionYearVolume>
                                               </span>
                                             </Truncate>
                                           </LiteratureTitle>
@@ -828,6 +830,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                             truncate={true}
                                             truncateLines={2}
                                             truncateWidth={null}
+                                            volume={null}
                                           >
                                             <Truncate
                                               lines={2}
@@ -847,9 +850,10 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                               >
                                                 The Gulf: The Making of An American Sea
                                                  
-                                                <EditionYear
+                                                <EditionYearVolume
                                                   edition="1"
                                                   publicationYear="1950"
+                                                  volume={null}
                                                 >
                                                   (
                                                   <Overridable(LiteratureEdition)
@@ -865,7 +869,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                                    - 
                                                   1950
                                                   )
-                                                </EditionYear>
+                                                </EditionYearVolume>
                                               </span>
                                             </Truncate>
                                           </LiteratureTitle>
@@ -1657,6 +1661,7 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                             truncate={true}
                                             truncateLines={2}
                                             truncateWidth={null}
+                                            volume={null}
                                           >
                                             <Truncate
                                               lines={2}
@@ -1676,9 +1681,10 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                               >
                                                 The Gulf: The Making of An American Sea
                                                  
-                                                <EditionYear
+                                                <EditionYearVolume
                                                   edition="1"
                                                   publicationYear="1950"
+                                                  volume={null}
                                                 >
                                                   (
                                                   <Overridable(LiteratureEdition)
@@ -1694,7 +1700,7 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                                    - 
                                                   1950
                                                   )
-                                                </EditionYear>
+                                                </EditionYearVolume>
                                               </span>
                                             </Truncate>
                                           </LiteratureTitle>

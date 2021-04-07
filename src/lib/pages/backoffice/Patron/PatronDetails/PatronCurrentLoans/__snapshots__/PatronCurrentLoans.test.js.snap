@@ -641,6 +641,7 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                                             truncate={true}
                                             truncateLines={2}
                                             truncateWidth={null}
+                                            volume={null}
                                           >
                                             <Truncate
                                               lines={2}
@@ -660,12 +661,13 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                                               >
                                                 Less: A Novel
                                                  
-                                                <EditionYear
+                                                <EditionYearVolume
                                                   edition={null}
                                                   publicationYear="1950"
+                                                  volume={null}
                                                 >
                                                   (1950)
-                                                </EditionYear>
+                                                </EditionYearVolume>
                                               </span>
                                             </Truncate>
                                           </LiteratureTitle>
@@ -824,6 +826,7 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                                             truncate={true}
                                             truncateLines={2}
                                             truncateWidth={null}
+                                            volume={null}
                                           >
                                             <Truncate
                                               lines={2}
@@ -843,12 +846,13 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
                                               >
                                                 Less: A Novel
                                                  
-                                                <EditionYear
+                                                <EditionYearVolume
                                                   edition={null}
                                                   publicationYear="1950"
+                                                  volume={null}
                                                 >
                                                   (1950)
-                                                </EditionYear>
+                                                </EditionYearVolume>
                                               </span>
                                             </Truncate>
                                           </LiteratureTitle>
@@ -1642,6 +1646,7 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                                             truncate={true}
                                             truncateLines={2}
                                             truncateWidth={null}
+                                            volume={null}
                                           >
                                             <Truncate
                                               lines={2}
@@ -1661,12 +1666,13 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                                               >
                                                 Less: A Novel
                                                  
-                                                <EditionYear
+                                                <EditionYearVolume
                                                   edition={null}
                                                   publicationYear="1950"
+                                                  volume={null}
                                                 >
                                                   (1950)
-                                                </EditionYear>
+                                                </EditionYearVolume>
                                               </span>
                                             </Truncate>
                                           </LiteratureTitle>

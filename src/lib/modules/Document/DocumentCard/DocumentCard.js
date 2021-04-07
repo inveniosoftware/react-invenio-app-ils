@@ -46,6 +46,9 @@ class DocumentCard extends Component {
     if (data.metadata.other_authors) {
       authors = authors + 'et al';
     }
+
+    const volume = _get(metadata, 'relations.multipart_monograph[0].volume');
+
     return (
       <Overridable id="DocumentCard.layout" {...this.props}>
         <Card
@@ -75,6 +78,7 @@ class DocumentCard extends Component {
               <div>
                 {metadata.publication_year}
                 {metadata.edition && <> - Edition {metadata.edition}</>}
+                {volume && <> - Vol. {volume}</>}
               </div>
             </Card.Meta>
           </Card.Content>

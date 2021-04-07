@@ -71,7 +71,6 @@ export default class RelationMultipartModal extends Component {
                 <label>Volume index</label>
                 <Input
                   name="volume"
-                  type="number"
                   onChange={(e, { value }) => this.setState({ volume: value })}
                 />
               </Form.Field>

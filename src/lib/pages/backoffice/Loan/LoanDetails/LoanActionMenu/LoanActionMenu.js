@@ -12,7 +12,7 @@ export default class LoanActionMenu extends Component {
   render() {
     const { loan, offset } = this.props;
     return (
-      <div className="bo-action-menu">
+      <div>
         <LoanUpdateDates loan={loan} />
 
         <Message size="small">
