@@ -14,7 +14,7 @@ export class DocumentEItems extends Component {
   };
 
   onClickEItemRequestLink = () => {
-    const medium = 'E-BOOK';
+    const medium = 'DIGITAL';
     return {
       pathname: FrontSiteRoutes.documentRequestForm,
       state: { medium },
