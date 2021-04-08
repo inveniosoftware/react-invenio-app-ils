@@ -66,7 +66,11 @@ class OrderHeader extends React.Component {
           </>
         )}
         <br />
-        <label>Order date</label> {data.metadata.order_date}
+        {data.metadata.order_date && (
+          <>
+            <label>Order date</label> {data.metadata.order_date}
+          </>
+        )}
       </>
     );
     return (
@@ -146,13 +150,13 @@ class OrderPanels extends React.Component {
           Payment Information
         </Header>
         <Segment attached className="bo-metadata-segment">
-          <PaymentInformation order={data} />
+          <PaymentInformation order={data.metadata} />
         </Segment>
         <Header as="h3" attached="top">
           Order lines
         </Header>
         <Segment attached className="bo-metadata-segment">
-          <OrderLines lines={data.resolved_order_lines} />
+          <OrderLines lines={data.metadata.resolved_order_lines} />
         </Segment>
       </>
     );
@@ -211,7 +215,7 @@ export default class OrderDetails extends React.Component {
                           <br />
                           <OrderSteps order={metadata} />
                         </Container>
-                        <OrderPanels data={metadata} />
+                        <OrderPanels data={data} />
                       </Container>
                     </Grid.Column>
                     <Grid.Column width={3}>
