@@ -3,34 +3,45 @@ import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { PropTypes } from 'prop-types';
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
+import { DateTime } from 'luxon';
+import { toShortDateTime } from '@api/date';
 
 export class OrderInformation extends React.Component {
   render() {
     const { order } = this.props;
+    const metadata = order.metadata;
     const leftTable = [
-      { name: 'Provider', value: order.provider.name },
-      { name: 'Ordered at', value: order.order_date },
+      { name: 'Provider', value: metadata.provider.name },
+      { name: 'Ordered at', value: metadata.order_date || '-' },
       {
         name: 'Expected delivery',
-        value: order.expected_delivery_date || '-',
+        value: metadata.expected_delivery_date || '-',
       },
-      { name: 'Delivered on', value: order.received_date || '-' },
-      { name: 'Notes', value: order.notes || '-' },
+      { name: 'Delivered on', value: metadata.received_date || '-' },
+      { name: 'Notes', value: metadata.notes || '-' },
     ];
     const rightTable = [
-      { name: 'Status', value: order.status },
-      { name: 'Created by', value: <CreatedBy metadata={order} /> },
-      { name: 'Updated by', value: <UpdatedBy metadata={order} /> },
+      { name: 'Status', value: metadata.status },
+      { name: 'Created by', value: <CreatedBy metadata={metadata} /> },
+      {
+        name: 'Created',
+        value: toShortDateTime(DateTime.fromISO(order.created)),
+      },
+      { name: 'Updated by', value: <UpdatedBy metadata={metadata} /> },
+      {
+        name: 'Last updated',
+        value: toShortDateTime(DateTime.fromISO(order.updated)),
+      },
     ];
 
-    order.status === 'CANCELLED' &&
+    metadata.status === 'CANCELLED' &&
       rightTable.splice(1, 0, {
         name: 'Cancel reason',
-        value: order.cancel_reason,
+        value: metadata.cancel_reason,
       });
 
-    order.legacy_id &&
-      rightTable.push({ name: 'Legacy ID', value: order.legacy_id });
+    metadata.legacy_id &&
+      rightTable.push({ name: 'Legacy ID', value: metadata.legacy_id });
 
     return (
       <Grid columns={2} id="order-info">

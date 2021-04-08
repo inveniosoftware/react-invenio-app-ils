@@ -21,9 +21,11 @@ export default class OrderListEntry extends Component {
       : '';
     return (
       <>
-        <Item.Description>
-          <Item.Meta>Ordered: {order.metadata.order_date}</Item.Meta>
-        </Item.Description>
+        {order.metadata.order_date && (
+          <Item.Description>
+            <Item.Meta>Ordered: {order.metadata.order_date}</Item.Meta>
+          </Item.Description>
+        )}
         <Item.Description>
           <label>status </label>
           {getDisplayVal('ACQ_ORDERS.statuses', order.metadata.status)}

@@ -202,7 +202,7 @@ export const schema = () => {
         type: 'string',
       },
     },
-    required: ['order_date', 'order_lines', 'status', 'provider_pid'],
+    required: ['order_lines', 'status', 'provider_pid'],
     type: 'object',
   };
   return _merge(_schema, invenioConfig.ACQ_ORDERS.editorSchema);
