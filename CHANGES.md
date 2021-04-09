@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.36 (released 2021-04-09)
+
+- do not require order date in acquisition
+- display order creation date
+
 Version 1.0.0-alpha.35 (released 2021-04-07)
 
 - add login_required flag to access urls of series
