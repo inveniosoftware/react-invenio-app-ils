@@ -180,7 +180,7 @@ export default class BorrowingRequestDetails extends Component {
                         <BorrowingRequestStatistics brwReq={metadata} />
                         <br />
                         <BorrowingRequestSteps brwReq={metadata} />
-                        <BorrowingRequestMetadata brwReq={metadata} />
+                        <BorrowingRequestMetadata brwReq={data} />
                         <BorrowingRequestPayment brwReq={metadata} />
                       </Container>
                     </Grid.Column>
