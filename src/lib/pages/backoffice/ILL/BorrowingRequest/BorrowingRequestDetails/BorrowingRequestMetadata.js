@@ -10,6 +10,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Divider, Grid, Header, Segment } from 'semantic-ui-react';
 import { BorrowingRequestPatronLoan } from './BorrowingRequestPatronLoan';
+import { DateTime } from 'luxon';
+import { toShortDateTime } from '@api/date';
 
 class Loan extends React.Component {
   dateOrDefault = (value) => {
@@ -17,43 +19,48 @@ class Loan extends React.Component {
   };
 
   render() {
-    const { brwReq } = this.props;
+    const { brwReqMetadata } = this.props;
     const table = [
       {
         name: 'Provider',
         value: (
-          <Link to={ProviderRoutes.providerDetailsFor(brwReq.provider_pid)}>
-            <ProviderIcon /> {brwReq.provider.name}
+          <Link
+            to={ProviderRoutes.providerDetailsFor(brwReqMetadata.provider_pid)}
+          >
+            <ProviderIcon /> {brwReqMetadata.provider.name}
           </Link>
         ),
       },
       {
         name: 'Item type',
-        value: brwReq.type,
+        value: brwReqMetadata.type,
       },
-      { name: 'Requested on', value: this.dateOrDefault(brwReq.request_date) },
+      {
+        name: 'Requested on',
+        value: this.dateOrDefault(brwReqMetadata.request_date),
+      },
       {
         name: 'Expected delivery',
-        value: this.dateOrDefault(brwReq.expected_delivery_date),
+        value: this.dateOrDefault(brwReqMetadata.expected_delivery_date),
       },
       {
         name: 'Received on',
-        value: this.dateOrDefault(brwReq.received_date),
+        value: this.dateOrDefault(brwReqMetadata.received_date),
       },
       {
         name: 'Due date',
-        value: this.dateOrDefault(brwReq.due_date),
+        value: this.dateOrDefault(brwReqMetadata.due_date),
       },
       {
         name: `Total (${invenioConfig.APP.DEFAULT_CURRENCY})`,
-        value: formatPrice(brwReq.total_main_currency) || '-',
+        value: formatPrice(brwReqMetadata.total_main_currency) || '-',
       },
       {
         name:
-          brwReq.total && brwReq.total.currency
-            ? `Total (${brwReq.total.currency})`
+          brwReqMetadata.total && brwReqMetadata.total.currency
+            ? `Total (${brwReqMetadata.total.currency})`
             : 'Total',
-        value: formatPrice(brwReq.total) || '-',
+        value: formatPrice(brwReqMetadata.total) || '-',
       },
     ];
     return (
@@ -65,7 +72,7 @@ class Loan extends React.Component {
           </Grid.Column>
           <Grid.Column>
             <Divider horizontal>Patron Loan</Divider>
-            <BorrowingRequestPatronLoan brwReq={brwReq} />
+            <BorrowingRequestPatronLoan brwReq={brwReqMetadata} />
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -74,21 +81,22 @@ class Loan extends React.Component {
 }
 
 Loan.propTypes = {
-  brwReq: PropTypes.object.isRequired,
+  brwReqMetadata: PropTypes.object.isRequired,
 };
 
 class Metadata extends React.Component {
   render() {
     const { brwReq } = this.props;
+    const metadata = brwReq.metadata;
     const leftTable = [
       {
         name: 'Document',
         value: (
-          <Link to={BackOfficeRoutes.documentDetailsFor(brwReq.document_pid)}>
+          <Link to={BackOfficeRoutes.documentDetailsFor(metadata.document_pid)}>
             <LiteratureTitle
-              title={brwReq.document.title}
-              edition={brwReq.document.edition}
-              publicationYear={brwReq.document.publication_year}
+              title={metadata.document.title}
+              edition={metadata.document.edition}
+              publicationYear={metadata.document.publication_year}
             />
           </Link>
         ),
@@ -96,21 +104,29 @@ class Metadata extends React.Component {
       {
         name: 'Patron',
         value: (
-          <Link to={BackOfficeRoutes.patronDetailsFor(brwReq.patron_pid)}>
-            <PatronIcon /> {brwReq.patron.name}
+          <Link to={BackOfficeRoutes.patronDetailsFor(metadata.patron_pid)}>
+            <PatronIcon /> {metadata.patron.name}
           </Link>
         ),
       },
-      { name: 'Notes', value: brwReq.notes },
+      { name: 'Notes', value: metadata.notes },
     ];
 
     const rightTable = [
-      { name: 'Created by', value: <CreatedBy metadata={brwReq} /> },
-      { name: 'Updated by', value: <UpdatedBy metadata={brwReq} /> },
+      { name: 'Created by', value: <CreatedBy metadata={metadata} /> },
+      {
+        name: 'Created',
+        value: toShortDateTime(DateTime.fromISO(brwReq.created)),
+      },
+      { name: 'Updated by', value: <UpdatedBy metadata={metadata} /> },
+      {
+        name: 'Last updated',
+        value: toShortDateTime(DateTime.fromISO(brwReq.updated)),
+      },
     ];
 
-    brwReq.legacy_id &&
-      rightTable.push({ name: 'Legacy ID', value: brwReq.legacy_id });
+    metadata.legacy_id &&
+      rightTable.push({ name: 'Legacy ID', value: metadata.legacy_id });
 
     return (
       <Grid columns={2}>
@@ -142,7 +158,7 @@ export class BorrowingRequestMetadata extends React.Component {
         </Header>
         <Segment attached className="bo-metadata-segment" id="request-info">
           <Metadata brwReq={brwReq} />
-          <Loan brwReq={brwReq} />
+          <Loan brwReqMetadata={brwReq.metadata} />
         </Segment>
       </>
     );
