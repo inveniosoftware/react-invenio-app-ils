@@ -51,7 +51,7 @@ export default class SeriesListEntry extends Component {
       <Item>
         {this.renderImage()}
         <Item.Content>
-          <Item.Meta>SERIES</Item.Meta>
+          <Item.Meta>{this.metadata.series_type || 'SERIES'}</Item.Meta>
           <Item.Header
             as={Link}
             to={FrontSiteRoutes.seriesDetailsFor(this.metadata.pid)}

@@ -38,7 +38,7 @@ exports[`SeriesCard tests should go to book details when clicking on a book 1`] 
         <div
           className="meta discrete"
         >
-          Series
+          SERIES
         </div>
       </CardMeta>
       <Overridable(LiteratureCover)
@@ -205,7 +205,7 @@ exports[`SeriesCard tests should render the SeriesCard 1`] = `
         <div
           className="meta discrete"
         >
-          Series
+          SERIES
         </div>
       </CardMeta>
       <Overridable(LiteratureCover)

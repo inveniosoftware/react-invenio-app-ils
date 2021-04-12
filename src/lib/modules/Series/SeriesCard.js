@@ -50,7 +50,9 @@ export class SeriesCard extends Component {
         }
         data-test={data.metadata.pid}
       >
-        <Card.Meta className="discrete">Series</Card.Meta>
+        <Card.Meta className="discrete">
+          {data.metadata.series_type || 'SERIES'}
+        </Card.Meta>
         {this.renderImage()}
         <Card.Content>
           <Card.Header>
