@@ -18,12 +18,10 @@ describe('backoffice loan search page', () => {
 
     cy.get('div.pid-field')
       .first()
-      .then($pid => {
+      .then(($pid) => {
         const pid = $pid.text().substring(1);
 
-        cy.get('.bo-document-search a.header')
-          .first()
-          .click();
+        cy.get('.bo-document-search a.header').first().click();
 
         cy.url().should('eq', loansSearchUrl + '/' + pid);
       });
@@ -81,20 +79,13 @@ describe('backoffice loan search page', () => {
     cy.login({ email: 'librarian@test.ch', password: '123456' });
     cy.visit(loansSearchRoute + '?f=returns.end_date%3AOverdue');
 
-    cy.get('.bo-document-search div.item')
-      .first()
-      .within(() => {
-        cy.get('div.red.label').should('contain', 'Overdue');
-        cy.get('button')
-          .should('contain', 'Send reminder')
-          .click();
-      });
+    cy.get('div.red.label').should('contain', 'Overdue');
+    cy.get('.bo-document-search div.item a.header').first().click();
+    cy.get('button.send-overdue-reminder-middle-button')
+      .should('contain', 'Send return reminder')
+      .click();
     cy.get('.modal.visible');
-    cy.get('.button')
-      .should('have.class', 'red')
-      .and('contain', 'Cancel');
-    cy.get('.button')
-      .should('have.class', 'green')
-      .and('contain', 'Send');
+    cy.get('.button').should('have.class', 'red').and('contain', 'Cancel');
+    cy.get('.button').should('have.class', 'green').and('contain', 'Send');
   });
 });

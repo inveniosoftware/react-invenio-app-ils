@@ -16,14 +16,10 @@ describe('literature request form', () => {
 
     cy.get('input#title').type('A new book');
     cy.get('div#medium').click();
-    cy.get('span')
-      .contains('Paper')
-      .click();
+    cy.get('span').contains('Paper').click();
     cy.get('div#request_type').click();
-    cy.get('span')
-      .contains('Loan')
-      .click();
-    cy.get('button[name=submit]').click();
+    cy.get('span').contains('Loan').click();
+    cy.get('button[name=Submit]').click();
 
     cy.url().should('eq', Cypress.config().baseUrl + '/profile');
   });
