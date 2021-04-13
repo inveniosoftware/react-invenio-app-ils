@@ -9,50 +9,44 @@ describe('backoffice loan details page', () => {
     cy.login({ email: 'librarian@test.ch', password: '123456' });
     cy.visit(loansSearchRoute + '?f=state%3AITEM_ON_LOAN');
 
-    cy.get('.bo-document-search a.header')
-      .first()
-      .click();
+    cy.get('.bo-document-search a.header').first().click();
 
     cy.get('.bo-details-header-status-labels').should(
       'contain',
       'Item on loan'
     );
 
-    cy.get('button')
-      .contains('checkin')
-      .click();
-
+    cy.get('button').contains('Checkin').click();
+    cy.wait(5000); // ES delay
     cy.get('.bo-details-header-status-labels').should(
       'contain',
       'Item returned'
     );
-    cy.get('div#loan-metadata').should('contain', 'No actions available.');
+    cy.get('div.pb-default').should('contain', 'No actions available.');
   });
 
   it('should extend ongoing loan close to due date', () => {
     cy.login({ email: 'librarian@test.ch', password: '123456' });
     cy.visit(loansSearchRoute + '?f=returns.end_date%3AUpcoming%20return');
 
-    cy.get('.bo-document-search a.header')
-      .first()
-      .click();
+    cy.get('.bo-document-search a.header').first().click();
 
     cy.get('td')
       .contains('Extensions')
       .siblings()
-      .then($ext => {
+      .then(($ext) => {
         const exts = parseInt($ext.text());
 
         cy.get('button')
-          .contains('extend')
+          .contains('Extend')
           .click()
           .then(() => {
-            cy.wait(3000); // ES delay
+            cy.wait(10000); // ES delay
 
             cy.get('td')
               .contains('Extensions')
               .siblings()
-              .then($ext => {
+              .then(($ext) => {
                 let newExts = parseInt($ext.text());
                 expect(newExts).to.equal(exts + 1);
               });

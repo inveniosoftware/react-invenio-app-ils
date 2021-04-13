@@ -5,9 +5,7 @@ describe('frontsite literature details', () => {
     cy.visit(
       '/search?f=doctype%3ABOOK&f=availability%3Aavailable%20for%20loan'
     );
-    cy.get('.fs-book-card')
-      .first()
-      .click();
+    cy.get('.fs-book-card').first().click();
   };
 
   const goToEBookDetails = () => {
@@ -40,12 +38,12 @@ describe('frontsite literature details', () => {
     cy.wait('@requests');
 
     const loanRequestCountSelector = ':nth-child(2).statistic > .value';
-    cy.get(loanRequestCountSelector).then($stat1 => {
+    cy.get(loanRequestCountSelector).then(($stat1) => {
       let expectedNextCount = parseInt($stat1.text());
 
       cy.go('back');
 
-      cy.wait('@loan').then(xhr => {
+      cy.wait('@loan').then((xhr) => {
         const {
           has_active_loan: hasActiveLoan,
           is_requested: isRequested,
@@ -55,14 +53,14 @@ describe('frontsite literature details', () => {
         if (!isRequested) {
           cy.contains('Have it delivered to my office').click();
 
+          cy.contains('I require it before a certain date').click();
+
           cy.get('input[name=selectedDate]').click();
 
           cy.wait('@location').wait(1000); // Cannot avoid this delay
           const dayFromDatePicker =
             'td:not(.disabled) > span.suicr-content-item';
-          cy.get(dayFromDatePicker)
-            .first()
-            .type('{enter}');
+          cy.get(dayFromDatePicker).first().type('{enter}');
 
           cy.contains('button.primary', 'Request').click();
 
@@ -75,11 +73,11 @@ describe('frontsite literature details', () => {
         }
       });
 
-      cy.contains('You have requested a loan for this literature.'); // See https://github.com/inveniosoftware/react-invenio-app-ils/issues/241
+      cy.contains('You have requested a loan for this literature.');
 
       cy.go('forward');
       cy.wait('@requests');
-      cy.get(loanRequestCountSelector).then($stat2 => {
+      cy.get(loanRequestCountSelector).then(($stat2) => {
         const nextCount = parseInt($stat2.text());
         expect(nextCount).to.eq(expectedNextCount);
       });

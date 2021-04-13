@@ -42,7 +42,7 @@ describe('frontsite profile', () => {
     cy.visit('/profile');
     cy.url().should('eq', Cypress.config().baseUrl + '/profile');
 
-    if (cy.get('.ui.divided.items').contains('Cancel request')) {
+    if (cy.get('.patron-profile-tab').contains('Request state')) {
       cy.get('table').within(() => {
         cy.contains('.button', 'Cancel request').click();
       });
