@@ -581,6 +581,11 @@ export const RECORDS_CONFIG = {
     search: {
       filters: [
         {
+          title: 'Format',
+          field: 'stock.mediums',
+          aggName: 'medium',
+        },
+        {
           title: 'Literature types',
           field: 'document_type',
           aggName: 'doctype',
@@ -595,11 +600,6 @@ export const RECORDS_CONFIG = {
           title: 'Tags',
           field: 'tags',
           aggName: 'tag',
-        },
-        {
-          title: 'Medium',
-          field: 'stock.mediums',
-          aggName: 'medium',
         },
         {
           title: 'Languages',

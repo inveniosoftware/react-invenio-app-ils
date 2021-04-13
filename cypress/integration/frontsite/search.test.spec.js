@@ -142,7 +142,7 @@ describe('frontsite search', () => {
     cy.visit('/search');
 
     cy.get('i.list.layout.icon').click();
-    cy.contains('.checkbox', 'Available for loan').click();
+    cy.contains('.checkbox', 'On shelf').click();
     cy.get('div.ui.items > div.item').then($cards => {
       for (let i = 0; i < $cards.length; i++) {
         // All should be available
