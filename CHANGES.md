@@ -1,5 +1,11 @@
 # Changes
 
+Version 1.0.0-alpha.37 (released 2021-04-13)
+
+- change e-book labels to digital
+- add series type in frontsite search results
+- display creation date on borrowing requests
+
 Version 1.0.0-alpha.36 (released 2021-04-09)
 
 - do not require order date in acquisition
