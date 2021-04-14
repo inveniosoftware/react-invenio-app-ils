@@ -57,7 +57,7 @@ export default class RelationSelector extends Component {
         query={optionsQuery}
         delay={250}
         minCharacters={3}
-        placeholder="Type to find a literature..."
+        placeholder="Type to find the literature..."
         onSelect={this.onSelectResult}
         value=""
         resultRenderer={this.selectResultRender}
