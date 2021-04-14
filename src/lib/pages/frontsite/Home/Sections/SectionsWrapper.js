@@ -15,10 +15,10 @@ export default class SectionsWrapper extends Component {
       <Container fluid className="fs-landing-page-section-wrapper">
         <SectionServices />
         <SectionInstallation />
-        <Container fluid>
+        <Container fluid id="recent-books">
           <Container textAlign="center" className="fs-landing-page-section">
             <DocumentCardGroup
-              title="Most Recent Books"
+              title="Most recent books"
               headerClass="section-header highlight"
               fetchDataMethod={documentApi.list}
               fetchDataQuery={documentApi
@@ -34,25 +34,13 @@ export default class SectionsWrapper extends Component {
           </Container>
         </Container>
         <SectionTags />
-        <Container textAlign="center" className="fs-landing-page-section">
+        <Container
+          textAlign="center"
+          className="fs-landing-page-section"
+          id="recent-ebooks"
+        >
           <DocumentCardGroup
-            title="Most Loaned Books"
-            headerClass="section-header highlight"
-            fetchDataMethod={documentApi.list}
-            fetchDataQuery={documentApi
-              .query()
-              .withDocumentType('BOOK')
-              .sortBy('-mostloaned')
-              .withSize(size)
-              .qs()}
-            viewAllUrl={FrontSiteRoutes.documentsListWithQuery(
-              '&sort=mostloaned&order=desc'
-            )}
-          />
-        </Container>
-        <Container textAlign="center" className="fs-landing-page-section">
-          <DocumentCardGroup
-            title="Most Recent E-Books"
+            title="Most recent e-books"
             headerClass="section-header highlight"
             fetchDataMethod={documentApi.list}
             fetchDataQuery={documentApi
@@ -64,6 +52,26 @@ export default class SectionsWrapper extends Component {
               .qs()}
             viewAllUrl={FrontSiteRoutes.documentsListWithQuery(
               '&f=doctype%3ABOOK&f=medium%3AE-BOOK&sort=created&order=desc'
+            )}
+          />
+        </Container>
+        <Container
+          textAlign="center"
+          className="fs-landing-page-section"
+          id="most-loaned"
+        >
+          <DocumentCardGroup
+            title="Most loaned books"
+            headerClass="section-header highlight"
+            fetchDataMethod={documentApi.list}
+            fetchDataQuery={documentApi
+              .query()
+              .withDocumentType('BOOK')
+              .sortBy('-mostloaned')
+              .withSize(size)
+              .qs()}
+            viewAllUrl={FrontSiteRoutes.documentsListWithQuery(
+              '&sort=mostloaned&order=desc'
             )}
           />
         </Container>

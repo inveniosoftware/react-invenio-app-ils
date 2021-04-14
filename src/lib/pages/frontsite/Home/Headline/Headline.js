@@ -1,10 +1,9 @@
-import { FrontSiteRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import { Link } from 'react-router-dom';
 import { Button, Container, Divider, Grid, Header } from 'semantic-ui-react';
 import { HomeSearchBar } from './HomeSearchBar';
+import { Link as ScrollLink } from 'react-scroll';
 
 const HeadlineLayout = (props) => {
   const { backgroundImageURL } = props;
@@ -49,33 +48,33 @@ const HeadlineLayout = (props) => {
                 <Grid.Column width={16} textAlign="center">
                   <Button
                     className="headline-quick-access"
-                    as={Link}
-                    to={FrontSiteRoutes.documentsListWithQuery(
-                      '&sort=created&order=desc'
-                    )}
+                    as={ScrollLink}
+                    to="recent-books"
+                    offset={-100}
+                    smooth
                     primary
                   >
                     Recent books
                   </Button>
                   <Button
                     className="headline-quick-access"
-                    as={Link}
-                    to={FrontSiteRoutes.documentsListWithQuery(
-                      '&sort=mostloaned&order=desc'
-                    )}
+                    as={ScrollLink}
+                    to="recent-ebooks"
+                    offset={-100}
+                    smooth
                     primary
                   >
-                    Most loaned books
+                    Recent e-books
                   </Button>
                   <Button
                     className="headline-quick-access"
-                    as={Link}
-                    to={FrontSiteRoutes.documentsListWithQuery(
-                      '&f=doctype%3ABOOK&f=medium%3AE-BOOK&sort=created&order=desc'
-                    )}
+                    as={ScrollLink}
+                    to="most-loaned"
+                    offset={-100}
+                    smooth
                     primary
                   >
-                    New e-books
+                    Most loaned books
                   </Button>
                 </Grid.Column>
               </Grid>
