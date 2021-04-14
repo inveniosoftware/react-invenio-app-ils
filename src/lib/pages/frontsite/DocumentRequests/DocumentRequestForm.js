@@ -232,8 +232,7 @@ class DocumentRequestForm extends Component {
           <>
             <Header as="h1">Request new literature</Header>
             <p>
-              Fill in the form below to request a new literature from the
-              library.
+              Fill in the form below to request new literature from the library.
             </p>
             <p>
               You can see all your requests on your{' '}
