@@ -4,12 +4,9 @@ Statistic Overrides - REACT-INVENIO-APP-ILS
 *******************************/
 
 
-.ui.statistics.bo-document-summary{
-  .ui.statistic.anchored{
-    cursor: pointer;
-  }
+.ui.statistic.anchored {
+  cursor: pointer;
 }
-
 
 
 @media only screen and (max-width: @largestMobileScreen) {

@@ -11,6 +11,15 @@ import { PatronPastLoans } from './PatronPastLoans';
 import { PatronPendingLoans } from './PatronPendingLoans';
 
 class PatronProfile extends Component {
+  constructor(props) {
+    super(props);
+    this.anchors = {
+      currentLoansRef: React.createRef(),
+      pendingLoansRef: React.createRef(),
+      currentDoqRequestsRef: React.createRef(),
+    };
+  }
+
   tabs = () => {
     const { user: currentUser } = this.props;
     return [
@@ -18,9 +27,18 @@ class PatronProfile extends Component {
         menuItem: 'Current',
         render: () => (
           <Tab.Pane>
-            <PatronCurrentLoans patronPid={currentUser.id} />
-            <PatronPendingLoans patronPid={currentUser.id} />
-            <PatronCurrentDocumentRequests patronPid={currentUser.id} />
+            <div ref={this.anchors.currentLoansRef} id="patron-current-loans">
+              <PatronCurrentLoans patronPid={currentUser.id} />
+            </div>
+            <div ref={this.anchors.pendingLoansRef} id="patron-pending-loans">
+              <PatronPendingLoans patronPid={currentUser.id} />
+            </div>
+            <div
+              ref={this.anchors.currentDoqRequestsRef}
+              id="patron-current-doqreqs"
+            >
+              <PatronCurrentDocumentRequests patronPid={currentUser.id} />
+            </div>
           </Tab.Pane>
         ),
       },
@@ -44,7 +62,7 @@ class PatronProfile extends Component {
     return (
       <Container className="spaced">
         <Header as="h2">Your activity</Header>
-        <PatronOverview />
+        <PatronOverview anchors={this.anchors} />
         <Tab
           menu={{ secondary: true, pointing: true, size: 'huge' }}
           panes={this.tabs()}

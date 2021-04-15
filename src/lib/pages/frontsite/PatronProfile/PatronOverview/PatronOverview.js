@@ -3,13 +3,18 @@ import PropTypes from 'prop-types';
 import { Container, Loader, Statistic } from 'semantic-ui-react';
 
 export default class PatronOverview extends Component {
-  renderStatistic(stat, quantifiableLabel) {
+  scrollTo(ref) {
+    ref.current.scrollIntoView(false, { behaviour: 'smooth', block: 'end' });
+  }
+
+  renderStatistic(stat, quantifiableLabel, anchor) {
     const {
       isLoading,
       data: { total },
     } = stat;
+
     return (
-      <Statistic>
+      <Statistic onClick={() => this.scrollTo(anchor)} className="anchored">
         <Statistic.Value>
           {isLoading ? <Loader active inline /> : total}
         </Statistic.Value>
@@ -21,21 +26,29 @@ export default class PatronOverview extends Component {
   }
 
   render() {
-    const { currentLoans, loanRequests, documentRequests } = this.props;
+    const {
+      currentLoans,
+      loanRequests,
+      documentRequests,
+      anchors,
+    } = this.props;
     return (
       <Container className="spaced">
         <Statistic.Group widths="three" size="small">
           {this.renderStatistic(
             currentLoans,
-            (isPlural) => `ongoing loan${isPlural ? 's' : ''}`
+            (isPlural) => `ongoing loan${isPlural ? 's' : ''}`,
+            anchors.currentLoansRef
           )}
           {this.renderStatistic(
             loanRequests,
-            (isPlural) => `loan request${isPlural ? 's' : ''}`
+            (isPlural) => `loan request${isPlural ? 's' : ''}`,
+            anchors.pendingLoansRef
           )}
           {this.renderStatistic(
             documentRequests,
-            (isPlural) => `Request${isPlural ? 's' : ''} for new literature`
+            (isPlural) => `Request${isPlural ? 's' : ''} for new literature`,
+            anchors.currentDoqRequestsRef
           )}
         </Statistic.Group>
       </Container>
@@ -47,4 +60,5 @@ PatronOverview.propTypes = {
   currentLoans: PropTypes.object.isRequired,
   loanRequests: PropTypes.object.isRequired,
   documentRequests: PropTypes.object.isRequired,
+  anchors: PropTypes.object.isRequired,
 };
