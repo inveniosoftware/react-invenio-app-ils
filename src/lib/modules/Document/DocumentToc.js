@@ -9,7 +9,7 @@ class DocumentToc extends Component {
     const {
       metadata: { table_of_content: tableOfContent },
     } = this.props;
-    if (_isEmpty(tableOfContent)) return 'No table of content';
+    if (_isEmpty(tableOfContent)) return 'No table of contents';
     return (
       <Overridable id="DocumentToc.layout" {...this.props}>
         <List ordered>

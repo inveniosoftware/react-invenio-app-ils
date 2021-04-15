@@ -433,7 +433,7 @@ export const schema = () => {
         items: {
           type: 'string',
         },
-        title: 'Table of content',
+        title: 'Table of contents',
         type: 'array',
       },
       tags: {
