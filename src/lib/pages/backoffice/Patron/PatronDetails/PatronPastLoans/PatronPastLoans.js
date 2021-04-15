@@ -55,11 +55,13 @@ export default class PatronPastLoans extends Component {
   };
 
   viewItem = ({ row }) => {
-    return (
-      <ItemDetailsLink itemPid={row.metadata.item_pid.value}>
-        {row.metadata.item.barcode}
-      </ItemDetailsLink>
-    );
+    if (row.metadata.item_pid) {
+      return (
+        <ItemDetailsLink itemPid={row.metadata.item_pid.value}>
+          {row.metadata.item.barcode}
+        </ItemDetailsLink>
+      );
+    }
   };
 
   renderTable(data) {
