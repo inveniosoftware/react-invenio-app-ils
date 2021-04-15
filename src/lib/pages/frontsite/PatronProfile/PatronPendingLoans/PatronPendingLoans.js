@@ -178,7 +178,7 @@ class LoansListEntry extends Component {
           </Label.Detail>
         </Label>
         <Label basic>
-          Valid until
+          Expires on
           <Label.Detail>
             {DateTime.fromISO(endDate).toLocaleString()}
           </Label.Detail>
@@ -264,7 +264,7 @@ export default class PatronPendingLoans extends Component {
       <Container className="spaced">
         <Header
           as="h2"
-          content="Your loan requests"
+          content="Your pending loan requests"
           className="highlight"
           textAlign="center"
         />

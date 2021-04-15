@@ -9,22 +9,32 @@ import LoansListItem from '../LoansListEntry';
 import { DateTime } from 'luxon';
 
 class LoansListEntry extends Component {
-  renderLabels = (startDate, endDate) => (
-    <div className="pt-default">
-      <Label basic>
-        Loaned on
-        <Label.Detail>
-          {DateTime.fromISO(startDate).toLocaleString()}
-        </Label.Detail>
-      </Label>
-      <Label basic>
-        Return on
-        <Label.Detail>
-          {DateTime.fromISO(endDate).toLocaleString()}
-        </Label.Detail>
-      </Label>
-    </div>
-  );
+  renderLabels = (startDate, endDate, transactionDate, state) => {
+    if (state === 'CANCELLED') {
+      return (
+        <div className="pt-default">
+          <Label basic>Cancelled</Label>
+        </div>
+      );
+    } else {
+      return (
+        <div className="pt-default">
+          <Label basic>
+            Loaned on
+            <Label.Detail>
+              {DateTime.fromISO(startDate).toLocaleString()}
+            </Label.Detail>
+          </Label>
+          <Label basic>
+            Return on
+            <Label.Detail>
+              {DateTime.fromISO(endDate).toLocaleString()}
+            </Label.Detail>
+          </Label>
+        </div>
+      );
+    }
+  };
 
   render() {
     const { loan } = this.props;
@@ -35,7 +45,9 @@ class LoansListEntry extends Component {
         extraItemProps={{
           itemMetaCmp: this.renderLabels(
             loan.metadata.start_date,
-            loan.metadata.end_date
+            loan.metadata.end_date,
+            loan.metadata.transaction_date,
+            loan.metadata.state
           ),
         }}
       />

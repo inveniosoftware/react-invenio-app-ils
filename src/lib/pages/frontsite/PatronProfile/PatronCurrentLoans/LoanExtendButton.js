@@ -9,8 +9,10 @@ import { Button, Icon, Popup } from 'semantic-ui-react';
 import { DateTime } from 'luxon';
 
 const INFO_MESSAGES = {
-  SUCCESS: (documentTitle) =>
-    `Your loan for "${documentTitle}" has been extended.`,
+  SUCCESS: (documentTitle, endDate) =>
+    `Your loan for "${documentTitle}" has been extended. The return date has changed to ${endDate.toLocaleString(
+      { month: 'long', day: 'numeric' }
+    )}.`,
   MISSING_ACTION_URL: 'It is not possible to extend this loan!',
   TOO_EARLY: (reqDate) =>
     `It is too early for extending the loan. You can request an extension from
@@ -47,10 +49,15 @@ class LoanExtendButton extends Component {
       this.cancellableExtendLoan = withCancel(
         this.extendLoan(extendUrl, document.pid, patronPid)
       );
-      await this.cancellableExtendLoan.promise;
+      const response = await this.cancellableExtendLoan.promise;
       this.setState({ isLoading: false });
       const documentTitle = document.title;
-      onSuccess(INFO_MESSAGES.SUCCESS(documentTitle));
+      onSuccess(
+        INFO_MESSAGES.SUCCESS(
+          documentTitle,
+          DateTime.fromISO(response.data.metadata.end_date)
+        )
+      );
     } catch (error) {
       this.setState({ isLoading: false });
       onError(error.response.data.message);
