@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.38 (released 2021-04-15)
+
+- fix display of cancelled loan in 
+  patron profile
+
 Version 1.0.0-alpha.37 (released 2021-04-13)
 
 - change e-book labels to digital
