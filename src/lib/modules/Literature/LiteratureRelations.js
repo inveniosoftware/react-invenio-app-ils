@@ -123,6 +123,31 @@ export default class LiteratureRelations extends Component {
     );
   };
 
+  renderOther = () => {
+    const relations = _get(this.relations, 'other', []);
+    if (!relations.length) return null;
+
+    const items = relations.map((rel) => {
+      const text = `${rel.record_metadata.title} (${rel.note})`;
+      return (
+        <Link key={rel.pid_value} to={this.getLinkTo(rel)}>
+          <LiteratureTitle title={text} />
+        </Link>
+      );
+    });
+
+    return (
+      <List.Item>
+        <SeparatedList
+          items={items}
+          prefix="See other related: "
+          separator=";"
+          className="inline-list"
+        />
+      </List.Item>
+    );
+  };
+
   render() {
     return !_isEmpty(this.relations) ? (
       <>
@@ -132,6 +157,7 @@ export default class LiteratureRelations extends Component {
           {this.renderSerials()}
           {this.renderLanguages()}
           {this.renderEditions()}
+          {this.renderOther()}
         </List>
       </>
     ) : null;

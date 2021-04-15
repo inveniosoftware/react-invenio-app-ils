@@ -13,7 +13,7 @@ export class DocumentContent extends Component {
 
     return (
       <>
-        <Divider horizontal>Table of Content</Divider>
+        <Divider horizontal>Table of contents</Divider>
         {!_isEmpty(table_of_content) ? (
           <List ordered>
             {table_of_content.map((entry) => (
@@ -23,7 +23,7 @@ export class DocumentContent extends Component {
             ))}
           </List>
         ) : (
-          'No table of content'
+          'No table of contents'
         )}
 
         <Divider horizontal>Abstract</Divider>

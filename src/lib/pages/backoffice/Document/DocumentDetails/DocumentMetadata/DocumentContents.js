@@ -39,7 +39,7 @@ export class DocumentContents extends Component {
         )}
 
         <Divider />
-        <Header as="h3">Table of content</Header>
+        <Header as="h3">Table of contents</Header>
         <DocumentToc metadata={metadata} />
 
         <Divider />
