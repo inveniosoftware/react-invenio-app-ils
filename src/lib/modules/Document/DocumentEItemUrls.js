@@ -32,10 +32,14 @@ export class DocumentEItemUrls extends Component {
     return (
       <>
         {this.renderTitle('Read online')}
-        <LiteratureAccessUrls
-          truncate
-          urls={eitems.hits.flatMap((eitem) => eitem.urls)}
-        />
+        {eitems.hits.map((eitem) => (
+          <LiteratureAccessUrls
+            key={eitem.pid}
+            truncate
+            urls={eitem.urls}
+            openAccess={eitem.open_access}
+          />
+        ))}
       </>
     );
   };
