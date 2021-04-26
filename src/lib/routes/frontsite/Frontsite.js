@@ -76,11 +76,10 @@ export default class FrontSite extends Component {
             ))}
             {this.renderCustomStaticPages()}
 
-            <Overridable id="FrontSite.CustomRoute">
-              <Route>
-                <NotFound />
-              </Route>
-            </Overridable>
+            <Overridable id="FrontSite.CustomRoute" />
+            <Route>
+              <NotFound />
+            </Route>
           </Switch>
         </Container>
         <ILSFooter />
