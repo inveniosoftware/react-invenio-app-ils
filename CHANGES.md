@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.40 (released 2021-04-26)
+
+- routing: fix custom routing frontsite overridable
+
 Version 1.0.0-alpha.39 (released 2021-04-22)
 
 - patron profile: add anchors in statistics
