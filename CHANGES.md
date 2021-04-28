@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.41 (released 2021-04-28)
+
+- fix open access label for series
+
 Version 1.0.0-alpha.40 (released 2021-04-26)
 
 - routing: fix custom routing frontsite overridable
