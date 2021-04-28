@@ -68,5 +68,5 @@ LiteratureAccessUrls.propTypes = {
 LiteratureAccessUrls.defaultProps = {
   urls: [],
   truncate: false,
-  openAccess: PropTypes.bool,
+  openAccess: false,
 };
