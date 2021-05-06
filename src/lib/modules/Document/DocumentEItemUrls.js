@@ -6,6 +6,7 @@ import { DownloadLink } from '@modules/EItem/DownloadLink';
 import { LiteratureAccessUrls } from '@modules/Literature/LiteratureAccessUrls';
 import prettyBytes from 'pretty-bytes';
 import PropTypes from 'prop-types';
+import _isEmpty from 'lodash/isEmpty';
 import React, { Component } from 'react';
 import { Divider, Header, List } from 'semantic-ui-react';
 
@@ -32,14 +33,19 @@ export class DocumentEItemUrls extends Component {
     return (
       <>
         {this.renderTitle('Read online')}
-        {eitems.hits.map((eitem) => (
-          <LiteratureAccessUrls
-            key={eitem.pid}
-            truncate
-            urls={eitem.urls}
-            openAccess={eitem.open_access}
-          />
-        ))}
+        {eitems.hits.map((eitem) => {
+          if (!_isEmpty(eitem.urls)) {
+            return (
+              <LiteratureAccessUrls
+                key={eitem.pid}
+                truncate
+                urls={eitem.urls}
+                openAccess={eitem.open_access}
+              />
+            );
+          }
+          return null;
+        })}
       </>
     );
   };
