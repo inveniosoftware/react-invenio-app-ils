@@ -1,5 +1,11 @@
 # Changes
 
+Version 1.0.0-alpha.42 (released 2021-05-07)
+
+- fix loan details checkout
+- fix eitems display on document details page
+- add other relation to document details metadata
+
 Version 1.0.0-alpha.41 (released 2021-04-28)
 
 - fix open access label for series
