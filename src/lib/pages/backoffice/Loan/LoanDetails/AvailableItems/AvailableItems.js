@@ -17,9 +17,6 @@ import { Button, Header, Message, Segment, Modal } from 'semantic-ui-react';
 export default class AvailableItems extends Component {
   constructor(props) {
     super(props);
-    this.fetchAvailableItems = props.fetchAvailableItems;
-    this.assignItemToLoan = props.assignItemToLoan;
-    this.performCheckoutAction = props.performCheckoutAction;
     this.seeAllUrl = BackOfficeRoutes.itemsListWithQuery;
     this.state = {
       query: '',
@@ -208,19 +205,41 @@ export default class AvailableItems extends Component {
     }
   };
 
-  onSearchExecute = (query) => {
-    const { data, loan } = this.props;
+  searchByBarcode = async (barcode, documentPid) => {
+    const { sendErrorNotification } = this.props;
+    try {
+      const response = await itemApi.list(
+        itemApi
+          .query()
+          .withDocPid(documentPid)
+          .withStatus(invenioConfig.ITEMS.canCirculateStatuses)
+          .availableForCheckout()
+          .withBarcode(barcode)
+          .qs()
+      );
+      return response.data;
+    } catch (error) {
+      sendErrorNotification(
+        'Search for barcode',
+        'Something went wrong. Please try the search again or contact our support if the problem persists.'
+      );
+    }
+  };
+
+  onSearchExecute = async (query) => {
+    const { loan } = this.props;
     if (query) {
       const barcode = query.trim();
-      const matches = data.hits.filter(
-        (hit) => hit.metadata.barcode === barcode
+      const results = await this.searchByBarcode(
+        barcode,
+        loan.metadata.document_pid
       );
       const isRequested = invenioConfig.CIRCULATION.loanRequestStates.includes(
         loan.metadata.state
       );
-      if (matches.length === 1 && isRequested) {
+      if (results.total === 1 && isRequested) {
         // If the loan is pending and exactly one item matches the search, check it out
-        const item = matches[0];
+        const item = results.hits[0];
         this.performCheckout(loan, item);
       }
     }
@@ -312,6 +331,7 @@ AvailableItems.propTypes = {
   firstLoanRequested: PropTypes.object.isRequired,
   fetchAvailableItems: PropTypes.func.isRequired,
   performCheckoutAction: PropTypes.func.isRequired,
+  sendErrorNotification: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
   isActionLoading: PropTypes.bool,
   error: PropTypes.object,
