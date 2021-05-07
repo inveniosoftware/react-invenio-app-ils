@@ -8,6 +8,10 @@ import {
   fetchPatronCurrentLoans,
   IS_LOADING as CURRENT_LOANS_IS_LOADING,
 } from '@modules/Patron/PatronCurrentLoans/actions';
+import {
+  fetchPatronPendingLoans,
+  IS_LOADING as PENDING_LOANS_IS_LOADING,
+} from '@modules/Patron/PatronPendingLoans/actions';
 import { CLEAR_SEARCH } from '../../ItemsSearch/state/actions';
 export const IS_LOADING = 'patronItemCheckout/IS_LOADING';
 export const SUCCESS = 'patronItemCheckout/SUCCESS';
@@ -41,8 +45,12 @@ export const checkoutItem = (
       dispatch({
         type: CURRENT_LOANS_IS_LOADING,
       });
+      dispatch({
+        type: PENDING_LOANS_IS_LOADING,
+      });
       await searchReady();
       dispatch(fetchPatronCurrentLoans(patronPid));
+      dispatch(fetchPatronPendingLoans(patronPid));
       dispatch(
         sendSuccessNotification(
           'Loan Created',

@@ -1,3 +1,4 @@
+import { addNotification } from '@components/Notifications';
 import { connect } from 'react-redux';
 import { assignItemToLoan, fetchAvailableItems } from './state/actions';
 import { performLoanAction } from '@modules/Loan/actions';
@@ -20,6 +21,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(
       performLoanAction(url, documentPid, patronPid, { itemPid: itemPid })
     ),
+  sendErrorNotification: (title, content) =>
+    dispatch(addNotification(title, content, 'error')),
 });
 
 export const AvailableItems = connect(
