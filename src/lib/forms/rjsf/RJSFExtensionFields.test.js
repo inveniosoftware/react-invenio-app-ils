@@ -147,16 +147,13 @@ describe('test schema extensions', () => {
 });
 
 describe('test ui schema extensions', () => {
-  const { uiSchemaExtensions, uiSchemaExtensionsGrid } = getUiSchemaExtensions(
-    EXTENSIONS
-  );
+  const { uiSchemaExtensions, uiSchemaExtensionsGrid } =
+    getUiSchemaExtensions(EXTENSIONS);
 
   it('should get an empty object when no extensions configured', () => {
     function assertEmpty(extension) {
-      const {
-        uiSchemaExtensions: testA,
-        uiSchemaExtensionsGrid: testB,
-      } = getUiSchemaExtensions(extension);
+      const { uiSchemaExtensions: testA, uiSchemaExtensionsGrid: testB } =
+        getUiSchemaExtensions(extension);
 
       expect(testA).toEqual({});
       expect(testB).toEqual([]);

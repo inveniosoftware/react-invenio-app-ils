@@ -44,14 +44,8 @@ export class LoginWithOauthProviders extends Component {
     const { hasError, errorMessage } = this.state;
     const params = parseParams(window.location.search);
     this.checkIfOauthLoginResponse(params);
-    const {
-      enabled,
-      label,
-      name,
-      className,
-      semanticUiColor,
-      ...restProps
-    } = invenioConfig.APP.OAUTH_PROVIDERS[providerName];
+    const { enabled, label, name, className, semanticUiColor, ...restProps } =
+      invenioConfig.APP.OAUTH_PROVIDERS[providerName];
     return (
       <Overridable id="LoginWithOauth.layout" {...this.props}>
         <Container fluid>

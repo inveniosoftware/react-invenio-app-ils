@@ -8,6 +8,7 @@ exports[`SearchBar tests should match snapshot 1`] = `
   onPasteHandler={null}
   onSearchHandler={[Function]}
   placeholder="Search"
+  ref={null}
   responsiveAutofocus={false}
 >
   <Input
@@ -25,6 +26,7 @@ exports[`SearchBar tests should match snapshot 1`] = `
     placeholder="Search"
     size="big"
     type="text"
+    value=""
   >
     <div
       className="ui big fluid action input  ils-searchbar"
@@ -35,6 +37,7 @@ exports[`SearchBar tests should match snapshot 1`] = `
         onKeyPress={[Function]}
         placeholder="Search"
         type="text"
+        value=""
       />
       <Button
         as="button"

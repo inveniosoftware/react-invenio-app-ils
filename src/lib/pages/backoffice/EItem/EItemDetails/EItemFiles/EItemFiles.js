@@ -76,12 +76,8 @@ export default class EItemFiles extends Component {
   }
 
   render() {
-    const {
-      files,
-      isUploadFilesLoading,
-      isEItemFilesLoading,
-      error,
-    } = this.props;
+    const { files, isUploadFilesLoading, isEItemFilesLoading, error } =
+      this.props;
     return (
       <>
         <Header as="h3" attached="top">

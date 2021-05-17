@@ -10,10 +10,13 @@ import { CardBucketAggregationValueElementOverrides } from './overridden/CardBuc
 import { SearchError } from '@modules/SearchControls/SearchError';
 
 export const SearchControlsOverridesMap = {
-  'BucketAggregationValues.element.card': CardBucketAggregationValueElementOverrides,
+  'BucketAggregationValues.element.card':
+    CardBucketAggregationValueElementOverrides,
   'BucketAggregation.element.menu': MenuBucketAggregationValueElementOverrides,
-  'BucketAggregation.element.available-for-loan': AvailableLoanBucketAggregationElement,
-  'BucketAggregationValues.element.available-for-loan': AvailableLoanBucketAggregationValues,
+  'BucketAggregation.element.available-for-loan':
+    AvailableLoanBucketAggregationElement,
+  'BucketAggregationValues.element.available-for-loan':
+    AvailableLoanBucketAggregationValues,
   'Pagination.element': Pagination,
   'EmptyResults.element': SearchEmptyResults,
   'Error.element': SearchError,

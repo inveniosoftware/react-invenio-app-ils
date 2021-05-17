@@ -64,13 +64,8 @@ export default class RelationEdition extends Component {
   };
 
   render() {
-    const {
-      relations,
-      showMaxRows,
-      isLoading,
-      error,
-      recordDetails,
-    } = this.props;
+    const { relations, showMaxRows, isLoading, error, recordDetails } =
+      this.props;
     const editions = relations[this.relationType] || [];
 
     const columns = [

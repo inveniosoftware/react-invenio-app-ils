@@ -51,9 +51,8 @@ class LiteratureSearch extends Component {
 
   render() {
     const initialState = setReactSearchKitInitialQueryState(this.modelName);
-    const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
-      this.modelName
-    );
+    const defaultSortingOnEmptyQueryString =
+      setReactSearchKitDefaultSortingOnEmptyQueryString(this.modelName);
     const { overriddenSearchAppCmps } = this.props;
 
     const urlHandler = setReactSearchKitUrlHandler(this.modelName);

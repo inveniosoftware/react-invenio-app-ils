@@ -26,12 +26,8 @@ export default class PatronOverview extends Component {
   }
 
   render() {
-    const {
-      currentLoans,
-      loanRequests,
-      documentRequests,
-      anchors,
-    } = this.props;
+    const { currentLoans, loanRequests, documentRequests, anchors } =
+      this.props;
     return (
       <Container className="spaced">
         <Statistic.Group widths="three" size="small">

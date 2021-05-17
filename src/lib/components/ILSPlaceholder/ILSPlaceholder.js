@@ -31,13 +31,8 @@ export class ILSParagraphPlaceholder extends Component {
   };
 
   render() {
-    const {
-      isLoading,
-      linesNumber,
-      lineLength,
-      children,
-      ...restParams
-    } = this.props;
+    const { isLoading, linesNumber, lineLength, children, ...restParams } =
+      this.props;
 
     return isLoading ? (
       <Placeholder {...restParams}>{this.renderLines()}</Placeholder>

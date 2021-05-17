@@ -71,9 +71,8 @@ export class ItemSearch extends Component {
     ];
 
     const initialState = setReactSearchKitInitialQueryState(this.modelName);
-    const defaultSortingOnEmptyQueryString = setReactSearchKitDefaultSortingOnEmptyQueryString(
-      this.modelName
-    );
+    const defaultSortingOnEmptyQueryString =
+      setReactSearchKitDefaultSortingOnEmptyQueryString(this.modelName);
     const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>

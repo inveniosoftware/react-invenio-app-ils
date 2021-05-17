@@ -76,12 +76,8 @@ export default class LoanUpdateDates extends Component {
   };
 
   isSelectionValid = () => {
-    const {
-      startDate,
-      endDate,
-      requestStartDate,
-      requestExpireDate,
-    } = this.state;
+    const { startDate, endDate, requestStartDate, requestExpireDate } =
+      this.state;
     const active = this.isActiveOrCompleted();
     const start = active ? startDate : requestStartDate;
     const end = active ? endDate : requestExpireDate;
@@ -95,12 +91,8 @@ export default class LoanUpdateDates extends Component {
       },
       loanUpdateDates,
     } = this.props;
-    const {
-      startDate,
-      endDate,
-      requestStartDate,
-      requestExpireDate,
-    } = this.state;
+    const { startDate, endDate, requestStartDate, requestExpireDate } =
+      this.state;
     const data = this.isActiveOrCompleted()
       ? {
           startDate: startDate,

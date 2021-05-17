@@ -6,13 +6,8 @@ import { invenioConfig } from '@config';
 
 class OrderStep extends Component {
   render() {
-    const {
-      status,
-      currentStatus,
-      disabled,
-      iconName,
-      description,
-    } = this.props;
+    const { status, currentStatus, disabled, iconName, description } =
+      this.props;
     return (
       <Step
         active={currentStatus === status}

@@ -25,9 +25,10 @@ import { BorrowingRequestLoanExtension } from './BorrowingRequestLoanExtension';
 class CreateLoanButton extends React.Component {
   render() {
     const { brwReq, isLoading, onNewLoanClicked } = this.props;
-    const isCompleted = invenioConfig.ILL_BORROWING_REQUESTS.completedStatuses.includes(
-      brwReq.status
-    );
+    const isCompleted =
+      invenioConfig.ILL_BORROWING_REQUESTS.completedStatuses.includes(
+        brwReq.status
+      );
     if (isCompleted) {
       return null;
     }
