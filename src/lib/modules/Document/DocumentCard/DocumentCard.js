@@ -52,10 +52,8 @@ class DocumentCard extends Component {
     return (
       <Overridable id="DocumentCard.layout" {...this.props}>
         <Card
-          link
           centered
           className="fs-book-card"
-          href={url}
           as={Link}
           to={url}
           data-test={metadata.pid}
@@ -70,9 +68,7 @@ class DocumentCard extends Component {
             </Card.Header>
             <Card.Meta>
               <div className="default-margin-bottom">
-                <Truncate lines={1}>
-                  <div>{authors}</div>
-                </Truncate>
+                <Truncate lines={1}>{authors}</Truncate>
               </div>
               <Overridable id="DocumentCard.AfterAuthors" metadata={metadata} />
               <div>
@@ -90,6 +86,7 @@ class DocumentCard extends Component {
               </Label>
             )}
             {metadata.eitems.total > 0 && <Label>E-book</Label>}
+            <Overridable id="DocumentCard.Extras" metadata={metadata} />
           </Card.Content>
         </Card>
       </Overridable>

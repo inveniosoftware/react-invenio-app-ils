@@ -1,10 +1,10 @@
-import { goTo } from '@history';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, Label } from 'semantic-ui-react';
 import { Truncate } from '@components/Truncate';
 import { invenioConfig } from '@config';
@@ -42,12 +42,10 @@ export class SeriesCard extends Component {
       : null;
     return (
       <Card
-        link
         centered
         className="fs-book-card"
-        onClick={() =>
-          goTo(FrontSiteRoutes.seriesDetailsFor(data.metadata.pid))
-        }
+        as={Link}
+        to={FrontSiteRoutes.seriesDetailsFor(data.metadata.pid)}
         data-test={data.metadata.pid}
       >
         <Card.Meta className="discrete">

@@ -7,10 +7,15 @@ import _isEmpty from 'lodash/isEmpty';
 import { Header } from 'semantic-ui-react';
 
 export default class ItemsSearch extends Component {
+  constructor(props) {
+    super(props);
+    this.searchBarRef = React.createRef();
+  }
+
   executeCheckinAndClearInput = async (queryString) => {
     const { checkin } = this.props;
     if (queryString.trim() === '') return;
-    await checkin(queryString);
+    await checkin(queryString, this.searchBarRef.current.clearQueryString);
   };
 
   render() {
@@ -20,6 +25,7 @@ export default class ItemsSearch extends Component {
         <SearchBarILS
           onSearchHandler={this.executeCheckinAndClearInput}
           placeholder="Scan physical copy barcode to check-in..."
+          ref={this.searchBarRef}
         />
 
         {!_isEmpty(loans) ? (

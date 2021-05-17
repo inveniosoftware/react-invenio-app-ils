@@ -15,7 +15,7 @@ export const CHECKIN_SUCCESS = 'itemCheckin/SUCCESS';
 export const CHECKIN_HAS_ERROR = 'itemCheckin/HAS_ERROR';
 export const CLEAR = 'itemCheckin/CLEAR';
 
-export const checkin = (barcode) => {
+export const checkin = (barcode, onSuccess) => {
   return async (dispatch) => {
     dispatch({
       type: LOAN_IS_LOADING,
@@ -48,6 +48,7 @@ export const checkin = (barcode) => {
           payload: response.data,
         });
       }
+      onSuccess();
     } catch (error) {
       if (!error.response) {
         dispatch(
