@@ -102,9 +102,8 @@ class ItemStatusMessageNotOnLoan extends Component {
   render() {
     const { status } = this.props;
 
-    const canCirculate = invenioConfig.ITEMS.canCirculateStatuses.includes(
-      status
-    );
+    const canCirculate =
+      invenioConfig.ITEMS.canCirculateStatuses.includes(status);
     let title,
       content,
       success = false,
@@ -115,9 +114,8 @@ class ItemStatusMessageNotOnLoan extends Component {
       content = 'This physical copy is currently available for loan';
     } else {
       warning = true;
-      const forReferenceOnly = invenioConfig.ITEMS.referenceStatuses.includes(
-        status
-      );
+      const forReferenceOnly =
+        invenioConfig.ITEMS.referenceStatuses.includes(status);
       title = forReferenceOnly
         ? 'Physical copy for reference only'
         : 'Physical copy not available';

@@ -24,11 +24,8 @@ class PatronPastDocumentRequests extends Component {
   }
 
   fetchPatronPastDocumentRequests() {
-    const {
-      fetchPatronPastDocumentRequests,
-      patronPid,
-      rowsPerPage,
-    } = this.props;
+    const { fetchPatronPastDocumentRequests, patronPid, rowsPerPage } =
+      this.props;
     const { activePage } = this.state;
     fetchPatronPastDocumentRequests(patronPid, {
       page: activePage,

@@ -17,15 +17,8 @@ class LiteratureCover extends Component {
   };
 
   render() {
-    const {
-      asItem,
-      isRestricted,
-      linkTo,
-      size,
-      url,
-      isLoading,
-      ...uiProps
-    } = this.props;
+    const { asItem, isRestricted, linkTo, size, url, isLoading, ...uiProps } =
+      this.props;
     const Cmp = asItem ? Item.Image : Image;
     const link = linkTo ? { as: Link, to: linkTo } : {};
     return (

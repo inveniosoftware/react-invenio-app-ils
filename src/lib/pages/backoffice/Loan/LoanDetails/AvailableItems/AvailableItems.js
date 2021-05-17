@@ -266,12 +266,12 @@ export default class AvailableItems extends Component {
   render() {
     const { isLoading, error, loan, data, firstLoanRequested } = this.props;
     const { modalOpen } = this.state;
-    const statesThatRenderSearchBar = invenioConfig.CIRCULATION.loanActiveStates.concat(
-      invenioConfig.CIRCULATION.loanRequestStates
-    );
-    const statesThatRenderCheckoutMessage = invenioConfig.CIRCULATION.loanRequestStates.includes(
-      loan.metadata.state
-    );
+    const statesThatRenderSearchBar =
+      invenioConfig.CIRCULATION.loanActiveStates.concat(
+        invenioConfig.CIRCULATION.loanRequestStates
+      );
+    const statesThatRenderCheckoutMessage =
+      invenioConfig.CIRCULATION.loanRequestStates.includes(loan.metadata.state);
     return (
       <>
         <Header as="h3" attached="top">

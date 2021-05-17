@@ -18,15 +18,8 @@ class YearPicker extends Component {
   };
 
   render() {
-    const {
-      initialYear,
-      error,
-      label,
-      id,
-      name,
-      placeholder,
-      className,
-    } = this.props;
+    const { initialYear, error, label, id, name, placeholder, className } =
+      this.props;
     const { selectedYear } = this.state;
     return (
       <YearInput

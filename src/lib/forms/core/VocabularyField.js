@@ -65,15 +65,8 @@ export class VocabularyField extends React.Component {
   };
 
   render() {
-    const {
-      fieldPath,
-      label,
-      multiple,
-      serializer,
-      type,
-      width,
-      ...uiProps
-    } = this.props;
+    const { fieldPath, label, multiple, serializer, type, width, ...uiProps } =
+      this.props;
     const { isLoading, options, error } = this.state;
     const noResultsMessage = isLoading
       ? 'Loading options...'

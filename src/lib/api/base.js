@@ -69,9 +69,8 @@ const responseRejectInterceptor = (error) => {
         return http.request(originalRequest);
       }
 
-      const hasDedicatedPage = HTTP_STATUS_CODES_WITH_ERROR_PAGE.includes(
-        errorStatus
-      );
+      const hasDedicatedPage =
+        HTTP_STATUS_CODES_WITH_ERROR_PAGE.includes(errorStatus);
       if (hasDedicatedPage) {
         goToErrorPage(errorResponse);
       }

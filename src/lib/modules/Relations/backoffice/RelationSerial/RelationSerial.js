@@ -44,13 +44,8 @@ export default class RelationSerial extends Component {
   };
 
   render() {
-    const {
-      relations,
-      showMaxRows,
-      isLoading,
-      error,
-      recordDetails,
-    } = this.props;
+    const { relations, showMaxRows, isLoading, error, recordDetails } =
+      this.props;
     const serial = relations[this.relationType] || [];
 
     const columns = [

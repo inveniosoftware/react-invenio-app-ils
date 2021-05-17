@@ -55,11 +55,8 @@ export default class ItemPendingLoans extends Component {
   };
 
   checkoutItemButton = ({ row }) => {
-    const {
-      performCheckoutAction,
-      itemDetails,
-      isPendingLoansLoading,
-    } = this.props;
+    const { performCheckoutAction, itemDetails, isPendingLoansLoading } =
+      this.props;
     const itemPid = {
       type: recordToPidType(itemDetails),
       value: itemDetails.metadata.pid,

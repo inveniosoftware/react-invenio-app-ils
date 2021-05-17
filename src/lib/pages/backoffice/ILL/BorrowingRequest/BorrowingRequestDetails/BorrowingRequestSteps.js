@@ -7,14 +7,8 @@ import { LoanIcon } from '@components/backoffice/icons';
 
 class BorrowingRequestStep extends Component {
   render() {
-    const {
-      status,
-      currentStatus,
-      disabled,
-      icon,
-      iconName,
-      description,
-    } = this.props;
+    const { status, currentStatus, disabled, icon, iconName, description } =
+      this.props;
     return (
       <Step
         active={currentStatus === status}

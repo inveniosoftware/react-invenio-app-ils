@@ -44,11 +44,9 @@ export class LocationOpeningHours extends Component {
     const {
       location: { metadata },
     } = this.props;
-    const isNotOverriden = !_get(
-      metadata,
-      'opening_exceptions',
-      []
-    ).some((ex) => this.isInInterval(today, ex));
+    const isNotOverriden = !_get(metadata, 'opening_exceptions', []).some(
+      (ex) => this.isInInterval(today, ex)
+    );
     return metadata.opening_weekdays.map((weekday, idx) => {
       const isCurrent = DateTime.fromISO(today).weekday - 1 === idx;
       return (

@@ -170,13 +170,8 @@ class DocumentDetails extends Component {
   };
 
   render() {
-    const {
-      isLoading,
-      hasError,
-      error,
-      documentDetails,
-      loansInfo,
-    } = this.props;
+    const { isLoading, hasError, error, documentDetails, loansInfo } =
+      this.props;
     if (hasError && _get(error, 'response.status') === 404) {
       return <NotFound />;
     }

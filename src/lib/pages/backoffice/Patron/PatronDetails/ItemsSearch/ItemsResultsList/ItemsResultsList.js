@@ -138,12 +138,8 @@ export default class ItemsResultsList extends Component {
   };
 
   render() {
-    const {
-      results,
-      checkoutIsLoading,
-      executedSearch,
-      isLoading,
-    } = this.props;
+    const { results, checkoutIsLoading, executedSearch, isLoading } =
+      this.props;
     const columns = [
       {
         title: 'Barcode',
