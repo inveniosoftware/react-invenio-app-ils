@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Item, List } from 'semantic-ui-react';
+import _get from 'lodash/get';
 
 export default class OrderListEntry extends Component {
   renderLeftColumn = (order) => {
@@ -145,6 +146,11 @@ export default class OrderListEntry extends Component {
 
   render() {
     const { record } = this.props;
+    const docTitle = _get(
+      record,
+      'metadata.resolved_order_lines[0].document.title'
+    );
+
     return (
       <Item>
         <Item.Content>
@@ -154,7 +160,7 @@ export default class OrderListEntry extends Component {
             data-test={`navigate-${record.metadata.pid}`}
           >
             <AcquisitionOrderIcon />
-            Order: {record.metadata.pid}
+            Order: {docTitle ? docTitle : record.metadata.pid}
           </Item.Header>
           <Grid highlight={3}>
             <Grid.Column computer={5} largeScreen={5}>
