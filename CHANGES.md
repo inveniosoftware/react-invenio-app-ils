@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.43 (released 2021-05-17)
+
+- checkin: clear searchbar on success
+- add display title to borrowing request and order
+
 Version 1.0.0-alpha.42 (released 2021-05-07)
 
 - fix loan details checkout
