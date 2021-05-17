@@ -133,7 +133,7 @@ export default class BorrowingRequestListEntry extends Component {
             data-test={`navigate-${brwReqMetadata.pid}`}
           >
             <ILLBorrowingRequestIcon />
-            Borrowing Request: {brwReqMetadata.pid}
+            {brwReqMetadata.document.title}
           </Item.Header>
           <Grid highlight={3}>
             <Grid.Column computer={5} largeScreen={5}>

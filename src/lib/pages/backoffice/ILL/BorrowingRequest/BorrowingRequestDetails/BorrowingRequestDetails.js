@@ -79,10 +79,14 @@ class BorrowingRequestHeader extends React.Component {
             </div>
           </>
         }
-        subTitle={<>From provider: {providerLink}</>}
+        subTitle={
+          <>
+            {brwReq.document.title}
+            <br /> From provider: {providerLink}
+          </>
+        }
         pid={brwReq.pid}
         icon={<ILLBorrowingRequestIcon />}
-        recordType="BorrowingRequest"
         recordInfo={recordInfo}
       />
     );
