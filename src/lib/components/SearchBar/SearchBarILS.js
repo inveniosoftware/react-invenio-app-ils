@@ -13,6 +13,10 @@ export class SearchBarILS extends Component {
     }
   }
 
+  clearQueryString = () => {
+    this.setState({ currentValue: '' });
+  };
+
   onKeyPressHandler = (event, input) => {
     if (event.key === 'Enter') {
       const { onSearchHandler } = this.props;
@@ -23,9 +27,11 @@ export class SearchBarILS extends Component {
 
   onPasteHandler = (event) => {
     const { onSearchHandler } = this.props;
+    event.preventDefault();
     const queryString = (event.clipboardData || window.clipboardData).getData(
       'text'
     );
+    this.setState({ currentValue: queryString });
     onSearchHandler(queryString);
   };
 
@@ -52,6 +58,7 @@ export class SearchBarILS extends Component {
           this.setState({ currentValue: value });
           onChangeHandler && onChangeHandler(value);
         }}
+        value={currentValue}
         onKeyPress={parentKeyPressHandler || this.onKeyPressHandler}
         onPaste={onPasteHandler || this.onPasteHandler}
         fluid
@@ -73,6 +80,7 @@ export class SearchBarILS extends Component {
 
 SearchBarILS.propTypes = {
   onKeyPressHandler: PropTypes.func,
+  ref: PropTypes.func,
   onPasteHandler: PropTypes.func,
   onSearchHandler: PropTypes.func.isRequired,
   onChangeHandler: PropTypes.func,
@@ -88,4 +96,5 @@ SearchBarILS.defaultProps = {
   placeholder: '',
   className: '',
   responsiveAutofocus: false,
+  ref: null,
 };

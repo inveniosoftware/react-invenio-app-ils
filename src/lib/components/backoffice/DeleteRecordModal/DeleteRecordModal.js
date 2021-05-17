@@ -60,7 +60,7 @@ export default class DeleteRecordModal extends Component {
         key={hit.id}
         as="a"
         onClick={() => onRefClick(hit.id)}
-        target="blank"
+        target="_blank"
       >
         <List.Content>
           {hit.record && <List.Header>{hit.record.title}</List.Header>}
