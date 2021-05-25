@@ -77,8 +77,9 @@ class LoanExtendButton extends Component {
       return { isValid: false, msg: INFO_MESSAGES.MISSING_ACTION_URL };
     const { loanWillExpireDays } = invenioConfig.CIRCULATION;
     const isTooEarly =
-      DateTime.fromISO(loan.metadata.end_date).diffNow('days').days >=
-      loanWillExpireDays;
+      Math.floor(
+        DateTime.fromISO(loan.metadata.end_date).diffNow('days').days
+      ) > loanWillExpireDays;
     if (isTooEarly) {
       return {
         isValid: false,
