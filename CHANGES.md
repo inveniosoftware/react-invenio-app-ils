@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.44 (released 2021-05-25)
+
+- fix extension date validation
+
 Version 1.0.0-alpha.43 (released 2021-05-17)
 
 - checkin: clear searchbar on success
