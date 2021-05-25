@@ -61,8 +61,9 @@ const validateLoanExtension = (brwReqLoan) => {
   let msg = null;
   const { loanWillExpireDays } = invenioConfig.CIRCULATION;
   const isTooEarly =
-    DateTime.fromISO(brwReqLoan.metadata.end_date).diffNow('days').days >
-    loanWillExpireDays;
+    Math.floor(
+      DateTime.fromISO(brwReqLoan.metadata.end_date).diffNow('days').days
+    ) > loanWillExpireDays;
   if (isTooEarly) {
     isValid = false;
     msg = INFO_MESSAGES.IS_TOO_EARLY(
