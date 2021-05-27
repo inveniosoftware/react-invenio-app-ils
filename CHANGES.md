@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.46 (released 2021-05-27)
+
+- add document type to item search facets
+
 Version 1.0.0-alpha.45 (released 2021-05-25)
 
 - fix extension days calculation
