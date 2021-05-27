@@ -530,6 +530,11 @@ export const RECORDS_CONFIG = {
           aggName: 'circulation_restriction',
         },
         {
+          title: 'Document type',
+          field: 'document.document_type.keyword',
+          aggName: 'document_type',
+        },
+        {
           title: 'Internal location',
           field: 'internal_location.name',
           aggName: 'internal_location',
