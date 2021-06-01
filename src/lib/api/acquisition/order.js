@@ -56,6 +56,7 @@ class QueryBuilder {
   constructor() {
     this.patronQuery = [];
     this.recipientQuery = [];
+    this.documentQuery = [];
     this.providerQuery = [];
     this.providerPidQuery = [];
     this.query = [];
@@ -76,6 +77,16 @@ class QueryBuilder {
       throw TypeError('Patron PID argument missing');
     }
     this.patronQuery.push(`order_lines.patron_pid:${patronPid}`);
+    return this;
+  }
+
+  withDocPid(documentPid) {
+    if (!documentPid) {
+      throw TypeError('DocumentPid argument missing');
+    }
+    this.documentQuery.push(
+      `order_lines.document_pid:${prepareSumQuery(documentPid)}`
+    );
     return this;
   }
 
@@ -120,6 +131,7 @@ class QueryBuilder {
     const searchCriteria = this.patronQuery
       .concat(this.recipientQuery, this.providerQuery, this.providerPidQuery)
       .concat(this.stateQuery)
+      .concat(this.documentQuery)
       .concat(this.query)
       .join(' AND ');
     return `${searchCriteria}${this.sortByQuery}`;

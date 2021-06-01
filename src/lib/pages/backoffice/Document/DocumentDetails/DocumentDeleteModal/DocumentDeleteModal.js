@@ -1,4 +1,7 @@
+import { orderApi } from '@api/acquisition';
 import { documentRequestApi } from '@api/documentRequests';
+import { eItemApi } from '@api/eitems';
+import { borrowingRequestApi } from '@api/ill';
 import { itemApi } from '@api/items';
 import { loanApi } from '@api/loans';
 import { invenioConfig } from '@config';
@@ -6,7 +9,7 @@ import { goTo } from '@history';
 import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
 import { DeleteButton } from '@components/backoffice/DeleteRecordModal/DeleteButton';
 import { formatPidTypeToName } from '@components/backoffice/utils';
-import { BackOfficeRoutes } from '@routes/urls';
+import { AcquisitionRoutes, BackOfficeRoutes, ILLRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
@@ -51,11 +54,22 @@ export default class DocumentDeleteModal extends Component {
     goTo(BackOfficeRoutes.itemDetailsFor(itemPid));
   }
 
+  handleOnEItemRefClick(eitemPid) {
+    goTo(BackOfficeRoutes.eitemDetailsFor(eitemPid));
+  }
+
   handleOnRequestRefClick(docReqPid) {
     goTo(BackOfficeRoutes.documentRequestDetailsFor(docReqPid));
   }
+
+  handleOnBrwReqRefClick(brwReqPid) {
+    goTo(ILLRoutes.borrowingRequestDetailsFor(brwReqPid));
+  }
+  handleOnOrderRefClick(orderPid) {
+    goTo(AcquisitionRoutes.orderDetailsFor(orderPid));
+  }
   /**
-   * Used to create all the references for de
+   * Used to create all the references for the document
    */
   createRefProps(documentPid) {
     const loanStates = invenioConfig.CIRCULATION.loanRequestStates.concat(
@@ -78,6 +92,29 @@ export default class DocumentDeleteModal extends Component {
         itemApi.list(itemApi.query().withDocPid(documentPid).qs()),
     };
 
+    const borrowingRequestRefProps = {
+      refType: 'Borrowing requests',
+      onRefClick: this.handleOnBrwReqRefClick,
+      getRefData: () =>
+        borrowingRequestApi.list(
+          borrowingRequestApi.query().withDocPid(documentPid).qs()
+        ),
+    };
+
+    const ordersRefProps = {
+      refType: 'Orders',
+      onRefClick: this.handleOnOrderRefClick,
+      getRefData: () =>
+        orderApi.list(orderApi.query().withDocPid(documentPid).qs()),
+    };
+
+    const eitemRefProps = {
+      refType: 'E-items',
+      onRefClick: this.handleOnEItemRefClick,
+      getRefData: () =>
+        itemApi.list(eItemApi.query().withDocPid(documentPid).qs()),
+    };
+
     const relationRefProps = {
       refType: 'Related',
       onRefClick: () => {},
@@ -93,7 +130,15 @@ export default class DocumentDeleteModal extends Component {
         ),
     };
 
-    return [loanRefProps, itemRefProps, relationRefProps, requestRefProps];
+    return [
+      loanRefProps,
+      itemRefProps,
+      relationRefProps,
+      requestRefProps,
+      eitemRefProps,
+      borrowingRequestRefProps,
+      ordersRefProps,
+    ];
   }
 
   render() {

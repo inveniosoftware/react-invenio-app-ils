@@ -105,6 +105,7 @@ class QueryBuilder {
     this.patronQuery = [];
     this.providerQuery = [];
     this.providerPidQuery = [];
+    this.documentQuery = [];
     this.query = [];
     this.size = '';
     this.sortByQuery = '';
@@ -117,6 +118,14 @@ class QueryBuilder {
       throw TypeError('State argument missing');
     }
     this.stateQuery.push(`status:${prepareSumQuery(state)}`);
+    return this;
+  }
+
+  withDocPid(documentPid) {
+    if (!documentPid) {
+      throw TypeError('DocumentPid argument missing');
+    }
+    this.documentQuery.push(`document_pid:${prepareSumQuery(documentPid)}`);
     return this;
   }
 
@@ -182,6 +191,7 @@ class QueryBuilder {
       .concat(this.providerQuery, this.providerPidQuery)
       .concat(this.stateQuery)
       .concat(this.patronLoanExtensionStatusQuery)
+      .concat(this.documentQuery)
       .concat(this.query)
       .join(' AND ');
     return `${searchCriteria}${this.sortByQuery}${this.size}${this.page}`;
