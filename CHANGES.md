@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.47 (released 2021-06-02)
+
+- document: add all references to delete confirmation modal
+
 Version 1.0.0-alpha.46 (released 2021-05-27)
 
 - add document type to item search facets
