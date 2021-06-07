@@ -112,7 +112,7 @@ export default class DocumentDeleteModal extends Component {
       refType: 'E-items',
       onRefClick: this.handleOnEItemRefClick,
       getRefData: () =>
-        itemApi.list(eItemApi.query().withDocPid(documentPid).qs()),
+        eItemApi.list(eItemApi.query().withDocPid(documentPid).qs()),
     };
 
     const relationRefProps = {
