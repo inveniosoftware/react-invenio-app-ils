@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.48 (released 2021-06-07)
+
+- document: fix reference query on delete
+
 Version 1.0.0-alpha.47 (released 2021-06-02)
 
 - document: add all references to delete confirmation modal
