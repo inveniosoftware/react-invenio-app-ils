@@ -313,24 +313,31 @@ export const uiSchema = (title, { tooManyAuthors = false } = {}) => {
       },
     },
     'custom:grid': [
-      { title: 8, document_type: 4, restricted: 4 },
+      {
+        title: 8,
+        document_type: 4,
+        restricted: 4,
+      },
+      {
+        alternative_titles: 8,
+        languages: 8,
+      },
       {
         edition: 3,
         publication_year: 3,
         number_of_pages: 2,
-        languages: 8,
-      },
-      {
         source: 4,
         curated: 4,
-        imprint: 8,
       },
       { 'custom:divider': 16 },
       authorsField,
       { other_authors: 16 },
+      { imprint: 16 },
+      {
+        identifiers: 10,
+        alternative_identifiers: 6,
+      },
       { 'custom:divider': 16 },
-      { identifiers: 10, alternative_identifiers: 6 },
-      { alternative_titles: 8 },
       { abstract: 8, alternative_abstracts: 8 },
       { 'custom:divider': 16 },
       { physical_description: 8, table_of_content: 8 },
