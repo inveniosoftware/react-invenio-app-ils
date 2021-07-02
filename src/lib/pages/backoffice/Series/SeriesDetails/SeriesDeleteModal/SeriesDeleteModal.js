@@ -1,3 +1,4 @@
+import { documentApi } from '@api/documents';
 import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
 import { DeleteButton } from '@components/backoffice/DeleteRecordModal/DeleteButton';
 import { formatPidTypeToName } from '@components/backoffice/utils';
@@ -38,12 +39,37 @@ export default class SeriesDeleteModal extends Component {
   }
 
   createRefProps() {
+    const { series } = this.props;
+
+    const multipartVolumes = {
+      refType: 'Volume',
+      onRefClick: this.handleOnLoanRefClick,
+      getRefData: () =>
+        documentApi.list(
+          documentApi
+            .query()
+            .withSeriesPid(series.pid, 'MULTIPART_MONOGRAPH')
+            .qs()
+        ),
+    };
+
+    const serialVolumes = {
+      refType: 'Serial volume',
+      onRefClick: this.handleOnLoanRefClick,
+      getRefData: () =>
+        documentApi.list(
+          documentApi.query().withSeriesPid(series.pid, 'SERIAL').qs()
+        ),
+    };
+
     return [
       {
         refType: 'Related',
         onRefClick: () => {},
         getRefData: () => this.getRelationRefs(),
       },
+      serialVolumes,
+      multipartVolumes,
     ];
   }
   render() {
