@@ -138,7 +138,14 @@ export default class DocumentListEntry extends Component {
                   />
                 )}
               </Item.Description>
-              <label>Published</label> {document.metadata.publication_year}
+              <Item.Description>
+                <label>Published</label> {document.metadata.publication_year}
+              </Item.Description>
+              <Item.Description>
+                {document.metadata.imprint?.publisher
+                  ?  <><label> Publication year </label>{document.metadata.imprint?.publisher}</>
+                  : ""}
+              </Item.Description>
             </Grid.Column>
             <Grid.Column computer={3} largeScreen={4}>
               {this.renderMiddleColumn(document)}

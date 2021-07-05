@@ -67,7 +67,7 @@ export class DocumentHeader extends Component {
           <DocumentAuthors
             authors={data.metadata.authors}
             hasOtherAuthors={data.metadata.other_authors}
-            prefix="by "
+            prefix="by"
             limit={invenioConfig.LITERATURE.authors.maxDisplay}
           />
         }
