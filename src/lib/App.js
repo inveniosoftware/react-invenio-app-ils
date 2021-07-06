@@ -13,8 +13,10 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect, Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import store from './store';
+import { configureStore } from './store';
 import { MediaContextProvider } from '@components/Media';
+
+export const ILSStore = configureStore();
 
 class FetchUserComponent extends Component {
   componentDidMount() {
@@ -49,7 +51,7 @@ export default class App extends Component {
   render() {
     return (
       <MediaContextProvider>
-        <Provider store={store}>
+        <Provider store={ILSStore}>
           <FetchUser>
             <Switch>
               <Route exact path={AuthenticationRoutes.login}>
