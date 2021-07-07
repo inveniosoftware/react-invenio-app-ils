@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.49 (released 2021-07-07)
+
+- series: check dependencies before delete action
+- document: reorder form fields
+
 Version 1.0.0-alpha.48 (released 2021-06-07)
 
 - document: fix reference query on delete
