@@ -19,6 +19,7 @@ export default class CheckedInItems extends Component {
           key={item.id}
           withPendingLoans={item.has_pending_loans}
           showPreviousLoan
+          checkIn
           target="_blank"
         />
       );
