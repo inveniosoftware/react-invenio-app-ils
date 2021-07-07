@@ -75,7 +75,12 @@ class DocumentCard extends Component {
                 {metadata.publication_year}
                 {metadata.edition && <> - Edition {metadata.edition}</>}
                 {volume && <> - Vol. {volume}</>}
-                {metadata.imprint?.publisher && <> <br></br> {metadata.imprint.publisher}</>}
+                {metadata.imprint?.publisher && (
+                  <>
+                    {' '}
+                    <br></br> {metadata.imprint.publisher}
+                  </>
+                )}
               </div>
             </Card.Meta>
           </Card.Content>

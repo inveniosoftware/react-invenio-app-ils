@@ -51,7 +51,7 @@ export default (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: {},
-        items: [...state.items, action.payload],
+        items: [action.payload, ...state.items],
         hasError: false,
       };
     case CHECKIN_HAS_ERROR:

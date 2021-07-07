@@ -6,7 +6,7 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Grid, Header, Item, List } from 'semantic-ui-react';
+import { Button, Grid, Header, Item, List, Label } from 'semantic-ui-react';
 
 class ItemCirculation extends Component {
   render() {
@@ -61,6 +61,7 @@ export class ItemListEntry extends Component {
       record: item,
       withPendingLoans,
       showPreviousLoan,
+      highlightLocation,
       target,
     } = this.props;
     const classes = withPendingLoans ? 'bkg-yellow' : '';
@@ -85,16 +86,36 @@ export class ItemListEntry extends Component {
                 </Header>
                 <List>
                   <List.Item>
-                    <List.Content>
-                      {item.metadata.internal_location.location.name} -{' '}
-                      {item.metadata.internal_location.name}
-                    </List.Content>
+                    {highlightLocation ? (
+                      <List.Content>
+                        <Label color="blue" tag>
+                          <strong>
+                            {item.metadata.internal_location.location.name} -{' '}
+                            {item.metadata.internal_location.name}
+                          </strong>
+                        </Label>
+                      </List.Content>
+                    ) : (
+                      <List.Content>
+                        {item.metadata.internal_location.location.name} -{' '}
+                        {item.metadata.internal_location.name}
+                      </List.Content>
+                    )}
                   </List.Item>
                   <List.Item>
-                    <List.Content>
-                      {' '}
-                      shelf <strong>{item.metadata.shelf}</strong>
-                    </List.Content>
+                    {highlightLocation ? (
+                      <List.Content>
+                        {' '}
+                        <Label color="blue" tag>
+                          <strong>shelf {item.metadata.shelf}</strong>
+                        </Label>
+                      </List.Content>
+                    ) : (
+                      <List.Content>
+                        {' '}
+                        shelf <strong>{item.metadata.shelf}</strong>
+                      </List.Content>
+                    )}
                   </List.Item>
                 </List>
               </Item.Meta>
@@ -151,9 +172,9 @@ export class ItemListEntry extends Component {
               {withPendingLoans && (
                 <Item.Extra>
                   <Button
+                    primary
                     compact
                     floated="right"
-                    color="blue"
                     as={Link}
                     target="_blank"
                     to={BackOfficeRoutes.documentDetailsFor(
@@ -167,7 +188,11 @@ export class ItemListEntry extends Component {
             </Grid.Column>
           </Grid>
         </Item.Content>
-        <div className="pid-field">#{item.metadata.pid}</div>
+        {highlightLocation ? (
+          <div className="pid-field pid-field-top">#{item.metadata.pid}</div>
+        ) : (
+          <div className="pid-field">#{item.metadata.pid}</div>
+        )}
       </Item>
     );
   }
@@ -177,11 +202,13 @@ ItemListEntry.propTypes = {
   record: PropTypes.object.isRequired,
   withPendingLoans: PropTypes.bool,
   showPreviousLoan: PropTypes.bool,
+  highlightLocation: PropTypes.bool,
   target: PropTypes.string,
 };
 
 ItemListEntry.defaultProps = {
   withPendingLoans: false,
   showPreviousLoan: false,
+  highlightLocation: false,
   target: '',
 };

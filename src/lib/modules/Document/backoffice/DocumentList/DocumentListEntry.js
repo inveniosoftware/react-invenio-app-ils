@@ -139,11 +139,16 @@ export default class DocumentListEntry extends Component {
                 )}
               </Item.Description>
               <Item.Description>
-                <label>Publication year</label> {document.metadata.publication_year}
+                <label>Publication year</label>{' '}
+                {document.metadata.publication_year}
               </Item.Description>
               <Item.Description>
-                {document.metadata.imprint?.publisher
-                  && <><label> Publisher </label>{document.metadata.imprint.publisher}</>}
+                {document.metadata.imprint?.publisher && (
+                  <>
+                    <label> Publisher </label>
+                    {document.metadata.imprint.publisher}
+                  </>
+                )}
               </Item.Description>
             </Grid.Column>
             <Grid.Column computer={3} largeScreen={4}>

@@ -8,7 +8,13 @@ export const schema = () => {
   );
   const _schema = {
     type: 'object',
-    required: ['title', 'authors', 'publication_year', 'document_type', 'languages'],
+    required: [
+      'title',
+      'authors',
+      'publication_year',
+      'document_type',
+      'languages',
+    ],
     definitions: {
       identifier: {
         properties: {
