@@ -65,13 +65,17 @@ class DocumentPanel extends Component {
                         id="DocumentPanel.AfterAuthors"
                         metadata={doc.metadata}
                       />
-                      {doc.metadata.imprint?.publisher
-                        &&
-                      <><div
-                        className={`default-margin-bottom`}>
-                        Published by <b>{doc.metadata.imprint?.publisher}</b>
-                        {doc.metadata.publication_year && (<b>{doc.metadata.publication_year}</b>)}
-                      </div></>}
+                      {doc.metadata.imprint?.publisher && (
+                        <>
+                          <div className="default-margin-bottom">
+                            Published by{' '}
+                            <b>{doc.metadata.imprint?.publisher}</b>
+                            {doc.metadata.publication_year && (
+                              <b>{doc.metadata.publication_year}</b>
+                            )}
+                          </div>
+                        </>
+                      )}
                     </ILSParagraphPlaceholder>
                     <ILSParagraphPlaceholder
                       linesNumber={15}
