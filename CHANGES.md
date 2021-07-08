@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.50 (released 2021-07-08)
+
+- store: add configuration for dynamically added reducers
+
 Version 1.0.0-alpha.49 (released 2021-07-07)
 
 - series: check dependencies before delete action
