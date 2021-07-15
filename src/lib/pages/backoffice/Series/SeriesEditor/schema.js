@@ -194,10 +194,17 @@ export const schema = () => {
         type: 'array',
       },
       series_type: {
-        enum: ['', ...invenioConfig.SERIES.types.map((status) => status.value)],
+        enum: [
+          '',
+          ...invenioConfig.SERIES.types
+            .sort((a, b) => a.order - b.order)
+            .map((status) => status.value),
+        ],
         enumNames: [
           'None',
-          ...invenioConfig.SERIES.types.map((status) => status.text),
+          ...invenioConfig.SERIES.types
+            .sort((a, b) => a.order - b.order)
+            .map((status) => status.text),
         ],
         title: 'Series type',
         type: 'string',

@@ -220,8 +220,12 @@ export const schema = () => {
         type: 'boolean',
       },
       document_type: {
-        enum: invenioConfig.DOCUMENTS.types.map((status) => status.value),
-        enumNames: invenioConfig.DOCUMENTS.types.map((status) => status.text),
+        enum: invenioConfig.DOCUMENTS.types
+          .sort((a, b) => a.order - b.order)
+          .map((status) => status.value),
+        enumNames: invenioConfig.DOCUMENTS.types
+          .sort((a, b) => a.order - b.order)
+          .map((status) => status.text),
         title: 'Document type',
         type: 'string',
       },

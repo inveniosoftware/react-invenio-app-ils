@@ -416,6 +416,7 @@ export const RECORDS_CONFIG = {
     extensionPendingStatuses: ['PENDING'],
     loanMaxDuration: 180,
     statuses: ILL_BORROWING_REQUESTS_STATUSES,
+    defaultType: 'PHYSICAL_COPY',
     search: {
       filters: [
         {
