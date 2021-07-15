@@ -124,8 +124,15 @@ export const schema = () => {
       status: {
         title: 'Status',
         type: 'string',
-        enum: Object.values(invenioConfig.ILL_BORROWING_REQUESTS.statuses).map(
-          (s) => s.value
+        enum: Object.values(invenioConfig.ILL_BORROWING_REQUESTS.statuses)
+          .sort((a, b) => a.order - b.order)
+          .map((s) => s.value),
+        default: _.get(
+          _.find(invenioConfig.ILL_BORROWING_REQUESTS.statuses, {
+            default: true,
+          }),
+          'value',
+          null
         ),
       },
       total: {
@@ -139,6 +146,7 @@ export const schema = () => {
       type: {
         title: 'Type',
         type: 'string',
+        default: invenioConfig.ILL_BORROWING_REQUESTS.defaultType,
       },
     },
     required: ['status', 'document_pid', 'patron_pid', 'provider_pid', 'type'],

@@ -58,8 +58,12 @@ export const schema = () => {
         type: 'array',
       },
       medium: {
-        enum: invenioConfig.ITEMS.mediums.map((status) => status.value),
-        enumNames: invenioConfig.ITEMS.mediums.map((status) => status.text),
+        enum: invenioConfig.ITEMS.mediums
+          .sort((a, b) => a.order - b.order)
+          .map((status) => status.value),
+        enumNames: invenioConfig.ITEMS.mediums
+          .sort((a, b) => a.order - b.order)
+          .map((status) => status.text),
         type: 'string',
         title: 'Medium',
       },

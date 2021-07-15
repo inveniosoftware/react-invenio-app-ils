@@ -193,8 +193,13 @@ export const schema = () => {
       status: {
         title: 'Status',
         type: 'string',
-        enum: Object.values(invenioConfig.ACQ_ORDERS.statuses).map(
-          (s) => s.value
+        enum: Object.values(invenioConfig.ACQ_ORDERS.statuses)
+          .sort((a, b) => a.order - b.order)
+          .map((s) => s.value),
+        default: _.get(
+          _.find(invenioConfig.ACQ_ORDERS.statuses, { default: true }),
+          'value',
+          null
         ),
       },
       provider_pid: {
