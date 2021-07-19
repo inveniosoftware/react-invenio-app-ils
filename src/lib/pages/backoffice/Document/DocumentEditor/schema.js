@@ -8,7 +8,7 @@ export const schema = () => {
   );
   const _schema = {
     type: 'object',
-    required: ['title', 'authors', 'publication_year', 'document_type'],
+    required: ['title', 'authors', 'publication_year', 'document_type', 'languages'],
     definitions: {
       identifier: {
         properties: {
@@ -314,6 +314,7 @@ export const schema = () => {
           title: 'Language',
           type: 'string',
         },
+        minItems: 1,
         title: 'Languages',
         type: 'array',
       },
