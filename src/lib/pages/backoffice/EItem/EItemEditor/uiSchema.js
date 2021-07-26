@@ -43,6 +43,12 @@ export const uiSchema = (title) => {
         },
       },
     },
+    source: {
+      'ui:widget': 'vocabulary',
+      'ui:options': {
+        vocabularyType: invenioConfig.VOCABULARIES.eitem.source,
+      },
+    },
     urls: {
       'ui:options': {
         orderable: false,
@@ -73,7 +79,8 @@ export const uiSchema = (title) => {
     'custom:grid': [
       {
         document_pid: 8,
-        open_access: 8,
+        open_access: 4,
+        source: 4,
       },
       {
         description: 16,

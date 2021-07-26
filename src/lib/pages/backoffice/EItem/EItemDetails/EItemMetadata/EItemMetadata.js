@@ -49,6 +49,10 @@ export default class EItemMetadata extends Component {
           <IdentifierRows identifiers={eitemDetails.metadata.identifiers} />
         ),
       },
+      {
+        name: 'source',
+        value: eitemDetails.metadata.source,
+      },
     ];
 
     eitemDetails.metadata.legacy_id &&

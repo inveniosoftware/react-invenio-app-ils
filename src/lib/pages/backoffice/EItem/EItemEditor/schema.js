@@ -44,6 +44,10 @@ export const schema = () => {
         title: 'Identifiers',
         type: 'array',
       },
+      source: {
+        title: 'Source',
+        type: 'string',
+      },
       urls: {
         items: {
           properties: {
