@@ -930,6 +930,7 @@ export const RECORDS_CONFIG = {
       doc_req_payment_method: 'doc_req_payment_method',
       doc_req_medium: 'doc_req_medium',
     },
+    eitem: { source: 'eitem_sources' },
     item: {
       mediums: 'item_medium',
     },
