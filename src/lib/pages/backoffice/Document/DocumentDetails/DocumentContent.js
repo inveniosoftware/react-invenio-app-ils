@@ -9,6 +9,7 @@ import {
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Accordion } from 'semantic-ui-react';
+import { DocumentPurchaseOrders } from './DocumentPurchaseOrders';
 
 export class DocumentContent extends Component {
   render() {
@@ -70,6 +71,17 @@ export class DocumentContent extends Component {
         ),
       },
       {
+        key: 'document-purchase-orders',
+        title: 'Purchase orders',
+        content: (
+          <Accordion.Content>
+            <div ref={anchors.purchaseOrdersRef} id="document-purchase-orders">
+              <DocumentPurchaseOrders />
+            </div>
+          </Accordion.Content>
+        ),
+      },
+      {
         key: 'document-statistics',
         title: 'Statistics',
         content: (
@@ -81,7 +93,7 @@ export class DocumentContent extends Component {
         ),
       },
     ];
-    const defaultIndexes = [0, 1, 2, 3, 4, 5];
+    const defaultIndexes = [0, 1, 2, 3, 4, 5, 6];
 
     return (
       <Accordion
