@@ -1,5 +1,11 @@
 # Changes
 
+Version 1.0.0-alpha.51 (released 2021-07-29)
+
+- eitem: add source field 
+- document: required languages field
+- document: add more information to display
+
 Version 1.0.0-alpha.50 (released 2021-07-08)
 
 - store: add configuration for dynamically added reducers
