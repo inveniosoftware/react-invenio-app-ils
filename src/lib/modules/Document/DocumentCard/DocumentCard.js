@@ -78,7 +78,7 @@ class DocumentCard extends Component {
                 {metadata.imprint?.publisher && (
                   <>
                     {' '}
-                    <br></br> {metadata.imprint.publisher}
+                    <br /> {metadata.imprint.publisher}
                   </>
                 )}
               </div>

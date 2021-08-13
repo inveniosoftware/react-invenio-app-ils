@@ -6,7 +6,15 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Grid, Header, Item, List, Label } from 'semantic-ui-react';
+import {
+  Button,
+  Grid,
+  Header,
+  Item,
+  List,
+  Label,
+  Icon,
+} from 'semantic-ui-react';
 
 class ItemCirculation extends Component {
   render() {
@@ -85,38 +93,36 @@ export class ItemListEntry extends Component {
                   />
                 </Header>
                 <List>
-                  <List.Item>
-                    {highlightLocation ? (
-                      <List.Content>
-                        <Label color="blue" tag>
-                          <strong>
-                            {item.metadata.internal_location.location.name} -{' '}
-                            {item.metadata.internal_location.name}
-                          </strong>
-                        </Label>
-                      </List.Content>
-                    ) : (
+                  {highlightLocation ? (
+                    <Label color="blue" icon>
+                      <Icon name="warehouse" />{' '}
+                      {item.metadata.internal_location.location.name} -{' '}
+                      {item.metadata.internal_location.name}
+                    </Label>
+                  ) : (
+                    <List.Item>
                       <List.Content>
                         {item.metadata.internal_location.location.name} -{' '}
                         {item.metadata.internal_location.name}
                       </List.Content>
-                    )}
-                  </List.Item>
-                  <List.Item>
-                    {highlightLocation ? (
-                      <List.Content>
-                        {' '}
-                        <Label color="blue" tag>
-                          <strong>shelf {item.metadata.shelf}</strong>
-                        </Label>
-                      </List.Content>
-                    ) : (
+                    </List.Item>
+                  )}
+
+                  {highlightLocation ? (
+                    <>
+                      {' '}
+                      <Label color="blue" icon>
+                        <Icon name="map pin" /> shelf {item.metadata.shelf}
+                      </Label>
+                    </>
+                  ) : (
+                    <List.Item>
                       <List.Content>
                         {' '}
                         shelf <strong>{item.metadata.shelf}</strong>
                       </List.Content>
-                    )}
-                  </List.Item>
+                    </List.Item>
+                  )}
                 </List>
               </Item.Meta>
             </Grid.Column>
@@ -173,7 +179,6 @@ export class ItemListEntry extends Component {
                 <Item.Extra>
                   <Button
                     primary
-                    compact
                     floated="right"
                     as={Link}
                     target="_blank"
