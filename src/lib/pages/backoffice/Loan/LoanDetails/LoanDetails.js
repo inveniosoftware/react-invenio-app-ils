@@ -55,7 +55,11 @@ export default class LoanDetails extends Component {
                     <Grid.Column width={13}>
                       <Container className="spaced">
                         <Container className="spaced">
-                          {data.metadata?.document_pid && <LoanOverbookedWarning documentPid={data.metadata.document_pid} />}
+                          {data.metadata?.document_pid && (
+                            <LoanOverbookedWarning
+                              documentPid={data.metadata.document_pid}
+                            />
+                          )}
                           <Loan />
                           <CurrentItem />
                           <AvailableItems

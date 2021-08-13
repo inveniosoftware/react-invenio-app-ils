@@ -6,7 +6,6 @@ const mapStateToProps = (state) => ({
   documentDetails: state.documentDetails.data,
 });
 
-
 export const DocumentPurchaseOrders = connect(
   mapStateToProps,
   null
