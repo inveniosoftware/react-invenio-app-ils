@@ -1,4 +1,6 @@
 import { invenioConfig } from '@config';
+import _find from 'lodash/find';
+import _get from 'lodash/get';
 import _merge from 'lodash/merge';
 
 export const schema = () => {
@@ -196,8 +198,8 @@ export const schema = () => {
         enum: Object.values(invenioConfig.ACQ_ORDERS.statuses)
           .sort((a, b) => a.order - b.order)
           .map((s) => s.value),
-        default: _.get(
-          _.find(invenioConfig.ACQ_ORDERS.statuses, { default: true }),
+        default: _get(
+          _find(invenioConfig.ACQ_ORDERS.statuses, { default: true }),
           'value',
           null
         ),
