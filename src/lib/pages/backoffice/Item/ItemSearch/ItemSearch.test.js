@@ -1,8 +1,8 @@
-import React from 'react';
-import { Button } from 'semantic-ui-react';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { mount } from 'enzyme';
 import { Settings } from 'luxon';
-import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import React from 'react';
+import { Button } from 'semantic-ui-react';
 
 Settings.defaultZoneName = 'utc';
 
@@ -35,6 +35,7 @@ describe('ItemsSearch ResultsList tests', () => {
     {
       title: 'view',
       field: '',
+      // eslint-disable-next-line react/display-name
       formatter: () => <Button onClick={mockViewDetails}>View</Button>,
     },
     { title: 'Status', field: 'metadata.status' },

@@ -1,6 +1,6 @@
-import React from 'react';
-import { mount } from 'enzyme';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import { mount } from 'enzyme';
+import React from 'react';
 import { Button } from 'semantic-ui-react';
 
 const data = [
@@ -21,6 +21,7 @@ const columns = [
   {
     title: 'view',
     field: '',
+    // eslint-disable-next-line react/display-name
     formatter: () => <Button onClick={mockViewDetails}>View</Button>,
   },
   { title: 'ID', field: 'metadata.id' },

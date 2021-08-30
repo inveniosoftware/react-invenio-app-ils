@@ -1,7 +1,7 @@
-import React from 'react';
+import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { mount } from 'enzyme';
 import { Settings } from 'luxon';
-import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import React from 'react';
 import { Button } from 'semantic-ui-react';
 
 Settings.defaultZoneName = 'utc';
@@ -24,6 +24,7 @@ const columns = [
   {
     title: 'view',
     field: '',
+    // eslint-disable-next-line react/display-name
     formatter: () => <Button onClick={mockViewDetails}>View</Button>,
   },
   { title: 'Title', field: 'metadata.title' },

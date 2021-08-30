@@ -22,7 +22,8 @@ jobs:
       - name: Install and Build
         run: |
           npm ci
-          npm run lib-build
+          # CI=false: avoid fail on warnings
+          CI=false npm run lib-build
 
       - name: Publish on NPM
         run: npm publish

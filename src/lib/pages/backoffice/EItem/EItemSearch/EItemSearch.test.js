@@ -1,7 +1,7 @@
-import React from 'react';
-import { mount } from 'enzyme';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import testData from '@testData/eitems.json';
+import { mount } from 'enzyme';
+import React from 'react';
 import { Button } from 'semantic-ui-react';
 
 let component;
@@ -15,6 +15,7 @@ const columns = [
   {
     title: 'view',
     field: '',
+    // eslint-disable-next-line react/display-name
     formatter: () => <Button onClick={mockViewDetails}>View</Button>,
   },
   { title: 'Description', field: 'metadata.description' },

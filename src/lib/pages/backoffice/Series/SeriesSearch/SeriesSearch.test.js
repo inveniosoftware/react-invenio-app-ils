@@ -30,6 +30,7 @@ const columns = [
   {
     title: 'view',
     field: '',
+    // eslint-disable-next-line react/display-name
     formatter: () => <Button onClick={mockViewDetails}>View</Button>,
   },
   { title: 'Title', field: 'metadata.title' },

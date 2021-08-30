@@ -1,8 +1,8 @@
-import { shallow, mount } from 'enzyme/build';
-import React from 'react';
-import { ResultsTable } from './ResultsTable';
+import { mount, shallow } from 'enzyme/build';
 import { Settings } from 'luxon';
+import React from 'react';
 import { Button } from 'semantic-ui-react';
+import { ResultsTable } from './ResultsTable';
 
 Settings.defaultZoneName = 'utc';
 const stringDate = '2018-01-01';
@@ -30,6 +30,7 @@ const columns = [
   {
     title: 'view',
     field: '',
+    // eslint-disable-next-line react/display-name
     formatter: () => <Button onClick={mockViewDetails}>View</Button>,
   },
   { title: 'ID', field: 'id' },
