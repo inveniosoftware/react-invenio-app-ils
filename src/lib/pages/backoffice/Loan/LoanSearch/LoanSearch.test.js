@@ -1,9 +1,8 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import { Settings } from 'luxon';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import { mount } from 'enzyme';
+import { DateTime, Settings } from 'luxon';
+import React from 'react';
 import { Button } from 'semantic-ui-react';
-import { DateTime } from 'luxon';
 
 Settings.defaultZoneName = 'utc';
 const stringDate = '2018-01-01T11:05:00+01:00';
@@ -30,6 +29,7 @@ const columns = [
   {
     title: 'view',
     field: '',
+    // eslint-disable-next-line react/display-name
     formatter: () => <Button onClick={mockViewDetails}>View</Button>,
   },
   { title: 'State', field: 'metadata.state' },

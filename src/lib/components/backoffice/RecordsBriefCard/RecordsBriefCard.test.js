@@ -1,7 +1,7 @@
+import { mount, shallow } from 'enzyme';
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import RecordsBriefCard from './RecordsBriefCard';
 import { Button, Icon } from 'semantic-ui-react';
+import RecordsBriefCard from './RecordsBriefCard';
 
 describe('RecordsBriefCard tests', () => {
   let component;
@@ -13,7 +13,7 @@ describe('RecordsBriefCard tests', () => {
 
   it('should load the details component', () => {
     const component = shallow(
-      <RecordsBriefCard title={'Test'} stats={3} text={'test test test'} />
+      <RecordsBriefCard title="Test" stats={3} text="test test test" />
     );
     expect(component).toMatchSnapshot();
   });
@@ -27,9 +27,9 @@ describe('RecordsBriefCard tests', () => {
     );
     component = mount(
       <RecordsBriefCard
-        title={'Test'}
+        title="Test"
         stats={3}
-        text={'test test test'}
+        text="test test test"
         buttonRight={button}
         buttonLeft={button}
       />
@@ -43,7 +43,7 @@ describe('RecordsBriefCard tests', () => {
 
   it('should render without buttons', () => {
     component = mount(
-      <RecordsBriefCard title={'Test'} stats={3} text={'test test test'} />
+      <RecordsBriefCard title="Test" stats={3} text="test test test" />
     );
 
     const testButton = component.find('Button');
