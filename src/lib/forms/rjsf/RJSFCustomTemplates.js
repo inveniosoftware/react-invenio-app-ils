@@ -38,6 +38,11 @@ const Wrapper = ({ uiSchema, children }) => {
   return children;
 };
 
+Wrapper.propTypes = {
+  uiSchema: PropTypes.object.isRequired,
+  children: PropTypes.array,
+};
+
 /**
  * Component to allow wrapping the original RJSF FieldTemplate
  * @param {*} props

@@ -29,6 +29,11 @@ const ChangedBy = ({ metadata, field }) => {
   }
 };
 
+ChangedBy.propTypes = {
+  metadata: PropTypes.object.isRequired,
+  field: PropTypes.string.isRequired,
+};
+
 export const CreatedBy = ({ metadata }) => {
   return <ChangedBy metadata={metadata} field="created_by" />;
 };
