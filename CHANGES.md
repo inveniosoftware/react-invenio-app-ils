@@ -1,5 +1,11 @@
 # Changes
 
+Version 1.0.0-alpha.52 (released 2021-08-30)
+
+- document: add purchase orders to display
+- check in: improve location display
+- loan: show warning on document overbooking
+
 Version 1.0.0-alpha.51 (released 2021-07-29)
 
 - eitem: add source field 
