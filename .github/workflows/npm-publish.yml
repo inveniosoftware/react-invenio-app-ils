@@ -19,11 +19,14 @@ jobs:
           node-version: 14
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install and Build
-        run: |
-          npm ci
-          # CI=false: avoid fail on warnings
-          CI=false npm run lib-build
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run lib-build
+        env:
+          # avoid fail on warnings
+          CI: false
 
       - name: Publish on NPM
         run: npm publish

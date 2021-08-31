@@ -34,12 +34,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install & Build
+      - name: Install
         run: npm ci
 
       - name: Lint
-        # CI=false: avoid fail on warnings
-        run: CI=false npm run lint
+        run: npm run lint
+        env:
+          # avoid fail on warnings
+          CI: false
 
       - name: Test
         run: npm test
@@ -48,6 +50,8 @@ jobs:
         run: npm test -- --coverage
 
       - name: Build
-        # CI=false: avoid fail on warnings
-        run: CI=false npm run build
+        run: npm run build
+        env:
+          # avoid fail on warnings
+          CI: false
 
