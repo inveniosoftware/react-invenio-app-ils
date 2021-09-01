@@ -19,8 +19,9 @@ export default class RelationRemover extends Component {
   };
 
   render() {
-    const { trigger, buttonContent } = this.props;
+    const { trigger, buttonContent, relationType } = this.props;
     const { modalOpen } = this.state;
+    const siblings = ['language', 'edition', 'other'];
 
     return (
       <Modal
@@ -39,10 +40,16 @@ export default class RelationRemover extends Component {
       >
         <Modal.Header>Confirm removal</Modal.Header>
         <Modal.Content>
-          Are you sure you want to delete this relation?
+          <p>Are you sure you want to remove this relation?</p>
+          {siblings.includes(relationType) && (
+            <p>
+              Please note that all {relationType} relations to this literature
+              will be removed.
+            </p>
+          )}
         </Modal.Content>
         <Modal.Actions>
-          <Button onClick={this.handleClose}>No, take me back</Button>
+          <Button onClick={this.handleClose}>Cancel</Button>
           <Button negative onClick={this.handleDelete}>
             Yes, I am sure
           </Button>
@@ -63,6 +70,8 @@ RelationRemover.propTypes = {
   buttonContent: PropTypes.string.isRequired,
 
   trigger: PropTypes.node,
+
+  relationType: PropTypes.string,
 };
 
 RelationRemover.defaultProps = {

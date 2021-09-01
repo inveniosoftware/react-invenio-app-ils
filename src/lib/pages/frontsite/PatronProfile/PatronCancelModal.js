@@ -21,7 +21,7 @@ class PatronCancelModal extends Component {
           Your request for "<strong>{documentTitle}</strong>" will be cancelled.
         </Modal.Content>
         <Modal.Actions>
-          <Button onClick={onClose}>No, take me back</Button>
+          <Button onClick={onClose}>Cancel</Button>
           <Button negative onClick={() => onConfirm(data)}>
             Yes, I am sure
           </Button>
