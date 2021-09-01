@@ -133,7 +133,7 @@ export default class BorrowingRequestLoanExtension extends Component {
                         </i>
                       </Modal.Content>
                       <Modal.Actions>
-                        <Button onClick={this.handleCloseModal}>Close</Button>
+                        <Button onClick={this.handleCloseModal}>Cancel</Button>
                         <Button positive onClick={this.acceptHandler}>
                           Accept extension
                         </Button>
