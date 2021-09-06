@@ -5,6 +5,7 @@ import React from 'react';
 import { Grid } from 'semantic-ui-react';
 import { DateTime } from 'luxon';
 import { toShortDateTime } from '@api/date';
+import { OrderDocumentRequest } from './OrderDocumentRequest';
 
 export class OrderInformation extends React.Component {
   render() {
@@ -19,6 +20,10 @@ export class OrderInformation extends React.Component {
       },
       { name: 'Delivered on', value: metadata.received_date || '-' },
       { name: 'Notes', value: metadata.notes || '-' },
+      {
+        name: 'Literature request',
+        value: <OrderDocumentRequest orderId={order} />,
+      },
     ];
     const rightTable = [
       { name: 'Status', value: metadata.status },
