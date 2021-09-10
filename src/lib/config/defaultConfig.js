@@ -41,6 +41,7 @@ export const APP_CONFIG = {
   STATIC_PAGES: [
     { name: 'about', route: '/about', apiURL: '1' },
     { name: 'contact', route: '/contact', apiURL: '2' },
+    { name: 'search-guide', route: '/guide/search', apiURL: '3' },
   ],
   EMAILS_PREFILL: {
     subjectPrefix: 'InvenioILS:',
