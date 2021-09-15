@@ -12,10 +12,10 @@ import {
   serializeBorrowingRequest,
 } from '@modules/ESSelector/serializer';
 import { AcquisitionRoutes, ILLRoutes } from '@routes/urls';
-import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Divider, Grid, Label, Segment } from 'semantic-ui-react';
+import mapFields from '@forms/mapFields';
 
 class AcqProvider extends Component {
   onSelectResult = (provData) => {
@@ -25,18 +25,20 @@ class AcqProvider extends Component {
   };
 
   goToCreateOrderAndPrefill = (docReq) => {
+    const mappings = [
+      ['document_pid', 'document_pid'],
+      ['patron_pid', 'patron_pid'],
+      ['paymeny_info', 'budget_code'],
+      ['payment_method', 'payment_mode'],
+    ];
+
     const createOrderFormData = {
       formData: {
-        order_lines: [
-          {
-            document_pid: _get(docReq, 'document_pid', ''),
-            patron_pid: docReq.patron_pid,
-          },
-        ],
-      },
-      extraData: {
-        attachCreatedOrderToDocumentRequest: true,
-        documentRequestPid: docReq.pid,
+        order_lines: [mapFields({ mappings, origin: docReq })],
+        extraData: {
+          attachCreatedOrderToDocumentRequest: true,
+          documentRequestPid: docReq.pid,
+        },
       },
     };
 
@@ -90,11 +92,16 @@ class IllProvider extends Component {
   };
 
   goToCreateBrwReqAndPrefill = (docReq) => {
+    const mappings = [
+      ['document_pid', 'document_pid'],
+      ['patron_pid', 'patron_pid'],
+    ];
+
     const createBrwReqFormData = {
-      formData: {
-        document_pid: _get(docReq, 'document_pid', ''),
-        patron_pid: docReq.patron_pid,
-      },
+      formData: mapFields({
+        mappings,
+        origin: docReq,
+      }),
       extraData: {
         attachCreatedBrwReqToDocumentRequest: true,
         documentRequestPid: docReq.pid,

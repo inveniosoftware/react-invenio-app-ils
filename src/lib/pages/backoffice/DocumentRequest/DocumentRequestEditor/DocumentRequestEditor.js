@@ -14,10 +14,9 @@ export class DocumentRequestEditor extends Component {
   constructor(props) {
     super(props);
 
-    const isEditing = !!props.match.params.documentRequestPid;
     this.state = {
       data: {},
-      isLoading: isEditing,
+      isLoading: this.userIsEditing,
       error: {},
     };
   }
@@ -31,6 +30,10 @@ export class DocumentRequestEditor extends Component {
 
   componentWillUnmount() {
     this.cancellableFetchDocReq && this.cancellableFetchDocReq.cancel();
+  }
+
+  get userIsEditing() {
+    return !!this.props.match.params.documentRequestPid;
   }
 
   fetchDocReq = async (documentRequestPid) => {
@@ -54,8 +57,7 @@ export class DocumentRequestEditor extends Component {
       },
     } = this.props;
 
-    const isEditing = !!documentRequestPid;
-    return isEditing
+    return this.userIsEditing
       ? await documentRequestApi.update(documentRequestPid, formData)
       : await documentRequestApi.create(formData);
   };
@@ -74,11 +76,11 @@ export class DocumentRequestEditor extends Component {
     } = this.props;
     const { isLoading, error, data } = this.state;
 
-    const isEditing = !!documentRequestPid;
-    const formTitle = isEditing
+    const formTitle = this.userIsEditing
       ? `New document request - Edit #${documentRequestPid}`
       : 'New document request - Create';
-    return isEditing ? (
+
+    return this.userIsEditing ? (
       <Loader isLoading={isLoading}>
         <Error error={error}>
           <RJSForm
