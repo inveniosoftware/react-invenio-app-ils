@@ -17,10 +17,9 @@ export class DocumentEditor extends Component {
   constructor(props) {
     super(props);
 
-    const isEditing = !!props.match.params.documentPid;
     this.state = {
       data: {},
-      isLoading: isEditing,
+      isLoading: this.userIsEditing,
       error: {},
     };
   }
@@ -35,6 +34,10 @@ export class DocumentEditor extends Component {
   componentWillUnmount() {
     this.cancellableFetch && this.cancellableFetch.cancel();
     this.cancellableAttachDocument && this.cancellableAttachDocument.cancel();
+  }
+
+  get userIsEditing() {
+    return !!this.props.match.params.documentPid;
   }
 
   fetch = async (documentPid) => {
@@ -59,8 +62,7 @@ export class DocumentEditor extends Component {
     // delete the custom authors field so that it is not sent to backend
     delete formData._tooManyAuthorsCustomField;
 
-    const isEditing = !!documentPid;
-    return isEditing
+    return this.userIsEditing
       ? await documentApi.update(documentPid, formData)
       : await documentApi.create(formData);
   };
@@ -112,8 +114,7 @@ export class DocumentEditor extends Component {
     } = this.props;
     const { isLoading, error, data } = this.state;
 
-    const isEditing = !!documentPid;
-    if (isEditing) {
+    if (this.userIsEditing) {
       const formTitle = `Document - Edit #${documentPid}`;
 
       // when there are too many authors, it will not be possible to manually edit them
