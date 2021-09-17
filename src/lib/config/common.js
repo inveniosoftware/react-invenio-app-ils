@@ -51,7 +51,7 @@ export const ILL_BORROWING_REQUESTS_STATUSES = [
     text: 'Pending',
     label: 'Pending',
     order: 2,
-    default: false,
+    default: true,
   },
   {
     value: 'REQUESTED',
