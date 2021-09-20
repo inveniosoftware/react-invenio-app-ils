@@ -69,7 +69,7 @@ class DocumentPanel extends Component {
                         <>
                           <div className="default-margin-bottom">
                             Published by{' '}
-                            <b>{doc.metadata.imprint?.publisher}</b>
+                            <b>{doc.metadata.imprint?.publisher}</b>{' '}
                             {doc.metadata.publication_year && (
                               <b>{doc.metadata.publication_year}</b>
                             )}
