@@ -22,7 +22,8 @@ class DocumentRequestForm extends Component {
     this.state = {
       data: {
         title: getIn(props, 'location.state.queryString', ''),
-        medium: getIn(props, 'location.state.medium', 'PAPER'),
+        medium: getIn(props, 'location.state.formData.medium', ''),
+        ...props.location.state?.formData,
       },
     };
   }
@@ -78,6 +79,7 @@ class DocumentRequestForm extends Component {
         className: 'formik-button-margin',
       },
     ];
+
     return (
       <BaseForm
         initialValues={data}
@@ -272,6 +274,7 @@ DocumentRequestForm.propTypes = {
   paymentInfo: PropTypes.object,
   notes: PropTypes.object,
   publisher: PropTypes.object,
+  location: PropTypes.object,
 };
 
 DocumentRequestForm.defaultProps = {
