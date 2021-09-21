@@ -1,4 +1,4 @@
-import { OverdueLoanSenNotificationModal } from '@modules/Loan/backoffice/OverdueLoanSendNotificationModal';
+import { OverdueLoanSendNotificationModal } from '@modules/Loan/backoffice/OverdueLoanSendNotificationModal';
 import { InfoMessage } from '@components/backoffice/InfoMessage';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -70,7 +70,7 @@ export default class LoanActions extends Component {
       </List>
     );
     const sendReminderButton = loanDetails.metadata.is_overdue && (
-      <OverdueLoanSenNotificationModal loan={loanDetails} />
+      <OverdueLoanSendNotificationModal loan={loanDetails} />
     );
     if (!_isEmpty(availableActions) || loanDetails.metadata.is_overdue) {
       return (

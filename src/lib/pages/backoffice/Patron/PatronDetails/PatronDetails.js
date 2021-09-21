@@ -1,5 +1,6 @@
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
+import { PatronBulkExtendLoans } from '@modules/Patron/PatronBulkExtendLoans';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
@@ -47,7 +48,8 @@ export default class PatronDetails extends Component {
   }
 
   render() {
-    const { isLoading, error, data } = this.props;
+    const { isLoading, error, data, match } = this.props;
+    const currentPatronPid = match.params.patronPid;
     return (
       <div ref={this.headerRef}>
         <Container fluid>
@@ -150,6 +152,11 @@ export default class PatronDetails extends Component {
                     </Grid.Column>
                     <Grid.Column width={3}>
                       <Sticky context={this.menuRef} offset={150}>
+                        <PatronBulkExtendLoans
+                          patronPid={currentPatronPid}
+                          fluid
+                          color="blue"
+                        />
                         <Divider horizontal> Navigation </Divider>
                         <PatronActionMenu offset={-150} />
                       </Sticky>

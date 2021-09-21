@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(sendOverdueLoansNotificationReminder(loanPid)),
 });
 
-export const OverdueLoanSenNotificationModal = connect(
+export const OverdueLoanSendNotificationModal = connect(
   mapStateToProps,
   mapDispatchToProps
 )(OverdueLoanSendNotificationModalComponent);

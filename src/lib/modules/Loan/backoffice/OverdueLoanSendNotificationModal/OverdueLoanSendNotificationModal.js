@@ -66,16 +66,17 @@ export default class OverdueLoanSendNotificationModal extends Component {
         onClick={this.toggle}
         loading={isLoading}
         disabled={isLoading}
+        className="send-overdue-reminder-button"
       >
-        <Button
-          labelPosition="left"
-          fluid
-          icon
-          className="send-overdue-reminder-middle-button"
-        >
-          <Icon name="mail" />
-          <Truncate>Send return reminder</Truncate>
-        </Button>
+        <Popup
+          content="Send return reminder"
+          trigger={
+            <Button labelPosition="left" fluid icon color="orange">
+              <Icon name="mail" />
+              <Truncate>Send return reminder</Truncate>
+            </Button>
+          }
+        />
         <Label basic className="send-overdue-reminder-button">
           {remindersCount}
           <Popup
