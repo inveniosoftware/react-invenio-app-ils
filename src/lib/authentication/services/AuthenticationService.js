@@ -14,12 +14,12 @@ class AuthenticationService {
   };
 
   loginWithLocalAccount = (data) => {
-    const loginUrl = `${invenioConfig.APP.REST_ENDOINTS_BASE_URL}/login`;
+    const loginUrl = `${invenioConfig.APP.REST_ENDPOINTS_BASE_URL}/login`;
     return http.post(loginUrl, data);
   };
 
   logout = () => {
-    const logoutUrl = `${invenioConfig.APP.REST_ENDOINTS_BASE_URL}/logout`;
+    const logoutUrl = `${invenioConfig.APP.REST_ENDPOINTS_BASE_URL}/logout`;
     window.location.replace(logoutUrl);
   };
 

@@ -22,6 +22,27 @@ Button Overrides - REACT-INVENIO-APP-ILS
   }
 }
 
+
+.ui.button {
+    &.button.send-overdue-reminder-button > .button{
+      padding-left: 2.5em !important;
+    }
+    .label.button-with-additional-info {
+      padding: 10px !important;
+    }
+    .icon.button-with-additional-info {
+      margin-left: 0.5em !important;
+    }
+    .label.send-overdue-reminder-button {
+      color: @orange;
+      border-color: @orange;
+      padding: 10px;
+    }
+    .icon.send-overdue-reminder-button {
+      margin-left: 0.5em !important;
+    }
+  }
+
 @{fs-parent-selector} {
   .button-show-more {
     color: @fsPrimaryColor;
@@ -55,24 +76,6 @@ Button Overrides - REACT-INVENIO-APP-ILS
   .bo-action-menu {
     .ui.button {
       margin-bottom: 0.5em;
-    }
-  }
-
-  .ui.button {
-    .label.send-overdue-reminder-button {
-      color: @orange;
-      border-color: @orange;
-      padding: 9.889px 10px;
-    }
-    .icon.send-overdue-reminder-button {
-      margin-left: 0.5em !important;
-    }
-    &.send-overdue-reminder-middle-button {
-      background-color: @orange;
-      color: @white;
-    }
-    .icon.button.send-overdue-reminder-middle-button {
-      padding-left: 4em !important;
     }
   }
 }

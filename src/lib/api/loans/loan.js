@@ -15,6 +15,7 @@ const apiPaths = {
   request: '/circulation/loans/request',
   replaceItem: '/circulation/loans/:loanPid/replace-item',
   updateDates: '/circulation/loans/:loanPid/update-dates',
+  bulkExtend: '/circulation/bulk-extend',
 };
 
 const get = async (loanPid) => {
@@ -118,6 +119,12 @@ const assignItemToLoan = async (itemPid, loanPid) => {
   const payload = { item_pid: itemPid };
   const response = await http.post(path, payload);
   response.data = serializer.fromJSON(response.data);
+  return response;
+};
+
+const bulkExtendLoans = async (patronPid) => {
+  const payload = { patron_pid: patronPid };
+  const response = await http.post(apiPaths.bulkExtend, payload);
   return response;
 };
 
@@ -323,4 +330,5 @@ export const loanApi = {
   sendOverdueLoansNotificationReminder: sendOverdueLoansNotificationReminder,
   serializer: serializer,
   updateDates: updateDates,
+  bulkExtendLoans: bulkExtendLoans,
 };
