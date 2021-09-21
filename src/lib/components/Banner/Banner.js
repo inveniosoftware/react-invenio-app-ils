@@ -20,7 +20,7 @@ const BannerCmp = ({ message, category }) => {
   }
   return (
     <Overridable
-      id="ConfirmEmail.layout"
+      id="Banner.layout"
       message={message}
       category={category}
       colorProp={colorProp}

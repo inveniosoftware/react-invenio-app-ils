@@ -1,4 +1,4 @@
-import { emailApi } from '@api/emails';
+import { notificationsApi } from '@api/notifications';
 import { withCancel } from '@api/utils';
 import { Truncate } from '@components/Truncate';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Icon, Label, Modal, Popup } from 'semantic-ui-react';
 
-export default class OverdueLoanSendMailModal extends Component {
+export default class OverdueLoanSendNotificationModal extends Component {
   constructor(props) {
     super(props);
 
@@ -21,19 +21,19 @@ export default class OverdueLoanSendMailModal extends Component {
 
   componentDidMount() {
     const { loan } = this.props;
-    this.fetchOverdueLoansMailReminders(loan.metadata.pid);
+    this.fetchOverdueLoansNotificationReminders(loan.metadata.pid);
   }
 
   componentWillUnmount() {
     this.cancellableFetchReminders && this.cancellableFetchReminders.cancel();
   }
 
-  fetchOverdueLoansMailReminders = async (loanPid) => {
+  fetchOverdueLoansNotificationReminders = async (loanPid) => {
     this.cancellableFetchReminders = withCancel(
-      emailApi.list(
-        emailApi
+      notificationsApi.list(
+        notificationsApi
           .query()
-          .withEmailAction('overdue_reminder')
+          .withNotificationAction('overdue_reminder')
           .withPidType('loanid')
           .withPidValue(loanPid)
           .qs()
@@ -48,10 +48,10 @@ export default class OverdueLoanSendMailModal extends Component {
     this.setState({ isModalOpen: !isModalOpen });
   };
 
-  sendMail = async () => {
-    const { loan, sendOverdueLoansMailReminder } = this.props;
+  sendNotification = async () => {
+    const { loan, sendOverdueLoansNotificationReminder } = this.props;
     this.toggle();
-    sendOverdueLoansMailReminder({
+    sendOverdueLoansNotificationReminder({
       loanPid: loan.metadata.pid,
     });
   };
@@ -87,7 +87,7 @@ export default class OverdueLoanSendMailModal extends Component {
                 className="send-overdue-reminder-button"
               />
             }
-            content="Number of reminders sent might be inaccurate in case of queued emails not sent yet."
+            content="Number of reminders sent might be inaccurate in case of queued notifications not sent yet."
             position="top left"
           />
         </Label>
@@ -143,7 +143,7 @@ export default class OverdueLoanSendMailModal extends Component {
           <Button color="red" onClick={this.toggle}>
             <Icon name="cancel" /> Cancel
           </Button>
-          <Button color="green" onClick={this.sendMail}>
+          <Button color="green" onClick={this.sendNotification}>
             <Icon name="send" /> Send
           </Button>
         </Modal.Actions>
@@ -152,12 +152,12 @@ export default class OverdueLoanSendMailModal extends Component {
   }
 }
 
-OverdueLoanSendMailModal.propTypes = {
+OverdueLoanSendNotificationModal.propTypes = {
   loan: PropTypes.object.isRequired,
-  sendOverdueLoansMailReminder: PropTypes.func.isRequired,
+  sendOverdueLoansNotificationReminder: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
 };
 
-OverdueLoanSendMailModal.defaultProps = {
+OverdueLoanSendNotificationModal.defaultProps = {
   isLoading: false,
 };

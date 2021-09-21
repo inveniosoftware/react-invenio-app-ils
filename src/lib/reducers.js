@@ -2,7 +2,7 @@ import { authenticationReducer } from '@authentication/reducer';
 import { deleteRecordModalReducer } from '@components/backoffice/DeleteRecordModal/reducer';
 import { fetchBannerReducer } from '@components/Banner/state/reducer';
 import { notificationsReducer } from '@components/Notifications/reducer';
-import { overdueLoanSendMailModalReducer } from '@modules/Loan/backoffice/OverdueLoanSendMailModal/reducer';
+import { overdueLoanSendNotificationModalReducer } from '@modules/Loan/backoffice/OverdueLoanSendNotificationModal/reducer';
 import { loanActionReducer, loanDetailsReducer } from '@modules/Loan/reducer';
 import patronCurrentBorrowingRequestsReducer from '@modules/Patron/PatronCurrentBorrowingRequests/reducer';
 import patronCurrentLoansReducer from '@modules/Patron/PatronCurrentLoans/reducer';
@@ -83,7 +83,7 @@ export default function createILSReducer(asyncReducers) {
     patronPastBorrowingRequests: patronPastBorrowingRequestsReducer,
     staticPage: staticPageReducer,
     /* backoffice */
-    overdueLoanSendMailModal: overdueLoanSendMailModalReducer,
+    overdueLoanSendNotificationModal: overdueLoanSendNotificationModalReducer,
     loanDetails: loanDetailsReducer,
     loanActions: loanActionReducer,
     loanUpdateDates: loanUpdateDatesReducer,
