@@ -2,7 +2,7 @@ import { http } from '@api/base';
 import { getSearchTotal, prepareSumQuery } from '@api/utils';
 
 const apiPaths = {
-  list: '/emails',
+  list: '/notifications',
 };
 
 class QueryBuilder {
@@ -10,7 +10,7 @@ class QueryBuilder {
     this.recipientUserIdQuery = '';
     this.pidTypeQuery = '';
     this.pidValueQuery = '';
-    this.emailActionQuery = '';
+    this.notificationActionQuery = '';
     this.size = '';
   }
 
@@ -40,11 +40,13 @@ class QueryBuilder {
     return this;
   }
 
-  withEmailAction(emailAction) {
-    if (!emailAction) {
-      throw TypeError('emailAction argument missing');
+  withNotificationAction(notificationAction) {
+    if (!notificationAction) {
+      throw TypeError('notificationAction argument missing');
     }
-    this.emailActionQuery = `email_action=${prepareSumQuery(emailAction)}`;
+    this.notificationActionQuery = `action=${prepareSumQuery(
+      notificationAction
+    )}`;
     return this;
   }
 
@@ -54,7 +56,7 @@ class QueryBuilder {
   }
 
   qs() {
-    return `${this.size}&${this.emailActionQuery}&${this.pidTypeQuery}&${this.pidValueQuery}&${this.recipientUserIdQuery}`;
+    return `${this.size}&${this.notificationActionQuery}&${this.pidTypeQuery}&${this.pidValueQuery}&${this.recipientUserIdQuery}`;
   }
 }
 
@@ -69,7 +71,7 @@ const list = async (query) => {
   return response;
 };
 
-export const emailApi = {
+export const notificationsApi = {
   list: list,
   query: queryBuilder,
 };
