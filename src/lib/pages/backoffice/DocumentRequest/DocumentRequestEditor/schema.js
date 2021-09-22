@@ -92,7 +92,12 @@ export const schema = () => {
       state: {
         title: 'State',
         type: 'string',
-        enum: invenioConfig.DOCUMENT_REQUESTS.states,
+        enum: invenioConfig.DOCUMENT_REQUESTS.states.map(
+          (state) => state.value
+        ),
+        default: invenioConfig.DOCUMENT_REQUESTS.states.find(
+          (state) => state.default
+        )?.value,
       },
       title: {
         title: 'Title',

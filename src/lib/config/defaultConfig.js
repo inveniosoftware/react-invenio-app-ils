@@ -318,7 +318,18 @@ export const RECORDS_CONFIG = {
     },
   },
   DOCUMENT_REQUESTS: {
-    states: ['ACCEPTED', 'PENDING', 'DECLINED'],
+    states: [
+      {
+        value: 'ACCEPTED',
+      },
+      {
+        value: 'PENDING',
+        default: true,
+      },
+      {
+        value: 'DECLINED',
+      },
+    ],
     physicalItemProviders: {
       acq: { name: 'Acquisition', pid_type: 'acqoid' },
       ill: { name: 'Interlibrary loan', pid_type: 'illbid' },
