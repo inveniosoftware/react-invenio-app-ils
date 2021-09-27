@@ -224,8 +224,55 @@ a {
     padding-left: 0em;
   }
 
+  .document-items-tab-menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .document-item {
+
+    &-internal-title {
+      margin-left: 0.5rem;
+      margin-bottom: 0.1rem;
+    }
+    &-table {
+      margin-top: 0.1rem !important;
+      margin-bottom: 1.5rem;
+
+      &-itemCell {
+        font-weight: normal !important;
+
+      }
+    }
+
+    &-footer {
+
+      &-text {
+        margin:  0 0.5rem
+      }
+      &-innerWrapper {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+      }
+
+    }
+
+  }
+
+
   .loan-request-delivery-date { 
       margin-bottom: 0.5em;
+  }
+}
+
+@media only screen and (max-width: @largestMobileScreen) {
+  .frontsite{
+    .document-items-tab-menu {
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 

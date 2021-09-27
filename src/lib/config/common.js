@@ -4,6 +4,9 @@ export const DEFAULT_CURRENCY = 'CHF';
 
 export const DEFAULT_LANGUAGE = 'ENG';
 
+// the key used in an on_shelf locations object to see the total amount of locations
+export const LOCATION_OBJECT_TOTAL_AMOUNT_KEY = 'total';
+
 // label key is used for labeling bucket values
 // text key is used for semantic ui dropdown options display
 
