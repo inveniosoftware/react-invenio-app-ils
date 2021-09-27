@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { List } from 'semantic-ui-react';
 import _isEmpty from 'lodash/isEmpty';
 import { LoanAvailability } from './LoanAvailability';
+import { LoanPendingRequestAmount } from './LoanPendingRequestAmount';
 import { DateTime } from 'luxon';
 
 export class LoanInformationBullets extends Component {
@@ -25,7 +26,10 @@ export class LoanInformationBullets extends Component {
           </List.Item>
         )}
         {!_isEmpty(circulation) && (
-          <LoanAvailability circulation={circulation} />
+          <>
+            <LoanAvailability circulation={circulation} />
+            <LoanPendingRequestAmount circulation={circulation} />
+          </>
         )}
       </List>
     );

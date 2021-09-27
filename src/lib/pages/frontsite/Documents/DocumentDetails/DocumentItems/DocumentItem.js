@@ -1,60 +1,103 @@
-import { getDisplayVal, invenioConfig } from '@config';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import { Grid, List } from 'semantic-ui-react';
+import { Button, Table } from 'semantic-ui-react';
+import DocumentItemBody from './DocumentItemBody';
 
 class DocumentItem extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isShowingAll: false,
+      itemAmountLimit: 5,
+    };
+  }
+
+  get moreItemsToLoad() {
+    const { items } = this.props;
+    const { itemAmountLimit } = this.state;
+
+    return items.length > itemAmountLimit;
+  }
+
+  toggleItems = () => {
+    const { isShowingAll } = this.state;
+
+    this.setState({ isShowingAll: !isShowingAll });
+  };
+
   render() {
-    const { item } = this.props;
+    const { internalLocationName, items, showTitle } = this.props;
+    const { isShowingAll, itemAmountLimit } = this.state;
+
+    const previewArrayOfItems = items.slice(0, itemAmountLimit);
+    const completeArrayOfItems = items;
+
+    const shouldBeShownCompletely =
+      items.length < itemAmountLimit || isShowingAll;
+
+    const itemsToShow = shouldBeShownCompletely
+      ? completeArrayOfItems
+      : previewArrayOfItems;
+
     return (
-      <List.Item key={item.pid}>
-        <List.Icon name="barcode" size="large" verticalAlign="middle" />
-        <List.Content>
-          <Grid columns={3}>
-            <Grid.Column width={5}>
-              <List.Header>{item.barcode}</List.Header>
-              <List.Description>
-                <label>Shelf</label> {item.shelf} <br />
-                <label>Location</label> {item.internal_location.name}
-              </List.Description>
-            </Grid.Column>
+      <>
+        {showTitle && (
+          <h3 className="document-item-internal-title">
+            {internalLocationName}
+          </h3>
+        )}
 
-            <Grid.Column width={5}>
-              <label>Status</label>{' '}
-              {invenioConfig.ITEMS.canCirculateStatuses.includes(item.status) &&
-              !item.circulation ? (
-                <span className="success">On shelf</span>
-              ) : invenioConfig.ITEMS.canCirculateStatuses.includes(
-                  item.status
-                ) && item.circulation ? (
-                <span className="danger"> On loan </span>
-              ) : (
-                getDisplayVal('ITEMS.statuses', item.status)
-              )}
-            </Grid.Column>
+        <Table stackable striped compact fixed className="document-item-table">
+          <Table.Header>
+            <Table.Row data-test="header">
+              <Table.HeaderCell>Barcode</Table.HeaderCell>
+              <Table.HeaderCell>Shelf</Table.HeaderCell>
+              <Table.HeaderCell>Status</Table.HeaderCell>
+              <Table.HeaderCell>Medium</Table.HeaderCell>
+              <Table.HeaderCell>Restriction</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
 
-            <Grid.Column width={6}>
-              <List.Description>
-                <label>Medium</label>{' '}
-                {getDisplayVal('ITEMS.mediums', item.medium)}
-                <br />
-                <label>Restrictions</label>{' '}
-                {getDisplayVal(
-                  'ITEMS.circulationRestrictions',
-                  item.circulation_restriction
-                )}
-              </List.Description>
-            </Grid.Column>
-          </Grid>
-        </List.Content>
-      </List.Item>
+          <Table.Body>
+            <DocumentItemBody items={itemsToShow} />
+          </Table.Body>
+
+          {this.moreItemsToLoad && (
+            <Table.Footer
+              fullWidth
+              data-test="footer"
+              className="document-item-footer"
+            >
+              <Table.Row>
+                <Table.HeaderCell colSpan={5} textAlign="right">
+                  <div className="document-item-footer-innerWrapper">
+                    <p className="document-item-footer-text">
+                      Showing entries 1-{itemsToShow.length} of {items.length}{' '}
+                    </p>
+                    <Button
+                      compact
+                      className="center"
+                      onClick={this.toggleItems}
+                    >
+                      {isShowingAll ? 'See less' : 'See all'}
+                    </Button>
+                  </div>
+                </Table.HeaderCell>
+              </Table.Row>
+            </Table.Footer>
+          )}
+        </Table>
+      </>
     );
   }
 }
 
 DocumentItem.propTypes = {
-  item: PropTypes.object.isRequired,
+  internalLocationName: PropTypes.object.isRequired,
+  items: PropTypes.array.isRequired,
+  showTitle: PropTypes.bool.isRequired,
 };
 
 export default Overridable.component('DocumentItem', DocumentItem);
