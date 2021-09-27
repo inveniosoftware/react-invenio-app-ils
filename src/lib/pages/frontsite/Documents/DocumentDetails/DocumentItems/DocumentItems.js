@@ -3,95 +3,26 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import {
-  Accordion,
-  Checkbox,
-  Divider,
-  Grid,
-  Header,
-  Label,
-  List,
-  Menu,
-  Message,
-  Segment,
-} from 'semantic-ui-react';
-import { default as DocumentItem } from './DocumentItem';
+import { Divider, Message } from 'semantic-ui-react';
+import { invenioConfig } from '@config';
+import DocumentTabs from './DocumentTabs';
+import { LOCATION_OBJECT_TOTAL_AMOUNT_KEY } from '@config/common';
 
 class DocumentItems extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      activeLibrary: null,
-      activeInternalLocation: null,
-    };
-
-    if (props.documentDetails.metadata.items) {
-      const onShelf = props.documentDetails.metadata.items.on_shelf;
-      if (!_isEmpty(onShelf)) {
-        this.state.activeLibrary = Object.keys(onShelf)[0];
-      }
-    }
   }
 
-  handleLocationClick = (e, titleProps) => {
-    const { name } = titleProps;
-    const { activeInternalLocation } = this.state;
+  itemStatus = (item) => ({
+    isOnShelf: () =>
+      invenioConfig.ITEMS.canCirculateStatuses.includes(item.status) &&
+      !item.circulation,
 
-    if (activeInternalLocation === name) {
-      this.setState({ activeInternalLocation: null });
-    } else {
-      this.setState({ activeInternalLocation: name });
-    }
-  };
+    isForReference: () =>
+      invenioConfig.ITEMS.referenceStatuses.includes(item.status),
+  });
 
-  handleClick = (e, titleProps) => {
-    const { name } = titleProps;
-    const { activeLibrary } = this.state;
-
-    if (activeLibrary === name) {
-      this.setState({ activeLibrary: null });
-    } else {
-      this.setState({ activeLibrary: name });
-    }
-  };
-
-  renderInternalLocations = (internalLocations) => {
-    const locations = [];
-    const { activeInternalLocation } = this.state;
-
-    if (Object.keys(internalLocations).length > 2) {
-      Object.entries(internalLocations).forEach(
-        ([internalLocationName, items]) => {
-          if (internalLocationName !== 'total') {
-            locations.push(
-              <List.Item
-                active={activeInternalLocation === internalLocationName}
-                name={internalLocationName}
-                onClick={this.handleLocationClick}
-                key={internalLocationName}
-              >
-                {
-                  <Checkbox
-                    radio
-                    checked={activeInternalLocation === internalLocationName}
-                  />
-                }{' '}
-                {internalLocationName}
-              </List.Item>
-            );
-          }
-        }
-      );
-      return (
-        <List className="document-items-location-filters">{locations}</List>
-      );
-    }
-    return null;
-  };
-
-  renderLibraries = () => {
-    const { activeLibrary } = this.state;
+  get filteredLocations() {
     const {
       documentDetails: {
         metadata: {
@@ -99,77 +30,47 @@ class DocumentItems extends Component {
         },
       },
     } = this.props;
-    const libraries = [];
 
-    Object.entries(onShelf).forEach(([locationName, locationObj]) => {
-      libraries.push(
-        <Menu.Item key={locationName}>
-          <Accordion.Title
-            active={activeLibrary === locationName}
-            onClick={this.handleClick}
-            name={locationName}
-            content={
-              <>
-                <Label>{onShelf[locationName]['total']}</Label>
+    const locationEntries = Object.entries(onShelf);
 
-                {locationName}
-              </>
-            }
-          />
-          {Object.keys(locationObj).length > 2 ? (
-            <Accordion.Content
-              active={activeLibrary === locationName}
-              content={this.renderInternalLocations(locationObj)}
-            />
-          ) : null}
-        </Menu.Item>
+    if (_isEmpty(locationEntries)) return {};
+
+    // relevant means it only has items that have the status on shelf or for reference and arrays that are not empty
+
+    const relevantLocations = {};
+
+    locationEntries.forEach(([locationName, internalLocations]) => {
+      const internalLocationEntries = Object.entries(internalLocations);
+
+      const relevantInternalLocations = {};
+
+      internalLocationEntries.forEach(([internalLocationName, items]) => {
+        if (internalLocationName === LOCATION_OBJECT_TOTAL_AMOUNT_KEY) return;
+
+        const relevantItems = items.filter(
+          (item) =>
+            this.itemStatus(item).isOnShelf() ||
+            this.itemStatus(item).isForReference()
+        );
+
+        const internalLocationHasRelevantItems = !_isEmpty(relevantItems);
+
+        if (internalLocationHasRelevantItems) {
+          relevantInternalLocations[internalLocationName] = relevantItems;
+        }
+      });
+
+      const locationHasRelevantInternalLocations = !_isEmpty(
+        relevantInternalLocations
       );
+
+      if (locationHasRelevantInternalLocations) {
+        relevantLocations[locationName] = relevantInternalLocations;
+      }
     });
 
-    return libraries;
-  };
-
-  renderItems = () => {
-    const {
-      documentDetails: {
-        metadata: {
-          items: { on_shelf: onShelf },
-        },
-      },
-    } = this.props;
-    const { activeLibrary, activeInternalLocation } = this.state;
-
-    if (!_isEmpty(onShelf)) {
-      let items = [];
-      if (!activeLibrary) {
-        return 'Click on an available location to see the physical copies';
-      } else if (activeLibrary && !activeInternalLocation) {
-        Object.entries(onShelf[activeLibrary]).forEach(
-          ([internalLoc, locationItems]) => {
-            if (internalLoc !== 'total') {
-              items = items.concat(locationItems);
-            }
-          }
-        );
-      } else {
-        items = items.concat(onShelf[activeLibrary][activeInternalLocation]);
-      }
-      return (
-        <>
-          <Header as="h5">
-            Physical copies currently on shelf in {activeLibrary}
-            {activeInternalLocation && ` (${activeInternalLocation})`}
-          </Header>
-          <List divided>
-            {items.slice(0, 20).map((item) => (
-              <DocumentItem key={item.pid} item={item} />
-            ))}
-          </List>
-        </>
-      );
-    }
-    return null;
-  };
+    return relevantLocations;
+  }
 
   render() {
     const {
@@ -177,25 +78,12 @@ class DocumentItems extends Component {
         metadata: { items },
       },
     } = this.props;
-    const cmpItemsLocation = (
-      <Grid stackable>
-        <Grid.Column computer={4} tablet={4} mobile={16}>
-          <Accordion
-            as={Menu}
-            vertical
-            fluid
-            className="document-items-location-menu"
-          >
-            {this.renderLibraries()}
-          </Accordion>
-        </Grid.Column>
-        <Grid.Column computer={12} tablet={12} mobile={16}>
-          <Segment>{this.renderItems()}</Segment>
-        </Grid.Column>
-      </Grid>
+
+    const internalLocationsComponent = (
+      <DocumentTabs locationsObject={this.filteredLocations} />
     );
 
-    const cmpNoItems = (
+    const noItemsComponent = (
       <Message>
         <Message.Header>No copies</Message.Header>
         <p>
@@ -205,12 +93,17 @@ class DocumentItems extends Component {
       </Message>
     );
 
-    const hasCopies = _has(items, 'on_shelf') && !_isEmpty(items.on_shelf);
-    const cmpItems = hasCopies ? cmpItemsLocation : cmpNoItems;
+    const hasCopies =
+      _has(items, 'on_shelf') && !_isEmpty(this.filteredLocations);
+
+    const componentToShow = hasCopies
+      ? internalLocationsComponent
+      : noItemsComponent;
+
     return (
       <>
         <Divider horizontal>Where to find</Divider>
-        {cmpItems}
+        {componentToShow}
       </>
     );
   }

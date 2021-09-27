@@ -3,12 +3,13 @@ Menu Overrides - REACT-INVENIO-APP-ILS
 *******************************/
 
 .ui.inverted.menu {
- .item {
-   > a:not(.ui).ils-menu-login-button {
-     background: rgba(0, 0, 0, 0.3);
-     border-radius: @defaultBorderRadius !important;
+  .item {
+    > a:not(.ui).ils-menu-login-button {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: @defaultBorderRadius !important;
 
-   }
+    }
+
     i.icon {
       height: unset;
     }
@@ -18,13 +19,25 @@ Menu Overrides - REACT-INVENIO-APP-ILS
 
 .frontsite {
 
+  .internal-location-menu-wrapper {
+    .ui.menu.vertical {
+      min-width: 100%;
+    }
+
+    .internal-locations-menu-item {
+      display: flex  !important;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
   .ui.menu {
     &.mobile-header-menu {
       display: block;
       border-top: @highlightBorder;
       height: @headerMenuHeight;
 
-      > .ui.container{
+      > .ui.container {
         height: 100%;
         align-items: center;
       }
@@ -34,7 +47,7 @@ Menu Overrides - REACT-INVENIO-APP-ILS
       border-top: @highlightBorder;
       height: @headerMenuHeight;
 
-      > .ui.container{
+      > .ui.container {
         height: 100%;
         align-items: center;
       }
@@ -67,6 +80,7 @@ Menu Overrides - REACT-INVENIO-APP-ILS
       }
     }
 
+
   }
 
   .fs-search-controls-mobile {
@@ -76,8 +90,9 @@ Menu Overrides - REACT-INVENIO-APP-ILS
     .ui.menu {
       margin: 0 0 0.5em 0;
       box-shadow: none;
-      .item.mobile-sort-by{
-        padding:0;
+
+      .item.mobile-sort-by {
+        padding: 0;
       }
     }
 
