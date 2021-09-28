@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.53 (released 2021-09-28)
+
+- global: notification module integration
+
 Version 1.0.0-alpha.52 (released 2021-08-30)
 
 - document: add purchase orders to display
