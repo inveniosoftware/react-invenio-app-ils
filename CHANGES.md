@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.54 (released 2021-09-30)
+
+- add bulk extension feature
+
 Version 1.0.0-alpha.53 (released 2021-09-28)
 
 - global: notification module integration
