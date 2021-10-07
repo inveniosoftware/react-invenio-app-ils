@@ -69,7 +69,12 @@ export default class PatronCurrentLoans extends Component {
         )}
         <Grid>
           <Grid.Column computer={4} tablet={8} mobile={16} floated="right">
-            <PatronBulkExtendLoans color="orange" patronPid={currentUser.id} />
+            <PatronBulkExtendLoans
+              currentLoans={loans}
+              color="orange"
+              hidden={loans.total === 0}
+              patronPid={currentUser.id}
+            />
           </Grid.Column>
         </Grid>
         <ILSItemPlaceholder fluid isLoading={isLoading}>
