@@ -35,10 +35,10 @@ class AcqProvider extends Component {
     const createOrderFormData = {
       formData: {
         order_lines: [mapFields({ mappings, origin: docReq })],
-        extraData: {
-          attachCreatedOrderToDocumentRequest: true,
-          documentRequestPid: docReq.pid,
-        },
+      },
+      extraData: {
+        attachCreatedOrderToDocumentRequest: true,
+        documentRequestPid: docReq.pid,
       },
     };
 
