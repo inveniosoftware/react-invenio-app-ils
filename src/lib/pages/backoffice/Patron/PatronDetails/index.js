@@ -7,6 +7,7 @@ const mapStateToProps = (state) => ({
   error: state.patronDetails.error,
   hasError: state.patronDetails.hasError,
   data: state.patronDetails.data,
+  currentLoans: state.patronCurrentLoans.data,
 });
 
 const mapDispatchToProps = (dispatch) => ({

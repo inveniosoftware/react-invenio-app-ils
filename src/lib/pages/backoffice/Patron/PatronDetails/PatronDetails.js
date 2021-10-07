@@ -48,7 +48,7 @@ export default class PatronDetails extends Component {
   }
 
   render() {
-    const { isLoading, error, data, match } = this.props;
+    const { isLoading, error, data, match, currentLoans } = this.props;
     const currentPatronPid = match.params.patronPid;
     return (
       <div ref={this.headerRef}>
@@ -154,6 +154,7 @@ export default class PatronDetails extends Component {
                       <Sticky context={this.menuRef} offset={150}>
                         <PatronBulkExtendLoans
                           patronPid={currentPatronPid}
+                          hidden={currentLoans.total === 0}
                           fluid
                           color="blue"
                         />
@@ -182,6 +183,7 @@ PatronDetails.propTypes = {
       patronPid: PropTypes.string,
     }),
   }).isRequired,
+  currentLoans: PropTypes.object.isRequired,
 };
 
 PatronDetails.defaultProps = {
