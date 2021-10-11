@@ -25,6 +25,11 @@ const FooterLayout = (props) => {
                     </Link>
                   </List.Item>
                   <List.Item>
+                    <Link to={getStaticPageByName('search-guide').route}>
+                      Search Guide
+                    </Link>
+                  </List.Item>
+                  <List.Item>
                     <Link to={FrontSiteRoutes.openingHours}>Opening hours</Link>
                   </List.Item>
                 </List>

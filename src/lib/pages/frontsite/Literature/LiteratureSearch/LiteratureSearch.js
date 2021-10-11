@@ -28,6 +28,7 @@ import { Container, Grid, Header, Loader } from 'semantic-ui-react';
 import { SearchBarOverridesMap } from '@components/SearchBar/SearchBarOverrides';
 import LiteratureSearchMobile from './LiteratureSearchMobile';
 import SearchMessage from './SearchMessage/SearchMessage';
+import SearchGuideLink from './SearchGuideLink/SearchGuideLink';
 import PropTypes from 'prop-types';
 
 class LiteratureSearch extends Component {
@@ -85,6 +86,7 @@ class LiteratureSearch extends Component {
                       {...invenioConfig.APP.SEARCH_BAR_PROPS}
                       responsiveAutofocus
                     />
+                    <SearchGuideLink />
                   </Container>
                 </Container>
                 <Media greaterThanOrEqual="computer">
