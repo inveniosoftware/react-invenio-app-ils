@@ -29,7 +29,8 @@ export const APP_CONFIG = {
       className: '',
     },
   },
-  REST_ENDOINTS_BASE_URL: process.env.REACT_APP_INVENIO_REST_ENDPOINTS_BASE_URL,
+  REST_ENDPOINTS_BASE_URL:
+    process.env.REACT_APP_INVENIO_REST_ENDPOINTS_BASE_URL,
   SUCCESS_AUTO_DISMISS_SECONDS: 10,
   DEFAULT_CURRENCY: DEFAULT_CURRENCY,
   DEFAULT_LANGUAGE: DEFAULT_LANGUAGE,
@@ -41,6 +42,7 @@ export const APP_CONFIG = {
   STATIC_PAGES: [
     { name: 'about', route: '/about', apiURL: '1' },
     { name: 'contact', route: '/contact', apiURL: '2' },
+    { name: 'search-guide', route: '/guide/search', apiURL: '3' },
   ],
   EMAILS_PREFILL: {
     subjectPrefix: 'InvenioILS:',
@@ -318,7 +320,18 @@ export const RECORDS_CONFIG = {
     },
   },
   DOCUMENT_REQUESTS: {
-    states: ['ACCEPTED', 'PENDING', 'DECLINED'],
+    states: [
+      {
+        value: 'ACCEPTED',
+      },
+      {
+        value: 'PENDING',
+        default: true,
+      },
+      {
+        value: 'DECLINED',
+      },
+    ],
     physicalItemProviders: {
       acq: { name: 'Acquisition', pid_type: 'acqoid' },
       ill: { name: 'Interlibrary loan', pid_type: 'illbid' },

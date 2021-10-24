@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Divider, Header } from 'semantic-ui-react';
 import { DocumentEItemUrls } from '@modules/Document/DocumentEItemUrls';
+import _get from 'lodash/get';
 
 export class DocumentEItems extends Component {
   showAll = () => {
@@ -14,10 +15,34 @@ export class DocumentEItems extends Component {
   };
 
   onClickEItemRequestLink = () => {
+    const {
+      documentDetails: {
+        metadata: { authors, title, publication_year },
+        metadata,
+      },
+    } = this.props;
     const medium = 'DIGITAL';
+    const publisher = _get(metadata, 'imprint.publisher');
+    const isbn = _get(metadata, 'identifiers[0].value');
+
+    const formData = {
+      medium,
+      authors: authors[0].full_name,
+      title,
+      publication_year,
+    };
+
+    if (publisher) {
+      formData['publisher'] = publisher;
+    }
+
+    if (isbn) {
+      formData['isbn'] = isbn;
+    }
+
     return {
       pathname: FrontSiteRoutes.documentRequestForm,
-      state: { medium },
+      state: { formData },
     };
   };
 
@@ -44,8 +69,10 @@ export class DocumentEItems extends Component {
 DocumentEItems.propTypes = {
   eitems: PropTypes.object,
   showTab: PropTypes.func.isRequired,
+  documentDetails: PropTypes.object,
 };
 
 DocumentEItems.defaultProps = {
   eitems: {},
+  documentDetails: {},
 };

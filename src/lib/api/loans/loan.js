@@ -9,12 +9,13 @@ import { serializer } from './serializer';
 
 const apiPaths = {
   checkout: '/circulation/loans/checkout',
-  emailOverdue: '/circulation/loans/:loanPid/email-overdue',
+  notificationOverdue: '/circulation/loans/:loanPid/notification-overdue',
   item: '/circulation/loans/:loanPid',
   list: '/circulation/loans/',
   request: '/circulation/loans/request',
   replaceItem: '/circulation/loans/:loanPid/replace-item',
   updateDates: '/circulation/loans/:loanPid/update-dates',
+  bulkExtend: '/circulation/bulk-extend',
 };
 
 const get = async (loanPid) => {
@@ -118,6 +119,12 @@ const assignItemToLoan = async (itemPid, loanPid) => {
   const payload = { item_pid: itemPid };
   const response = await http.post(path, payload);
   response.data = serializer.fromJSON(response.data);
+  return response;
+};
+
+const bulkExtendLoans = async (patronPid) => {
+  const payload = { patron_pid: patronPid };
+  const response = await http.post(apiPaths.bulkExtend, payload);
   return response;
 };
 
@@ -269,8 +276,8 @@ const list = async (query) => {
   return response;
 };
 
-const sendOverdueLoansMailReminder = async (payload) => {
-  const path = generatePath(apiPaths.emailOverdue, {
+const sendOverdueLoansNotificationReminder = async (payload) => {
+  const path = generatePath(apiPaths.notificationOverdue, {
     loanPid: payload.loanPid,
   });
   return await http.post(path, payload);
@@ -320,7 +327,8 @@ export const loanApi = {
   doAction: doAction,
   doRequest: doRequest,
   doCheckout: doCheckout,
-  sendOverdueLoansMailReminder: sendOverdueLoansMailReminder,
+  sendOverdueLoansNotificationReminder: sendOverdueLoansNotificationReminder,
   serializer: serializer,
   updateDates: updateDates,
+  bulkExtendLoans: bulkExtendLoans,
 };

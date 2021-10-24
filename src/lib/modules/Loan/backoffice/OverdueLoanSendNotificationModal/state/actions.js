@@ -4,18 +4,20 @@ import {
   sendSuccessNotification,
 } from '@components/Notifications';
 import { fetchLoanDetails } from '@modules/Loan/actions';
-export const IS_LOADING = 'overdueLoanSendMailModal/IS_LOADING';
-export const SUCCESS = 'overdueLoanSendMailModal/SUCCESS';
-export const HAS_ERROR = 'overdueLoanSendMailModal/HAS_ERROR';
+export const IS_LOADING = 'overdueLoanSendNotificationModal/IS_LOADING';
+export const SUCCESS = 'overdueLoanSendNotificationModal/SUCCESS';
+export const HAS_ERROR = 'overdueLoanSendNotificationModal/HAS_ERROR';
 
-export const sendOverdueLoansMailReminder = (loanPid) => {
+export const sendOverdueLoansNotificationReminder = (loanPid) => {
   return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
     });
 
     try {
-      const response = await loanApi.sendOverdueLoansMailReminder(loanPid);
+      const response = await loanApi.sendOverdueLoansNotificationReminder(
+        loanPid
+      );
       dispatch({
         type: SUCCESS,
         payload: response.data,
@@ -24,7 +26,7 @@ export const sendOverdueLoansMailReminder = (loanPid) => {
       dispatch(
         sendSuccessNotification(
           'Success!',
-          'An email is on its way to the user.'
+          'A notification is on its way to the user.'
         )
       );
     } catch (error) {

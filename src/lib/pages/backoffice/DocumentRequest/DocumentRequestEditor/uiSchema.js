@@ -49,7 +49,8 @@ export const uiSchema = (title) => {
         'custom:divider': 16,
       },
       {
-        state: 8,
+        state: 4,
+        request_type: 4,
         decline_reason: 8,
       },
       {
@@ -85,7 +86,6 @@ export const uiSchema = (title) => {
         'custom:divider': 16,
       },
       {
-        request_type: 4,
         payment_method: 4,
         payment_info: 8,
       },

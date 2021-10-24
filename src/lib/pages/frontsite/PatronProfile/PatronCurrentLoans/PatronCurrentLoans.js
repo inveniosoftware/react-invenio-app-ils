@@ -1,6 +1,8 @@
+import { sessionManager } from '@authentication/services/SessionManager';
 import { Error } from '@components/Error';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
+import { PatronBulkExtendLoans } from '@modules/Patron/PatronBulkExtendLoans';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container, Grid, Header, Message } from 'semantic-ui-react';
@@ -41,6 +43,7 @@ export default class PatronCurrentLoans extends Component {
     const { error, isLoading, loans, rowsPerPage } = this.props;
     const { isSuccessMessageVisible, successMessage } = this.state;
     const { activePage } = this.state;
+    const currentUser = sessionManager.user;
     return (
       <Container className="spaced">
         <Header
@@ -64,6 +67,16 @@ export default class PatronCurrentLoans extends Component {
             <Grid.Column width="4" />
           </Grid>
         )}
+        <Grid>
+          <Grid.Column computer={4} tablet={8} mobile={16} floated="right">
+            <PatronBulkExtendLoans
+              currentLoans={loans}
+              color="orange"
+              hidden={loans.total === 0}
+              patronPid={currentUser.id}
+            />
+          </Grid.Column>
+        </Grid>
         <ILSItemPlaceholder fluid isLoading={isLoading}>
           <Error error={error}>
             <LoansList

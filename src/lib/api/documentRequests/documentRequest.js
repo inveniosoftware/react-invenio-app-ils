@@ -82,6 +82,7 @@ class QueryBuilder {
     this.documentQuery = [];
     this.page = '';
     this.patronQuery = [];
+    this.physicalItemProviderQuery = [];
     this.size = '';
     this.sortBy = '';
     this.stateQuery = [];
@@ -111,6 +112,19 @@ class QueryBuilder {
     return this;
   }
 
+  withPhysicalItemProviderPid(physicalItemProviderPid, pidType) {
+    if (!physicalItemProviderPid || _isEmpty(physicalItemProviderPid)) {
+      throw TypeError('physicalItemProviderPid argument missing');
+    }
+    if (!pidType || _isEmpty(pidType)) {
+      throw TypeError('physicalItemProviderPid argument missing');
+    }
+    this.physicalItemProviderQuery.push(
+      `physical_item_provider.pid:${physicalItemProviderPid} AND physical_item_provider.pid_type:${pidType}`
+    );
+    return this;
+  }
+
   withPage(page = 0) {
     if (page > 0) this.page = `&page=${page}`;
     return this;
@@ -128,7 +142,7 @@ class QueryBuilder {
 
   qs() {
     const searchCriteria = this.documentQuery
-      .concat(this.patronQuery, this.stateQuery)
+      .concat(this.patronQuery, this.stateQuery, this.physicalItemProviderQuery)
       .join(' AND ');
     return `${searchCriteria}${this.sortBy}${this.size}${this.page}`;
   }

@@ -48,6 +48,10 @@ class DocumentCard extends Component {
     }
 
     const volume = _get(metadata, 'relations.multipart_monograph[0].volume');
+    const multipartTitle = _get(
+      metadata,
+      'relations.multipart_monograph[0].record_metadata.title'
+    );
 
     return (
       <Overridable id="DocumentCard.layout" {...this.props}>
@@ -75,6 +79,13 @@ class DocumentCard extends Component {
                 {metadata.publication_year}
                 {metadata.edition && <> - Edition {metadata.edition}</>}
                 {volume && <> - Vol. {volume}</>}
+                {multipartTitle && (
+                  <>
+                    {' '}
+                    <br /> {multipartTitle}{' '}
+                  </>
+                )}
+
                 {metadata.imprint?.publisher && (
                   <>
                     {' '}

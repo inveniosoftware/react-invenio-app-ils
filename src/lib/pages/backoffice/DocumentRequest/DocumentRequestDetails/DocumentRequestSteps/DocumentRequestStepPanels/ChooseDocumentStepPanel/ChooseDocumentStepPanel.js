@@ -3,7 +3,7 @@ import { goTo } from '@history';
 import { ESSelector } from '@modules/ESSelector';
 import { serializeDocument } from '@modules/ESSelector/serializer';
 import { BackOfficeRoutes } from '@routes/urls';
-import _get from 'lodash/get';
+import mapFields from '@forms/mapFields';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Divider, Grid, Header, Segment } from 'semantic-ui-react';
@@ -15,41 +15,26 @@ export default class ChooseDocumentStepPanel extends Component {
   };
 
   goToCreateDocumentAndPrefill = (docReq) => {
-    const data = {};
-    const authors = _get(docReq, 'authors');
-    if (authors) {
-      data['authors'] = [{ full_name: _get(docReq, 'authors') }];
-    }
-    const journalTitle = _get(docReq, 'journal_title', '');
-    const issue = _get(docReq, 'issue', '');
-    const volume = _get(docReq, 'volume', '');
-    if (journalTitle || issue || volume) {
-      data['publication_info'] = [
-        {
-          journal_title: journalTitle,
-          journal_issue: issue,
-          journal_volume: volume,
-        },
-      ];
-    }
-    const isbn = _get(docReq, 'isbn');
-    if (isbn) {
-      data['identifiers'] = [{ scheme: 'ISBN', value: isbn }];
-    }
+    const mappings = [
+      ['authors', 'authors[0].full_name'],
+      ['journal_title', 'publication_info[0].journal_title'],
+      ['issue', 'publication_info[0].journal_issue'],
+      ['volume', 'publication_info[0].journal_volume'],
+      ['isbn', 'identifiers[0]', (value) => ({ scheme: 'ISBN', value: value })],
+      ['edition', 'edition'],
+      ['publication_year', 'publication_year', (value) => value.toString()],
+      ['publisher', 'imprint.publisher'],
+    ];
 
-    const edition = _get(docReq, 'edition');
-    if (edition) {
-      data['edition'] = edition;
-    }
-    const publicationYear = _get(docReq, 'publication_year');
-    if (publicationYear) {
-      data['publication_year'] = `${publicationYear}`; // it has to be a string
-    }
+    const prefilledData = mapFields({
+      origin: docReq,
+      mappings,
+    });
 
     const createDocumentFormData = {
       formData: {
         title: docReq.title,
-        ...data,
+        ...prefilledData,
       },
       extraData: {
         attachCreatedDocumentToDocumentRequest: true,

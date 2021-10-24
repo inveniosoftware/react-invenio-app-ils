@@ -52,6 +52,7 @@ export class RJSForm extends Component {
       isLoading: false,
       errors: {},
       discardConfirmOpen: false,
+      submittedFormData: {},
     };
   }
 
@@ -59,7 +60,7 @@ export class RJSForm extends Component {
     return { Error: { __errors: [message] } };
   }
 
-  onError(error) {
+  onError(error, formData) {
     let extraErrors = {};
     const errors = _get(error, 'response.data.errors', []);
     if (_isEmpty(errors)) {
@@ -81,7 +82,11 @@ export class RJSForm extends Component {
         };
       }
     }
-    this.setState({ isLoading: false, errors: extraErrors });
+    this.setState({
+      isLoading: false,
+      errors: extraErrors,
+      submittedFormData: formData,
+    });
   }
 
   onSubmit = async ({ formData }, _) => {
@@ -101,7 +106,7 @@ export class RJSForm extends Component {
       sendSuccessNotification('Success!', successMessage);
       successCallback && successCallback(response);
     } catch (error) {
-      this.onError(error);
+      this.onError(error, formData);
     }
     // scroll to top to see success/errors after backend call
     window.scrollTo(0, 0);
@@ -109,12 +114,15 @@ export class RJSForm extends Component {
 
   render() {
     const { schema, uiSchema, formData } = this.props;
-    const { discardConfirmOpen, errors, isLoading } = this.state;
+    const { discardConfirmOpen, errors, isLoading, submittedFormData } =
+      this.state;
+    const formReturnedErrors = !_isEmpty(errors);
+
     return (
       <Form
         schema={schema}
         uiSchema={uiSchema}
-        formData={formData}
+        formData={formReturnedErrors ? submittedFormData : formData}
         widgets={customWidgets}
         fields={customFields}
         transformErrors={(errors) => {

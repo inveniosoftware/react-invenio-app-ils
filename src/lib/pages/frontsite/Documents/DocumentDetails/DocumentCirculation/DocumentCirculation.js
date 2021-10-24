@@ -102,6 +102,7 @@ class DocumentCirculation extends Component {
           <DocumentEItems
             eitems={documentDetails.metadata.eitems}
             showTab={showTab}
+            documentDetails={documentDetails}
           />
           <Header as="h3" content="Request loan" />
           {hasNeither

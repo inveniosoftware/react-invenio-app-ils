@@ -2,8 +2,9 @@ import { authenticationReducer } from '@authentication/reducer';
 import { deleteRecordModalReducer } from '@components/backoffice/DeleteRecordModal/reducer';
 import { fetchBannerReducer } from '@components/Banner/state/reducer';
 import { notificationsReducer } from '@components/Notifications/reducer';
-import { overdueLoanSendMailModalReducer } from '@modules/Loan/backoffice/OverdueLoanSendMailModal/reducer';
+import { overdueLoanSendNotificationModalReducer } from '@modules/Loan/backoffice/OverdueLoanSendNotificationModal/reducer';
 import { loanActionReducer, loanDetailsReducer } from '@modules/Loan/reducer';
+import { patronBulkExtendLoans } from '@modules/Patron/PatronBulkExtendLoans/reducer';
 import patronCurrentBorrowingRequestsReducer from '@modules/Patron/PatronCurrentBorrowingRequests/reducer';
 import patronCurrentLoansReducer from '@modules/Patron/PatronCurrentLoans/reducer';
 import patronDocumentRequestsReducer from '@modules/Patron/PatronDocumentRequests/reducer';
@@ -83,7 +84,7 @@ export default function createILSReducer(asyncReducers) {
     patronPastBorrowingRequests: patronPastBorrowingRequestsReducer,
     staticPage: staticPageReducer,
     /* backoffice */
-    overdueLoanSendMailModal: overdueLoanSendMailModalReducer,
+    overdueLoanSendNotificationModal: overdueLoanSendNotificationModalReducer,
     loanDetails: loanDetailsReducer,
     loanActions: loanActionReducer,
     loanUpdateDates: loanUpdateDatesReducer,
@@ -121,6 +122,7 @@ export default function createILSReducer(asyncReducers) {
     itemsCheckIn: itemsCheckInReducer,
     checkOut: checkOutReducer,
     banner: fetchBannerReducer,
+    bulkLoanExtend: patronBulkExtendLoans,
     ...asyncReducers,
   });
 }
