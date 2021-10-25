@@ -18,6 +18,21 @@ Menu Overrides - REACT-INVENIO-APP-ILS
 
 .frontsite {
 
+  .internal-location-menu-wrapper {
+    .ui.menu.vertical {
+      min-width: 100%;
+
+      .item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: start;
+      }
+    }
+
+
+  }
+
   .ui.menu {
     &.mobile-header-menu {
       display: block;

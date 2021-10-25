@@ -88,7 +88,7 @@ export default class DocumentTabs extends Component {
             onClick={this.handleLocationClick}
             key={internalLocationName}
           >
-            {internalLocationName}
+            <span>{internalLocationName}</span>
             <Label
               pointing={menuItemIsActive ? 'right' : null}
               active={menuItemIsActive}
@@ -104,7 +104,7 @@ export default class DocumentTabs extends Component {
     );
 
     return (
-      <div className="center">
+      <div className="center internal-location-menu-wrapper">
         <Menu vertical compact fluid>
           {locations}
         </Menu>
@@ -160,22 +160,10 @@ export default class DocumentTabs extends Component {
         <Tab.Pane>
           <Grid stackable>
             <Grid.Row>
-              <Grid.Column
-                computer={3}
-                largeScreen={3}
-                tablet={5}
-                mobile={16}
-                floated="left"
-              >
+              <Grid.Column width={4} floated="left">
                 {this.createInternalLocationsMenu(locationsObject)}
               </Grid.Column>
-              <Grid.Column
-                computer={13}
-                largeScreen={13}
-                tablet={11}
-                mobile={16}
-                floated="right"
-              >
+              <Grid.Column width={12} floated="right">
                 {this.createInternalLocationTables(locationsObject)}
               </Grid.Column>
             </Grid.Row>
