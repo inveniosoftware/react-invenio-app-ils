@@ -26,16 +26,14 @@ class AcqProvider extends Component {
 
   goToCreateOrderAndPrefill = (docReq) => {
     const mappings = [
-      ['document_pid', 'document_pid'],
-      ['patron_pid', 'patron_pid'],
-      ['paymeny_info', 'budget_code'],
-      ['payment_method', 'payment_mode'],
+      ['document_pid', 'order_lines[0].document_pid'],
+      ['patron_pid', 'order_lines[0].patron_pid'],
+      ['payment_info', 'order_lines[0].budget_code'],
+      ['payment_method', 'order_lines[0].payment_mode'],
     ];
 
     const createOrderFormData = {
-      formData: {
-        order_lines: [mapFields({ mappings, origin: docReq })],
-      },
+      formData: mapFields({ mappings, origin: docReq }),
       extraData: {
         attachCreatedOrderToDocumentRequest: true,
         documentRequestPid: docReq.pid,
