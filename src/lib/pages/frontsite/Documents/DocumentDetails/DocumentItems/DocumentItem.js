@@ -56,7 +56,7 @@ class DocumentItem extends Component {
               <Table.HeaderCell>Shelf</Table.HeaderCell>
               <Table.HeaderCell>Status</Table.HeaderCell>
               <Table.HeaderCell>Medium</Table.HeaderCell>
-              <Table.HeaderCell>Restriction</Table.HeaderCell>
+              <Table.HeaderCell>Loan restriction</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
