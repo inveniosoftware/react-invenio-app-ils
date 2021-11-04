@@ -49,6 +49,7 @@ exports[`DocumentPendingLoans tests should load the details component 1`] = `
         />
       }
       showAllResults={false}
+      showFooterSummary={true}
       showMaxRows={5}
       singleLine={true}
       subtitle=""
@@ -248,6 +249,7 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
               />
             }
             showAllResults={false}
+            showFooterSummary={true}
             showMaxRows={5}
             singleLine={true}
             subtitle=""
@@ -628,6 +630,7 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
                     />
                   }
                   showAllResults={false}
+                  showFooterSummary={true}
                   showMaxRows={5}
                 />
               </table>
@@ -717,6 +720,7 @@ exports[`DocumentPendingLoans tests should render show a message with no pending
               />
             }
             showAllResults={false}
+            showFooterSummary={true}
             showMaxRows={5}
             singleLine={true}
             subtitle=""
@@ -947,6 +951,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
               />
             }
             showAllResults={false}
+            showFooterSummary={true}
             showMaxRows={1}
             singleLine={true}
             subtitle=""
@@ -1226,6 +1231,7 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                     />
                   }
                   showAllResults={false}
+                  showFooterSummary={true}
                   showMaxRows={1}
                 >
                   <TableFooter

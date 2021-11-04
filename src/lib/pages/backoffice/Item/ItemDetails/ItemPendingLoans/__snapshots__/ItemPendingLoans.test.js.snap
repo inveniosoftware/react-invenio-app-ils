@@ -107,6 +107,7 @@ exports[`ItemPendingLoans tests should render show a message with no requested l
                   />
                 }
                 showAllResults={false}
+                showFooterSummary={true}
                 showMaxRows={5}
                 singleLine={true}
                 subtitle=""

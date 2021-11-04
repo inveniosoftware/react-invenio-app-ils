@@ -41,3 +41,4 @@ export { withCancel, recordToPidType } from '@api/utils';
 export { Media } from '@components/Media';
 export { IEFallback } from '@components/Fallbacks/IEFallback';
 export { InfoPopup } from '@components/InfoPopup';
+export { Pagination } from '@components/Pagination';

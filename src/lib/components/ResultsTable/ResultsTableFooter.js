@@ -12,6 +12,7 @@ export default class ResultsTableFooter extends Component {
       columnsNumber,
       seeAllComponent,
       paginationComponent,
+      showFooterSummary,
     } = this.props;
     const start = showAllResults ? 0 : (currentPage - 1) * showMaxRows;
     const end = showAllResults
@@ -21,9 +22,11 @@ export default class ResultsTableFooter extends Component {
       <Table.Footer fullWidth data-test="footer">
         <Table.Row>
           <Table.HeaderCell colSpan={columnsNumber + 1} textAlign="right">
-            <span className="results-table-compact-summary">
-              Showing entries {start + 1}-{end} of {allRowsNumber}{' '}
-            </span>
+            {showFooterSummary && (
+              <span className="results-table-compact-summary">
+                Showing entries {start + 1}-{end} of {allRowsNumber}{' '}
+              </span>
+            )}
             <span>{seeAllComponent}</span>
             <span>{paginationComponent}</span>
           </Table.HeaderCell>
@@ -41,6 +44,7 @@ ResultsTableFooter.propTypes = {
   paginationComponent: PropTypes.node,
   showAllResults: PropTypes.bool,
   currentPage: PropTypes.number.isRequired,
+  showFooterSummary: PropTypes.bool.isRequired,
 };
 
 ResultsTableFooter.defaultProps = {

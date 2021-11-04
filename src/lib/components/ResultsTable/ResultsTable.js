@@ -22,6 +22,7 @@ export class ResultsTable extends Component {
       headerActionComponent,
       renderEmptyResultsElement,
       showMaxRows,
+      showFooterSummary,
       ...tableProps
     } = this.props;
 
@@ -38,7 +39,14 @@ export class ResultsTable extends Component {
         <ResultsTableHeader columns={columns} />
         <ResultsTableBody
           columns={columns}
-          rows={showAllResults ? data : data.slice(0, showMaxRows)}
+          rows={
+            showAllResults
+              ? data
+              : data.slice(
+                  (currentPage - 1) * showMaxRows,
+                  currentPage * showMaxRows
+                )
+          }
         />
         <ResultsTableFooter
           allRowsNumber={totalHitsCount || data.length}
@@ -48,6 +56,7 @@ export class ResultsTable extends Component {
           currentPage={currentPage}
           paginationComponent={paginationComponent}
           columnsNumber={columns.length}
+          showFooterSummary={showFooterSummary}
         />
       </Table>
     );
@@ -121,6 +130,7 @@ ResultsTable.propTypes = {
   totalHitsCount: PropTypes.number,
   renderEmptyResultsElement: PropTypes.func,
   fixed: PropTypes.bool,
+  showFooterSummary: PropTypes.bool,
 };
 
 ResultsTable.defaultProps = {
@@ -137,4 +147,5 @@ ResultsTable.defaultProps = {
   totalHitsCount: 0,
   showMaxRows: invenioConfig.APP.DEFAULT_RESULTS_SIZE,
   renderEmptyResultsElement: null,
+  showFooterSummary: true,
 };

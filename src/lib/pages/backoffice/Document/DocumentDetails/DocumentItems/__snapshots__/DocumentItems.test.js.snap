@@ -61,6 +61,7 @@ exports[`DocumentItems tests should load the DocumentItems component 1`] = `
         />
       }
       showAllResults={false}
+      showFooterSummary={true}
       showMaxRows={5}
       singleLine={true}
       subtitle=""
@@ -251,6 +252,7 @@ exports[`DocumentItems tests should render item 1`] = `
               />
             }
             showAllResults={false}
+            showFooterSummary={true}
             showMaxRows={5}
             singleLine={true}
             subtitle=""
@@ -770,6 +772,7 @@ exports[`DocumentItems tests should render item 1`] = `
                     />
                   }
                   showAllResults={false}
+                  showFooterSummary={true}
                   showMaxRows={5}
                 />
               </table>
@@ -870,6 +873,7 @@ exports[`DocumentItems tests should render show a message with no items 1`] = `
               />
             }
             showAllResults={false}
+            showFooterSummary={true}
             showMaxRows={5}
             singleLine={true}
             subtitle=""
@@ -1091,6 +1095,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
               />
             }
             showAllResults={false}
+            showFooterSummary={true}
             showMaxRows={1}
             singleLine={true}
             subtitle=""
@@ -1475,6 +1480,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                     />
                   }
                   showAllResults={false}
+                  showFooterSummary={true}
                   showMaxRows={1}
                 >
                   <TableFooter

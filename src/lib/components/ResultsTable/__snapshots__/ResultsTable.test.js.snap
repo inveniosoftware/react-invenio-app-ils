@@ -61,6 +61,7 @@ exports[`ResultsTable tests should not render the see all button when showing on
   renderEmptyResultsElement={null}
   seeAllComponent={null}
   showAllResults={false}
+  showFooterSummary={true}
   showMaxRows={3}
   singleLine={true}
   subtitle=""
@@ -349,6 +350,7 @@ exports[`ResultsTable tests should not render the see all button when showing on
         paginationComponent={null}
         seeAllComponent={null}
         showAllResults={false}
+        showFooterSummary={true}
         showMaxRows={3}
       />
     </table>
@@ -407,6 +409,7 @@ exports[`ResultsTable tests should render the see all button when showing only a
     </Button>
   }
   showAllResults={false}
+  showFooterSummary={true}
   showMaxRows={1}
   singleLine={true}
   subtitle=""
@@ -621,6 +624,7 @@ exports[`ResultsTable tests should render the see all button when showing only a
           </Button>
         }
         showAllResults={false}
+        showFooterSummary={true}
         showMaxRows={1}
       >
         <TableFooter
