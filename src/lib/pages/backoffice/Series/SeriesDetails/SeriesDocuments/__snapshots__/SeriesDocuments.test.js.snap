@@ -43,6 +43,7 @@ exports[`SeriesDocuments tests should load the SeriesDocuments component 1`] = `
         />
       }
       showAllResults={false}
+      showFooterSummary={true}
       showMaxRows={5}
       singleLine={true}
       subtitle=""

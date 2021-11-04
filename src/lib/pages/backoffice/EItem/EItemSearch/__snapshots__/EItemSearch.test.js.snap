@@ -12,6 +12,7 @@ exports[`EItemsSearch ResultsTable tests should not render when empty results 1`
   renderEmptyResultsElement={null}
   seeAllComponent={null}
   showAllResults={false}
+  showFooterSummary={true}
   showMaxRows={15}
   singleLine={true}
   subtitle=""
@@ -100,6 +101,7 @@ exports[`EItemsSearch ResultsTable tests should render a list of results 1`] = `
   renderEmptyResultsElement={null}
   seeAllComponent={null}
   showAllResults={false}
+  showFooterSummary={true}
   showMaxRows={15}
   singleLine={true}
   subtitle=""
@@ -398,6 +400,7 @@ exports[`EItemsSearch ResultsTable tests should render a list of results 1`] = `
         paginationComponent={null}
         seeAllComponent={null}
         showAllResults={false}
+        showFooterSummary={true}
         showMaxRows={15}
       />
     </table>

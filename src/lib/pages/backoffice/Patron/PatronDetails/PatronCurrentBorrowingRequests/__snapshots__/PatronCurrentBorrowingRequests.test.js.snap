@@ -66,6 +66,7 @@ exports[`PatronCurrentBorrowingRequests tests should load the details component 
         />
       }
       showAllResults={false}
+      showFooterSummary={true}
       showMaxRows={5}
       singleLine={true}
       subtitle=""
@@ -359,6 +360,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                   />
                 }
                 showAllResults={false}
+                showFooterSummary={true}
                 showMaxRows={5}
                 singleLine={true}
                 subtitle=""
@@ -1177,6 +1179,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                         />
                       }
                       showAllResults={false}
+                      showFooterSummary={true}
                       showMaxRows={5}
                     />
                   </table>
@@ -1318,6 +1321,7 @@ exports[`PatronCurrentBorrowingRequests tests should render show a message with 
                   />
                 }
                 showAllResults={false}
+                showFooterSummary={true}
                 showMaxRows={5}
                 singleLine={true}
                 subtitle=""
@@ -1644,6 +1648,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                   />
                 }
                 showAllResults={false}
+                showFooterSummary={true}
                 showMaxRows={1}
                 singleLine={true}
                 subtitle=""
@@ -2190,6 +2195,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                         />
                       }
                       showAllResults={false}
+                      showFooterSummary={true}
                       showMaxRows={1}
                     >
                       <TableFooter

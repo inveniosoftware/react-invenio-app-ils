@@ -73,6 +73,7 @@ exports[`EItemFiles tests should load the files component 1`] = `
           renderEmptyResultsElement={[Function]}
           seeAllComponent={null}
           showAllResults={false}
+          showFooterSummary={true}
           showMaxRows={5}
           singleLine={true}
           subtitle=""
