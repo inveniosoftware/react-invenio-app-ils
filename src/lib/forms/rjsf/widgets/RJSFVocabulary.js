@@ -30,6 +30,18 @@ export class RJSFVocabulary extends Component {
     this.cancellableFetchData && this.cancellableFetchData.cancel();
   }
 
+  validateValue = (value, options, isLoading) => {
+    const noOptionSelected = !value;
+    if (noOptionSelected) return true;
+
+    if (!options.length || isLoading) return;
+
+    const foundValue = (value) =>
+      options.find((option) => option.value === value);
+
+    return !!foundValue(value);
+  };
+
   serializer = (hit) => ({
     key: hit.metadata.key,
     value: hit.metadata.key,
@@ -82,13 +94,21 @@ export class RJSFVocabulary extends Component {
   render() {
     const { autofocus, label, placeholder, readonly, required } = this.props;
     const { options, isLoading, value, error } = this.state;
+
+    const valueIsValid = this.validateValue(value, options, isLoading);
+
+    const invalidValueError = {
+      content: ' Invalid option was selected',
+      pointing: 'above',
+    };
+
     return (
       <Form.Select
         fluid
         selection
         options={options}
         label={label}
-        value={value}
+        value={valueIsValid ? value : undefined}
         clearable
         required={required}
         autoFocus={autofocus}
@@ -97,6 +117,7 @@ export class RJSFVocabulary extends Component {
         disabled={isLoading || readonly}
         loading={isLoading}
         noResultsMessage={error ? error : 'No results found'}
+        error={!valueIsValid && invalidValueError}
       />
     );
   }
