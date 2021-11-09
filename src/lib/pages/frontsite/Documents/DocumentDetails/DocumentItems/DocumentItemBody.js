@@ -10,16 +10,21 @@ export default class DocumentItemBody extends Component {
   }
 
   itemStatus = (item) => ({
-    IsOnShelf: () =>
-      invenioConfig.ITEMS.canCirculateStatuses.includes(item.status) &&
-      !item.circulation,
+    canCirculate: () =>
+      invenioConfig.ITEMS.canCirculateStatuses.includes(item.status),
+    isOnShelf: () => !item.circulation,
   });
 
   statusLabel = (item) => {
-    const onShelf = this.itemStatus(item).IsOnShelf();
+    const canCirculate = this.itemStatus(item).canCirculate();
+    const onShelf = this.itemStatus(item).isOnShelf();
 
-    if (onShelf) {
-      return <span className="success">On shelf</span>;
+    if (canCirculate) {
+      return onShelf ? (
+        <span className="success">On shelf</span>
+      ) : (
+        <span>On loan</span>
+      );
     }
 
     return getDisplayVal('ITEMS.statuses', item.status);
