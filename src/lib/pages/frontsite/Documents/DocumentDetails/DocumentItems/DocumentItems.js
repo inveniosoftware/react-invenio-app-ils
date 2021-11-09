@@ -14,9 +14,8 @@ class DocumentItems extends Component {
   }
 
   itemStatus = (item) => ({
-    isOnShelf: () =>
-      invenioConfig.ITEMS.canCirculateStatuses.includes(item.status) &&
-      !item.circulation,
+    canCirculate: () =>
+      invenioConfig.ITEMS.canCirculateStatuses.includes(item.status),
 
     isForReference: () =>
       invenioConfig.ITEMS.referenceStatuses.includes(item.status),
@@ -49,7 +48,7 @@ class DocumentItems extends Component {
 
         const relevantItems = items.filter(
           (item) =>
-            this.itemStatus(item).isOnShelf() ||
+            this.itemStatus(item).canCirculate() ||
             this.itemStatus(item).isForReference()
         );
 
