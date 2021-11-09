@@ -35,7 +35,7 @@ export { default as InvenioILSApp } from './App';
 export { default as history } from './history';
 export { configureStore, injectAsyncReducer } from './store';
 export { ILSStore } from './App';
-export { NotFound } from '@components/HttpErrors';
+export { NotFound, HttpError } from '@components/HttpErrors';
 export { ResultsTable } from '@components/ResultsTable/ResultsTable';
 export { withCancel, recordToPidType } from '@api/utils';
 export { Media } from '@components/Media';
