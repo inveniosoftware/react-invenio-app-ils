@@ -1,10 +1,17 @@
 # Changes
 
-Version 1.0.0-alpha.57 (released 2021-11-25)
+Version 1.0.0-alpha.58 (released 2021-11-11)
+
+- correct acquisition order form prefilling
+- change loan restriction label
+- show items on loan in 'where to find' section
+- fix pagination records table
+
+Version 1.0.0-alpha.57 (released 2021-10-25)
 
 - fix display of content in document details page
 
-Version 1.0.0-alpha.56 (released 2021-11-22)
+Version 1.0.0-alpha.56 (released 2021-10-22)
 
 - add links to the search guide
 - disable the bulk extend loans if no loans to extend
