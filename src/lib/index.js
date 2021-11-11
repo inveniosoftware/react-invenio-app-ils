@@ -1,5 +1,6 @@
 export { orderApi } from '@api/acquisition';
 export { bannerApi } from '@api/banners';
+export { toShortDateTime } from '@api/date';
 export { documentRequestApi } from '@api/documentRequests';
 export { documentApi } from '@api/documents';
 export { eItemApi } from '@api/eitems';
