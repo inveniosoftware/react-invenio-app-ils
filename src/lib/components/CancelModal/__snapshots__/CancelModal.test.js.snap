@@ -2,7 +2,6 @@
 
 exports[`CancelModal tests should load the cancel loan modal component 1`] = `
 <Modal
-  basic={true}
   centered={true}
   closeOnDimmerClick={true}
   closeOnDocumentClick={false}
@@ -62,17 +61,14 @@ exports[`CancelModal tests should load the cancel loan modal component 1`] = `
   <ModalActions>
     <Button
       as="button"
-      basic={true}
-      color="black"
-      inverted={true}
       onClick={[Function]}
+      secondary={true}
     >
       Back
     </Button>
     <Button
       as="button"
       color="red"
-      inverted={true}
       onClick={[Function]}
     >
       <Icon

@@ -3,14 +3,15 @@ import { InfoMessage } from '@components/backoffice/InfoMessage';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { List, Button } from 'semantic-ui-react';
+import { ExtendModal } from '@pages/backoffice/Loan/LoanDetails/LoanActions/ExtendModal';
+import { CancelLoanModal } from './CancelButton';
 import { omit } from 'lodash/object';
-import { CancelModal } from '@components/CancelModal';
 import _isEmpty from 'lodash/isEmpty';
 import capitalize from 'lodash/capitalize';
 
 export default class LoanActions extends Component {
   renderAvailableActions(pid, patronPid, documentPid, itemPid, actions = {}) {
-    const { performLoanAction, isLoading } = this.props;
+    const { performLoanAction, isLoading, loanDetails } = this.props;
 
     // omit checkout because it must done in one of the available items
     if (!itemPid) {
@@ -27,14 +28,17 @@ export default class LoanActions extends Component {
       return (
         <List.Item key={action}>
           {action === 'cancel' ? (
-            <CancelModal
-              header={`Cancel Loan #${pid}`}
-              content={`You are about to cancel loan #${pid}.
-                Please enter a reason for cancelling this loan.`}
-              cancelText="Cancel Loan"
-              buttonText={capitalize('cancel')}
-              action={cancelAction}
+            <CancelLoanModal
+              pid={pid}
               isLoading={isLoading}
+              cancelAction={cancelAction}
+            />
+          ) : action === 'extend' ? (
+            <ExtendModal
+              pid={pid}
+              isLoading={isLoading}
+              loanAction={loanAction}
+              loanDetails={loanDetails}
             />
           ) : (
             <Button

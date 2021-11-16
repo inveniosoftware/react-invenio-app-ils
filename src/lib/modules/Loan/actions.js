@@ -3,6 +3,7 @@ import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
+  addNotification,
 } from '@components/Notifications';
 import { fetchItemDetails } from './../../pages/backoffice/Item/ItemDetails/state/actions';
 import { invenioConfig } from '@config';
@@ -103,7 +104,8 @@ export const performLoanAction = (
         type: ACTION_HAS_ERROR,
         payload: error,
       });
-      dispatch(sendErrorNotification(error));
+      // TODO: Fix sendErrorNotification and use it here.
+      dispatch(addNotification('Error', error.message, 'error'));
     }
   };
 };
