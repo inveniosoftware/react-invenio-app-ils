@@ -3,6 +3,7 @@ import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
+  addNotification,
 } from '@components/Notifications';
 import { fetchItemDetails } from './../../pages/backoffice/Item/ItemDetails/state/actions';
 import { invenioConfig } from '@config';
@@ -37,7 +38,7 @@ export const fetchLoanDetails = (
             .query()
             .withDocPid(response.data.metadata.document_pid)
             .withState(invenioConfig.CIRCULATION.loanRequestStates)
-            .sortByRequestStartDate()
+            .sortByRequestStartDateAsc()
             .qs()
         );
         if (pendingLoansResponse.data.total > 0) {
@@ -103,7 +104,8 @@ export const performLoanAction = (
         type: ACTION_HAS_ERROR,
         payload: error,
       });
-      dispatch(sendErrorNotification(error));
+      // TODO: Fix sendErrorNotification and use it here.
+      dispatch(addNotification('Error', error.message, 'error'));
     }
   };
 };
