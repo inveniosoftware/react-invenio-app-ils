@@ -242,7 +242,7 @@ class QueryBuilder {
   }
 
   sortByRequestStartDate() {
-    this.sortBy = `&sort=-request_start_date`;
+    this.sortBy = `&sort=request_start_date`;
     return this;
   }
 

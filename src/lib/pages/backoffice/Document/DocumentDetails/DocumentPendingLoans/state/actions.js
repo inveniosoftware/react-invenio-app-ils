@@ -18,6 +18,7 @@ export const fetchPendingLoans = (documentPid) => {
           .query()
           .withDocPid(documentPid)
           .withState(invenioConfig.CIRCULATION.loanRequestStates)
+          .sortByRequestStartDate()
           .qs()
       );
 
