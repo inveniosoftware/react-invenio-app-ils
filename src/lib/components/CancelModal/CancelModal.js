@@ -57,7 +57,6 @@ export default class CancelModal extends Component {
     const { open, value, showPopup } = this.state;
     return (
       <Modal
-        basic
         size="small"
         trigger={
           <Button
@@ -93,10 +92,10 @@ export default class CancelModal extends Component {
           />
         </Modal.Content>
         <Modal.Actions>
-          <Button basic color="black" inverted onClick={this.hide}>
+          <Button secondary onClick={this.hide}>
             Back
           </Button>
-          <Button color="red" inverted onClick={this.cancel}>
+          <Button color="red" onClick={this.cancel}>
             <Icon name="remove" /> {cancelText}
           </Button>
         </Modal.Actions>

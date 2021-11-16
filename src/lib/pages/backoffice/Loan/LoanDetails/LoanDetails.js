@@ -15,6 +15,7 @@ export default class LoanDetails extends Component {
     super(props);
     this.headerRef = React.createRef();
     this.menuRef = React.createRef();
+    this.isLoading = true;
   }
 
   componentDidMount() {
