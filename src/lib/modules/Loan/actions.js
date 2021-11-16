@@ -37,7 +37,7 @@ export const fetchLoanDetails = (
             .query()
             .withDocPid(response.data.metadata.document_pid)
             .withState(invenioConfig.CIRCULATION.loanRequestStates)
-            .sortByRequestStartDate()
+            .sortByRequestStartDateAsc()
             .qs()
         );
         if (pendingLoansResponse.data.total > 0) {
