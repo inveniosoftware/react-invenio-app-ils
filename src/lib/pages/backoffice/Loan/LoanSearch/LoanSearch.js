@@ -1,6 +1,7 @@
 import { responseRejectInterceptor } from '@api/base';
 import { loanApi } from '@api/loans';
 import { NewButton } from '@components/backoffice/buttons/NewButton';
+import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';
 import { QueryBuildHelper } from '@components/SearchBar/QueryBuildHelper';
 import {
   invenioConfig,
@@ -80,34 +81,44 @@ export class LoanSearch extends Component {
                 />
                 <QueryBuildHelper fields={helperFields} />
               </Container>
-              <Grid>
-                <Grid.Row columns={2}>
-                  <ResultsLoader>
-                    <Grid.Column width={3} className="search-aggregations">
-                      <Header content="Filter by" />
-                      <SearchAggregationsCards modelName={this.modelName} />
-                      <SearchDateRange />
-                    </Grid.Column>
-                    <Grid.Column width={13}>
-                      <EmptyResults
-                        extraContent={
-                          <NewButton
-                            text="Add document"
-                            to={BackOfficeRoutes.documentCreate}
-                          />
-                        }
-                      />
-                      <Error />
-                      <SearchControls
-                        modelName={this.modelName}
-                        withLayoutSwitcher={false}
-                      />
-                      <ResultsList ListEntryElement={LoanListEntry} />
-                      <SearchFooter />
-                    </Grid.Column>
-                  </ResultsLoader>
-                </Grid.Row>
-              </Grid>
+              <Container fluid className="bo-search-body">
+                <Grid>
+                  <Grid.Row columns={2}>
+                    <ResultsLoader>
+                      <Grid.Column width={3} className="search-aggregations">
+                        <Header content="Filter by" />
+                        <SearchAggregationsCards modelName={this.modelName} />
+                        <SearchDateRange />
+                      </Grid.Column>
+                      <Grid.Column width={13}>
+                        <Grid columns={2}>
+                          <Grid.Column width={8} />
+                          <Grid.Column width={8} textAlign="right">
+                            <ExportReactSearchKitResults
+                              exportBaseUrl={loanApi.searchBaseURL}
+                            />
+                          </Grid.Column>
+                        </Grid>
+                        <EmptyResults
+                          extraContent={
+                            <NewButton
+                              text="Add document"
+                              to={BackOfficeRoutes.documentCreate}
+                            />
+                          }
+                        />
+                        <Error />
+                        <SearchControls
+                          modelName={this.modelName}
+                          withLayoutSwitcher={false}
+                        />
+                        <ResultsList ListEntryElement={LoanListEntry} />
+                        <SearchFooter />
+                      </Grid.Column>
+                    </ResultsLoader>
+                  </Grid.Row>
+                </Grid>
+              </Container>
             </>
           </ReactSearchKit>
         </OverridableContext.Provider>
