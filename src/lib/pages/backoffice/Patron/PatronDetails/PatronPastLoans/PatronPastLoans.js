@@ -28,7 +28,7 @@ export default class PatronPastLoans extends Component {
       loanApi
         .query()
         .withPatronPid(patronPid)
-        .withState(invenioConfig.CIRCULATION.loanRequestStates)
+        .withState(invenioConfig.CIRCULATION.loanCompletedStates)
         .qs()
     );
     return <SeeAllButton to={path} />;
