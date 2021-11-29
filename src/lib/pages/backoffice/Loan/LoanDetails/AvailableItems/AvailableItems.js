@@ -109,7 +109,7 @@ export default class AvailableItems extends Component {
   }
 
   renderTable() {
-    const { data } = this.props;
+    const { data, isLoading } = this.props;
     const { filteredData } = this.state;
     const columns = [
       { title: 'PID', field: 'metadata.pid' },
@@ -132,16 +132,17 @@ export default class AvailableItems extends Component {
         formatter: this.rowActionButton,
       },
     ];
-
     return (
-      <ResultsTable
-        data={filteredData === null ? data.hits : filteredData}
-        columns={columns}
-        totalHitsCount={data.total}
-        name="available physical copies"
-        seeAllComponent={this.seeAllButton()}
-        renderEmptyResultsElement={this.renderEmptyResults}
-      />
+      <Loader isLoading={isLoading}>
+        <ResultsTable
+          data={filteredData === null ? data.hits : filteredData}
+          columns={columns}
+          totalHitsCount={data.total}
+          name="available physical copies"
+          seeAllComponent={this.seeAllButton()}
+          renderEmptyResultsElement={this.renderEmptyResults}
+        />
+      </Loader>
     );
   }
 
