@@ -88,7 +88,7 @@ export const checkOutSearch = (term) => {
         type: SEARCH_HAS_ERROR,
         payload: error,
       });
-      dispatch(sendErrorNotification('Error'));
+      dispatch(sendErrorNotification(error));
     }
   };
 };
