@@ -5,16 +5,18 @@ import React, { Component } from 'react';
 import { Container, Message } from 'semantic-ui-react';
 import { DefaultFallbackComponent } from './DefaultFallbackComponent';
 
-const isAPIError = (error) => {
+export const isAPIError = (error) => {
   return get(error, 'response.data.message') !== undefined;
 };
 
-export const shouldShowErrorPage = (error) => {
-  if (!isAPIError(error)) {
-    return true;
+const shouldShowErrorPage = (error) => {
+  if (isAPIError(error)) {
+    // do not display the error in a full page, show the error only in the specific component (probably a notification).
+    return false;
   }
-
-  return error.response.status !== 400;
+  // when the exception is handled, we don't want to display a full page error (probably a notification).
+  const handledException = error?.response?.status === 400;
+  return handledException ? false : true;
 };
 
 export class Error extends Component {

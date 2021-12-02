@@ -1,9 +1,9 @@
 import { itemApi } from '@api/items';
 import { loanApi } from '@api/loans';
 import {
+  addNotification,
   sendErrorNotification,
   sendSuccessNotification,
-  addNotification,
 } from '@components/Notifications';
 
 export const LOAN_IS_LOADING = 'itemLoansSearch/IS_LOADING';
@@ -63,7 +63,7 @@ export const checkin = (barcode, onSuccess) => {
         type: LOAN_HAS_ERROR,
         payload: error,
       });
-      dispatch(sendErrorNotification('Error'));
+      dispatch(sendErrorNotification(error));
     }
   };
 };

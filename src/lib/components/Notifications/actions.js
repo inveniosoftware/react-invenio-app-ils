@@ -1,4 +1,4 @@
-import { shouldShowErrorPage } from '@components/Error/Error';
+import { isAPIError } from '@components/Error/Error';
 
 export const ADD = 'notifications/ADD';
 export const REMOVE = 'notifications/REMOVE';
@@ -6,13 +6,14 @@ export const CLEAR_ALL = 'notifications/CLEAR_ALL';
 
 export const sendErrorNotification = (error) => {
   return (dispatch) => {
-    if (!shouldShowErrorPage(error)) {
+    if (isAPIError(error)) {
       const errorData = error.response.data;
       const { error_module: errorModule, message } = errorData;
 
       const title = errorModule ? `${errorModule}` : 'Something went wrong';
-
       dispatch(addNotification(title, message, 'error'));
+    } else {
+      dispatch(addNotification('Something went wrong', error.message, 'error'));
     }
   };
 };
