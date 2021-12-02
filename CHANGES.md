@@ -1,5 +1,15 @@
 # Changes
 
+Version 1.0.0-alpha.59 (released 2021-12-02)
+
+- Validate that vocabulary field values in the form select are valid.
+- Ensure that the first loan of each document is the one with the earliest start date.
+- Order loans in search by ascending creation date.
+- Fix 'See all' button search query in the loans history.
+- Allow downloading loans in csv/json file. 
+- Add warning for the librarian trying to extend an overbooked loan.
+- Add error notification for unhandled API errors.
+
 Version 1.0.0-alpha.58 (released 2021-11-11)
 
 - correct acquisition order form prefilling
