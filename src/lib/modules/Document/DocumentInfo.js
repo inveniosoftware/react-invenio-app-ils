@@ -6,10 +6,10 @@ import LiteratureUrls from '@modules/Literature/LiteratureUrls';
 import isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Divider, Table } from 'semantic-ui-react';
+import { Divider, List, Table } from 'semantic-ui-react';
 
 export class DocumentInfo extends Component {
-  renderLanguages() {
+  renderLanguages = () => {
     const { metadata } = this.props;
     if (metadata.languages) {
       return (
@@ -20,7 +20,7 @@ export class DocumentInfo extends Component {
       );
     }
     return null;
-  }
+  };
 
   renderKeywords() {
     const { metadata } = this.props;
@@ -57,6 +57,20 @@ export class DocumentInfo extends Component {
             <Table.Row>
               <Table.Cell width={4}>Title</Table.Cell>
               <Table.Cell>{metadata.title}</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell width={4}>Alternative titles</Table.Cell>
+              <Table.Cell>
+                <List bulleted>
+                  {(metadata.alternative_titles || []).map((entry) => (
+                    <List.Item key={entry.value}>
+                      <List.Content className="alternative-title">
+                        {entry.value}
+                      </List.Content>
+                    </List.Item>
+                  ))}
+                </List>
+              </Table.Cell>
             </Table.Row>
             <Table.Row>
               <Table.Cell width={4}>Authors</Table.Cell>

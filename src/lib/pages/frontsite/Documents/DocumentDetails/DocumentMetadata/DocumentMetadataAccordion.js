@@ -3,7 +3,6 @@ import { DocumentConference } from '@modules/Document/DocumentConference';
 import { DocumentContent } from '@modules/Document/DocumentContent';
 import { DocumentCopyrights } from '@modules/Document/DocumentCopyrights';
 import { DocumentEItemUrls } from '@modules/Document/DocumentEItemUrls';
-import { DocumentExtras } from '@modules/Document/DocumentExtras';
 import { DocumentInfo } from '@modules/Document/DocumentInfo';
 import { DocumentPublicationInfo } from '@modules/Document/DocumentPublicationInfo';
 import { Identifiers } from '@modules/Identifiers';
@@ -58,7 +57,9 @@ class DocumentMetadataAccordion extends Component {
           Identifiers
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 'identifiers'}>
-          <Identifiers identifiers={identifiers.concat(altIdentifiers)} />
+          <Overridable id="DocumentMetadataTabs.Identifiers">
+            <Identifiers identifiers={identifiers.concat(altIdentifiers)} />
+          </Overridable>
         </Accordion.Content>
 
         <Accordion.Title
@@ -162,18 +163,6 @@ class DocumentMetadataAccordion extends Component {
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 'licenses'}>
           <DocumentCopyrights metadata={metadata} />
-        </Accordion.Content>
-
-        <Accordion.Title
-          active={activeIndex === 'other'}
-          index="other"
-          onClick={this.handleClick}
-        >
-          <Icon name="dropdown" />
-          Other
-        </Accordion.Title>
-        <Accordion.Content active={activeIndex === 'other'}>
-          <DocumentExtras metadata={metadata} />
         </Accordion.Content>
       </Accordion>
     );

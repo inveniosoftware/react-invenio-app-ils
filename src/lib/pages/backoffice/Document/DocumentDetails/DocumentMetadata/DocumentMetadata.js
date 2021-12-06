@@ -1,5 +1,4 @@
 import { invenioConfig } from '@config';
-import { DocumentExtras } from '@modules/Document/DocumentExtras';
 import { LiteratureMetadataExtensions } from '@modules/Literature/LiteratureMetadataExtensions';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
@@ -55,14 +54,6 @@ export default class DocumentMetadata extends Component {
         render: () => (
           <Tab.Pane>
             <DocumentPublishing document={document} />
-          </Tab.Pane>
-        ),
-      },
-      {
-        menuItem: 'Other',
-        render: () => (
-          <Tab.Pane>
-            <DocumentExtras metadata={document.metadata} />
           </Tab.Pane>
         ),
       },

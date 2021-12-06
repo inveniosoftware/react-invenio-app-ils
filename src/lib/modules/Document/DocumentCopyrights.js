@@ -11,8 +11,8 @@ export class DocumentCopyrights extends Component {
       <List bulleted>
         {copyrights.map((entry) => (
           <List.Item key={entry.statement}>
-            <a href={entry.url}>{entry.statement}</a> ({entry.material}) held by{' '}
-            {entry.holder}
+            <a href={entry.url}>{entry.statement}</a>{' '}
+            {entry.material && `(${entry.material})`} held by {entry.holder}
           </List.Item>
         ))}
       </List>
@@ -27,10 +27,14 @@ export class DocumentCopyrights extends Component {
       <List bulleted>
         {licenses.map((entry) => (
           <List.Item key={entry.license.id}>
-            <a href={entry.url} target="_blank" rel="noopener noreferrer">
+            <a
+              href={entry.license.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {entry.license.title}
             </a>{' '}
-            {entry.material && `(${entry.material})`}
+            {entry.material && `(${entry.material})`}{' '}
             {entry.license.maintainer &&
               `maintained by ${entry.license.maintainer}`}
           </List.Item>

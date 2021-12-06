@@ -3,7 +3,6 @@ import { DocumentConference } from '@modules/Document/DocumentConference';
 import { DocumentContent } from '@modules/Document/DocumentContent';
 import { DocumentCopyrights } from '@modules/Document/DocumentCopyrights';
 import { DocumentEItemUrls } from '@modules/Document/DocumentEItemUrls';
-import { DocumentExtras } from '@modules/Document/DocumentExtras';
 import { DocumentInfo } from '@modules/Document/DocumentInfo';
 import { DocumentPublicationInfo } from '@modules/Document/DocumentPublicationInfo';
 import { Identifiers } from '@modules/Identifiers';
@@ -36,7 +35,9 @@ class DocumentMetadataTabs extends Component {
         menuItem: 'Identifiers',
         render: () => (
           <Tab.Pane>
-            <Identifiers identifiers={identifiers.concat(altIdentifiers)} />
+            <Overridable id="DocumentMetadataTabs.Identifiers">
+              <Identifiers identifiers={identifiers.concat(altIdentifiers)} />
+            </Overridable>
           </Tab.Pane>
         ),
       },
@@ -49,7 +50,7 @@ class DocumentMetadataTabs extends Component {
         ),
       },
       {
-        menuItem: 'Publications',
+        menuItem: 'Published in',
         render: () => (
           <DocumentPublicationInfo publications={metadata.publication_info} />
         ),
@@ -83,14 +84,6 @@ class DocumentMetadataTabs extends Component {
         render: () => (
           <Tab.Pane>
             <DocumentCopyrights metadata={metadata} />
-          </Tab.Pane>
-        ),
-      },
-      {
-        menuItem: 'Other',
-        render: () => (
-          <Tab.Pane>
-            <DocumentExtras metadata={metadata} />
           </Tab.Pane>
         ),
       },

@@ -6,6 +6,7 @@ import { Divider, Table } from 'semantic-ui-react';
 export class DocumentPublicationInfo extends Component {
   render() {
     const { publications } = this.props;
+
     return (
       <>
         <Divider horizontal>Publication information</Divider>
@@ -19,43 +20,43 @@ export class DocumentPublicationInfo extends Component {
                 {idx > 0 && <Divider horizontal />}
                 <Table definition key={publication.journal_title}>
                   <Table.Body>
-                    {!_isEmpty(publication.journal_title) && (
+                    {publication?.journal_title && (
                       <Table.Row>
                         <Table.Cell width={4}>Journal</Table.Cell>
                         <Table.Cell>{publication.journal_title}</Table.Cell>
                       </Table.Row>
                     )}
-                    {!_isEmpty(publication.journal_issue) && (
+                    {publication?.journal_issue && (
                       <Table.Row>
                         <Table.Cell>Issue</Table.Cell>
                         <Table.Cell>{publication.journal_issue}</Table.Cell>
                       </Table.Row>
                     )}
-                    {!_isEmpty(publication.journal_volume) && (
+                    {publication?.journal_volume && (
                       <Table.Row>
                         <Table.Cell>Volume</Table.Cell>
                         <Table.Cell>{publication.journal_volume}</Table.Cell>
                       </Table.Row>
                     )}
-                    {!_isEmpty(publication.artid) && (
+                    {publication?.artid && (
                       <Table.Row>
                         <Table.Cell>Article ID</Table.Cell>
                         <Table.Cell>{publication.artid}</Table.Cell>
                       </Table.Row>
                     )}
-                    {!_isEmpty(publication.pages) && (
+                    {publication?.pages && (
                       <Table.Row>
                         <Table.Cell>Pages</Table.Cell>
                         <Table.Cell>{publication.pages}</Table.Cell>
                       </Table.Row>
                     )}
-                    {!_isEmpty(publication.year) && (
+                    {publication?.year && (
                       <Table.Row>
                         <Table.Cell>Publication year</Table.Cell>
                         <Table.Cell>{publication.year}</Table.Cell>
                       </Table.Row>
                     )}
-                    {!_isEmpty(publication.note) && (
+                    {publication?.note && (
                       <Table.Row>
                         <Table.Cell>Note</Table.Cell>
                         <Table.Cell>{publication.note}</Table.Cell>

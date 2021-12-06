@@ -1,8 +1,8 @@
 import { FrontSiteRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Divider, Header, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { Divider, Header } from 'semantic-ui-react';
 import { DocumentEItemUrls } from '@modules/Document/DocumentEItemUrls';
 import _get from 'lodash/get';
 
@@ -56,8 +56,15 @@ export class DocumentEItems extends Component {
           <DocumentEItemUrls eitems={eitems} />
         ) : (
           <>
-            No e-resources currently available. <br />
-            <Link to={this.onClickEItemRequestLink()}>Request the e-book.</Link>
+            <p>No e-resources currently available.</p>
+            <Button
+              as={Link}
+              to={this.onClickEItemRequestLink()}
+              className="default-margin-top"
+              fluid
+            >
+              Request the e-book
+            </Button>
           </>
         )}
         <Divider horizontal>Or</Divider>
