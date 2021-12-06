@@ -19,6 +19,7 @@ import { DocumentTitle } from './DocumentTitle';
 class DocumentPanel extends Component {
   render() {
     const { documentDetails: doc, isLoading, loansInfo } = this.props;
+
     return (
       <Overridable
         id="DocumentPanel.layout"
@@ -66,15 +67,10 @@ class DocumentPanel extends Component {
                         metadata={doc.metadata}
                       />
                       {doc.metadata.imprint?.publisher && (
-                        <>
-                          <div className="default-margin-bottom">
-                            Published by{' '}
-                            <b>{doc.metadata.imprint?.publisher}</b>{' '}
-                            {doc.metadata.publication_year && (
-                              <b>{doc.metadata.publication_year}</b>
-                            )}
-                          </div>
-                        </>
+                        <div className="default-margin-bottom">
+                          Published by <b>{doc.metadata.imprint?.publisher}</b>{' '}
+                          <b>{doc.metadata.publication_year}</b>
+                        </div>
                       )}
                     </ILSParagraphPlaceholder>
                     <ILSParagraphPlaceholder

@@ -13,63 +13,17 @@ export default class LiteratureRelations extends Component {
   constructor(props) {
     super(props);
     this.relations = props.relations;
+
+    this.prefixes = {
+      serial: 'This is part of the periodical:',
+      multipart_monograph: 'This is part of the monograph:',
+    };
   }
 
   getLinkTo = (relation) => {
     return relation.pid_type === 'docid'
       ? FrontSiteRoutes.documentDetailsFor(relation.pid_value)
       : FrontSiteRoutes.seriesDetailsFor(relation.pid_value);
-  };
-
-  renderMultiparts = () => {
-    const relations = _get(this.relations, 'multipart_monograph', []);
-    if (!relations.length) return null;
-
-    const cmp = relations.map((rel) => {
-      const volume = _get(rel, 'volume');
-      const text = volume
-        ? `${rel.record_metadata.title} (vol: ${volume})`
-        : rel.record_metadata.title;
-      return (
-        <React.Fragment key={rel.pid_value}>
-          This is part of the monograph{' '}
-          <Link to={this.getLinkTo(rel)}>
-            <LiteratureTitle title={text} />
-          </Link>
-        </React.Fragment>
-      );
-    });
-    return <List.Item>{cmp}</List.Item>;
-  };
-
-  renderSerials = () => {
-    const relations = _get(this.relations, 'serial', []);
-    if (!relations.length) return null;
-
-    const items = relations.map((rel) => {
-      const volume = _get(rel, 'volume');
-      const text = volume
-        ? `${rel.record_metadata.title} (vol: ${volume})`
-        : rel.record_metadata.title;
-      return (
-        <React.Fragment key={rel.pid_value}>
-          <Link to={this.getLinkTo(rel)}>
-            <LiteratureTitle title={text} />
-          </Link>
-        </React.Fragment>
-      );
-    });
-
-    return (
-      <List.Item>
-        <SeparatedList
-          items={items}
-          prefix={`This is part of the series: `}
-          separator=";"
-          className="inline-list"
-        />
-      </List.Item>
-    );
   };
 
   renderLanguages = () => {
@@ -153,8 +107,16 @@ export default class LiteratureRelations extends Component {
       <>
         <Divider horizontal>Related</Divider>
         <List>
-          {this.renderMultiparts()}
-          {this.renderSerials()}
+          <LiteratureRelationsField
+            relationsData={this.relations}
+            property="multipart_monograph"
+            prefix={this.prefixes['multipart_monograph']}
+          />
+          <LiteratureRelationsField
+            relationsData={this.relations}
+            property="serial"
+            prefix={this.prefixes['serial']}
+          />
           {this.renderLanguages()}
           {this.renderEditions()}
           {this.renderOther()}
@@ -166,4 +128,43 @@ export default class LiteratureRelations extends Component {
 
 LiteratureRelations.propTypes = {
   relations: PropTypes.object.isRequired,
+};
+
+const LiteratureRelationsField = ({ relationsData, property, prefix }) => {
+  const relations = _get(relationsData, property, []);
+
+  if (!relations.length) return null;
+
+  const getLinkTo = (relation) => {
+    return relation.pid_type === 'docid'
+      ? FrontSiteRoutes.documentDetailsFor(relation.pid_value)
+      : FrontSiteRoutes.seriesDetailsFor(relation.pid_value);
+  };
+
+  return (
+    <List.Item>
+      {prefix}
+      <List bulleted>
+        {relations.map((rel) => {
+          const volume = _get(rel, 'volume');
+          const text = volume
+            ? `${rel.record_metadata.title} (vol: ${volume})`
+            : rel.record_metadata.title;
+          return (
+            <List.Item bulleted key={rel.pid_value}>
+              <Link to={getLinkTo(rel)}>
+                <LiteratureTitle title={text} />
+              </Link>
+            </List.Item>
+          );
+        })}
+      </List>
+    </List.Item>
+  );
+};
+
+LiteratureRelationsField.propTypes = {
+  relationsData: PropTypes.object.isRequired,
+  property: PropTypes.string.isRequired,
+  prefix: PropTypes.string.isRequired,
 };

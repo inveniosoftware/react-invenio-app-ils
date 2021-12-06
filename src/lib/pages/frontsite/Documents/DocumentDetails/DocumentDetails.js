@@ -104,11 +104,17 @@ const DocumentDetailsLayout = ({
             </ILSParagraphPlaceholder>
           </Container>
         </Container>
-        <Container textAlign="center">
-          {!_isEmpty(documentDetails.metadata) && (
-            <DocumentStats document={documentDetails} />
+        <AuthenticationGuard
+          authorizedComponent={() => (
+            <Container textAlign="center">
+              {!_isEmpty(documentDetails.metadata) && (
+                <DocumentStats document={documentDetails} />
+              )}
+            </Container>
           )}
-        </Container>
+          loginComponent={() => null}
+          silent
+        />
       </Error>
     </Overridable>
   );

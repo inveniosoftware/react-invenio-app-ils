@@ -3,8 +3,13 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Divider, List } from 'semantic-ui-react';
+import { MetadataTable } from '../../components/backoffice/MetadataTable';
 
 export class DocumentContent extends Component {
+  prepareAlternativeAbstracts = (element, index) => {
+    return [{ name: index, value: element }];
+  };
+
   render() {
     const {
       metadata,
@@ -31,6 +36,16 @@ export class DocumentContent extends Component {
 
         <Divider horizontal>Subject classification</Divider>
         <DocumentSubjects metadata={metadata} />
+
+        <Divider horizontal>Alternative abstracts</Divider>
+        {!_isEmpty(metadata.alternative_abstracts)
+          ? metadata.alternative_abstracts.map((element, index) => (
+              <MetadataTable
+                key={element}
+                rows={this.prepareAlternativeAbstracts(element, index + 1)}
+              />
+            ))
+          : 'No alternative abstracts'}
       </>
     );
   }

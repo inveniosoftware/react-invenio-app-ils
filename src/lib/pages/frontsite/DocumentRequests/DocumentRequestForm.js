@@ -148,7 +148,6 @@ class DocumentRequestForm extends Component {
             placeholder={issn.placeholder}
           />
         </Form.Group>
-
         <Form.Group className="form-group" width="equals">
           <StringField
             fieldPath="volume"
@@ -169,7 +168,6 @@ class DocumentRequestForm extends Component {
             customLabel={page.customLabel}
           />
         </Form.Group>
-
         <Form.Group className="form-group" widths="equal">
           <StringField
             fieldPath="publisher"
@@ -196,7 +194,6 @@ class DocumentRequestForm extends Component {
             customLabel={isbn.customLabel}
           />
         </Form.Group>
-
         <Form.Group className="form-group">
           <VocabularyField
             type={

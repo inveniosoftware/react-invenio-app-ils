@@ -212,15 +212,17 @@ a {
   }
 
   .mobile-results-page {
-      .ui.compact.dropdown{
-        font-size: 15px;
-      }
+    .ui.compact.dropdown {
+      font-size: 15px;
+    }
   }
-  .mobile-count{
+
+  .mobile-count {
     line-height: 2em;
   }
+
   .frontsite-list {
-    list-style-type:none;
+    list-style-type: none;
     padding-left: 0em;
   }
 
@@ -229,6 +231,13 @@ a {
     flex-direction: row;
     flex-wrap: wrap;
   }
+
+  .list {
+    .alternative-title {
+      padding-top: 0 !important;
+    }
+  }
+
 
   .document-item {
 
