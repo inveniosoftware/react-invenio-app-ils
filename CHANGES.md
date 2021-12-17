@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.60 (released 2021-12-17)
+
+- RJSF: fix enter key press event
+- Axios: align header name with invenio
+
 Version 1.0.0-alpha.59 (released 2021-12-02)
 
 - Validate that vocabulary field values in the form select are valid.
