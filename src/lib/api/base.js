@@ -7,7 +7,7 @@ const apiConfig = {
   baseURL: invenioConfig.APP.REST_ENDPOINTS_BASE_URL,
   withCredentials: true,
   xsrfCookieName: 'csrftoken',
-  xsrfHeaderName: 'HTTP_X_CSRFTOKEN',
+  xsrfHeaderName: 'X_CSRFTOKEN',
 };
 const http = axios.create(apiConfig);
 
