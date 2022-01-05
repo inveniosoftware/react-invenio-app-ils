@@ -8,6 +8,8 @@ import React, { Component } from 'react';
 import { Container, Grid, Header, Message } from 'semantic-ui-react';
 import LoansList from '../LoansList';
 import LoansListEntry from './LoansListEntry';
+import { PatronShowLink } from '../PatronShowLink';
+import { invenioConfig } from '@config';
 
 export default class PatronCurrentLoans extends Component {
   constructor(props) {
@@ -39,16 +41,29 @@ export default class PatronCurrentLoans extends Component {
     this.setState({ isSuccessMessageVisible: false, successMessage: '' });
   };
 
+  onShowAll = () => {
+    const { patronPid, fetchPatronCurrentLoans } = this.props;
+    fetchPatronCurrentLoans(patronPid, {
+      page: 1,
+      size: invenioConfig.APP.PATRON_PROFILE_MAX_RESULTS_SIZE,
+    });
+  };
+
+  onShowLess = () => {
+    this.fetchPatronCurrentLoans();
+  };
+
   render() {
     const { error, isLoading, loans, rowsPerPage } = this.props;
     const { isSuccessMessageVisible, successMessage } = this.state;
     const { activePage } = this.state;
     const currentUser = sessionManager.user;
+    const headerTitle = `Your current loans (${loans.total})`;
     return (
       <Container className="spaced">
         <Header
           as="h2"
-          content="Your current loans"
+          content={headerTitle}
           className="highlight"
           textAlign="center"
         />
@@ -103,6 +118,14 @@ export default class PatronCurrentLoans extends Component {
                 <InfoMessage
                   title="No ongoing loans"
                   message="You do not currently have any ongoing loan."
+                />
+              }
+              patronShowLink={
+                <PatronShowLink
+                  items={loans}
+                  onShowAllClick={this.onShowAll}
+                  onShowLessClick={this.onShowLess}
+                  rowsPerPage={rowsPerPage}
                 />
               }
             />

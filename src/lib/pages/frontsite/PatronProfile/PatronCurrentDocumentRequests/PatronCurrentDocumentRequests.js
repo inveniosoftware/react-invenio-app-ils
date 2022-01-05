@@ -4,7 +4,6 @@ import { searchReady, withCancel } from '@api/utils';
 import { Error } from '@components/Error';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
-import { Pagination } from '@components/Pagination';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
@@ -13,15 +12,11 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
-import {
-  Button,
-  Container,
-  Grid,
-  Header,
-  Message,
-  Popup,
-} from 'semantic-ui-react';
+import { Button, Grid, Header, Message, Popup } from 'semantic-ui-react';
 import PatronCancelModal from '../PatronCancelModal';
+import { PatronShowLink } from '../PatronShowLink';
+import { PatronPagination } from '../PatronPagination';
+import { invenioConfig } from '@config';
 
 class ButtonCancelRequest extends Component {
   constructor(props) {
@@ -233,9 +228,22 @@ class PatronCurrentDocumentRequests extends Component {
     this.setState({ isSuccessMessageVisible: false, successMessage: '' });
   };
 
+  onShowAll = () => {
+    const { patronPid, fetchPatronDocumentRequests } = this.props;
+    fetchPatronDocumentRequests(patronPid, {
+      page: 1,
+      size: invenioConfig.APP.PATRON_PROFILE_MAX_RESULTS_SIZE,
+    });
+  };
+
+  onShowLess = () => {
+    this.fetchPatronDocumentRequests();
+  };
+
   render() {
     const { documentRequests, isLoading, error, rowsPerPage } = this.props;
     const { activePage, isSuccessMessageVisible, successMessage } = this.state;
+    const headerTitle = `Your requests for new literature (${documentRequests.total})`;
     const columns = this.getColumns();
     return (
       <Overridable
@@ -248,7 +256,7 @@ class PatronCurrentDocumentRequests extends Component {
         <>
           <Header
             as="h2"
-            content="Your requests for new literature"
+            content={headerTitle}
             className="highlight"
             textAlign="center"
           />
@@ -269,6 +277,19 @@ class PatronCurrentDocumentRequests extends Component {
           )}
           <ILSItemPlaceholder fluid isLoading={isLoading}>
             <Error error={error}>
+              <PatronPagination
+                currentPage={activePage}
+                currentSize={rowsPerPage}
+                loading={isLoading}
+                onPageChange={this.onPageChange}
+                items={documentRequests}
+              />
+              <PatronShowLink
+                items={documentRequests}
+                onShowAllClick={this.onShowAll}
+                onShowLessClick={this.onShowLess}
+                rowsPerPage={rowsPerPage}
+              />
               <ResultsTable
                 unstackable
                 data={documentRequests.hits}
@@ -278,18 +299,15 @@ class PatronCurrentDocumentRequests extends Component {
                 name="requests for new literature"
                 currentPage={activePage}
                 renderEmptyResultsElement={this.renderNoResults}
+                showAllResults
               />
-              {documentRequests.total > 0 && (
-                <Container textAlign="center">
-                  <Pagination
-                    currentPage={activePage}
-                    currentSize={rowsPerPage}
-                    loading={isLoading}
-                    onPageChange={this.onPageChange}
-                    totalResults={documentRequests.total}
-                  />
-                </Container>
-              )}
+              <PatronPagination
+                currentPage={activePage}
+                currentSize={rowsPerPage}
+                loading={isLoading}
+                onPageChange={this.onPageChange}
+                items={documentRequests}
+              />
             </Error>
           </ILSItemPlaceholder>
         </>

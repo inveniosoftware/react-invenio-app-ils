@@ -270,9 +270,17 @@ a {
 
   }
 
-
   .loan-request-delivery-date { 
       margin-bottom: 0.5em;
+  }
+
+  .link-like {
+    color: @linkColor !important;
+    cursor: pointer !important;  
+  }
+
+  .link-like:hover {
+    color: @linkHoverColor !important;
   }
 }
 
@@ -284,7 +292,6 @@ a {
     }
   }
 }
-
 
 
 /* BACKOFFICE */

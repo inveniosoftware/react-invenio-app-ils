@@ -86,6 +86,7 @@ export const APP_CONFIG = {
   },
   HOME_SEARCH_BAR_PLACEHOLDER:
     'Search for books, ebooks, series, journals and standards.',
+  PATRON_PROFILE_MAX_RESULTS_SIZE: 100,
 };
 
 export const RECORDS_CONFIG = {
