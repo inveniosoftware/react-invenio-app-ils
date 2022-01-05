@@ -82,11 +82,12 @@ export default class PatronPastLoans extends Component {
   render() {
     const { error, isLoading, loans, rowsPerPage } = this.props;
     const { activePage } = this.state;
+    const headerTitle = `Your past loans (${loans.total})`;
     return (
       <Container className="spaced">
         <Header
           as="h2"
-          content="Your past loans"
+          content={headerTitle}
           className="highlight"
           textAlign="center"
         />

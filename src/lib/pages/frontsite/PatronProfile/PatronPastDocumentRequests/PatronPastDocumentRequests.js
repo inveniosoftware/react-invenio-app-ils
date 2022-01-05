@@ -2,6 +2,7 @@ import { dateFormatter } from '@api/date';
 import { Error } from '@components/Error';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
+import { PatronPagination } from '../PatronPagination';
 import { Pagination } from '@components/Pagination';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
@@ -11,7 +12,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
-import { Container, Header } from 'semantic-ui-react';
+import { Header } from 'semantic-ui-react';
 
 class PatronPastDocumentRequests extends Component {
   constructor(props) {
@@ -87,6 +88,7 @@ class PatronPastDocumentRequests extends Component {
       },
       { title: 'Created', field: 'created', formatter: dateFormatter },
     ];
+    const headerTitle = `Your past requests for new literature (${documentRequests.total})`;
     return (
       <Overridable
         id="PatronPastDocumentRequests.layout"
@@ -98,12 +100,19 @@ class PatronPastDocumentRequests extends Component {
         <>
           <Header
             as="h2"
-            content="Your past requests for new literature"
+            content={headerTitle}
             className="highlight"
             textAlign="center"
           />
           <ILSItemPlaceholder fluid isLoading={isLoading}>
             <Error error={error}>
+              <PatronPagination
+                currentPage={activePage}
+                currentSize={rowsPerPage}
+                loading={isLoading}
+                onPageChange={this.onPageChange}
+                items={documentRequests}
+              />
               <ResultsTable
                 data={documentRequests.hits}
                 columns={columns}
@@ -112,18 +121,15 @@ class PatronPastDocumentRequests extends Component {
                 name="past literature requests"
                 currentPage={activePage}
                 renderEmptyResultsElement={this.renderNoResults}
+                showAllResults
               />
-              {documentRequests.total > 0 && (
-                <Container textAlign="center">
-                  <Pagination
-                    currentPage={activePage}
-                    currentSize={rowsPerPage}
-                    loading={isLoading}
-                    onPageChange={this.onPageChange}
-                    totalResults={documentRequests.total}
-                  />
-                </Container>
-              )}
+              <PatronPagination
+                currentPage={activePage}
+                currentSize={rowsPerPage}
+                loading={isLoading}
+                onPageChange={this.onPageChange}
+                items={documentRequests}
+              />
             </Error>
           </ILSItemPlaceholder>
         </>

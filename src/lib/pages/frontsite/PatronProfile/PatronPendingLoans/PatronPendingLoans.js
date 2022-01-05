@@ -22,6 +22,7 @@ import LoansList from '../LoansList';
 import LoansListItem from '../LoansListEntry';
 import PatronCancelModal from '../PatronCancelModal';
 import { DateTime } from 'luxon';
+import { PatronShowLink } from '../PatronShowLink';
 
 class ButtonCancelRequest extends Component {
   constructor(props) {
@@ -257,14 +258,27 @@ export default class PatronPendingLoans extends Component {
     this.setState({ isSuccessMessageVisible: false, successMessage: '' });
   };
 
+  onShowAll = () => {
+    const { patronPid, fetchPatronPendingLoans } = this.props;
+    fetchPatronPendingLoans(patronPid, {
+      page: 1,
+      size: invenioConfig.APP.PATRON_PROFILE_MAX_RESULTS_SIZE,
+    });
+  };
+
+  onShowLess = () => {
+    this.fetchPatronPendingLoans();
+  };
+
   render() {
     const { error, isLoading, loans, rowsPerPage } = this.props;
     const { activePage, isSuccessMessageVisible, successMessage } = this.state;
+    const headerTitle = `Your pending loan requests (${loans.total})`;
     return (
       <Container className="spaced">
         <Header
           as="h2"
-          content="Your pending loan requests"
+          content={headerTitle}
           className="highlight"
           textAlign="center"
         />
@@ -309,6 +323,14 @@ export default class PatronPendingLoans extends Component {
                 <InfoMessage
                   title="No loan requests"
                   message="You do not currently have any loan request."
+                />
+              }
+              patronShowLink={
+                <PatronShowLink
+                  items={loans}
+                  onShowAllClick={this.onShowAll}
+                  onShowLessClick={this.onShowLess}
+                  rowsPerPage={rowsPerPage}
                 />
               }
             />

@@ -1,21 +1,31 @@
-import { Pagination } from '@components/Pagination';
+import { PatronPagination } from './PatronPagination';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Container, Item } from 'semantic-ui-react';
+import { Item } from 'semantic-ui-react';
 
 export default class LoansList extends Component {
   render() {
     const {
-      activePage,
-      isLoading,
-      onPageChange,
       loans,
-      rowsPerPage,
       renderListEntry,
       noLoansCmp,
+      patronShowLink,
+      onPageChange,
+      activePage,
+      rowsPerPage,
+      isLoading,
     } = this.props;
+
     return loans.total > 0 ? (
       <>
+        <PatronPagination
+          currentPage={activePage}
+          currentSize={rowsPerPage}
+          loading={isLoading}
+          onPageChange={onPageChange}
+          items={loans}
+        />
+        {patronShowLink}
         <Item.Group divided>
           {loans.hits.map((loan) => (
             <React.Fragment key={loan.metadata.pid}>
@@ -23,15 +33,13 @@ export default class LoansList extends Component {
             </React.Fragment>
           ))}
         </Item.Group>
-        <Container textAlign="center">
-          <Pagination
-            currentPage={activePage}
-            currentSize={rowsPerPage}
-            loading={isLoading}
-            onPageChange={onPageChange}
-            totalResults={loans.total}
-          />
-        </Container>
+        <PatronPagination
+          currentPage={activePage}
+          currentSize={rowsPerPage}
+          loading={isLoading}
+          onPageChange={onPageChange}
+          items={loans}
+        />
       </>
     ) : (
       noLoansCmp
@@ -47,4 +55,9 @@ LoansList.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
   renderListEntry: PropTypes.func.isRequired,
   noLoansCmp: PropTypes.element.isRequired,
+  patronShowLink: PropTypes.element,
+};
+
+LoansList.defaultProps = {
+  patronShowLink: null,
 };
