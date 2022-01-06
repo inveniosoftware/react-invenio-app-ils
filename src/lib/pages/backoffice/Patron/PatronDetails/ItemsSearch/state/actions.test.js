@@ -3,6 +3,13 @@ import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
 import { itemApi } from '@api/items';
+import {
+  IS_LOADING,
+  SUCCESS,
+  HAS_ERROR,
+  QUERY_STRING_UPDATE,
+  CLEAR_SEARCH,
+} from './types';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -32,10 +39,10 @@ describe('Item search by barcode tests', () => {
       mockFetchItems.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: actions.IS_LOADING,
+        type: IS_LOADING,
       };
 
-      store.dispatch(actions.fetchItems('123'));
+      store.dispatch(actions.fetchAndCheckoutIfOne('123'));
       expect(mockFetchItems).toHaveBeenCalledWith('barcode:123');
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
@@ -44,11 +51,11 @@ describe('Item search by barcode tests', () => {
       mockFetchItems.mockResolvedValue(mockResponse);
 
       const expectedAction = {
-        type: actions.SUCCESS,
+        type: SUCCESS,
         payload: mockResponse.data,
       };
 
-      await store.dispatch(actions.fetchItems('123'));
+      await store.dispatch(actions.fetchAndCheckoutIfOne('123'));
       expect(mockFetchItems).toHaveBeenCalledWith('barcode:123');
       expect(store.getActions()[1]).toEqual(expectedAction);
     });
@@ -57,18 +64,18 @@ describe('Item search by barcode tests', () => {
       mockFetchItems.mockRejectedValue([500, 'Error']);
 
       const expectedAction = {
-        type: actions.HAS_ERROR,
+        type: HAS_ERROR,
         payload: [500, 'Error'],
       };
 
-      await store.dispatch(actions.fetchItems('123'));
+      await store.dispatch(actions.fetchAndCheckoutIfOne('123'));
       expect(mockFetchItems).toHaveBeenCalledWith('barcode:123');
       expect(store.getActions()[1]).toEqual(expectedAction);
     });
 
     it('should dispatch a query string update action', (done) => {
       const expectedAction = {
-        type: actions.QUERY_STRING_UPDATE,
+        type: QUERY_STRING_UPDATE,
         queryString: 'pppp',
       };
 
@@ -80,7 +87,7 @@ describe('Item search by barcode tests', () => {
 
     it('should dispatch clear query action', (done) => {
       const expectedAction = {
-        type: actions.CLEAR_SEARCH,
+        type: CLEAR_SEARCH,
       };
 
       store.dispatch(actions.clearResults());

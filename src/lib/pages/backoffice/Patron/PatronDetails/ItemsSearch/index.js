@@ -1,10 +1,15 @@
 import { connect } from 'react-redux';
 import { checkoutItem } from '../ItemsCheckout/state/actions';
 import ItemsSearchComponent from './ItemsSearch';
-import { clearResults, fetchItems, updateQueryString } from './state/actions';
+import {
+  clearResults,
+  fetchAndCheckoutIfOne,
+  updateQueryString,
+} from './state/actions';
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchItems: (barcode) => dispatch(fetchItems(barcode)),
+  fetchAndCheckoutIfOne: (barcode, patronPid) =>
+    dispatch(fetchAndCheckoutIfOne(barcode, patronPid)),
   updateQueryString: (qs) => dispatch(updateQueryString(qs)),
   clearResults: () => dispatch(clearResults()),
   checkoutItem: (documentPid, itemPid, patronPid, force = false) =>
