@@ -1,4 +1,3 @@
-import { recordToPidType } from '@api/utils';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import { SearchBarILS } from '@components/SearchBar';
@@ -24,39 +23,27 @@ export default class ItemsSearch extends Component {
     clearResults();
   };
 
-  executeSearch = (queryString) => {
-    const { queryString: propsQueryString, fetchItems } = this.props;
+  executeSearch = async (queryString, patronPid) => {
+    const { queryString: propsQueryString, fetchAndCheckoutIfOne } = this.props;
     queryString = queryString || propsQueryString;
+
     // eslint-disable-next-line react/no-unused-state
-    this.setState({ prevSearchQuery: queryString, executedSearch: true });
-    fetchItems(queryString);
+    this.setState({ prevSearchQuery: queryString, executedSearch: true }, () =>
+      fetchAndCheckoutIfOne(queryString, patronPid)
+    );
   };
 
   onPasteHandler = async (event) => {
-    const { checkoutItem, patronDetails } = this.props;
     const { prevSearchQuery } = this.state;
+    const { patronDetails } = this.props;
+
     let queryString = event.clipboardData.getData('Text');
+
     const sameQueryString = prevSearchQuery === queryString;
 
     if (queryString && !sameQueryString) {
-      await this.executeSearch(queryString);
-      const {
-        items: { hits },
-      } = this.props;
+      await this.executeSearch(queryString, patronDetails.user_pid);
 
-      const hasOneHit =
-        !_isEmpty(hits) &&
-        hits.length === 1 &&
-        hits[0].metadata.status === 'CAN_CIRCULATE';
-
-      if (hasOneHit) {
-        const documentPid = hits[0].metadata.document.pid;
-        const itemPid = {
-          type: recordToPidType(hits[0]),
-          value: hits[0].metadata.pid,
-        };
-        await checkoutItem(documentPid, itemPid, patronDetails.user_pid, true);
-      }
       // eslint-disable-next-line react/no-unused-state
       this.setState({ prevSearchQuery: '', executedSearch: true });
     }
@@ -104,10 +91,9 @@ export default class ItemsSearch extends Component {
 }
 
 ItemsSearch.propTypes = {
-  checkoutItem: PropTypes.func.isRequired,
+  fetchAndCheckoutIfOne: PropTypes.func.isRequired,
   clearResults: PropTypes.func.isRequired,
   error: PropTypes.object,
-  fetchItems: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
   isLoadingSearch: PropTypes.bool,
   items: PropTypes.object,

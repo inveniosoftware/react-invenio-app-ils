@@ -1,13 +1,17 @@
 import { itemApi } from '@api/items';
 import { sendErrorNotification } from '@components/Notifications';
+import { checkoutItem } from '../../ItemsCheckout/state/actions';
+import _isEmpty from 'lodash/isEmpty';
+import { recordToPidType } from '@api/utils';
+import {
+  IS_LOADING,
+  SUCCESS,
+  HAS_ERROR,
+  QUERY_STRING_UPDATE,
+  CLEAR_SEARCH,
+} from './types';
 
-export const IS_LOADING = 'itemsSearchBarcode/IS_LOADING';
-export const SUCCESS = 'itemsSearchBarcode/SUCCESS';
-export const HAS_ERROR = 'itemsSearchBarcode/HAS_ERROR';
-export const QUERY_STRING_UPDATE = 'itemsSearchBarcode/QUERY_STRING_UPDATE';
-export const CLEAR_SEARCH = 'itemsSearchBarcode/CLEAR_SEARCH';
-
-export const fetchItems = (barcode) => {
+export const fetchAndCheckoutIfOne = (barcode, patronPid) => {
   return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
@@ -22,6 +26,19 @@ export const fetchItems = (barcode) => {
         type: SUCCESS,
         payload: response.data,
       });
+
+      const ableToAutoCheckout =
+        patronPid && hitAvailableForCheckout(response.data.hits);
+
+      if (ableToAutoCheckout) {
+        const itemToCheckout = response.data.hits[0];
+        const documentPid = itemToCheckout.metadata.document.pid;
+        const itemPid = {
+          type: recordToPidType(itemToCheckout),
+          value: itemToCheckout.metadata.pid,
+        };
+        dispatch(checkoutItem(documentPid, itemPid, patronPid, true));
+      }
     } catch (error) {
       dispatch({
         type: HAS_ERROR,
@@ -48,3 +65,8 @@ export const clearResults = () => {
     });
   };
 };
+
+const hitAvailableForCheckout = (hits) =>
+  !_isEmpty(hits) &&
+  hits.length === 1 &&
+  hits[0].metadata.status === 'CAN_CIRCULATE';

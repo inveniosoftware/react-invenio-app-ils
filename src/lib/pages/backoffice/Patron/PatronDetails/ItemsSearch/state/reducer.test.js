@@ -5,7 +5,7 @@ import {
   HAS_ERROR,
   QUERY_STRING_UPDATE,
   CLEAR_SEARCH,
-} from './actions';
+} from './types';
 
 describe('Fetch Document Item reducer', () => {
   it('should have initial state', () => {

@@ -12,7 +12,7 @@ import {
   fetchPatronPendingLoans,
   IS_LOADING as PENDING_LOANS_IS_LOADING,
 } from '@modules/Patron/PatronPendingLoans/actions';
-import { CLEAR_SEARCH } from '../../ItemsSearch/state/actions';
+import { CLEAR_SEARCH } from '../../ItemsSearch/state/types';
 export const IS_LOADING = 'patronItemCheckout/IS_LOADING';
 export const SUCCESS = 'patronItemCheckout/SUCCESS';
 export const HAS_ERROR = 'patronItemCheckout/ERROR';
