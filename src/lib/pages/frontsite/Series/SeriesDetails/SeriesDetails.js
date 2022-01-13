@@ -17,6 +17,7 @@ import React from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Icon, Label } from 'semantic-ui-react';
+import { PhysicalVolumes } from './PhysicalVolumes';
 import { SeriesMetadata } from './SeriesMetadata';
 import SeriesPanel from './SeriesPanel/SeriesPanel';
 
@@ -25,6 +26,7 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
     { to: FrontSiteRoutes.home, label: 'Home' },
     { to: FrontSiteRoutes.documentsList, label: 'Search' },
   ];
+  console.log(series);
   return (
     <Overridable id="SeriesDetails.layout" {...{ error, isLoading, series }}>
       <Error boundary error={error}>
@@ -78,6 +80,13 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
             </ILSParagraphPlaceholder>
           </Media>
         </Container>
+        {series.metadata.physical_volumes && (
+          <Media greaterThanOrEqual="computer">
+            <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
+              <PhysicalVolumes metadata={series.metadata} />
+            </ILSParagraphPlaceholder>
+          </Media>
+        )}
         <Media greaterThanOrEqual="computer">
           <Container className="items-locations spaced">
             <ILSParagraphPlaceholder linesNumber={3} isLoading={isLoading}>

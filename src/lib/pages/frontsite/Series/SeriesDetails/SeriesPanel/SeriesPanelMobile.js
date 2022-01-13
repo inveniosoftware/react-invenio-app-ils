@@ -39,12 +39,24 @@ class SeriesPanelMobile extends Component {
                   truncate={false}
                 />
               </ILSHeaderPlaceholder>
-              <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
+              <ILSParagraphPlaceholder linesNumber={2} isLoading={isLoading}>
                 <SeriesAuthors
                   prefix="by "
-                  itemProps={{ as: 'h4' }}
+                  listProps={{ as: 'h4' }}
                   authors={series.metadata.authors}
                 />
+                {series.metadata.publisher && (
+                  <>
+                    <div>
+                      Published by <b>{series.metadata.publisher}</b>
+                      {series.metadata.publication_year && (
+                        <>
+                          , <b>{series.metadata.publication_year}</b>
+                        </>
+                      )}
+                    </div>
+                  </>
+                )}
               </ILSParagraphPlaceholder>
               <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
                 <LiteratureTags tags={series.metadata.tags} />
@@ -53,7 +65,7 @@ class SeriesPanelMobile extends Component {
           </Grid.Row>
           <Grid.Row>
             <Grid.Column mobile={16}>
-              <SeriesAccess urls={series.metadata.access_urls} />
+              <SeriesAccess metadata={series.metadata} />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>

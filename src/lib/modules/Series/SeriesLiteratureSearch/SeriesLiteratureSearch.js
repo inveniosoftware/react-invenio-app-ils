@@ -55,7 +55,7 @@ export class SeriesLiteratureSearch extends React.Component {
     const urlHandler = setReactSearchKitUrlHandler(this.modelName, false);
     return (
       <>
-        <Divider horizontal>Literature in this series</Divider>
+        <Divider horizontal>Volumes in this series</Divider>
         <OverridableContext.Provider
           value={{
             ...SearchControlsOverridesMap,

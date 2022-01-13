@@ -10,7 +10,7 @@ export const SeparatedList = ({
   separator,
   suffix,
   className,
-  ...listProps
+  listProps,
 }) => {
   return _isEmpty(items) ? null : (
     <>
@@ -31,6 +31,7 @@ export const SeparatedList = ({
 SeparatedList.propTypes = {
   items: PropTypes.array.isRequired,
   itemProps: PropTypes.object,
+  listProps: PropTypes.object,
   prefix: PropTypes.node,
   separator: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   suffix: PropTypes.node,
@@ -40,6 +41,8 @@ SeparatedList.propTypes = {
 SeparatedList.defaultProps = {
   separator: ', ',
   itemProps: {},
+  listProps: {},
   prefix: null,
   suffix: null,
+  className: '',
 };

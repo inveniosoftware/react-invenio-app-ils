@@ -57,14 +57,27 @@ class SeriesPanel extends Component {
                     )}
                   </ILSHeaderPlaceholder>
                   <ILSParagraphPlaceholder
-                    linesNumber={1}
+                    linesNumber={2}
                     isLoading={isLoading}
                   >
                     <SeriesAuthors
                       prefix="by "
-                      itemProps={{ as: 'h4' }}
+                      listProps={{ as: 'h4' }}
                       authors={series.metadata.authors}
                     />
+
+                    {series.metadata.publisher && (
+                      <>
+                        <div>
+                          Published by <b>{series.metadata.publisher}</b>
+                          {series.metadata.publication_year && (
+                            <>
+                              , <b>{series.metadata.publication_year}</b>
+                            </>
+                          )}
+                        </div>
+                      </>
+                    )}
                   </ILSParagraphPlaceholder>
                   <ILSParagraphPlaceholder
                     linesNumber={20}
@@ -78,7 +91,7 @@ class SeriesPanel extends Component {
                 </Grid.Column>
                 <Grid.Column width={5}>
                   <SeriesAccess
-                    urls={series.metadata.access_urls}
+                    metadata={series.metadata}
                     isLoading={isLoading}
                   />
                   {!_isEmpty(series.metadata.relations) && (
