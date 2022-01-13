@@ -5,7 +5,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
   <Divider
     horizontal={true}
   >
-    Literature in this series
+    Volumes in this series
   </Divider>
   <ContextProvider
     value={

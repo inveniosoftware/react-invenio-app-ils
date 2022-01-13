@@ -41,9 +41,16 @@ AccessUrl.defaultProps = {
 
 export class LiteratureAccessUrls extends React.Component {
   render() {
-    const { urls, truncate, openAccess } = this.props;
+    const { urls, truncate, openAccess, otherVolumes } = this.props;
     return _isEmpty(urls) ? (
-      <p>There are no e-resources.</p>
+      otherVolumes ? (
+        <p>
+          You can check the availability of individual volumes of this series
+          below.
+        </p>
+      ) : (
+        <p>There are no e-resources.</p>
+      )
     ) : (
       <ShowMoreItems lines={invenioConfig.LITERATURE.frontsiteMaxLinks}>
         {urls.map((url, index) => (
@@ -63,10 +70,12 @@ LiteratureAccessUrls.propTypes = {
   urls: PropTypes.arrayOf(AccessUrl.propTypes.url),
   truncate: PropTypes.bool,
   openAccess: PropTypes.bool,
+  otherVolumes: PropTypes.bool,
 };
 
 LiteratureAccessUrls.defaultProps = {
   urls: [],
   truncate: false,
   openAccess: false,
+  otherVolumes: false,
 };
