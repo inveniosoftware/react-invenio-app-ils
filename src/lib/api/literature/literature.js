@@ -1,5 +1,5 @@
 import { apiConfig, http } from '@api/base';
-import { getSearchTotal, prepareSumQuery } from '@api/utils';
+import { getSearchTotal } from '@api/utils';
 import { serializer } from './serializer';
 
 const literatureURL = '/literature/';
@@ -24,12 +24,10 @@ class QueryBuilder {
       throw TypeError('Series PID argument missing');
     }
     if (moi === 'SERIAL') {
-      this.withSeriesQuery.push(
-        `relations.serial.pid_value:${prepareSumQuery(seriesPid)}`
-      );
+      this.withSeriesQuery.push(`relations.serial.pid_value:"${seriesPid}"`);
     } else {
       this.withSeriesQuery.push(
-        `relations.multipart_monograph.pid_value:${prepareSumQuery(seriesPid)}`
+        `relations.multipart_monograph.pid_value:"${seriesPid}"`
       );
     }
     return this;
