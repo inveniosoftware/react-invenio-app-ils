@@ -26,7 +26,7 @@ class LoansListEntry extends Component {
             </Label.Detail>
           </Label>
           <Label basic>
-            Return on
+            Return date
             <Label.Detail>
               {DateTime.fromISO(endDate).toLocaleString()}
             </Label.Detail>
