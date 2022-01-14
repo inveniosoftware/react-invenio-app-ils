@@ -1,5 +1,11 @@
 # Changes
 
+Version 1.0.0-alpha.61 (released 2022-01-14)
+
+- backoffice patron details: fix automatic item checkout
+- series details: fix volumes fetch query
+- document details: minor UI updates
+
 Version 1.0.0-alpha.60 (released 2021-12-17)
 
 - RJSF: fix enter key press event
