@@ -55,8 +55,8 @@ export class DocumentRequestStepsHeader extends Component {
             step={1}
             currentStep={currentStep}
             iconName="truck"
-            title="Select provider"
-            description="Purchase or borrow from another library"
+            title="Select workflow"
+            description="Inter-library loan or acquisition order"
           />
           <DocumentRequestStep
             step={2}
