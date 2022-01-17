@@ -8,7 +8,7 @@ export const PatronShowLink = ({
   onShowLessClick,
   rowsPerPage,
 }) => {
-  const allHits = items.total === items.hits.length ? true : false;
+  const allHits = items.total === items.hits.length;
   return (
     items.total > 0 &&
     items.total > rowsPerPage && (
@@ -17,14 +17,14 @@ export const PatronShowLink = ({
           {!allHits ? (
             <>
               <Divider hidden />
-              <div className="link-like" onClick={() => onShowAllClick()}>
+              <a href="javascript:void(0)" onClick={() => onShowAllClick()}>
                 SHOW ALL <Icon name="caret right" />
-              </div>
+              </a>
             </>
           ) : (
-            <div className="link-like" onClick={() => onShowLessClick()}>
+            <a href="javascript:void(0)" onClick={() => onShowLessClick()}>
               SHOW LESS <Icon name="caret right" />
-            </div>
+            </a>
           )}
         </Grid.Column>
       </Grid>
