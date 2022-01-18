@@ -4,6 +4,7 @@ import { SeriesAlternativeTitles } from '@modules/Series/SeriesAlternativeTitles
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { SeriesLanguages } from '@modules/Series/SeriesLanguages';
 import _isEmpty from 'lodash/isEmpty';
+import { SeriesPhysicalVolumes } from '@modules/Series/SeriesPhysicalVolumes';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container, Divider } from 'semantic-ui-react';
@@ -54,6 +55,13 @@ export default class SeriesMetadata extends Component {
         <SeriesAlternativeTitles
           alternativeTitles={series.metadata.alternative_titles}
         />
+        {!_isEmpty(series.metadata.physical_volumes) ? (
+          <SeriesPhysicalVolumes
+            physicalVolumes={series.metadata.physical_volumes}
+          />
+        ) : (
+          'There is no volumes description'
+        )}
       </Container>
     );
   }
