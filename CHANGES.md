@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.62 (released 2022-01-18)
+
+- series details: add physical location section (periodicals)
+- patron profile: improve pagination and loans display
+
 Version 1.0.0-alpha.61 (released 2022-01-14)
 
 - backoffice patron details: fix automatic item checkout
