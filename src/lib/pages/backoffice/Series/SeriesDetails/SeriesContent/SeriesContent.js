@@ -4,7 +4,6 @@ import { Header, Divider } from 'semantic-ui-react';
 import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureKeywords from '@modules/Literature/LiteratureKeywords';
 import _isEmpty from 'lodash/isEmpty';
-import { SeriesPhysicalVolumes } from '../SeriesPhysicalVolumes';
 import { ShowMoreContent } from '../../../../../components/ShowMoreContent/ShowMoreContent';
 
 export class SeriesContent extends Component {
@@ -28,16 +27,6 @@ export class SeriesContent extends Component {
           keywords={series.metadata.keywords}
           noneMessage="No keywords"
         />
-
-        <Divider />
-        <Header as="h3">Volumes description</Header>
-        {!_isEmpty(series.metadata.physical_volumes) ? (
-          <SeriesPhysicalVolumes
-            physicalVolumes={series.metadata.physical_volumes}
-          />
-        ) : (
-          'There is no volumes description'
-        )}
       </>
     );
   }

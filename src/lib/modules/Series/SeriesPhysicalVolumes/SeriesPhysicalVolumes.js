@@ -6,10 +6,10 @@ import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 
 export class SeriesPhysicalVolumes extends Component {
   render() {
-    const { physicalVolumes } = this.props;
+    const { physicalVolumes, header, tableClass } = this.props;
     const columns = [
       {
-        title: 'Description',
+        title: 'Volume',
         field: 'description',
       },
       { title: 'Location', field: 'location' },
@@ -18,9 +18,9 @@ export class SeriesPhysicalVolumes extends Component {
     if (_isEmpty(physicalVolumes)) return null;
 
     return (
-      <Container fluid className="series-metadata">
+      <Container fluid className={tableClass}>
         <>
-          <Divider horizontal>Physical volumes</Divider>
+          <Divider horizontal>{header}</Divider>
           <ResultsTable fixed columns={columns} data={physicalVolumes} />
         </>
       </Container>
@@ -30,4 +30,11 @@ export class SeriesPhysicalVolumes extends Component {
 
 SeriesPhysicalVolumes.propTypes = {
   physicalVolumes: PropTypes.object.isRequired,
+  header: PropTypes.string,
+  tableClass: PropTypes.string,
+};
+
+SeriesPhysicalVolumes.defaultProps = {
+  header: 'Physical volumes',
+  tableClass: '',
 };

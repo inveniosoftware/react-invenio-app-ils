@@ -12,12 +12,12 @@ import { SeriesLiteratureSearch } from '@modules/Series/SeriesLiteratureSearch';
 import { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
+import { SeriesPhysicalVolumes } from '@modules/Series/SeriesPhysicalVolumes';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Icon, Label } from 'semantic-ui-react';
-import { PhysicalVolumes } from './PhysicalVolumes';
 import { SeriesMetadata } from './SeriesMetadata';
 import SeriesPanel from './SeriesPanel/SeriesPanel';
 
@@ -81,11 +81,14 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
           </Media>
         </Container>
         {series.metadata.physical_volumes && (
-          <Media greaterThanOrEqual="computer">
+          <Container className="items-locations spaced">
             <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
-              <PhysicalVolumes metadata={series.metadata} />
+              <SeriesPhysicalVolumes
+                physicalVolumes={series.metadata.physical_volumes}
+                header="Where to find"
+              />
             </ILSParagraphPlaceholder>
-          </Media>
+          </Container>
         )}
         <Media greaterThanOrEqual="computer">
           <Container className="items-locations spaced">
