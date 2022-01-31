@@ -7,6 +7,7 @@ import _isEmpty from 'lodash/isEmpty';
 import { ShowMoreContent } from '@components/ShowMoreContent';
 import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureKeywords from '@modules/Literature/LiteratureKeywords';
+import DocumentAlternativeAbstracts from '@modules/Document/DocumentAlternativeAbstracts';
 
 export class DocumentContents extends Component {
   render() {
@@ -30,6 +31,9 @@ export class DocumentContents extends Component {
         ) : (
           'There is no abstract'
         )}
+
+        <Header as="h3">Alternative Abstracts</Header>
+        <DocumentAlternativeAbstracts metadata={metadata} />
 
         <Header as="h3">Physical description</Header>
         {!_isEmpty(physicalDescription) ? (
