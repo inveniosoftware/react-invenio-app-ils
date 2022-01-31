@@ -8,7 +8,7 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Divider } from 'semantic-ui-react';
+import { Container, Divider, List } from 'semantic-ui-react';
 import { groupedSchemeValueList } from '@components/backoffice/utils';
 import { invenioConfig } from '@config';
 
@@ -58,6 +58,24 @@ export class DocumentMetadataGeneral extends Component {
           <Link to={BackOfficeRoutes.documentRequestDetailsFor(request.pid)}>
             {request.state}
           </Link>
+        ),
+      });
+    }
+
+    const alternativeTitles = document.metadata.alternative_titles;
+    if (!_isEmpty(alternativeTitles)) {
+      rows.splice(1, 0, {
+        name: 'Alternative titles',
+        value: (
+          <List bulleted>
+            {document.metadata.alternative_titles.map((entry) => (
+              <List.Item key={entry.value}>
+                <List.Content>
+                  {entry.value + '(' + entry.type + ')'}
+                </List.Content>
+              </List.Item>
+            ))}
+          </List>
         ),
       });
     }
