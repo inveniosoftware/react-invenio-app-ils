@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.63 (released 2022-02-01)
+
+- backoffice: display missing alternate titles for documents
+
 Version 1.0.0-alpha.62 (released 2022-01-18)
 
 - series details: add physical location section (periodicals)
@@ -22,7 +26,7 @@ Version 1.0.0-alpha.59 (released 2021-12-02)
 - Ensure that the first loan of each document is the one with the earliest start date.
 - Order loans in search by ascending creation date.
 - Fix 'See all' button search query in the loans history.
-- Allow downloading loans in csv/json file. 
+- Allow downloading loans in csv/json file.
 - Add warning for the librarian trying to extend an overbooked loan.
 - Add error notification for unhandled API errors.
 
@@ -63,7 +67,7 @@ Version 1.0.0-alpha.52 (released 2021-08-30)
 
 Version 1.0.0-alpha.51 (released 2021-07-29)
 
-- eitem: add source field 
+- eitem: add source field
 - document: required languages field
 - document: add more information to display
 
@@ -124,7 +128,7 @@ Version 1.0.0-alpha.39 (released 2021-04-22)
 
 Version 1.0.0-alpha.38 (released 2021-04-15)
 
-- fix display of cancelled loan in 
+- fix display of cancelled loan in
   patron profile
 
 Version 1.0.0-alpha.37 (released 2021-04-13)
@@ -187,10 +191,10 @@ Version 1.0.0-alpha.28 (released 2021-03-04)
 - add overdue reminders counter to emails
 - replace forms with react-json-schema forms
 - update frontsite document detail page
-- restrict IE 
+- restrict IE
 - add document type article
 - fix truncate titles
-- styling fixes 
+- styling fixes
 
 Version 1.0.0-alpha.27 (released 2021-02-16)
 
@@ -222,7 +226,7 @@ Version 1.0.0-alpha.23 (released 2021-01-18)
 
 Version 1.0.0-alpha.22 (released 2021-01-12)
 
-- update RSK 
+- update RSK
 - export media component
 
 Version 1.0.0-alpha.21 (released 2021-01-12)
