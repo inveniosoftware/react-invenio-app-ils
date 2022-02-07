@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.64 (released 2022-02-07)
+
+- update npm dependencies
+
+
 Version 1.0.0-alpha.63 (released 2022-02-01)
 
 - backoffice: display missing alternate titles for documents

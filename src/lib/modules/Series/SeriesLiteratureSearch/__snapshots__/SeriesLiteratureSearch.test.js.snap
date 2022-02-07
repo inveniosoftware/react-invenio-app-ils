@@ -114,19 +114,19 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
         className=""
         greaterThanOrEqual="computer"
       >
-        <Connect(Overridable(ResultsLoader))
+        <Connect(Overridable(ResultsLoader$1))
           renderElement={[Function]}
         >
           <Connect(Overridable(EmptyResults)) />
-          <Connect(Overridable(Error$1)) />
+          <Connect(Overridable(Error$2)) />
           <SearchControls
             defaultLayout="grid"
             modelName="LITERATURE"
             withLayoutSwitcher={true}
           />
-          <Connect(Overridable(ResultsMultiLayout)) />
+          <Connect(Overridable(ResultsMultiLayout$1)) />
           <SearchFooter />
-        </Connect(Overridable(ResultsLoader))>
+        </Connect(Overridable(ResultsLoader$1))>
       </Media>
       <Media
         className=""
