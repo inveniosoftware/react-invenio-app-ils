@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.65 (released 2022-02-21)
+
+- other authors: fix `et al.` display across the site
+
+
 Version 1.0.0-alpha.64 (released 2022-02-07)
 
 - update npm dependencies
