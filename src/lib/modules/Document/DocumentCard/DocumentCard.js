@@ -44,7 +44,7 @@ class DocumentCard extends Component {
       .map((elem) => elem['full_name'])
       .join('; ');
     if (data.metadata.other_authors) {
-      authors = authors + 'et al';
+      authors = authors + ' et al.';
     }
 
     const volume = _get(metadata, 'relations.multipart_monograph[0].volume');

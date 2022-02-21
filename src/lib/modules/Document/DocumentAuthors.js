@@ -223,7 +223,7 @@ class DocumentAuthors extends Component {
                           showAllFields={showAllFieldsInPopUp}
                         />
                       )}
-                    {!isLast || hasOtherAuthors ? delimiter : null}
+                    {!isLast ? delimiter : null}
                   </List.Item>
                 );
               })}
