@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.66 (released 2022-02-24)
+
+- DocumentConference: pass needed props to overridable context so users
+  can access the props when they override the component
+
 Version 1.0.0-alpha.65 (released 2022-02-21)
 
 - other authors: fix `et al.` display across the site
