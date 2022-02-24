@@ -1,6 +1,6 @@
 {
   "name": "@inveniosoftware/react-invenio-app-ils",
-  "version": "1.0.0-alpha.65",
+  "version": "1.0.0-alpha.66",
   "description": "Single Page App built with React for InvenioILS",
   "main": "dist/cjs/index.js",
   "browser": "dist/cjs/index.js",
