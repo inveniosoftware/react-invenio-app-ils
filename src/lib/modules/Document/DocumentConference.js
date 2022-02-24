@@ -8,7 +8,7 @@ class DocumentConferenceCmp extends Component {
   render() {
     const { conference } = this.props;
     return (
-      <Overridable id="DocumentConference.layout">
+      <Overridable id="DocumentConference.layout" conference={conference}>
         <>
           <Divider horizontal>Conference information</Divider>
           {_isEmpty(conference) && 'No conference information.'}
