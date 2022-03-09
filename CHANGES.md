@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.67 (released 2022-03-09)
+
+- series details: search for exact pid for volumes list
+
 Version 1.0.0-alpha.66 (released 2022-02-24)
 
 - DocumentConference: pass needed props to overridable context so users
