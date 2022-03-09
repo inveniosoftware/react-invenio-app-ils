@@ -26,7 +26,7 @@ describe('RequestSerializer SERIAL tests', () => {
   const query =
     '%28' +
     encodeURIComponent(
-      `relations.serial.pid_value:${serial.pid} OR relations.multipart_monograph.pid_value:${serial.pid}`
+      `relations.serial.pid_value:"${serial.pid}" OR relations.multipart_monograph.pid_value:"${serial.pid}"`
     ) +
     '%29';
 
@@ -55,7 +55,7 @@ describe('RequestSerializer MULTIPART_MONOGRAPH tests', () => {
   });
 
   const query = encodeURIComponent(
-    `relations.multipart_monograph.pid_value:${mm.pid}`
+    `relations.multipart_monograph.pid_value:"${mm.pid}"`
   );
   it('should serialize a request of a MULTIPART_MONOGRAPH and include all results and filter by series', () => {
     expect(serializer.serialize(_cloneDeep(stateQuery))).toEqual(
