@@ -4,10 +4,10 @@ import { InvenioRequestSerializer } from 'react-searchkit';
 export const qsBuilderForSeries = (seriesMetadata) => {
   const pidValue = seriesMetadata.pid;
   // MM can have has children only documents
-  let relationsQuery = `relations.multipart_monograph.pid_value:${pidValue}`;
+  let relationsQuery = `relations.multipart_monograph.pid_value:"${pidValue}"`;
   if (seriesMetadata.mode_of_issuance === 'SERIAL') {
     // serials can have as children serials or MM
-    relationsQuery = `(relations.serial.pid_value:${pidValue} OR ${relationsQuery})`;
+    relationsQuery = `(relations.serial.pid_value:"${pidValue}" OR ${relationsQuery})`;
   }
 
   /**
