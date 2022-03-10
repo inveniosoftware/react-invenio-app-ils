@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.68 (released 2022-03-10)
+
+- backoffice: fix series details volumes search phrase
+
 Version 1.0.0-alpha.67 (released 2022-03-09)
 
 - series details: search for exact pid for volumes list
