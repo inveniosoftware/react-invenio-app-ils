@@ -49,7 +49,7 @@ describe('Document query builder tests', () => {
 
   it('should build the query string for documents that belong to a series', () => {
     const query = documentApi.query().withSeriesPid('123', 'SERIAL').qs();
-    expect(query).toEqual('relations.serial.pid_value:123');
+    expect(query).toEqual('relations.serial.pid_value:"123"');
   });
 
   it('should build the query string for documents that belong to multiple series', () => {
@@ -58,7 +58,7 @@ describe('Document query builder tests', () => {
       .withSeriesPid(['123', '567'], 'MULTIPART_MONOGRAPH')
       .qs();
     expect(query).toEqual(
-      'relations.multipart_monograph.pid_value:(123 OR 567)'
+      'relations.multipart_monograph.pid_value:"(123 OR 567)"'
     );
   });
 });

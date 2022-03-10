@@ -37,7 +37,7 @@ describe('Series Document tests', () => {
 
       store.dispatch(actions.fetchSeriesDocuments('123', 'SERIAL'));
       expect(mockFetchSeriesDocuments).toHaveBeenCalledWith(
-        'relations.serial.pid_value:123'
+        'relations.serial.pid_value:"123"'
       );
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
@@ -52,7 +52,7 @@ describe('Series Document tests', () => {
 
       await store.dispatch(actions.fetchSeriesDocuments('123', 'SERIAL'));
       expect(mockFetchSeriesDocuments).toHaveBeenCalledWith(
-        'relations.serial.pid_value:123'
+        'relations.serial.pid_value:"123"'
       );
       expect(store.getActions()[1]).toEqual(expectedAction);
     });
@@ -67,7 +67,7 @@ describe('Series Document tests', () => {
 
       await store.dispatch(actions.fetchSeriesDocuments('123', 'SERIAL'));
       expect(mockFetchSeriesDocuments).toHaveBeenCalledWith(
-        'relations.serial.pid_value:123'
+        'relations.serial.pid_value:"123"'
       );
       expect(store.getActions()[1]).toEqual(expectedAction);
     });
