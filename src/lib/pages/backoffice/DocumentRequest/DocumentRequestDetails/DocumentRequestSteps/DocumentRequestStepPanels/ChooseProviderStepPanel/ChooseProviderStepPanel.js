@@ -93,6 +93,7 @@ class IllProvider extends Component {
     const mappings = [
       ['document_pid', 'document_pid'],
       ['patron_pid', 'patron_pid'],
+      ['payment_info', 'payment.budget_code'],
     ];
 
     const createBrwReqFormData = {

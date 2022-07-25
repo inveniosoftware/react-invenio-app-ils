@@ -21,9 +21,18 @@ export default class ChooseDocumentStepPanel extends Component {
       ['issue', 'publication_info[0].journal_issue'],
       ['volume', 'publication_info[0].journal_volume'],
       ['isbn', 'identifiers[0]', (value) => ({ scheme: 'ISBN', value: value })],
+      [
+        'standard_number',
+        docReq.isbn ? 'identifiers[1]' : 'identifiers[0]',
+        (value) => ({
+          scheme: 'STANDARD_NUMBER',
+          value: value,
+        }),
+      ],
       ['edition', 'edition'],
       ['publication_year', 'publication_year', (value) => value.toString()],
       ['publisher', 'imprint.publisher'],
+      ['page', 'publication_info[0].pages'],
     ];
 
     const prefilledData = mapFields({

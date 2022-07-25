@@ -316,8 +316,8 @@ DocumentRequestForm.defaultProps = {
     placeholder: 'Standard number',
   },
   page: {
-    label: 'Page',
-    placeholder: 'Page number',
+    label: 'Pages',
+    placeholder: 'Page or page range',
   },
   publicationYear: {
     label: 'Publication Year',

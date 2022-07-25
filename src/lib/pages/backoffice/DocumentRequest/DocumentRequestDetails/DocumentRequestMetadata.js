@@ -32,7 +32,7 @@ export class DocumentRequestMetadata extends Component {
     const rows = [
       { name: 'Volume', value: docReq.volume || '-' },
       { name: 'Journal Title', value: docReq.journal_title || '-' },
-      { name: 'Page', value: docReq.page || '-' },
+      { name: 'Pages', value: docReq.page || '-' },
       {
         name: 'Publication Year',
         value: docReq.publication_year || '-',

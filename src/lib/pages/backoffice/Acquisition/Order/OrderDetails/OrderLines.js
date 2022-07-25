@@ -75,7 +75,7 @@ const OrderLineRightColumn = ({ line }) => {
   return (
     <>
       <Item.Description>
-        <label>Budget code: </label>
+        <label>Payment information: </label>
         {line.budget_code || '-'}
       </Item.Description>
       <Item.Description>
