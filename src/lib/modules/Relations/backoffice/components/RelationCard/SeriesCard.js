@@ -7,6 +7,9 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from 'semantic-ui-react';
+import _get from 'lodash/get';
+import { recordToPidType } from '@api/utils';
+import LiteratureCover from '@modules/Literature/LiteratureCover';
 
 export default class SeriesCard extends Component {
   render() {
@@ -18,7 +21,14 @@ export default class SeriesCard extends Component {
           {actions}
           {data.metadata.series_type || data.metadata.mode_of_issuance}
         </Card.Meta>
-        <SeriesIcon size="huge" color="grey" />
+        {recordToPidType(data) === 'serid' ? (
+          <LiteratureCover
+            size="small"
+            url={_get(data, 'metadata.cover_metadata.urls.medium')}
+          />
+        ) : (
+          <SeriesIcon size="huge" color="grey" />
+        )}
         <Card.Content>
           <Card.Header as={Link} to={linkTo} target="_blank">
             <LiteratureTitle title={data.metadata.title} />

@@ -120,4 +120,4 @@ DocumentCard.defaultProps = {
   volume: null,
 };
 
-export default Overridable.component('DocumenteCard', DocumentCard);
+export default Overridable.component('DocumentCard', DocumentCard);
