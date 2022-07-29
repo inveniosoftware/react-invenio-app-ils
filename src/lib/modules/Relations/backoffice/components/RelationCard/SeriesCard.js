@@ -1,4 +1,3 @@
-import { SeriesIcon } from '@components/backoffice/icons';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import { BackOfficeRoutes } from '@routes/urls';
@@ -8,7 +7,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from 'semantic-ui-react';
 import _get from 'lodash/get';
-import { recordToPidType } from '@api/utils';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 
 export default class SeriesCard extends Component {
@@ -21,14 +19,10 @@ export default class SeriesCard extends Component {
           {actions}
           {data.metadata.series_type || data.metadata.mode_of_issuance}
         </Card.Meta>
-        {recordToPidType(data) === 'serid' ? (
-          <LiteratureCover
-            size="small"
-            url={_get(data, 'metadata.cover_metadata.urls.medium')}
-          />
-        ) : (
-          <SeriesIcon size="huge" color="grey" />
-        )}
+        <LiteratureCover
+          size="small"
+          url={_get(data, 'metadata.cover_metadata.urls.medium')}
+        />
         <Card.Content>
           <Card.Header as={Link} to={linkTo} target="_blank">
             <LiteratureTitle title={data.metadata.title} />
