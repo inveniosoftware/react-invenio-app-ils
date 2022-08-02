@@ -53,7 +53,7 @@ class Payment extends React.Component {
         name: 'Debit date',
         value: payment.debit_date ? payment.debit_date : '-',
       },
-      { name: 'Budget code', value: payment.budget_code },
+      { name: 'Internal budget', value: payment.budget_code },
     ];
     return (
       <Grid columns={2}>

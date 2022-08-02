@@ -9,7 +9,7 @@ export const schema = () => {
       payment: {
         properties: {
           budget_code: {
-            title: 'Budget code',
+            title: 'Payment information',
             type: 'string',
           },
           debit_cost: {

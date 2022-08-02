@@ -45,7 +45,7 @@ export const schema = () => {
         type: 'string',
       },
       page: {
-        title: 'Page',
+        title: 'Pages',
         type: 'string',
       },
       patron_pid: {

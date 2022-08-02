@@ -15,15 +15,28 @@ export default class ChooseDocumentStepPanel extends Component {
   };
 
   goToCreateDocumentAndPrefill = (docReq) => {
+    const standardNumberPath = docReq.isbn
+      ? 'identifiers[1]'
+      : 'identifiers[0]';
+
     const mappings = [
       ['authors', 'authors[0].full_name'],
       ['journal_title', 'publication_info[0].journal_title'],
       ['issue', 'publication_info[0].journal_issue'],
       ['volume', 'publication_info[0].journal_volume'],
       ['isbn', 'identifiers[0]', (value) => ({ scheme: 'ISBN', value: value })],
+      [
+        'standard_number',
+        standardNumberPath,
+        (value) => ({
+          scheme: 'STANDARD_NUMBER',
+          value: value,
+        }),
+      ],
       ['edition', 'edition'],
       ['publication_year', 'publication_year', (value) => value.toString()],
       ['publisher', 'imprint.publisher'],
+      ['page', 'publication_info[0].pages'],
     ];
 
     const prefilledData = mapFields({

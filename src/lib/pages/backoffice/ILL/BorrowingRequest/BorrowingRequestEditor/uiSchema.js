@@ -50,9 +50,10 @@ export const uiSchema = (title) => {
       },
       'custom:grid': [
         {
-          mode: 5,
-          debit_date: 5,
-          internal_purchase_requisition_id: 6,
+          mode: 4,
+          debit_date: 4,
+          internal_purchase_requisition_id: 4,
+          budget_code: 4,
         },
         { debit_cost: 6, debit_cost_main_currency: 5, debit_note: 5 },
       ],
