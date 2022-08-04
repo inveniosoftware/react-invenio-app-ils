@@ -109,6 +109,27 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
             }
           }
         />
+        <Popup
+          content="You can search by volume using volume field (e.g., volume:1)"
+          disabled={false}
+          eventsEnabled={true}
+          on={
+            Array [
+              "click",
+              "hover",
+            ]
+          }
+          pinned={false}
+          popperModifiers={Array []}
+          position="top left"
+          trigger={
+            <Icon
+              as="i"
+              name="question circle outline"
+              size="small"
+            />
+          }
+        />
       </Container>
       <Media
         className=""
