@@ -23,7 +23,7 @@ import {
   ResultsMultiLayout,
   SearchBar,
 } from 'react-searchkit';
-import { Container, Divider, Loader } from 'semantic-ui-react';
+import { Container, Divider, Loader, Popup, Icon } from 'semantic-ui-react';
 import { SearchBarOverridesMap } from '@components/SearchBar/SearchBarOverrides';
 import { qsBuilderForSeries } from './RequestSerializer';
 import { SeriesLiteratureSearchMobile } from './SeriesLiteratureSearchMobile';
@@ -76,6 +76,10 @@ export class SeriesLiteratureSearch extends React.Component {
                   placeholder="Search for volumes or issues..."
                   {...invenioConfig.APP.SEARCH_BAR_PROPS}
                   responsiveAutofocus
+                />
+                <Popup
+                  content="You can search by volume using volume field (e.g., volume:1)"
+                  trigger={<Icon name="question circle outline" size="small" />}
                 />
               </Container>
               <Media greaterThanOrEqual="computer">
