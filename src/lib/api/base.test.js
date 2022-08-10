@@ -25,47 +25,6 @@ describe('Axios response interceptor tests no error', () => {
 
     return promise;
   });
-
-  it('should do not nothing if generic 400 error without message', () => {
-    const errorPayload = {
-      config: {
-        url: '/backoffice',
-      },
-      response: {
-        status: 400,
-      },
-    };
-    const promise = expect(
-      errorInterceptor.rejected(errorPayload)
-    ).rejects.toMatchObject(errorPayload);
-
-    expect(goTo).not.toHaveBeenCalled();
-    expect(replaceTo).not.toHaveBeenCalled();
-
-    return promise;
-  });
-
-  it('should do not nothing if generic 400 error with no CSRF message', () => {
-    const errorPayload = {
-      config: {
-        url: '/backoffice',
-      },
-      response: {
-        status: 400,
-        data: {
-          message: 'another error...',
-        },
-      },
-    };
-    const promise = expect(
-      errorInterceptor.rejected(errorPayload)
-    ).rejects.toMatchObject(errorPayload);
-
-    expect(goTo).not.toHaveBeenCalled();
-    expect(replaceTo).not.toHaveBeenCalled();
-
-    return promise;
-  });
 });
 
 describe('Axios response interceptor tests for 401', () => {
@@ -127,7 +86,7 @@ describe('Axios response interceptor tests for 401', () => {
   });
 });
 
-describe('Axios response interceptor tests for CSRF errors', () => {
+describe('Axios response interceptor tests for CSRF error related cases', () => {
   it('should retry on CSRF cookie/token missing errors', () => {
     const errorPayload = {
       config: {
@@ -175,13 +134,54 @@ describe('Axios response interceptor tests for CSRF errors', () => {
     ).rejects.toMatchObject(errorPayload);
 
     expect(goTo).not.toHaveBeenCalled();
-    expect(replaceTo).not.toHaveBeenCalled();
+    expect(replaceTo).toHaveBeenCalledWith('/error', { errorCode: 400 });
+
+    return promise;
+  });
+
+  it('should redirect to error page if generic 400 error with no CSRF message', () => {
+    const errorPayload = {
+      config: {
+        url: '/backoffice',
+      },
+      response: {
+        status: 400,
+        data: {
+          message: 'another error...',
+        },
+      },
+    };
+    const promise = expect(
+      errorInterceptor.rejected(errorPayload)
+    ).rejects.toMatchObject(errorPayload);
+
+    expect(goTo).not.toHaveBeenCalled();
+    expect(replaceTo).toHaveBeenCalledWith('/error', { errorCode: 400 });
 
     return promise;
   });
 });
 
 describe('Axios response interceptor tests for errors with dedicated page', () => {
+  it('should redirect to error page on 400', () => {
+    const errorPayload = {
+      config: {
+        url: '/api/importer/non-existing/cancel',
+      },
+      response: {
+        status: 400,
+      },
+    };
+    const promise = expect(
+      errorInterceptor.rejected(errorPayload)
+    ).rejects.toMatchObject(errorPayload);
+
+    expect(goTo).not.toHaveBeenCalled();
+    expect(replaceTo).toHaveBeenCalledWith('/error', { errorCode: 400 });
+
+    return promise;
+  });
+
   it('should redirect to error page on 404', () => {
     const errorPayload = {
       config: {

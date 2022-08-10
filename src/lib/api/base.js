@@ -11,7 +11,7 @@ const apiConfig = {
 };
 const http = axios.create(apiConfig);
 
-const HTTP_STATUS_CODES_WITH_ERROR_PAGE = [404, 429, 500];
+const HTTP_STATUS_CODES_WITH_ERROR_PAGE = [400, 404, 429, 500];
 const URLS_NOT_TO_REDIRECT_IF_UNAUTHORIZED = ['/me', '/me/loans'];
 // CSRF possible errors
 const CSRF_ERROR_REASON_NO_COOKIE = 'CSRF cookie';

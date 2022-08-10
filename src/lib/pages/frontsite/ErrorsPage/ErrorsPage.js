@@ -3,6 +3,7 @@ import {
   InternalServerError,
   NotFound,
   TooManyRequests,
+  BadRequest,
 } from '@components/HttpErrors';
 
 export class ErrorsPage extends Component {
@@ -19,6 +20,8 @@ export class ErrorsPage extends Component {
         return <NotFound />;
       } else if (params.errorCode === 429) {
         return <TooManyRequests />;
+      } else if (params.errorCode === 400) {
+        return <BadRequest />;
       }
     }
     return null;

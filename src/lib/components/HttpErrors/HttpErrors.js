@@ -122,3 +122,25 @@ export const InternalServerError = Overridable.component(
   'InternalServerError',
   InternalServerErrorComponent
 );
+
+function BadRequestComponent(props) {
+  const {
+    title = 'Bad Request',
+    message = 'Something went wrong while processing your request. Please contact our support team if the problem persists. (Error code: 400)',
+    icon = 'warning',
+  } = props;
+  const newProps = { ...props, ...{ title, message, icon } };
+  return (
+    <Overridable id="BadRequest.layout" {...newProps}>
+      <HttpError {...newProps} />
+    </Overridable>
+  );
+}
+
+BadRequestComponent.propTypes = propTypes;
+BadRequestComponent.defaultProps = defaultProps;
+
+export const BadRequest = Overridable.component(
+  'BadRequest',
+  BadRequestComponent
+);
