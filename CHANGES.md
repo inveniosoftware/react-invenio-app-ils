@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.69 (released 2022-08-12)
+
+- series: add tooltip on volumes search (details page)
+- add covers in relation modal
+
 Version 1.0.0-alpha.68 (released 2022-03-10)
 
 - backoffice: fix series details volumes search phrase
