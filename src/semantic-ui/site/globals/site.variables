@@ -2,11 +2,8 @@
  Site Variables - REACT-INVENIO-APP-ILS
 *******************************************************/
 
-@headerFont        : 'Roboto', Arial, Helvetica, sans-serif;
-@pageFont          : 'Raleway', Arial, Helvetica, sans-serif;
-@googleFontFamily  : 'Roboto:400italic,400|Raleway:400,700';
-
-@fontSmoothing     : antialiased;
+@fontName          : 'Lato';
+@importGoogleFonts : false;
 
 /*******************************
   SEMANTIC Colors override
