@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import * as testData from '@testData/documents.json';
-
+import { Provider } from 'react-redux';
 import { SearchControls } from './SearchControls';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
@@ -35,7 +35,11 @@ describe('SearchControls tests', () => {
   });
 
   it('should load the SearchControls component', () => {
-    const component = shallow(<SearchControls modelName="DOCUMENTS" />);
+    const component = shallow(
+      <Provider store={store}>
+        <SearchControls modelName="DOCUMENTS" />
+      </Provider>
+    );
     expect(component).toMatchSnapshot();
   });
 });

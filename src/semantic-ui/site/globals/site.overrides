@@ -186,6 +186,15 @@ a {
     color: @fsPrimaryColor;
   }
 
+  a.dark {
+    color: black;
+    text-decoration: underline;
+  }
+
+  a.dark:hover{
+    color: #1aa3ff;
+  }
+
   #notifications {
     z-index: 9999;
     margin-top: 1rem;
@@ -272,6 +281,11 @@ a {
 
   .loan-request-delivery-date { 
       margin-bottom: 0.5em;
+  }
+
+  .search-message-content {
+    font-weight: normal;
+    font-size: medium;
   }
 }
 
