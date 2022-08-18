@@ -30,11 +30,26 @@ class SearchMessage extends Component {
       </Link>
     );
 
-    if (totalResults != 0) {
+    const EmptyResultOrangeMsg = () => {
+      return (
+        <Message icon color="orange" size="small">
+          <Icon name="info circle" />
+          <Overridable id="SearchResults.NoResults.extra">
+            <Message.Content>
+              <h4 className="search-no-results-extra">
+                Please fill in {requestFormLink} to request new additions or
+                purchases to the catalogue. (Login required)
+              </h4>
+            </Message.Content>
+          </Overridable>
+        </Message>
+      );
+    };
+    const ResultBlueMsg = () => {
       return (
         <Message icon info>
           <Icon name="info circle" />
-          <Overridable id="SearchMessage.content">
+          <Overridable id="SearchResults.NoResults.extra">
             <Message.Content>
               <Message.Header>
                 Couldn't find the literature you were looking for?
@@ -45,21 +60,9 @@ class SearchMessage extends Component {
           </Overridable>
         </Message>
       );
-    } else {
-      return (
-        <Message icon color="orange" size="small">
-          <Icon name="info circle" />
-          <Overridable id="SearchMessage.content">
-            <Message.Content>
-              <h4 className="search-message-content">
-                Please fill in {requestFormLink} to request new additions or
-                purchases to the catalogue. (Login required)
-              </h4>
-            </Message.Content>
-          </Overridable>
-        </Message>
-      );
-    }
+    };
+
+    return totalResults > 0 ? <ResultBlueMsg /> : <EmptyResultOrangeMsg />;
   }
 }
 

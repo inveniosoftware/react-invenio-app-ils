@@ -19,55 +19,49 @@ class SearchControlsMobileComponent extends Component {
     const totalResults = currentResultsState.data.total;
     const searchConfig = getSearchConfig(modelName);
 
-    if (totalResults != 0) {
-      return (
-        <Container fluid className="mobile-search-controls">
-          <Sticky context={stickyRef} offset={66}>
-            <Container fluid className="fs-search-controls-mobile">
-              <Menu fluid borderless>
-                <SearchAggregationsMenu modelName={modelName} />
-                {searchConfig.SORT_BY.length > 0 ? (
-                  <Sort values={searchConfig.SORT_BY} overridableId="mobile" />
-                ) : null}
-              </Menu>
-              <Container>
-                <Grid columns={2}>
-                  <Grid.Column width={8} className="vertical-align-content">
-                    <div>
-                      <Count
-                        label={(cmp) => (
-                          <div className="mobile-count">
-                            {cmp} results found
-                          </div>
-                        )}
-                      />
-                    </div>
-                  </Grid.Column>
-                  <Grid.Column
-                    width={8}
-                    className="vertical-align-content"
-                    textAlign="right"
-                  >
-                    <div>
-                      <SearchResultsPerPage
-                        modelName={modelName}
-                        label={(cmp) => (
-                          <div className="mobile-results-page">
-                            {cmp} results per page
-                          </div>
-                        )}
-                      />
-                    </div>
-                  </Grid.Column>
-                </Grid>
-              </Container>
+    return totalResults > 0 ? (
+      <Container fluid className="mobile-search-controls">
+        <Sticky context={stickyRef} offset={66}>
+          <Container fluid className="fs-search-controls-mobile">
+            <Menu fluid borderless>
+              <SearchAggregationsMenu modelName={modelName} />
+              {searchConfig.SORT_BY.length > 0 ? (
+                <Sort values={searchConfig.SORT_BY} overridableId="mobile" />
+              ) : null}
+            </Menu>
+            <Container>
+              <Grid columns={2}>
+                <Grid.Column width={8} className="vertical-align-content">
+                  <div>
+                    <Count
+                      label={(cmp) => (
+                        <div className="mobile-count">{cmp} results found</div>
+                      )}
+                    />
+                  </div>
+                </Grid.Column>
+                <Grid.Column
+                  width={8}
+                  className="vertical-align-content"
+                  textAlign="right"
+                >
+                  <div>
+                    <SearchResultsPerPage
+                      modelName={modelName}
+                      label={(cmp) => (
+                        <div className="mobile-results-page">
+                          {cmp} results per page
+                        </div>
+                      )}
+                    />
+                  </div>
+                </Grid.Column>
+              </Grid>
             </Container>
-          </Sticky>
-        </Container>
-      );
-    } else {
-      return null;
-    }
+          </Container>
+        </Sticky>
+      </Container>
+    ) : null;
   }
 }
 

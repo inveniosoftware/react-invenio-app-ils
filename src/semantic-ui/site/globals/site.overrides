@@ -283,7 +283,7 @@ a {
       margin-bottom: 0.5em;
   }
 
-  .search-message-content {
+  .search-no-results-extra {
     font-weight: normal;
     font-size: medium;
   }

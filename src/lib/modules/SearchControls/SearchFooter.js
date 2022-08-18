@@ -10,19 +10,15 @@ class SearchFooter extends Component {
     const { currentResultsState } = this.props;
     const totalResults = currentResultsState.data.total;
 
-    if (totalResults != 0) {
-      return (
-        <Media greaterThan="mobile">
-          <Grid textAlign="center" className="search-footer-pagination">
-            <Grid.Column>
-              <SearchPagination />
-            </Grid.Column>
-          </Grid>
-        </Media>
-      );
-    } else {
-      return null;
-    }
+    return totalResults > 0 ? (
+      <Media greaterThan="mobile">
+        <Grid textAlign="center" className="search-footer-pagination">
+          <Grid.Column>
+            <SearchPagination />
+          </Grid.Column>
+        </Grid>
+      </Media>
+    ) : null;
   }
 }
 
