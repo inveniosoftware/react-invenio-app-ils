@@ -23,11 +23,8 @@ class SeriesPanel extends Component {
     return (
       <>
         <Media greaterThanOrEqual="tablet">
-          <div
-            className="series-panel"
-            data-test={series.metadata ? series.metadata.pid : 0}
-          >
-            <Grid>
+          <div data-test={series.metadata ? series.metadata.pid : 0}>
+            <Grid className="literature-panel">
               <Grid.Row>
                 <Grid.Column width={5}>
                   <LiteratureCover

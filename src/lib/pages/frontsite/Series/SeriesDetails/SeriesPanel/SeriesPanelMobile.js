@@ -18,11 +18,8 @@ class SeriesPanelMobile extends Component {
   render() {
     const { isLoading, series } = this.props;
     return (
-      <div
-        className="series-panel"
-        data-test={series.metadata ? series.metadata.pid : 0}
-      >
-        <Grid>
+      <div data-test={series.metadata ? series.metadata.pid : 0}>
+        <Grid className="literature-panel">
           <Grid.Row>
             <Grid.Column mobile={16} textAlign="center">
               <LiteratureCover

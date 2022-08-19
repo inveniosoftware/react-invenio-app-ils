@@ -29,7 +29,7 @@ class DocumentPanel extends Component {
         <>
           <Media greaterThanOrEqual="tablet">
             <div
-              className="document-panel"
+              className="literature-panel"
               data-test={doc.metadata ? doc.metadata.pid : 0}
             >
               <Grid columns={3}>
