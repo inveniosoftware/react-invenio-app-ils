@@ -35,7 +35,7 @@ Segment Overrides - REACT-INVENIO-APP-ILS
     }
   }
 
-  .document-panel {
+  .literature-panel {
     .ui.segment {
       margin: 0 0 1rem 0;
     }

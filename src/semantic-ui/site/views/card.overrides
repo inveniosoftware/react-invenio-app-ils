@@ -69,6 +69,12 @@ Card Overrides - REACT-INVENIO-APP-ILS
         white-space: nowrap;
       }
     }
+
+    img {
+      width: auto !important;
+      height: 200px !important;
+      box-shadow: 0 20px 10px -17px rgba(89, 89, 89);
+    }
   }
 
   .fs-landing-page-section {

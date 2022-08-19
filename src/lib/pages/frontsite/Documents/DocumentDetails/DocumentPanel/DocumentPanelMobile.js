@@ -20,7 +20,7 @@ class DocumentPanelMobile extends Component {
     const { documentDetails: doc, isLoading, loansInfo } = this.props;
     return (
       <div
-        className="document-panel"
+        className="literature-panel"
         data-test={doc.metadata ? doc.metadata.pid : 0}
       >
         <Overridable

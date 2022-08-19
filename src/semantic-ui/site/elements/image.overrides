@@ -2,8 +2,9 @@
 Image Overrides - REACT-INVENIO-APP-ILS
 *******************************/
 
-.document-panel .ui.image.large {
+.literature-panel .ui.image.large {
   width: 350px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 .ui.grid.grid-documents-search {
@@ -12,6 +13,7 @@ Image Overrides - REACT-INVENIO-APP-ILS
     width: auto !important;
     height: 200px !important;
     background: none !important;
+    box-shadow: 0 20px 10px -17px rgba(89, 89, 89);
   }
 }
 
