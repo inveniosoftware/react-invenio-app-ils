@@ -140,13 +140,11 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
         >
           <Connect(Overridable(EmptyResults)) />
           <Connect(Overridable(Error$1)) />
-          <SearchControls
-            defaultLayout="grid"
+          <Connect(WrappedComponent)
             modelName="LITERATURE"
-            withLayoutSwitcher={true}
           />
           <Connect(Overridable(ResultsMultiLayout)) />
-          <SearchFooter />
+          <Connect(WrappedComponent) />
         </Connect(Overridable(ResultsLoader))>
       </Media>
       <Media

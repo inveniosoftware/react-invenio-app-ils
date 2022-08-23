@@ -5,8 +5,9 @@ import SearchResultsPerPage from './SearchResultsPerPage';
 import SearchAggregationsMenu from './SearchAggregationsMenu';
 import PropTypes from 'prop-types';
 import { getSearchConfig } from '@config';
+import { withState } from 'react-searchkit';
 
-export class SearchControlsMobile extends Component {
+class SearchControlsMobileComponent extends Component {
   renderCount = (totalResults) => {
     return (
       <div className="search-results-counter">{totalResults} results found</div>
@@ -14,9 +15,11 @@ export class SearchControlsMobile extends Component {
   };
 
   render() {
-    const { stickyRef, modelName } = this.props;
+    const { stickyRef, modelName, currentResultsState } = this.props;
+    const totalResults = currentResultsState.data.total;
     const searchConfig = getSearchConfig(modelName);
-    return (
+
+    return totalResults > 0 ? (
       <Container fluid className="mobile-search-controls">
         <Sticky context={stickyRef} offset={66}>
           <Container fluid className="fs-search-controls-mobile">
@@ -58,15 +61,18 @@ export class SearchControlsMobile extends Component {
           </Container>
         </Sticky>
       </Container>
-    );
+    ) : null;
   }
 }
 
-SearchControlsMobile.propTypes = {
+SearchControlsMobileComponent.propTypes = {
   modelName: PropTypes.string.isRequired,
   stickyRef: PropTypes.object,
+  currentResultsState: PropTypes.object.isRequired,
 };
 
-SearchControlsMobile.defaultProps = {
+SearchControlsMobileComponent.defaultProps = {
   stickyRef: null,
 };
+
+export const SearchControlsMobile = withState(SearchControlsMobileComponent);

@@ -1,92 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchControls tests should load the SearchControls component 1`] = `
-<Fragment>
-  <Media
-    className=""
-    greaterThanOrEqual="computer"
-  >
-    <Grid
-      className="search-controls"
-      columns={3}
-    >
-      <GridColumn
-        computer={5}
-        largeScreen={5}
-      >
-        <Grid
-          columns={2}
-        >
-          <GridColumn
-            className="layout-switcher"
-            width={6}
-          >
-            <Connect(Overridable(LayoutSwitcher))
-              defaultLayout="grid"
-            />
-          </GridColumn>
-          <GridColumn
-            width={10}
-          >
-            <Connect(Overridable(Count))
-              label={[Function]}
-            />
-            <SearchResultsPerPage
-              modelName="DOCUMENTS"
-            />
-          </GridColumn>
-        </Grid>
-      </GridColumn>
-      <GridColumn
-        className="search-pagination-column"
-        computer={6}
-        largeScreen={6}
-        textAlign="center"
-      >
-        <Media
-          className=""
-          greaterThanOrEqual="largeScreen"
-        >
-          <SearchPagination />
-        </Media>
-      </GridColumn>
-      <GridColumn
-        className="search-sort-options-column"
-        computer={5}
-        largeScreen={5}
-        textAlign="right"
-      >
-        <div
-          className="sort-by-filters"
-        >
-          <SearchSortBy
-            modelName="DOCUMENTS"
-          />
-        </div>
-      </GridColumn>
-    </Grid>
-  </Media>
-  <Media
-    className=""
-    lessThan="computer"
-  >
-    <SearchControlsMobile
-      modelName="DOCUMENTS"
-      stickyRef={null}
-    />
-  </Media>
-  <Media
-    className=""
-    lessThan="largeScreen"
-  >
-    <Grid>
-      <GridColumn
-        textAlign="center"
-        width={16}
-      >
-        <SearchPagination />
-      </GridColumn>
-    </Grid>
-  </Media>
-</Fragment>
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Object {
+        "addNestedSub": [Function],
+        "getListeners": [Function],
+        "handleChangeWrapper": [Function],
+        "isSubscribed": [Function],
+        "notifyNestedSubs": [Function],
+        "onStateChange": [Function],
+        "trySubscribe": [Function],
+        "tryUnsubscribe": [Function],
+      },
+    }
+  }
+>
+  <Connect(WrappedComponent)
+    modelName="DOCUMENTS"
+  />
+</ContextProvider>
 `;

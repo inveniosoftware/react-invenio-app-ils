@@ -9,7 +9,6 @@ import {
 } from '@config';
 import history from '@history';
 import { LiteratureSearchOverridesMap } from '@modules/Literature/LiteratureSearchOverrides';
-import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { SearchControls } from '@modules/SearchControls/SearchControls';
 import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchControlsOverrides';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
@@ -24,11 +23,12 @@ import {
   ResultsMultiLayout,
   SearchBar,
 } from 'react-searchkit';
-import { Container, Grid, Header, Loader } from 'semantic-ui-react';
+import { Container, Grid, Loader } from 'semantic-ui-react';
 import { SearchBarOverridesMap } from '@components/SearchBar/SearchBarOverrides';
 import LiteratureSearchMobile from './LiteratureSearchMobile';
 import SearchMessage from './SearchMessage/SearchMessage';
 import SearchGuideLink from './SearchGuideLink/SearchGuideLink';
+import SearchAggregation from './SearchAggregation';
 import PropTypes from 'prop-types';
 
 class LiteratureSearch extends Component {
@@ -99,8 +99,7 @@ class LiteratureSearch extends Component {
                     >
                       <ResultsLoader renderElement={this.renderLoader}>
                         <Grid.Column width={3} className="search-aggregations">
-                          <Header content="Filter by" />
-                          <SearchAggregationsCards modelName={this.modelName} />
+                          <SearchAggregation modelName={this.modelName} />
                         </Grid.Column>
                         <Grid.Column width={13} className="search-results">
                           <EmptyResults />

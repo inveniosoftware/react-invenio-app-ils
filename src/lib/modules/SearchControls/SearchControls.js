@@ -7,11 +7,20 @@ import SearchSortBy from './SearchSortBy';
 import SearchResultsPerPage from './SearchResultsPerPage';
 import { SearchControlsMobile } from './SearchControlsMobile';
 import SearchPagination from './SearchPagination';
+import { withState } from 'react-searchkit';
 
-export class SearchControls extends Component {
+class SearchControlsComponent extends Component {
   render() {
-    const { withLayoutSwitcher, defaultLayout, modelName } = this.props;
-    return (
+    const {
+      withLayoutSwitcher,
+      defaultLayout,
+      modelName,
+      currentResultsState,
+    } = this.props;
+
+    const totalResults = currentResultsState.data.total;
+
+    return totalResults > 0 ? (
       <>
         <Media greaterThanOrEqual="computer">
           <Grid columns={3} className="search-controls">
@@ -61,17 +70,20 @@ export class SearchControls extends Component {
           </Grid>
         </Media>
       </>
-    );
+    ) : null;
   }
 }
 
-SearchControls.propTypes = {
+SearchControlsComponent.propTypes = {
   modelName: PropTypes.string.isRequired,
   withLayoutSwitcher: PropTypes.bool,
   defaultLayout: PropTypes.oneOf(['grid', 'list']),
+  currentResultsState: PropTypes.object.isRequired,
 };
 
-SearchControls.defaultProps = {
+SearchControlsComponent.defaultProps = {
   withLayoutSwitcher: true,
   defaultLayout: 'grid',
 };
+
+export const SearchControls = withState(SearchControlsComponent);
