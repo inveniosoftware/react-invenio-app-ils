@@ -1,5 +1,11 @@
 # Changes
 
+Version 1.0.0-alpha.70 (released 2022-08-24)
+
+- disable Google fonts
+- improve the no results search page suggesting to request the literature
+  to the library
+
 Version 1.0.0-alpha.69 (released 2022-08-12)
 
 - series: add tooltip on volumes search (details page)
