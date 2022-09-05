@@ -10,11 +10,9 @@ export class SearchBarILS extends Component {
   state = { currentValue: '' };
 
   componentDidMount() {
-    const { responsiveAutofocus } = this.props;
+    const { focusOnRender } = this.props;
     const autofocus = screenIsWiderThan(Breakpoints.computer);
-    if (responsiveAutofocus && autofocus) {
-      this.inputRef.current.focus();
-    } else if (!responsiveAutofocus) {
+    if (focusOnRender && autofocus) {
       this.inputRef.current.focus();
     }
   }
@@ -50,7 +48,7 @@ export class SearchBarILS extends Component {
       onChangeHandler,
       placeholder,
       ref,
-      responsiveAutofocus,
+      focusOnRender,
       ...rest
     } = this.props;
     const { currentValue } = this.state;
@@ -86,7 +84,7 @@ SearchBarILS.propTypes = {
   onChangeHandler: PropTypes.func,
   placeholder: PropTypes.string,
   className: PropTypes.string,
-  responsiveAutofocus: PropTypes.bool,
+  focusOnRender: PropTypes.bool,
 };
 
 SearchBarILS.defaultProps = {
@@ -95,6 +93,6 @@ SearchBarILS.defaultProps = {
   onChangeHandler: null,
   placeholder: '',
   className: '',
-  responsiveAutofocus: false,
+  focusOnRender: true,
   ref: null,
 };

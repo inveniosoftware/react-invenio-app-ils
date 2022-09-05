@@ -1,7 +1,6 @@
 import { literatureApi } from '@api/literature';
 import { Media } from '@components/Media';
 import {
-  invenioConfig,
   setReactSearchKitDefaultSortingOnEmptyQueryString,
   setReactSearchKitInitialQueryState,
   setReactSearchKitUrlHandler,
@@ -21,21 +20,16 @@ import {
   ReactSearchKit,
   ResultsLoader,
   ResultsMultiLayout,
-  SearchBar,
+  withState,
 } from 'react-searchkit';
-import { Container, Divider, Loader, Popup, Icon } from 'semantic-ui-react';
+import { Container, Divider, Popup } from 'semantic-ui-react';
 import { SearchBarOverridesMap } from '@components/SearchBar/SearchBarOverrides';
 import { qsBuilderForSeries } from './RequestSerializer';
 import { SeriesLiteratureSearchMobile } from './SeriesLiteratureSearchMobile';
+import { SearchBarILS } from '@components/SearchBar';
 
 export class SeriesLiteratureSearch extends React.Component {
   modelName = 'LITERATURE';
-
-  renderLoader = () => {
-    return (
-      <Loader active size="huge" inline="centered" className="full-height" />
-    );
-  };
 
   render() {
     const { metadata } = this.props;
@@ -72,18 +66,10 @@ export class SeriesLiteratureSearch extends React.Component {
           >
             <>
               <Container className="series-details-search-container">
-                <SearchBar
-                  placeholder="Search for volumes or issues..."
-                  {...invenioConfig.APP.SEARCH_BAR_PROPS}
-                  responsiveAutofocus
-                />
-                <Popup
-                  content="You can search by volume using volume field (e.g., volume:1)"
-                  trigger={<Icon name="question circle outline" size="small" />}
-                />
+                <SeriesDetailsSearch />
               </Container>
               <Media greaterThanOrEqual="computer">
-                <ResultsLoader renderElement={this.renderLoader}>
+                <ResultsLoader>
                   <EmptyResults />
                   <Error />
                   <SearchControls modelName={this.modelName} />
@@ -105,3 +91,25 @@ export class SeriesLiteratureSearch extends React.Component {
 SeriesLiteratureSearch.propTypes = {
   metadata: PropTypes.object.isRequired,
 };
+
+const SeriesDetailsSearch = withState(
+  ({ updateQueryState, currentQueryState }) => {
+    const onBtnSearchClick = (queryString) => {
+      updateQueryState({ ...currentQueryState, queryString: queryString });
+    };
+
+    return (
+      <Popup
+        trigger={
+          <SearchBarILS
+            onSearchHandler={onBtnSearchClick}
+            placeholder="Search for volumes or issues..."
+            focusOnRender={false}
+          />
+        }
+        content="You can search by volume using volume field (e.g., volume:1)"
+        on="focus"
+      />
+    );
+  }
+);

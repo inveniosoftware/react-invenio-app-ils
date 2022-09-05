@@ -23,7 +23,7 @@ import {
   ResultsMultiLayout,
   SearchBar,
 } from 'react-searchkit';
-import { Container, Grid, Loader } from 'semantic-ui-react';
+import { Container, Grid } from 'semantic-ui-react';
 import { SearchBarOverridesMap } from '@components/SearchBar/SearchBarOverrides';
 import LiteratureSearchMobile from './LiteratureSearchMobile';
 import SearchMessage from './SearchMessage/SearchMessage';
@@ -43,12 +43,6 @@ class LiteratureSearch extends Component {
       response: { reject: responseRejectInterceptor },
     },
   });
-
-  renderLoader = () => {
-    return (
-      <Loader active size="huge" inline="centered" className="full-height" />
-    );
-  };
 
   render() {
     const initialState = setReactSearchKitInitialQueryState(this.modelName);
@@ -84,7 +78,6 @@ class LiteratureSearch extends Component {
                         invenioConfig.APP.HOME_SEARCH_BAR_PLACEHOLDER
                       }
                       {...invenioConfig.APP.SEARCH_BAR_PROPS}
-                      responsiveAutofocus
                     />
                     <SearchGuideLink />
                   </Container>
@@ -97,7 +90,7 @@ class LiteratureSearch extends Component {
                       relaxed
                       className="grid-documents-search"
                     >
-                      <ResultsLoader renderElement={this.renderLoader}>
+                      <ResultsLoader>
                         <Grid.Column width={3} className="search-aggregations">
                           <SearchAggregation modelName={this.modelName} />
                         </Grid.Column>
