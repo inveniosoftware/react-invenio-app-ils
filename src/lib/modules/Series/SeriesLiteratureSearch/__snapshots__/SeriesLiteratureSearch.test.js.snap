@@ -91,61 +91,21 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
       <Container
         className="series-details-search-container"
       >
-        <Connect(Overridable(SearchBarUncontrolled))
-          actionProps={
-            Object {
-              "content": null,
-              "icon": "search",
-            }
-          }
-          autofocus={true}
-          placeholder="Search for volumes or issues..."
-          responsiveAutofocus={true}
-          uiProps={
-            Object {
-              "className": "ils-searchbar",
-              "fluid": true,
-              "size": "big",
-            }
-          }
-        />
-        <Popup
-          content="You can search by volume using volume field (e.g., volume:1)"
-          disabled={false}
-          eventsEnabled={true}
-          on={
-            Array [
-              "click",
-              "hover",
-            ]
-          }
-          pinned={false}
-          popperModifiers={Array []}
-          position="top left"
-          trigger={
-            <Icon
-              as="i"
-              name="question circle outline"
-              size="small"
-            />
-          }
-        />
+        <Connect(WrappedComponent) />
       </Container>
       <Media
         className=""
         greaterThanOrEqual="computer"
       >
-        <Connect(Overridable(ResultsLoader))
-          renderElement={[Function]}
-        >
+        <Connect(Overridable(ResultsLoader$1))>
           <Connect(Overridable(EmptyResults)) />
-          <Connect(Overridable(Error$1)) />
+          <Connect(Overridable(Error$2)) />
           <Connect(WrappedComponent)
             modelName="LITERATURE"
           />
-          <Connect(Overridable(ResultsMultiLayout)) />
+          <Connect(Overridable(ResultsMultiLayout$1)) />
           <Connect(WrappedComponent) />
-        </Connect(Overridable(ResultsLoader))>
+        </Connect(Overridable(ResultsLoader$1))>
       </Media>
       <Media
         className=""

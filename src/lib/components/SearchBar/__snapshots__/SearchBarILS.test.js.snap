@@ -3,13 +3,13 @@
 exports[`SearchBar tests should match snapshot 1`] = `
 <SearchBarILS
   className=""
+  focusOnRender={true}
   onChangeHandler={null}
   onKeyPressHandler={null}
   onPasteHandler={null}
   onSearchHandler={[Function]}
   placeholder="Search"
   ref={null}
-  responsiveAutofocus={false}
 >
   <Input
     action={

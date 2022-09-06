@@ -17,7 +17,6 @@ export class HomeSearchBar extends Component {
         onSearchHandler={this.onSearchExecute}
         placeholder={invenioConfig.APP.HOME_SEARCH_BAR_PLACEHOLDER}
         className="fs-headline"
-        responsiveAutofocus
       />
     );
   }
