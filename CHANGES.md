@@ -1,5 +1,11 @@
 # Changes
 
+Version 1.0.0-alpha.71 (released 2022-10-07)
+
+- series: improve search tip popup and fix searchbar autofocus
+- covers: fix alignment in front page
+- covers: add box shadows to small and large sizes
+
 Version 1.0.0-alpha.70 (released 2022-08-24)
 
 - disable Google fonts
@@ -28,11 +34,9 @@ Version 1.0.0-alpha.65 (released 2022-02-21)
 
 - other authors: fix `et al.` display across the site
 
-
 Version 1.0.0-alpha.64 (released 2022-02-07)
 
 - update npm dependencies
-
 
 Version 1.0.0-alpha.63 (released 2022-02-01)
 
