@@ -50,9 +50,12 @@ export class RJSFVocabulary extends Component {
 
   query = () => {
     const { options } = this.props;
-    const { vocabularyType } = options;
-    const query = vocabularyApi.query().withType(vocabularyType).qs();
-    return vocabularyApi.list(query);
+    const { vocabularyType, size } = options;
+    let query = vocabularyApi.query(size).withType(vocabularyType);
+    if (size !== null) {
+      query = query.withSize(size);
+    }
+    return vocabularyApi.list(query.qs());
   };
 
   fetchAll = async () => {
@@ -133,6 +136,7 @@ RJSFVocabulary.propTypes = {
   value: PropTypes.string,
   options: PropTypes.shape({
     vocabularyType: PropTypes.string.isRequired,
+    size: PropTypes.number,
   }).isRequired,
 };
 
