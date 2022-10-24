@@ -47,6 +47,7 @@ export const uiSchema = (title) => {
       'ui:widget': 'vocabulary',
       'ui:options': {
         vocabularyType: invenioConfig.VOCABULARIES.eitem.source,
+        size: 60,
       },
     },
     urls: {
