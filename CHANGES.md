@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.72 (released 2022-10-24)
+
+- eitems: increase vocabulary source size to 60
+
 Version 1.0.0-alpha.71 (released 2022-10-07)
 
 - series: improve search tip popup and fix searchbar autofocus
