@@ -1,6 +1,6 @@
 # Changes
 
-Version 1.0.0-alpha.73 (released 2022-10-25)
+Version 1.0.0-alpha.74 (released 2022-10-25)
 
 - upgrade to RSK@2.x
 
