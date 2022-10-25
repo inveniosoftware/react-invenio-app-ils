@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.73 (released 2022-10-25)
+
+- upgrade to RSK@2.x
+
 Version 1.0.0-alpha.72 (released 2022-10-24)
 
 - eitems: increase vocabulary source size to 60
