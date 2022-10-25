@@ -13,11 +13,10 @@ export const CardBucketAggregationValueElementOverrides = ({
   bucket,
   isSelected,
   onFilterClicked,
-  getChildAggCmps,
+  childAggCmps,
   overridableId,
   valueLabel,
 }) => {
-  const childAggCmps = getChildAggCmps(bucket);
   const key = bucket.key_as_string ? bucket.key_as_string : bucket.key;
   const label = generateLabel(key);
 
@@ -43,7 +42,7 @@ CardBucketAggregationValueElementOverrides.propTypes = {
   bucket: PropTypes.object.isRequired,
   isSelected: PropTypes.bool,
   onFilterClicked: PropTypes.func.isRequired,
-  getChildAggCmps: PropTypes.func.isRequired,
+  childAggCmps: PropTypes.func.isRequired,
   overridableId: PropTypes.string,
   valueLabel: PropTypes.string,
 };

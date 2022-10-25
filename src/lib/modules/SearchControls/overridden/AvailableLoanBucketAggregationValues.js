@@ -6,7 +6,7 @@ export const AvailableLoanBucketAggregationValues = ({
   bucket,
   isSelected,
   onFilterClicked,
-  getChildAggCmps,
+  childAggCmps,
   overridableId,
   valueLabel,
 }) => {
@@ -27,7 +27,7 @@ AvailableLoanBucketAggregationValues.propTypes = {
   bucket: PropTypes.object.isRequired,
   isSelected: PropTypes.bool,
   onFilterClicked: PropTypes.func.isRequired,
-  getChildAggCmps: PropTypes.func.isRequired,
+  childAggCmps: PropTypes.func.isRequired,
   overridableId: PropTypes.string,
   valueLabel: PropTypes.string,
 };
