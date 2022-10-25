@@ -52,7 +52,7 @@ export class RJSFVocabulary extends Component {
     const { options } = this.props;
     const { vocabularyType, size } = options;
     let query = vocabularyApi.query(size).withType(vocabularyType);
-    if (size !== null) {
+    if (size !== undefined) {
       query = query.withSize(size);
     }
     return vocabularyApi.list(query.qs());
