@@ -44,3 +44,5 @@ export { IEFallback } from '@components/Fallbacks/IEFallback';
 export { InfoPopup } from '@components/InfoPopup';
 export { Pagination } from '@components/Pagination';
 export { SeparatedList } from '@components/SeparatedList';
+export { SectionServices } from '@pages/frontsite/Home/Sections/SectionServices';
+export { SectionInstallation } from '@pages/frontsite/Home/Sections/SectionInstallation';

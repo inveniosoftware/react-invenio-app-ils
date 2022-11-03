@@ -7,14 +7,19 @@ import { Container } from 'semantic-ui-react';
 import { SectionInstallation } from './SectionInstallation';
 import { SectionServices } from './SectionServices';
 import SectionTags from './SectionTags';
+import Overridable from 'react-overridable';
 
 export default class SectionsWrapper extends Component {
   render() {
     const { size } = this.props;
     return (
       <Container fluid className="fs-landing-page-section-wrapper">
-        <SectionServices />
-        <SectionInstallation />
+        <Overridable id="SectionsWrapper.servicesInstallationSections">
+          <>
+            <SectionServices />
+            <SectionInstallation />
+          </>
+        </Overridable>
         <Container fluid id="recent-books">
           <Container textAlign="center" className="fs-landing-page-section">
             <DocumentCardGroup
