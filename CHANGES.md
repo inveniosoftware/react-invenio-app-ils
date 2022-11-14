@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.75 (released 2022-11-14)
+
+- Make homepage components overridable
+
 Version 1.0.0-alpha.74 (released 2022-10-25)
 
 - upgrade to RSK@2.x
