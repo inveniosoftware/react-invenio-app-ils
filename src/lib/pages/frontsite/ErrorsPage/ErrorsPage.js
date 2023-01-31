@@ -4,6 +4,7 @@ import {
   NotFound,
   HttpErrorComponent,
   TooManyRequests,
+  Unauthorized,
 } from '@components/HttpErrors';
 
 export class ErrorsPage extends Component {
@@ -26,6 +27,8 @@ export class ErrorsPage extends Component {
             icon="compass outline"
           />
         );
+      } else if (params.errorCode === 403) {
+        return <Unauthorized />;
       } else if (params.errorCode === 429) {
         return <TooManyRequests />;
       }
