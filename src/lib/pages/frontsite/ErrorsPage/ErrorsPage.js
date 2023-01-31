@@ -3,6 +3,7 @@ import {
   InternalServerError,
   NotFound,
   TooManyRequests,
+  Unauthorized,
 } from '@components/HttpErrors';
 
 export class ErrorsPage extends Component {
@@ -17,6 +18,8 @@ export class ErrorsPage extends Component {
         return <InternalServerError />;
       } else if (params.errorCode === 404) {
         return <NotFound />;
+      } else if (params.errorCode === 403) {
+        return <Unauthorized />;
       } else if (params.errorCode === 429) {
         return <TooManyRequests />;
       }
