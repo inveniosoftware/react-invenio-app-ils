@@ -1,6 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Icon, Divider } from 'semantic-ui-react';
+import React from 'react';
+import { Divider, Grid, Icon } from 'semantic-ui-react';
 
 export const PatronShowLink = ({
   items,
@@ -17,12 +17,12 @@ export const PatronShowLink = ({
           {!allHits ? (
             <>
               <Divider hidden />
-              <a href="javascript:void(0)" onClick={() => onShowAllClick()}>
+              <a href="#!" onClick={onShowAllClick}>
                 SHOW ALL <Icon name="caret right" />
               </a>
             </>
           ) : (
-            <a href="javascript:void(0)" onClick={() => onShowLessClick()}>
+            <a href="#!" onClick={onShowLessClick}>
               SHOW LESS <Icon name="caret right" />
             </a>
           )}

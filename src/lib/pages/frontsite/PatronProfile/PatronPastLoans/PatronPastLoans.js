@@ -1,14 +1,14 @@
 import { Error } from '@components/Error';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
+import { DateTime } from 'luxon';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container, Header, Label } from 'semantic-ui-react';
 import LoansList from '../LoansList';
-import LoansListItem from '../LoansListEntry';
-import { DateTime } from 'luxon';
+import LoansListEntry from '../LoansListEntry';
 
-class LoansListEntry extends Component {
+class PastLoansListEntry extends Component {
   renderLabels = (startDate, endDate, transactionDate, state) => {
     if (state === 'CANCELLED') {
       return (
@@ -40,8 +40,9 @@ class LoansListEntry extends Component {
     const { loan } = this.props;
 
     return (
-      <LoansListItem
+      <LoansListEntry
         loan={loan}
+        withLinking={false}
         extraItemProps={{
           itemMetaCmp: this.renderLabels(
             loan.metadata.start_date,
@@ -55,7 +56,7 @@ class LoansListEntry extends Component {
   }
 }
 
-LoansListEntry.propTypes = {
+PastLoansListEntry.propTypes = {
   loan: PropTypes.object.isRequired,
 };
 
@@ -104,7 +105,7 @@ export default class PatronPastLoans extends Component {
                 );
               }}
               rowsPerPage={rowsPerPage}
-              renderListEntry={(loan) => <LoansListEntry loan={loan} />}
+              renderListEntry={(loan) => <PastLoansListEntry loan={loan} />}
               noLoansCmp={
                 <InfoMessage
                   title="No past loans"

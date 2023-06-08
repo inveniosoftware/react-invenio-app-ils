@@ -520,3 +520,7 @@ a {
 .ui.form .grouped.fields .field {
   margin: 0 !important;
 }
+
+.float-right {
+  float: right;
+}

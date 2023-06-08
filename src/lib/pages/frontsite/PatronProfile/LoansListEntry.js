@@ -6,12 +6,13 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
-import { Grid, Item } from 'semantic-ui-react';
+import { Grid, Icon, Item, Popup } from 'semantic-ui-react';
 
 export default class LoansListEntry extends Component {
   render() {
     const {
       loan,
+      withLinking,
       extraItemProps: {
         itemClass,
         itemHeaderCmp,
@@ -27,20 +28,33 @@ export default class LoansListEntry extends Component {
     const documentPublicationYear = document.publicationYear;
     const documentAuthors = document.authors;
     const coverUrl = _get(document, 'cover_metadata.urls.medium');
+    // option links props
+    const linkToProp = withLinking
+      ? { linkTo: FrontSiteRoutes.documentDetailsFor(documentPid) }
+      : null;
+    const toProp = withLinking
+      ? { as: Link, to: FrontSiteRoutes.documentDetailsFor(documentPid) }
+      : null;
+    const searchForLiterature = !withLinking ? (
+      <Popup
+        content="Search for this literature in the catalogue. Note that it may no longer be available."
+        trigger={
+          <div className="float-right">
+            <Link
+              to={FrontSiteRoutes.documentsListWithQuery(`"${documentTitle}"`)}
+            >
+              <Icon name="search" />
+            </Link>
+          </div>
+        }
+      />
+    ) : null;
     return (
       <Overridable id="LoansListEntry.layout" {...this.props}>
         <Item className={itemClass} key={loan.pid}>
-          <LiteratureCover
-            asItem
-            linkTo={FrontSiteRoutes.documentDetailsFor(documentPid)}
-            size="tiny"
-            url={coverUrl}
-          />
+          <LiteratureCover asItem size="tiny" url={coverUrl} {...linkToProp} />
           <Item.Content>
-            <Item.Header
-              as={Link}
-              to={FrontSiteRoutes.documentDetailsFor(documentPid)}
-            >
+            <Item.Header {...toProp}>
               <LiteratureTitle
                 title={documentTitle}
                 edition={documentEdition}
@@ -48,6 +62,8 @@ export default class LoansListEntry extends Component {
               />
               {itemHeaderCmp}
             </Item.Header>
+
+            {searchForLiterature}
 
             <Grid columns={2}>
               <Grid.Column mobile={16} tablet={8} computer={10}>
@@ -77,6 +93,7 @@ export default class LoansListEntry extends Component {
 
 LoansListEntry.propTypes = {
   loan: PropTypes.object.isRequired,
+  withLinking: PropTypes.bool,
   extraItemProps: PropTypes.shape({
     itemClass: PropTypes.string,
     itemHeaderCmp: PropTypes.element,
@@ -87,6 +104,7 @@ LoansListEntry.propTypes = {
 };
 
 LoansListEntry.defaultProps = {
+  withLinking: true,
   extraItemProps: {
     itemClass: null,
     itemHeaderCmp: null,

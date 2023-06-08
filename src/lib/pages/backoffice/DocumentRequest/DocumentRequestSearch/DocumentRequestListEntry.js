@@ -48,7 +48,7 @@ export class DocumentRequestListEntry extends Component {
               )}
               {documentRequest.metadata.isbn && (
                 <>
-                  <label>ISBN</label> {documentRequest.metadata.issn}
+                  <label>ISBN</label> {documentRequest.metadata.isbn}
                 </>
               )}
             </Grid.Column>

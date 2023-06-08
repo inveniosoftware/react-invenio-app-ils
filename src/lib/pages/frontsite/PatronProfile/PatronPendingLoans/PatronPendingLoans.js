@@ -258,7 +258,8 @@ export default class PatronPendingLoans extends Component {
     this.setState({ isSuccessMessageVisible: false, successMessage: '' });
   };
 
-  onShowAll = () => {
+  onShowAll = (e) => {
+    e.preventDefault();
     const { patronPid, fetchPatronPendingLoans } = this.props;
     fetchPatronPendingLoans(patronPid, {
       page: 1,
@@ -266,7 +267,8 @@ export default class PatronPendingLoans extends Component {
     });
   };
 
-  onShowLess = () => {
+  onShowLess = (e) => {
+    e.preventDefault();
     this.fetchPatronPendingLoans();
   };
 
