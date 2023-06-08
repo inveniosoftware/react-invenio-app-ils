@@ -5,6 +5,7 @@ import { Error } from '@components/Error';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import { invenioConfig } from '@config';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
 import _startCase from 'lodash/startCase';
@@ -14,9 +15,8 @@ import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Button, Grid, Header, Message, Popup } from 'semantic-ui-react';
 import PatronCancelModal from '../PatronCancelModal';
-import { PatronShowLink } from '../PatronShowLink';
 import { PatronPagination } from '../PatronPagination';
-import { invenioConfig } from '@config';
+import { PatronShowLink } from '../PatronShowLink';
 
 class ButtonCancelRequest extends Component {
   constructor(props) {
@@ -228,7 +228,8 @@ class PatronCurrentDocumentRequests extends Component {
     this.setState({ isSuccessMessageVisible: false, successMessage: '' });
   };
 
-  onShowAll = () => {
+  onShowAll = (e) => {
+    e.preventDefault();
     const { patronPid, fetchPatronDocumentRequests } = this.props;
     fetchPatronDocumentRequests(patronPid, {
       page: 1,
@@ -236,7 +237,8 @@ class PatronCurrentDocumentRequests extends Component {
     });
   };
 
-  onShowLess = () => {
+  onShowLess = (e) => {
+    e.preventDefault();
     this.fetchPatronDocumentRequests();
   };
 

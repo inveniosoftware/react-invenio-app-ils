@@ -2,7 +2,6 @@ import { dateFormatter } from '@api/date';
 import { Error } from '@components/Error';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
-import { PatronPagination } from '../PatronPagination';
 import { Pagination } from '@components/Pagination';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
@@ -12,7 +11,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
-import { Header } from 'semantic-ui-react';
+import { Header, Icon, Popup } from 'semantic-ui-react';
+import { PatronPagination } from '../PatronPagination';
 
 class PatronPastDocumentRequests extends Component {
   constructor(props) {
@@ -59,11 +59,24 @@ class PatronPastDocumentRequests extends Component {
     if (row.metadata.state !== 'ACCEPTED') {
       return _startCase(row.metadata.state.toLowerCase());
     }
-    return (
-      <Link to={FrontSiteRoutes.documentDetailsFor(row.metadata.document_pid)}>
-        <LiteratureTitle title={row.metadata.document.title} />
-      </Link>
-    );
+    return <LiteratureTitle title={row.metadata.document.title} />;
+  };
+
+  searchLinkFormatter = ({ row }) => {
+    return row.metadata.state === 'ACCEPTED' ? (
+      <Popup
+        content="Search for this literature in the catalogue. Note that it may no longer be available."
+        trigger={
+          <Link
+            to={FrontSiteRoutes.documentsListWithQuery(
+              `"${row.metadata.document.title}"`
+            )}
+          >
+            <Icon name="search" />
+          </Link>
+        }
+      />
+    ) : null;
   };
 
   renderNoResults = () => {
@@ -85,6 +98,11 @@ class PatronPastDocumentRequests extends Component {
         title: 'Library Book',
         field: 'metadata.state',
         formatter: this.libraryBookFormatter,
+      },
+      {
+        title: '',
+        field: 'metadata.state',
+        formatter: this.searchLinkFormatter,
       },
       { title: 'Created', field: 'created', formatter: dateFormatter },
     ];

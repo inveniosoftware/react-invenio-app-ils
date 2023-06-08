@@ -2,14 +2,14 @@ import { sessionManager } from '@authentication/services/SessionManager';
 import { Error } from '@components/Error';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';
 import { InfoMessage } from '@components/InfoMessage';
+import { invenioConfig } from '@config';
 import { PatronBulkExtendLoans } from '@modules/Patron/PatronBulkExtendLoans';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container, Grid, Header, Message } from 'semantic-ui-react';
 import LoansList from '../LoansList';
-import LoansListEntry from './LoansListEntry';
 import { PatronShowLink } from '../PatronShowLink';
-import { invenioConfig } from '@config';
+import LoansListEntry from './LoansListEntry';
 
 export default class PatronCurrentLoans extends Component {
   constructor(props) {
@@ -41,7 +41,8 @@ export default class PatronCurrentLoans extends Component {
     this.setState({ isSuccessMessageVisible: false, successMessage: '' });
   };
 
-  onShowAll = () => {
+  onShowAll = (e) => {
+    e.preventDefault();
     const { patronPid, fetchPatronCurrentLoans } = this.props;
     fetchPatronCurrentLoans(patronPid, {
       page: 1,
@@ -49,7 +50,8 @@ export default class PatronCurrentLoans extends Component {
     });
   };
 
-  onShowLess = () => {
+  onShowLess = (e) => {
+    e.preventDefault();
     this.fetchPatronCurrentLoans();
   };
 
@@ -85,10 +87,9 @@ export default class PatronCurrentLoans extends Component {
         <Grid>
           <Grid.Column computer={4} tablet={8} mobile={16} floated="right">
             <PatronBulkExtendLoans
-              currentLoans={loans}
-              color="orange"
-              hidden={loans.total === 0}
               patronPid={currentUser.id}
+              hidden={loans.total === 0}
+              color="orange"
             />
           </Grid.Column>
         </Grid>

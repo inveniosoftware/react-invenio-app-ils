@@ -1,6 +1,6 @@
 import { invenioConfig } from '@config/index';
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Button, Icon, List, Modal } from 'semantic-ui-react';
 
 export default class PatronBulkExtendLoans extends Component {
@@ -17,7 +17,7 @@ export default class PatronBulkExtendLoans extends Component {
   };
 
   render() {
-    const { patronPid, bulkLoanExtension, isLoading, hidden, ...props } =
+    const { patronPid, bulkLoanExtension, isLoading, hidden, ...uiProps } =
       this.props;
     const { open } = this.state;
     return (
@@ -33,7 +33,7 @@ export default class PatronBulkExtendLoans extends Component {
               icon
               primary
               loading={isLoading}
-              {...props}
+              {...uiProps}
             >
               <Icon name="refresh" />
               Extend all loans
@@ -81,4 +81,5 @@ PatronBulkExtendLoans.propTypes = {
 
 PatronBulkExtendLoans.defaultProps = {
   isLoading: false,
+  hidden: true,
 };
