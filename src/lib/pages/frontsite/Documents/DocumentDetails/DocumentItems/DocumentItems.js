@@ -76,8 +76,9 @@ class DocumentItems extends Component {
       documentDetails: {
         metadata: { items },
       },
+      documentDetails,
     } = this.props;
-
+    console.log('test', this.props);
     const internalLocationsComponent = (
       <DocumentTabs locationsObject={this.filteredLocations} />
     );
@@ -101,7 +102,12 @@ class DocumentItems extends Component {
 
     return (
       <>
-        <Divider horizontal>Where to find</Divider>
+        <Overridable
+          id="DocumentDetails.DocumentItems.header"
+          document={documentDetails}
+        >
+          <Divider horizontal>Where to find</Divider>
+        </Overridable>
         {componentToShow}
       </>
     );

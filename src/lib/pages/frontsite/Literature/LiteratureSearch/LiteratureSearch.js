@@ -82,6 +82,7 @@ class LiteratureSearch extends Component {
                     <SearchGuideLink />
                   </Container>
                 </Container>
+                <Overridable id="LiteratureSearch.results.header" />
                 <Media greaterThanOrEqual="computer">
                   <Container fluid className="fs-search-body">
                     <Grid
