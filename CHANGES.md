@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.77(released 2023-10-19)
+
+- frontsite: add overridable cmps
+
 Version 1.0.0-alpha.76(released 2023-06-22)
 
 - patron: past loans are not clickable
