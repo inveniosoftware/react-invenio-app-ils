@@ -78,7 +78,6 @@ class DocumentItems extends Component {
       },
       documentDetails,
     } = this.props;
-    console.log('test', this.props);
     const internalLocationsComponent = (
       <DocumentTabs locationsObject={this.filteredLocations} />
     );
