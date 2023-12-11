@@ -24,8 +24,13 @@ export default class ItemsSearch extends Component {
   };
 
   executeSearch = async (queryString, patronPid) => {
-    const { queryString: propsQueryString, fetchAndCheckoutIfOne } = this.props;
+    const {
+      queryString: propsQueryString,
+      patronDetails,
+      fetchAndCheckoutIfOne,
+    } = this.props;
     queryString = queryString || propsQueryString;
+    patronPid = patronPid || patronDetails.user_pid;
 
     // eslint-disable-next-line react/no-unused-state
     this.setState({ prevSearchQuery: queryString, executedSearch: true }, () =>
