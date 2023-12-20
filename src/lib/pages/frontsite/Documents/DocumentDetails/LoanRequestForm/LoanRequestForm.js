@@ -107,10 +107,13 @@ class LoanRequestForm extends Component {
 
   renderOptionalRequestExpirationDate = () => {
     const today = DateTime.local();
-    const initialDate = new DateTime(today.plus({ days: 10 }));
-    const max = new DateTime(
-      today.plus({ days: invenioConfig.CIRCULATION.requestDuration })
+    const min = new DateTime(
+      today.plus({ days: invenioConfig.CIRCULATION.requestStartOffset })
     );
+    const max = new DateTime(
+      min.plus({ days: invenioConfig.CIRCULATION.requestDuration })
+    );
+    const initialDate = new DateTime(min.plus({ days: 10 }));
     const { activeDeliveryDate } = this.state;
     return (
       <Form.Field>
@@ -127,7 +130,7 @@ class LoanRequestForm extends Component {
           <LocationDatePicker
             locationPid={sessionManager.user.locationPid}
             initialDate={toShortDate(initialDate)}
-            minDate={toShortDate(today)}
+            minDate={toShortDate(min)}
             maxDate={toShortDate(max)}
             placeholder="Choose the date"
             handleDateChange={this.handleRequestEndDateChange}
