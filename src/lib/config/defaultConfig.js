@@ -181,6 +181,7 @@ export const RECORDS_CONFIG = {
     ],
     loanCompletedStates: ['ITEM_RETURNED', 'CANCELLED'],
     loanRequestStates: ['PENDING'],
+    requestStartOffset: 0,
     requestDuration: 60,
     statuses: [
       {
