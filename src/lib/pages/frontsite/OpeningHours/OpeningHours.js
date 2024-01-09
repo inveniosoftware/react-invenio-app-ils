@@ -55,7 +55,9 @@ class OpeningHours extends Component {
     const { error, isLoading } = this.props;
     return (
       <Container className="spaced">
-        <Header as="h2">Opening hours</Header>
+        <Overridable id="OpeningHours.details">
+          <Header as="h2">Opening hours</Header>
+        </Overridable>
         <Loader isLoading={isLoading}>
           <Error error={error}>
             <Grid>{this.renderItems()}</Grid>
