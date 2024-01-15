@@ -27,8 +27,13 @@ import {
 import { OrderInformation } from './OrderInformation';
 import { OrderLines } from './OrderLines';
 import { OrderStatistics } from './OrderStatistics';
-import { PaymentInformation } from './PaymentInformation';
+import {
+  PaymentInformation,
+  leftPaymentTable,
+  rightPaymentTable,
+} from './PaymentInformation';
 import { OrderSteps } from './OrderSteps';
+import Overridable from 'react-overridable';
 
 class OrderHeader extends React.Component {
   renderStatus(status) {
@@ -150,7 +155,13 @@ class OrderPanels extends React.Component {
           Payment Information
         </Header>
         <Segment attached className="bo-metadata-segment">
-          <PaymentInformation order={data.metadata} />
+          <Overridable id="Acquisition.OrderDetails.PaymentInformation">
+            <PaymentInformation
+              order={data.metadata}
+              leftTable={leftPaymentTable(data.metadata)}
+              rightTable={rightPaymentTable(data.metadata)}
+            />
+          </Overridable>
         </Segment>
         <Header as="h3" attached="top">
           Order lines
