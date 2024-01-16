@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Divider, Grid, Icon, Item, Message, Popup } from 'semantic-ui-react';
+import Overridable from 'react-overridable';
 
 const OrderLineLeftColumn = ({ line }) => {
   return (
@@ -98,7 +99,7 @@ OrderLineRightColumn.propTypes = {
   line: PropTypes.object.isRequired,
 };
 
-const OrderLine = ({ line }) => {
+export const OrderLine = ({ line, LeftColumn, MiddleColumn, RightColumn }) => {
   return (
     <Item>
       <Item.Content>
@@ -112,13 +113,13 @@ const OrderLine = ({ line }) => {
         <Divider />
         <Grid columns={3}>
           <Grid.Column>
-            <OrderLineLeftColumn line={line} />
+            <LeftColumn line={line} />
           </Grid.Column>
           <Grid.Column>
-            <OrderLineMiddleColumn line={line} />
+            <MiddleColumn line={line} />
           </Grid.Column>
           <Grid.Column>
-            <OrderLineRightColumn line={line} />
+            <RightColumn line={line} />
           </Grid.Column>
         </Grid>
       </Item.Content>
@@ -128,7 +129,18 @@ const OrderLine = ({ line }) => {
 
 OrderLine.propTypes = {
   line: PropTypes.object.isRequired,
+  LeftColumn: PropTypes.element,
+  MiddleColumn: PropTypes.element,
+  RightColumn: PropTypes.element,
 };
+
+OrderLine.defaultProps = {
+  LeftColumn: OrderLineLeftColumn,
+  MiddleColumn: OrderLineMiddleColumn,
+  RightColumn: OrderLineRightColumn,
+};
+
+export default Overridable.component('Acquisition.OrderLine', OrderLine);
 
 export class OrderLines extends React.Component {
   render() {
