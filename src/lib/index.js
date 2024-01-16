@@ -46,4 +46,4 @@ export { Pagination } from '@components/Pagination';
 export { SeparatedList } from '@components/SeparatedList';
 export { SectionServices } from '@pages/frontsite/Home/Sections/SectionServices';
 export { SectionInstallation } from '@pages/frontsite/Home/Sections/SectionInstallation';
-export { PaymentInformation } from '@pages/backoffice/Acquisition/Order/OrderDetails/PaymentInformation';
+export { PaymentInformation } from '@components/backoffice/PaymentInformation';

@@ -6,9 +6,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Grid, Icon, Popup } from 'semantic-ui-react';
 import { max } from 'lodash';
+// import Overridable from 'react-overridable';
 
-export function leftPaymentTable(order) {
+export function leftPaymentTable(order, type = 'acquisition-order') {
   const { payment } = order;
+  if (type === 'borrowing-request') {
+    order.grand_total = order.total;
+    order.grand_total_main_currency = order.total_main_currency;
+  }
   return [
     {
       name: `Total (${invenioConfig.APP.DEFAULT_CURRENCY})`,
@@ -21,7 +26,7 @@ export function leftPaymentTable(order) {
           : 'Total',
       value: formatPrice(order.grand_total) || '-',
     },
-    { name: 'Mode', value: payment.mode },
+    { name: 'Payment Mode', value: payment.mode },
     {
       name: (
         <>
@@ -38,7 +43,7 @@ export function leftPaymentTable(order) {
   ];
 }
 
-export function rightPaymentTable(order) {
+export function rightPaymentTable(order, type = 'acquisition-order') {
   const { payment } = order;
   return [
     {
@@ -56,17 +61,21 @@ export function rightPaymentTable(order) {
       name: 'Debit date',
       value: payment.debit_date ? payment.debit_date : '-',
     },
-    { name: 'Funds', value: order.funds ? order.funds.join(', ') : '-' },
+    type === 'borrowing-request'
+      ? { name: 'Funds', value: order.funds ? order.funds.join(', ') : '-' }
+      : { name: 'Internal budget', value: payment.budget_code },
   ];
 }
 
 export class PaymentInformation extends React.Component {
   render() {
-    const { order, leftTable, rightTable } = this.props;
+    const { order, type, renderLeftTable, renderRightTable } = this.props;
     const { payment } = order;
-
     if (payment === undefined)
       return <InfoMessage title="There is no payment information" />;
+
+    const leftTable = renderLeftTable(order, type);
+    const rightTable = renderRightTable(order, type);
 
     const gridLength = max([leftTable.length, rightTable.length]);
 
@@ -87,6 +96,17 @@ export class PaymentInformation extends React.Component {
 
 PaymentInformation.propTypes = {
   order: PropTypes.object.isRequired,
-  leftTable: PropTypes.array.isRequired,
-  rightTable: PropTypes.array.isRequired,
+  type: PropTypes.object.isRequired,
+  renderLeftTable: PropTypes.array,
+  renderRightTable: PropTypes.array,
 };
+
+PaymentInformation.defaultProps = {
+  renderLeftTable: leftPaymentTable,
+  renderRightTable: rightPaymentTable,
+};
+
+// export default Overridable.component(
+//   'Acquisition.OrderDetails.PaymentInformation',
+//   PaymentInformation
+// );
