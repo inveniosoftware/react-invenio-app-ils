@@ -140,8 +140,6 @@ OrderLine.defaultProps = {
   RightColumn: OrderLineRightColumn,
 };
 
-export default Overridable.component('Acquisition.OrderLine', OrderLine);
-
 export class OrderLines extends React.Component {
   render() {
     const { lines } = this.props;
@@ -154,7 +152,13 @@ export class OrderLines extends React.Component {
     return (
       <Item.Group divided className="bo-order-lines" id="order-lines">
         {lines.map((line, index) => (
-          <OrderLine key={line.document_pid} index={index} line={line} />
+          <Overridable
+            id="Acquisition.OrderLine"
+            key={line.document_pid}
+            index={index}
+          >
+            <OrderLine line={line} />
+          </Overridable>
         ))}
       </Item.Group>
     );
