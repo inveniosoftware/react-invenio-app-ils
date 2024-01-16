@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Grid, Icon, Popup } from 'semantic-ui-react';
 import { max } from 'lodash';
-// import Overridable from 'react-overridable';
 
 export function leftPaymentTable(order, type = 'acquisition-order') {
   const { payment } = order;
@@ -105,8 +104,3 @@ PaymentInformation.defaultProps = {
   renderLeftTable: leftPaymentTable,
   renderRightTable: rightPaymentTable,
 };
-
-// export default Overridable.component(
-//   'Acquisition.OrderDetails.PaymentInformation',
-//   PaymentInformation
-// );
