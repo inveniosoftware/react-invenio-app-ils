@@ -47,3 +47,4 @@ export { SeparatedList } from '@components/SeparatedList';
 export { SectionServices } from '@pages/frontsite/Home/Sections/SectionServices';
 export { SectionInstallation } from '@pages/frontsite/Home/Sections/SectionInstallation';
 export { PaymentInformation } from '@components/backoffice/PaymentInformation';
+export { OrderLine } from '@pages/backoffice/Acquisition/Order/OrderDetails/OrderLines';
