@@ -48,7 +48,7 @@ class Loan extends React.Component {
         value: this.dateOrDefault(brwReqMetadata.received_date),
       },
       {
-        name: 'Due date',
+        name: invenioConfig.ILL_BORROWING_REQUESTS.fieldOverrides.due_date,
         value: this.dateOrDefault(brwReqMetadata.due_date),
       },
       {
