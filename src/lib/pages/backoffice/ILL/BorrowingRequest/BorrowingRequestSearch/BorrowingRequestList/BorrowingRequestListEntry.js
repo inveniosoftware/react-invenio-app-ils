@@ -1,4 +1,4 @@
-import { getDisplayVal } from '@config';
+import { getDisplayVal, invenioConfig } from '@config';
 import { ILLBorrowingRequestIcon } from '@components/backoffice/icons';
 import { BackOfficeRoutes, ILLRoutes, ProviderRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
@@ -27,7 +27,9 @@ export default class BorrowingRequestListEntry extends Component {
           </Link>
         </Item.Description>
         <Item.Description>
-          <label>due date </label>
+          <label>
+            {invenioConfig.ILL_BORROWING_REQUESTS.fieldOverrides.due_date}{' '}
+          </label>
           {dueDate ? dueDate : '-'}
         </Item.Description>
       </>

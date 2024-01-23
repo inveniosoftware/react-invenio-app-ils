@@ -1,4 +1,4 @@
-import { getDisplayVal } from '@config';
+import { getDisplayVal, invenioConfig } from '@config';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Statistic } from 'semantic-ui-react';
@@ -50,9 +50,10 @@ export class BorrowingRequestStatistics extends React.Component {
     const {
       brwReq: { due_date: dueDate },
     } = this.props;
+    const title = invenioConfig.ILL_BORROWING_REQUESTS.fieldOverrides.due_date;
     return (
       <Statistic>
-        <Statistic.Label>Due date</Statistic.Label>
+        <Statistic.Label>{title}</Statistic.Label>
         <Statistic.Value>{dueDate ? dueDate : '-'}</Statistic.Value>
       </Statistic>
     );

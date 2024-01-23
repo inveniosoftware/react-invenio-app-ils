@@ -431,6 +431,9 @@ export const RECORDS_CONFIG = {
     loanMaxDuration: 180,
     statuses: ILL_BORROWING_REQUESTS_STATUSES,
     defaultType: 'PHYSICAL_COPY',
+    fieldOverrides: {
+      due_date: 'Due Date',
+    },
     search: {
       filters: [
         {

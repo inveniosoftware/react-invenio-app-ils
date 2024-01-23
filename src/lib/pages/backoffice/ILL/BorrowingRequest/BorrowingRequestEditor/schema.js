@@ -89,7 +89,7 @@ export const schema = () => {
       },
       due_date: {
         format: 'date',
-        title: 'Due date',
+        title: invenioConfig.ILL_BORROWING_REQUESTS.fieldOverrides.due_date,
         type: 'string',
       },
       expected_delivery_date: {
