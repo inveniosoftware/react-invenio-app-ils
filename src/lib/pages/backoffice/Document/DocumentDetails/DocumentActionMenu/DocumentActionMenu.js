@@ -99,6 +99,10 @@ export default class DocumentActionMenu extends Component {
           />
           <ScrollingMenuItem elementId="document-siblings" label="Relations" />
           <ScrollingMenuItem
+            elementId="document-borrowing-requests"
+            label="Ongoing Interlibrary loans"
+          />
+          <ScrollingMenuItem
             elementId="document-purchase-orders"
             label="Purchase orders"
           />

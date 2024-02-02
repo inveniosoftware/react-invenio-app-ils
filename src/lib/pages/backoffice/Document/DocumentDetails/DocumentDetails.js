@@ -22,6 +22,7 @@ export default class DocumentDetails extends Component {
       attachedEItemsRef: React.createRef(),
       seriesRef: React.createRef(),
       relatedRef: React.createRef(),
+      borrowingRequestsRef: React.createRef(),
       purchaseOrdersRef: React.createRef(),
       statisticsRef: React.createRef(),
     };
