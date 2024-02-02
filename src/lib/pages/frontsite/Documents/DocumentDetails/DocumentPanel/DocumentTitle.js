@@ -2,6 +2,7 @@ import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header } from 'semantic-ui-react';
+import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 
 export class DocumentTitle extends Component {
   subtitle() {
@@ -22,7 +23,12 @@ export class DocumentTitle extends Component {
       <>
         {metadata.document_type}
         <Header as="h2" className="document-title">
-          {metadata.title}
+          <LiteratureTitle
+            title={metadata.title}
+            edition={metadata.edition}
+            publicationYear={metadata.publication_year}
+            truncate={false}
+          />
           {this.subtitle()}
         </Header>
       </>
