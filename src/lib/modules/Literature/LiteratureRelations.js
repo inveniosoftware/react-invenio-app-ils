@@ -54,16 +54,21 @@ export default class LiteratureRelations extends Component {
     const relations = _get(this.relations, 'edition', []);
     if (!relations.length) return null;
 
-    const items = relations.map((rel) => {
-      const edition = rel.record_metadata.edition;
-      return (
-        edition && (
-          <Link key={rel.pid_value} to={this.getLinkTo(rel)}>
-            <LiteratureEdition edition={edition} />
-          </Link>
-        )
-      );
-    });
+    const items = relations
+      .sort(
+        (rel1, rel2) =>
+          rel1.record_metadata.edition - rel2.record_metadata.edition
+      )
+      .map((rel) => {
+        const edition = rel.record_metadata.edition;
+        return (
+          edition && (
+            <Link key={rel.pid_value} to={this.getLinkTo(rel)}>
+              <LiteratureEdition edition={edition} />
+            </Link>
+          )
+        );
+      });
 
     return (
       <List.Item>
