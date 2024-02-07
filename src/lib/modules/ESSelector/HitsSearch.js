@@ -65,52 +65,46 @@ export class HitsSearch extends Component {
     this.searchInputRef.focus();
   };
 
-  search = (searchQuery) => {
+  debouncedSearch = debounce(async (searchQuery) => {
     const {
       serializer,
       alwaysWildcard,
-      onResults,
-      delay,
       query: queryFunc,
+      onResults,
     } = this.props;
+    let results, hasError;
+    try {
+      const queryString = alwaysWildcard ? searchQuery + '*' : searchQuery;
+      const response = await queryFunc(queryString);
+      results = [];
 
-    const deb = debounce(async (searchQuery) => {
-      let results, hasError;
-      try {
-        const queryString = alwaysWildcard ? searchQuery + '*' : searchQuery;
-        const response = await queryFunc(queryString);
-        results = [];
-
-        if (serializer) {
-          for (let hit of response.data.hits) {
-            results.push(serializer(hit));
-          }
-          if (onResults) {
-            onResults(results);
-          }
-        } else {
-          results = response.data.hits;
+      if (serializer) {
+        for (let hit of response.data.hits) {
+          results.push(serializer(hit));
         }
-
-        hasError = false;
-      } catch (error) {
-        results = [serializeError(error)];
-        hasError = true;
+        if (onResults) {
+          onResults(results);
+        }
+      } else {
+        results = response.data.hits;
       }
 
-      this.setState(({ value }) =>
-        value === searchQuery
-          ? {
-              isLoading: false,
-              hasError,
-              results,
-            }
-          : {}
-      );
-    }, delay);
+      hasError = false;
+    } catch (error) {
+      results = [serializeError(error)];
+      hasError = true;
+    }
 
-    return deb(searchQuery);
-  };
+    this.setState(({ value }) =>
+      value === searchQuery
+        ? {
+            isLoading: false,
+            hasError,
+            results,
+          }
+        : {}
+    );
+  }, this.props.delay);
 
   onSearchChange = (event, { value }) => {
     const { onSearchChange, minCharacters } = this.props;
@@ -123,7 +117,7 @@ export class HitsSearch extends Component {
     }
 
     this.setState({ isLoading: true, value: value, results: [], open: true });
-    this.search(value);
+    this.debouncedSearch(value);
   };
 
   onFocus = (event, { value }) => {
