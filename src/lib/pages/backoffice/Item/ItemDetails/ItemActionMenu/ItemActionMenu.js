@@ -21,6 +21,11 @@ import _first from 'lodash/first';
 import _get from 'lodash/get';
 
 export default class ItemActionMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { checkOutOnEnter: false };
+  }
+
   checkOutDisabled() {
     const {
       item: { metadata },
@@ -107,9 +112,38 @@ export default class ItemActionMenu extends Component {
     checkoutItem(documentPid, itemPid, patronPid);
   };
 
-  onResults = (results) => {
-    if (!this.hasCheckOutItem() || results.length !== 1) return;
-    this.checkoutItem(results);
+  handleKeyPress = async (event) => {
+    if (event.key === 'Enter') {
+      this.setState({ checkOutOnEnter: true });
+    }
+  };
+
+  onSearchChange = (value) => {
+    // Update state to be false so that the item can't be checked out by pressing enter before the last character is entered
+    this.setState({ checkOutOnEnter: false });
+  };
+
+  onResults = (results, autoCheckOut = false) => {
+    if (!autoCheckOut) {
+      // If autoCheckOut is not passed or is false, rely on the checkOutOnEnter state
+      const { checkOutOnEnter } = this.state;
+      autoCheckOut = checkOutOnEnter;
+    }
+    if (autoCheckOut && this.hasCheckOutItem() && results.length === 1) {
+      this.checkoutItem(results);
+    }
+  };
+
+  patronSearch = (query) => {
+    return patronApi.list(
+      patronApi
+        .query()
+        .withPid(query)
+        .withEmail(query)
+        .withCustomField(query)
+        .qs(),
+      false
+    );
   };
 
   render() {
@@ -136,8 +170,10 @@ export default class ItemActionMenu extends Component {
           autoSelect={hasCheckOutItem}
           minCharacters={hasCheckOutItem ? 1 : 3}
           onResults={this.onResults}
+          handleKeyPress={this.handleKeyPress}
+          onSearchChange={this.onSearchChange}
           trigger={this.checkoutItemButton()}
-          query={patronApi.list}
+          query={this.patronSearch}
           serializer={serializePatron}
           title={`You are about to checkout the physical copy with barcode ${item.metadata.barcode}.`}
           content="Insert patron id/email to create a loan:"
