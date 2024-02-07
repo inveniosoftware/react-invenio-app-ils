@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
-import { Icon, Search } from 'semantic-ui-react';
+import { Icon, Search, Input } from 'semantic-ui-react';
 import { serializeError } from './serializer';
 
 const initialState = {
@@ -165,10 +165,13 @@ export class HitsSearch extends Component {
       minCharacters,
       value: propsValue,
       placeholder,
+      handleKeyPress,
     } = this.props;
     const { patronSelectionError } = this.context;
     return (
       <Search
+        as={Input.input}
+        onKeyPress={handleKeyPress}
         fluid
         disabled={disabled}
         id={id}
@@ -200,6 +203,7 @@ HitsSearch.propTypes = {
   serializer: PropTypes.func,
   resultRenderer: PropTypes.func,
   onResults: PropTypes.func,
+  handleKeyPress: PropTypes.func,
   onSearchChange: PropTypes.func,
   id: PropTypes.string,
   name: PropTypes.string,

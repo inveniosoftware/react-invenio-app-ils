@@ -154,6 +154,7 @@ class ESSelector extends Component {
       serializer,
       onSearchChange,
       onResults,
+      handleKeyPress,
     } = this.props;
     const { selections } = this.state;
     return (
@@ -170,6 +171,7 @@ class ESSelector extends Component {
           focus={focus}
           serializer={serializer}
           onResults={onResults}
+          handleKeyPress={handleKeyPress}
           onSelect={this.onSelectResult}
           onSearchChange={onSearchChange}
           ref={(element) => (this.searchRef = element)}
@@ -201,6 +203,7 @@ ESSelector.propTypes = {
   query: PropTypes.func.isRequired,
   onSearchChange: PropTypes.func,
   onResults: PropTypes.func,
+  handleKeyPress: PropTypes.func,
   onSelectResult: PropTypes.func,
   onSelectionsUpdate: PropTypes.func,
   onRemoveSelection: PropTypes.func,
@@ -226,6 +229,7 @@ ESSelector.defaultProps = {
   emptySelectionInfoText: null,
   selectionInfoText: null,
   onResults: null,
+  handleKeyPress: null,
   focus: false,
   error: null,
   disabledMessage: '',
