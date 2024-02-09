@@ -26,7 +26,6 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
     { to: FrontSiteRoutes.home, label: 'Home' },
     { to: FrontSiteRoutes.documentsList, label: 'Search' },
   ];
-  console.log(series);
   return (
     <Overridable id="SeriesDetails.layout" {...{ error, isLoading, series }}>
       <Error boundary error={error}>

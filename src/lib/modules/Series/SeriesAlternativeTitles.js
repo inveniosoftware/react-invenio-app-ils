@@ -1,15 +1,18 @@
 import { InfoPopup } from '@components/InfoPopup';
 import capitalize from 'lodash/capitalize';
 import _isEmpty from 'lodash/isEmpty';
+import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Divider, Table } from 'semantic-ui-react';
 
 export const AlternativeTitle = ({ title }) => {
-  const type = capitalize(title.type.replace('_', ' '));
+  const titleType = capitalize(
+    _get(title, 'type', 'ALTERNATIVE_TITLE').replace('_', ' ')
+  );
   return (
     <Table.Row>
-      <Table.Cell width={4}>{type}</Table.Cell>
+      <Table.Cell width={4}>{titleType}</Table.Cell>
       <Table.Cell>
         {title.value}
         {title.language && (

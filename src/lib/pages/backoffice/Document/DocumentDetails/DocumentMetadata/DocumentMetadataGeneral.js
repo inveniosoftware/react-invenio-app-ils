@@ -70,9 +70,7 @@ export class DocumentMetadataGeneral extends Component {
           <List bulleted>
             {document.metadata.alternative_titles.map((entry) => (
               <List.Item key={entry.value}>
-                <List.Content>
-                  {entry.value + '(' + entry.type + ')'}
-                </List.Content>
+                <List.Content>{entry.value}</List.Content>
               </List.Item>
             ))}
           </List>
