@@ -4,6 +4,7 @@ import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
 import { BackOfficeRoutes } from '@routes/urls';
 import get from 'lodash/get';
+import capitalize from 'lodash/capitalize';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -70,7 +71,15 @@ export class DocumentMetadataGeneral extends Component {
           <List bulleted>
             {document.metadata.alternative_titles.map((entry) => (
               <List.Item key={entry.value}>
-                <List.Content>{entry.value}</List.Content>
+                <List.Content>
+                  {entry.value +
+                    ' (' +
+                    capitalize(entry.type || 'ALTERNATIVE_TITLE').replace(
+                      '_',
+                      ' '
+                    ) +
+                    ')'}
+                </List.Content>
               </List.Item>
             ))}
           </List>
