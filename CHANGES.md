@@ -1,6 +1,11 @@
 # Changes
 
-Version 1.0.0-alpha.77(released 2023-10-19)
+Version 1.0.0-alpha.78 (released 2024-02-12)
+
+- backoffice: fix missing series type
+- add overridable component for opening hours page
+
+Version 1.0.0-alpha.77 (released 2023-10-19)
 
 - frontsite: add overridable cmps
 
