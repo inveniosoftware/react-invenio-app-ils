@@ -8,6 +8,7 @@ import _find from 'lodash/find';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Divider, Form, Grid } from 'semantic-ui-react';
+import { ignoreRJSFEnterEvent } from './utils';
 
 /**
  * Wrapper component to wrap the entire form or a specific field with a
@@ -236,6 +237,7 @@ ObjectFieldTemplateWrapperGrid.defaultProps = {};
  */
 export function ArrayFieldTemplateWithWrapper(props) {
   const { children, uiSchema } = props;
+  ignoreRJSFEnterEvent(document);
 
   return (
     <Wrapper uiSchema={uiSchema}>
