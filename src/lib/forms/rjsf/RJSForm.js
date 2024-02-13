@@ -24,6 +24,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Confirm, Container, Divider } from 'semantic-ui-react';
 import { removeEmptyValues } from './RecordSerializer';
+import { ignoreRJSFEnterEvent } from './utils';
 
 const customWidgets = {
   CheckboxWidget: RJSFCheckboxWidget,
@@ -57,23 +58,8 @@ export class RJSForm extends Component {
   }
 
   componentDidMount() {
-    const inputs = document.getElementsByTagName('input');
-
-    this.ignoreEnterEvent(inputs);
+    ignoreRJSFEnterEvent(document);
   }
-
-  ignoreEnterEvent = (inputElements) => {
-    /* For unknown reasons empty fields are spawned when pressing
-    the 'enter' key inside a RJSF input element so we have to manually prevent it*/
-
-    for (const input of inputElements) {
-      const isRJSFInput = input.id.includes('root');
-      if (isRJSFInput) {
-        input.onkeydown = (event) =>
-          event.key === 'Enter' ? event.preventDefault() : null;
-      }
-    }
-  };
 
   getGenericError(message) {
     return { Error: { __errors: [message] } };
