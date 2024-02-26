@@ -43,7 +43,8 @@ const createLoan = async (borrowingRequestPid, loanStartDate, loanEndDate) => {
 
 const requestExtension = async (borrowingRequestPid) => {
   const resp = await http.post(
-    `${borrowingRequestUrl}${borrowingRequestPid}/patron-loan/extension/request`
+    `${borrowingRequestUrl}${borrowingRequestPid}/patron-loan/extension/request`,
+    {}
   );
   return resp;
 };
@@ -63,7 +64,8 @@ const acceptExtension = async (borrowingRequestPid, loanEndDate) => {
 
 const declineExtension = async (borrowingRequestPid) => {
   const resp = await http.post(
-    `${borrowingRequestUrl}${borrowingRequestPid}/patron-loan/extension/decline`
+    `${borrowingRequestUrl}${borrowingRequestPid}/patron-loan/extension/decline`,
+    {}
   );
   return resp;
 };
