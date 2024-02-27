@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.79 (released 2024-02-27)
+
+- frontsite: fix ILL requests
+
 Version 1.0.0-alpha.78 (released 2024-02-12)
 
 - backoffice: fix missing series type
