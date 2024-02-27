@@ -4,6 +4,7 @@ import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
+import { Truncate } from '@components/Truncate';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -37,12 +38,19 @@ export default class PatronDocumentRequests extends Component {
     );
   };
 
+  truncateTitle = ({ row }) => {
+    return <Truncate> {row.metadata.title} </Truncate>;
+  };
+
   render() {
     const { data, isLoading, error, showMaxDocumentRequests } = this.props;
     const columns = [
       { title: 'Request', formatter: this.viewDetails },
       { title: 'Document', field: 'metadata.document_pid' },
-      { title: 'Title', field: 'metadata.title' },
+      {
+        title: 'Title',
+        formatter: this.truncateTitle,
+      },
       { title: 'State', field: 'metadata.state' },
       { title: 'Created on ', field: 'created', formatter: dateFormatter },
     ];
