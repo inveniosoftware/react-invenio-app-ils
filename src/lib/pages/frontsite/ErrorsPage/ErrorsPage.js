@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   InternalServerError,
   NotFound,
+  HttpErrorComponent,
   TooManyRequests,
 } from '@components/HttpErrors';
 
@@ -17,6 +18,14 @@ export class ErrorsPage extends Component {
         return <InternalServerError />;
       } else if (params.errorCode === 404) {
         return <NotFound />;
+      } else if (params.errorCode === 410) {
+        return (
+          <HttpErrorComponent
+            title="Resource No Longer Available"
+            message="The requested content has been removed."
+            icon="compass outline"
+          />
+        );
       } else if (params.errorCode === 429) {
         return <TooManyRequests />;
       }
