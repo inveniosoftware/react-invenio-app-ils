@@ -4,12 +4,17 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Container, Message } from 'semantic-ui-react';
 import { DefaultFallbackComponent } from './DefaultFallbackComponent';
+import { HTTP_STATUS_CODES_WITH_ERROR_PAGE } from '@api/base';
 
 export const isAPIError = (error) => {
   return get(error, 'response.data.message') !== undefined;
 };
 
-const shouldShowErrorPage = (error) => {
+export const shouldShowErrorPage = (error) => {
+  if (HTTP_STATUS_CODES_WITH_ERROR_PAGE.includes(error?.response?.status)) {
+    // If the error code has a dedicated error page, show the error page only
+    return true;
+  }
   if (isAPIError(error)) {
     // do not display the error in a full page, show the error only in the specific component (probably a notification).
     return false;
