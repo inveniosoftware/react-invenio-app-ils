@@ -60,22 +60,28 @@ ForbiddenComponent.defaultProps = defaultProps;
 
 export const Forbidden = Overridable.component('Forbidden', ForbiddenComponent);
 
-function NotFoundComponent(props) {
-  const {
-    title = 'Page Not Found',
-    message = 'The requested page could not be found.',
-    icon = 'compass outline',
-  } = props;
-  const newProps = { ...props, ...{ title, message, icon } };
-  return (
-    <Overridable id="NotFound.layout" {...newProps}>
-      <HttpError {...newProps} />
-    </Overridable>
-  );
+export class HttpErrorComponent extends React.Component {
+  render() {
+    return (
+      <Overridable id="HttpErrorComponent.layout" {...this.props}>
+        <HttpError {...this.props} />
+      </Overridable>
+    );
+  }
 }
 
-NotFoundComponent.propTypes = propTypes;
-NotFoundComponent.defaultProps = defaultProps;
+HttpErrorComponent.propTypes = propTypes;
+HttpErrorComponent.defaultProps = defaultProps;
+
+function NotFoundComponent(props) {
+  return (
+    <HttpErrorComponent
+      title="Page Not Found"
+      message="The requested page could not be found."
+      icon="compass outline"
+    />
+  );
+}
 
 export const NotFound = Overridable.component('NotFound', NotFoundComponent);
 

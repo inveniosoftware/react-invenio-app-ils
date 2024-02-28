@@ -2,6 +2,7 @@ export {
   Unauthorized,
   Forbidden,
   NotFound,
+  HttpErrorComponent,
   TooManyRequests,
   InternalServerError,
 } from './HttpErrors';
