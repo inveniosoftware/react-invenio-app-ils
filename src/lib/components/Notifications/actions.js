@@ -1,4 +1,4 @@
-import { isAPIError } from '@components/Error/Error';
+import { isAPIError, shouldShowErrorPage } from '@components/Error/Error';
 
 export const ADD = 'notifications/ADD';
 export const REMOVE = 'notifications/REMOVE';
@@ -6,6 +6,10 @@ export const CLEAR_ALL = 'notifications/CLEAR_ALL';
 
 export const sendErrorNotification = (error) => {
   return (dispatch) => {
+    if (shouldShowErrorPage(error)) {
+      // Don't send a notification if the error code has a dedicated page
+      return;
+    }
     if (isAPIError(error)) {
       const errorData = error.response.data;
       const { error_module: errorModule, message } = errorData;

@@ -11,7 +11,9 @@ const apiConfig = {
 };
 const http = axios.create(apiConfig);
 
+// List used to specify whether to redirect to route `/errors` & prevent a redundant error notifation
 const HTTP_STATUS_CODES_WITH_ERROR_PAGE = [404, 429, 500];
+// The corresponding dedicated error page components exist in `@pages/frontsite/ErrorPafe`
 const URLS_NOT_TO_REDIRECT_IF_UNAUTHORIZED = ['/me', '/me/loans'];
 // CSRF possible errors
 const CSRF_ERROR_REASON_NO_COOKIE = 'CSRF cookie';
@@ -82,4 +84,9 @@ const responseRejectInterceptor = (error) => {
 
 http.interceptors.response.use(undefined, responseRejectInterceptor);
 
-export { http, apiConfig, responseRejectInterceptor };
+export {
+  http,
+  apiConfig,
+  responseRejectInterceptor,
+  HTTP_STATUS_CODES_WITH_ERROR_PAGE,
+};
