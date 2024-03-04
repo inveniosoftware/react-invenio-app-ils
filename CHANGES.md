@@ -1,5 +1,27 @@
 # Changes
 
+Version 1.0.0-alpha.80 (released 2024-02-27)
+
+- frontsite: Use LiteratureTitle component to show edition and publication year in Document Title
+- backoffice: Search/Scan Barcode and auto checkout loan
+- modules: Fix debounced search by not redefining each render
+- backoffice: Add functionality to checkout using EnterKey
+- LoanRequestForm: Added loan request offset start date to be configurable
+- Acquisition: Make PaymentInformation Component Overridable
+- PaymentInformation: Extract PaymentInformation grid as a component and use in acquisition orders and borrowing requests
+- Acquisition: OrderDetails: Make OrderLine component Overridable
+- ILL: BorrowingRequest: Make Due date field name configurable
+- backoffice: Add table for Ongoing Interlibrary loans
+- api - ill: Pass empty json payload in POST request for extension actions
+- notifications: Don't display for codes with dedicated page
+- HttpErrors: Handle http 410 resource deleted with dedicated error page
+- forms: Extend ignoreEnterEvent for dynamically created text fields
+- DocumentDetails: Display volume number near title
+
+Version 1.0.0-alpha.79 (released 2024-02-27)
+
+- frontsite: fix ILL requests
+
 Version 1.0.0-alpha.78 (released 2024-02-12)
 
 - backoffice: fix missing series type
