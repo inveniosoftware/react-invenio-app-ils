@@ -22,7 +22,7 @@ exports[`PatronDocumentRequests tests should load the details component 1`] = `
             "title": "Document",
           },
           Object {
-            "field": "metadata.title",
+            "formatter": [Function],
             "title": "Title",
           },
           Object {
@@ -182,7 +182,7 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                       "title": "Document",
                     },
                     Object {
-                      "field": "metadata.title",
+                      "formatter": [Function],
                       "title": "Title",
                     },
                     Object {
@@ -285,7 +285,7 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                             "title": "Document",
                           },
                           Object {
-                            "field": "metadata.title",
+                            "formatter": [Function],
                             "title": "Title",
                           },
                           Object {
@@ -407,7 +407,7 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                             "title": "Document",
                           },
                           Object {
-                            "field": "metadata.title",
+                            "formatter": [Function],
                             "title": "Title",
                           },
                           Object {
@@ -532,7 +532,27 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                                   data-label="Title"
                                   data-test="2-documentRequest1"
                                 >
-                                  Test
+                                  <Truncate
+                                    lines={1}
+                                    width={null}
+                                  >
+                                    <span
+                                      style={
+                                        Object {
+                                          "WebkitBoxOrient": "vertical",
+                                          "WebkitLineClamp": 1,
+                                          "display": "-webkit-box",
+                                          "overflow": "hidden",
+                                          "textOverflow": "ellipsis",
+                                          "whiteSpace": "normal",
+                                        }
+                                      }
+                                    >
+                                       
+                                      Test
+                                       
+                                    </span>
+                                  </Truncate>
                                 </td>
                               </TableCell>
                               <TableCell
@@ -631,7 +651,27 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                                   data-label="Title"
                                   data-test="2-documentRequest2"
                                 >
-                                  Test
+                                  <Truncate
+                                    lines={1}
+                                    width={null}
+                                  >
+                                    <span
+                                      style={
+                                        Object {
+                                          "WebkitBoxOrient": "vertical",
+                                          "WebkitLineClamp": 1,
+                                          "display": "-webkit-box",
+                                          "overflow": "hidden",
+                                          "textOverflow": "ellipsis",
+                                          "whiteSpace": "normal",
+                                        }
+                                      }
+                                    >
+                                       
+                                      Test
+                                       
+                                    </span>
+                                  </Truncate>
                                 </td>
                               </TableCell>
                               <TableCell
@@ -780,7 +820,7 @@ exports[`PatronDocumentRequests tests should render show a message with no user 
                       "title": "Document",
                     },
                     Object {
-                      "field": "metadata.title",
+                      "formatter": [Function],
                       "title": "Title",
                     },
                     Object {
@@ -973,7 +1013,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                       "title": "Document",
                     },
                     Object {
-                      "field": "metadata.title",
+                      "formatter": [Function],
                       "title": "Title",
                     },
                     Object {
@@ -1076,7 +1116,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                             "title": "Document",
                           },
                           Object {
-                            "field": "metadata.title",
+                            "formatter": [Function],
                             "title": "Title",
                           },
                           Object {
@@ -1198,7 +1238,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                             "title": "Document",
                           },
                           Object {
-                            "field": "metadata.title",
+                            "formatter": [Function],
                             "title": "Title",
                           },
                           Object {
@@ -1306,7 +1346,27 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                   data-label="Title"
                                   data-test="2-documentRequest1"
                                 >
-                                  Test
+                                  <Truncate
+                                    lines={1}
+                                    width={null}
+                                  >
+                                    <span
+                                      style={
+                                        Object {
+                                          "WebkitBoxOrient": "vertical",
+                                          "WebkitLineClamp": 1,
+                                          "display": "-webkit-box",
+                                          "overflow": "hidden",
+                                          "textOverflow": "ellipsis",
+                                          "whiteSpace": "normal",
+                                        }
+                                      }
+                                    >
+                                       
+                                      Test
+                                       
+                                    </span>
+                                  </Truncate>
                                 </td>
                               </TableCell>
                               <TableCell

@@ -6,6 +6,7 @@ import {
   BackOfficeRoutes,
   ProviderRoutes,
 } from '@routes/urls';
+import { Truncate } from '@components/Truncate';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -159,18 +160,20 @@ export default class OrderListEntry extends Component {
             to={AcquisitionRoutes.orderDetailsFor(record.metadata.pid)}
             data-test={`navigate-${record.metadata.pid}`}
           >
-            <AcquisitionOrderIcon />
-            Order: {docTitle ? docTitle : record.metadata.pid}
+            <Truncate lines={2} width="500px">
+              <AcquisitionOrderIcon />
+              Order: {docTitle ? docTitle : record.metadata.pid}
+            </Truncate>
           </Item.Header>
           <Grid highlight={3}>
             <Grid.Column computer={5} largeScreen={5}>
               {this.renderLeftColumn(record)}
             </Grid.Column>
-            <Grid.Column computer={6} largeScreen={6}>
+            <Grid.Column computer={5} largeScreen={5}>
               {this.renderMiddleColumn(record)}
             </Grid.Column>
             <Grid.Column width={1} />
-            <Grid.Column computer={3} largeScreen={3}>
+            <Grid.Column computer={5} largeScreen={5}>
               {this.renderRightColumn(record)}
             </Grid.Column>
           </Grid>
