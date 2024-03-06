@@ -70,6 +70,10 @@ export class EItemSearch extends Component {
         name: 'created',
         field: '_created',
       },
+      {
+        name: 'source',
+        field: 'source.text',
+      },
     ];
 
     const initialState = setReactSearchKitInitialQueryState(this.modelName);
