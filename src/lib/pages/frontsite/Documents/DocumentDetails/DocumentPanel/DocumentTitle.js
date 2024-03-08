@@ -25,7 +25,7 @@ export class DocumentTitle extends Component {
     return (
       <>
         <Grid columns={2}>
-          <Grid.Row>
+          <Grid.Row className="title-tag">
             <Grid.Column textAlign="left" only="tablet computer">
               {metadata.document_type}
             </Grid.Column>
@@ -35,8 +35,10 @@ export class DocumentTitle extends Component {
           </Grid.Row>
         </Grid>
         <Grid rows={2} textAlign="center">
-          <Grid.Row only="mobile">{metadata.document_type}</Grid.Row>
-          <Grid.Row only="mobile">
+          <Grid.Row className="title-tag" only="mobile">
+            {metadata.document_type}
+          </Grid.Row>
+          <Grid.Row className="title-tag" only="mobile">
             {volume && <Label>{'Volume ' + volume}</Label>}
           </Grid.Row>
         </Grid>
