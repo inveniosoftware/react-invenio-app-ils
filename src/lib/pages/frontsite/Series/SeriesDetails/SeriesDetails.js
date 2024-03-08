@@ -139,6 +139,10 @@ class SeriesDetails extends React.Component {
     if (!samePidFromRouter) {
       this.fetchSeriesDetails(seriesPid);
     }
+    const { renderTabTitle, series } = this.props;
+    if (renderTabTitle) {
+      renderTabTitle({ title: series.metadata.title });
+    }
   }
 
   fetchSeriesDetails(seriesPid) {
@@ -195,10 +199,12 @@ SeriesDetails.propTypes = {
   }).isRequired,
   hasError: PropTypes.bool.isRequired,
   error: PropTypes.object,
+  renderTabTitle: PropTypes.func,
 };
 
 SeriesDetails.defaultProps = {
   error: null,
+  renderTabTitle: null,
 };
 
 export default Overridable.component('SeriesDetails', SeriesDetails);
