@@ -148,6 +148,13 @@ class DocumentDetails extends Component {
     if (!samePidFromRouter) {
       this.fetchDocumentsDetails(documentPid);
     }
+
+    const { renderTabTitle, documentDetails } = this.props;
+    if (renderTabTitle) {
+      renderTabTitle({
+        title: documentDetails.metadata.title,
+      });
+    }
   }
 
   fetchDocumentsDetails(documentPid) {
@@ -223,10 +230,12 @@ DocumentDetails.propTypes = {
       documentPid: PropTypes.string,
     }),
   }).isRequired,
+  renderTabTitle: PropTypes.func,
 };
 
 DocumentDetails.defaultProps = {
   error: null,
+  renderTabTitle: null,
 };
 
 export default Overridable.component('DocumentDetails', DocumentDetails);
