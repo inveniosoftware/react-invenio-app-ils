@@ -4,6 +4,7 @@ import _isEmpty from 'lodash/isEmpty';
 import { DateTime } from 'luxon';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { invenioConfig } from '@config';
 
 export class LocationDatePicker extends Component {
   constructor(props) {
@@ -51,6 +52,21 @@ export class LocationDatePicker extends Component {
       });
       if (!isOpen) {
         disabled.push(dateISO);
+      }
+      date = date.plus({ days: 1 });
+    }
+
+    // Disable recent X days including current date as set in the config
+    date = DateTime.fromISO(minDate);
+    let workingDaysToOffset = invenioConfig.CIRCULATION.requestStartOffset;
+    let i = 0;
+    while (workingDaysToOffset > 0) {
+      const dateISO = date.toISODate();
+      if (dateISO === disabled[i]) {
+        i++;
+      } else {
+        disabled.push(dateISO);
+        workingDaysToOffset--;
       }
       date = date.plus({ days: 1 });
     }
