@@ -24,6 +24,7 @@ export {
   getStaticPagesRoutes,
   invenioConfig,
 } from '@config';
+export { SeriesCardGroup } from '@modules/Series/SeriesCardGroup';
 export { DocumentCardGroup } from '@modules/Document/DocumentCardGroup';
 export { DocumentRequestForm } from '@pages/frontsite/DocumentRequests';
 export { default as LiteratureSearch } from '@pages/frontsite/Literature/LiteratureSearch/LiteratureSearch';
