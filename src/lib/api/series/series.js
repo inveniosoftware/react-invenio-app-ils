@@ -55,6 +55,9 @@ class QueryBuilder {
     this.withStringQuery = [];
     this.withExcludeQuery = [];
     this.withSeriesTypeQuery = [];
+    this.size = '';
+    this.sortByQuery = '';
+    this.sortOrderQuery = '';
   }
 
   withModeOfIssuance(moi) {
@@ -115,8 +118,23 @@ class QueryBuilder {
     return this;
   }
 
+  withSize(size) {
+    if (size > 0) this.size = `&size=${size}`;
+    return this;
+  }
+
+  sortBy(by = 'bestmatch') {
+    this.sortByQuery = `&sort=${by}`;
+    return this;
+  }
+
+  sortOrder(order = 'asc') {
+    this.sortOrderQuery = `&order=${order}`;
+    return this;
+  }
+
   qs() {
-    return this.withModeOfIssuanceQuery
+    const searchCriteria = this.withModeOfIssuanceQuery
       .concat(
         this.withSeriesQuery,
         this.withStringQuery,
@@ -124,6 +142,7 @@ class QueryBuilder {
         this.withSeriesTypeQuery
       )
       .join(' AND ');
+    return `${searchCriteria}${this.sortByQuery}${this.sortOrderQuery}${this.size}`;
   }
 }
 
