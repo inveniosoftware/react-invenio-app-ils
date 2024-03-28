@@ -514,6 +514,18 @@ a {
 .generate-margins(30, bottom, b);
 .generate-margins(30, top, t);
 
+.generate-padding(@max, @direction, @alias, @i: 0) when (@i =< @max) {
+  .p@{alias}-@{i} {
+    padding-@{direction}: unit(@i, rem) !important;
+  }
+  .generate-padding(@max, @direction, @alias, (@i + 1))
+}
+
+.generate-padding(5, right, r);
+.generate-padding(5, left, l);
+.generate-padding(5, bottom, b);
+.generate-padding(5, top, t);
+
 /* React-JSONSchema-Forms */
 
 // remove extra margin between field label and Dropdowns
