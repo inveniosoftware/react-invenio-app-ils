@@ -21,6 +21,7 @@ import { DocumentItems } from './DocumentItems';
 import { DocumentMetadata } from './DocumentMetadata';
 import DocumentPanel from './DocumentPanel/DocumentPanel';
 import { NotFound } from '@components/HttpErrors';
+import { DocumentSubjectSearch } from '@modules/Document/DocumentSubjectSearch';
 
 const DocumentDetailsLayout = ({
   error,
@@ -104,6 +105,18 @@ const DocumentDetailsLayout = ({
             </ILSParagraphPlaceholder>
           </Container>
         </Container>
+        <Media greaterThanOrEqual="computer">
+          <Container className="items-locations spaced">
+            <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
+              <DocumentSubjectSearch metadata={documentDetails.metadata} />
+            </ILSParagraphPlaceholder>
+          </Container>
+        </Media>
+        <Media lessThan="computer">
+          <ILSParagraphPlaceholder linesNumber={5} isLoading={isLoading}>
+            <DocumentSubjectSearch metadata={documentDetails.metadata} />
+          </ILSParagraphPlaceholder>
+        </Media>
         <AuthenticationGuard
           authorizedComponent={() => (
             <Container textAlign="center">
