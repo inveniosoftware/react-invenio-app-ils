@@ -145,39 +145,44 @@ class Sidebar extends Component {
                   </Menu.Menu>
                 </Menu.Item>
 
-                <Menu.Item>
-                  <Menu.Header>Catalogue</Menu.Header>
-                  <Menu.Menu>
-                    <Menu.Item
-                      as={Link}
-                      active={documentsActive}
-                      to={BackOfficeRoutes.documentsList}
-                    >
-                      Books / Articles
-                    </Menu.Item>
-                    <Menu.Item
-                      as={Link}
-                      active={seriesActive}
-                      to={BackOfficeRoutes.seriesList}
-                    >
-                      Series / Monographs
-                    </Menu.Item>
-                    <Menu.Item
-                      as={Link}
-                      active={itemsActive}
-                      to={BackOfficeRoutes.itemsList}
-                    >
-                      Physical Copies
-                    </Menu.Item>
-                    <Menu.Item
-                      as={Link}
-                      active={eitemsActive}
-                      to={BackOfficeRoutes.eitemsList}
-                    >
-                      E-Items
-                    </Menu.Item>
-                  </Menu.Menu>
-                </Menu.Item>
+                <Overridable
+                  activePath={activePath}
+                  id="Backoffice.Sidebar.Menu.Catalogue"
+                >
+                  <Menu.Item>
+                    <Menu.Header>Catalogue</Menu.Header>
+                    <Menu.Menu>
+                      <Menu.Item
+                        as={Link}
+                        active={documentsActive}
+                        to={BackOfficeRoutes.documentsList}
+                      >
+                        Books / Articles
+                      </Menu.Item>
+                      <Menu.Item
+                        as={Link}
+                        active={seriesActive}
+                        to={BackOfficeRoutes.seriesList}
+                      >
+                        Series / Monographs
+                      </Menu.Item>
+                      <Menu.Item
+                        as={Link}
+                        active={itemsActive}
+                        to={BackOfficeRoutes.itemsList}
+                      >
+                        Physical Copies
+                      </Menu.Item>
+                      <Menu.Item
+                        as={Link}
+                        active={eitemsActive}
+                        to={BackOfficeRoutes.eitemsList}
+                      >
+                        E-Items
+                      </Menu.Item>
+                    </Menu.Menu>
+                  </Menu.Item>
+                </Overridable>
 
                 <Menu.Item>
                   <Menu.Header>Acquisition</Menu.Header>
