@@ -20,30 +20,21 @@ import {
   ResultsLoader,
   ResultsGrid,
 } from 'react-searchkit';
-import { Divider, Container, Ref, Sticky } from 'semantic-ui-react';
-import _isEmpty from 'lodash/isEmpty';
+import { Header, Container, Ref, Sticky } from 'semantic-ui-react';
 import { InvenioRequestSerializer } from 'react-searchkit';
 import { DocumentSubjectGrid } from './DocumentSubjectLayout';
 import { Error as IlsError } from '@components/Error';
 import { SearchControlsMobile } from '@modules/SearchControls/SearchControlsMobile';
 
-const getSubjectsQuery = (documentMetadata) => {
-  const subjectSchemes = documentMetadata.subjects.map((subject) => {
-    return `subjects.scheme:"${subject.scheme}"`;
-  });
-  return `(${subjectSchemes.join(' OR ')})`;
-};
-
 const queryBuilderForSubjects = (documentMetadata) => {
-  let subjectsQuery = getSubjectsQuery(documentMetadata);
+  let subjectsQuery = documentApi
+    .query()
+    .withSubjects(documentMetadata.subjects)
+    .qs();
 
-  return class DocumentSubjectsSerielizer extends InvenioRequestSerializer {
+  return class DocumentSubjectsSerializer extends InvenioRequestSerializer {
     serialize(stateQuery) {
-      if (_isEmpty(stateQuery.queryString)) {
-        stateQuery.queryString = subjectsQuery;
-      } else {
-        stateQuery.queryString = `${subjectsQuery} AND (${stateQuery.queryString})`;
-      }
+      stateQuery.queryString = subjectsQuery;
       stateQuery.size = 5;
       return super.serialize(stateQuery);
     }
@@ -71,7 +62,9 @@ export class DocumentSubjectSearch extends React.Component {
     const urlHandler = setReactSearchKitUrlHandler(this.modelName, false);
     return (
       <>
-        <Divider horizontal>More on this subject</Divider>
+        <Header as="h2" textAlign="center">
+          More on this subject
+        </Header>
         <OverridableContext.Provider
           value={{
             ...SearchControlsOverridesMap,
