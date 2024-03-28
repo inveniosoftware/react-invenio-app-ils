@@ -21,10 +21,5 @@ Grid Overrides - REACT-INVENIO-APP-ILS
       box-shadow: none;
     }
   }
-  .row {
-    .title-tag {
-      padding-bottom: 0rem;
-    }
-  }
 }
 

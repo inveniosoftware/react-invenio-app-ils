@@ -4,6 +4,7 @@ import _get from 'lodash/get';
 import React, { Component } from 'react';
 import { Grid, Header, Label } from 'semantic-ui-react';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
+import { Media } from '@components/Media';
 
 export class DocumentTitle extends Component {
   subtitle() {
@@ -24,24 +25,26 @@ export class DocumentTitle extends Component {
 
     return (
       <>
-        <Grid columns={2}>
-          <Grid.Row className="title-tag">
-            <Grid.Column textAlign="left" only="tablet computer">
-              {metadata.document_type}
-            </Grid.Column>
-            <Grid.Column textAlign="right" only="tablet computer">
+        <Media greaterThanOrEqual="tablet">
+          <Grid columns={2}>
+            <Grid.Row className="pb-0">
+              <Grid.Column textAlign="left">
+                {metadata.document_type}
+              </Grid.Column>
+              <Grid.Column textAlign="right">
+                {volume && <Label>{'Volume ' + volume}</Label>}
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Media>
+        <Media lessThan="tablet">
+          <Grid columns={2} textAlign="center">
+            <Grid.Row className="pb-0 pt-2">{metadata.document_type}</Grid.Row>
+            <Grid.Row className="pb-0">
               {volume && <Label>{'Volume ' + volume}</Label>}
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-        <Grid rows={2} textAlign="center">
-          <Grid.Row className="title-tag" only="mobile">
-            {metadata.document_type}
-          </Grid.Row>
-          <Grid.Row className="title-tag" only="mobile">
-            {volume && <Label>{'Volume ' + volume}</Label>}
-          </Grid.Row>
-        </Grid>
+            </Grid.Row>
+          </Grid>
+        </Media>
         <Header as="h2" className="document-title">
           <LiteratureTitle
             title={metadata.title}
