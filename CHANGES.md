@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.81 (released 2024-04-02)
+
+- backoffice: fix conditional payment info display for ILLs
+
 Version 1.0.0-alpha.80 (released 2024-02-27)
 
 - frontsite: Use LiteratureTitle component to show edition and publication year in Document Title
