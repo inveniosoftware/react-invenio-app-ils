@@ -42,6 +42,9 @@ export default class ItemsSearch extends Component {
     const { prevSearchQuery } = this.state;
     const { patronDetails } = this.props;
 
+    // Disable enter key
+    event.preventDefault();
+
     let queryString = event.clipboardData.getData('Text');
 
     const sameQueryString = prevSearchQuery === queryString;
