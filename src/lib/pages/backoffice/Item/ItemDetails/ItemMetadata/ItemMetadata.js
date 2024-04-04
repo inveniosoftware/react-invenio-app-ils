@@ -56,6 +56,21 @@ export default class ItemMetadata extends Component {
           </List>
         ),
       },
+      {
+        name: 'Identifiers',
+        value: (
+          <List>
+            {itemDetails.metadata.identifiers
+              ? itemDetails.metadata.identifiers.map((identifier) => (
+                  <List.Item key={identifier.value}>
+                    {identifier.value}
+                    {` (${identifier.scheme})`}
+                  </List.Item>
+                ))
+              : '-'}
+          </List>
+        ),
+      },
     ];
 
     const rightMetadata = [

@@ -54,6 +54,7 @@ class DocumentItem extends Component {
             <Table.Row data-test="header">
               <Table.HeaderCell>Barcode</Table.HeaderCell>
               <Table.HeaderCell>Shelf</Table.HeaderCell>
+              <Table.HeaderCell>Call Number</Table.HeaderCell>
               <Table.HeaderCell>Status</Table.HeaderCell>
               <Table.HeaderCell>Medium</Table.HeaderCell>
               <Table.HeaderCell>Loan restriction</Table.HeaderCell>

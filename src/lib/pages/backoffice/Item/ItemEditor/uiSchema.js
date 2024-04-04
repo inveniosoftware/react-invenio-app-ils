@@ -34,6 +34,22 @@ export const uiSchema = (title) => {
         ],
       },
     },
+    identifiers: {
+      'ui:options': {
+        orderable: false,
+        semantic: {
+          wrapItem: true,
+        },
+      },
+      items: {
+        'custom:grid': [
+          {
+            scheme: 10,
+            value: 6,
+          },
+        ],
+      },
+    },
     price: {
       currency: {
         'ui:widget': 'vocabulary',
@@ -80,6 +96,12 @@ export const uiSchema = (title) => {
       {
         acquisition_pid: 6,
         price: 10,
+      },
+      {
+        'custom:divider': 16,
+      },
+      {
+        identifiers: 10,
       },
     ],
     'custom:root': {

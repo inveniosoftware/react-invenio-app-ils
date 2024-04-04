@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
+import _get from 'lodash/get';
 import { PropTypes } from 'prop-types';
 import { Table } from 'semantic-ui-react';
 import { Media } from '@components/Media';
 import { getDisplayVal, invenioConfig } from '@config';
 
 export default class DocumentItemBody extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   itemStatus = (item) => ({
     canCirculate: () =>
       invenioConfig.ITEMS.canCirculateStatuses.includes(item.status),
@@ -28,6 +25,17 @@ export default class DocumentItemBody extends Component {
     }
 
     return getDisplayVal('ITEMS.statuses', item.status);
+  };
+
+  callNumber = (items) => {
+    const identifiers = _get(items, 'identifiers', []);
+    if (identifiers === null) {
+      return '-';
+    }
+    const callNumber = identifiers.find(
+      (identifier) => identifier.scheme.toLowerCase() === 'call number'
+    );
+    return callNumber ? callNumber.value : '-';
   };
 
   render() {
@@ -60,6 +68,9 @@ export default class DocumentItemBody extends Component {
           </Table.Cell>
         </Media>
 
+        <Table.Cell data-label="Call Number">
+          {this.callNumber(item)}
+        </Table.Cell>
         <Table.Cell data-label="Status">{this.statusLabel(item)}</Table.Cell>
         <Table.Cell data-label="Medium">
           {getDisplayVal('ITEMS.mediums', item.medium)}
