@@ -1,5 +1,16 @@
 # Changes
 
+Version 1.0.0-alpha.83 (released 2024-04-02)
+
+- backoffice: SideBar: Make SideBar Catalogue menu overridable
+- frontsite: DocumentTitle: Define padding using CSS generator class
+- frontsite: DocumentTitle: Decrease spacing between the tags and title
+- api: SeriesApi: Add search parameters and filters
+- modules: Series: Add SeriesCardGroup component
+- LocationDatePicker: Disable only non-closure days set in config
+- backoffice: EItemSearch: Add source button in helper fields
+- backoffice: Use Truncate for OrdersList and Patrons Doc Requests table
+
 Version 1.0.0-alpha.82 (released 2024-04-02)
 
 - backoffice: fix onPasteHandler for patron details checkout search
