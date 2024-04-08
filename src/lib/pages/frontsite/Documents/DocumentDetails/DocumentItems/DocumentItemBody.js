@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import _get from 'lodash/get';
 import { PropTypes } from 'prop-types';
 import { Table } from 'semantic-ui-react';
-import { Media } from '@components/Media';
 import { getDisplayVal, invenioConfig } from '@config';
 
 export default class DocumentItemBody extends Component {
@@ -27,19 +26,8 @@ export default class DocumentItemBody extends Component {
     return getDisplayVal('ITEMS.statuses', item.status);
   };
 
-  callNumber = (items) => {
-    const identifiers = _get(items, 'identifiers', []);
-    if (identifiers === null) {
-      return '-';
-    }
-    const callNumber = identifiers.find(
-      (identifier) => identifier.scheme.toLowerCase() === 'call number'
-    );
-    return callNumber ? callNumber.value : '-';
-  };
-
   render() {
-    const { items } = this.props;
+    const { items, callNumber, shelfLink } = this.props;
 
     return items.map((item) => (
       <Table.Row key={item.pid}>
@@ -50,27 +38,14 @@ export default class DocumentItemBody extends Component {
           {item.barcode}
         </Table.Cell>
 
-        <Media greaterThanOrEqual="tablet">
-          <Table.Cell
-            data-label="Shelf"
-            className="document-item-table-itemCell"
-          >
-            {item.shelf}
-          </Table.Cell>
-        </Media>
-
-        <Media lessThan="tablet">
-          <Table.Cell
-            data-label="Shelf"
-            className="document-item-table-itemCell"
-          >
-            {item.shelf || 'none'}
-          </Table.Cell>
-        </Media>
-
-        <Table.Cell data-label="Call Number">
-          {this.callNumber(item)}
+        <Table.Cell data-label="Shelf" className="document-item-table-itemCell">
+          {(shelfLink !== null ? shelfLink(item) : _get(item, 'shelf')) ||
+            'none'}
         </Table.Cell>
+
+        {callNumber && (
+          <Table.Cell data-label="Call Number">{callNumber(item)}</Table.Cell>
+        )}
         <Table.Cell data-label="Status">{this.statusLabel(item)}</Table.Cell>
         <Table.Cell data-label="Medium">
           {getDisplayVal('ITEMS.mediums', item.medium)}
@@ -88,4 +63,11 @@ export default class DocumentItemBody extends Component {
 
 DocumentItemBody.propTypes = {
   items: PropTypes.array.isRequired,
+  shelfLink: PropTypes.func,
+  callNumber: PropTypes.func,
+};
+
+DocumentItemBody.defaultProps = {
+  shelfLink: null,
+  callNumber: null,
 };

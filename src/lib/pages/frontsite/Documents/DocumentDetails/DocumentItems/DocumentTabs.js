@@ -82,7 +82,7 @@ export default class DocumentTabs extends Component {
 
         return (
           <Menu.Item
-            icon="edit"
+            icon
             active={menuItemIsActive}
             name={internalLocationName}
             onClick={this.handleLocationClick}
