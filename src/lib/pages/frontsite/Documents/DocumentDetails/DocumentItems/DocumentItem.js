@@ -51,18 +51,21 @@ class DocumentItem extends Component {
 
         <Table stackable striped compact fixed className="document-item-table">
           <Table.Header>
-            <Table.Row data-test="header">
-              <Table.HeaderCell>Barcode</Table.HeaderCell>
-              <Table.HeaderCell>Shelf</Table.HeaderCell>
-              <Table.HeaderCell>Call Number</Table.HeaderCell>
-              <Table.HeaderCell>Status</Table.HeaderCell>
-              <Table.HeaderCell>Medium</Table.HeaderCell>
-              <Table.HeaderCell>Loan restriction</Table.HeaderCell>
-            </Table.Row>
+            <Overridable id="DocumentDetails.DocumentItem.TableHeader">
+              <Table.Row data-test="header">
+                <Table.HeaderCell>Barcode</Table.HeaderCell>
+                <Table.HeaderCell>Shelf</Table.HeaderCell>
+                <Table.HeaderCell>Status</Table.HeaderCell>
+                <Table.HeaderCell>Medium</Table.HeaderCell>
+                <Table.HeaderCell>Loan restriction</Table.HeaderCell>
+              </Table.Row>
+            </Overridable>
           </Table.Header>
 
           <Table.Body>
-            <DocumentItemBody items={itemsToShow} />
+            <Overridable id="DocumentDetails.DocumentItemTableBody">
+              <DocumentItemBody items={itemsToShow} />
+            </Overridable>
           </Table.Body>
 
           {this.moreItemsToLoad && (
