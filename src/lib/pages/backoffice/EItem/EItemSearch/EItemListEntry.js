@@ -31,6 +31,9 @@ export default class EItemListEntry extends Component {
                     title={eitem.metadata.document.title}
                     truncateLines={1}
                   />
+                  <Header.Subheader>
+                    {eitem.metadata.eitem_type}
+                  </Header.Subheader>
                 </Header>
               </Item.Meta>
               {eitem.metadata.doi && (

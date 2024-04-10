@@ -35,6 +35,15 @@ class DocumentCard extends Component {
     return image;
   };
 
+  renderEItemLabels = (eitems) => {
+    if (eitems.total === 0) {
+      return null;
+    }
+    return [...new Set(eitems.hits.map((eitem) => eitem.eitem_type))].map(
+      (tag) => <Label key={tag}>{tag}</Label>
+    );
+  };
+
   render() {
     const { data } = this.props;
     const { metadata } = data;
@@ -102,7 +111,7 @@ class DocumentCard extends Component {
                 On shelf
               </Label>
             )}
-            {metadata.eitems.total > 0 && <Label>E-book</Label>}
+            {this.renderEItemLabels(metadata.eitems)}
             <Overridable id="DocumentCard.Extras" metadata={metadata} />
           </Card.Content>
         </Card>
