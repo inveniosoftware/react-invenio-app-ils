@@ -143,6 +143,12 @@ export const DOCUMENT_TYPES = [
     label: 'Article',
     order: 5,
   },
+  {
+    value: 'MULTIMEDIA',
+    text: 'Multimedia',
+    label: 'Multimedia',
+    order: 6,
+  },
 ];
 
 export const SERIES_TYPES = [
@@ -157,5 +163,26 @@ export const SERIES_TYPES = [
     text: 'Periodical',
     label: 'Periodical',
     order: 2,
+  },
+];
+
+export const EITEM_TYPES = [
+  {
+    value: 'E-BOOK',
+    text: 'E-Book',
+    label: 'E-Book',
+    order: 1,
+  },
+  {
+    value: 'AUDIOBOOK',
+    text: 'Audiobook',
+    label: 'Audiobook',
+    order: 2,
+  },
+  {
+    value: 'VIDEO',
+    text: 'Video',
+    label: 'Video',
+    order: 3,
   },
 ];

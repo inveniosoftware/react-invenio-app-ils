@@ -5,6 +5,7 @@ import {
   DOCUMENT_RELATIONS,
   DOCUMENT_TYPES,
   SERIES_TYPES,
+  EITEM_TYPES,
   ILL_BORROWING_REQUESTS_STATUSES,
   ITEM_MEDIUMS,
 } from './common';
@@ -373,8 +374,15 @@ export const RECORDS_CONFIG = {
   },
   EITEMS: {
     maxFiles: 5,
+    types: EITEM_TYPES,
     search: {
       filters: [
+        {
+          title: 'Medium',
+          field: 'eitem_type',
+          aggName: 'eitemtype',
+          labels: EITEM_TYPES,
+        },
         {
           title: 'Open access',
           field: 'open_access',

@@ -20,6 +20,22 @@ class DocumentListEntry extends Component {
     this.metadata = props.metadata;
   }
 
+  renderEItemTags = (eitems) => {
+    if (eitems.total === 0) {
+      return null;
+    }
+    return [...new Set(eitems.hits.map((eitem) => eitem.eitem_type))].map(
+      (tag) => {
+        return (
+          <List.Item key={tag}>
+            <List.Icon name="desktop" />
+            <List.Content>{tag}</List.Content>
+          </List.Item>
+        );
+      }
+    );
+  };
+
   renderCirculationInfo = (meta) => {
     if (
       meta.circulation &&
@@ -34,12 +50,7 @@ class DocumentListEntry extends Component {
               <List.Content>Available for loan</List.Content>
             </List.Item>
           ) : null}
-          {meta.eitems.total > 0 ? (
-            <List.Item>
-              <List.Icon name="desktop" />
-              <List.Content>E-book</List.Content>
-            </List.Item>
-          ) : null}
+          {this.renderEItemTags(meta.eitems)}
         </List>
       );
     }

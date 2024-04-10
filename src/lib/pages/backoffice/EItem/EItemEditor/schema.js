@@ -44,6 +44,16 @@ export const schema = () => {
         title: 'Identifiers',
         type: 'array',
       },
+      eitem_type: {
+        enum: invenioConfig.EITEMS.types
+          .sort((a, b) => a.order - b.order)
+          .map((status) => status.value),
+        enumNames: invenioConfig.EITEMS.types
+          .sort((a, b) => a.order - b.order)
+          .map((status) => status.text),
+        title: 'EItem type',
+        type: 'string',
+      },
       source: {
         title: 'Source',
         type: 'string',
@@ -74,7 +84,7 @@ export const schema = () => {
         type: 'array',
       },
     },
-    required: ['document_pid'],
+    required: ['document_pid', 'eitem_type'],
     type: 'object',
   };
   return _merge(_schema, invenioConfig.EITEMS.editorSchema);

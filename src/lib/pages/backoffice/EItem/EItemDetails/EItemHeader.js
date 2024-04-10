@@ -9,6 +9,7 @@ import { DateTime } from 'luxon';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Header } from 'semantic-ui-react';
 
 export class EItemHeader extends Component {
   render() {
@@ -32,7 +33,12 @@ export class EItemHeader extends Component {
     );
     return (
       <DetailsHeader
-        title={<LiteratureTitle title={data.metadata.document.title} />}
+        title={
+          <>
+            <Header.Subheader>{data.metadata.eitem_type}</Header.Subheader>
+            <LiteratureTitle title={data.metadata.document.title} />
+          </>
+        }
         subTitle={`by ${data.metadata.document.authors}`}
         pid={data.metadata.pid}
         icon={<EItemIcon />}
