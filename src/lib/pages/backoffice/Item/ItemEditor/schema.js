@@ -94,25 +94,6 @@ export const schema = () => {
         type: 'string',
         title: 'Shelf',
       },
-      identifiers: {
-        items: {
-          properties: {
-            scheme: {
-              title: 'Scheme name',
-              type: 'string',
-            },
-            value: {
-              title: 'Value',
-              type: 'string',
-            },
-          },
-          required: ['scheme', 'value'],
-          title: 'Identifier',
-          type: 'object',
-        },
-        title: 'Identifiers',
-        type: 'array',
-      },
       status: {
         enum: invenioConfig.ITEMS.statuses.map((status) => status.value),
         enumNames: invenioConfig.ITEMS.statuses.map((status) => status.text),
