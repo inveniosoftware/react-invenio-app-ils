@@ -8,8 +8,8 @@ import {
 } from './state/actions';
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAndCheckoutIfOne: (barcode, patronPid) =>
-    dispatch(fetchAndCheckoutIfOne(barcode, patronPid)),
+  fetchAndCheckoutIfOne: (barcode, patronPid, onSuccess) =>
+    dispatch(fetchAndCheckoutIfOne(barcode, patronPid, onSuccess)),
   updateQueryString: (qs) => dispatch(updateQueryString(qs)),
   clearResults: () => dispatch(clearResults()),
   checkoutItem: (documentPid, itemPid, patronPid, force = false) =>
