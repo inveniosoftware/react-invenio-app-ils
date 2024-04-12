@@ -110,6 +110,10 @@ class DocumentCirculation extends Component {
             : userHasPendingRequest
             ? this.renderPendingRequest()
             : this.renderOnLoan()}
+          <Overridable
+            id="DocumentCirculation.Extras"
+            documentDetails={documentDetails}
+          />
         </ILSImagePlaceholder>
       </Segment>
     );
