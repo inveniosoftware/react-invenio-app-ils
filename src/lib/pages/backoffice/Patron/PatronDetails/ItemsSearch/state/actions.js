@@ -11,7 +11,7 @@ import {
   CLEAR_SEARCH,
 } from './types';
 
-export const fetchAndCheckoutIfOne = (barcode, patronPid) => {
+export const fetchAndCheckoutIfOne = (barcode, patronPid, onSuccess) => {
   return async (dispatch) => {
     dispatch({
       type: IS_LOADING,
@@ -38,6 +38,7 @@ export const fetchAndCheckoutIfOne = (barcode, patronPid) => {
           value: itemToCheckout.metadata.pid,
         };
         dispatch(checkoutItem(documentPid, itemPid, patronPid, true));
+        onSuccess();
       }
     } catch (error) {
       dispatch({
