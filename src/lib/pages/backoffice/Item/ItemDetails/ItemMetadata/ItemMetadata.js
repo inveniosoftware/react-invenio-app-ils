@@ -1,3 +1,5 @@
+import _isEmpty from 'lodash/isEmpty';
+import capitalize from 'lodash/capitalize';
 import { formatPrice } from '@api/utils';
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { getDisplayVal } from '@config';
@@ -99,16 +101,37 @@ export default class ItemMetadata extends Component {
     ];
 
     itemDetails.metadata.legacy_id &&
-      rightMetadata.push({
+      leftMetadata.push({
         name: 'Legacy ID',
         value: itemDetails.metadata.legacy_id,
       });
 
     itemDetails.metadata.legacy_library_id &&
-      rightMetadata.push({
+      leftMetadata.push({
         name: 'Legacy Library ID',
         value: itemDetails.metadata.legacy_library_id,
       });
+
+    const itemIdentifiers = itemDetails.metadata.identifiers;
+    if (!_isEmpty(itemIdentifiers)) {
+      rightMetadata.push({
+        name: 'Identifiers',
+        value: (
+          <List bulleted>
+            {itemIdentifiers.map((entry) => (
+              <List.Item key={entry.value}>
+                <List.Content>
+                  {entry.value +
+                    ' (' +
+                    capitalize(entry.scheme).replace('_', ' ') +
+                    ')'}
+                </List.Content>
+              </List.Item>
+            ))}
+          </List>
+        ),
+      });
+    }
 
     return (
       <>
