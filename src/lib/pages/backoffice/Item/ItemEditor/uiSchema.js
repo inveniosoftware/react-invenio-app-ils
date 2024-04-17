@@ -1,6 +1,31 @@
 import { invenioConfig } from '@config';
 import _merge from 'lodash/merge';
 
+const arrayUiOptions = {
+  'ui:options': {
+    orderable: false,
+    // no wrapItem to keep everything more compact
+  },
+};
+
+const identifierUiSchema = (schemeVocabulary) => ({
+  ...arrayUiOptions,
+  items: {
+    scheme: {
+      'ui:widget': 'vocabulary',
+      'ui:options': {
+        vocabularyType: schemeVocabulary,
+      },
+    },
+    'custom:grid': [
+      {
+        scheme: 8,
+        value: 8,
+      },
+    ],
+  },
+});
+
 export const uiSchema = (title) => {
   const _uiSchema = {
     acquisition_pid: {
@@ -34,6 +59,9 @@ export const uiSchema = (title) => {
         ],
       },
     },
+    identifiers: identifierUiSchema(
+      invenioConfig.VOCABULARIES.item.identifier.scheme
+    ),
     price: {
       currency: {
         'ui:widget': 'vocabulary',
@@ -80,6 +108,12 @@ export const uiSchema = (title) => {
       {
         acquisition_pid: 6,
         price: 10,
+      },
+      {
+        'custom:divider': 16,
+      },
+      {
+        identifiers: 10,
       },
     ],
     'custom:root': {

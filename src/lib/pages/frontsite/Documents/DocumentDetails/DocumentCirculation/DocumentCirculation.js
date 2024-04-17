@@ -104,7 +104,7 @@ class DocumentCirculation extends Component {
             showTab={showTab}
             documentDetails={documentDetails}
           />
-          <Header as="h3" content="Request loan" />
+          <Header as="h3" className="mt-10" content="Request loan" />
           {hasNeither
             ? this.renderRequestable()
             : userHasPendingRequest

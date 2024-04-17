@@ -963,6 +963,9 @@ export const RECORDS_CONFIG = {
     eitem: { source: 'eitem_sources' },
     item: {
       mediums: 'item_medium',
+      identifier: {
+        scheme: 'identifier_scheme',
+      },
     },
     series: {
       identifier: {
