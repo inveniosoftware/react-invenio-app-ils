@@ -167,11 +167,11 @@ export const RECORDS_CONFIG = {
   CIRCULATION: {
     deliveryMethods: {
       PICKUP: {
-        text: "I'd like to pick it up at the library desk",
+        text: 'Pick it up at the library desk',
         iconClass: 'warehouse',
       },
       DELIVERY: {
-        text: "I'd like to have it delivered to my office",
+        text: 'To my office',
         iconClass: 'dolly',
       },
     },

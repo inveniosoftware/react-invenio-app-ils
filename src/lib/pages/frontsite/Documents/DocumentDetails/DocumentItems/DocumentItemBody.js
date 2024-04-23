@@ -27,7 +27,7 @@ export default class DocumentItemBody extends Component {
   };
 
   render() {
-    const { items, callNumber, shelfLink } = this.props;
+    const { items, shelfLink } = this.props;
 
     return items.map((item) => (
       <Table.Row key={item.pid}>
@@ -43,9 +43,6 @@ export default class DocumentItemBody extends Component {
             'none'}
         </Table.Cell>
 
-        {callNumber && (
-          <Table.Cell data-label="Call Number">{callNumber(item)}</Table.Cell>
-        )}
         <Table.Cell data-label="Status">{this.statusLabel(item)}</Table.Cell>
         <Table.Cell data-label="Medium">
           {getDisplayVal('ITEMS.mediums', item.medium)}
@@ -64,10 +61,8 @@ export default class DocumentItemBody extends Component {
 DocumentItemBody.propTypes = {
   items: PropTypes.array.isRequired,
   shelfLink: PropTypes.func,
-  callNumber: PropTypes.func,
 };
 
 DocumentItemBody.defaultProps = {
   shelfLink: null,
-  callNumber: null,
 };
