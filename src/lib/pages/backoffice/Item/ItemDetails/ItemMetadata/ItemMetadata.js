@@ -46,7 +46,7 @@ export default class ItemMetadata extends Component {
       {
         name: 'ISBN',
         value: (
-          <List>
+          <List bulleted horizontal>
             {itemDetails.metadata.isbns
               ? itemDetails.metadata.isbns.map((isbn) => (
                   <List.Item key={isbn.value}>
@@ -117,7 +117,7 @@ export default class ItemMetadata extends Component {
       rightMetadata.push({
         name: 'Identifiers',
         value: (
-          <List bulleted>
+          <List bulleted horizontal>
             {itemIdentifiers.map((entry) => (
               <List.Item key={entry.value}>
                 <List.Content>
