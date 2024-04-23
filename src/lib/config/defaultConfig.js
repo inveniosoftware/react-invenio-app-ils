@@ -380,7 +380,7 @@ export const RECORDS_CONFIG = {
         {
           title: 'Medium',
           field: 'eitem_type',
-          aggName: 'eitemtype',
+          aggName: 'eitem_type',
           labels: EITEM_TYPES,
         },
         {
