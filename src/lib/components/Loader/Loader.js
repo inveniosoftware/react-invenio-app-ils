@@ -11,7 +11,6 @@ class Loader extends Component {
         {isLoading ? (
           <UILoader active size="huge" inline="centered" />
         ) : (
-          // eslint-disable-next-line react/jsx-no-useless-fragment
           <>{children}</>
         )}
       </Overridable>
