@@ -64,16 +64,14 @@ class SeriesPanel extends Component {
                     />
 
                     {series.metadata.publisher && (
-                      <>
-                        <div>
-                          Published by <b>{series.metadata.publisher}</b>
-                          {series.metadata.publication_year && (
-                            <>
-                              , <b>{series.metadata.publication_year}</b>
-                            </>
-                          )}
-                        </div>
-                      </>
+                      <div>
+                        Published by <b>{series.metadata.publisher}</b>
+                        {series.metadata.publication_year && (
+                          <>
+                            , <b>{series.metadata.publication_year}</b>
+                          </>
+                        )}
+                      </div>
                     )}
                   </ILSParagraphPlaceholder>
                   <ILSParagraphPlaceholder
