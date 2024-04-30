@@ -10,6 +10,7 @@ import { ErrorsPage } from '@pages/frontsite/ErrorsPage';
 import { Home } from '@pages/frontsite/Home';
 import LiteratureSearch from '@pages/frontsite/Literature/LiteratureSearch/LiteratureSearch';
 import { OpeningHours } from '@pages/frontsite/OpeningHours';
+import { SelfCheckout } from '@pages/frontsite/SelfCheckout';
 import { PatronProfile } from '@pages/frontsite/PatronProfile';
 import { SeriesDetails } from '@pages/frontsite/Series';
 import { StaticPage } from '@pages/frontsite/StaticPage';
@@ -17,6 +18,8 @@ import { FrontSiteRoutes } from '@routes/frontsite/frontsiteUrls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
+import { UnAuthorized } from '@authentication/components/UnAuthorized';
 import { Container } from 'semantic-ui-react';
 import Overridable from 'react-overridable';
 
@@ -69,6 +72,16 @@ export default class FrontSite extends Component {
               exact
               path={FrontSiteRoutes.openingHours}
               component={OpeningHours}
+            />
+            <Route
+              exact
+              path={FrontSiteRoutes.selfCheckout}
+              component={() => (
+                <AuthenticationGuard
+                  authorizedComponent={SelfCheckout}
+                  unAuthorizedComponent={UnAuthorized}
+                />
+              )}
             />
             <Route exact path={FrontSiteRoutes.errors} component={ErrorsPage} />
             {staticPagesRoutes.map((route) => (

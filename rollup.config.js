@@ -53,6 +53,7 @@ export default {
       sourcemap: true,
     },
   ],
+  external: ['html5-qrcode'],
   plugins: [
     alias({
       entries: cracoAliases,
@@ -72,7 +73,7 @@ export default {
   ],
   watch: {
     include: 'src/**',
-
+    exclude: 'node_modules/**', // exclude node_modules from being watched to prevent 'THIS_IS_UNDEFINED' errors
     chokidar: {
       usePolling: true,
       paths: 'src/**',

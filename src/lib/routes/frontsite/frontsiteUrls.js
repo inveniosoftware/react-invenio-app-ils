@@ -11,6 +11,7 @@ const FrontSiteRoutesList = {
   openingHours: `${FrontSiteBase}opening-hours`,
   seriesDetails: `${FrontSiteBase}series/:seriesPid`,
   errors: `${FrontSiteBase}error`,
+  selfCheckout: `${FrontSiteBase}selfcheckout`,
 };
 
 const FrontSiteRoutesGenerators = {

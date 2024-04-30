@@ -18,6 +18,7 @@ import {
 import orderDetailsReducer from '@pages/backoffice/Acquisition/Order/OrderDetails/state/reducer';
 import { itemsCheckInReducer } from '@pages/backoffice/Actions/CheckIn/reducer';
 import { checkOutReducer } from '@pages/backoffice/Actions/CheckOut/reducer';
+import selfCheckOutReducer from '@pages/frontsite/SelfCheckout/state/reducer';
 import {
   documentDetailsReducer,
   documentEItems,
@@ -121,6 +122,7 @@ export default function createILSReducer(asyncReducers) {
     borrowingRequestLoanExtension: borrowingRequestLoanExtensionReducer,
     itemsCheckIn: itemsCheckInReducer,
     checkOut: checkOutReducer,
+    selfCheckOut: selfCheckOutReducer,
     banner: fetchBannerReducer,
     bulkLoanExtend: patronBulkExtendLoans,
     ...asyncReducers,
