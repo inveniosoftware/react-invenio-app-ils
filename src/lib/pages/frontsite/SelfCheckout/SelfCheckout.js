@@ -44,6 +44,13 @@ class SelfCheckout extends React.Component {
     }
   };
 
+  qrboxFunction = (viewfinderWidth, viewfinderHeight) => {
+    return {
+      width: viewfinderWidth * 0.9,
+      height: viewfinderWidth * 0.3,
+    };
+  };
+
   startScanner = (selectedDeviceId, onScanSuccess, onScanFailure) => {
     const scanner = new Html5Qrcode(selectedDeviceId, {
       formatsToSupport: [
@@ -53,11 +60,10 @@ class SelfCheckout extends React.Component {
     });
     // config
     scanner.start(
-      selectedDeviceId,
+      { facingMode: 'environment' },
       {
         fps: 1, // frame per second for qr code scanning
-        qrbox: { width: 300, height: 100 }, // bounding box UI
-        // aspectRatio: 0.5625,
+        qrbox: this.qrboxFunction, // bounding box UI
       },
       onScanSuccess,
       onScanFailure,

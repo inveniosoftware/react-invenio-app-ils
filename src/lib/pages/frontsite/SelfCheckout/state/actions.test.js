@@ -25,11 +25,15 @@ describe('SelfCheck Out test', () => {
   it('should dispatch an action updating the payloadresult item', async () => {
     mockGet.mockResolvedValue(response);
 
-    const expectedAction = {
+    const expectedAction1 = {
+      type: actions.SEARCH_IS_LOADING,
+    };
+    const expectedAction2 = {
       type: actions.SEARCH_ITEM_SUCCESS,
       payload: expectedPayload,
     };
     await store.dispatch(actions.selfCheckOutSearch('123'));
-    expect(store.getActions()[0]).toEqual(expectedAction);
+    expect(store.getActions()[0]).toEqual(expectedAction1);
+    expect(store.getActions()[1]).toEqual(expectedAction2);
   });
 });
