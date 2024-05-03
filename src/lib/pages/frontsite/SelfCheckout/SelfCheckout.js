@@ -75,7 +75,7 @@ class SelfCheckout extends React.Component {
   itemStatus = (item) => ({
     canCirculate: () =>
       invenioConfig.ITEMS.canCirculateStatuses.includes(item.metadata.status),
-    isOnShelf: () => !item.metadata.circulation, // on shelf if circulation doesn't exist
+    isOnShelf: () => !item.metadata.circulation.state, // on shelf if circulation doesn't exist
   });
 
   isItemLoanable = () => {
