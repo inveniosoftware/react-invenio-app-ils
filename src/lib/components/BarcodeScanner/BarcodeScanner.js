@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Container, Divider, Label, Segment } from 'semantic-ui-react';
-// import { Media } from '@components/Media';
+import { Container, Divider, Segment } from 'semantic-ui-react';
 import Overridable from 'react-overridable';
 import PropTypes from 'prop-types';
 
@@ -26,22 +25,18 @@ class BarcodeScanner extends React.Component {
   }
 
   initializeScanner = async () => {
-    const { getCameras } = this.props;
+    const { getCameras, startScanner, onScanSuccess, onScanFailure } =
+      this.props;
     try {
-      const videoInputDevices = await getCameras(); // Return promise or something
+      const videoInputDevices = await getCameras();
       if (videoInputDevices.length >= 1) {
         this.setState({ selectedDeviceId: videoInputDevices[0].id });
       }
     } catch (err) {
       console.error(err);
     }
-    this.handleStartButtonClick();
-  };
 
-  handleStartButtonClick = () => {
-    const { startScanner, onScanSuccess, onScanFailure } = this.props;
     const { selectedDeviceId } = this.state;
-
     this.scanner = startScanner(selectedDeviceId, onScanSuccess, onScanFailure);
   };
 
@@ -56,12 +51,12 @@ class BarcodeScanner extends React.Component {
       <Container text>
         <Segment>
           <Divider />
-          <Container id={selectedDeviceId} style={{ width: '80%' }} />
+          <Container
+            id={selectedDeviceId}
+            key="scanner"
+            style={{ width: '80%' }}
+          />
           <Divider />
-          <Label>Result:</Label>
-          <pre>
-            <code id="result" />
-          </pre>
         </Segment>
       </Container>
     );

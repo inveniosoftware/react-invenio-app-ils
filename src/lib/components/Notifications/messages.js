@@ -34,6 +34,7 @@ export const WarningMessage = ({ id, header, content, removeNotification }) => (
     icon="exclamation triangle"
     header={header}
     content={content}
+    autoDismiss={invenioConfig.APP.SUCCESS_AUTO_DISMISS_SECONDS * 1000}
     onDismiss={() => removeNotification(id)}
   />
 );

@@ -12,7 +12,6 @@ const mapStateToProps = (state) => ({
   user: state.authenticationManagement.data,
   isLoading: state.selfCheckOut.isLoading,
   item: state.selfCheckOut.item,
-  resultMessage: state.selfCheckOut.resultMessage,
 });
 
 export const SelfCheckoutModal = connect(
