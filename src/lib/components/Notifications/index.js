@@ -5,6 +5,7 @@ export {
   addNotification,
   sendErrorNotification,
   sendSuccessNotification,
+  sendWarningNotification,
 } from '@components/Notifications/actions';
 
 const mapStateToProps = (state) => ({

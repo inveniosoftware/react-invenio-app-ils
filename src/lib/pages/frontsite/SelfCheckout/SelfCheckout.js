@@ -7,6 +7,7 @@ import { BarcodeScanner } from '@components/BarcodeScanner';
 import { Html5Qrcode, Html5QrcodeSupportedFormats } from 'html5-qrcode';
 import { SelfCheckoutModal } from './SelfCheckoutModal';
 import { invenioConfig } from '@config';
+import _get from 'lodash/get';
 
 class SelfCheckout extends React.Component {
   constructor(props) {
@@ -15,34 +16,42 @@ class SelfCheckout extends React.Component {
     this.state = {
       scanner: null,
       showModal: false,
+      barcode: null,
     };
   }
 
   toggleModal = () => {
-    const { showModal } = this.state;
-    this.setState({ showModal: !showModal });
+    const { showModal, scanner } = this.state;
+    const shouldShowModal = !showModal && this.isItemLoanable();
+    this.setState({ showModal: shouldShowModal });
+    if (shouldShowModal) {
+      scanner.pause();
+    } else if (!scanner.isScanning) {
+      scanner.resume();
+    }
   };
 
   onScanSuccess = async (decodedText, decodedResult) => {
-    console.log(`Code matched = ${decodedText}`, decodedResult);
-    document.getElementById('result').textContent = decodedText;
-    // Send to selfCheckout
-    const { selfCheckOutSearch } = this.props;
-    await selfCheckOutSearch(decodedText.trim());
-    // open modal
-    this.toggleModal();
-    // this.stopScanner();
-  };
+    // Send to selfCheckout if different barcode
+    const { barcode } = this.state;
+    if (decodedText.trim() !== barcode) {
+      this.setState({ barcode: decodedText.trim() });
 
-  onScanFailure(error) {
-    // handle scan failure, usually better to ignore and keep scanning.
-    console.warn(`Code scan error = ${error}`);
-  }
+      const { selfCheckOutSearch } = this.props;
+      await selfCheckOutSearch(decodedText.trim());
+      // open modal
+      this.toggleModal();
+    }
+  };
 
   startScanner = (selectedDeviceId, onScanSuccess, onScanFailure) => {
     const scanner = new Html5Qrcode(selectedDeviceId, {
-      formatsToSupport: [Html5QrcodeSupportedFormats.CODE_128],
+      formatsToSupport: [
+        Html5QrcodeSupportedFormats.CODE_128, // config
+        Html5QrcodeSupportedFormats.CODE_39,
+      ],
     });
+    // config
     scanner.start(
       selectedDeviceId,
       {
@@ -65,39 +74,51 @@ class SelfCheckout extends React.Component {
 
   itemStatus = (item) => ({
     canCirculate: () =>
-      invenioConfig.ITEMS.canCirculateStatuses.includes(item.status),
-    isOnShelf: () => !item.circulation,
+      invenioConfig.ITEMS.canCirculateStatuses.includes(item.metadata.status),
+    isOnShelf: () => !item.metadata.circulation, // on shelf if circulation doesn't exist
   });
 
   isItemLoanable = () => {
-    const { item } = this.props;
+    const { item, notifyResultMessage } = this.props;
+    const { barcode } = this.state;
+    var resultMessage = `Physical copy with barcode: ${barcode} doesn't exist.`;
+
     if (item !== null && item !== undefined) {
-      if (
-        this.itemStatus(item).isOnShelf &&
-        this.itemStatus(item).canCirculate
-      ) {
-        return true;
+      const itemBarcode = _get(item, 'metadata.barcode');
+      if (this.itemStatus(item).canCirculate()) {
+        if (this.itemStatus(item).isOnShelf()) {
+          return true;
+        } else {
+          resultMessage = `Physical copy with barcode: ${itemBarcode} is currently on loan!`;
+        }
+      } else {
+        const status = invenioConfig.ITEMS.statuses.find(
+          (x) => x.value === item.metadata.status
+        );
+        resultMessage = `Physical copy with barcode: ${itemBarcode} is ${status.text}!`;
       }
     }
+
+    notifyResultMessage(resultMessage);
     return false;
   };
 
   render() {
     const { showModal } = this.state;
     return (
-      <Container>
+      <Container className="spaced">
         <Header as="h2">Self Checkout</Header>
         <BarcodeScanner
           getCameras={Html5Qrcode.getCameras}
           startScanner={this.startScanner}
           stopScanner={this.stopScanner}
           onScanSuccess={this.onScanSuccess}
-          // onScanFailure={this.onScanFailure}
         />
         <SelfCheckoutModal
-          modalOpened={showModal && this.isItemLoanable()}
+          modalOpened={showModal}
           toggleModal={this.toggleModal}
         />
+        {/* Add visual example and description */}
       </Container>
     );
   }
@@ -106,8 +127,8 @@ class SelfCheckout extends React.Component {
 SelfCheckout.propTypes = {
   /* REDUX */
   selfCheckOutSearch: PropTypes.func.isRequired,
-  // user: PropTypes.object.isRequired,
   item: PropTypes.object,
+  notifyResultMessage: PropTypes.func.isRequired,
 };
 
 SelfCheckout.defaultProps = {

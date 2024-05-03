@@ -44,8 +44,8 @@ const DocumentDetailsLayout = ({
     >
       <Error boundary error={error}>
         <Container className="document-details-container default-margin-top">
-          <Grid columns={2}>
-            <Grid.Column computer={13} tablet={13} mobile={16}>
+          <Grid columns={3}>
+            <Grid.Column computer={10} tablet={10} mobile={16}>
               <ILSParagraphPlaceholder isLoading={isLoading} linesNumber={1}>
                 <Breadcrumbs
                   isLoading={isLoading}
@@ -58,7 +58,13 @@ const DocumentDetailsLayout = ({
                 />
               </ILSParagraphPlaceholder>
             </Grid.Column>
-            <Grid.Column computer={3} tablet={3} mobile={16} textAlign="right">
+            <Grid.Column computer={3} tablet={3} mobile={8} textAlign="left">
+              <Label as={Link} to={FrontSiteRoutes.selfCheckout} color="green">
+                <Icon name="expand" />
+                Self Checkout
+              </Label>
+            </Grid.Column>
+            <Grid.Column computer={3} tablet={3} mobile={8} textAlign="right">
               {!_isEmpty(documentDetails.metadata) && (
                 <AuthenticationGuard
                   silent

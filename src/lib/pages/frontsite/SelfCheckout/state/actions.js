@@ -5,25 +5,18 @@ import { loanApi } from '@api/loans';
 import {
   sendErrorNotification,
   sendSuccessNotification,
+  sendWarningNotification,
 } from '@components/Notifications';
 import _first from 'lodash/first';
 import { FrontSiteRoutes } from '@routes/urls';
 
-export const IS_LOADING = 'selfCheckOut/IS_LOADING';
-export const SUCCESS = 'fetchItemDetails/SUCCESS';
-export const HAS_ERROR = 'fetchItemDetails/HAS_ERROR';
-
 export const SEARCH_HAS_ERROR = 'selfCheckOut/SEARCH_HAS_ERROR';
 export const SEARCH_IS_LOADING = 'selfCheckOut/SEARCH_IS_LOADING';
 export const SEARCH_ITEM_SUCCESS = 'selfCheckOut/SEARCH_ITEM_SUCCESS';
-export const UPDATE_RESULT_MESSAGE = 'selfCheckOut/UPDATE_RESULT_MESSAGE';
 
-export const updateResultMessage = (message) => {
+export const notifyResultMessage = (message) => {
   return (dispatch) => {
-    dispatch({
-      type: UPDATE_RESULT_MESSAGE,
-      payload: message,
-    });
+    dispatch(sendWarningNotification(message));
   };
 };
 
@@ -35,8 +28,6 @@ const searchItem = async (dispatch, term) => {
     type: SEARCH_ITEM_SUCCESS,
     payload: item,
   });
-
-  return item;
 };
 
 export const selfCheckOutSearch = (term) => {
@@ -46,14 +37,7 @@ export const selfCheckOutSearch = (term) => {
     });
 
     try {
-      const item = await searchItem(dispatch, term);
-
-      if (item === undefined) {
-        dispatch({
-          type: UPDATE_RESULT_MESSAGE,
-          payload: `There is no book with barcode matching ${term}`,
-        });
-      }
+      await searchItem(dispatch, term);
     } catch (error) {
       dispatch({
         type: SEARCH_HAS_ERROR,
@@ -71,9 +55,6 @@ export const checkoutItem = (
   force = false
 ) => {
   return async (dispatch) => {
-    dispatch({
-      type: IS_LOADING,
-    });
     try {
       const response = await loanApi.doCheckout(
         documentPid,
@@ -92,10 +73,6 @@ export const checkoutItem = (
       );
       dispatch(sendSuccessNotification('Success!', linkToLoan));
     } catch (error) {
-      dispatch({
-        type: HAS_ERROR,
-        payload: error,
-      });
       dispatch(sendErrorNotification(error));
     }
   };

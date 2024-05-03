@@ -1,16 +1,15 @@
 import { connect } from 'react-redux';
 
 import SelfCheckoutComponent from './SelfCheckout';
-import { selfCheckOutSearch } from './state/actions';
+import { selfCheckOutSearch, notifyResultMessage } from './state/actions';
 
 const mapDispatchToProps = (dispatch) => ({
   selfCheckOutSearch: (term) => dispatch(selfCheckOutSearch(term)),
+  notifyResultMessage: (message) => dispatch(notifyResultMessage(message)),
 });
 
 const mapStateToProps = (state) => ({
-  // user: state.authenticationManagement.data,
   item: state.selfCheckOut.item,
-  // isAnonymous: state.authenticationManagement.isAnonymous,
 });
 
 export const SelfCheckout = connect(
