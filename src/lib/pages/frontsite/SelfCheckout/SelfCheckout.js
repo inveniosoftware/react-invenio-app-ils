@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 import Overridable from 'react-overridable';
-import { Container, Header } from 'semantic-ui-react';
+import { Container, Header, Image, List, Grid } from 'semantic-ui-react';
 import { BarcodeScanner } from '@components/BarcodeScanner';
 import { Html5Qrcode, Html5QrcodeSupportedFormats } from 'html5-qrcode';
 import { SelfCheckoutModal } from './SelfCheckoutModal';
@@ -14,21 +14,15 @@ class SelfCheckout extends React.Component {
     super(props);
 
     this.state = {
-      scanner: null,
       showModal: false,
       barcode: null,
     };
   }
 
   toggleModal = () => {
-    const { showModal, scanner } = this.state;
+    const { showModal } = this.state;
     const shouldShowModal = !showModal && this.isItemLoanable();
     this.setState({ showModal: shouldShowModal });
-    if (shouldShowModal) {
-      scanner.pause();
-    } else if (!scanner.isScanning) {
-      scanner.resume();
-    }
   };
 
   onScanSuccess = async (decodedText, decodedResult) => {
@@ -44,50 +38,47 @@ class SelfCheckout extends React.Component {
     }
   };
 
-  qrboxFunction = (viewfinderWidth, viewfinderHeight) => {
+  setScannerArea = (cameraBoxWidth, cameraBoxHeight) => {
     return {
-      width: viewfinderWidth * 0.9,
-      height: viewfinderWidth * 0.3,
+      width: cameraBoxWidth * 0.9,
+      height: cameraBoxHeight * 0.3,
     };
   };
 
-  startScanner = (selectedDeviceId, onScanSuccess, onScanFailure) => {
-    const scanner = new Html5Qrcode(selectedDeviceId, {
+  startScanner = (deviceId, onScanSuccess, onScanFailure) => {
+    const scanner = new Html5Qrcode(deviceId, {
       formatsToSupport: [
-        Html5QrcodeSupportedFormats.CODE_128, // config
+        Html5QrcodeSupportedFormats.CODE_128,
         Html5QrcodeSupportedFormats.CODE_39,
       ],
     });
-    // config
     scanner.start(
       { facingMode: 'environment' },
       {
         fps: 1, // frame per second for qr code scanning
-        qrbox: this.qrboxFunction, // bounding box UI
+        qrbox: this.setScannerArea, // bounding box UI
       },
       onScanSuccess,
       onScanFailure,
       /* verbose= */ false
     );
-    this.setState({ scanner: scanner });
     return scanner;
   };
 
-  stopScanner = () => {
-    const { scanner } = this.state;
+  stopScanner = (scanner) => {
     scanner.stop();
   };
 
   itemStatus = (item) => ({
     canCirculate: () =>
       invenioConfig.ITEMS.canCirculateStatuses.includes(item.metadata.status),
-    isOnShelf: () => !item.metadata.circulation.state, // on shelf if circulation doesn't exist
+    isOnShelf: () => !item.metadata.circulation.state, // on shelf if circulation.state doesn't exist
   });
 
   isItemLoanable = () => {
-    const { item, notifyResultMessage } = this.props;
+    const { user, item, notifyResultMessage } = this.props;
     const { barcode } = this.state;
-    var resultMessage = `Physical copy with barcode: ${barcode} doesn't exist.`;
+    var resultMessage = `Book with barcode: ${barcode} doesn't exist.`;
 
     if (item !== null && item !== undefined) {
       const itemBarcode = _get(item, 'metadata.barcode');
@@ -95,13 +86,17 @@ class SelfCheckout extends React.Component {
         if (this.itemStatus(item).isOnShelf()) {
           return true;
         } else {
-          resultMessage = `Physical copy with barcode: ${itemBarcode} is currently on loan!`;
+          if (item.metadata.circulation.patron_pid === user.id.toString()) {
+            resultMessage = `You already loaned this book with barcode: ${itemBarcode}!`;
+          } else {
+            resultMessage = `Book with barcode: ${itemBarcode} is currently on loan!`;
+          }
         }
       } else {
         const status = invenioConfig.ITEMS.statuses.find(
           (x) => x.value === item.metadata.status
         );
-        resultMessage = `Physical copy with barcode: ${itemBarcode} is ${status.text}!`;
+        resultMessage = `Book with barcode: ${itemBarcode} is ${status.text}!`;
       }
     }
 
@@ -109,13 +104,48 @@ class SelfCheckout extends React.Component {
     return false;
   };
 
+  renderInstructions = () => {
+    return (
+      <>
+        <Header as="h3">How to scan:</Header>
+        <List>
+          <List.Item>Scan the barcode inside the box.</List.Item>
+          <List.Item>
+            Scan the library barcode at the start of the book.
+          </List.Item>
+          <List.Item>
+            Don't scan publication barcode a tthe back of the book.
+          </List.Item>
+        </List>
+        {/* Here for now for demo, move to assets when finalised? */}
+        <Grid>
+          <Grid.Column>
+            <Image
+              src={
+                process.env.PUBLIC_URL +
+                '/images/correct-self-checkout-method.png'
+              }
+            />
+          </Grid.Column>
+          <Grid.Column>
+            <Image
+              src={
+                process.env.PUBLIC_URL +
+                '/images/wrong-self-checkout-method.png'
+              }
+            />
+          </Grid.Column>
+        </Grid>
+      </>
+    );
+  };
+
   render() {
     const { showModal } = this.state;
     return (
-      <Container className="spaced">
-        <Header as="h2">Self Checkout</Header>
+      <Container className="spaced" textAlign="center">
+        <Header as="h1">SELF CHECKOUT</Header>
         <BarcodeScanner
-          getCameras={Html5Qrcode.getCameras}
           startScanner={this.startScanner}
           stopScanner={this.stopScanner}
           onScanSuccess={this.onScanSuccess}
@@ -124,7 +154,7 @@ class SelfCheckout extends React.Component {
           modalOpened={showModal}
           toggleModal={this.toggleModal}
         />
-        {/* Add visual example and description */}
+        {this.renderInstructions()}
       </Container>
     );
   }
@@ -133,6 +163,7 @@ class SelfCheckout extends React.Component {
 SelfCheckout.propTypes = {
   /* REDUX */
   selfCheckOutSearch: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
   item: PropTypes.object,
   notifyResultMessage: PropTypes.func.isRequired,
 };

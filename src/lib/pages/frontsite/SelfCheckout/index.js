@@ -10,6 +10,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
   item: state.selfCheckOut.item,
+  user: state.authenticationManagement.data,
 });
 
 export const SelfCheckout = connect(
