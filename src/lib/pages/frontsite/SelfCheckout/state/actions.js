@@ -65,7 +65,7 @@ export const checkoutItem = (
       const { pid } = response.data.metadata;
       const linkToLoan = (
         <p>
-          The loan {pid} has been created by patron {patronPid}.{' '}
+          The loan {pid} has been created by you!{' '}
           <Link to={FrontSiteRoutes.patronProfile}>
             You can now view the loan details.
           </Link>

@@ -18,6 +18,7 @@ import { FrontSiteRoutes } from '@routes/frontsite/frontsiteUrls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { invenioConfig } from '@config';
 import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
 import { UnAuthorized } from '@authentication/components/UnAuthorized';
 import { Container } from 'semantic-ui-react';
@@ -73,16 +74,18 @@ export default class FrontSite extends Component {
               path={FrontSiteRoutes.openingHours}
               component={OpeningHours}
             />
-            <Route
-              exact
-              path={FrontSiteRoutes.selfCheckout}
-              component={() => (
-                <AuthenticationGuard
-                  authorizedComponent={SelfCheckout}
-                  unAuthorizedComponent={UnAuthorized}
-                />
-              )}
-            />
+            {invenioConfig.APP.ENABLE_SELF_CHECKOUT && (
+              <Route
+                exact
+                path={FrontSiteRoutes.selfCheckout}
+                component={() => (
+                  <AuthenticationGuard
+                    authorizedComponent={SelfCheckout}
+                    unAuthorizedComponent={UnAuthorized}
+                  />
+                )}
+              />
+            )}
             <Route exact path={FrontSiteRoutes.errors} component={ErrorsPage} />
             {staticPagesRoutes.map((route) => (
               <Route key={route} exact path={route} component={StaticPage} />

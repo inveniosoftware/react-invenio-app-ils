@@ -5,17 +5,29 @@ import { Loader } from '@components/Loader';
 import { DocumentCard } from './DocumentCard';
 import { Modal, Button } from 'semantic-ui-react';
 import _get from 'lodash/get';
+import { goTo } from '@history';
+import { FrontSiteRoutes } from '@routes/urls';
 
 export default class SelfCheckoutModal extends React.Component {
-  handleCheckoutClick = () => {
-    const { user, item, toggleModal, checkoutItem } = this.props;
+  checkout = () => {
+    const { user, item, checkoutItem } = this.props;
     // Checkout function
     const itemPid = {
       type: recordToPidType(item),
       value: item.metadata.pid,
     };
     checkoutItem(item.metadata.document_pid, itemPid, user.id.toString());
+  };
+
+  handleCheckoutAgainClick = () => {
+    const { toggleModal } = this.props;
+    this.checkout();
     toggleModal();
+  };
+
+  handleCheckoutFinishClick = () => {
+    this.checkout();
+    goTo(FrontSiteRoutes.patronProfile);
   };
 
   render() {
@@ -26,23 +38,29 @@ export default class SelfCheckoutModal extends React.Component {
       <Loader isLoading={isLoading}>
         <Modal open={modalOpened} size="large" centered onClose={toggleModal}>
           <Modal.Header>
-            {`You are about to checkout the physical copy with barcode:
+            {`You are about to checkout a book with barcode:
             ${itemBarcode}`}
           </Modal.Header>
           <Modal.Content>
             <DocumentCard item={item} />
           </Modal.Content>
           <Modal.Actions>
-            <Button color="black" onClick={toggleModal}>
-              Close
-            </Button>
+            <Button color="black" onClick={toggleModal} content="Cancel" />
             <Button
               positive
               disabled={isLoading}
               icon="checkmark"
               labelPosition="left"
-              content="Confirm checkout"
-              onClick={this.handleCheckoutClick}
+              content="Checkout and scan again"
+              onClick={this.handleCheckoutAgainClick}
+            />
+            <Button
+              positive
+              disabled={isLoading}
+              icon="checkmark"
+              labelPosition="left"
+              content="Checkout and finish"
+              onClick={this.handleCheckoutFinishClick}
             />
           </Modal.Actions>
         </Modal>

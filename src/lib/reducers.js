@@ -84,6 +84,7 @@ export default function createILSReducer(asyncReducers) {
     patronCurrentBorrowingRequests: patronCurrentBorrowingRequestsReducer,
     patronPastBorrowingRequests: patronPastBorrowingRequestsReducer,
     staticPage: staticPageReducer,
+    selfCheckOut: selfCheckOutReducer,
     /* backoffice */
     overdueLoanSendNotificationModal: overdueLoanSendNotificationModalReducer,
     loanDetails: loanDetailsReducer,
@@ -122,7 +123,6 @@ export default function createILSReducer(asyncReducers) {
     borrowingRequestLoanExtension: borrowingRequestLoanExtensionReducer,
     itemsCheckIn: itemsCheckInReducer,
     checkOut: checkOutReducer,
-    selfCheckOut: selfCheckOutReducer,
     banner: fetchBannerReducer,
     bulkLoanExtend: patronBulkExtendLoans,
     ...asyncReducers,
