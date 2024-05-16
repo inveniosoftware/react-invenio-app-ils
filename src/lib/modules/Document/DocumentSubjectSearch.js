@@ -11,6 +11,7 @@ import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchContro
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import PropTypes from 'prop-types';
 import React from 'react';
+import _get from 'lodash/get';
 import { OverridableContext } from 'react-overridable';
 import {
   EmptyResults,
@@ -25,6 +26,34 @@ import { InvenioRequestSerializer } from 'react-searchkit';
 import { DocumentSubjectGrid } from './DocumentSubjectLayout';
 import { Error as IlsError } from '@components/Error';
 import { SearchControlsMobile } from '@modules/SearchControls/SearchControlsMobile';
+import { ILSParagraphPlaceholder } from '@components/ILSPlaceholder';
+
+export const DocumentSubjects = ({ metadata, isLoading }) => {
+  const renderDocumentSubjectSearch = _get(metadata, 'subjects', null) !== null;
+  return (
+    renderDocumentSubjectSearch && (
+      <>
+        <Media greaterThanOrEqual="computer">
+          <Container className="items-locations spaced">
+            <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
+              <DocumentSubjectSearch metadata={metadata} />
+            </ILSParagraphPlaceholder>
+          </Container>
+        </Media>
+        <Media lessThan="computer">
+          <ILSParagraphPlaceholder linesNumber={5} isLoading={isLoading}>
+            <DocumentSubjectSearch metadata={metadata} />
+          </ILSParagraphPlaceholder>
+        </Media>
+      </>
+    )
+  );
+};
+
+DocumentSubjects.propTypes = {
+  metadata: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+};
 
 const queryBuilderForSubjects = (documentMetadata) => {
   let subjectsQuery = documentApi
@@ -41,7 +70,7 @@ const queryBuilderForSubjects = (documentMetadata) => {
   };
 };
 
-export class DocumentSubjectSearch extends React.Component {
+class DocumentSubjectSearch extends React.Component {
   modelName = 'DOCUMENTS';
 
   render() {
@@ -106,7 +135,7 @@ DocumentSubjectSearch.propTypes = {
   metadata: PropTypes.object.isRequired,
 };
 
-export class DocumentSubjectSearchMobile extends React.Component {
+class DocumentSubjectSearchMobile extends React.Component {
   stickyRef = React.createRef();
 
   renderError = (error) => {
