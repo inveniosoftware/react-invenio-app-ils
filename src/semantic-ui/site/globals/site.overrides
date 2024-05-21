@@ -357,6 +357,10 @@ a {
     color: #1aa3ff;
   }
 
+  a.relations-title{
+    font-style: italic;
+  }
+
   #notifications {
     z-index: 9999;
     margin-top: 1rem;

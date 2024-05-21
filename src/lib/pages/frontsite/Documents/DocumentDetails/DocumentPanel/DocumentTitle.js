@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import { Grid, Header, Label } from 'semantic-ui-react';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { Media } from '@components/Media';
+import { FrontSiteRoutes } from '@routes/urls';
+import { Link } from 'react-router-dom';
 
 export class DocumentTitle extends Component {
   subtitle() {
@@ -19,6 +21,25 @@ export class DocumentTitle extends Component {
     }
   }
 
+  getLinkTo(relation) {
+    return relation.pid_type === 'docid'
+      ? FrontSiteRoutes.documentDetailsFor(relation.pid_value)
+      : FrontSiteRoutes.seriesDetailsFor(relation.pid_value);
+  }
+
+  relationsTitle(relationsData) {
+    const relation = relationsData[0];
+    return !_isEmpty(relationsData) ? (
+      <Header>
+        <Header.Subheader>
+          <Link className="relations-title" to={this.getLinkTo(relation)}>
+            {relation.record_metadata.title}
+          </Link>
+        </Header.Subheader>
+      </Header>
+    ) : null;
+  }
+
   render() {
     const { metadata } = this.props;
     const volume = _get(metadata, 'relations.multipart_monograph[0].volume');
@@ -31,6 +52,13 @@ export class DocumentTitle extends Component {
               <Grid.Column textAlign="left">
                 {metadata.document_type}
               </Grid.Column>
+            </Grid.Row>
+            <Grid.Row className="pb-0 pt-0">
+              <Grid.Column textAlign="left" verticalAlign="bottom">
+                {this.relationsTitle(
+                  _get(metadata, 'relations.multipart_monograph', [])
+                )}
+              </Grid.Column>
               <Grid.Column textAlign="right">
                 {volume && <Label>{'Volume ' + volume}</Label>}
               </Grid.Column>
@@ -40,6 +68,11 @@ export class DocumentTitle extends Component {
         <Media lessThan="tablet">
           <Grid columns={2} textAlign="center">
             <Grid.Row className="pb-0 pt-2">{metadata.document_type}</Grid.Row>
+            <Grid.Row className="pb-0">
+              {this.relationsTitle(
+                _get(metadata, 'relations.multipart_monograph', [])
+              )}
+            </Grid.Row>
             <Grid.Row className="pb-0">
               {volume && <Label>{'Volume ' + volume}</Label>}
             </Grid.Row>
