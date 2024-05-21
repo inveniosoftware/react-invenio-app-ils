@@ -21,7 +21,7 @@ import { DocumentItems } from './DocumentItems';
 import { DocumentMetadata } from './DocumentMetadata';
 import DocumentPanel from './DocumentPanel/DocumentPanel';
 import { NotFound } from '@components/HttpErrors';
-import { DocumentSubjects } from '@modules/Document/DocumentSubjectSearch';
+import { DocumentSubjectSearch } from '@modules/Document/DocumentSubjectSearch';
 
 const DocumentDetailsLayout = ({
   error,
@@ -105,7 +105,7 @@ const DocumentDetailsLayout = ({
             </ILSParagraphPlaceholder>
           </Container>
         </Container>
-        <DocumentSubjects
+        <DocumentSubjectSearch
           metadata={documentDetails.metadata}
           isLoading={isLoading}
         />
