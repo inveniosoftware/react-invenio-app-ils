@@ -11,7 +11,7 @@ import { SearchControlsOverridesMap } from '@modules/SearchControls/SearchContro
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import PropTypes from 'prop-types';
 import React from 'react';
-import _get from 'lodash/get';
+import _isEmpty from 'lodash/isEmpty';
 import { OverridableContext } from 'react-overridable';
 import {
   EmptyResults,
@@ -28,21 +28,21 @@ import { Error as IlsError } from '@components/Error';
 import { SearchControlsMobile } from '@modules/SearchControls/SearchControlsMobile';
 import { ILSParagraphPlaceholder } from '@components/ILSPlaceholder';
 
-export const DocumentSubjects = ({ metadata, isLoading }) => {
-  const renderDocumentSubjectSearch = _get(metadata, 'subjects', null) !== null;
+export const DocumentSubjectSearch = ({ metadata, isLoading }) => {
+  const renderDocumentSubjectSearch = !_isEmpty(metadata.subjects);
   return (
     renderDocumentSubjectSearch && (
       <>
         <Media greaterThanOrEqual="computer">
           <Container className="items-locations spaced">
             <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
-              <DocumentSubjectSearch metadata={metadata} />
+              <DocumentSubjects metadata={metadata} />
             </ILSParagraphPlaceholder>
           </Container>
         </Media>
         <Media lessThan="computer">
           <ILSParagraphPlaceholder linesNumber={5} isLoading={isLoading}>
-            <DocumentSubjectSearch metadata={metadata} />
+            <DocumentSubjects metadata={metadata} />
           </ILSParagraphPlaceholder>
         </Media>
       </>
@@ -50,7 +50,7 @@ export const DocumentSubjects = ({ metadata, isLoading }) => {
   );
 };
 
-DocumentSubjects.propTypes = {
+DocumentSubjectSearch.propTypes = {
   metadata: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
 };
@@ -70,7 +70,7 @@ const queryBuilderForSubjects = (documentMetadata) => {
   };
 };
 
-class DocumentSubjectSearch extends React.Component {
+class DocumentSubjects extends React.Component {
   modelName = 'DOCUMENTS';
 
   render() {
@@ -121,7 +121,7 @@ class DocumentSubjectSearch extends React.Component {
                 </ResultsLoader>
               </Media>
               <Media lessThan="computer">
-                <DocumentSubjectSearchMobile metadata={metadata} />
+                <DocumentSubjectsMobile metadata={metadata} />
               </Media>
             </>
           </ReactSearchKit>
@@ -131,11 +131,11 @@ class DocumentSubjectSearch extends React.Component {
   }
 }
 
-DocumentSubjectSearch.propTypes = {
+DocumentSubjects.propTypes = {
   metadata: PropTypes.object.isRequired,
 };
 
-class DocumentSubjectSearchMobile extends React.Component {
+class DocumentSubjectsMobile extends React.Component {
   stickyRef = React.createRef();
 
   renderError = (error) => {
@@ -167,4 +167,4 @@ class DocumentSubjectSearchMobile extends React.Component {
   }
 }
 
-DocumentSubjectSearchMobile.propTypes = {};
+DocumentSubjectsMobile.propTypes = {};
