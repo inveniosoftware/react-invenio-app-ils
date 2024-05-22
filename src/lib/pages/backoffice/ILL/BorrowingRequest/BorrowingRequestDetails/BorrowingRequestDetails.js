@@ -26,6 +26,9 @@ import { BorrowingRequestMetadata } from './BorrowingRequestMetadata';
 import { BorrowingRequestPayment } from './BorrowingRequestPayment';
 import { BorrowingRequestStatistics } from './BorrowingRequestStatistics';
 import { BorrowingRequestSteps } from './BorrowingRequestSteps';
+import { Truncate } from '@components/Truncate';
+import _get from 'lodash/get';
+import _isEmpty from 'lodash/isEmpty';
 
 class BorrowingRequestHeader extends React.Component {
   renderStatus(status) {
@@ -43,6 +46,17 @@ class BorrowingRequestHeader extends React.Component {
       default:
         throw new Error(`Unknown status: ${status}`);
     }
+  }
+
+  renderSubtitle(metadata) {
+    const subtitle = !_isEmpty(_get(metadata, 'alternative_titles'))
+      ? metadata.alternative_titles.find((e) => e.type === 'SUBTITLE')
+      : null;
+    return subtitle ? (
+      <>
+        <br /> {subtitle.value}
+      </>
+    ) : null;
   }
 
   render() {
@@ -82,6 +96,7 @@ class BorrowingRequestHeader extends React.Component {
         subTitle={
           <>
             {brwReq.document.title}
+            <Truncate>{this.renderSubtitle(brwReq)}</Truncate>
             <br /> From provider: {providerLink}
           </>
         }

@@ -102,6 +102,13 @@ class DocumentListEntry extends Component {
     return image;
   };
 
+  renderSubtitle = (metadata) => {
+    const subtitle = !_isEmpty(metadata.alternative_titles)
+      ? metadata.alternative_titles.find((e) => e.type === 'SUBTITLE')
+      : null;
+    return subtitle ? subtitle.value : null;
+  };
+
   render() {
     return (
       <Item>
@@ -118,6 +125,9 @@ class DocumentListEntry extends Component {
             id="DocumentListEntry.BeforeAuthors"
             metadata={this.metadata}
           />
+          <Item.Description>
+            <Truncate>{this.renderSubtitle(document.metadata)}</Truncate>
+          </Item.Description>
           <Item.Meta>
             <DocumentAuthors
               authors={this.metadata.authors}
