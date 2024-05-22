@@ -12,6 +12,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Item, List } from 'semantic-ui-react';
 import _get from 'lodash/get';
+import _isEmpty from 'lodash/isEmpty';
 
 export default class OrderListEntry extends Component {
   renderLeftColumn = (order) => {
@@ -145,6 +146,20 @@ export default class OrderListEntry extends Component {
     );
   };
 
+  renderSubtitle = (record) => {
+    const subtitle = !_isEmpty(
+      _get(
+        record,
+        'metadata.resolved_order_lines[0].document.alternative_titles'
+      )
+    )
+      ? record.metadata.resolved_order_lines[0].document.alternative_titles.find(
+          (e) => e.type === 'SUBTITLE'
+        )
+      : null;
+    return subtitle ? subtitle.value : null;
+  };
+
   render() {
     const { record } = this.props;
     const docTitle = _get(
@@ -165,6 +180,9 @@ export default class OrderListEntry extends Component {
               Order: {docTitle ? docTitle : record.metadata.pid}
             </Truncate>
           </Item.Header>
+          <Item.Meta>
+            <Truncate>{this.renderSubtitle(record)}</Truncate>
+          </Item.Meta>
           <Grid highlight={3}>
             <Grid.Column computer={5} largeScreen={5}>
               {this.renderLeftColumn(record)}
