@@ -5,9 +5,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Item, List } from 'semantic-ui-react';
-import { Truncate } from '@components/Truncate';
 import _get from 'lodash/get';
-import _isEmpty from 'lodash/isEmpty';
+import { renderSubtitle } from '@modules/Document/utils';
 
 export default class BorrowingRequestListEntry extends Component {
   renderLeftColumn = (brwReqMetadata) => {
@@ -125,18 +124,10 @@ export default class BorrowingRequestListEntry extends Component {
     );
   };
 
-  renderSubtitle = (metadata) => {
-    const subtitle = !_isEmpty(_get(metadata, 'document.alternative_titles'))
-      ? metadata.document.alternative_titles.find((e) => e.type === 'SUBTITLE')
-      : null;
-    return subtitle ? subtitle.value : null;
-  };
-
   render() {
     const {
       record: { metadata: brwReqMetadata },
     } = this.props;
-    console.log(brwReqMetadata);
     return (
       <Item>
         <Item.Content>
@@ -149,7 +140,9 @@ export default class BorrowingRequestListEntry extends Component {
             {brwReqMetadata.document.title}
           </Item.Header>
           <Item.Meta>
-            <Truncate>{this.renderSubtitle(brwReqMetadata)}</Truncate>
+            {renderSubtitle(
+              _get(brwReqMetadata, 'document.alternative_titles')
+            )}
           </Item.Meta>
           <Grid highlight={3}>
             <Grid.Column computer={5} largeScreen={5}>

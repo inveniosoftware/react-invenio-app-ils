@@ -26,9 +26,8 @@ import { BorrowingRequestMetadata } from './BorrowingRequestMetadata';
 import { BorrowingRequestPayment } from './BorrowingRequestPayment';
 import { BorrowingRequestStatistics } from './BorrowingRequestStatistics';
 import { BorrowingRequestSteps } from './BorrowingRequestSteps';
-import { Truncate } from '@components/Truncate';
 import _get from 'lodash/get';
-import _isEmpty from 'lodash/isEmpty';
+import { renderSubtitle } from '@modules/Document/utils';
 
 class BorrowingRequestHeader extends React.Component {
   renderStatus(status) {
@@ -48,17 +47,6 @@ class BorrowingRequestHeader extends React.Component {
     }
   }
 
-  renderSubtitle(metadata) {
-    const subtitle = !_isEmpty(_get(metadata, 'alternative_titles'))
-      ? metadata.alternative_titles.find((e) => e.type === 'SUBTITLE')
-      : null;
-    return subtitle ? (
-      <>
-        <br /> {subtitle.value}
-      </>
-    ) : null;
-  }
-
   render() {
     const { brwReq } = this.props;
     const provider = brwReq.provider;
@@ -66,6 +54,9 @@ class BorrowingRequestHeader extends React.Component {
       <Link to={ProviderRoutes.providerDetailsFor(provider.pid)}>
         {provider.name}
       </Link>
+    );
+    const subtitle = renderSubtitle(
+      _get(brwReq, 'document.alternative_titles')
     );
     const pid = brwReq.pid;
     const recordInfo = (
@@ -96,8 +87,15 @@ class BorrowingRequestHeader extends React.Component {
         subTitle={
           <>
             {brwReq.document.title}
-            <Truncate>{this.renderSubtitle(brwReq)}</Truncate>
-            <br /> From provider: {providerLink}
+            {subtitle ? (
+              <>
+                <br />
+                {subtitle}
+              </>
+            ) : (
+              <br />
+            )}
+            From provider: {providerLink}
           </>
         }
         pid={brwReq.pid}

@@ -2,7 +2,6 @@ import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { FrontSiteRoutes } from '@routes/urls';
 import _get from 'lodash/get';
-import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
@@ -10,6 +9,7 @@ import { Card, Label } from 'semantic-ui-react';
 import { invenioConfig } from '@config';
 import { Link } from 'react-router-dom';
 import { Truncate } from '@components/Truncate';
+import { renderSubtitle } from '@modules/Document/utils';
 
 class DocumentCard extends Component {
   renderImage = () => {
@@ -40,7 +40,6 @@ class DocumentCard extends Component {
     if (eitems.total === 0) {
       return null;
     }
-    console.log(eitems.hits.map((eitem) => eitem.eitem_type));
     return [...new Set(eitems.hits.map((eitem) => eitem.eitem_type))].map(
       (tag) => <Label key={tag}>{tag}</Label>
     );
@@ -63,9 +62,7 @@ class DocumentCard extends Component {
       metadata,
       'relations.multipart_monograph[0].record_metadata.title'
     );
-    const subtitle = !_isEmpty(metadata.alternative_titles)
-      ? metadata.alternative_titles.find((e) => e.type === 'SUBTITLE')
-      : null;
+    const subtitle = renderSubtitle(_get(metadata, 'alternative_titles'));
 
     return (
       <Overridable id="DocumentCard.layout" {...this.props}>
@@ -93,14 +90,8 @@ class DocumentCard extends Component {
                 {metadata.publication_year}
                 {metadata.edition && <> - Edition {metadata.edition}</>}
                 {volume && <> - Vol. {volume}</>}
-                {subtitle && <Truncate lines={1}>{subtitle.value}</Truncate>}
-                {multipartTitle && (
-                  <>
-                    {' '}
-                    <br /> {multipartTitle}{' '}
-                  </>
-                )}
-
+                {subtitle}
+                {multipartTitle}
                 {metadata.imprint?.publisher && (
                   <>
                     {' '}
