@@ -7,9 +7,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Divider, Grid, Icon, Item, Message, Popup } from 'semantic-ui-react';
 import Overridable from 'react-overridable';
-import { Truncate } from '@components/Truncate';
 import _get from 'lodash/get';
-import _isEmpty from 'lodash/isEmpty';
+import { renderSubtitle } from '@modules/Document/utils';
 
 const OrderLineLeftColumn = ({ line }) => {
   return (
@@ -103,13 +102,6 @@ OrderLineRightColumn.propTypes = {
 };
 
 export const OrderLine = ({ line, LeftColumn, MiddleColumn, RightColumn }) => {
-  const renderSubtitle = (line) => {
-    const subtitle = !_isEmpty(_get(line, 'document.alternative_titles'))
-      ? line.document.alternative_titles.find((e) => e.type === 'SUBTITLE')
-      : null;
-    return subtitle ? subtitle.value : null;
-  };
-
   return (
     <Item>
       <Item.Content>
@@ -121,7 +113,7 @@ export const OrderLine = ({ line, LeftColumn, MiddleColumn, RightColumn }) => {
           />
         </Link>
         <Item.Meta>
-          <Truncate>{renderSubtitle(line)}</Truncate>
+          {renderSubtitle(_get(line, 'document.alternative_titles'))}
         </Item.Meta>
         <Divider />
         <Grid columns={3}>

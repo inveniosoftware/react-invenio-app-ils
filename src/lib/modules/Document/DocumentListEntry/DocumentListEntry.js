@@ -13,6 +13,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Overridable from 'react-overridable';
 import { Grid, Item, List } from 'semantic-ui-react';
+import { renderSubtitle } from '@modules/Document/utils';
 
 class DocumentListEntry extends Component {
   constructor(props) {
@@ -102,13 +103,6 @@ class DocumentListEntry extends Component {
     return image;
   };
 
-  renderSubtitle = (metadata) => {
-    const subtitle = !_isEmpty(metadata.alternative_titles)
-      ? metadata.alternative_titles.find((e) => e.type === 'SUBTITLE')
-      : null;
-    return subtitle ? subtitle.value : null;
-  };
-
   render() {
     return (
       <Item>
@@ -125,10 +119,8 @@ class DocumentListEntry extends Component {
             id="DocumentListEntry.BeforeAuthors"
             metadata={this.metadata}
           />
-          <Item.Description>
-            <Truncate>{this.renderSubtitle(document.metadata)}</Truncate>
-          </Item.Description>
           <Item.Meta>
+            {renderSubtitle(_get(this.metadata, 'alternative_titles'))}
             <DocumentAuthors
               authors={this.metadata.authors}
               hasOtherAuthors={this.metadata.other_authors}

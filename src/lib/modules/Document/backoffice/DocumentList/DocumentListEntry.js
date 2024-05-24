@@ -8,13 +8,12 @@ import LiteratureTags from '@modules/Literature/LiteratureTags';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
-import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Header, Icon, Item, List } from 'semantic-ui-react';
 import DocumentCirculation from './DocumentCirculation';
-import { Truncate } from '@components/Truncate';
+import { renderSubtitle } from '@modules/Document/utils';
 
 export default class DocumentListEntry extends Component {
   renderMiddleColumn = (document) => {
@@ -91,13 +90,6 @@ export default class DocumentListEntry extends Component {
     );
   };
 
-  renderSubtitle = (metadata) => {
-    const subtitle = !_isEmpty(metadata.alternative_titles)
-      ? metadata.alternative_titles.find((e) => e.type === 'SUBTITLE')
-      : null;
-    return subtitle ? subtitle.value : null;
-  };
-
   render() {
     const { record: document } = this.props;
     return (
@@ -125,12 +117,10 @@ export default class DocumentListEntry extends Component {
               truncateWidth="500px"
             />
           </Item.Header>
-          <Item.Meta>
-            <Truncate>{this.renderSubtitle(document.metadata)}</Truncate>
-          </Item.Meta>
           <Grid columns={3}>
             <Grid.Column computer={6} largeScreen={5}>
               <Item.Meta className="document-authors">
+                {renderSubtitle(_get(document, 'metadata.alternative_titles'))}
                 <DocumentAuthors
                   authors={document.metadata.authors}
                   hasOtherAuthors={document.metadata.other_authors}
