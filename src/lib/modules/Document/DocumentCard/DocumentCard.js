@@ -35,7 +35,7 @@ class DocumentCard extends Component {
     return image;
   };
 
-  renderEItemLabels = (eitems) => {
+  renderEItemTypeLabels = (eitems) => {
     if (eitems.total === 0) {
       return null;
     }
@@ -111,7 +111,7 @@ class DocumentCard extends Component {
                 On shelf
               </Label>
             )}
-            {this.renderEItemLabels(metadata.eitems)}
+            {this.renderEItemTypeLabels(metadata.eitems)}
             <Overridable id="DocumentCard.Extras" metadata={metadata} />
           </Card.Content>
         </Card>
