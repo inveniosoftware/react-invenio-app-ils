@@ -21,7 +21,7 @@ class DocumentListEntry extends Component {
     this.metadata = props.metadata;
   }
 
-  renderEItemTags = (eitems) => {
+  renderEItemTypeLabels = (eitems) => {
     if (eitems.total === 0) {
       return null;
     }
@@ -51,7 +51,7 @@ class DocumentListEntry extends Component {
               <List.Content>Available for loan</List.Content>
             </List.Item>
           ) : null}
-          {this.renderEItemTags(meta.eitems)}
+          {this.renderEItemTypeLabels(meta.eitems)}
         </List>
       );
     }

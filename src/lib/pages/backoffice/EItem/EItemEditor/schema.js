@@ -53,6 +53,7 @@ export const schema = () => {
           .map((status) => status.text),
         title: 'EItem type',
         type: 'string',
+        default: 'E-BOOK',
       },
       source: {
         title: 'Source',
