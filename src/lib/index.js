@@ -27,6 +27,7 @@ export {
 export { SeriesCardGroup } from '@modules/Series/SeriesCardGroup';
 export { DocumentCardGroup } from '@modules/Document/DocumentCardGroup';
 export { DocumentRequestForm } from '@pages/frontsite/DocumentRequests';
+export { default as DocumentItemBody } from '@pages/frontsite/Documents/DocumentDetails/DocumentItems/DocumentItemBody';
 export { default as LiteratureSearch } from '@pages/frontsite/Literature/LiteratureSearch/LiteratureSearch';
 export { Headline } from '@pages/frontsite/Home/Headline';
 export { BackOfficeRoutes, FrontSiteRoutes } from '@routes/urls';

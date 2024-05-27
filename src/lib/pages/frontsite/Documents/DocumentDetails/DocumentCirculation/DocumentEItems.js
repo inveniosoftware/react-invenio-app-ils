@@ -67,7 +67,9 @@ export class DocumentEItems extends Component {
             </Button>
           </>
         )}
-        <Divider horizontal>Or</Divider>
+        <Divider horizontal fitted>
+          Or
+        </Divider>
       </>
     );
   }

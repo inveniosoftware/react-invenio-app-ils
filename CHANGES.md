@@ -1,5 +1,13 @@
 # Changes
 
+Version 1.0.0-alpha.84 (released 2024-05-13)
+
+- document details: add overridable ID to action panel
+- item: add identifiers field
+- eitem: add type field
+- patron details (backoffice): clear searchbar on successful checkout
+- document details: browse documents on the same subject
+
 Version 1.0.0-alpha.83 (released 2024-04-02)
 
 - backoffice: SideBar: Make SideBar Catalogue menu overridable

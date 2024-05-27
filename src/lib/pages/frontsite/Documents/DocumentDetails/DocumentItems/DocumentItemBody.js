@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
+import _get from 'lodash/get';
 import { PropTypes } from 'prop-types';
 import { Table } from 'semantic-ui-react';
-import { Media } from '@components/Media';
 import { getDisplayVal, invenioConfig } from '@config';
 
 export default class DocumentItemBody extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   itemStatus = (item) => ({
     canCirculate: () =>
       invenioConfig.ITEMS.canCirculateStatuses.includes(item.status),
@@ -31,7 +27,7 @@ export default class DocumentItemBody extends Component {
   };
 
   render() {
-    const { items } = this.props;
+    const { items, shelfLink } = this.props;
 
     return items.map((item) => (
       <Table.Row key={item.pid}>
@@ -42,23 +38,10 @@ export default class DocumentItemBody extends Component {
           {item.barcode}
         </Table.Cell>
 
-        <Media greaterThanOrEqual="tablet">
-          <Table.Cell
-            data-label="Shelf"
-            className="document-item-table-itemCell"
-          >
-            {item.shelf}
-          </Table.Cell>
-        </Media>
-
-        <Media lessThan="tablet">
-          <Table.Cell
-            data-label="Shelf"
-            className="document-item-table-itemCell"
-          >
-            {item.shelf || 'none'}
-          </Table.Cell>
-        </Media>
+        <Table.Cell data-label="Shelf" className="document-item-table-itemCell">
+          {(shelfLink !== null ? shelfLink(item) : _get(item, 'shelf')) ||
+            'none'}
+        </Table.Cell>
 
         <Table.Cell data-label="Status">{this.statusLabel(item)}</Table.Cell>
         <Table.Cell data-label="Medium">
@@ -77,4 +60,9 @@ export default class DocumentItemBody extends Component {
 
 DocumentItemBody.propTypes = {
   items: PropTypes.array.isRequired,
+  shelfLink: PropTypes.func,
+};
+
+DocumentItemBody.defaultProps = {
+  shelfLink: null,
 };

@@ -96,10 +96,7 @@ class LoanRequestForm extends Component {
   renderDeliveryMethodSelector = () => {
     return this.withDeliveryMethod ? (
       <>
-        <Header as="h4">Delivery</Header>
-        <Form.Field required>
-          <label>I would like to</label>
-        </Form.Field>
+        <Header as="h4">Delivery Options:</Header>
         <Form.Field>{this.renderDeliveryRadioButtons()}</Form.Field>
       </>
     ) : null;

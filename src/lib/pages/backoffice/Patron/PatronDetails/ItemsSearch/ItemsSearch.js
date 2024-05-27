@@ -16,6 +16,7 @@ export default class ItemsSearch extends Component {
     // and in this way the state from before update is preserved
     // eslint-disable-next-line react/no-unused-state
     this.state = { prevSearchQuery: '', executedSearch: false };
+    this.searchBarRef = React.createRef();
   }
 
   componentWillUnmount = () => {
@@ -34,7 +35,11 @@ export default class ItemsSearch extends Component {
 
     // eslint-disable-next-line react/no-unused-state
     this.setState({ prevSearchQuery: queryString, executedSearch: true }, () =>
-      fetchAndCheckoutIfOne(queryString, patronPid)
+      fetchAndCheckoutIfOne(
+        queryString,
+        patronPid,
+        this.searchBarRef.current.clearQueryString
+      )
     );
   };
 
@@ -51,9 +56,6 @@ export default class ItemsSearch extends Component {
 
     if (queryString && !sameQueryString) {
       await this.executeSearch(queryString, patronDetails.user_pid);
-
-      // eslint-disable-next-line react/no-unused-state
-      this.setState({ prevSearchQuery: '', executedSearch: true });
     }
   };
 
@@ -80,6 +82,7 @@ export default class ItemsSearch extends Component {
             onSearchHandler={this.executeSearch}
             placeholder="Type or paste to search for physical copies..."
             onPasteHandler={this.onPasteHandler}
+            ref={this.searchBarRef}
           />
         </Container>
         <Grid columns={1} stackable relaxed>

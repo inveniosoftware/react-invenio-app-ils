@@ -65,6 +65,7 @@ class QueryBuilder {
     this.withEitemsQuery = [];
     this.pendingOverdueQuery = [];
     this.withSeriesQuery = [];
+    this.withSubjectsQuery = [];
     this.sortByQuery = '';
     this.sortOrderQuery = '';
   }
@@ -146,6 +147,19 @@ class QueryBuilder {
     return this;
   }
 
+  withSubjects(subjects) {
+    if (subjects === undefined) {
+      return this;
+    }
+    const subjectQuery = subjects.map((subject) => {
+      return `(subjects.scheme:"${subject.scheme}" AND subjects.value:"${subject.value}")`;
+    });
+    if (subjectQuery !== '') {
+      this.withSubjectsQuery.push(`(${subjectQuery.join(' OR ')})`);
+    }
+    return this;
+  }
+
   sortBy(by = 'bestmatch') {
     this.sortByQuery = `&sort=${by}`;
     return this;
@@ -166,7 +180,8 @@ class QueryBuilder {
         this.withDocumentTypeQuery,
         this.withEitemsQuery,
         this.pendingOverdueQuery,
-        this.withSeriesQuery
+        this.withSeriesQuery,
+        this.withSubjectsQuery
       )
       .join(' AND ');
     return `${searchCriteria}${this.sortByQuery}${this.sortOrderQuery}${this.size}`;

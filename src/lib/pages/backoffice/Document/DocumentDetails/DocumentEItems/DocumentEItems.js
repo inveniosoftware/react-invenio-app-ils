@@ -52,6 +52,10 @@ export default class DocumentEItems extends Component {
         formatter: this.viewDetails,
       },
       {
+        title: 'Medium',
+        field: 'metadata.eitem_type',
+      },
+      {
         title: 'Files',
         field: 'metadata.files',
         formatter: this.filesFieldFormatter,

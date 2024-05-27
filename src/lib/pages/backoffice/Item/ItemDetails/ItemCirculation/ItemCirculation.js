@@ -10,6 +10,7 @@ import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import {
   Divider,
@@ -180,15 +181,20 @@ export default class ItemCirculation extends Component {
         </Header>
         <Segment attached className="bo-metadata-segment" id="circulation">
           <Grid columns={5} verticalAlign="middle">
-            <Grid.Column width={5}>
-              <Header size="small">
-                <Icon name="map pin" />
-                <Header.Content>
-                  {metadata.shelf}
-                  <Header.Subheader>shelf</Header.Subheader>
-                </Header.Content>
-              </Header>
-            </Grid.Column>
+            <Overridable
+              id="ItemCirculation.backoffice.shelf"
+              metadata={metadata}
+            >
+              <Grid.Column width={5}>
+                <Header size="small">
+                  <Icon name="map pin" />
+                  <Header.Content>
+                    {metadata.shelf}
+                    <Header.Subheader>shelf</Header.Subheader>
+                  </Header.Content>
+                </Header>
+              </Grid.Column>
+            </Overridable>
             <Grid.Column width={1}>
               <Icon size="large" name="long arrow alternate right" />
             </Grid.Column>

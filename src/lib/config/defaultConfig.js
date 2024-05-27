@@ -5,6 +5,7 @@ import {
   DOCUMENT_RELATIONS,
   DOCUMENT_TYPES,
   SERIES_TYPES,
+  EITEM_TYPES,
   ILL_BORROWING_REQUESTS_STATUSES,
   ITEM_MEDIUMS,
 } from './common';
@@ -170,7 +171,10 @@ export const RECORDS_CONFIG = {
         text: 'Pick it up at the library desk',
         iconClass: 'warehouse',
       },
-      DELIVERY: { text: 'Have it delivered to my office', iconClass: 'dolly' },
+      DELIVERY: {
+        text: 'To my office',
+        iconClass: 'dolly',
+      },
     },
     extensionsMaxCount: 3,
     loanWillExpireDays: 7,
@@ -374,8 +378,15 @@ export const RECORDS_CONFIG = {
   },
   EITEMS: {
     maxFiles: 5,
+    types: EITEM_TYPES,
     search: {
       filters: [
+        {
+          title: 'Medium',
+          field: 'eitem_type',
+          aggName: 'eitem_type',
+          labels: EITEM_TYPES,
+        },
         {
           title: 'Open access',
           field: 'open_access',
@@ -953,6 +964,9 @@ export const RECORDS_CONFIG = {
     eitem: { source: 'eitem_sources' },
     item: {
       mediums: 'item_medium',
+      identifier: {
+        scheme: 'identifier_scheme',
+      },
     },
     series: {
       identifier: {

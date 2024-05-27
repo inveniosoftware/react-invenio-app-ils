@@ -80,14 +80,15 @@ export const uiSchema = (title) => {
     'custom:grid': [
       {
         document_pid: 8,
+        eitem_type: 4,
         open_access: 4,
-        source: 4,
       },
       {
         description: 16,
       },
       {
-        urls: 16,
+        urls: 12,
+        source: 4,
       },
       {
         identifiers: 16,

@@ -30,24 +30,19 @@ export class DocumentEItemUrls extends Component {
 
   renderReadableList = () => {
     const { eitems } = this.props;
-    return (
-      <>
-        {this.renderTitle('Read online')}
-        {eitems.hits.map((eitem) => {
-          if (!_isEmpty(eitem.urls)) {
-            return (
-              <LiteratureAccessUrls
-                key={eitem.pid}
-                truncate
-                urls={eitem.urls}
-                openAccess={eitem.open_access}
-              />
-            );
-          }
-          return null;
-        })}
-      </>
-    );
+    return eitems.hits.map((eitem) => {
+      if (!_isEmpty(eitem.urls)) {
+        return (
+          <LiteratureAccessUrls
+            key={eitem.pid}
+            truncate
+            urls={eitem.urls}
+            openAccess={eitem.open_access}
+          />
+        );
+      }
+      return null;
+    });
   };
 
   hasReadable = () => {
