@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { Container } from 'semantic-ui-react';
+import { Html5Qrcode, Html5QrcodeSupportedFormats } from 'html5-qrcode';
 import Overridable from 'react-overridable';
 import PropTypes from 'prop-types';
 
 class BarcodeScanner extends React.Component {
   constructor(props) {
     super(props);
-    this.scanner = null;
-    this.deviceId = 'scanner';
+    this.deviceId = 'ScannerComponent';
   }
 
   componentDidMount() {
@@ -16,31 +16,62 @@ class BarcodeScanner extends React.Component {
   }
 
   componentWillUnmount() {
-    const { stopScanner } = this.props;
-    stopScanner(this.scanner);
+    this.stopScanner();
   }
 
-  initializeScanner = async () => {
-    const { startScanner, onScanSuccess, onScanFailure } = this.props;
+  setScannerArea = (cameraBoxWidth, cameraBoxHeight) => {
+    return {
+      width: cameraBoxWidth * 0.9,
+      height: cameraBoxHeight * 0.3,
+    };
+  };
 
-    this.scanner = startScanner(this.deviceId, onScanSuccess, onScanFailure);
+  onScanSuccess = (decodedText, decodedResult) => {
+    const { onBarcodeDetected } = this.props;
+    onBarcodeDetected(decodedText.trim());
+  };
+
+  onScanFailure = (failureMessage) => {
+    const { onBarcodeNotFound } = this.props;
+    onBarcodeNotFound();
+  };
+
+  initializeScanner = async () => {
+    this.scanner = new Html5Qrcode(this.deviceId, {
+      formatsToSupport: [
+        Html5QrcodeSupportedFormats.CODE_128,
+        Html5QrcodeSupportedFormats.CODE_39,
+      ],
+    });
+    this.scanner.start(
+      { facingMode: 'environment' },
+      {
+        fps: 1, // frame per second for qr code scanning
+        qrbox: this.setScannerArea, // bounding box UI
+      },
+      this.onScanSuccess,
+      this.onScanFailure,
+      /* verbose= */ false
+    );
+  };
+
+  stopScanner = () => {
+    this.scanner.stop();
   };
 
   render() {
-    return <Container id={this.deviceId} style={{ width: '80%' }} />;
+    return <Container id={this.deviceId} style={{ width: '80%' }} />; // TODO: Move to overrides
   }
 }
 
 BarcodeScanner.propTypes = {
-  startScanner: PropTypes.func.isRequired,
-  stopScanner: PropTypes.func.isRequired,
-  onScanSuccess: PropTypes.func,
-  onScanFailure: PropTypes.func,
+  onBarcodeDetected: PropTypes.func,
+  onBarcodeNotFound: PropTypes.func,
 };
 
 BarcodeScanner.defaultProps = {
-  onScanSuccess: null,
-  onScanFailure: null,
+  onBarcodeDetected: null,
+  onBarcodeNotFound: null,
 };
 
 export default Overridable.component('BarcodeScanner', BarcodeScanner);
