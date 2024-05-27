@@ -4,7 +4,6 @@ import { recordToPidType } from '@api/utils';
 import { Loader } from '@components/Loader';
 import { DocumentCard } from './DocumentCard';
 import { Modal, Button } from 'semantic-ui-react';
-import _get from 'lodash/get';
 import { goTo } from '@history';
 import { FrontSiteRoutes } from '@routes/urls';
 
@@ -32,11 +31,16 @@ export default class SelfCheckoutModal extends React.Component {
 
   render() {
     const { isLoading, item, modalOpened, toggleModal } = this.props;
-    const itemBarcode = _get(item, 'metadata.barcode');
+    const itemBarcode = item?.metadata.barcode;
 
     return item ? (
       <Loader isLoading={isLoading}>
-        <Modal open={modalOpened} size="large" centered onClose={toggleModal}>
+        <Modal
+          open={modalOpened}
+          size="large"
+          centered
+          onClose={() => toggleModal(false)}
+        >
           <Modal.Header>
             {`You are about to checkout a book with barcode:
             ${itemBarcode}`}
@@ -45,7 +49,11 @@ export default class SelfCheckoutModal extends React.Component {
             <DocumentCard item={item} />
           </Modal.Content>
           <Modal.Actions>
-            <Button color="black" onClick={toggleModal} content="Cancel" />
+            <Button
+              color="black"
+              onClick={() => toggleModal(false)}
+              content="Cancel"
+            />
             <Button
               positive
               disabled={isLoading}

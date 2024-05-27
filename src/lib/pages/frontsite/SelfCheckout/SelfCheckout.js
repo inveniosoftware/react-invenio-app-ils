@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import Overridable from 'react-overridable';
 import { Container, Header, Image, List, Grid } from 'semantic-ui-react';
 import { BarcodeScanner } from '@components/BarcodeScanner';
-import { Html5Qrcode, Html5QrcodeSupportedFormats } from 'html5-qrcode';
 import { SelfCheckoutModal } from './SelfCheckoutModal';
 import { invenioConfig } from '@config';
-import _get from 'lodash/get';
+import _isEmpty from 'lodash/isEmpty';
+import _find from 'lodash/find';
 
 class SelfCheckout extends React.Component {
   constructor(props) {
@@ -19,54 +19,27 @@ class SelfCheckout extends React.Component {
     };
   }
 
-  toggleModal = () => {
-    const { showModal } = this.state;
-    const shouldShowModal = !showModal && this.isItemLoanable();
-    this.setState({ showModal: shouldShowModal });
+  toggleModal = (shouldShowModal = false) => {
+    this.setState((prevState) => ({
+      showModal: shouldShowModal,
+      barcode: shouldShowModal ? prevState.barcode : null,
+    }));
   };
 
-  onScanSuccess = async (decodedText, decodedResult) => {
-    // Send to selfCheckout if different barcode
-    const { barcode } = this.state;
-    if (decodedText.trim() !== barcode) {
-      this.setState({ barcode: decodedText.trim() });
-
+  onBarcodeDetected = async (detectedBarcode) => {
+    const { barcode: oldBarcode } = this.state;
+    // Execute logic if new barcode detected
+    if (detectedBarcode !== oldBarcode) {
+      this.setState({ barcode: detectedBarcode });
       const { selfCheckOutSearch } = this.props;
-      await selfCheckOutSearch(decodedText.trim());
-      // open modal
-      this.toggleModal();
+      await selfCheckOutSearch(detectedBarcode);
+
+      // open modal if item is loanable
+      const shouldShowModal = this.isItemLoanable(detectedBarcode);
+      if (shouldShowModal) {
+        this.toggleModal(true);
+      }
     }
-  };
-
-  setScannerArea = (cameraBoxWidth, cameraBoxHeight) => {
-    return {
-      width: cameraBoxWidth * 0.9,
-      height: cameraBoxHeight * 0.3,
-    };
-  };
-
-  startScanner = (deviceId, onScanSuccess, onScanFailure) => {
-    const scanner = new Html5Qrcode(deviceId, {
-      formatsToSupport: [
-        Html5QrcodeSupportedFormats.CODE_128,
-        Html5QrcodeSupportedFormats.CODE_39,
-      ],
-    });
-    scanner.start(
-      { facingMode: 'environment' },
-      {
-        fps: 1, // frame per second for qr code scanning
-        qrbox: this.setScannerArea, // bounding box UI
-      },
-      onScanSuccess,
-      onScanFailure,
-      /* verbose= */ false
-    );
-    return scanner;
-  };
-
-  stopScanner = (scanner) => {
-    scanner.stop();
   };
 
   itemStatus = (item) => ({
@@ -75,13 +48,11 @@ class SelfCheckout extends React.Component {
     isOnShelf: () => !item.metadata.circulation.state, // on shelf if circulation.state doesn't exist
   });
 
-  isItemLoanable = () => {
+  isItemLoanable = (itemBarcode) => {
     const { user, item, notifyResultMessage } = this.props;
-    const { barcode } = this.state;
-    var resultMessage = `Book with barcode: ${barcode} doesn't exist.`;
+    var resultMessage = `Book with barcode: ${itemBarcode} doesn't exist.`;
 
-    if (item !== null && item !== undefined) {
-      const itemBarcode = _get(item, 'metadata.barcode');
+    if (!_isEmpty(item)) {
       if (this.itemStatus(item).canCirculate()) {
         if (this.itemStatus(item).isOnShelf()) {
           return true;
@@ -93,10 +64,10 @@ class SelfCheckout extends React.Component {
           }
         }
       } else {
-        const status = invenioConfig.ITEMS.statuses.find(
-          (x) => x.value === item.metadata.status
-        );
-        resultMessage = `Book with barcode: ${itemBarcode} is ${status.text}!`;
+        const status = _find(invenioConfig.ITEMS.statuses, {
+          value: item.metadata?.status,
+        });
+        resultMessage = `Book with barcode: ${itemBarcode} is ${status?.text}!`;
       }
     }
 
@@ -108,17 +79,32 @@ class SelfCheckout extends React.Component {
     return (
       <>
         <Header as="h3">How to scan:</Header>
-        <List>
-          <List.Item>Scan the barcode inside the box.</List.Item>
+        <List bulleted size="big">
           <List.Item>
-            Scan the library barcode at the start of the book.
+            Look for the library's unique barcode sticker, typically found on
+            the inside cover or the first page.
           </List.Item>
           <List.Item>
-            Don't scan publication barcode a tthe back of the book.
+            Hold the scanner directly over the barcode and scan inside the box
+            as depicted. Ensure that the barcode is inside the scanner box.
+          </List.Item>
+          <List.Item>
+            Wait for the confirmation light and a popup prompting the checkout
+            process, indicating that the barcode is successfully scanned!
+          </List.Item>
+          <List.Item>
+            Check the popup window to ensure the correct book details are
+            dispayed before checking out the book.
+          </List.Item>
+          <List.Item>
+            <b>Important Reminder:</b> Please do not scan the publication
+            barcode on the back cover of the book.
+            <br />
+            The publication barcode is for retail purposes and will not work
+            with our library system.
           </List.Item>
         </List>
-        {/* Here for now for demo, move to assets when finalised? */}
-        <Grid>
+        <Grid centered>
           <Grid.Column>
             <Image
               src={
@@ -131,7 +117,7 @@ class SelfCheckout extends React.Component {
             <Image
               src={
                 process.env.PUBLIC_URL +
-                '/images/wrong-self-checkout-method.png'
+                '/images/incorrect-self-checkout-method.png'
               }
             />
           </Grid.Column>
@@ -145,11 +131,7 @@ class SelfCheckout extends React.Component {
     return (
       <Container className="spaced" textAlign="center">
         <Header as="h1">SELF CHECKOUT</Header>
-        <BarcodeScanner
-          startScanner={this.startScanner}
-          stopScanner={this.stopScanner}
-          onScanSuccess={this.onScanSuccess}
-        />
+        <BarcodeScanner onBarcodeDetected={this.onBarcodeDetected} />
         <SelfCheckoutModal
           modalOpened={showModal}
           toggleModal={this.toggleModal}
