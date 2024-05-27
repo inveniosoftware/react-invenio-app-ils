@@ -62,7 +62,7 @@ class DocumentCard extends Component {
       metadata,
       'relations.multipart_monograph[0].record_metadata.title'
     );
-    const subtitle = renderSubtitle(_get(metadata, 'alternative_titles'));
+    const subtitle = renderSubtitle(metadata.alternative_titles);
 
     return (
       <Overridable id="DocumentCard.layout" {...this.props}>

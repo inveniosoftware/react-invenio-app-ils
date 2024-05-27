@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { Card, Label } from 'semantic-ui-react';
 import { Truncate } from '@components/Truncate';
 import { invenioConfig } from '@config';
+import { renderSubtitle } from '@modules/Document/utils';
 
 export class SeriesCard extends Component {
   renderImage = () => {
@@ -40,6 +41,8 @@ export class SeriesCard extends Component {
           .slice(0, invenioConfig.LITERATURE.authors.maxDisplay)
           .join('; ')
       : null;
+    const subtitle = renderSubtitle(data.metadata?.alternative_titles);
+
     return (
       <Card
         centered
@@ -65,6 +68,7 @@ export class SeriesCard extends Component {
             {data.metadata.edition && (
               <div>Edition {data.metadata.edition}</div>
             )}
+            {subtitle}
             {data.metadata.publisher && (
               <div>Publisher {data.metadata.publisher}</div>
             )}

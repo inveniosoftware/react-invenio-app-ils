@@ -120,7 +120,7 @@ export default class DocumentListEntry extends Component {
           <Grid columns={3}>
             <Grid.Column computer={6} largeScreen={5}>
               <Item.Meta className="document-authors">
-                {renderSubtitle(_get(document, 'metadata.alternative_titles'))}
+                {renderSubtitle(document.metadata?.alternative_titles)}
                 <DocumentAuthors
                   authors={document.metadata.authors}
                   hasOtherAuthors={document.metadata.other_authors}

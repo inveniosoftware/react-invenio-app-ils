@@ -1,12 +1,8 @@
 import React from 'react';
 import { Truncate } from '@components/Truncate';
-import find from 'lodash/find';
-import _isEmpty from 'lodash/isEmpty';
+import _find from 'lodash/find';
 
 export const renderSubtitle = (alternativeTitles) => {
-  if (_isEmpty(alternativeTitles)) {
-    return null;
-  }
-  const subtitle = find(alternativeTitles, { type: 'SUBTITLE' });
+  const subtitle = _find(alternativeTitles, { type: 'SUBTITLE' });
   return subtitle ? <Truncate>{subtitle.value}</Truncate> : null;
 };

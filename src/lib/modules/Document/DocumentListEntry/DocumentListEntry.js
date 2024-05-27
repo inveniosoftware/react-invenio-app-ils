@@ -120,7 +120,7 @@ class DocumentListEntry extends Component {
             metadata={this.metadata}
           />
           <Item.Meta>
-            {renderSubtitle(_get(this.metadata, 'alternative_titles'))}
+            {renderSubtitle(this.metadata?.alternative_titles)}
             <DocumentAuthors
               authors={this.metadata.authors}
               hasOtherAuthors={this.metadata.other_authors}

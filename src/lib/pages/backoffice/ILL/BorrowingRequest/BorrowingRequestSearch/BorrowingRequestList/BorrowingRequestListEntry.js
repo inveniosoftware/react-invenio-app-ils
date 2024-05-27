@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Item, List } from 'semantic-ui-react';
-import _get from 'lodash/get';
 import { renderSubtitle } from '@modules/Document/utils';
 
 export default class BorrowingRequestListEntry extends Component {
@@ -140,9 +139,7 @@ export default class BorrowingRequestListEntry extends Component {
             {brwReqMetadata.document.title}
           </Item.Header>
           <Item.Meta>
-            {renderSubtitle(
-              _get(brwReqMetadata, 'document.alternative_titles')
-            )}
+            {renderSubtitle(brwReqMetadata.document?.alternative_titles)}
           </Item.Meta>
           <Grid highlight={3}>
             <Grid.Column computer={5} largeScreen={5}>

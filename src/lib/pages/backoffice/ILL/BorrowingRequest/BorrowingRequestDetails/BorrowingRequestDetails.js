@@ -26,7 +26,6 @@ import { BorrowingRequestMetadata } from './BorrowingRequestMetadata';
 import { BorrowingRequestPayment } from './BorrowingRequestPayment';
 import { BorrowingRequestStatistics } from './BorrowingRequestStatistics';
 import { BorrowingRequestSteps } from './BorrowingRequestSteps';
-import _get from 'lodash/get';
 import { renderSubtitle } from '@modules/Document/utils';
 
 class BorrowingRequestHeader extends React.Component {
@@ -55,9 +54,7 @@ class BorrowingRequestHeader extends React.Component {
         {provider.name}
       </Link>
     );
-    const subtitle = renderSubtitle(
-      _get(brwReq, 'document.alternative_titles')
-    );
+    const subtitle = renderSubtitle(brwReq.document?.alternative_titles);
     const pid = brwReq.pid;
     const recordInfo = (
       <>
