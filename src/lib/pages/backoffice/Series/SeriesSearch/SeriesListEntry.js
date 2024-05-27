@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Header, Icon, Item, List } from 'semantic-ui-react';
+import { renderSubtitle } from '@modules/Document/utils';
 
 export class SeriesListEntry extends Component {
   renderImage = (series) => (
@@ -117,6 +118,7 @@ export class SeriesListEntry extends Component {
           <Grid columns={3}>
             <Grid.Column computer={6} largeScreen={5}>
               <Item.Meta className="series-authors">
+                {renderSubtitle(series.metadata?.alternative_titles)}
                 <SeriesAuthors prefix="by " authors={series.metadata.authors} />
               </Item.Meta>
               {identifier && (

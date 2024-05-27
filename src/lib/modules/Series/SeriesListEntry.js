@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Item, Label, List } from 'semantic-ui-react';
+import { renderSubtitle } from '@modules/Document/utils';
 
 export default class SeriesListEntry extends Component {
   constructor(props) {
@@ -59,6 +60,7 @@ export default class SeriesListEntry extends Component {
             <LiteratureTitle title={this.metadata.title} />
           </Item.Header>
           <Item.Meta>
+            {renderSubtitle(this.metadata?.alternative_titles)}
             <SeriesAuthors authors={this.metadata.authors} prefix="by " />
           </Item.Meta>
           <Item.Description>

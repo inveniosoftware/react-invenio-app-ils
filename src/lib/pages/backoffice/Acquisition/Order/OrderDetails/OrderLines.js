@@ -7,7 +7,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Divider, Grid, Icon, Item, Message, Popup } from 'semantic-ui-react';
 import Overridable from 'react-overridable';
-import _get from 'lodash/get';
 import { renderSubtitle } from '@modules/Document/utils';
 
 const OrderLineLeftColumn = ({ line }) => {
@@ -113,7 +112,7 @@ export const OrderLine = ({ line, LeftColumn, MiddleColumn, RightColumn }) => {
           />
         </Link>
         <Item.Meta>
-          {renderSubtitle(_get(line, 'document.alternative_titles'))}
+          {renderSubtitle(line.document?.alternative_titles)}
         </Item.Meta>
         <Divider />
         <Grid columns={3}>
