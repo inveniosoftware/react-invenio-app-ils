@@ -1,5 +1,12 @@
 # Changes
 
+Version 1.0.0-alpha.85 (released 2024-05-28)
+
+- EItem: Make E-Book default value in editor
+- backoffice: Display subtitles in Documents, ILLs and Purchase Orders
+- DocumentCard: Display subtitles
+- frontsite: DocumentSubjects: Don't render if subjects list is empty
+
 Version 1.0.0-alpha.84 (released 2024-05-13)
 
 - document details: add overridable ID to action panel
