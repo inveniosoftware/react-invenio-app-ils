@@ -52,7 +52,7 @@ export const checkoutItem = (
   documentPid,
   itemPid,
   patronPid,
-  force = false
+  selfCheckout = true
 ) => {
   return async (dispatch) => {
     try {
@@ -60,7 +60,7 @@ export const checkoutItem = (
         documentPid,
         itemPid,
         patronPid,
-        { force: force }
+        { selfCheckout: selfCheckout }
       );
       const { pid } = response.data.metadata;
       const linkToLoan = (

@@ -105,22 +105,26 @@ class SelfCheckout extends React.Component {
           </List.Item>
         </List>
         <Grid centered>
-          <Grid.Column>
-            <Image
-              src={
-                process.env.PUBLIC_URL +
-                '/images/correct-self-checkout-method.png'
-              }
-            />
-          </Grid.Column>
-          <Grid.Column>
-            <Image
-              src={
-                process.env.PUBLIC_URL +
-                '/images/incorrect-self-checkout-method.png'
-              }
-            />
-          </Grid.Column>
+          <Grid.Row>
+            <Grid.Column width={8}>
+              <Image
+                src={
+                  process.env.PUBLIC_URL +
+                  '/images/correct-self-checkout-method.png'
+                }
+                size="large"
+              />
+            </Grid.Column>
+            <Grid.Column width={8}>
+              <Image
+                src={
+                  process.env.PUBLIC_URL +
+                  '/images/incorrect-self-checkout-method.png'
+                }
+                size="large"
+              />
+            </Grid.Column>
+          </Grid.Row>
         </Grid>
       </>
     );
