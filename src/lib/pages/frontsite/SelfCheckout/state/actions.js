@@ -48,19 +48,13 @@ export const selfCheckOutSearch = (term) => {
   };
 };
 
-export const checkoutItem = (
-  documentPid,
-  itemPid,
-  patronPid,
-  selfCheckout = true
-) => {
+export const checkoutItem = (documentPid, itemPid, patronPid) => {
   return async (dispatch) => {
     try {
       const response = await loanApi.doCheckout(
         documentPid,
         itemPid,
-        patronPid,
-        { selfCheckout: selfCheckout }
+        patronPid
       );
       const { pid } = response.data.metadata;
       const linkToLoan = (
