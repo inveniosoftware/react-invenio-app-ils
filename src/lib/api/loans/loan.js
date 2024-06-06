@@ -88,7 +88,7 @@ const doCheckout = async (
   documentPid,
   itemPid,
   patronPid,
-  { startDate = null, endDate = null, force = false, selfCheckout = false } = {}
+  { startDate = null, endDate = null, force = false } = {}
 ) => {
   const currentUser = sessionManager.user;
   const payload = {
@@ -107,9 +107,6 @@ const doCheckout = async (
   }
   if (force) {
     payload.force = true;
-  }
-  if (selfCheckout) {
-    payload.self_checkout = true;
   }
 
   const response = await http.post(apiPaths.checkout, payload);

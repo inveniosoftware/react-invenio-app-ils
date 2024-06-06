@@ -4,8 +4,8 @@ import SelfCheckoutModalComponent from './SelfCheckoutModal';
 import { checkoutItem } from '../state/actions';
 
 const mapDispatchToProps = (dispatch) => ({
-  checkoutItem: (documentPid, itemPid, patronPid, force = false) =>
-    dispatch(checkoutItem(documentPid, itemPid, patronPid, force)),
+  checkoutItem: (documentPid, itemPid, patronPid) =>
+    dispatch(checkoutItem(documentPid, itemPid, patronPid)),
 });
 
 const mapStateToProps = (state) => ({
