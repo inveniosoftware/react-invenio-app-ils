@@ -7,15 +7,15 @@ import { itemApi } from '@api/items';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-const mockGet = jest.fn();
-itemApi.get = mockGet;
+const mockList = jest.fn();
+itemApi.list = mockList;
 
 const response = { data: {} };
 const expectedPayload = {};
 
 let store;
 beforeEach(() => {
-  mockGet.mockClear();
+  mockList.mockClear();
 
   store = mockStore(initialState);
   store.clearActions();
@@ -23,7 +23,7 @@ beforeEach(() => {
 
 describe('SelfCheck Out test', () => {
   it('should dispatch an action updating the payloadresult item', async () => {
-    mockGet.mockResolvedValue(response);
+    mockList.mockResolvedValue(response);
 
     const expectedAction1 = {
       type: actions.SEARCH_IS_LOADING,
