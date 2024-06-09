@@ -1,4 +1,4 @@
-import HiddenWidget from '@rjsf/core/lib/components/widgets/HiddenWidget';
+import HiddenWidget from '@rjsf/core/dist/cjs/components/widgets/HiddenWidget';
 import _capitalize from 'lodash/capitalize';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';

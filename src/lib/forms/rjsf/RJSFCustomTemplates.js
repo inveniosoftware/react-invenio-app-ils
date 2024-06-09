@@ -1,7 +1,9 @@
 import { RJSFormWrapper } from '@forms/rjsf/RJSFormWrapper';
-import ArrayFieldTemplate from '@rjsf/semantic-ui/lib/ArrayFieldTemplate';
-import FieldTemplate from '@rjsf/semantic-ui/lib/FieldTemplate';
-import ObjectFieldTemplate from '@rjsf/semantic-ui/lib/ObjectFieldTemplate';
+import {
+  ArrayFieldTemplate,
+  FieldTemplate,
+  ObjectFieldTemplate,
+} from '@rjsf/semantic-ui/';
 import _find from 'lodash/find';
 import PropTypes from 'prop-types';
 import React from 'react';
