@@ -33,11 +33,11 @@ export class DocumentPublishing extends Component {
   renderConferenceInfo = () => {
     const {
       document: {
-        metadata: { conference_info },
+        metadata: { conference_info: conferenceInfo },
       },
     } = this.props;
     let rows = [];
-    conference_info.map((conf) => {
+    conferenceInfo.map((conf) => {
       for (const [key, val] of Object.entries(conf)) {
         if (Array.isArray(val)) {
           const arrayVals = (
@@ -57,7 +57,7 @@ export class DocumentPublishing extends Component {
           rows.push({ name: capitalize(key), value: val });
         }
       }
-      if (conference_info.length > 1) {
+      if (conferenceInfo.length > 1) {
         rows.push(<br />);
         rows.push(<br />);
       }

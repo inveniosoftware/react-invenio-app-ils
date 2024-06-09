@@ -1,4 +1,3 @@
-const { ESLINT_MODES } = require('@craco/craco');
 var path = require('path');
 
 module.exports = {
@@ -6,7 +5,7 @@ module.exports = {
   eslint: {
     enable: true /* (default value) */,
     useEslintrc: true,
-    mode: ESLINT_MODES.file,
+    mode: 'file',
   },
   webpack: {
     alias: {
