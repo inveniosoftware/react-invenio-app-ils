@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.86 (released 2024-10-06)
+
+- checkout: add optional self-checkout
+- installation: add barcode scanner dependency
+
 Version 1.0.0-alpha.85 (released 2024-05-28)
 
 - EItem: Make E-Book default value in editor
