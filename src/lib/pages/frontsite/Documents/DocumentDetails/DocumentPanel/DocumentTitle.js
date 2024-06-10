@@ -9,10 +9,10 @@ import { Media } from '@components/Media';
 export class DocumentTitle extends Component {
   subtitle() {
     const {
-      metadata: { alternative_titles },
+      metadata: { alternative_titles: altTitles },
     } = this.props;
-    if (!_isEmpty(alternative_titles)) {
-      const subtitle = alternative_titles.find((e) => e.type === 'SUBTITLE');
+    if (!_isEmpty(altTitles)) {
+      const subtitle = altTitles.find((e) => e.type === 'SUBTITLE');
       if (!_isEmpty(subtitle)) {
         return <Header.Subheader>{subtitle.value}</Header.Subheader>;
       }
