@@ -98,7 +98,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
         greaterThanOrEqual="computer"
       >
         <Connect(Overridable(ResultsLoader$1))>
-          <Connect(Overridable(EmptyResults)) />
+          <Connect(Overridable(EmptyResults$1)) />
           <Connect(Overridable(Error$2)) />
           <Connect(WrappedComponent)
             modelName="LITERATURE"
