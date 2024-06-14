@@ -2,6 +2,7 @@
 
 exports[`DocumentItems tests should load the DocumentItems component 1`] = `
 <DocumentItems
+  columnFormat={null}
   documentDetails={
     Object {
       "metadata": Object {
@@ -87,6 +88,7 @@ exports[`DocumentItems tests should render item 1`] = `
   fetchDocumentItems={[Function]}
 >
   <DocumentItems
+    columnFormat={null}
     documentDetails={
       Object {
         "metadata": Object {
@@ -818,6 +820,7 @@ exports[`DocumentItems tests should render show a message with no items 1`] = `
   fetchDocumentItems={[Function]}
 >
   <DocumentItems
+    columnFormat={null}
     documentDetails={
       Object {
         "metadata": Object {
@@ -1012,6 +1015,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
   showMaxItems={1}
 >
   <DocumentItems
+    columnFormat={null}
     documentDetails={
       Object {
         "metadata": Object {

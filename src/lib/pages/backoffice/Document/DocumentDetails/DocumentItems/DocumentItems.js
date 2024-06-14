@@ -40,9 +40,8 @@ class DocumentItems extends Component {
     return `${row.metadata.internal_location.name} (${row.metadata.internal_location.location.name})`;
   };
 
-  renderTable(data) {
-    const { showMaxItems } = this.props;
-    const columns = [
+  getColumnFormat = () => {
+    return [
       {
         title: 'Barcode',
         field: 'metadata.barcode',
@@ -76,6 +75,12 @@ class DocumentItems extends Component {
         },
       },
     ];
+  };
+
+  renderTable(data) {
+    const { showMaxItems, columnFormat } = this.props;
+    const columns =
+      columnFormat !== null ? columnFormat() : this.getColumnFormat();
     return (
       <ResultsTable
         data={data.hits}
@@ -105,12 +110,14 @@ DocumentItems.propTypes = {
   showMaxItems: PropTypes.number,
   isLoading: PropTypes.bool,
   error: PropTypes.object,
+  columnFormat: PropTypes.func,
 };
 
 DocumentItems.defaultProps = {
   showMaxItems: 5,
   isLoading: false,
   error: null,
+  columnFormat: null,
 };
 
 export default Overridable.component(
