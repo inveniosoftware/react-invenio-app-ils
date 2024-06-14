@@ -51,3 +51,6 @@ export { SectionInstallation } from '@pages/frontsite/Home/Sections/SectionInsta
 export { PaymentInformation } from '@components/backoffice/PaymentInformation';
 export { OrderLine } from '@pages/backoffice/Acquisition/Order/OrderDetails/OrderLines';
 export { formatPrice } from '@api/utils';
+export { Loader } from '@components/Loader';
+export { Error } from '@components/Error';
+export { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
