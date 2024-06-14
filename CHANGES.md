@@ -1,6 +1,10 @@
 # Changes
 
-Version 1.0.0-alpha.86 (released 2024-10-06)
+Version 1.0.0-alpha.87 (released 2024-06-14)
+
+- document items: add overridable id
+
+Version 1.0.0-alpha.86 (released 2024-06-06)
 
 - checkout: add optional self-checkout
 - installation: add barcode scanner dependency
