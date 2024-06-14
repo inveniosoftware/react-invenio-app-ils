@@ -8,8 +8,9 @@ import { itemApi } from '@api/items';
 import { BackOfficeRoutes } from '@routes/urls';
 import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
 import _get from 'lodash/get';
+import Overridable from 'react-overridable';
 
-export default class DocumentItems extends Component {
+class DocumentItems extends Component {
   componentDidMount() {
     const { fetchDocumentItems, documentDetails } = this.props;
     fetchDocumentItems(documentDetails.pid);
@@ -111,3 +112,8 @@ DocumentItems.defaultProps = {
   isLoading: false,
   error: null,
 };
+
+export default Overridable.component(
+  'DocumentDetails.DocumentItems',
+  DocumentItems
+);
