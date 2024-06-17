@@ -6,6 +6,7 @@ import { DocumentCard } from './DocumentCard';
 import { Modal, Button } from 'semantic-ui-react';
 import { goTo } from '@history';
 import { FrontSiteRoutes } from '@routes/urls';
+import _isEmpty from 'lodash/isEmpty';
 
 export default class SelfCheckoutModal extends React.Component {
   checkout = () => {
@@ -31,9 +32,10 @@ export default class SelfCheckoutModal extends React.Component {
 
   render() {
     const { isLoading, item, modalOpened, toggleModal } = this.props;
-    const itemBarcode = item?.metadata.barcode;
-
-    return item ? (
+    if (_isEmpty(item)) {
+      return null;
+    }
+    return (
       <Loader isLoading={isLoading}>
         <Modal
           open={modalOpened}
@@ -43,7 +45,7 @@ export default class SelfCheckoutModal extends React.Component {
         >
           <Modal.Header>
             {`You are about to checkout a book with barcode:
-            ${itemBarcode}`}
+            ${item?.metadata.barcode}`}
           </Modal.Header>
           <Modal.Content>
             <DocumentCard item={item} />
@@ -73,7 +75,7 @@ export default class SelfCheckoutModal extends React.Component {
           </Modal.Actions>
         </Modal>
       </Loader>
-    ) : null;
+    );
   }
 }
 
