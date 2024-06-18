@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.0.0-alpha.88 (released 2024-06-18)
+
+- frontsite: handle null barcode
+
 Version 1.0.0-alpha.87 (released 2024-06-14)
 
 - document items: add overridable id
