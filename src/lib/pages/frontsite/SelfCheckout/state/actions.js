@@ -22,7 +22,7 @@ export const notifyResultMessage = (message) => {
 
 const searchItem = async (dispatch, term) => {
   const response = await itemApi.list(itemApi.query().withBarcode(term).qs());
-  const item = _first(response.data.hits) || {};
+  const item = _first(response.data.hits) || null;
 
   dispatch({
     type: SEARCH_ITEM_SUCCESS,

@@ -22,7 +22,7 @@ class BarcodeScanner extends React.Component {
   setScannerArea = (cameraBoxWidth, cameraBoxHeight) => {
     return {
       width: cameraBoxWidth * 0.9,
-      height: cameraBoxHeight * 0.3,
+      height: cameraBoxHeight * 0.7,
     };
   };
 
@@ -46,7 +46,8 @@ class BarcodeScanner extends React.Component {
     this.scanner.start(
       { facingMode: 'environment' },
       {
-        fps: 1, // frame per second for qr code scanning
+        fps: 2, // frame per second for qr code scanning
+        aspectRatio: 2, // 2:1
         qrbox: this.setScannerArea, // bounding box UI
       },
       this.onScanSuccess,
@@ -60,7 +61,7 @@ class BarcodeScanner extends React.Component {
   };
 
   render() {
-    return <Container id={this.deviceId} style={{ width: '80%' }} />; // TODO: Move to overrides
+    return <Container id={this.deviceId} />;
   }
 }
 
