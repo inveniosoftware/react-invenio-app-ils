@@ -11,7 +11,7 @@ const mockList = jest.fn();
 itemApi.list = mockList;
 
 const response = { data: {} };
-const expectedPayload = {};
+const expectedPayload = null;
 
 let store;
 beforeEach(() => {

@@ -94,7 +94,7 @@ class SelfCheckout extends React.Component {
           </List.Item>
           <List.Item>
             Check the popup window to ensure the correct book details are
-            dispayed before checking out the book.
+            displayed before checking out the book.
           </List.Item>
           <List.Item>
             <b>Important Reminder:</b> Please do not scan the publication
@@ -134,7 +134,7 @@ class SelfCheckout extends React.Component {
     const { showModal } = this.state;
     return (
       <Container className="spaced" textAlign="center">
-        <Header as="h1">SELF CHECKOUT</Header>
+        <Header as="h1">SELF-CHECKOUT</Header>
         <BarcodeScanner onBarcodeDetected={this.onBarcodeDetected} />
         <SelfCheckoutModal
           modalOpened={showModal}
