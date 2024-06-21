@@ -24,6 +24,12 @@ export default class DocumentTabs extends Component {
     return locationsObject;
   }
 
+  get documentDetails() {
+    const { documentDetails } = this.props;
+
+    return documentDetails;
+  }
+
   get locationEntries() {
     return Object.entries(this.locations);
   }
@@ -132,6 +138,7 @@ export default class DocumentTabs extends Component {
         <DocumentItem
           internalLocationName={internalLocationName}
           items={items}
+          documentDetails={this.documentDetails}
           showTitle={activeInternalLocation !== internalLocationName}
         />
       );
@@ -146,6 +153,7 @@ export default class DocumentTabs extends Component {
             key={internalLocationName}
             internalLocationName={internalLocationName}
             items={items}
+            documentDetails={this.documentDetails}
             showTitle={activeInternalLocation !== internalLocationName}
           />
         );
@@ -190,4 +198,5 @@ export default class DocumentTabs extends Component {
 
 DocumentTabs.propTypes = {
   locationsObject: PropTypes.object.isRequired,
+  documentDetails: PropTypes.object.isRequired,
 };

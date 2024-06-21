@@ -9,10 +9,6 @@ import DocumentTabs from './DocumentTabs';
 import { LOCATION_OBJECT_TOTAL_AMOUNT_KEY } from '@config/common';
 
 class DocumentItems extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   itemStatus = (item) => ({
     canCirculate: () =>
       invenioConfig.ITEMS.canCirculateStatuses.includes(item.status),
@@ -79,7 +75,10 @@ class DocumentItems extends Component {
       documentDetails,
     } = this.props;
     const internalLocationsComponent = (
-      <DocumentTabs locationsObject={this.filteredLocations} />
+      <DocumentTabs
+        locationsObject={this.filteredLocations}
+        documentDetails={documentDetails}
+      />
     );
 
     const noItemsComponent = (
