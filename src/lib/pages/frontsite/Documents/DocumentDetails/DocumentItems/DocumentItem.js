@@ -28,7 +28,8 @@ class DocumentItem extends Component {
   };
 
   render() {
-    const { internalLocationName, items, showTitle } = this.props;
+    const { internalLocationName, items, documentDetails, showTitle } =
+      this.props;
     const { isShowingAll, itemAmountLimit } = this.state;
 
     const previewArrayOfItems = items.slice(0, itemAmountLimit);
@@ -64,7 +65,10 @@ class DocumentItem extends Component {
 
           <Table.Body>
             <Overridable id="DocumentDetails.DocumentItemTableBody">
-              <DocumentItemBody items={itemsToShow} />
+              <DocumentItemBody
+                items={itemsToShow}
+                documentDetails={documentDetails}
+              />
             </Overridable>
           </Table.Body>
 
@@ -101,6 +105,7 @@ class DocumentItem extends Component {
 DocumentItem.propTypes = {
   internalLocationName: PropTypes.object.isRequired,
   items: PropTypes.array.isRequired,
+  documentDetails: PropTypes.object.isRequired,
   showTitle: PropTypes.bool.isRequired,
 };
 

@@ -27,7 +27,7 @@ export default class DocumentItemBody extends Component {
   };
 
   render() {
-    const { items, shelfLink } = this.props;
+    const { items, shelfLink, documentDetails } = this.props;
 
     return items.map((item) => (
       <Table.Row key={item.pid}>
@@ -39,8 +39,9 @@ export default class DocumentItemBody extends Component {
         </Table.Cell>
 
         <Table.Cell data-label="Shelf" className="document-item-table-itemCell">
-          {(shelfLink !== null ? shelfLink(item) : _get(item, 'shelf')) ||
-            'none'}
+          {(shelfLink !== null
+            ? shelfLink(item, documentDetails)
+            : _get(item, 'shelf')) || 'none'}
         </Table.Cell>
 
         <Table.Cell data-label="Status">{this.statusLabel(item)}</Table.Cell>
@@ -60,6 +61,7 @@ export default class DocumentItemBody extends Component {
 
 DocumentItemBody.propTypes = {
   items: PropTypes.array.isRequired,
+  documentDetails: PropTypes.object.isRequired,
   shelfLink: PropTypes.func,
 };
 
