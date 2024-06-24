@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.89 (released 2024-06-24)
+
+- self-checkout: improve scanning behaviour
+- frontsite: pass document details to document item table
+
 Version 1.0.0-alpha.88 (released 2024-06-18)
 
 - frontsite: handle null barcode
