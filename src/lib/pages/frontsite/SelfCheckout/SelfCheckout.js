@@ -2,7 +2,14 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 import Overridable from 'react-overridable';
-import { Container, Header, Image, List, Grid } from 'semantic-ui-react';
+import {
+  Container,
+  Header,
+  Image,
+  List,
+  Grid,
+  Message,
+} from 'semantic-ui-react';
 import { BarcodeScanner } from '@components/BarcodeScanner';
 import { SelfCheckoutModal } from './SelfCheckoutModal';
 import { invenioConfig } from '@config';
@@ -135,7 +142,14 @@ class SelfCheckout extends React.Component {
     return (
       <Container className="spaced" textAlign="center">
         <Header as="h1">SELF-CHECKOUT</Header>
-        <BarcodeScanner onBarcodeDetected={this.onBarcodeDetected} />
+        <Container>
+          <BarcodeScanner onBarcodeDetected={this.onBarcodeDetected} />
+          <Message warning compact attached="bottom">
+            If your browser isn't able to scan the barcode,
+            <br />
+            try using another browser.
+          </Message>
+        </Container>
         <SelfCheckoutModal
           modalOpened={showModal}
           toggleModal={this.toggleModal}
