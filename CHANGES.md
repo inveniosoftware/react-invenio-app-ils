@@ -1,5 +1,12 @@
 # Changes
 
+Version 1.0.0-alpha.90 (released 2024-06-24)
+
+- self-checkout: improve scanning behaviour
+- self-checkout: improve usage instructions
+- search: display subtitle under title
+- document: display multipart title
+
 Version 1.0.0-alpha.89 (released 2024-06-24)
 
 - self-checkout: improve scanning behaviour
