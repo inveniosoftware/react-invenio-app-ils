@@ -86,6 +86,28 @@ class SelfCheckout extends React.Component {
     return (
       <>
         <Header as="h3">How to scan:</Header>
+        <Grid centered>
+          <Grid.Row>
+            <Grid.Column width={8}>
+              <Image
+                src={
+                  process.env.PUBLIC_URL +
+                  '/images/correct-self-checkout-method.png'
+                }
+                size="large"
+              />
+            </Grid.Column>
+            <Grid.Column width={8}>
+              <Image
+                src={
+                  process.env.PUBLIC_URL +
+                  '/images/incorrect-self-checkout-method.png'
+                }
+                size="large"
+              />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
         <List bulleted size="big">
           <List.Item>
             Look for the library's unique barcode sticker, typically found on
@@ -111,28 +133,6 @@ class SelfCheckout extends React.Component {
             with our library system.
           </List.Item>
         </List>
-        <Grid centered>
-          <Grid.Row>
-            <Grid.Column width={8}>
-              <Image
-                src={
-                  process.env.PUBLIC_URL +
-                  '/images/correct-self-checkout-method.png'
-                }
-                size="large"
-              />
-            </Grid.Column>
-            <Grid.Column width={8}>
-              <Image
-                src={
-                  process.env.PUBLIC_URL +
-                  '/images/incorrect-self-checkout-method.png'
-                }
-                size="large"
-              />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
       </>
     );
   };
@@ -144,10 +144,10 @@ class SelfCheckout extends React.Component {
         <Header as="h1">SELF-CHECKOUT</Header>
         <Container>
           <BarcodeScanner onBarcodeDetected={this.onBarcodeDetected} />
-          <Message warning compact attached="bottom">
-            If your browser isn't able to scan the barcode,
+          <Message warning compact>
+            If your browser isn't able to scan the barcode, try
             <br />
-            try using another browser.
+            using another browser. (Recommended: Chrome)
           </Message>
         </Container>
         <SelfCheckoutModal
