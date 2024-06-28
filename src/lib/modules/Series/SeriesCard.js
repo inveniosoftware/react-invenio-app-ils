@@ -60,15 +60,11 @@ export class SeriesCard extends Component {
             <LiteratureTitle title={data.metadata.title} />
           </Card.Header>
           <Card.Meta>
-            <div className="default-margin-bottom">
-              <Truncate lines={1}>
-                <div>{authors}</div>
-              </Truncate>
-            </div>
+            {subtitle}
+            <Truncate lines={1}>{authors}</Truncate>
             {data.metadata.edition && (
               <div>Edition {data.metadata.edition}</div>
             )}
-            {subtitle}
             {data.metadata.publisher && (
               <div>Publisher {data.metadata.publisher}</div>
             )}
