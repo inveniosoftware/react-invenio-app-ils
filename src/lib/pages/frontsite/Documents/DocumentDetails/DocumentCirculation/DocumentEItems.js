@@ -67,7 +67,7 @@ export class DocumentEItems extends Component {
             </Button>
           </>
         )}
-        <Divider horizontal fitted>
+        <Divider className="document-circulation" horizontal>
           Or
         </Divider>
       </>

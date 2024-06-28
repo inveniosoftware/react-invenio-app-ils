@@ -20,9 +20,12 @@ Divider Overrides - REACT-INVENIO-APP-ILS
     width: 100%;
     background-repeat: no-repeat;
   }
-
 }
 
 .grey-color {
   color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.ui.horizontal.divider.document-circulation {
+  margin: 1em 0 1em 0;
 }
