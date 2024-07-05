@@ -31,7 +31,7 @@ export default class Home extends Component {
         </Grid.Row>
 
         <Grid.Row columns={2}>
-          <Grid.Column>
+          <Grid.Column tablet={16} computer={8}>
             <Divider hidden />
             <IdleLoansList />
             <Divider hidden />
@@ -39,7 +39,7 @@ export default class Home extends Component {
             <Divider hidden />
             <RenewedLoansList />
           </Grid.Column>
-          <Grid.Column>
+          <Grid.Column tablet={16} computer={8}>
             <Divider hidden />
             <OverbookedDocumentsList />
             <Divider hidden />

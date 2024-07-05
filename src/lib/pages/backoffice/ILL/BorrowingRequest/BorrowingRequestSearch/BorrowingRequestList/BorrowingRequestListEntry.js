@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Item, List } from 'semantic-ui-react';
 import { renderSubtitle } from '@modules/Document/utils';
+import { Truncate } from '@components/Truncate';
 
 export default class BorrowingRequestListEntry extends Component {
   renderLeftColumn = (brwReqMetadata) => {
@@ -136,7 +137,9 @@ export default class BorrowingRequestListEntry extends Component {
             data-test={`navigate-${brwReqMetadata.pid}`}
           >
             <ILLBorrowingRequestIcon />
-            {brwReqMetadata.document.title}
+            <Truncate lines={2} width="500px">
+              {brwReqMetadata.document.title}
+            </Truncate>
           </Item.Header>
           <Item.Meta>
             {renderSubtitle(brwReqMetadata.document?.alternative_titles)}
