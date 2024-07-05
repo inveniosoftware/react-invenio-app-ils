@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Icon, Item, List } from 'semantic-ui-react';
+import { Truncate } from '@components/Truncate';
 
 const ProviderListInfo = ({ providerMetadata }) => (
   <List verticalAlign="middle" className="document-circulation">
@@ -115,7 +116,9 @@ export default class ProviderListEntry extends Component {
             data-test={`navigate-${providerMetadata.pid}`}
           >
             <ProviderIcon />
-            {providerMetadata.name}
+            <Truncate lines={2} width="500px">
+              {providerMetadata.name}
+            </Truncate>
           </Item.Header>
           <Item.Meta>
             Type: <strong>{providerMetadata.type}</strong>
