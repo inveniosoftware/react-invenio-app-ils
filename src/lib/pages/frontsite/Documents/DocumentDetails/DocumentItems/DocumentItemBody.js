@@ -39,9 +39,9 @@ export default class DocumentItemBody extends Component {
         </Table.Cell>
 
         <Table.Cell data-label="Shelf" className="document-item-table-itemCell">
-          {(shelfLink !== null
+          {shelfLink !== null
             ? shelfLink(item, documentDetails)
-            : _get(item, 'shelf')) || 'none'}
+            : _get(item, 'shelf')}
         </Table.Cell>
 
         <Table.Cell data-label="Status">{this.statusLabel(item)}</Table.Cell>
