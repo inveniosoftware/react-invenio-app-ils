@@ -69,6 +69,9 @@ const LeftCol = () => (
               </Header>{' '}
               <Header as="h5" className="inline-block greetings">
                 Alo!
+              </Header>{' '}
+              <Header as="h5" className="inline-block greetings">
+                नमस्ते!
               </Header>
             </Grid.Column>
           </Grid.Row>
@@ -186,6 +189,7 @@ const LoginLayout = ({
                   <Icon name="home" />
                   Home page
                 </Link>
+                <Overridable id="Login.layout.extras" />
               </Segment>
             </Container>
           </Container>
