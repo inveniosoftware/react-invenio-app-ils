@@ -13,7 +13,7 @@ export class SectionServices extends Component {
               className="section-header highlight"
               textAlign="center"
             >
-              Our services
+              Features and services
             </Header>
             <Card.Group itemsPerRow={4} stackable>
               <Card className="info-card">
