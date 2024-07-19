@@ -13,15 +13,15 @@ export class DocumentContent extends Component {
   render() {
     const {
       metadata,
-      metadata: { abstract, table_of_content },
+      metadata: { abstract, table_of_content: toc },
     } = this.props;
 
     return (
       <>
         <Divider horizontal>Table of contents</Divider>
-        {!_isEmpty(table_of_content) ? (
+        {!_isEmpty(toc) ? (
           <List ordered>
-            {table_of_content.map((entry) => (
+            {toc.map((entry) => (
               <List.Item key={entry}>
                 <List.Content>{entry}</List.Content>
               </List.Item>
