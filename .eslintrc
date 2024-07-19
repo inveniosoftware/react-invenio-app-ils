@@ -1,9 +1,3 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
-
-
-export default [
 {
   "extends": ["react-app", "plugin:prettier/recommended", "eslint:recommended"],
   "plugins": ["react"],
@@ -102,4 +96,3 @@ export default [
     "react/void-dom-elements-no-children": "error"
   }
 }
-];
