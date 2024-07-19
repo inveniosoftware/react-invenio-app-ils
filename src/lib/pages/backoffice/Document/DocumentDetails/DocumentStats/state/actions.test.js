@@ -38,7 +38,6 @@ describe('Document stats fetch tests', () => {
         `document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED OR CANCELLED) AND start_date:${range}`
       );
       expect(store.getActions()[0]).toEqual(expectedAction);
-      done();
     });
   });
 
@@ -55,7 +54,6 @@ describe('Document stats fetch tests', () => {
         `document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED OR CANCELLED) AND start_date:${range}`
       );
       expect(store.getActions()[1]).toEqual(expectedAction);
-      done();
     });
   });
 
@@ -72,7 +70,6 @@ describe('Document stats fetch tests', () => {
         `document_pid:${ARGS.documentPid} AND state:(ITEM_RETURNED OR CANCELLED) AND start_date:${range}`
       );
       expect(store.getActions()[1]).toEqual(expectedAction);
-      done();
     });
   });
 });
