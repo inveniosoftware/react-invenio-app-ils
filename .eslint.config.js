@@ -1,4 +1,4 @@
-{
+module.exports = [{
   "extends": ["react-app", "plugin:prettier/recommended", "eslint:recommended"],
   "plugins": ["react"],
   "env": {
@@ -96,3 +96,4 @@
     "react/void-dom-elements-no-children": "error"
   }
 }
+]
