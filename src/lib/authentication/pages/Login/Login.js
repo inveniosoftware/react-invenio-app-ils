@@ -1,6 +1,7 @@
 import { parseParams } from '@authentication/utils';
 import { EnvironmentLabel } from '@components/EnvironmentLabel';
 import { Media } from '@components/Media';
+import { Banner } from '@components/Banner';
 import { Notifications } from '@components/Notifications';
 import { invenioConfig } from '@config';
 import { goTo } from '@history';
@@ -245,12 +246,15 @@ class Login extends Component {
     const { hasError, errorHeader, errorMessage } = this.state;
     this.redirectIfAlreadyLoggedIn();
     return (
-      <LoginLayout
-        hasError={hasError}
-        errorHeader={errorHeader}
-        errorMessage={errorMessage}
-        {...this.props}
-      />
+      <>
+        <Banner />
+        <LoginLayout
+          hasError={hasError}
+          errorHeader={errorHeader}
+          errorMessage={errorMessage}
+          {...this.props}
+        />
+      </>
     );
   }
 }
