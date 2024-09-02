@@ -247,7 +247,9 @@ class Login extends Component {
     this.redirectIfAlreadyLoggedIn();
     return (
       <>
-        <Banner />
+        <Overridable id="Login.extras">
+          <Banner />
+        </Overridable>
         <LoginLayout
           hasError={hasError}
           errorHeader={errorHeader}
