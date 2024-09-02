@@ -37,7 +37,9 @@ export default class FrontSite extends Component {
         <ILSMenu />
         <Notifications className="compact" />
         <Container fluid className="fs-content">
-          <Banner />
+          <Overridable id="FrontSite.extras">
+            <Banner />
+          </Overridable>
           <Switch>
             <Route
               exact
