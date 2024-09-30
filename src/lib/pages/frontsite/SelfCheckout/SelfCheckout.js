@@ -12,6 +12,7 @@ import {
 } from 'semantic-ui-react';
 import { BarcodeScanner } from '@components/BarcodeScanner';
 import { SelfCheckoutModal } from './SelfCheckoutModal';
+import { ManualCheckout } from './ManualCheckout';
 import { invenioConfig } from '@config';
 import _isEmpty from 'lodash/isEmpty';
 import _find from 'lodash/find';
@@ -45,6 +46,8 @@ class SelfCheckout extends React.Component {
       const shouldShowModal = this.isItemLoanable(detectedBarcode);
       if (shouldShowModal) {
         this.toggleModal(true);
+      } else {
+        this.toggleModal(false);
       }
     }
   };
@@ -144,6 +147,7 @@ class SelfCheckout extends React.Component {
         <Header as="h1">SELF-CHECKOUT</Header>
         <Container>
           <BarcodeScanner onBarcodeDetected={this.onBarcodeDetected} />
+          <ManualCheckout show onChange={this.onBarcodeDetected} />
           <Message warning compact>
             If your browser isn't able to scan the barcode, try
             <br />
@@ -153,6 +157,7 @@ class SelfCheckout extends React.Component {
         <SelfCheckoutModal
           modalOpened={showModal}
           toggleModal={this.toggleModal}
+          onBarcodeDetected={this.onBarcodeDetected}
         />
         {this.renderInstructions()}
       </Container>
