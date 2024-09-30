@@ -7,6 +7,7 @@ import { Modal, Button } from 'semantic-ui-react';
 import { goTo } from '@history';
 import { FrontSiteRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
+import { ManualCheckout } from '../ManualCheckout';
 
 export default class SelfCheckoutModal extends React.Component {
   checkout = () => {
@@ -31,7 +32,8 @@ export default class SelfCheckoutModal extends React.Component {
   };
 
   render() {
-    const { isLoading, item, modalOpened, toggleModal } = this.props;
+    const { isLoading, item, modalOpened, toggleModal, onBarcodeDetected } =
+      this.props;
     if (_isEmpty(item)) {
       return null;
     }
@@ -49,6 +51,12 @@ export default class SelfCheckoutModal extends React.Component {
           </Modal.Header>
           <Modal.Content>
             <DocumentCard item={item} />
+            <ManualCheckout
+              label="Wrong book?"
+              autofocus
+              show
+              onChange={onBarcodeDetected}
+            />
           </Modal.Content>
           <Modal.Actions>
             <Button
@@ -86,6 +94,7 @@ SelfCheckoutModal.propTypes = {
   toggleModal: PropTypes.func.isRequired,
   modalOpened: PropTypes.bool,
   isLoading: PropTypes.bool,
+  onBarcodeDetected: PropTypes.func.isRequired,
 };
 
 SelfCheckoutModal.defaultProps = {
