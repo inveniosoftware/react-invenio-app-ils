@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.0.0-alpha.91 (released 2024-10-01)
+
+- global: improve screen adaptability
+- self-checkout: add manual input for the barcode 
+
 Version 1.0.0-alpha.90 (released 2024-06-24)
 
 - self-checkout: improve scanning behaviour
