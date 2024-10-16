@@ -21,7 +21,10 @@ export const notifyResultMessage = (message) => {
 };
 
 const searchItem = async (dispatch, term) => {
-  const response = await itemApi.list(itemApi.query().withBarcode(term).qs());
+  const upperCasedTerm = term.toUpperCase();
+  const response = await itemApi.list(
+    itemApi.query().withBarcode(upperCasedTerm).qs()
+  );
   const item = _first(response.data.hits) || null;
 
   dispatch({
@@ -59,10 +62,9 @@ export const checkoutItem = (documentPid, itemPid, patronPid) => {
       const { pid } = response.data.metadata;
       const linkToLoan = (
         <p>
-          The loan {pid} has been created by you!{' '}
-          <Link to={FrontSiteRoutes.patronProfile}>
-            You can now view the loan details.
-          </Link>
+          The loan {pid} has been created by you! You can view all your current
+          loans on your <Link to={FrontSiteRoutes.patronProfile}>profile</Link>{' '}
+          page.
         </p>
       );
       dispatch(sendSuccessNotification('Success!', linkToLoan));
