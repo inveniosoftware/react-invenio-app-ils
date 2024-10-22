@@ -55,7 +55,7 @@ export default class SelfCheckoutModal extends React.Component {
               label="Wrong book?"
               autofocus
               show
-              onChange={onBarcodeDetected}
+              onBarcodeInput={onBarcodeDetected}
             />
           </Modal.Content>
           <Modal.Actions>

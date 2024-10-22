@@ -8,7 +8,7 @@ export class ManualCheckout extends React.Component {
     super(props);
 
     this.state = {
-      manualBarcode: null,
+      manualBarcode: '',
     };
     this.inputRef = React.createRef();
   }
@@ -22,14 +22,14 @@ export class ManualCheckout extends React.Component {
   }
 
   render() {
-    const { show, onChange, label } = this.props;
+    const { show, onBarcodeInput, label } = this.props;
     const { manualBarcode } = this.state;
     if (show) {
       return (
         <Container className="pt-1 center">
           <Message compact>
             <Header className="pb-1" as="h5">
-              {label} Add the barcode manually:
+              {label} Insert the barcode manually:
             </Header>
             <Input
               id="barcodeInput"
@@ -37,10 +37,14 @@ export class ManualCheckout extends React.Component {
               placeholder="Barcode..."
               className="pb-1"
               ref={this.inputRef}
-              onChange={(e) => this.setState({ manualBarcode: e.target.value })}
+              value={manualBarcode}
+              onChange={(e) =>
+                this.setState({ manualBarcode: e.target.value?.toUpperCase() })
+              }
             />
             <Button
-              onClick={() => onChange(manualBarcode)}
+              onClick={() => manualBarcode && onBarcodeInput(manualBarcode)}
+              disabled={!manualBarcode}
               className="ml-10"
               type="submit"
             >
@@ -57,13 +61,13 @@ export class ManualCheckout extends React.Component {
 
 ManualCheckout.propTypes = {
   show: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
+  onBarcodeInput: PropTypes.func.isRequired,
   label: PropTypes.string,
   autofocus: PropTypes.bool,
 };
 
 ManualCheckout.defaultProps = {
   show: false,
-  label: 'Can’t scan the barcode?',
+  label: "Can't scan the barcode?",
   autofocus: false,
 };

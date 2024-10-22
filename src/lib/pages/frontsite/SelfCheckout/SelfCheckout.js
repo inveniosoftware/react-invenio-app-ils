@@ -60,7 +60,7 @@ class SelfCheckout extends React.Component {
 
   isItemLoanable = (itemBarcode) => {
     const { user, item, notifyResultMessage } = this.props;
-    var resultMessage = `Book with barcode: ${itemBarcode} doesn't exist.`;
+    var resultMessage = `Book with barcode ${itemBarcode} not found.`;
 
     if (!_isEmpty(item)) {
       if (this.itemStatus(item).canCirculate()) {
@@ -147,11 +147,12 @@ class SelfCheckout extends React.Component {
         <Header as="h1">SELF-CHECKOUT</Header>
         <Container>
           <BarcodeScanner onBarcodeDetected={this.onBarcodeDetected} />
-          <ManualCheckout show onChange={this.onBarcodeDetected} />
+          <ManualCheckout show onBarcodeInput={this.onBarcodeDetected} />
           <Message warning compact>
-            If your browser isn't able to scan the barcode, try
+            Barcode not detected while scanning?
             <br />
-            using another browser. (Recommended: Chrome)
+            Try using another browser. (Recommended:{' '}
+            <a href="https://www.google.com/chrome/">Google Chrome</a>)
           </Message>
         </Container>
         <SelfCheckoutModal
