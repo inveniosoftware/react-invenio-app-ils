@@ -10,8 +10,7 @@ To update dependencies you need to run `npm install` in the target deployment
 environment:
 
 ```shell
-$ rm -rf package-lock.json && rm -rf node_modules
-
+$ rm -rf package-lock.json node_modules
 # Run the container with x86_64 architecture and install packages
 $ docker run -it --platform="linux/amd64" --rm -v $(pwd):/app -w /app node:14-alpine sh -c "npm install"
 ```
