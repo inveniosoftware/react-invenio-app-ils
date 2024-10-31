@@ -22,6 +22,7 @@ export class LoanListEntry extends Component {
       delivery && loan.metadata.state === 'PENDING'
         ? invenioConfig.CIRCULATION.deliveryMethods[delivery]
         : '';
+    const isSelfCheckout = delivery === 'SELF-CHECKOUT';
     return (
       <Item>
         <Item.Content>
@@ -79,13 +80,26 @@ export class LoanListEntry extends Component {
               </List>
             </Grid.Column>
             <Grid.Column width={2} textAlign="center">
-              {deliveryMethod && (
+              {deliveryMethod ? (
                 <>
                   {delivery}{' '}
                   {deliveryMethod.iconClass && (
                     <Icon className={deliveryMethod.iconClass} />
                   )}
                 </>
+              ) : (
+                isSelfCheckout && (
+                  <>
+                    {delivery}{' '}
+                    <Icon
+                      className={
+                        invenioConfig.CIRCULATION.deliveryMethodSelfCheckout[
+                          delivery
+                        ].iconClass
+                      }
+                    />
+                  </>
+                )
               )}
             </Grid.Column>
             <Grid.Column computer={3} largeScreen={3}>

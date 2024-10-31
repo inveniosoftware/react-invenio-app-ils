@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { itemApi } from '@api/items';
 import { loanApi } from '@api/loans';
 import {
   sendErrorNotification,
   sendSuccessNotification,
   sendWarningNotification,
 } from '@components/Notifications';
-import _first from 'lodash/first';
 import { FrontSiteRoutes } from '@routes/urls';
 
 export const SEARCH_HAS_ERROR = 'selfCheckOut/SEARCH_HAS_ERROR';
@@ -20,19 +18,6 @@ export const notifyResultMessage = (message) => {
   };
 };
 
-const searchItem = async (dispatch, term) => {
-  const upperCasedTerm = term.toUpperCase();
-  const response = await itemApi.list(
-    itemApi.query().withBarcode(upperCasedTerm).qs()
-  );
-  const item = _first(response.data.hits) || null;
-
-  dispatch({
-    type: SEARCH_ITEM_SUCCESS,
-    payload: item,
-  });
-};
-
 export const selfCheckOutSearch = (term) => {
   return async (dispatch) => {
     dispatch({
@@ -40,7 +25,14 @@ export const selfCheckOutSearch = (term) => {
     });
 
     try {
-      await searchItem(dispatch, term);
+      const upperCasedTerm = term.toUpperCase();
+      const response = await loanApi.doSelfCheckoutSearchItem(upperCasedTerm);
+      const item = response.data || null;
+
+      dispatch({
+        type: SEARCH_ITEM_SUCCESS,
+        payload: item,
+      });
     } catch (error) {
       dispatch({
         type: SEARCH_HAS_ERROR,
@@ -51,20 +43,14 @@ export const selfCheckOutSearch = (term) => {
   };
 };
 
-export const checkoutItem = (documentPid, itemPid, patronPid) => {
+export const selfCheckOut = (documentPid, itemPid, patronPid) => {
   return async (dispatch) => {
     try {
-      const response = await loanApi.doCheckout(
-        documentPid,
-        itemPid,
-        patronPid
-      );
-      const { pid } = response.data.metadata;
+      await loanApi.doSelfCheckout(documentPid, itemPid, patronPid);
       const linkToLoan = (
         <p>
-          The loan {pid} has been created by you! You can view all your current
-          loans on your <Link to={FrontSiteRoutes.patronProfile}>profile</Link>{' '}
-          page.
+          Self-checkout completed! You can view all your current loans on your{' '}
+          <Link to={FrontSiteRoutes.patronProfile}>profile</Link> page.
         </p>
       );
       dispatch(sendSuccessNotification('Success!', linkToLoan));

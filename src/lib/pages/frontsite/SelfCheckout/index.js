@@ -1,10 +1,15 @@
 import { connect } from 'react-redux';
 
 import SelfCheckoutComponent from './SelfCheckout';
-import { selfCheckOutSearch, notifyResultMessage } from './state/actions';
+import {
+  selfCheckOut,
+  selfCheckOutSearch,
+  notifyResultMessage,
+} from './state/actions';
 
 const mapDispatchToProps = (dispatch) => ({
   selfCheckOutSearch: (term) => dispatch(selfCheckOutSearch(term)),
+  selfCheckOut: (term) => dispatch(selfCheckOut(term)),
   notifyResultMessage: (message) => dispatch(notifyResultMessage(message)),
 });
 

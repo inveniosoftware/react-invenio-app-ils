@@ -13,9 +13,6 @@ import {
 import { BarcodeScanner } from '@components/BarcodeScanner';
 import { SelfCheckoutModal } from './SelfCheckoutModal';
 import { ManualCheckout } from './ManualCheckout';
-import { invenioConfig } from '@config';
-import _isEmpty from 'lodash/isEmpty';
-import _find from 'lodash/find';
 
 class SelfCheckout extends React.Component {
   constructor(props) {
@@ -41,48 +38,8 @@ class SelfCheckout extends React.Component {
       this.setState({ barcode: detectedBarcode });
       const { selfCheckOutSearch } = this.props;
       await selfCheckOutSearch(detectedBarcode);
-
-      // open modal if item is loanable
-      const shouldShowModal = this.isItemLoanable(detectedBarcode);
-      if (shouldShowModal) {
-        this.toggleModal(true);
-      } else {
-        this.toggleModal(false);
-      }
+      this.toggleModal(true);
     }
-  };
-
-  itemStatus = (item) => ({
-    canCirculate: () =>
-      invenioConfig.ITEMS.canCirculateStatuses.includes(item.metadata.status),
-    isOnShelf: () => !item.metadata.circulation.state, // on shelf if circulation.state doesn't exist
-  });
-
-  isItemLoanable = (itemBarcode) => {
-    const { user, item, notifyResultMessage } = this.props;
-    var resultMessage = `Book with barcode ${itemBarcode} not found.`;
-
-    if (!_isEmpty(item)) {
-      if (this.itemStatus(item).canCirculate()) {
-        if (this.itemStatus(item).isOnShelf()) {
-          return true;
-        } else {
-          if (item.metadata.circulation.patron_pid === user.id.toString()) {
-            resultMessage = `You already loaned this book with barcode: ${itemBarcode}!`;
-          } else {
-            resultMessage = `Book with barcode: ${itemBarcode} is currently on loan!`;
-          }
-        }
-      } else {
-        const status = _find(invenioConfig.ITEMS.statuses, {
-          value: item.metadata?.status,
-        });
-        resultMessage = `Book with barcode: ${itemBarcode} is ${status?.text}!`;
-      }
-    }
-
-    notifyResultMessage(resultMessage);
-    return false;
   };
 
   renderInstructions = () => {
@@ -169,13 +126,6 @@ class SelfCheckout extends React.Component {
 SelfCheckout.propTypes = {
   /* REDUX */
   selfCheckOutSearch: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired,
-  item: PropTypes.object,
-  notifyResultMessage: PropTypes.func.isRequired,
-};
-
-SelfCheckout.defaultProps = {
-  item: null,
 };
 
 export default Overridable.component('SelfCheckout', SelfCheckout);

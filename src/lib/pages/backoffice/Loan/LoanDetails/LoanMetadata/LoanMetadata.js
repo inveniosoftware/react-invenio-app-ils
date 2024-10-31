@@ -33,7 +33,9 @@ export class LoanMetadata extends Component {
     const delivery = _get(_delivery, 'method');
     if (delivery) {
       const deliveryMethod =
-        invenioConfig.CIRCULATION.deliveryMethods[delivery];
+        invenioConfig.CIRCULATION.deliveryMethods[delivery] ||
+        invenioConfig.CIRCULATION.deliveryMethodSelfCheckout[delivery];
+
       return (
         <>
           {deliveryMethod.text}{' '}

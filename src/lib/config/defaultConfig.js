@@ -176,6 +176,12 @@ export const RECORDS_CONFIG = {
         iconClass: 'dolly',
       },
     },
+    deliveryMethodSelfCheckout: {
+      'SELF-CHECKOUT': {
+        text: 'SELF-CHECKOUT',
+        iconClass: 'shopping basket',
+      },
+    },
     extensionsMaxCount: 3,
     loanWillExpireDays: 7,
     loanActiveStates: [
