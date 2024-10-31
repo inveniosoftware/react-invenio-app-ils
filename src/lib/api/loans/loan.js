@@ -9,6 +9,7 @@ import { serializer } from './serializer';
 
 const apiPaths = {
   checkout: '/circulation/loans/checkout',
+  selfCheckout: '/circulation/loans/self-checkout',
   notificationOverdue: '/circulation/loans/:loanPid/notification-overdue',
   item: '/circulation/loans/:loanPid',
   list: '/circulation/loans/',
@@ -110,6 +111,29 @@ const doCheckout = async (
   }
 
   const response = await http.post(apiPaths.checkout, payload);
+  response.data = serializer.fromJSON(response.data);
+  return response;
+};
+
+const doSelfCheckoutSearchItem = async (barcode) => {
+  const response = await http.get(
+    `${apiPaths.selfCheckout}?barcode=${barcode}`
+  );
+  response.data = serializer.fromJSON(response.data);
+  return response;
+};
+
+const doSelfCheckout = async (documentPid, itemPid, patronPid) => {
+  const currentUser = sessionManager.user;
+  const payload = {
+    document_pid: documentPid,
+    item_pid: itemPid,
+    patron_pid: patronPid,
+    transaction_location_pid: `${currentUser.locationPid}`,
+    transaction_user_pid: `${currentUser.id}`,
+  };
+
+  const response = await http.post(apiPaths.selfCheckout, payload);
   response.data = serializer.fromJSON(response.data);
   return response;
 };
@@ -332,6 +356,8 @@ export const loanApi = {
   doAction: doAction,
   doRequest: doRequest,
   doCheckout: doCheckout,
+  doSelfCheckout: doSelfCheckout,
+  doSelfCheckoutSearchItem: doSelfCheckoutSearchItem,
   sendOverdueLoansNotificationReminder: sendOverdueLoansNotificationReminder,
   serializer: serializer,
   updateDates: updateDates,

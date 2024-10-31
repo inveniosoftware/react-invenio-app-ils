@@ -2,27 +2,25 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
-import { itemApi } from '@api/items';
+import { loanApi } from '@api/loans';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-const itemApiListMock = jest.fn();
-itemApi.list = itemApiListMock;
+const loanApiDoSelfCheckoutSearchItemMock = jest.fn();
+loanApi.doSelfCheckoutSearchItem = loanApiDoSelfCheckoutSearchItemMock;
 
 const lowerCasedBarcode = 'cm-145123';
 const upperCasedBarcode = lowerCasedBarcode.toUpperCase();
 
 const expectedPayload = { pid: 'item-pid', barcode: upperCasedBarcode };
 const response = {
-  data: {
-    hits: [expectedPayload],
-  },
+  data: expectedPayload,
 };
 
 let store;
 beforeEach(() => {
-  itemApiListMock.mockClear();
+  loanApiDoSelfCheckoutSearchItemMock.mockClear();
 
   store = mockStore(initialState);
   store.clearActions();
@@ -30,7 +28,7 @@ beforeEach(() => {
 
 describe('SelfCheck Out test', () => {
   it('should dispatch an action updating the payload result item', async () => {
-    itemApiListMock.mockResolvedValue(response);
+    loanApiDoSelfCheckoutSearchItemMock.mockResolvedValue(response);
 
     const expectedAction1 = {
       type: actions.SEARCH_IS_LOADING,
@@ -42,14 +40,14 @@ describe('SelfCheck Out test', () => {
     await store.dispatch(actions.selfCheckOutSearch(lowerCasedBarcode));
     expect(store.getActions()[0]).toEqual(expectedAction1);
     expect(store.getActions()[1]).toEqual(expectedAction2);
-    expect(itemApiListMock).toHaveBeenCalledWith(
-      itemApi.query().withBarcode(upperCasedBarcode).qs()
+    expect(loanApiDoSelfCheckoutSearchItemMock).toHaveBeenCalledWith(
+      upperCasedBarcode
     );
   });
 
   it('should dispatch an error action when the search fails', async () => {
     const errorMsg = 'Error message';
-    itemApiListMock.mockImplementation(() => {
+    loanApiDoSelfCheckoutSearchItemMock.mockImplementation(() => {
       throw new Error(errorMsg);
     });
 

@@ -46,13 +46,13 @@ export default class SelfCheckoutModal extends React.Component {
           onClose={() => toggleModal(false)}
         >
           <Modal.Header>
-            {`You are about to checkout a book with barcode:
+            {`You are about to checkout the literature with barcode:
             ${item?.metadata.barcode}`}
           </Modal.Header>
           <Modal.Content>
             <DocumentCard item={item} />
             <ManualCheckout
-              label="Wrong book?"
+              label="Wrong literature?"
               autofocus
               show
               onBarcodeInput={onBarcodeDetected}
