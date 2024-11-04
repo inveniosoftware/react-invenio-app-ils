@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.1.0 (released 2024-11-04)
+
+- self-checkout: uppercase barcode when input by the user
+
 Version 1.0.0 (released 2024-10-22)
 
 - upgrade axios and react-searchkit dependencies
