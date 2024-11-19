@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.2.0 (released 2024-11-19)
+
+- self-checkout: integrate new dedicate endpoints
+
 Version 1.1.0 (released 2024-11-04)
 
 - self-checkout: uppercase barcode when input by the user
