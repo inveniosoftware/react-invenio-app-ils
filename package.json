@@ -24,6 +24,7 @@
     "@rjsf/core": "^2.5.1",
     "@rjsf/semantic-ui": "^2.5.1",
     "axios": "^0.21.2",
+    "better-react-mathjax": "^2.3.0",
     "formik": "^2.2.6",
     "html5-qrcode": "^2.3.8",
     "less": "^3.13.1",
