@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import LiteratureEdition from './LiteratureEdition';
+import { MathJax } from 'better-react-mathjax';
 
 class EditionYearVolume extends Component {
   render() {
@@ -54,7 +55,7 @@ class LiteratureTitle extends Component {
       truncateWidth,
     } = this.props;
     const cmp = (
-      <>
+      <MathJax>
         {title}{' '}
         {(edition || publicationYear || volume) && (
           <EditionYearVolume
@@ -63,7 +64,7 @@ class LiteratureTitle extends Component {
             volume={volume}
           />
         )}
-      </>
+      </MathJax>
     );
 
     return truncate ? (

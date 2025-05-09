@@ -15,6 +15,7 @@ import { connect, Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { configureStore } from './store';
 import { MediaContextProvider } from '@components/Media';
+import { MathJaxContext } from 'better-react-mathjax';
 
 export const ILSStore = configureStore();
 
@@ -42,6 +43,13 @@ const mapDispatchToProps = (dispatch) => ({
 
 const FetchUser = connect(null, mapDispatchToProps)(FetchUserComponent);
 
+const mathJaxConfig = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$']],
+  },
+};
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -50,31 +58,33 @@ export default class App extends Component {
 
   render() {
     return (
-      <MediaContextProvider>
-        <Provider store={ILSStore}>
-          <FetchUser>
-            <Switch>
-              <Route exact path={AuthenticationRoutes.login}>
-                <Login />
-              </Route>
-              <AuthenticationGuard
-                path={AuthenticationRoutes.confirmEmail}
-                authorizedComponent={ConfirmEmail}
-              />
-              <AuthenticationGuard
-                path={BackOfficeRoutes.home}
-                authorizedComponent={BackOffice}
-                unAuthorizedComponent={UnAuthorized}
-                roles={['admin', 'librarian']}
-              />
-              <FrontSite />
-              <Route>
-                <NotFound />
-              </Route>
-            </Switch>
-          </FetchUser>
-        </Provider>
-      </MediaContextProvider>
+      <MathJaxContext config={mathJaxConfig}>
+        <MediaContextProvider>
+          <Provider store={ILSStore}>
+            <FetchUser>
+              <Switch>
+                <Route exact path={AuthenticationRoutes.login}>
+                  <Login />
+                </Route>
+                <AuthenticationGuard
+                  path={AuthenticationRoutes.confirmEmail}
+                  authorizedComponent={ConfirmEmail}
+                />
+                <AuthenticationGuard
+                  path={BackOfficeRoutes.home}
+                  authorizedComponent={BackOffice}
+                  unAuthorizedComponent={UnAuthorized}
+                  roles={['admin', 'librarian']}
+                />
+                <FrontSite />
+                <Route>
+                  <NotFound />
+                </Route>
+              </Switch>
+            </FetchUser>
+          </Provider>
+        </MediaContextProvider>
+      </MathJaxContext>
     );
   }
 }
