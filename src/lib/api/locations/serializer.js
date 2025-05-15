@@ -1,4 +1,5 @@
 import _isEmpty from 'lodash/isEmpty';
+import { DateTime } from 'luxon';
 
 function serializeInternalLocationResponse(hit) {
   let result = {};
@@ -34,10 +35,27 @@ function serializeLocationResponse(hit) {
   return result;
 }
 
+function serializeLocationClosurePeriodsResponse(hit) {
+  let result = [];
+  if (!_isEmpty(hit) && Array.isArray(hit.closure_periods)) {
+    hit.closure_periods.forEach((period) => {
+      result.push({
+        start: new DateTime.fromISO(period.start),
+        end: new DateTime.fromISO(period.end),
+      });
+    });
+  }
+  return result;
+}
+
 export const internalLocationSerializer = {
   fromJSON: serializeInternalLocationResponse,
 };
 
 export const locationSerializer = {
   fromJSON: serializeLocationResponse,
+};
+
+export const locationClosurePeriodsSerializer = {
+  fromJSON: serializeLocationClosurePeriodsResponse,
 };
