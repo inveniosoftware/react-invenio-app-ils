@@ -1,10 +1,11 @@
 import { toShortDate } from '@api/date';
-import { DatePicker } from '@components/DatePicker';
 import { invenioConfig } from '@config';
 import { DateTime } from 'luxon';
 import { PropTypes } from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Divider, Form, Icon, Message, Modal } from 'semantic-ui-react';
+import { sessionManager } from '@authentication/services/SessionManager';
+import { LocationDatePicker } from '@modules/Location';
 
 export default class LoanUpdateDates extends Component {
   constructor(props) {
@@ -174,9 +175,10 @@ export default class LoanUpdateDates extends Component {
               <Form.Group>
                 <Form.Field inline required>
                   <label>{startLabel}</label>
-                  <DatePicker
+                  <LocationDatePicker
                     maxDate={active ? this.today() : null}
                     defaultValue={active ? startDate : requestStartDate}
+                    locationPid={sessionManager.user.locationPid}
                     placeholder={startLabel}
                     handleDateChange={(value) =>
                       this.handleStartDateChange(value)
@@ -185,8 +187,9 @@ export default class LoanUpdateDates extends Component {
                 </Form.Field>
                 <Form.Field inline required>
                   <label>{endLabel}</label>
-                  <DatePicker
+                  <LocationDatePicker
                     defaultValue={active ? endDate : requestExpireDate}
+                    locationPid={sessionManager.user.locationPid}
                     placeholder={endLabel}
                     handleDateChange={(value) =>
                       this.handleEndDateChange(value)

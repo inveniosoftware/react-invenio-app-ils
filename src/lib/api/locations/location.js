@@ -1,8 +1,15 @@
 import { http } from '@api/base';
 import { getSearchTotal } from '@api/utils';
-import { locationSerializer as serializer } from './serializer';
+import {
+  locationSerializer as serializer,
+  locationClosurePeriodsSerializer as closurePeriodsSerializer,
+} from './serializer';
 
 const locationURL = '/locations/';
+
+const apiPaths = {
+  closure_periods: `/closure_periods/`,
+};
 
 const get = async (locationPid) => {
   const response = await http.get(`${locationURL}${locationPid}`);
@@ -35,6 +42,14 @@ const list = async (query = '', size = 100) => {
   return response;
 };
 
+const getClosurePerdiods = async (locationPid, year) => {
+  const response = await http.get(
+    `${locationURL}${locationPid}${apiPaths.closure_periods}${year}`
+  );
+  response.data = closurePeriodsSerializer.fromJSON(response.data);
+  return response;
+};
+
 export const locationApi = {
   list: list,
   get: get,
@@ -42,4 +57,5 @@ export const locationApi = {
   create: create,
   update: update,
   url: locationURL,
+  getClosurePerdiods: getClosurePerdiods,
 };

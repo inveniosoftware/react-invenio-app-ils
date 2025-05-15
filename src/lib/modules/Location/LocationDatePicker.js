@@ -1,92 +1,74 @@
 import { locationApi } from '@api/locations';
 import { DatePicker } from '@components/DatePicker';
-import _isEmpty from 'lodash/isEmpty';
 import { DateTime } from 'luxon';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { invenioConfig } from '@config';
 
 export class LocationDatePicker extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      data: {},
+      disabledDates: [],
       isLoading: false,
-      error: {},
+      error: null,
     };
   }
 
-  fetchLocation = async (locationPid) => {
-    this.setState({ isLoading: true });
+  fetchData = () => {
+    this.fetchLocationClosurePeriods();
+  };
+
+  fetchLocationClosurePeriods = async () => {
+    const { locationPid } = this.props;
+
+    if (!locationPid) {
+      this.setState({
+        isLoading: false,
+        disabledDates: [],
+        error: { message: 'Location PID is missing.' },
+      });
+      return;
+    }
+
+    this.setState({ isLoading: true, error: null });
+
+    const currentYear = DateTime.now().year;
+    const yearsToFetch = [currentYear - 1, currentYear, currentYear + 1];
+
     try {
-      const response = await locationApi.get(locationPid);
-      this.setState({ data: response.data, isLoading: false, error: {} });
-    } catch (error) {
-      this.setState({ isLoading: false, error: error });
-    }
-  };
+      const promises = yearsToFetch.map((year) =>
+        locationApi.getClosurePerdiods(locationPid, year)
+      );
 
-  disableAllDates = (minDate, maxDate, disabled) => {
-    let date = DateTime.fromISO(minDate);
-    const dateMax = DateTime.fromISO(maxDate);
-    while (date <= dateMax) {
-      const dateISO = date.toISODate();
-      disabled.push(dateISO);
-      date = date.plus({ days: 1 });
-    }
-  };
+      const responses = await Promise.all(promises);
 
-  disableClosures = (maxDate, minDate, data, disabled) => {
-    const weekdays = data.metadata.opening_weekdays,
-      exceptions = data.metadata.opening_exceptions;
-    let date = DateTime.fromISO(minDate);
-    const dateMax = DateTime.fromISO(maxDate);
-    while (date <= dateMax) {
-      const dateISO = date.toISODate();
-      let isOpen = weekdays[date.weekday - 1].is_open;
-      exceptions.forEach((exception) => {
-        if (exception.start_date <= dateISO && dateISO <= exception.end_date) {
-          isOpen = exception.is_open;
+      let allDisabledDateRanges = [];
+      responses.forEach((response, _) => {
+        allDisabledDateRanges = allDisabledDateRanges.concat(response.data);
+      });
+
+      const disabledDates = [];
+      allDisabledDateRanges.forEach((range) => {
+        let currentDate = DateTime.fromISO(range.start);
+        const endDate = DateTime.fromISO(range.end);
+
+        while (currentDate <= endDate) {
+          disabledDates.push(currentDate.toISODate());
+          currentDate = currentDate.plus({ days: 1 });
         }
       });
-      if (!isOpen) {
-        disabled.push(dateISO);
-      }
-      date = date.plus({ days: 1 });
-    }
 
-    // Disable recent X days including current date as set in the config
-    date = DateTime.fromISO(minDate);
-    let workingDaysToOffset = invenioConfig.CIRCULATION.requestStartOffset;
-    let i = 0;
-    while (workingDaysToOffset > 0) {
-      const dateISO = date.toISODate();
-      if (dateISO === disabled[i]) {
-        i++;
-      } else {
-        disabled.push(dateISO);
-        workingDaysToOffset--;
-      }
-      date = date.plus({ days: 1 });
+      this.setState({
+        disabledDates: disabledDates,
+        isLoading: false,
+      });
+    } catch (fetchError) {
+      console.error(
+        'LocationDatePicker: Failed to fetch closure periods.',
+        fetchError
+      );
+      this.setState({ isLoading: false, error: fetchError });
     }
-  };
-
-  listDisabled = () => {
-    const { minDate, maxDate } = this.props;
-    const { isLoading, error, data } = this.state;
-    const disabled = [];
-    if (isLoading) {
-      this.disableAllDates(minDate, maxDate, disabled);
-    } else if (!error.response && !_isEmpty(data)) {
-      this.disableClosures(maxDate, minDate, data, disabled);
-    }
-    return disabled;
-  };
-
-  fetchData = () => {
-    const { locationPid } = this.props;
-    this.fetchLocation(locationPid);
   };
 
   render() {
@@ -98,13 +80,19 @@ export class LocationDatePicker extends Component {
       locationPid,
       ...otherProps
     } = this.props;
-    const { isLoading } = this.state;
+    const { disabledDates, isLoading, error } = this.state;
+
+    if (error) {
+      console.error(error);
+      return null;
+    }
+
     return (
       <DatePicker
         {...otherProps}
         minDate={minDate}
         maxDate={maxDate}
-        disable={this.listDisabled()}
+        disable={disabledDates}
         handleDateChange={handleDateChange}
         loading={isLoading}
         fetchData={this.fetchData}
@@ -120,11 +108,13 @@ LocationDatePicker.propTypes = {
   defaultValue: PropTypes.string,
   handleDateChange: PropTypes.func.isRequired,
   locationPid: PropTypes.string,
-  maxDate: PropTypes.string.isRequired,
-  minDate: PropTypes.string.isRequired,
+  maxDate: PropTypes.string,
+  minDate: PropTypes.string,
 };
 
 LocationDatePicker.defaultProps = {
   defaultValue: '',
   locationPid: null,
+  minDate: null,
+  maxDate: null,
 };
