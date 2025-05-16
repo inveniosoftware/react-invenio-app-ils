@@ -41,21 +41,19 @@ export class LocationDatePicker extends Component {
       );
 
       const responses = await Promise.all(promises);
+      const disabledDateRanges = responses.flatMap((response) => response.data);
 
-      let allDisabledDateRanges = [];
-      responses.forEach((response, _) => {
-        allDisabledDateRanges = allDisabledDateRanges.concat(response.data);
-      });
-
-      const disabledDates = [];
-      allDisabledDateRanges.forEach((range) => {
-        let currentDate = DateTime.fromISO(range.start);
-        const endDate = DateTime.fromISO(range.end);
+      const disabledDates = disabledDateRanges.flatMap((dateRange) => {
+        const dates = [];
+        let currentDate = DateTime.fromISO(dateRange.start);
+        const endDate = DateTime.fromISO(dateRange.end);
 
         while (currentDate <= endDate) {
-          disabledDates.push(currentDate.toISODate());
+          dates.push(currentDate.toISODate());
           currentDate = currentDate.plus({ days: 1 });
         }
+
+        return dates;
       });
 
       this.setState({
