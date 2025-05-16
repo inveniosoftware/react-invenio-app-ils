@@ -37,7 +37,7 @@ export class LocationDatePicker extends Component {
 
     try {
       const promises = yearsToFetch.map((year) =>
-        locationApi.getClosurePerdiods(locationPid, year)
+        locationApi.getClosurePeriods(locationPid, year)
       );
 
       const responses = await Promise.all(promises);

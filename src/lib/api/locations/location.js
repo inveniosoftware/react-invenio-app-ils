@@ -42,7 +42,7 @@ const list = async (query = '', size = 100) => {
   return response;
 };
 
-const getClosurePerdiods = async (locationPid, year) => {
+const getClosurePeriods = async (locationPid, year) => {
   const response = await http.get(
     `${locationURL}${locationPid}${apiPaths.closure_periods}${year}`
   );
@@ -57,5 +57,5 @@ export const locationApi = {
   create: create,
   update: update,
   url: locationURL,
-  getClosurePerdiods: getClosurePerdiods,
+  getClosurePeriods: getClosurePeriods,
 };
