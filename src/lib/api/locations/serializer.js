@@ -37,13 +37,11 @@ function serializeLocationResponse(hit) {
 
 function serializeLocationClosurePeriodsResponse(hit) {
   let result = [];
-  if (!_isEmpty(hit) && Array.isArray(hit.closure_periods)) {
-    hit.closure_periods.forEach((period) => {
-      result.push({
-        start: new DateTime.fromISO(period.start),
-        end: new DateTime.fromISO(period.end),
-      });
-    });
+  if (!_isEmpty(hit)) {
+    result = hit.closure_periods.map((period) => ({
+      start: new DateTime.fromISO(period.start),
+      end: new DateTime.fromISO(period.end),
+    }));
   }
   return result;
 }
