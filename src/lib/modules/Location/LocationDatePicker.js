@@ -1,4 +1,5 @@
 import { locationApi } from '@api/locations';
+import { withCancel } from '@api/utils';
 import { DatePicker } from '@components/DatePicker';
 import { DateTime } from 'luxon';
 import PropTypes from 'prop-types';
@@ -12,6 +13,11 @@ export class LocationDatePicker extends Component {
       isLoading: false,
       error: null,
     };
+    this.cancellableFetches = [];
+  }
+
+  componentWillUnmount() {
+    this.cancellableFetches.forEach((cancellable) => cancellable.cancel());
   }
 
   fetchData = () => {
@@ -36,9 +42,13 @@ export class LocationDatePicker extends Component {
     const yearsToFetch = [currentYear - 1, currentYear, currentYear + 1];
 
     try {
-      const promises = yearsToFetch.map((year) =>
-        locationApi.getClosurePeriods(locationPid, year)
-      );
+      const promises = yearsToFetch.map((year) => {
+        const cancellable = withCancel(
+          locationApi.getClosurePeriods(locationPid, year)
+        );
+        this.cancellableFetches.push(cancellable);
+        return cancellable.promise;
+      });
 
       const responses = await Promise.all(promises);
       const disabledDateRanges = responses.flatMap((response) => response.data);
