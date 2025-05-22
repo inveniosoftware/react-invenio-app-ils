@@ -88,7 +88,7 @@ export default class PatronCurrentLoans extends Component {
           <Grid.Column computer={4} tablet={8} mobile={16} floated="right">
             <PatronBulkExtendLoans
               patronPid={currentUser.id}
-              hidden={loans.total === 0}
+              disabled={loans.total === 0}
               color="orange"
             />
           </Grid.Column>

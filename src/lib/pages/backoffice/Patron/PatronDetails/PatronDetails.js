@@ -154,7 +154,7 @@ export default class PatronDetails extends Component {
                       <Sticky context={this.menuRef} offset={150}>
                         <PatronBulkExtendLoans
                           patronPid={currentPatronPid}
-                          hidden={currentLoans.total === 0}
+                          disabled={currentLoans.total === 0}
                           fluid
                           color="blue"
                         />
