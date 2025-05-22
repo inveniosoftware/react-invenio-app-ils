@@ -18,14 +18,10 @@ export class ExistingRelations extends Component {
   render() {
     const { rows, showMaxRows, columns, emptyMessage } = this.props;
     const { activePage } = this.state;
-    const activeRows = rows.slice(
-      (activePage - 1) * showMaxRows,
-      activePage * showMaxRows
-    );
 
     return (
       <ResultsTable
-        data={activeRows}
+        data={rows}
         columns={columns}
         totalHitsCount={rows.length}
         showMaxRows={showMaxRows}
