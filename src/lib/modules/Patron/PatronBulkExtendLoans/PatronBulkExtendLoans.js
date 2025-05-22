@@ -17,7 +17,7 @@ export default class PatronBulkExtendLoans extends Component {
   };
 
   render() {
-    const { patronPid, bulkLoanExtension, isLoading, hidden, ...uiProps } =
+    const { patronPid, bulkLoanExtension, isLoading, disabled, ...uiProps } =
       this.props;
     const { open } = this.state;
     return (
@@ -26,19 +26,18 @@ export default class PatronBulkExtendLoans extends Component {
         onClose={this.close}
         onOpen={this.open}
         trigger={
-          !hidden && (
-            <Button
-              labelPosition="left"
-              fluid
-              icon
-              primary
-              loading={isLoading}
-              {...uiProps}
-            >
-              <Icon name="refresh" />
-              Extend all loans
-            </Button>
-          )
+          <Button
+            labelPosition="left"
+            fluid
+            icon
+            primary
+            loading={isLoading}
+            disabled={disabled}
+            {...uiProps}
+          >
+            <Icon name="refresh" />
+            Extend all loans
+          </Button>
         }
       >
         <Modal.Header>Confirm extension action</Modal.Header>
@@ -76,10 +75,10 @@ PatronBulkExtendLoans.propTypes = {
   patronPid: PropTypes.string.isRequired,
   bulkLoanExtension: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
-  hidden: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 PatronBulkExtendLoans.defaultProps = {
   isLoading: false,
-  hidden: true,
+  disabled: true,
 };
