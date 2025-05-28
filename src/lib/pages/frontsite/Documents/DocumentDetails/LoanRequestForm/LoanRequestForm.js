@@ -24,11 +24,13 @@ class LoanRequestForm extends Component {
       invenioConfig.CIRCULATION.deliveryMethods
     );
     this.deliveryMethods = this.withDeliveryMethod
-      ? Object.keys(invenioConfig.CIRCULATION.deliveryMethods).map((key) => ({
-          key: key,
-          value: key,
-          text: invenioConfig.CIRCULATION.deliveryMethods[key].text,
-        }))
+      ? Object.keys(invenioConfig.CIRCULATION.deliveryMethods)
+          .filter((method) => method !== 'NOT-SPECIFIED')
+          .map((key) => ({
+            key: key,
+            value: key,
+            text: invenioConfig.CIRCULATION.deliveryMethods[key].text,
+          }))
       : [];
     this.state['deliveryMethod'] = this.withDeliveryMethod
       ? this.deliveryMethods[0].value
