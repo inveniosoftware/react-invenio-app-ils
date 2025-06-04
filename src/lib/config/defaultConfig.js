@@ -169,7 +169,7 @@ export const RECORDS_CONFIG = {
     deliveryMethods: {
       'NOT-SPECIFIED': {
         text: 'Not Specified',
-        iconClass: 'ellipsis horizontal',
+        iconClass: 'question circle outline',
       },
       PICKUP: {
         text: 'Pick it up at the library desk',
