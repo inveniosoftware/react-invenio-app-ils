@@ -1,5 +1,11 @@
 # Changes
 
+Version 1.3.0 (released 2024-06-04)
+
+- closures: disabled closed dates in Backoffice LoanUpdateDates calendar
+- backoffice: fix relations table only showing items on the first page
+- ui: Button to extend all loans is disabled instead of hidden
+
 Version 1.2.0 (released 2024-11-19)
 
 - self-checkout: integrate new dedicate endpoints
