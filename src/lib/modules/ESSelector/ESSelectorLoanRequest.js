@@ -36,7 +36,7 @@ export default class ESSelectorLoanRequest extends Component {
         }))
       : [];
     this.state['deliveryMethod'] = this.withDeliveryMethod
-      ? this.deliveryMethods[1].value
+      ? this.deliveryMethods[0].value
       : null;
   }
 
@@ -110,7 +110,7 @@ export default class ESSelectorLoanRequest extends Component {
           placeholder="Select delivery method"
           options={this.deliveryMethods}
           onChange={this.handleDeliveryMethodChange}
-          defaultValue={this.deliveryMethods[1].value}
+          defaultValue={this.deliveryMethods[0].value}
           selection
         />
       </Form.Field>
