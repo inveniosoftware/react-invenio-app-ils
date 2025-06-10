@@ -167,6 +167,10 @@ export const RECORDS_CONFIG = {
   },
   CIRCULATION: {
     deliveryMethods: {
+      'NOT-SPECIFIED': {
+        text: 'Not Specified',
+        iconClass: 'question circle outline',
+      },
       PICKUP: {
         text: 'Pick it up at the library desk',
         iconClass: 'warehouse',
