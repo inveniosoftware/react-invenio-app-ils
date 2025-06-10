@@ -35,9 +35,17 @@ export default class ESSelectorLoanRequest extends Component {
           text: invenioConfig.CIRCULATION.deliveryMethods[key].text,
         }))
       : [];
-    this.state['deliveryMethod'] = this.withDeliveryMethod
-      ? this.deliveryMethods[0].value
-      : null;
+
+    this.defaultDeliveryMethod = null;
+    if (this.withDeliveryMethod) {
+      this.defaultDeliveryMethod = this.deliveryMethods.some(
+        (method) => method.value === 'NOT-SPECIFIED'
+      )
+        ? 'NOT-SPECIFIED'
+        : this.deliveryMethods[0].value;
+    }
+
+    this.state['deliveryMethod'] = this.defaultDeliveryMethod;
   }
 
   onSelectionsUpdate = (selections) => this.setState({ selections });
@@ -110,7 +118,7 @@ export default class ESSelectorLoanRequest extends Component {
           placeholder="Select delivery method"
           options={this.deliveryMethods}
           onChange={this.handleDeliveryMethodChange}
-          defaultValue={this.deliveryMethods[0].value}
+          defaultValue={this.defaultDeliveryMethod}
           selection
         />
       </Form.Field>
