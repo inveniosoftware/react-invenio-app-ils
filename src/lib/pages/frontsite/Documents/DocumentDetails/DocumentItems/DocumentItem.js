@@ -3,15 +3,28 @@ import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Button, Table } from 'semantic-ui-react';
 import DocumentItemBody from './DocumentItemBody';
+import { invenioConfig } from '@config';
+import { vocabularyApi } from '@api/vocabularies';
 
 class DocumentItem extends Component {
   constructor(props) {
     super(props);
 
+    const identifiersToDisplayInFrontside =
+      invenioConfig.ITEMS.identifiersToDisplayInFrontside.map((identifier) => ({
+        key: identifier,
+        text: identifier,
+      }));
+
     this.state = {
       isShowingAll: false,
       itemAmountLimit: 5,
+      identifiersToDisplayInFrontside,
     };
+
+    if (identifiersToDisplayInFrontside.length > 0) {
+      this.fetchIdentifiersToDisplayInFrontsideTitles();
+    }
   }
 
   get moreItemsToLoad() {
@@ -20,6 +33,26 @@ class DocumentItem extends Component {
 
     return items.length > itemAmountLimit;
   }
+
+  fetchIdentifiersToDisplayInFrontsideTitles = () => {
+    const query = vocabularyApi
+      .query()
+      .withType(invenioConfig.VOCABULARIES.item.identifier.scheme);
+    vocabularyApi.list(query.qs()).then((response) => {
+      const identifiersToDisplayInFrontside =
+        this.state.identifiersToDisplayInFrontside.map((identifier) => {
+          const vocabEntry = response.data.hits.find(
+            (entry) => entry.metadata.key === identifier.key
+          );
+          return {
+            ...identifier,
+            text: vocabEntry ? vocabEntry.metadata.text : identifier.text,
+          };
+        });
+
+      this.setState({ identifiersToDisplayInFrontside });
+    });
+  };
 
   toggleItems = () => {
     const { isShowingAll } = this.state;
@@ -30,7 +63,8 @@ class DocumentItem extends Component {
   render() {
     const { internalLocationName, items, documentDetails, showTitle } =
       this.props;
-    const { isShowingAll, itemAmountLimit } = this.state;
+    const { isShowingAll, itemAmountLimit, identifiersToDisplayInFrontside } =
+      this.state;
 
     const previewArrayOfItems = items.slice(0, itemAmountLimit);
     const completeArrayOfItems = items;
@@ -56,6 +90,11 @@ class DocumentItem extends Component {
               <Table.Row data-test="header">
                 <Table.HeaderCell>Barcode</Table.HeaderCell>
                 <Table.HeaderCell>Shelf</Table.HeaderCell>
+                {identifiersToDisplayInFrontside.map((identifier) => (
+                  <Table.HeaderCell key={identifier.key}>
+                    {identifier.text}
+                  </Table.HeaderCell>
+                ))}
                 <Table.HeaderCell>Status</Table.HeaderCell>
                 <Table.HeaderCell>Medium</Table.HeaderCell>
                 <Table.HeaderCell>Loan restriction</Table.HeaderCell>
@@ -68,6 +107,9 @@ class DocumentItem extends Component {
               <DocumentItemBody
                 items={itemsToShow}
                 documentDetails={documentDetails}
+                identifiersToDisplayInFrontside={
+                  identifiersToDisplayInFrontside
+                }
               />
             </Overridable>
           </Table.Body>
