@@ -27,7 +27,12 @@ export default class DocumentItemBody extends Component {
   };
 
   render() {
-    const { items, shelfLink, documentDetails } = this.props;
+    const {
+      items,
+      shelfLink,
+      documentDetails,
+      identifiersToDisplayInFrontside,
+    } = this.props;
 
     return items.map((item) => (
       <Table.Row key={item.pid}>
@@ -37,12 +42,25 @@ export default class DocumentItemBody extends Component {
         >
           {item.barcode}
         </Table.Cell>
-
         <Table.Cell data-label="Shelf" className="document-item-table-itemCell">
           {shelfLink !== null
             ? shelfLink(item, documentDetails)
             : _get(item, 'shelf')}
         </Table.Cell>
+
+        {identifiersToDisplayInFrontside.map((identifier) => (
+          <Table.Cell
+            key={identifier}
+            data-label={identifier.text}
+            className="document-item-table-itemCell"
+          >
+            {
+              item.identifiers?.find((entry) => {
+                return entry.scheme === identifier.key;
+              })?.value
+            }
+          </Table.Cell>
+        ))}
 
         <Table.Cell data-label="Status">{this.statusLabel(item)}</Table.Cell>
         <Table.Cell data-label="Medium">
@@ -63,6 +81,8 @@ DocumentItemBody.propTypes = {
   items: PropTypes.array.isRequired,
   documentDetails: PropTypes.object.isRequired,
   shelfLink: PropTypes.func,
+  identifiersToDisplayInFrontside: PropTypes.arrayOf(PropTypes.object)
+    .isRequired,
 };
 
 DocumentItemBody.defaultProps = {
