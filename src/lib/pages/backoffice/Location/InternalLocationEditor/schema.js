@@ -22,6 +22,11 @@ export const schema = () => {
         type: 'string',
         title: 'Physical location',
       },
+      accessible_by_patrons: {
+        type: 'boolean',
+        title: 'Is this location accessible by patrons?',
+        default: true,
+      },
     },
   };
   return _merge(_schema, invenioConfig.INTERNAL_LOCATIONS.editorSchema);
