@@ -1,4 +1,4 @@
-import { Banner } from '@components/Banner';
+import { Banners } from '@components/Banners';
 import { NotFound } from '@components/HttpErrors';
 import { ILSFooter } from '@components/ILSFooter';
 import { ILSMenu } from '@components/ILSMenu';
@@ -38,7 +38,7 @@ export default class FrontSite extends Component {
         <Notifications className="compact" />
         <Container fluid className="fs-content">
           <Overridable id="FrontSite.extras">
-            <Banner />
+            <Banners />
           </Overridable>
           <Switch>
             <Route

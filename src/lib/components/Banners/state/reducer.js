@@ -5,7 +5,7 @@ export const initialState = {
   error: {},
 };
 
-export const fetchBannerReducer = (state = initialState, action) => {
+export const fetchBannersReducer = (state = initialState, action) => {
   switch (action.type) {
     case BANNER_RESET:
       return {

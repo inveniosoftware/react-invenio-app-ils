@@ -1,7 +1,7 @@
 import { parseParams } from '@authentication/utils';
 import { EnvironmentLabel } from '@components/EnvironmentLabel';
 import { Media } from '@components/Media';
-import { Banner } from '@components/Banner';
+import { Banners } from '@components/Banners';
 import { Notifications } from '@components/Notifications';
 import { invenioConfig } from '@config';
 import { goTo } from '@history';
@@ -248,7 +248,7 @@ class Login extends Component {
     return (
       <>
         <Overridable id="Login.extras">
-          <Banner />
+          <Banners />
         </Overridable>
         <LoginLayout
           hasError={hasError}

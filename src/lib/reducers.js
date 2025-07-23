@@ -1,6 +1,6 @@
 import { authenticationReducer } from '@authentication/reducer';
 import { deleteRecordModalReducer } from '@components/backoffice/DeleteRecordModal/reducer';
-import { fetchBannerReducer } from '@components/Banner/state/reducer';
+import { fetchBannersReducer } from '@components/Banners/state/reducer';
 import { notificationsReducer } from '@components/Notifications/reducer';
 import { overdueLoanSendNotificationModalReducer } from '@modules/Loan/backoffice/OverdueLoanSendNotificationModal/reducer';
 import { loanActionReducer, loanDetailsReducer } from '@modules/Loan/reducer';
@@ -123,7 +123,7 @@ export default function createILSReducer(asyncReducers) {
     borrowingRequestLoanExtension: borrowingRequestLoanExtensionReducer,
     itemsCheckIn: itemsCheckInReducer,
     checkOut: checkOutReducer,
-    banner: fetchBannerReducer,
+    banners: fetchBannersReducer,
     bulkLoanExtend: patronBulkExtendLoans,
     ...asyncReducers,
   });
