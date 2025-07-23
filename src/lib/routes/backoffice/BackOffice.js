@@ -1,5 +1,5 @@
 import { Sidebar } from '@components/backoffice/Sidebar';
-import { Banner } from '@components/Banner';
+import { Banners } from '@components/Banners';
 import { Notifications } from '@components/Notifications';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -12,7 +12,7 @@ export class BackOffice extends Component {
     return (
       <>
         <Overridable id="BackOffice.extras">
-          <Banner />
+          <Banners />
         </Overridable>
         <div className="backoffice">
           <div className="bo-sidebar">

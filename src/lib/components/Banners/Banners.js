@@ -18,9 +18,10 @@ const BannerCmp = ({ message, category }) => {
     default:
       break;
   }
+
   return (
     <Overridable
-      id="Banner.layout"
+      id="Banners.layout"
       message={message}
       category={category}
       colorProp={colorProp}
@@ -37,45 +38,56 @@ BannerCmp.propTypes = {
   category: PropTypes.string.isRequired,
 };
 
-class Banner extends Component {
+class Banners extends Component {
   componentDidMount() {
-    const { fetchBanner, resetBanner } = this.props;
-    resetBanner();
-    fetchBanner();
-    this.intervalFetchBannerId = setInterval(
-      fetchBanner,
+    const { fetchBanners, resetBanners } = this.props;
+    resetBanners();
+    fetchBanners();
+    this.intervalfetchBannersId = setInterval(
+      fetchBanners,
       FETCH_BANNER_EVERY_SECS * 1000
     );
   }
 
   componentWillUnmount() {
-    this.intervalFetchBannerId && clearInterval(this.intervalFetchBannerId);
+    this.intervalfetchBannersId && clearInterval(this.intervalfetchBannersId);
   }
 
   render() {
-    const { banner, children } = this.props;
+    const { banners, children } = this.props;
+
     return (
       <>
-        {!_isEmpty(banner) ? <BannerCmp {...banner} /> : null} {children}
+        {!_isEmpty(banners)
+          ? banners.hits.map((banner) => (
+              <BannerCmp key={banner.id} {...banner} />
+            ))
+          : null}{' '}
+        {children}
       </>
     );
   }
 }
 
-Banner.propTypes = {
+Banners.propTypes = {
   children: PropTypes.node,
   /* REDUX */
-  banner: PropTypes.shape({
-    message: PropTypes.string,
-    category: PropTypes.string,
+  banners: PropTypes.shape({
+    hits: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        message: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
+      })
+    ),
   }),
-  fetchBanner: PropTypes.func.isRequired,
-  resetBanner: PropTypes.func.isRequired,
+  fetchBanners: PropTypes.func.isRequired,
+  resetBanners: PropTypes.func.isRequired,
 };
 
-Banner.defaultProps = {
-  banner: null,
+Banners.defaultProps = {
+  banners: null,
   children: null,
 };
 
-export default Overridable.component('Banner', Banner);
+export default Overridable.component('Banners', Banners);
