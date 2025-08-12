@@ -1,6 +1,13 @@
 # Changes
 
-Version 1.3.0 (released 2024-06-04)
+Version 2.0.0 (released 2025-08-12)
+
+- global: adapt API calls to latest versions (invenio-banners)
+- administration: remove access to invenio-admin endpoints (phase out package)
+- frontside: added config to display selected item identifiers
+- backoffice: added NOT-SPECIFIED delivery method
+
+Version 1.3.0 (released 2025-06-04)
 
 - closures: disabled closed dates in Backoffice LoanUpdateDates calendar
 - backoffice: fix relations table only showing items on the first page
