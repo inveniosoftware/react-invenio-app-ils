@@ -66,6 +66,14 @@ export default class InternalLocationList extends Component {
       { title: 'Name', field: 'metadata.name' },
       { title: 'Physical location', field: 'metadata.physical_location' },
       { title: 'Location e-mail', field: 'metadata.location.email' },
+      {
+        title: 'Accessible by patrons',
+        field: 'metadata.accessible_by_patrons',
+        formatter: ({ row }) =>
+          row.metadata.accessible_by_patrons ? (
+            <i className="check icon" />
+          ) : null,
+      },
       { title: 'Actions', field: '', formatter: this.rowActions },
     ];
 
