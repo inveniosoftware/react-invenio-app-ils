@@ -18,6 +18,11 @@ class PatronProfile extends Component {
       pendingLoansRef: React.createRef(),
       currentDoqRequestsRef: React.createRef(),
     };
+
+    const { renderTabTitle } = this.props;
+    if (renderTabTitle) {
+      renderTabTitle({ title: 'My Profile' });
+    }
   }
 
   tabs = () => {
@@ -83,6 +88,11 @@ class PatronProfile extends Component {
 
 PatronProfile.propTypes = {
   user: PropTypes.object.isRequired,
+  renderTabTitle: PropTypes.func,
+};
+
+PatronProfile.defaultProps = {
+  renderTabTitle: null,
 };
 
 export default Overridable.component('Patron', PatronProfile);
