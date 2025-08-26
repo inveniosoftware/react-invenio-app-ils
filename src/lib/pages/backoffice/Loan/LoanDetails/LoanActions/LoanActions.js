@@ -15,7 +15,7 @@ export default class LoanActions extends Component {
 
     // omit checkout because it must done in one of the available items
     if (!itemPid) {
-      actions = omit(actions, 'checkout');
+      actions = omit(actions, ['checkout', 'self_checkout']);
     }
 
     return Object.keys(actions).map((action) => {
