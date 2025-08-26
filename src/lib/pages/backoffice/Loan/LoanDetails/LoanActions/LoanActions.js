@@ -7,7 +7,7 @@ import { ExtendModal } from '@pages/backoffice/Loan/LoanDetails/LoanActions/Exte
 import { CancelLoanModal } from './CancelButton';
 import { omit } from 'lodash/object';
 import _isEmpty from 'lodash/isEmpty';
-import capitalize from 'lodash/capitalize';
+import startCase from 'lodash/startCase';
 
 export default class LoanActions extends Component {
   renderAvailableActions(pid, patronPid, documentPid, itemPid, actions = {}) {
@@ -15,7 +15,7 @@ export default class LoanActions extends Component {
 
     // omit checkout because it must done in one of the available items
     if (!itemPid) {
-      actions = omit(actions, 'checkout');
+      actions = omit(actions, ['checkout', 'self_checkout']);
     }
 
     return Object.keys(actions).map((action) => {
@@ -49,7 +49,7 @@ export default class LoanActions extends Component {
               loading={isLoading}
               disabled={isLoading}
             >
-              {capitalize(action)}
+              {startCase(action)}
             </Button>
           )}
         </List.Item>
