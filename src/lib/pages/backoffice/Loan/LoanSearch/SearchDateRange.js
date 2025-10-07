@@ -19,11 +19,18 @@ export class _SearchDateRange extends Component {
     return [fromDate, toDate];
   }
 
-  onDateChange = (newFilter) => {
+  onDateChange = (field, value) => {
     const { currentQueryState, updateQueryState } = this.props;
-    const filters = currentQueryState.filters;
-    filters.push(newFilter);
-    return updateQueryState({ filters: filters });
+
+    const updatedFilters = currentQueryState.filters.filter(
+      ([name]) => name !== field
+    );
+
+    if (value !== '') {
+      updatedFilters.push([field, value]);
+    }
+
+    return updateQueryState({ filters: updatedFilters });
   };
 
   render() {
@@ -43,7 +50,7 @@ export class _SearchDateRange extends Component {
             defaultValue={fromDate}
             placeholder="From"
             handleDateChange={(value) =>
-              this.onDateChange(['loans_from_date', value])
+              this.onDateChange('loans_from_date', value)
             }
           />
         </Card.Content>
@@ -53,7 +60,7 @@ export class _SearchDateRange extends Component {
             defaultValue={toDate}
             placeholder="To"
             handleDateChange={(value) =>
-              this.onDateChange(['loans_to_date', value])
+              this.onDateChange('loans_to_date', value)
             }
           />
         </Card.Content>
