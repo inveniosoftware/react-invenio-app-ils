@@ -10,7 +10,8 @@ jest.mock('@components/DatePicker', () => {
   };
 });
 
-const newFilter = ['loans_from_date', '2020-02-02'];
+const newFilterField = 'loans_from_date';
+const newFilterValue = '2020-02-02';
 const mockCurrentQueryState = { filters: [] };
 const mockUpdateQueryState = jest.fn();
 
@@ -39,7 +40,7 @@ describe('SearchDateRange tests', () => {
       />
     );
 
-    wrapper.instance().onDateChange(newFilter);
+    wrapper.instance().onDateChange(newFilterField, newFilterValue);
     const expected = { filters: [['loans_from_date', '2020-02-02']] };
     const mockFn = wrapper.instance().props.updateQueryState;
     expect(mockFn).toBeCalledWith(expected);
@@ -55,12 +56,9 @@ describe('SearchDateRange tests', () => {
         updateQueryState={mockUpdateQueryState}
       />
     );
-    wrapper.instance().onDateChange(newFilter);
+    wrapper.instance().onDateChange(newFilterField, newFilterValue);
     const expected = {
-      filters: [
-        ['loans_from_date', '2020-02-01'],
-        ['loans_from_date', '2020-02-02'],
-      ],
+      filters: [['loans_from_date', '2020-02-02']],
     };
     const mockFn = wrapper.instance().props.updateQueryState;
     expect(mockFn).toBeCalledWith(expected);
@@ -75,9 +73,12 @@ describe('SearchDateRange tests', () => {
         updateQueryState={mockUpdateQueryState}
       />
     );
-    wrapper.instance().onDateChange(newFilter);
+    wrapper.instance().onDateChange(newFilterField, newFilterValue);
     const expected = {
-      filters: mockCurrentQueryState.filters,
+      filters: [
+        ['loans_to_date', '2020-03-03'],
+        ['loans_from_date', '2020-02-02'],
+      ],
     };
     const mockFn = wrapper.instance().props.updateQueryState;
     expect(mockFn).toBeCalledWith(expected);
