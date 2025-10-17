@@ -34,46 +34,55 @@ export default class DocumentItemBody extends Component {
       identifiersToDisplayInFrontside,
     } = this.props;
 
-    return items.map((item) => (
-      <Table.Row key={item.pid}>
-        <Table.Cell
-          data-label="Barcode"
-          className="document-item-table-itemCell"
-        >
-          {item.barcode}
-        </Table.Cell>
-        <Table.Cell data-label="Shelf" className="document-item-table-itemCell">
-          {shelfLink !== null
-            ? shelfLink(item, documentDetails)
-            : _get(item, 'shelf')}
-        </Table.Cell>
+    return items.map((item) => {
+      const showShelfLink = item.internal_location.accessible_by_patrons;
 
-        {identifiersToDisplayInFrontside.map((identifier) => (
+      return (
+        <Table.Row key={item.pid}>
           <Table.Cell
-            key={identifier}
-            data-label={identifier.text}
+            data-label="Barcode"
             className="document-item-table-itemCell"
           >
-            {
-              item.identifiers?.find((entry) => {
-                return entry.scheme === identifier.key;
-              })?.value
-            }
+            {item.barcode}
           </Table.Cell>
-        ))}
+          <Table.Cell
+            data-label="Shelf"
+            className="document-item-table-itemCell"
+          >
+            {showShelfLink
+              ? shelfLink !== null
+                ? shelfLink(item, documentDetails)
+                : _get(item, 'shelf')
+              : 'Available on Request'}
+          </Table.Cell>
 
-        <Table.Cell data-label="Status">{this.statusLabel(item)}</Table.Cell>
-        <Table.Cell data-label="Medium">
-          {getDisplayVal('ITEMS.mediums', item.medium)}
-        </Table.Cell>
-        <Table.Cell data-label="Restrictions">
-          {getDisplayVal(
-            'ITEMS.circulationRestrictions',
-            item.circulation_restriction
-          )}
-        </Table.Cell>
-      </Table.Row>
-    ));
+          {identifiersToDisplayInFrontside.map((identifier) => (
+            <Table.Cell
+              key={identifier}
+              data-label={identifier.text}
+              className="document-item-table-itemCell"
+            >
+              {
+                item.identifiers?.find((entry) => {
+                  return entry.scheme === identifier.key;
+                })?.value
+              }
+            </Table.Cell>
+          ))}
+
+          <Table.Cell data-label="Status">{this.statusLabel(item)}</Table.Cell>
+          <Table.Cell data-label="Medium">
+            {getDisplayVal('ITEMS.mediums', item.medium)}
+          </Table.Cell>
+          <Table.Cell data-label="Restrictions">
+            {getDisplayVal(
+              'ITEMS.circulationRestrictions',
+              item.circulation_restriction
+            )}
+          </Table.Cell>
+        </Table.Row>
+      );
+    });
   }
 }
 
