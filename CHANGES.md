@@ -1,4 +1,9 @@
 # Changes
+Version 2.0.1 (released 2025-10-28)
+- ci: update npm publish
+- error_handler: add handling for 403
+- backoffice: change formatting of text on the loan action buttons
+- backoffice: omit option to self_checkout on loan with no items as it leads to an error
 
 Version 2.0.0 (released 2025-08-12)
 
