@@ -5,21 +5,25 @@ on:
     tags:
       - v*
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   Publish:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install
+      - name: Update npm and Install
         run: |
           npm install -g npm@latest
           npm ci
@@ -30,5 +34,5 @@ jobs:
           # avoid fail on warnings
           CI: false
 
-      - name: Publish on NPM
+      - name: Publish on npmjs
         run: npm publish
