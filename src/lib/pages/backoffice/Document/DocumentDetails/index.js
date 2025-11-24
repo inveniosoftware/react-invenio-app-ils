@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetchDocumentDetails } from './state/actions';
+import { fetchDocumentDetails, clearDocumentDetails } from './state/actions';
 import DocumentDetailsComponent from './DocumentDetails';
 
 const mapStateToProps = (state) => ({
@@ -13,6 +13,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchDocumentDetails: (documentPid) =>
     dispatch(fetchDocumentDetails(documentPid)),
+  clearDocumentDetails: () => dispatch(clearDocumentDetails()),
 });
 
 export const DocumentDetails = connect(
