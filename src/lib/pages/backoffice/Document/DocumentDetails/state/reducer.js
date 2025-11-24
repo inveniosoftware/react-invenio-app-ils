@@ -5,6 +5,7 @@ import {
   IS_LOADING,
   SUCCESS,
   HAS_ERROR,
+  CLEAR,
 } from './actions';
 
 export const initialState = {
@@ -48,6 +49,8 @@ export default (state = initialState, action) => {
         error: action.payload,
         hasError: true,
       };
+    case CLEAR:
+      return { ...initialState };
     default:
       return state;
   }

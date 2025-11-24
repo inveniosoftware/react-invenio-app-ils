@@ -19,10 +19,19 @@ import { Icon } from 'semantic-ui-react';
 export const IS_LOADING = 'fetchDocumentDetails/IS_LOADING';
 export const SUCCESS = 'fetchDocumentDetails/SUCCESS';
 export const HAS_ERROR = 'fetchDocumentDetails/HAS_ERROR';
+export const CLEAR = 'fetchDocumentDetails/CLEAR';
 
 export const DELETE_IS_LOADING = 'deleteDocument/DELETE_IS_LOADING';
 export const DELETE_SUCCESS = 'deleteDocument/DELETE_SUCCESS';
 export const DELETE_HAS_ERROR = 'deleteDocument/DELETE_HAS_ERROR';
+
+export const clearDocumentDetails = () => {
+  return (dispatch) => {
+    dispatch({
+      type: CLEAR,
+    });
+  };
+};
 
 export const fetchDocumentDetails = (documentPid) => {
   return async (dispatch) => {

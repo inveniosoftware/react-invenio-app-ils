@@ -44,6 +44,11 @@ export default class DocumentDetails extends Component {
     }
   }
 
+  componentWillUnmount() {
+    const { clearDocumentDetails } = this.props;
+    clearDocumentDetails();
+  }
+
   render() {
     const { isLoading, error, data } = this.props;
     return (
@@ -99,6 +104,7 @@ DocumentDetails.propTypes = {
   error: PropTypes.object,
   data: PropTypes.object.isRequired,
   fetchDocumentDetails: PropTypes.func.isRequired,
+  clearDocumentDetails: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       documentPid: PropTypes.string,
