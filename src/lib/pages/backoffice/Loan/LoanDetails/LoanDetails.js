@@ -36,6 +36,11 @@ export default class LoanDetails extends Component {
     }
   }
 
+  componentWillUnmount() {
+    const { clearLoanDetails } = this.props;
+    clearLoanDetails();
+  }
+
   render() {
     const { isLoading, error, data, firstLoanRequested } = this.props;
     return (
@@ -88,6 +93,7 @@ export default class LoanDetails extends Component {
 LoanDetails.propTypes = {
   /* REDUX */
   fetchLoanDetails: PropTypes.func.isRequired,
+  clearLoanDetails: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired,
   firstLoanRequested: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
