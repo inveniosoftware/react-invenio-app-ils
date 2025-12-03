@@ -2,6 +2,7 @@ import {
   ACTION_HAS_ERROR,
   ACTION_IS_LOADING,
   ACTION_SUCCESS,
+  CLEAR,
   DETAILS_HAS_ERROR,
   DETAILS_IS_LOADING,
   DETAILS_SUCCESS,
@@ -66,6 +67,8 @@ export const loanDetailsReducer = (state = initialDetailsState, action) => {
         isLoading: false,
         hasError: true,
       };
+    case CLEAR:
+      return { ...initialDetailsState };
     default:
       return state;
   }

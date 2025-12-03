@@ -14,6 +14,7 @@ export const ACTION_HAS_ERROR = 'loanAction/HAS_ERROR';
 export const DETAILS_IS_LOADING = 'fetchLoanDetails/IS_LOADING';
 export const DETAILS_SUCCESS = 'fetchLoanDetails/SUCCESS';
 export const DETAILS_HAS_ERROR = 'fetchLoanDetails/HAS_ERROR';
+export const CLEAR = 'fetchLoanDetails/CLEAR';
 
 export const fetchLoanDetails = (
   loanPid,
@@ -59,6 +60,14 @@ export const fetchLoanDetails = (
       });
       dispatch(sendErrorNotification(error));
     }
+  };
+};
+
+export const clearLoanDetails = () => {
+  return (dispatch) => {
+    dispatch({
+      type: CLEAR,
+    });
   };
 };
 
