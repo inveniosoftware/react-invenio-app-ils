@@ -4,6 +4,15 @@ import { sendErrorNotification } from '@components/Notifications';
 export const IS_LOADING = 'fetchOrderDetails/IS_LOADING';
 export const SUCCESS = 'fetchOrderDetails/SUCCESS';
 export const HAS_ERROR = 'fetchOrderDetails/HAS_ERROR';
+export const CLEAR = 'fetchOrderDetails/CLEAR';
+
+export const clearOrderDetails = () => {
+  return (dispatch) => {
+    dispatch({
+      type: CLEAR,
+    });
+  };
+};
 
 export const fetchOrderDetails = (pid) => {
   return async (dispatch) => {

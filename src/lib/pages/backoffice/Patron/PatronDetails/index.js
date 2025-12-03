@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PatronDetailsComponent from './PatronDetails';
-import { fetchPatronDetails } from './state/actions';
+import { fetchPatronDetails, clearPatronDetails } from './state/actions';
 
 const mapStateToProps = (state) => ({
   isLoading: state.patronDetails.isLoading,
@@ -12,6 +12,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchPatronDetails: (patronPid) => dispatch(fetchPatronDetails(patronPid)),
+  clearPatronDetails: () => dispatch(clearPatronDetails()),
 });
 
 export const PatronDetails = connect(

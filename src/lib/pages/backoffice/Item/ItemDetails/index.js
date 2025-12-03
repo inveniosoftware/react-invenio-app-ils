@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 
-import { deleteItem, fetchItemDetails } from './state/actions';
+import {
+  clearItemDetails,
+  deleteItem,
+  fetchItemDetails,
+} from './state/actions';
 import ItemDetailsComponent from './ItemDetails';
 
 const mapStateToProps = (state) => ({
@@ -12,6 +16,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchItemDetails: (itemPid) => dispatch(fetchItemDetails(itemPid)),
   deleteItem: (itemPid) => dispatch(deleteItem(itemPid)),
+  clearItemDetails: () => dispatch(clearItemDetails()),
 });
 
 export const ItemDetails = connect(

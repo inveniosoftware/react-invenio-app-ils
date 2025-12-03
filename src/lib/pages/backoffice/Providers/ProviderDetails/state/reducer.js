@@ -5,6 +5,7 @@ import {
   DELETE_IS_LOADING,
   DELETE_HAS_ERROR,
   DELETE_SUCCESS,
+  CLEAR,
 } from './actions';
 
 export const initialState = {
@@ -49,6 +50,8 @@ export default (state = initialState, action) => {
         error: action.payload,
         hasError: true,
       };
+    case CLEAR:
+      return { ...initialState };
     default:
       return state;
   }

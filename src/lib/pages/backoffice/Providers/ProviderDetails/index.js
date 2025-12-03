@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 
-import { fetchProviderDetails, deleteProvider } from './state/actions';
+import {
+  fetchProviderDetails,
+  deleteProvider,
+  clearProviderDetails,
+} from './state/actions';
 import ProviderDetailsComponent from './ProviderDetails';
 
 const mapStateToProps = (state) => ({
@@ -14,6 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchProviderDetails: (providerPid) =>
     dispatch(fetchProviderDetails(providerPid)),
   deleteProvider: (providerPid) => dispatch(deleteProvider(providerPid)),
+  clearProviderDetails: () => dispatch(clearProviderDetails()),
 });
 
 export const ProviderDetails = connect(

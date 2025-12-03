@@ -32,6 +32,11 @@ export default class ItemDetails extends Component {
     }
   }
 
+  componentWillUnmount() {
+    const { clearItemDetails } = this.props;
+    clearItemDetails();
+  }
+
   render() {
     const { isLoading, error, data } = this.props;
     return (
@@ -76,6 +81,7 @@ export default class ItemDetails extends Component {
 
 ItemDetails.propTypes = {
   fetchItemDetails: PropTypes.func.isRequired,
+  clearItemDetails: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired,
   isLoading: PropTypes.bool,
   error: PropTypes.object,

@@ -196,6 +196,11 @@ export default class OrderDetails extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    const { clearOrderDetails } = this.props;
+    clearOrderDetails();
+  }
+
   render() {
     const { isLoading, error, data } = this.props;
     const metadata = data.metadata || {};
@@ -243,6 +248,7 @@ export default class OrderDetails extends React.Component {
 OrderDetails.propTypes = {
   data: PropTypes.object.isRequired,
   fetchOrderDetails: PropTypes.func.isRequired,
+  clearOrderDetails: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
   error: PropTypes.object,
   match: PropTypes.shape({

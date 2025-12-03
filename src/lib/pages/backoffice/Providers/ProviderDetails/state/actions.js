@@ -14,6 +14,8 @@ export const DELETE_IS_LOADING = 'deleteProvider/DELETE_IS_LOADING';
 export const DELETE_SUCCESS = 'deleteProvider/DELETE_SUCCESS';
 export const DELETE_HAS_ERROR = 'deleteProvider/DELETE_HAS_ERROR';
 
+export const CLEAR = 'fetchProviderDetails/CLEAR';
+
 export const fetchProviderDetails = (pid) => {
   return async (dispatch) => {
     dispatch({
@@ -63,5 +65,13 @@ export const deleteProvider = (pid) => {
       });
       dispatch(sendErrorNotification(error));
     }
+  };
+};
+
+export const clearProviderDetails = () => {
+  return (dispatch) => {
+    dispatch({
+      type: CLEAR,
+    });
   };
 };

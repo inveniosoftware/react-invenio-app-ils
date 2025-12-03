@@ -2,6 +2,7 @@ import {
   IS_LOADING,
   SUCCESS,
   HAS_ERROR,
+  CLEAR,
   DELETE_IS_LOADING,
   DELETE_SUCCESS,
   DELETE_HAS_ERROR,
@@ -47,6 +48,8 @@ export default (state = initialState, action) => {
         error: action.payload,
         hasError: true,
       };
+    case CLEAR:
+      return { ...initialState };
     default:
       return state;
   }

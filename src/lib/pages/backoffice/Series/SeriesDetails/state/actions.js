@@ -9,6 +9,7 @@ import { BackOfficeRoutes } from '@routes/urls';
 export const IS_LOADING = 'fetchSeriesDetails/IS_LOADING';
 export const SUCCESS = 'fetchSeriesDetails/SUCCESS';
 export const HAS_ERROR = 'fetchSeriesDetails/HAS_ERROR';
+export const CLEAR = 'fetchSeriesDetails/CLEAR';
 
 export const DELETE_IS_LOADING = 'deleteSeries/DELETE_IS_LOADING';
 export const DELETE_SUCCESS = 'deleteSeries/DELETE_SUCCESS';
@@ -64,5 +65,13 @@ export const fetchSeriesDetails = (seriesPid) => {
       });
       dispatch(sendErrorNotification(error));
     }
+  };
+};
+
+export const clearSeriesDetails = () => {
+  return (dispatch) => {
+    dispatch({
+      type: CLEAR,
+    });
   };
 };
