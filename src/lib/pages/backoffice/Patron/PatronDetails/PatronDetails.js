@@ -47,6 +47,11 @@ export default class PatronDetails extends Component {
     }
   }
 
+  componentWillUnmount() {
+    const { clearPatronDetails } = this.props;
+    clearPatronDetails();
+  }
+
   render() {
     const { isLoading, error, data, match, currentLoans } = this.props;
     const currentPatronPid = match.params.patronPid;
@@ -175,6 +180,7 @@ export default class PatronDetails extends Component {
 
 PatronDetails.propTypes = {
   fetchPatronDetails: PropTypes.func.isRequired,
+  clearPatronDetails: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired,
   error: PropTypes.object,
   isLoading: PropTypes.bool,

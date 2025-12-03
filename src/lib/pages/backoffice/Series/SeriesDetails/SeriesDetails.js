@@ -41,6 +41,11 @@ export default class SeriesDetails extends Component {
     }
   }
 
+  componentWillUnmount() {
+    const { clearSeriesDetails } = this.props;
+    clearSeriesDetails();
+  }
+
   seriesPanels = () => {
     const { data, multipartMonographsInSeries, documentsInSeries } = this.props;
 
@@ -198,6 +203,7 @@ SeriesDetails.propTypes = {
   documentsInSeries: PropTypes.object,
   multipartMonographsInSeries: PropTypes.object,
   fetchSeriesDetails: PropTypes.func.isRequired,
+  clearSeriesDetails: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       seriesPid: PropTypes.string,

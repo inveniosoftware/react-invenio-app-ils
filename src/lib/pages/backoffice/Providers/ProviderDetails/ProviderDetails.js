@@ -207,6 +207,11 @@ export default class ProviderDetails extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    const { clearProviderDetails } = this.props;
+    clearProviderDetails();
+  }
+
   render() {
     const { data, isLoading, error, deleteProvider } = this.props;
 
@@ -254,6 +259,7 @@ ProviderDetails.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   fetchProviderDetails: PropTypes.func.isRequired,
   deleteProvider: PropTypes.func.isRequired,
+  clearProviderDetails: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       providerPid: PropTypes.string,

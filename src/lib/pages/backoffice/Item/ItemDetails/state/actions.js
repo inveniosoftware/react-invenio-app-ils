@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 export const IS_LOADING = 'fetchItemDetails/IS_LOADING';
 export const SUCCESS = 'fetchItemDetails/SUCCESS';
 export const HAS_ERROR = 'fetchItemDetails/HAS_ERROR';
+export const CLEAR = 'fetchItemDetails/CLEAR';
 
 export const DELETE_IS_LOADING = 'deleteItem/DELETE_IS_LOADING';
 export const DELETE_SUCCESS = 'deleteItem/DELETE_SUCCESS';
@@ -66,6 +67,14 @@ export const deleteItem = (itemPid) => {
       });
       dispatch(sendErrorNotification(error));
     }
+  };
+};
+
+export const clearItemDetails = () => {
+  return (dispatch) => {
+    dispatch({
+      type: CLEAR,
+    });
   };
 };
 

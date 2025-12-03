@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetchOrderDetails } from './state/actions';
+import { fetchOrderDetails, clearOrderDetails } from './state/actions';
 import OrderDetailsComponent from './OrderDetails';
 
 const mapStateToProps = (state) => ({
@@ -12,6 +12,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchOrderDetails: (orderPid) => dispatch(fetchOrderDetails(orderPid)),
+  clearOrderDetails: () => dispatch(clearOrderDetails()),
 });
 
 export const OrderDetails = connect(
