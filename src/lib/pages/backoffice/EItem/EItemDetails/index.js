@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchEItemDetails } from './state/actions';
+import { fetchEItemDetails, clearEItemDetails } from './state/actions';
 import EItemDetailsComponent from './EItemDetails';
 
 const mapStateToProps = (state) => ({
@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchEItemDetails: (eitemPid) => dispatch(fetchEItemDetails(eitemPid)),
+  clearEItemDetails: () => dispatch(clearEItemDetails()),
 });
 
 export const EItemDetails = connect(

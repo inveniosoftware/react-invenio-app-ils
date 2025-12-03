@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 
-import { fetchLocationDetails, deleteLocation } from './state/actions';
+import {
+  fetchLocationDetails,
+  deleteLocation,
+  clearLocationDetails,
+} from './state/actions';
 import LocationDetailsComponent from './LocationDetails';
 
 const mapStateToProps = (state) => ({
@@ -14,6 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchLocationDetails: (LocationPid) =>
     dispatch(fetchLocationDetails(LocationPid)),
   deleteLocation: (locationPid) => dispatch(deleteLocation(locationPid)),
+  clearLocationDetails: () => dispatch(clearLocationDetails()),
 });
 
 export const LocationDetails = connect(

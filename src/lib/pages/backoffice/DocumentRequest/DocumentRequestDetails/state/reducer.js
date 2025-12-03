@@ -4,6 +4,7 @@ import {
   HAS_ERROR,
   IS_LOADING,
   SUCCESS,
+  CLEAR,
 } from './actions';
 
 export const initialState = {
@@ -34,6 +35,8 @@ export default (state = initialState, action) => {
         isLoading: false,
         hasError: true,
       };
+    case CLEAR:
+      return { ...initialState };
     default:
       return state;
   }

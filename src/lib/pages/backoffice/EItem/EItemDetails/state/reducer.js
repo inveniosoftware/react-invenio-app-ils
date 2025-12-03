@@ -7,6 +7,7 @@ import {
   HAS_ERROR,
   ADD_FILE,
   DELETE_FILE,
+  CLEAR,
 } from './actions';
 import get from 'lodash/get';
 
@@ -81,6 +82,8 @@ export default (state = initialState, action) => {
         error: action.payload,
         hasError: true,
       };
+    case CLEAR:
+      return { ...initialState };
     default:
       return state;
   }

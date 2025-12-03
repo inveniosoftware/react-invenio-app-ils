@@ -29,6 +29,11 @@ export default class EItemDetails extends Component {
     }
   }
 
+  componentWillUnmount() {
+    const { clearEItemDetails } = this.props;
+    clearEItemDetails();
+  }
+
   render() {
     const { isLoading, error, data } = this.props;
     return (
@@ -69,6 +74,7 @@ export default class EItemDetails extends Component {
 
 EItemDetails.propTypes = {
   fetchEItemDetails: PropTypes.func.isRequired,
+  clearEItemDetails: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
   data: PropTypes.object.isRequired,
   error: PropTypes.object,

@@ -14,6 +14,8 @@ export const DELETE_IS_LOADING = 'deleteLocation/DELETE_IS_LOADING';
 export const DELETE_SUCCESS = 'deleteLocation/DELETE_SUCCESS';
 export const DELETE_HAS_ERROR = 'deleteLocation/DELETE_HAS_ERROR';
 
+export const CLEAR = 'fetchLocationDetails/CLEAR';
+
 export const fetchLocationDetails = (pid) => {
   return async (dispatch) => {
     dispatch({
@@ -61,5 +63,13 @@ export const deleteLocation = (pid) => {
       });
       dispatch(sendErrorNotification(error));
     }
+  };
+};
+
+export const clearLocationDetails = () => {
+  return (dispatch) => {
+    dispatch({
+      type: CLEAR,
+    });
   };
 };

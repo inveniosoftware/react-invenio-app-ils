@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 
-import { fetchBorrowingRequestDetails } from './state/actions';
+import {
+  clearBorrowingRequestDetails,
+  fetchBorrowingRequestDetails,
+} from './state/actions';
 import BorrowingRequestDetailsComponent from './BorrowingRequestDetails';
 
 const mapStateToProps = (state) => ({
@@ -12,6 +15,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchBorrowingRequestDetails: (brwReqPid) =>
     dispatch(fetchBorrowingRequestDetails(brwReqPid)),
+  clearBorrowingRequestDetails: () => dispatch(clearBorrowingRequestDetails()),
 });
 
 export const BorrowingRequestDetails = connect(

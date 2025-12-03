@@ -31,6 +31,11 @@ export default class DocumentRequestDetails extends Component {
     }
   }
 
+  componentWillUnmount() {
+    const { clearDocumentRequestDetails } = this.props;
+    clearDocumentRequestDetails();
+  }
+
   render() {
     const { data, isLoading, error } = this.props;
     return (
@@ -72,6 +77,7 @@ export default class DocumentRequestDetails extends Component {
 
 DocumentRequestDetails.propTypes = {
   fetchDocumentRequestDetails: PropTypes.func.isRequired,
+  clearDocumentRequestDetails: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired,
   isLoading: PropTypes.bool,
   error: PropTypes.object,
