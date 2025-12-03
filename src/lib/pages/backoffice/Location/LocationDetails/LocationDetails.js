@@ -159,6 +159,11 @@ export default class LocationDetails extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    const { clearLocationDetails } = this.props;
+    clearLocationDetails();
+  }
+
   render() {
     const { data, isLoading, error, deleteLocation } = this.props;
 
@@ -207,6 +212,7 @@ LocationDetails.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   fetchLocationDetails: PropTypes.func.isRequired,
   deleteLocation: PropTypes.func.isRequired,
+  clearLocationDetails: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       locationPid: PropTypes.string,

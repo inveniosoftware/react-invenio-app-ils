@@ -171,6 +171,11 @@ export default class BorrowingRequestDetails extends Component {
     }
   }
 
+  componentWillUnmount() {
+    const { clearBorrowingRequestDetails } = this.props;
+    clearBorrowingRequestDetails();
+  }
+
   render() {
     const { isLoading, error, data } = this.props;
     const metadata = data.metadata || {};
@@ -219,6 +224,7 @@ BorrowingRequestDetails.propTypes = {
   error: PropTypes.object,
   isLoading: PropTypes.bool.isRequired,
   fetchBorrowingRequestDetails: PropTypes.func.isRequired,
+  clearBorrowingRequestDetails: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       borrowingRequestPid: PropTypes.string,

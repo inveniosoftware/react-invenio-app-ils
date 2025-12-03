@@ -1,4 +1,4 @@
-import { HAS_ERROR, IS_LOADING, SUCCESS } from './actions';
+import { CLEAR, HAS_ERROR, IS_LOADING, SUCCESS } from './actions';
 
 export const initialState = {
   data: {},
@@ -26,6 +26,8 @@ export default (state = initialState, action) => {
         isLoading: false,
         hasError: true,
       };
+    case CLEAR:
+      return { ...initialState };
     default:
       return state;
   }
