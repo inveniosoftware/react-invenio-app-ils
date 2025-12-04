@@ -1,4 +1,7 @@
 # Changes
+Version 2.0.2 (released 2025-12-08)
+- fix: clear record data on unmount to prevent stale data being displayed on backoffice detail pages
+
 Version 2.0.1 (released 2025-10-28)
 - ci: update npm publish
 - error_handler: add handling for 403
