@@ -33,8 +33,8 @@ export class DocumentRequestStepPanels extends Component {
         docReq.state === 'ACCEPTED'
           ? 'accepted'
           : docReq.state === 'DECLINED'
-          ? 'declined'
-          : '';
+            ? 'declined'
+            : '';
       cmp = (
         <Header icon>
           <Icon name="check" />

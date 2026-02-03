@@ -8,8 +8,8 @@ const LiteratureKeywords = ({ keywords, separator, noneMessage }) => {
     return keywordValue && keywordSource
       ? `${keywordValue} (${keywordSource})`
       : keywordValue
-      ? keywordValue
-      : '';
+        ? keywordValue
+        : '';
   }
 
   return (

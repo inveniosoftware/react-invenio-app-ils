@@ -126,11 +126,9 @@ export default class DocumentPurchaseOrders extends Component {
   render() {
     const { orders, isLoading, hasError } = this.state;
     return (
-      <>
-        <Loader isLoading={isLoading}>
-          {hasError ? this.renderError() : this.renderResultsOrEmpty(orders)}
-        </Loader>
-      </>
+      <Loader isLoading={isLoading}>
+        {hasError ? this.renderError() : this.renderResultsOrEmpty(orders)}
+      </Loader>
     );
   }
 }
