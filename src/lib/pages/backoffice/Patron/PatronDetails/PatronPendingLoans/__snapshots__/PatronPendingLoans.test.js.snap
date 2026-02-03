@@ -1821,7 +1821,6 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                             as={
                                               Object {
                                                 "$$typeof": Symbol(react.forward_ref),
-                                                "displayName": "Link",
                                                 "propTypes": Object {
                                                   "innerRef": [Function],
                                                   "onClick": [Function],

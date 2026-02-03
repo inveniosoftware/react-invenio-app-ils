@@ -578,7 +578,7 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
                                   data-label="Loan"
                                   data-test="0-loan1"
                                 >
-                                  <Link
+                                  <ForwardRef(Link)
                                     data-test="loanid-1"
                                     to="url/loanid-1"
                                   />
@@ -677,7 +677,7 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
                                   data-label="Loan"
                                   data-test="0-loan2"
                                 >
-                                  <Link
+                                  <ForwardRef(Link)
                                     data-test="loanid-2"
                                     to="url/loanid-2"
                                   />
