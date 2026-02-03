@@ -39,7 +39,7 @@ exports[`SeriesDocuments tests should load the SeriesDocuments component 1`] = `
         <SeeAllButton
           disabled={false}
           fluid={false}
-          to="/backoffice/documents?q=relations.multipart_monograph.pid_value:\\"serid-1\\""
+          to="/backoffice/documents?q=relations.multipart_monograph.pid_value:"serid-1""
         />
       }
       showAllResults={false}
