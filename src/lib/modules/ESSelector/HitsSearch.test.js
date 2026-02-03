@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { act } from 'react';
 import { shallow, mount } from 'enzyme';
 import { HitsSearch } from './HitsSearch';
 import { serializeLocation } from './serializer';
@@ -26,11 +26,9 @@ describe('HitsSearch tests', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should search when text input changes', (done) => {
-    const mockedApi = (query) => {
-      expect(query).toBe('test');
-      done();
-    };
+  it('should search when text input changes', async () => {
+    jest.useFakeTimers();
+    const mockedApi = jest.fn();
 
     component = mount(
       <HitsSearch
@@ -40,78 +38,88 @@ describe('HitsSearch tests', () => {
         alwaysWildcard={false}
       />
     );
-    component.find('input').simulate('change', {
-      target: { value: 'test' },
+
+    await act(async () => {
+      component.find('input').simulate('change', {
+        target: { value: 'test' },
+      });
+      jest.runAllTimers();
     });
+
+    expect(mockedApi).toHaveBeenCalledTimes(1);
+    expect(mockedApi.mock.calls[0][0]).toBe('test');
+
+    jest.useRealTimers();
   });
 
-  it('should return no result', (done) => {
-    const api = async (query) => {
-      const response = {
-        data: {
-          hits: [],
-        },
-      };
-      return await response;
-    };
-
-    const onResults = (results) => {
-      expect(results.length).toBe(0);
-      done();
-    };
+  it('should return no result', async () => {
+    jest.useFakeTimers();
+    const mockedApi = jest.fn().mockResolvedValue({ data: { hits: [] } });
+    const onResults = jest.fn();
 
     component = mount(
       <HitsSearch
-        query={api}
+        query={mockedApi}
         delay={0}
         onResults={onResults}
         serializer={serializer}
       />
     );
-    component.find('input').simulate('change', {
-      target: { value: 'test' },
+
+    await act(async () => {
+      component.find('input').simulate('change', {
+        target: { value: 'test' },
+      });
+      jest.runAllTimers();
     });
+
+    expect(onResults).toHaveBeenCalledTimes(1);
+    expect(onResults.mock.calls[0][0]).toHaveLength(0);
+
+    jest.useRealTimers();
   });
 
-  it('should return one result', (done) => {
-    const api = async () => {
-      const response = {
-        data: {
-          hits: [
-            {
-              id: 1,
+  it('should return one result', async () => {
+    jest.useFakeTimers();
+    const mockApi = jest.fn().mockResolvedValue({
+      data: {
+        hits: [
+          {
+            id: 1,
+            pid: '1',
+            metadata: {
+              $schema:
+                'https://127.0.0.1:5000/schemas/locations/location-v1.0.0.json',
               pid: '1',
-              metadata: {
-                $schema:
-                  'https://127.0.0.1:5000/schemas/locations/location-v1.0.0.json',
-                pid: '1',
-                name: 'Central Library',
-                address: 'Rue de Meyrin',
-                email: 'library@cern.ch',
-              },
+              name: 'Central Library',
+              address: 'Rue de Meyrin',
+              email: 'library@cern.ch',
             },
-          ],
-        },
-      };
-      return await response;
-    };
+          },
+        ],
+      },
+    });
 
-    const onResults = (results) => {
-      expect(results.length).toBe(1);
-      expect(results[0].title).toBe('Central Library');
-      done();
-    };
+    const onResults = jest.fn();
 
     component = mount(
       <HitsSearch
-        query={api}
+        query={mockApi}
         delay={0}
         onResults={onResults}
         serializer={serializer}
       />
     );
-    component.find('input').simulate('change', {
-      target: { value: 'test' },
+    await act(async () => {
+      component.find('input').simulate('change', {
+        target: { value: 'test' },
+      });
+      jest.runAllTimers();
     });
+
+    expect(onResults).toHaveBeenCalledTimes(1);
+    expect(onResults.mock.calls[0][0]).toHaveLength(1);
+    expect(onResults.mock.calls[0][0][0].title).toBe('Central Library');
+    jest.useRealTimers();
   });
 });

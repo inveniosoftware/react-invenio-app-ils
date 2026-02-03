@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { act } from 'react';
 import { shallow, mount } from 'enzyme';
 import CancelModal from './CancelModal';
 
@@ -89,11 +89,20 @@ describe('CancelModal tests', () => {
       />
     );
     component.find('button').simulate('click');
-    component.setState({ value: value });
+
+    act(() => {
+      component.setState({ value });
+    });
+    component.update();
+
     expect(component.state('showPopup')).toEqual(false);
 
     const cancelButton = component.find('button.red');
-    cancelButton.simulate('click');
+
+    act(() => {
+      cancelButton.simulate('click');
+    });
+
     expect(component.state('showPopup')).toEqual(false);
     expect(mockAction).toHaveBeenCalledWith(value);
   });
