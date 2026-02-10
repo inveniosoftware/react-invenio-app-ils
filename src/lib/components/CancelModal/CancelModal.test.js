@@ -93,7 +93,6 @@ describe('CancelModal tests', () => {
     act(() => {
       component.setState({ value });
     });
-    component.update();
 
     expect(component.state('showPopup')).toEqual(false);
 
