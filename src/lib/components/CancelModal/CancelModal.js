@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component, createRef } from 'react';
 import {
   Button,
   Header,
@@ -20,17 +19,11 @@ export default class CancelModal extends Component {
       showPopup: false,
       value: props.value,
     };
+    this.inputRef = createRef();
   }
 
   hide = () => this.setState({ open: false, showPopup: false, value: '' });
   show = () => this.setState({ open: true, showPopup: false, value: '' });
-
-  updateInputRef = (element) => {
-    this.inputRef = element
-      ? // eslint-disable-next-line react/no-find-dom-node
-        ReactDOM.findDOMNode(element).querySelector('input')
-      : null;
-  };
 
   cancel = () => {
     const { value } = this.state;
@@ -75,17 +68,18 @@ export default class CancelModal extends Component {
         <Modal.Content>
           <p>{content}</p>
           <Form onSubmit={this.cancel}>
-            <Input
-              focus
-              fluid
-              placeholder="Enter a reason..."
-              onChange={this.handleOnChange}
-              ref={this.updateInputRef}
-              value={value}
-            />
+            <span ref={this.inputRef}>
+              <Input
+                focus
+                fluid
+                placeholder="Enter a reason..."
+                onChange={this.handleOnChange}
+                value={value}
+              />
+            </span>
           </Form>
           <Popup
-            context={this.inputRef}
+            context={this.inputRef.current}
             content="Please specify a reason."
             position="bottom left"
             open={showPopup}

@@ -33,17 +33,20 @@ exports[`CancelModal tests should load the cancel loan modal component 1`] = `
       as="form"
       onSubmit={[Function]}
     >
-      <Input
-        fluid={true}
-        focus={true}
-        onChange={[Function]}
-        placeholder="Enter a reason..."
-        type="text"
-        value=""
-      />
+      <span>
+        <Input
+          fluid={true}
+          focus={true}
+          onChange={[Function]}
+          placeholder="Enter a reason..."
+          type="text"
+          value=""
+        />
+      </span>
     </Form>
     <Popup
       content="Please specify a reason."
+      context={null}
       disabled={false}
       eventsEnabled={true}
       on={
