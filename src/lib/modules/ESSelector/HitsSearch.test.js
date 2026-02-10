@@ -27,6 +27,7 @@ describe('HitsSearch tests', () => {
   });
 
   it('should search when text input changes', async () => {
+    // Use fake timers, as the tested code is behind a debounce
     jest.useFakeTimers();
     const mockedApi = jest.fn();
 
@@ -53,6 +54,7 @@ describe('HitsSearch tests', () => {
   });
 
   it('should return no result', async () => {
+    // Use fake timers, as the tested code is behind a debounce
     jest.useFakeTimers();
     const mockedApi = jest.fn().mockResolvedValue({ data: { hits: [] } });
     const onResults = jest.fn();
@@ -80,6 +82,7 @@ describe('HitsSearch tests', () => {
   });
 
   it('should return one result', async () => {
+    // Use fake timers, as the tested code is behind a debounce
     jest.useFakeTimers();
     const mockApi = jest.fn().mockResolvedValue({
       data: {
