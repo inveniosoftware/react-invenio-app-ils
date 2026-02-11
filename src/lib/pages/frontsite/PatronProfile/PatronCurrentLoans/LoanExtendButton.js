@@ -1,6 +1,8 @@
 import { loanApi } from '@api/loans';
 import { searchReady, withCancel } from '@api/utils';
 import { invenioConfig } from '@config';
+import { OverbookedConfirmModal } from '@components/OverbookedConfirmModal';
+import { isDocumentOverbooked, isPrivilegedUser } from '@components/utils';
 import _get from 'lodash/get';
 import _has from 'lodash/has';
 import PropTypes from 'prop-types';
@@ -26,7 +28,10 @@ const INFO_MESSAGES = {
 class LoanExtendButton extends Component {
   constructor(props) {
     super(props);
-    this.state = { isLoading: false };
+    this.state = {
+      isLoading: false,
+      showOverbookedConfirm: false,
+    };
   }
 
   componentWillUnmount() {
@@ -40,6 +45,37 @@ class LoanExtendButton extends Component {
   }
 
   triggerExtension = async () => {
+    const { loan, onError } = this.props;
+    const isUserPrivileged = isPrivilegedUser();
+
+    if (isUserPrivileged) {
+      this.setState({ isLoading: true });
+
+      try {
+        const documentPid = _get(loan, 'metadata.document.pid');
+        const isOverbooked = await isDocumentOverbooked(documentPid);
+
+        if (isOverbooked) {
+          this.setState({
+            isLoading: false,
+            showOverbookedConfirm: true,
+          });
+          return;
+        }
+      } catch (error) {
+        onError(
+          'Something went wrong while checking if the literature is overbooked.',
+          error
+        );
+        this.setState({ isLoading: false });
+        return;
+      }
+    }
+
+    await this.performExtension();
+  };
+
+  performExtension = async () => {
     const { loan, onSuccess, onError } = this.props;
     const { document, patron_pid: patronPid } = loan.metadata;
     const extendUrl = loan.availableActions.extend;
@@ -50,7 +86,10 @@ class LoanExtendButton extends Component {
         this.extendLoan(extendUrl, document.pid, patronPid)
       );
       const response = await this.cancellableExtendLoan.promise;
-      this.setState({ isLoading: false });
+      this.setState({
+        isLoading: false,
+        showOverbookedConfirm: false,
+      });
       const documentTitle = document.title;
       onSuccess(
         INFO_MESSAGES.SUCCESS(
@@ -70,6 +109,10 @@ class LoanExtendButton extends Component {
       invenioConfig.CIRCULATION.extensionsMaxCount
     );
   }
+
+  hideOverbookedConfirm = () => {
+    this.setState({ showOverbookedConfirm: false });
+  };
 
   validate = (loan) => {
     const hasExtendAction = _has(loan, 'availableActions.extend');
@@ -101,12 +144,27 @@ class LoanExtendButton extends Component {
 
   render() {
     const { loan } = this.props;
-    const { isLoading } = this.state;
+    const { isLoading, showOverbookedConfirm } = this.state;
     const validation = this.validate(loan);
     const isDisabled = !validation.isValid;
 
+    const overbookedDocuments = [
+      {
+        title: _get(loan, 'metadata.document.title', 'Unknown title'),
+        loanRequestId: loan.id,
+      },
+    ];
+
     return (
       <>
+        {showOverbookedConfirm && (
+          <OverbookedConfirmModal
+            open={showOverbookedConfirm}
+            onClose={this.hideOverbookedConfirm}
+            onConfirm={this.performExtension}
+            overbookedDocuments={overbookedDocuments}
+          />
+        )}
         {isDisabled && (
           <Popup
             content={validation.msg}
