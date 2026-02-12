@@ -2,16 +2,19 @@
   {
     "pid": "ilocid-1",
     "location_pid": "locid-1",
-    "name": "Internal Library 1"
+    "name": "Internal Library 1",
+    "restricted": false
   },
   {
     "pid": "ilocid-2",
     "location_pid": "locid-1",
-    "name": "Internal Library 2"
+    "name": "Internal Library 2",
+    "restricted": false
   },
   {
     "pid": "ilocid-3",
     "location_pid": "locid-1",
-    "name": "Unused Internal Library"
+    "name": "Unused Internal Library",
+    "restricted": false
   }
 ]
