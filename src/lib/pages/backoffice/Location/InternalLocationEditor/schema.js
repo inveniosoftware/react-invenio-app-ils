@@ -22,6 +22,11 @@ export const schema = () => {
         type: 'string',
         title: 'Physical location',
       },
+      restricted: {
+        type: 'boolean',
+        title: 'Restricted access (not accessible to patrons)',
+        default: false,
+      },
     },
   };
   return _merge(_schema, invenioConfig.INTERNAL_LOCATIONS.editorSchema);
