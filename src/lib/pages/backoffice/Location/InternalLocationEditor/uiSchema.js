@@ -18,6 +18,9 @@ export const uiSchema = (title) => {
         physical_location: 8,
         notes: 8,
       },
+      {
+        restricted: 8,
+      },
     ],
     'custom:root': {
       'custom:formTitle': title,
