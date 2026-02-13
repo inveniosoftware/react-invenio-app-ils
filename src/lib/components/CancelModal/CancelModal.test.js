@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { act } from 'react';
 import { shallow, mount } from 'enzyme';
 import CancelModal from './CancelModal';
 
@@ -75,7 +75,7 @@ describe('CancelModal tests', () => {
     expect(popup.prop('open')).toEqual(true);
   });
 
-  it('should perform the loan action given a reason', () => {
+  it('should perform the loan action given a reason', async () => {
     const value = 'test';
     const mockAction = jest.fn();
     const pid = loan.pid;
@@ -89,11 +89,19 @@ describe('CancelModal tests', () => {
       />
     );
     component.find('button').simulate('click');
-    component.setState({ value: value });
+
+    await act(() => {
+      component.setState({ value });
+    });
+
     expect(component.state('showPopup')).toEqual(false);
 
     const cancelButton = component.find('button.red');
-    cancelButton.simulate('click');
+
+    await act(() => {
+      cancelButton.simulate('click');
+    });
+
     expect(component.state('showPopup')).toEqual(false);
     expect(mockAction).toHaveBeenCalledWith(value);
   });

@@ -15,9 +15,8 @@ export const sendOverdueLoansNotificationReminder = (loanPid) => {
     });
 
     try {
-      const response = await loanApi.sendOverdueLoansNotificationReminder(
-        loanPid
-      );
+      const response =
+        await loanApi.sendOverdueLoansNotificationReminder(loanPid);
       dispatch({
         type: SUCCESS,
         payload: response.data,

@@ -1,9 +1,7 @@
 import { RJSFormWrapper } from '@forms/rjsf/RJSFormWrapper';
-import {
-  ArrayFieldTemplate,
-  FieldTemplate,
-  ObjectFieldTemplate,
-} from '@rjsf/semantic-ui';
+import { Templates } from '@rjsf/semantic-ui';
+
+const { ArrayFieldTemplate, ObjectFieldTemplate } = Templates;
 import _find from 'lodash/find';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -42,41 +40,6 @@ const Wrapper = ({ uiSchema, children }) => {
 Wrapper.propTypes = {
   uiSchema: PropTypes.object.isRequired,
   children: PropTypes.array,
-};
-
-/**
- * Component to allow wrapping the original RJSF FieldTemplate
- * @param {*} props
- */
-export function FieldTemplateWithWrapper(props) {
-  const { children, required, uiSchema, schema } = props;
-
-  // workaround of labels disappearing when specifying format or enum
-  // https://github.com/rjsf-team/react-jsonschema-form/issues/1946
-
-  return schema.format || schema.enum ? (
-    <Wrapper uiSchema={uiSchema}>
-      <Form.Field required={required}>
-        <label>{schema.title}</label>
-        <FieldTemplate {...props}>{children}</FieldTemplate>
-      </Form.Field>
-    </Wrapper>
-  ) : (
-    <Wrapper uiSchema={uiSchema}>
-      <FieldTemplate {...props}>{children}</FieldTemplate>
-    </Wrapper>
-  );
-}
-
-FieldTemplateWithWrapper.propTypes = {
-  required: PropTypes.bool,
-  uiSchema: PropTypes.object.isRequired,
-  schema: PropTypes.object.isRequired,
-  children: PropTypes.node.isRequired,
-};
-
-FieldTemplateWithWrapper.defaultProps = {
-  required: false,
 };
 
 /**
@@ -167,7 +130,8 @@ GridRow.propTypes = {
  * @param {*} props
  */
 function ObjectFieldTemplateGrid(props) {
-  const { idSchema, uiSchema, title, TitleField, required } = props;
+  const { idSchema, uiSchema, title, required, registry } = props;
+  const { TitleFieldTemplate: TitleField } = registry.templates;
   const fieldTitle = uiSchema['ui:title'] || title;
   return (
     <>
@@ -199,7 +163,7 @@ ObjectFieldTemplateGrid.propTypes = {
   idSchema: PropTypes.object.isRequired,
   uiSchema: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
-  TitleField: PropTypes.node.isRequired,
+  registry: PropTypes.object.isRequired,
   required: PropTypes.bool,
 };
 

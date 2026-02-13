@@ -3,7 +3,6 @@ import { RJSFLabelField } from '@forms/rjsf/fields/RJSFLabelField';
 import { RJSFTitleField } from '@forms/rjsf/fields/RJSFTitleField';
 import {
   ArrayFieldTemplateWithWrapper,
-  FieldTemplateWithWrapper,
   ObjectFieldTemplateWrapperGrid,
 } from '@forms/rjsf/RJSFCustomTemplates';
 import { RJSFCheckboxWidget } from '@forms/rjsf/widgets/RJSFCheckboxWidget';
@@ -18,6 +17,7 @@ import { RJSFVocabulary } from '@forms/rjsf/widgets/RJSFVocabulary';
 import { RJSFVocabularySearch } from '@forms/rjsf/widgets/RJSFVocabularySearch';
 import { goBack } from '@history';
 import Form from '@rjsf/semantic-ui';
+import validator from '@rjsf/validator-ajv8';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
@@ -127,6 +127,7 @@ export class RJSForm extends Component {
       <Form
         schema={schema}
         uiSchema={uiSchema}
+        validator={validator}
         formData={formReturnedErrors ? submittedFormData : formData}
         widgets={customWidgets}
         fields={customFields}
@@ -136,9 +137,10 @@ export class RJSForm extends Component {
           return errors;
         }}
         extraErrors={errors}
-        ObjectFieldTemplate={ObjectFieldTemplateWrapperGrid}
-        FieldTemplate={FieldTemplateWithWrapper}
-        ArrayFieldTemplate={ArrayFieldTemplateWithWrapper}
+        templates={{
+          ObjectFieldTemplate: ObjectFieldTemplateWrapperGrid,
+          ArrayFieldTemplate: ArrayFieldTemplateWithWrapper,
+        }}
         disabled={isLoading}
         onSubmit={this.onSubmit}
       >

@@ -23,7 +23,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [22.x]
 
     steps:
       - name: Checkout
@@ -35,7 +35,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Lint
         run: npm run lint
@@ -50,7 +50,7 @@ jobs:
         run: npm test -- --coverage
 
       - name: Build
-        run: npm run build
+        run: npm run lib-build
         env:
           # avoid fail on warnings
           CI: false

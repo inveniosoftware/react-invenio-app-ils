@@ -8,7 +8,7 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import copy from 'rollup-plugin-copy';
 import pkg from './package.json';
 
-const cracoAliases = [
+const aliases = [
   { find: '@api', replacement: path.resolve(__dirname, 'src/lib/api') },
   {
     find: '@authentication',
@@ -56,15 +56,15 @@ export default {
   external: ['html5-qrcode'],
   plugins: [
     alias({
-      entries: cracoAliases,
+      entries: aliases,
     }),
     peerDepsExternal(),
     localResolve(),
     resolve(),
     babel({
-      presets: ['react-app'],
-      babelHelpers: 'runtime',
-      exclude: 'node_modules/**',
+      babelHelpers: "runtime",
+      extensions: [".js", ".jsx"],
+      exclude: "node_modules/**"
     }),
     commonjs(),
     copy({
