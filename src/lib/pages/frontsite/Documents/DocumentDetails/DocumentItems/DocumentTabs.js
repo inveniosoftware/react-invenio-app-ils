@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { withCancel } from '@api/utils';
+import { invenioConfig } from '@config';
+import { fetchIdentifierTitles } from '@api/vocabularies';
 import PropTypes from 'prop-types';
 import { Grid, Tab, Menu, Label } from 'semantic-ui-react';
 import { LOCATION_OBJECT_TOTAL_AMOUNT_KEY } from '@config/common';
@@ -15,7 +18,41 @@ export default class DocumentTabs extends Component {
 
     this.state = {
       activeInternalLocation: firstInternalLocationName,
+      identifiersToDisplay: invenioConfig.ITEMS.identifiersToDisplay.map(
+        (s) => ({
+          key: s,
+          text: s,
+        })
+      ),
     };
+  }
+
+  componentDidMount() {
+    this.loadIdentifierTitles();
+  }
+
+  componentWillUnmount() {
+    if (this.cancellableFetchIdentifierTitles) {
+      this.cancellableFetchIdentifierTitles.cancel();
+    }
+  }
+
+  async loadIdentifierTitles() {
+    this.cancellableFetchIdentifierTitles = withCancel(
+      fetchIdentifierTitles(
+        invenioConfig.ITEMS.identifiersToDisplay,
+        invenioConfig.VOCABULARIES.item.identifier.scheme
+      )
+    );
+
+    try {
+      let result = await this.cancellableFetchIdentifierTitles.promise;
+      this.setState({ identifiersToDisplay: result });
+    } catch (error) {
+      if (error !== 'UNMOUNTED') {
+        console.error('Error fetching identifier titles for items.', error);
+      }
+    }
   }
 
   get locations() {
@@ -119,7 +156,7 @@ export default class DocumentTabs extends Component {
   };
 
   createInternalLocationTables = (locationsObject) => {
-    const { activeInternalLocation } = this.state;
+    const { activeInternalLocation, identifiersToDisplay } = this.state;
     const sortedInternalLocationEntries = this.sortedLocationEntries(
       Object.entries(locationsObject)
     );
@@ -140,6 +177,7 @@ export default class DocumentTabs extends Component {
           items={items}
           documentDetails={this.documentDetails}
           showTitle={activeInternalLocation !== internalLocationName}
+          identifiersToDisplay={identifiersToDisplay}
         />
       );
     }
@@ -155,6 +193,7 @@ export default class DocumentTabs extends Component {
             items={items}
             documentDetails={this.documentDetails}
             showTitle={activeInternalLocation !== internalLocationName}
+            identifiersToDisplay={identifiersToDisplay}
           />
         );
       }

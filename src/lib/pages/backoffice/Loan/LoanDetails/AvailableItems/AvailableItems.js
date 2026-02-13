@@ -1,3 +1,4 @@
+import { withCancel } from '@api/utils';
 import { itemApi } from '@api/items';
 import { recordToPidType } from '@api/utils';
 import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';
@@ -6,6 +7,7 @@ import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { SearchBarILS } from '@components/SearchBar';
+import { fetchIdentifierTitles } from '@api/vocabularies';
 import { invenioConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';
 import _isEmpty from 'lodash/isEmpty';
@@ -18,17 +20,50 @@ export default class AvailableItems extends Component {
   constructor(props) {
     super(props);
     this.seeAllUrl = BackOfficeRoutes.itemsListWithQuery;
+
     this.state = {
       query: '',
       filteredData: null,
       modalOpen: false,
       checkoutItem: null,
+      identifiersToDisplay: invenioConfig.ITEMS.identifiersToDisplay.map(
+        (s) => ({
+          key: s,
+          text: s,
+        })
+      ),
     };
   }
 
   componentDidMount() {
     const { fetchAvailableItems, loan } = this.props;
     fetchAvailableItems(loan.metadata.document_pid);
+
+    this.loadIdentifierTitles();
+  }
+
+  componentWillUnmount() {
+    if (this.cancellableFetchIdentifierTitles) {
+      this.cancellableFetchIdentifierTitles.cancel();
+    }
+  }
+
+  async loadIdentifierTitles() {
+    this.cancellableFetchIdentifierTitles = withCancel(
+      fetchIdentifierTitles(
+        invenioConfig.ITEMS.identifiersToDisplay,
+        invenioConfig.VOCABULARIES.item.identifier.scheme
+      )
+    );
+
+    try {
+      let result = await this.cancellableFetchIdentifierTitles.promise;
+      this.setState({ identifiersToDisplay: result });
+    } catch (error) {
+      if (error !== 'UNMOUNTED') {
+        console.error('Error fetching identifier titles for items.', error);
+      }
+    }
   }
 
   seeAllButton = () => {
@@ -110,7 +145,19 @@ export default class AvailableItems extends Component {
 
   renderTable() {
     const { data } = this.props;
-    const { filteredData } = this.state;
+    const { filteredData, identifiersToDisplay } = this.state;
+
+    const identifierColumns = identifiersToDisplay.map((identifier) => ({
+      title: identifier.text,
+      field: `metadata.identifiers`,
+      formatter: ({ row }) => {
+        const entry = row.metadata.identifiers?.find(
+          (id) => id.scheme === identifier.key
+        );
+        return entry?.value;
+      },
+    }));
+
     const columns = [
       { title: 'PID', field: 'metadata.pid' },
       {
@@ -126,6 +173,7 @@ export default class AvailableItems extends Component {
       { title: 'Medium', field: 'metadata.medium' },
       { title: 'Location', field: 'metadata.internal_location.name' },
       { title: 'Shelf', field: 'metadata.shelf' },
+      ...identifierColumns,
       {
         title: 'Actions',
         field: '',

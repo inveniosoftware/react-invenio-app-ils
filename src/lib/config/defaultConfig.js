@@ -525,7 +525,7 @@ export const RECORDS_CONFIG = {
     },
   },
   ITEMS: {
-    identifiersToDisplayInFrontside: [],
+    identifiersToDisplay: [],
     circulationRestrictions: [
       { value: 'NO_RESTRICTION', text: 'No restriction (4 weeks)' },
       { value: 'ONE_WEEK', text: '1 week' },
