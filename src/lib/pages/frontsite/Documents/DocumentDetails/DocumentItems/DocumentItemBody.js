@@ -27,12 +27,8 @@ export default class DocumentItemBody extends Component {
   };
 
   render() {
-    const {
-      items,
-      shelfLink,
-      documentDetails,
-      identifiersToDisplayInFrontside,
-    } = this.props;
+    const { items, shelfLink, documentDetails, identifiersToDisplay } =
+      this.props;
 
     return items.map((item) => {
       const itemIsAccessible = !_get(item, 'internal_location.restricted');
@@ -56,7 +52,7 @@ export default class DocumentItemBody extends Component {
             {itemIsAccessible ? shelfValue : <p>Available on Request</p>}
           </Table.Cell>
 
-          {identifiersToDisplayInFrontside.map((identifier) => (
+          {identifiersToDisplay.map((identifier) => (
             <Table.Cell
               key={identifier}
               data-label={identifier.text}
@@ -89,8 +85,7 @@ DocumentItemBody.propTypes = {
   items: PropTypes.array.isRequired,
   documentDetails: PropTypes.object.isRequired,
   shelfLink: PropTypes.func,
-  identifiersToDisplayInFrontside: PropTypes.arrayOf(PropTypes.object)
-    .isRequired,
+  identifiersToDisplay: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 DocumentItemBody.defaultProps = {
