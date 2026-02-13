@@ -30,6 +30,10 @@ export default class FrontSite extends Component {
     customStaticPages();
   };
 
+  renderTabTitle = ({ title, suffix = ' | CERN Library Catalogue' }) => {
+    document.title = `${title}${suffix}`;
+  };
+
   render() {
     const staticPagesRoutes = getStaticPagesRoutes();
     return (
@@ -54,22 +58,38 @@ export default class FrontSite extends Component {
             <Route
               exact
               path={FrontSiteRoutes.documentDetails}
-              component={DocumentDetails}
+              render={(props) => (
+                <DocumentDetails
+                  {...props}
+                  renderTabTitle={this.renderTabTitle}
+                />
+              )}
             />
             <Route
               exact
               path={FrontSiteRoutes.seriesDetails}
-              component={SeriesDetails}
+              render={(props) => (
+                <SeriesDetails
+                  {...props}
+                  renderTabTitle={this.renderTabTitle}
+                />
+              )}
             />
             <Route
               exact
               path={FrontSiteRoutes.documentRequestForm}
-              component={DocumentRequestForm}
+              render={(props) => {
+                this.renderTabTitle({ title: 'Request Resources' });
+                return <DocumentRequestForm {...props} />;
+              }}
             />
             <Route
               exact
               path={FrontSiteRoutes.patronProfile}
-              component={PatronProfile}
+              render={(props) => {
+                this.renderTabTitle({ title: 'Your Loans' });
+                return <PatronProfile {...props} />;
+              }}
             />
             <Route
               exact
