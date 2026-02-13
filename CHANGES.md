@@ -1,4 +1,9 @@
 # Changes
+
+Version 2.1.0 (released 2026-02-13)
+
+- add(profile): overbooked confirm modal for librarians
+
 Version 2.0.2 (released 2025-12-08)
 - fix: clear record data on unmount to prevent stale data being displayed on backoffice detail pages
 
