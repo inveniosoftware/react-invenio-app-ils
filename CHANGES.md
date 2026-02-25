@@ -1,5 +1,13 @@
 # Changes
 
+Version 2.2.0 (released 2026-02-25)
+
+- backoffice: fix: loans: ensure date filters can be changed
+- backoffice: loans: display custom identifiers for physical items
+- tests: add field `restricted` to internal location test data
+- frontside: document: hide identifiers for inaccessible items
+- internal location: add form and list view for new `restricted` field
+
 Version 2.1.0 (released 2026-02-13)
 
 - add(profile): overbooked confirm modal for librarians
