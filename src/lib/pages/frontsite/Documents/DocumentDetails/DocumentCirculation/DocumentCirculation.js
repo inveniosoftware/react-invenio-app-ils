@@ -108,8 +108,8 @@ class DocumentCirculation extends Component {
           {hasNeither
             ? this.renderRequestable()
             : userHasPendingRequest
-            ? this.renderPendingRequest()
-            : this.renderOnLoan()}
+              ? this.renderPendingRequest()
+              : this.renderOnLoan()}
           <Overridable
             id="DocumentCirculation.Extras"
             documentDetails={documentDetails}

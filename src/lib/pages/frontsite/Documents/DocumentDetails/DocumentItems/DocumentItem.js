@@ -93,7 +93,8 @@ class DocumentItem extends Component {
                 <Table.HeaderCell colSpan={5} textAlign="right">
                   <div className="document-item-footer-innerWrapper">
                     <p className="document-item-footer-text">
-                      Showing entries 1-{itemsToShow.length} of {items.length}{' '}
+                      Showing entries 1-{itemsToShow.length} of{' '}
+                      {items.length}{' '}
                     </p>
                     <Button
                       compact

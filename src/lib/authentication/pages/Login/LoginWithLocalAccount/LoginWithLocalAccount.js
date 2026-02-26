@@ -81,9 +81,8 @@ class LoginWithLocalAccount extends Component {
   onSubmit = async (values, actions) => {
     try {
       actions.setSubmitting(true);
-      const response = await authenticationService.loginWithLocalAccount(
-        values
-      );
+      const response =
+        await authenticationService.loginWithLocalAccount(values);
       this.onSuccess(response);
     } catch (error) {
       const errors = getIn(error, 'response.data.errors', []);

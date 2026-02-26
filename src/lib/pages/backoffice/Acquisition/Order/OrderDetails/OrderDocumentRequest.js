@@ -80,13 +80,11 @@ export class OrderDocumentRequest extends React.Component {
   render() {
     const { documentRequest, isLoading, hasError } = this.state;
     return (
-      <>
-        <Loader isLoading={isLoading}>
-          {hasError
-            ? this.renderError()
-            : this.renderResultsOrEmpty(documentRequest)}
-        </Loader>
-      </>
+      <Loader isLoading={isLoading}>
+        {hasError
+          ? this.renderError()
+          : this.renderResultsOrEmpty(documentRequest)}
+      </Loader>
     );
   }
 }
