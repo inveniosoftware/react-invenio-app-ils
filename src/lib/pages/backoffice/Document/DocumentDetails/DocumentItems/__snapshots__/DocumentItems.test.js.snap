@@ -566,7 +566,7 @@ exports[`DocumentItems tests should render item 1`] = `
                                 data-label="Barcode"
                                 data-test="0-item1"
                               >
-                                <Link
+                                <ForwardRef(Link)
                                   data-test="itemid-1"
                                   to="url/itemid-1"
                                 />
@@ -679,7 +679,7 @@ exports[`DocumentItems tests should render item 1`] = `
                                 data-label="Barcode"
                                 data-test="0-item2"
                               >
-                                <Link
+                                <ForwardRef(Link)
                                   data-test="itemid-2"
                                   to="url/itemid-2"
                                 />
@@ -1471,7 +1471,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                 data-label="Barcode"
                                 data-test="0-item1"
                               >
-                                <Link
+                                <ForwardRef(Link)
                                   data-test="itemid-1"
                                   to="url/itemid-1"
                                 />
@@ -1639,7 +1639,6 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                           as={
                                             Object {
                                               "$$typeof": Symbol(react.forward_ref),
-                                              "displayName": "Link",
                                               "propTypes": Object {
                                                 "innerRef": [MockFunction] {
                                                   "calls": Array [
@@ -1650,7 +1649,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "to": "url/itemid-1",
                                                       },
                                                       "innerRef",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1662,7 +1661,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "to": "url/itemid-2",
                                                       },
                                                       "innerRef",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1674,7 +1673,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "to": "url/itemid-1",
                                                       },
                                                       "innerRef",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1696,7 +1695,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "type": undefined,
                                                       },
                                                       "innerRef",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1718,7 +1717,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "type": undefined,
                                                       },
                                                       "innerRef",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1756,7 +1755,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "to": "url/itemid-1",
                                                       },
                                                       "onClick",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1768,7 +1767,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "to": "url/itemid-2",
                                                       },
                                                       "onClick",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1780,7 +1779,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "to": "url/itemid-1",
                                                       },
                                                       "onClick",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1802,7 +1801,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "type": undefined,
                                                       },
                                                       "onClick",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1824,7 +1823,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "type": undefined,
                                                       },
                                                       "onClick",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1862,7 +1861,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "to": "url/itemid-1",
                                                       },
                                                       "replace",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1874,7 +1873,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "to": "url/itemid-2",
                                                       },
                                                       "replace",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1886,7 +1885,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "to": "url/itemid-1",
                                                       },
                                                       "replace",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1908,7 +1907,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "type": undefined,
                                                       },
                                                       "replace",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1930,7 +1929,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "type": undefined,
                                                       },
                                                       "replace",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1968,7 +1967,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "to": "url/itemid-1",
                                                       },
                                                       "target",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1980,7 +1979,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "to": "url/itemid-2",
                                                       },
                                                       "target",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -1992,7 +1991,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "to": "url/itemid-1",
                                                       },
                                                       "target",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -2014,7 +2013,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "type": undefined,
                                                       },
                                                       "target",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -2036,7 +2035,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "type": undefined,
                                                       },
                                                       "target",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -2074,7 +2073,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "to": "url/itemid-1",
                                                       },
                                                       "to",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -2086,7 +2085,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "to": "url/itemid-2",
                                                       },
                                                       "to",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -2098,7 +2097,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "to": "url/itemid-1",
                                                       },
                                                       "to",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -2120,7 +2119,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "type": undefined,
                                                       },
                                                       "to",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -2142,7 +2141,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "type": undefined,
                                                       },
                                                       "to",
-                                                      "Link",
+                                                      "ForwardRef(Link)",
                                                       "prop",
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
@@ -2257,7 +2256,7 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                 }
                                               }
                                             >
-                                              <Link
+                                              <ForwardRef(Link)
                                                 className="ui small button"
                                                 onClick={[Function]}
                                                 role="button"
