@@ -164,569 +164,573 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
             id="Loader.layout"
             isLoading={false}
           >
-            <Error
-              FallbackComponent={[Function]}
-              boundary={false}
-              error={null}
-              onUIError={null}
+            <DevModeWrapper
+              id="Loader.layout"
             >
-              <ResultsTable
-                columns={
-                  Array [
-                    Object {
-                      "formatter": [Function],
-                      "title": "Request",
-                    },
-                    Object {
-                      "field": "metadata.document_pid",
-                      "title": "Document",
-                    },
-                    Object {
-                      "formatter": [Function],
-                      "title": "Title",
-                    },
-                    Object {
-                      "field": "metadata.state",
-                      "title": "State",
-                    },
-                    Object {
-                      "field": "created",
-                      "formatter": [Function],
-                      "title": "Created on ",
-                    },
-                  ]
-                }
-                currentPage={1}
-                data={
-                  Array [
-                    Object {
-                      "created": "2018-01-01T11:05:00+01:00",
-                      "id": 1,
-                      "metadata": Object {
-                        "patron": Object {
-                          "email": "patron_1@test.ch",
-                          "id": "patron_1",
-                          "name": "patron_1",
-                        },
-                        "patron_pid": "patron_1",
-                        "pid": "documentRequest1",
-                        "state": "PENDING",
-                        "title": "Test",
-                      },
-                      "pid": "documentRequest1",
-                      "updated": "2018-01-01T11:05:00+01:00",
-                    },
-                    Object {
-                      "created": "2018-01-01T11:05:00+01:00",
-                      "id": 2,
-                      "metadata": Object {
-                        "patron": Object {
-                          "email": "patron_2@test.ch",
-                          "id": "patron_2",
-                          "name": "patron_2",
-                        },
-                        "patron_pid": "patron_2",
-                        "pid": "documentRequest2",
-                        "state": "PENDING",
-                        "title": "Test",
-                      },
-                      "pid": "documentRequest2",
-                      "updated": "2018-01-01T11:05:00+01:00",
-                    },
-                  ]
-                }
-                fixed={false}
-                headerActionComponent={null}
-                name="new book requests"
-                paginationComponent={null}
-                renderEmptyResultsElement={null}
-                seeAllComponent={
-                  <SeeAllButton
-                    disabled={false}
-                    fluid={false}
-                    to="/backoffice/document-requests?q=patron_pid:2&sort=-created"
-                  />
-                }
-                showAllResults={false}
-                showFooterSummary={true}
-                showMaxRows={5}
-                singleLine={true}
-                subtitle=""
-                title=""
-                totalHitsCount={2}
+              <Error
+                FallbackComponent={[Function]}
+                boundary={false}
+                error={null}
+                onUIError={null}
               >
-                <Table
-                  as="table"
-                  compact={true}
+                <ResultsTable
+                  columns={
+                    Array [
+                      Object {
+                        "formatter": [Function],
+                        "title": "Request",
+                      },
+                      Object {
+                        "field": "metadata.document_pid",
+                        "title": "Document",
+                      },
+                      Object {
+                        "formatter": [Function],
+                        "title": "Title",
+                      },
+                      Object {
+                        "field": "metadata.state",
+                        "title": "State",
+                      },
+                      Object {
+                        "field": "created",
+                        "formatter": [Function],
+                        "title": "Created on ",
+                      },
+                    ]
+                  }
+                  currentPage={1}
+                  data={
+                    Array [
+                      Object {
+                        "created": "2018-01-01T11:05:00+01:00",
+                        "id": 1,
+                        "metadata": Object {
+                          "patron": Object {
+                            "email": "patron_1@test.ch",
+                            "id": "patron_1",
+                            "name": "patron_1",
+                          },
+                          "patron_pid": "patron_1",
+                          "pid": "documentRequest1",
+                          "state": "PENDING",
+                          "title": "Test",
+                        },
+                        "pid": "documentRequest1",
+                        "updated": "2018-01-01T11:05:00+01:00",
+                      },
+                      Object {
+                        "created": "2018-01-01T11:05:00+01:00",
+                        "id": 2,
+                        "metadata": Object {
+                          "patron": Object {
+                            "email": "patron_2@test.ch",
+                            "id": "patron_2",
+                            "name": "patron_2",
+                          },
+                          "patron_pid": "patron_2",
+                          "pid": "documentRequest2",
+                          "state": "PENDING",
+                          "title": "Test",
+                        },
+                        "pid": "documentRequest2",
+                        "updated": "2018-01-01T11:05:00+01:00",
+                      },
+                    ]
+                  }
                   fixed={false}
+                  headerActionComponent={null}
                   name="new book requests"
-                  selectable={true}
+                  paginationComponent={null}
+                  renderEmptyResultsElement={null}
+                  seeAllComponent={
+                    <SeeAllButton
+                      disabled={false}
+                      fluid={false}
+                      to="/backoffice/document-requests?q=patron_pid:2&sort=-created"
+                    />
+                  }
+                  showAllResults={false}
+                  showFooterSummary={true}
+                  showMaxRows={5}
                   singleLine={true}
-                  striped={true}
                   subtitle=""
                   title=""
-                  unstackable={true}
+                  totalHitsCount={2}
                 >
-                  <table
-                    className="ui selectable single line striped unstackable compact table"
+                  <Table
+                    as="table"
+                    compact={true}
+                    fixed={false}
                     name="new book requests"
+                    selectable={true}
+                    singleLine={true}
+                    striped={true}
                     subtitle=""
                     title=""
+                    unstackable={true}
                   >
-                    <ResultsTableHeader
-                      columns={
-                        Array [
-                          Object {
-                            "formatter": [Function],
-                            "title": "Request",
-                          },
-                          Object {
-                            "field": "metadata.document_pid",
-                            "title": "Document",
-                          },
-                          Object {
-                            "formatter": [Function],
-                            "title": "Title",
-                          },
-                          Object {
-                            "field": "metadata.state",
-                            "title": "State",
-                          },
-                          Object {
-                            "field": "created",
-                            "formatter": [Function],
-                            "title": "Created on ",
-                          },
-                        ]
-                      }
+                    <table
+                      className="ui selectable single line striped unstackable compact table"
+                      name="new book requests"
+                      subtitle=""
+                      title=""
                     >
-                      <TableHeader
-                        as="thead"
+                      <ResultsTableHeader
+                        columns={
+                          Array [
+                            Object {
+                              "formatter": [Function],
+                              "title": "Request",
+                            },
+                            Object {
+                              "field": "metadata.document_pid",
+                              "title": "Document",
+                            },
+                            Object {
+                              "formatter": [Function],
+                              "title": "Title",
+                            },
+                            Object {
+                              "field": "metadata.state",
+                              "title": "State",
+                            },
+                            Object {
+                              "field": "created",
+                              "formatter": [Function],
+                              "title": "Created on ",
+                            },
+                          ]
+                        }
                       >
-                        <thead
-                          className=""
+                        <TableHeader
+                          as="thead"
                         >
-                          <TableRow
-                            as="tr"
-                            cellAs="td"
-                            data-test="header"
+                          <thead
+                            className=""
                           >
-                            <tr
-                              className=""
+                            <TableRow
+                              as="tr"
+                              cellAs="td"
                               data-test="header"
                             >
-                              <TableHeaderCell
-                                as="th"
-                                key="Request"
+                              <tr
+                                className=""
+                                data-test="header"
                               >
-                                <TableCell
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="Request"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    Request
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Document"
-                              >
-                                <TableCell
+                                    <th
+                                      className=""
+                                    >
+                                      Request
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="Document"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    Document
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Title"
-                              >
-                                <TableCell
+                                    <th
+                                      className=""
+                                    >
+                                      Document
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="Title"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    Title
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="State"
-                              >
-                                <TableCell
+                                    <th
+                                      className=""
+                                    >
+                                      Title
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="State"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    State
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Created on "
-                              >
-                                <TableCell
+                                    <th
+                                      className=""
+                                    >
+                                      State
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="Created on "
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    Created on 
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                            </tr>
-                          </TableRow>
-                        </thead>
-                      </TableHeader>
-                    </ResultsTableHeader>
-                    <ResultsTableBody
-                      columns={
-                        Array [
-                          Object {
-                            "formatter": [Function],
-                            "title": "Request",
-                          },
-                          Object {
-                            "field": "metadata.document_pid",
-                            "title": "Document",
-                          },
-                          Object {
-                            "formatter": [Function],
-                            "title": "Title",
-                          },
-                          Object {
-                            "field": "metadata.state",
-                            "title": "State",
-                          },
-                          Object {
-                            "field": "created",
-                            "formatter": [Function],
-                            "title": "Created on ",
-                          },
-                        ]
-                      }
-                      rows={
-                        Array [
-                          Object {
-                            "created": "2018-01-01T11:05:00+01:00",
-                            "id": 1,
-                            "metadata": Object {
-                              "patron": Object {
-                                "email": "patron_1@test.ch",
-                                "id": "patron_1",
-                                "name": "patron_1",
+                                    <th
+                                      className=""
+                                    >
+                                      Created on 
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                              </tr>
+                            </TableRow>
+                          </thead>
+                        </TableHeader>
+                      </ResultsTableHeader>
+                      <ResultsTableBody
+                        columns={
+                          Array [
+                            Object {
+                              "formatter": [Function],
+                              "title": "Request",
+                            },
+                            Object {
+                              "field": "metadata.document_pid",
+                              "title": "Document",
+                            },
+                            Object {
+                              "formatter": [Function],
+                              "title": "Title",
+                            },
+                            Object {
+                              "field": "metadata.state",
+                              "title": "State",
+                            },
+                            Object {
+                              "field": "created",
+                              "formatter": [Function],
+                              "title": "Created on ",
+                            },
+                          ]
+                        }
+                        rows={
+                          Array [
+                            Object {
+                              "created": "2018-01-01T11:05:00+01:00",
+                              "id": 1,
+                              "metadata": Object {
+                                "patron": Object {
+                                  "email": "patron_1@test.ch",
+                                  "id": "patron_1",
+                                  "name": "patron_1",
+                                },
+                                "patron_pid": "patron_1",
+                                "pid": "documentRequest1",
+                                "state": "PENDING",
+                                "title": "Test",
                               },
-                              "patron_pid": "patron_1",
                               "pid": "documentRequest1",
-                              "state": "PENDING",
-                              "title": "Test",
+                              "updated": "2018-01-01T11:05:00+01:00",
                             },
-                            "pid": "documentRequest1",
-                            "updated": "2018-01-01T11:05:00+01:00",
-                          },
-                          Object {
-                            "created": "2018-01-01T11:05:00+01:00",
-                            "id": 2,
-                            "metadata": Object {
-                              "patron": Object {
-                                "email": "patron_2@test.ch",
-                                "id": "patron_2",
-                                "name": "patron_2",
+                            Object {
+                              "created": "2018-01-01T11:05:00+01:00",
+                              "id": 2,
+                              "metadata": Object {
+                                "patron": Object {
+                                  "email": "patron_2@test.ch",
+                                  "id": "patron_2",
+                                  "name": "patron_2",
+                                },
+                                "patron_pid": "patron_2",
+                                "pid": "documentRequest2",
+                                "state": "PENDING",
+                                "title": "Test",
                               },
-                              "patron_pid": "patron_2",
                               "pid": "documentRequest2",
-                              "state": "PENDING",
-                              "title": "Test",
+                              "updated": "2018-01-01T11:05:00+01:00",
                             },
-                            "pid": "documentRequest2",
-                            "updated": "2018-01-01T11:05:00+01:00",
-                          },
-                        ]
-                      }
-                    >
-                      <TableBody
-                        as="tbody"
+                          ]
+                        }
                       >
-                        <tbody
-                          className=""
+                        <TableBody
+                          as="tbody"
                         >
-                          <TableRow
-                            as="tr"
-                            cellAs="td"
-                            data-test="documentRequest1"
-                            key="documentRequest1"
+                          <tbody
+                            className=""
                           >
-                            <tr
-                              className=""
+                            <TableRow
+                              as="tr"
+                              cellAs="td"
                               data-test="documentRequest1"
+                              key="documentRequest1"
                             >
-                              <TableCell
-                                as="td"
-                                data-label="Request"
-                                data-test="0-documentRequest1"
-                                key="0-documentRequest1"
+                              <tr
+                                className=""
+                                data-test="documentRequest1"
                               >
-                                <td
-                                  className=""
+                                <TableCell
+                                  as="td"
                                   data-label="Request"
                                   data-test="0-documentRequest1"
+                                  key="0-documentRequest1"
                                 >
-                                  <Link
-                                    data-test="documentRequest1"
-                                    to="url/documentRequest1"
+                                  <td
+                                    className=""
+                                    data-label="Request"
+                                    data-test="0-documentRequest1"
                                   >
-                                    <LinkAnchor
+                                    <Link
                                       data-test="documentRequest1"
-                                      href="/url/documentRequest1"
-                                      navigate={[Function]}
+                                      to="url/documentRequest1"
                                     >
-                                      <a
+                                      <LinkAnchor
                                         data-test="documentRequest1"
                                         href="/url/documentRequest1"
-                                        onClick={[Function]}
+                                        navigate={[Function]}
                                       >
-                                        documentRequest1
-                                      </a>
-                                    </LinkAnchor>
-                                  </Link>
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Document"
-                                data-test="1-documentRequest1"
-                                key="1-documentRequest1"
-                              >
-                                <td
-                                  className=""
+                                        <a
+                                          data-test="documentRequest1"
+                                          href="/url/documentRequest1"
+                                          onClick={[Function]}
+                                        >
+                                          documentRequest1
+                                        </a>
+                                      </LinkAnchor>
+                                    </Link>
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Document"
                                   data-test="1-documentRequest1"
+                                  key="1-documentRequest1"
                                 >
-                                  -
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Title"
-                                data-test="2-documentRequest1"
-                                key="2-documentRequest1"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="Document"
+                                    data-test="1-documentRequest1"
+                                  >
+                                    -
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Title"
                                   data-test="2-documentRequest1"
+                                  key="2-documentRequest1"
                                 >
-                                  <Truncate
-                                    lines={1}
-                                    width={null}
+                                  <td
+                                    className=""
+                                    data-label="Title"
+                                    data-test="2-documentRequest1"
                                   >
-                                    <span
-                                      style={
-                                        Object {
-                                          "WebkitBoxOrient": "vertical",
-                                          "WebkitLineClamp": 1,
-                                          "display": "-webkit-box",
-                                          "overflow": "hidden",
-                                          "textOverflow": "ellipsis",
-                                          "whiteSpace": "normal",
-                                        }
-                                      }
+                                    <Truncate
+                                      lines={1}
+                                      width={null}
                                     >
-                                       
-                                      Test
-                                       
-                                    </span>
-                                  </Truncate>
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="State"
-                                data-test="3-documentRequest1"
-                                key="3-documentRequest1"
-                              >
-                                <td
-                                  className=""
+                                      <span
+                                        style={
+                                          Object {
+                                            "WebkitBoxOrient": "vertical",
+                                            "WebkitLineClamp": 1,
+                                            "display": "-webkit-box",
+                                            "overflow": "hidden",
+                                            "textOverflow": "ellipsis",
+                                            "whiteSpace": "normal",
+                                          }
+                                        }
+                                      >
+                                         
+                                        Test
+                                         
+                                      </span>
+                                    </Truncate>
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="State"
                                   data-test="3-documentRequest1"
+                                  key="3-documentRequest1"
                                 >
-                                  PENDING
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Created on "
-                                data-test="4-documentRequest1"
-                                key="4-documentRequest1"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="State"
+                                    data-test="3-documentRequest1"
+                                  >
+                                    PENDING
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Created on "
                                   data-test="4-documentRequest1"
+                                  key="4-documentRequest1"
                                 >
-                                  1/1/2018
-                                </td>
-                              </TableCell>
-                            </tr>
-                          </TableRow>
-                          <TableRow
-                            as="tr"
-                            cellAs="td"
-                            data-test="documentRequest2"
-                            key="documentRequest2"
-                          >
-                            <tr
-                              className=""
+                                  <td
+                                    className=""
+                                    data-label="Created on "
+                                    data-test="4-documentRequest1"
+                                  >
+                                    1/1/2018
+                                  </td>
+                                </TableCell>
+                              </tr>
+                            </TableRow>
+                            <TableRow
+                              as="tr"
+                              cellAs="td"
                               data-test="documentRequest2"
+                              key="documentRequest2"
                             >
-                              <TableCell
-                                as="td"
-                                data-label="Request"
-                                data-test="0-documentRequest2"
-                                key="0-documentRequest2"
+                              <tr
+                                className=""
+                                data-test="documentRequest2"
                               >
-                                <td
-                                  className=""
+                                <TableCell
+                                  as="td"
                                   data-label="Request"
                                   data-test="0-documentRequest2"
+                                  key="0-documentRequest2"
                                 >
-                                  <Link
-                                    data-test="documentRequest2"
-                                    to="url/documentRequest2"
+                                  <td
+                                    className=""
+                                    data-label="Request"
+                                    data-test="0-documentRequest2"
                                   >
-                                    <LinkAnchor
+                                    <Link
                                       data-test="documentRequest2"
-                                      href="/url/documentRequest2"
-                                      navigate={[Function]}
+                                      to="url/documentRequest2"
                                     >
-                                      <a
+                                      <LinkAnchor
                                         data-test="documentRequest2"
                                         href="/url/documentRequest2"
-                                        onClick={[Function]}
+                                        navigate={[Function]}
                                       >
-                                        documentRequest2
-                                      </a>
-                                    </LinkAnchor>
-                                  </Link>
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Document"
-                                data-test="1-documentRequest2"
-                                key="1-documentRequest2"
-                              >
-                                <td
-                                  className=""
+                                        <a
+                                          data-test="documentRequest2"
+                                          href="/url/documentRequest2"
+                                          onClick={[Function]}
+                                        >
+                                          documentRequest2
+                                        </a>
+                                      </LinkAnchor>
+                                    </Link>
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Document"
                                   data-test="1-documentRequest2"
+                                  key="1-documentRequest2"
                                 >
-                                  -
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Title"
-                                data-test="2-documentRequest2"
-                                key="2-documentRequest2"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="Document"
+                                    data-test="1-documentRequest2"
+                                  >
+                                    -
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Title"
                                   data-test="2-documentRequest2"
+                                  key="2-documentRequest2"
                                 >
-                                  <Truncate
-                                    lines={1}
-                                    width={null}
+                                  <td
+                                    className=""
+                                    data-label="Title"
+                                    data-test="2-documentRequest2"
                                   >
-                                    <span
-                                      style={
-                                        Object {
-                                          "WebkitBoxOrient": "vertical",
-                                          "WebkitLineClamp": 1,
-                                          "display": "-webkit-box",
-                                          "overflow": "hidden",
-                                          "textOverflow": "ellipsis",
-                                          "whiteSpace": "normal",
-                                        }
-                                      }
+                                    <Truncate
+                                      lines={1}
+                                      width={null}
                                     >
-                                       
-                                      Test
-                                       
-                                    </span>
-                                  </Truncate>
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="State"
-                                data-test="3-documentRequest2"
-                                key="3-documentRequest2"
-                              >
-                                <td
-                                  className=""
+                                      <span
+                                        style={
+                                          Object {
+                                            "WebkitBoxOrient": "vertical",
+                                            "WebkitLineClamp": 1,
+                                            "display": "-webkit-box",
+                                            "overflow": "hidden",
+                                            "textOverflow": "ellipsis",
+                                            "whiteSpace": "normal",
+                                          }
+                                        }
+                                      >
+                                         
+                                        Test
+                                         
+                                      </span>
+                                    </Truncate>
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="State"
                                   data-test="3-documentRequest2"
+                                  key="3-documentRequest2"
                                 >
-                                  PENDING
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Created on "
-                                data-test="4-documentRequest2"
-                                key="4-documentRequest2"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="State"
+                                    data-test="3-documentRequest2"
+                                  >
+                                    PENDING
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Created on "
                                   data-test="4-documentRequest2"
+                                  key="4-documentRequest2"
                                 >
-                                  1/1/2018
-                                </td>
-                              </TableCell>
-                            </tr>
-                          </TableRow>
-                        </tbody>
-                      </TableBody>
-                    </ResultsTableBody>
-                    <ResultsTableFooter
-                      allRowsNumber={2}
-                      columnsNumber={5}
-                      currentPage={1}
-                      paginationComponent={null}
-                      seeAllComponent={
-                        <SeeAllButton
-                          disabled={false}
-                          fluid={false}
-                          to="/backoffice/document-requests?q=patron_pid:2&sort=-created"
-                        />
-                      }
-                      showAllResults={false}
-                      showFooterSummary={true}
-                      showMaxRows={5}
-                    />
-                  </table>
-                </Table>
-              </ResultsTable>
-            </Error>
+                                  <td
+                                    className=""
+                                    data-label="Created on "
+                                    data-test="4-documentRequest2"
+                                  >
+                                    1/1/2018
+                                  </td>
+                                </TableCell>
+                              </tr>
+                            </TableRow>
+                          </tbody>
+                        </TableBody>
+                      </ResultsTableBody>
+                      <ResultsTableFooter
+                        allRowsNumber={2}
+                        columnsNumber={5}
+                        currentPage={1}
+                        paginationComponent={null}
+                        seeAllComponent={
+                          <SeeAllButton
+                            disabled={false}
+                            fluid={false}
+                            to="/backoffice/document-requests?q=patron_pid:2&sort=-created"
+                          />
+                        }
+                        showAllResults={false}
+                        showFooterSummary={true}
+                        showMaxRows={5}
+                      />
+                    </table>
+                  </Table>
+                </ResultsTable>
+              </Error>
+            </DevModeWrapper>
           </Overridable>
         </Loader>
       </Overridable(Loader)>
@@ -802,89 +806,93 @@ exports[`PatronDocumentRequests tests should render show a message with no user 
             id="Loader.layout"
             isLoading={false}
           >
-            <Error
-              FallbackComponent={[Function]}
-              boundary={false}
-              error={null}
-              onUIError={null}
+            <DevModeWrapper
+              id="Loader.layout"
             >
-              <ResultsTable
-                columns={
-                  Array [
-                    Object {
-                      "formatter": [Function],
-                      "title": "Request",
-                    },
-                    Object {
-                      "field": "metadata.document_pid",
-                      "title": "Document",
-                    },
-                    Object {
-                      "formatter": [Function],
-                      "title": "Title",
-                    },
-                    Object {
-                      "field": "metadata.state",
-                      "title": "State",
-                    },
-                    Object {
-                      "field": "created",
-                      "formatter": [Function],
-                      "title": "Created on ",
-                    },
-                  ]
-                }
-                currentPage={1}
-                data={Array []}
-                fixed={false}
-                headerActionComponent={null}
-                name="new book requests"
-                paginationComponent={null}
-                renderEmptyResultsElement={null}
-                seeAllComponent={
-                  <SeeAllButton
-                    disabled={false}
-                    fluid={false}
-                    to="/backoffice/document-requests?q=patron_pid:2&sort=-created"
-                  />
-                }
-                showAllResults={false}
-                showFooterSummary={true}
-                showMaxRows={5}
-                singleLine={true}
-                subtitle=""
-                title=""
-                totalHitsCount={0}
+              <Error
+                FallbackComponent={[Function]}
+                boundary={false}
+                error={null}
+                onUIError={null}
               >
-                <Message
-                  data-test="no-results"
-                  icon={true}
-                  info={true}
+                <ResultsTable
+                  columns={
+                    Array [
+                      Object {
+                        "formatter": [Function],
+                        "title": "Request",
+                      },
+                      Object {
+                        "field": "metadata.document_pid",
+                        "title": "Document",
+                      },
+                      Object {
+                        "formatter": [Function],
+                        "title": "Title",
+                      },
+                      Object {
+                        "field": "metadata.state",
+                        "title": "State",
+                      },
+                      Object {
+                        "field": "created",
+                        "formatter": [Function],
+                        "title": "Created on ",
+                      },
+                    ]
+                  }
+                  currentPage={1}
+                  data={Array []}
+                  fixed={false}
+                  headerActionComponent={null}
+                  name="new book requests"
+                  paginationComponent={null}
+                  renderEmptyResultsElement={null}
+                  seeAllComponent={
+                    <SeeAllButton
+                      disabled={false}
+                      fluid={false}
+                      to="/backoffice/document-requests?q=patron_pid:2&sort=-created"
+                    />
+                  }
+                  showAllResults={false}
+                  showFooterSummary={true}
+                  showMaxRows={5}
+                  singleLine={true}
+                  subtitle=""
+                  title=""
+                  totalHitsCount={0}
                 >
-                  <div
-                    className="ui icon info message"
+                  <Message
                     data-test="no-results"
+                    icon={true}
+                    info={true}
                   >
-                    <MessageContent>
-                      <div
-                        className="content"
-                      >
-                        <MessageHeader>
-                          <div
-                            className="header"
-                          >
-                            No results found
-                          </div>
-                        </MessageHeader>
-                        There are no 
-                        new book requests
-                        .
-                      </div>
-                    </MessageContent>
-                  </div>
-                </Message>
-              </ResultsTable>
-            </Error>
+                    <div
+                      className="ui icon info message"
+                      data-test="no-results"
+                    >
+                      <MessageContent>
+                        <div
+                          className="content"
+                        >
+                          <MessageHeader>
+                            <div
+                              className="header"
+                            >
+                              No results found
+                            </div>
+                          </MessageHeader>
+                          There are no 
+                          new book requests
+                          .
+                        </div>
+                      </MessageContent>
+                    </div>
+                  </Message>
+                </ResultsTable>
+              </Error>
+            </DevModeWrapper>
           </Overridable>
         </Loader>
       </Overridable(Loader)>
@@ -995,515 +1003,505 @@ exports[`PatronDocumentRequests tests should render the see all button when show
             id="Loader.layout"
             isLoading={false}
           >
-            <Error
-              FallbackComponent={[Function]}
-              boundary={false}
-              error={null}
-              onUIError={null}
+            <DevModeWrapper
+              id="Loader.layout"
             >
-              <ResultsTable
-                columns={
-                  Array [
-                    Object {
-                      "formatter": [Function],
-                      "title": "Request",
-                    },
-                    Object {
-                      "field": "metadata.document_pid",
-                      "title": "Document",
-                    },
-                    Object {
-                      "formatter": [Function],
-                      "title": "Title",
-                    },
-                    Object {
-                      "field": "metadata.state",
-                      "title": "State",
-                    },
-                    Object {
-                      "field": "created",
-                      "formatter": [Function],
-                      "title": "Created on ",
-                    },
-                  ]
-                }
-                currentPage={1}
-                data={
-                  Array [
-                    Object {
-                      "created": "2018-01-01T11:05:00+01:00",
-                      "id": 1,
-                      "metadata": Object {
-                        "patron": Object {
-                          "email": "patron_1@test.ch",
-                          "id": "patron_1",
-                          "name": "patron_1",
-                        },
-                        "patron_pid": "patron_1",
-                        "pid": "documentRequest1",
-                        "state": "PENDING",
-                        "title": "Test",
-                      },
-                      "pid": "documentRequest1",
-                      "updated": "2018-01-01T11:05:00+01:00",
-                    },
-                    Object {
-                      "created": "2018-01-01T11:05:00+01:00",
-                      "id": 2,
-                      "metadata": Object {
-                        "patron": Object {
-                          "email": "patron_2@test.ch",
-                          "id": "patron_2",
-                          "name": "patron_2",
-                        },
-                        "patron_pid": "patron_2",
-                        "pid": "documentRequest2",
-                        "state": "PENDING",
-                        "title": "Test",
-                      },
-                      "pid": "documentRequest2",
-                      "updated": "2018-01-01T11:05:00+01:00",
-                    },
-                  ]
-                }
-                fixed={false}
-                headerActionComponent={null}
-                name="new book requests"
-                paginationComponent={null}
-                renderEmptyResultsElement={null}
-                seeAllComponent={
-                  <SeeAllButton
-                    disabled={false}
-                    fluid={false}
-                    to="/backoffice/document-requests?q=patron_pid:2&sort=-created"
-                  />
-                }
-                showAllResults={false}
-                showFooterSummary={true}
-                showMaxRows={1}
-                singleLine={true}
-                subtitle=""
-                title=""
-                totalHitsCount={2}
+              <Error
+                FallbackComponent={[Function]}
+                boundary={false}
+                error={null}
+                onUIError={null}
               >
-                <Table
-                  as="table"
-                  compact={true}
+                <ResultsTable
+                  columns={
+                    Array [
+                      Object {
+                        "formatter": [Function],
+                        "title": "Request",
+                      },
+                      Object {
+                        "field": "metadata.document_pid",
+                        "title": "Document",
+                      },
+                      Object {
+                        "formatter": [Function],
+                        "title": "Title",
+                      },
+                      Object {
+                        "field": "metadata.state",
+                        "title": "State",
+                      },
+                      Object {
+                        "field": "created",
+                        "formatter": [Function],
+                        "title": "Created on ",
+                      },
+                    ]
+                  }
+                  currentPage={1}
+                  data={
+                    Array [
+                      Object {
+                        "created": "2018-01-01T11:05:00+01:00",
+                        "id": 1,
+                        "metadata": Object {
+                          "patron": Object {
+                            "email": "patron_1@test.ch",
+                            "id": "patron_1",
+                            "name": "patron_1",
+                          },
+                          "patron_pid": "patron_1",
+                          "pid": "documentRequest1",
+                          "state": "PENDING",
+                          "title": "Test",
+                        },
+                        "pid": "documentRequest1",
+                        "updated": "2018-01-01T11:05:00+01:00",
+                      },
+                      Object {
+                        "created": "2018-01-01T11:05:00+01:00",
+                        "id": 2,
+                        "metadata": Object {
+                          "patron": Object {
+                            "email": "patron_2@test.ch",
+                            "id": "patron_2",
+                            "name": "patron_2",
+                          },
+                          "patron_pid": "patron_2",
+                          "pid": "documentRequest2",
+                          "state": "PENDING",
+                          "title": "Test",
+                        },
+                        "pid": "documentRequest2",
+                        "updated": "2018-01-01T11:05:00+01:00",
+                      },
+                    ]
+                  }
                   fixed={false}
+                  headerActionComponent={null}
                   name="new book requests"
-                  selectable={true}
+                  paginationComponent={null}
+                  renderEmptyResultsElement={null}
+                  seeAllComponent={
+                    <SeeAllButton
+                      disabled={false}
+                      fluid={false}
+                      to="/backoffice/document-requests?q=patron_pid:2&sort=-created"
+                    />
+                  }
+                  showAllResults={false}
+                  showFooterSummary={true}
+                  showMaxRows={1}
                   singleLine={true}
-                  striped={true}
                   subtitle=""
                   title=""
-                  unstackable={true}
+                  totalHitsCount={2}
                 >
-                  <table
-                    className="ui selectable single line striped unstackable compact table"
+                  <Table
+                    as="table"
+                    compact={true}
+                    fixed={false}
                     name="new book requests"
+                    selectable={true}
+                    singleLine={true}
+                    striped={true}
                     subtitle=""
                     title=""
+                    unstackable={true}
                   >
-                    <ResultsTableHeader
-                      columns={
-                        Array [
-                          Object {
-                            "formatter": [Function],
-                            "title": "Request",
-                          },
-                          Object {
-                            "field": "metadata.document_pid",
-                            "title": "Document",
-                          },
-                          Object {
-                            "formatter": [Function],
-                            "title": "Title",
-                          },
-                          Object {
-                            "field": "metadata.state",
-                            "title": "State",
-                          },
-                          Object {
-                            "field": "created",
-                            "formatter": [Function],
-                            "title": "Created on ",
-                          },
-                        ]
-                      }
+                    <table
+                      className="ui selectable single line striped unstackable compact table"
+                      name="new book requests"
+                      subtitle=""
+                      title=""
                     >
-                      <TableHeader
-                        as="thead"
-                      >
-                        <thead
-                          className=""
-                        >
-                          <TableRow
-                            as="tr"
-                            cellAs="td"
-                            data-test="header"
-                          >
-                            <tr
-                              className=""
-                              data-test="header"
-                            >
-                              <TableHeaderCell
-                                as="th"
-                                key="Request"
-                              >
-                                <TableCell
-                                  as="th"
-                                  className=""
-                                >
-                                  <th
-                                    className=""
-                                  >
-                                    Request
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Document"
-                              >
-                                <TableCell
-                                  as="th"
-                                  className=""
-                                >
-                                  <th
-                                    className=""
-                                  >
-                                    Document
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Title"
-                              >
-                                <TableCell
-                                  as="th"
-                                  className=""
-                                >
-                                  <th
-                                    className=""
-                                  >
-                                    Title
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="State"
-                              >
-                                <TableCell
-                                  as="th"
-                                  className=""
-                                >
-                                  <th
-                                    className=""
-                                  >
-                                    State
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Created on "
-                              >
-                                <TableCell
-                                  as="th"
-                                  className=""
-                                >
-                                  <th
-                                    className=""
-                                  >
-                                    Created on 
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                            </tr>
-                          </TableRow>
-                        </thead>
-                      </TableHeader>
-                    </ResultsTableHeader>
-                    <ResultsTableBody
-                      columns={
-                        Array [
-                          Object {
-                            "formatter": [Function],
-                            "title": "Request",
-                          },
-                          Object {
-                            "field": "metadata.document_pid",
-                            "title": "Document",
-                          },
-                          Object {
-                            "formatter": [Function],
-                            "title": "Title",
-                          },
-                          Object {
-                            "field": "metadata.state",
-                            "title": "State",
-                          },
-                          Object {
-                            "field": "created",
-                            "formatter": [Function],
-                            "title": "Created on ",
-                          },
-                        ]
-                      }
-                      rows={
-                        Array [
-                          Object {
-                            "created": "2018-01-01T11:05:00+01:00",
-                            "id": 1,
-                            "metadata": Object {
-                              "patron": Object {
-                                "email": "patron_1@test.ch",
-                                "id": "patron_1",
-                                "name": "patron_1",
-                              },
-                              "patron_pid": "patron_1",
-                              "pid": "documentRequest1",
-                              "state": "PENDING",
-                              "title": "Test",
+                      <ResultsTableHeader
+                        columns={
+                          Array [
+                            Object {
+                              "formatter": [Function],
+                              "title": "Request",
                             },
-                            "pid": "documentRequest1",
-                            "updated": "2018-01-01T11:05:00+01:00",
-                          },
-                        ]
-                      }
-                    >
-                      <TableBody
-                        as="tbody"
-                      >
-                        <tbody
-                          className=""
-                        >
-                          <TableRow
-                            as="tr"
-                            cellAs="td"
-                            data-test="documentRequest1"
-                            key="documentRequest1"
-                          >
-                            <tr
-                              className=""
-                              data-test="documentRequest1"
-                            >
-                              <TableCell
-                                as="td"
-                                data-label="Request"
-                                data-test="0-documentRequest1"
-                                key="0-documentRequest1"
-                              >
-                                <td
-                                  className=""
-                                  data-label="Request"
-                                  data-test="0-documentRequest1"
-                                >
-                                  <Link
-                                    data-test="documentRequest1"
-                                    to="url/documentRequest1"
-                                  >
-                                    <LinkAnchor
-                                      data-test="documentRequest1"
-                                      href="/url/documentRequest1"
-                                      navigate={[Function]}
-                                    >
-                                      <a
-                                        data-test="documentRequest1"
-                                        href="/url/documentRequest1"
-                                        onClick={[Function]}
-                                      >
-                                        documentRequest1
-                                      </a>
-                                    </LinkAnchor>
-                                  </Link>
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Document"
-                                data-test="1-documentRequest1"
-                                key="1-documentRequest1"
-                              >
-                                <td
-                                  className=""
-                                  data-label="Document"
-                                  data-test="1-documentRequest1"
-                                >
-                                  -
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Title"
-                                data-test="2-documentRequest1"
-                                key="2-documentRequest1"
-                              >
-                                <td
-                                  className=""
-                                  data-label="Title"
-                                  data-test="2-documentRequest1"
-                                >
-                                  <Truncate
-                                    lines={1}
-                                    width={null}
-                                  >
-                                    <span
-                                      style={
-                                        Object {
-                                          "WebkitBoxOrient": "vertical",
-                                          "WebkitLineClamp": 1,
-                                          "display": "-webkit-box",
-                                          "overflow": "hidden",
-                                          "textOverflow": "ellipsis",
-                                          "whiteSpace": "normal",
-                                        }
-                                      }
-                                    >
-                                       
-                                      Test
-                                       
-                                    </span>
-                                  </Truncate>
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="State"
-                                data-test="3-documentRequest1"
-                                key="3-documentRequest1"
-                              >
-                                <td
-                                  className=""
-                                  data-label="State"
-                                  data-test="3-documentRequest1"
-                                >
-                                  PENDING
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Created on "
-                                data-test="4-documentRequest1"
-                                key="4-documentRequest1"
-                              >
-                                <td
-                                  className=""
-                                  data-label="Created on "
-                                  data-test="4-documentRequest1"
-                                >
-                                  1/1/2018
-                                </td>
-                              </TableCell>
-                            </tr>
-                          </TableRow>
-                        </tbody>
-                      </TableBody>
-                    </ResultsTableBody>
-                    <ResultsTableFooter
-                      allRowsNumber={2}
-                      columnsNumber={5}
-                      currentPage={1}
-                      paginationComponent={null}
-                      seeAllComponent={
-                        <SeeAllButton
-                          disabled={false}
-                          fluid={false}
-                          to="/backoffice/document-requests?q=patron_pid:2&sort=-created"
-                        />
-                      }
-                      showAllResults={false}
-                      showFooterSummary={true}
-                      showMaxRows={1}
-                    >
-                      <TableFooter
-                        as="tfoot"
-                        data-test="footer"
-                        fullWidth={true}
+                            Object {
+                              "field": "metadata.document_pid",
+                              "title": "Document",
+                            },
+                            Object {
+                              "formatter": [Function],
+                              "title": "Title",
+                            },
+                            Object {
+                              "field": "metadata.state",
+                              "title": "State",
+                            },
+                            Object {
+                              "field": "created",
+                              "formatter": [Function],
+                              "title": "Created on ",
+                            },
+                          ]
+                        }
                       >
                         <TableHeader
-                          as="tfoot"
-                          data-test="footer"
-                          fullWidth={true}
+                          as="thead"
                         >
-                          <tfoot
-                            className="full-width"
-                            data-test="footer"
+                          <thead
+                            className=""
                           >
                             <TableRow
                               as="tr"
                               cellAs="td"
+                              data-test="header"
                             >
                               <tr
                                 className=""
+                                data-test="header"
                               >
                                 <TableHeaderCell
                                   as="th"
-                                  colSpan={6}
-                                  textAlign="right"
+                                  key="Request"
                                 >
                                   <TableCell
                                     as="th"
                                     className=""
+                                  >
+                                    <th
+                                      className=""
+                                    >
+                                      Request
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
+                                  as="th"
+                                  key="Document"
+                                >
+                                  <TableCell
+                                    as="th"
+                                    className=""
+                                  >
+                                    <th
+                                      className=""
+                                    >
+                                      Document
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
+                                  as="th"
+                                  key="Title"
+                                >
+                                  <TableCell
+                                    as="th"
+                                    className=""
+                                  >
+                                    <th
+                                      className=""
+                                    >
+                                      Title
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
+                                  as="th"
+                                  key="State"
+                                >
+                                  <TableCell
+                                    as="th"
+                                    className=""
+                                  >
+                                    <th
+                                      className=""
+                                    >
+                                      State
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
+                                  as="th"
+                                  key="Created on "
+                                >
+                                  <TableCell
+                                    as="th"
+                                    className=""
+                                  >
+                                    <th
+                                      className=""
+                                    >
+                                      Created on 
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                              </tr>
+                            </TableRow>
+                          </thead>
+                        </TableHeader>
+                      </ResultsTableHeader>
+                      <ResultsTableBody
+                        columns={
+                          Array [
+                            Object {
+                              "formatter": [Function],
+                              "title": "Request",
+                            },
+                            Object {
+                              "field": "metadata.document_pid",
+                              "title": "Document",
+                            },
+                            Object {
+                              "formatter": [Function],
+                              "title": "Title",
+                            },
+                            Object {
+                              "field": "metadata.state",
+                              "title": "State",
+                            },
+                            Object {
+                              "field": "created",
+                              "formatter": [Function],
+                              "title": "Created on ",
+                            },
+                          ]
+                        }
+                        rows={
+                          Array [
+                            Object {
+                              "created": "2018-01-01T11:05:00+01:00",
+                              "id": 1,
+                              "metadata": Object {
+                                "patron": Object {
+                                  "email": "patron_1@test.ch",
+                                  "id": "patron_1",
+                                  "name": "patron_1",
+                                },
+                                "patron_pid": "patron_1",
+                                "pid": "documentRequest1",
+                                "state": "PENDING",
+                                "title": "Test",
+                              },
+                              "pid": "documentRequest1",
+                              "updated": "2018-01-01T11:05:00+01:00",
+                            },
+                          ]
+                        }
+                      >
+                        <TableBody
+                          as="tbody"
+                        >
+                          <tbody
+                            className=""
+                          >
+                            <TableRow
+                              as="tr"
+                              cellAs="td"
+                              data-test="documentRequest1"
+                              key="documentRequest1"
+                            >
+                              <tr
+                                className=""
+                                data-test="documentRequest1"
+                              >
+                                <TableCell
+                                  as="td"
+                                  data-label="Request"
+                                  data-test="0-documentRequest1"
+                                  key="0-documentRequest1"
+                                >
+                                  <td
+                                    className=""
+                                    data-label="Request"
+                                    data-test="0-documentRequest1"
+                                  >
+                                    <Link
+                                      data-test="documentRequest1"
+                                      to="url/documentRequest1"
+                                    >
+                                      <LinkAnchor
+                                        data-test="documentRequest1"
+                                        href="/url/documentRequest1"
+                                        navigate={[Function]}
+                                      >
+                                        <a
+                                          data-test="documentRequest1"
+                                          href="/url/documentRequest1"
+                                          onClick={[Function]}
+                                        >
+                                          documentRequest1
+                                        </a>
+                                      </LinkAnchor>
+                                    </Link>
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
+                                  data-label="Document"
+                                  data-test="1-documentRequest1"
+                                  key="1-documentRequest1"
+                                >
+                                  <td
+                                    className=""
+                                    data-label="Document"
+                                    data-test="1-documentRequest1"
+                                  >
+                                    -
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
+                                  data-label="Title"
+                                  data-test="2-documentRequest1"
+                                  key="2-documentRequest1"
+                                >
+                                  <td
+                                    className=""
+                                    data-label="Title"
+                                    data-test="2-documentRequest1"
+                                  >
+                                    <Truncate
+                                      lines={1}
+                                      width={null}
+                                    >
+                                      <span
+                                        style={
+                                          Object {
+                                            "WebkitBoxOrient": "vertical",
+                                            "WebkitLineClamp": 1,
+                                            "display": "-webkit-box",
+                                            "overflow": "hidden",
+                                            "textOverflow": "ellipsis",
+                                            "whiteSpace": "normal",
+                                          }
+                                        }
+                                      >
+                                         
+                                        Test
+                                         
+                                      </span>
+                                    </Truncate>
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
+                                  data-label="State"
+                                  data-test="3-documentRequest1"
+                                  key="3-documentRequest1"
+                                >
+                                  <td
+                                    className=""
+                                    data-label="State"
+                                    data-test="3-documentRequest1"
+                                  >
+                                    PENDING
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
+                                  data-label="Created on "
+                                  data-test="4-documentRequest1"
+                                  key="4-documentRequest1"
+                                >
+                                  <td
+                                    className=""
+                                    data-label="Created on "
+                                    data-test="4-documentRequest1"
+                                  >
+                                    1/1/2018
+                                  </td>
+                                </TableCell>
+                              </tr>
+                            </TableRow>
+                          </tbody>
+                        </TableBody>
+                      </ResultsTableBody>
+                      <ResultsTableFooter
+                        allRowsNumber={2}
+                        columnsNumber={5}
+                        currentPage={1}
+                        paginationComponent={null}
+                        seeAllComponent={
+                          <SeeAllButton
+                            disabled={false}
+                            fluid={false}
+                            to="/backoffice/document-requests?q=patron_pid:2&sort=-created"
+                          />
+                        }
+                        showAllResults={false}
+                        showFooterSummary={true}
+                        showMaxRows={1}
+                      >
+                        <TableFooter
+                          as="tfoot"
+                          data-test="footer"
+                          fullWidth={true}
+                        >
+                          <TableHeader
+                            as="tfoot"
+                            data-test="footer"
+                            fullWidth={true}
+                          >
+                            <tfoot
+                              className="full-width"
+                              data-test="footer"
+                            >
+                              <TableRow
+                                as="tr"
+                                cellAs="td"
+                              >
+                                <tr
+                                  className=""
+                                >
+                                  <TableHeaderCell
+                                    as="th"
                                     colSpan={6}
                                     textAlign="right"
                                   >
-                                    <th
-                                      className="right aligned"
+                                    <TableCell
+                                      as="th"
+                                      className=""
                                       colSpan={6}
+                                      textAlign="right"
                                     >
-                                      <span
-                                        className="results-table-compact-summary"
+                                      <th
+                                        className="right aligned"
+                                        colSpan={6}
                                       >
-                                        Showing entries 
-                                        1
-                                        -
-                                        1
-                                         of 
-                                        2
-                                         
-                                      </span>
-                                      <span>
-                                        <SeeAllButton
-                                          disabled={false}
-                                          fluid={false}
-                                          to="/backoffice/document-requests?q=patron_pid:2&sort=-created"
+                                        <span
+                                          className="results-table-compact-summary"
                                         >
-                                          <Button
-                                            as={
-                                              Object {
-                                                "$$typeof": Symbol(react.forward_ref),
-                                                "propTypes": Object {
-                                                  "innerRef": [Function],
-                                                  "onClick": [Function],
-                                                  "replace": [Function],
-                                                  "target": [Function],
-                                                  "to": [Function],
-                                                },
-                                                "render": [Function],
-                                              }
-                                            }
+                                          Showing entries 
+                                          1
+                                          -
+                                          1
+                                           of 
+                                          2
+                                           
+                                        </span>
+                                        <span>
+                                          <SeeAllButton
                                             disabled={false}
                                             fluid={false}
-                                            size="small"
                                             to="/backoffice/document-requests?q=patron_pid:2&sort=-created"
                                           >
-                                            <Ref
-                                              innerRef={
+                                            <Button
+                                              as={
                                                 Object {
-                                                  "current": <a
-                                                    class="ui small button"
-                                                    href="/backoffice/document-requests?q=patron_pid:2&sort=-created"
-                                                    role="button"
-                                                  >
-                                                    See all
-                                                  </a>,
+                                                  "$$typeof": Symbol(react.forward_ref),
+                                                  "propTypes": Object {
+                                                    "innerRef": [Function],
+                                                    "onClick": [Function],
+                                                    "replace": [Function],
+                                                    "target": [Function],
+                                                    "to": [Function],
+                                                  },
+                                                  "render": [Function],
                                                 }
                                               }
+                                              disabled={false}
+                                              fluid={false}
+                                              size="small"
+                                              to="/backoffice/document-requests?q=patron_pid:2&sort=-created"
                                             >
-                                              <RefForward
+                                              <Ref
                                                 innerRef={
                                                   Object {
                                                     "current": <a
@@ -1516,48 +1514,62 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                                   }
                                                 }
                                               >
-                                                <Link
-                                                  className="ui small button"
-                                                  onClick={[Function]}
-                                                  role="button"
-                                                  to="/backoffice/document-requests?q=patron_pid:2&sort=-created"
+                                                <RefForward
+                                                  innerRef={
+                                                    Object {
+                                                      "current": <a
+                                                        class="ui small button"
+                                                        href="/backoffice/document-requests?q=patron_pid:2&sort=-created"
+                                                        role="button"
+                                                      >
+                                                        See all
+                                                      </a>,
+                                                    }
+                                                  }
                                                 >
-                                                  <LinkAnchor
+                                                  <Link
                                                     className="ui small button"
-                                                    href="/backoffice/document-requests?q=patron_pid:2&sort=-created"
-                                                    navigate={[Function]}
                                                     onClick={[Function]}
                                                     role="button"
+                                                    to="/backoffice/document-requests?q=patron_pid:2&sort=-created"
                                                   >
-                                                    <a
+                                                    <LinkAnchor
                                                       className="ui small button"
                                                       href="/backoffice/document-requests?q=patron_pid:2&sort=-created"
+                                                      navigate={[Function]}
                                                       onClick={[Function]}
                                                       role="button"
                                                     >
-                                                      See all
-                                                    </a>
-                                                  </LinkAnchor>
-                                                </Link>
-                                              </RefForward>
-                                            </Ref>
-                                          </Button>
-                                        </SeeAllButton>
-                                      </span>
-                                      <span />
-                                    </th>
-                                  </TableCell>
-                                </TableHeaderCell>
-                              </tr>
-                            </TableRow>
-                          </tfoot>
-                        </TableHeader>
-                      </TableFooter>
-                    </ResultsTableFooter>
-                  </table>
-                </Table>
-              </ResultsTable>
-            </Error>
+                                                      <a
+                                                        className="ui small button"
+                                                        href="/backoffice/document-requests?q=patron_pid:2&sort=-created"
+                                                        onClick={[Function]}
+                                                        role="button"
+                                                      >
+                                                        See all
+                                                      </a>
+                                                    </LinkAnchor>
+                                                  </Link>
+                                                </RefForward>
+                                              </Ref>
+                                            </Button>
+                                          </SeeAllButton>
+                                        </span>
+                                        <span />
+                                      </th>
+                                    </TableCell>
+                                  </TableHeaderCell>
+                                </tr>
+                              </TableRow>
+                            </tfoot>
+                          </TableHeader>
+                        </TableFooter>
+                      </ResultsTableFooter>
+                    </table>
+                  </Table>
+                </ResultsTable>
+              </Error>
+            </DevModeWrapper>
           </Overridable>
         </Loader>
       </Overridable(Loader)>

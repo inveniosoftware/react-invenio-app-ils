@@ -44,22 +44,26 @@ exports[`PatronLoans tests should render show a message with added loan 1`] = `
         id="Loader.layout"
         isLoading={false}
       >
-        <Error
-          FallbackComponent={[Function]}
-          boundary={false}
-          error={null}
-          onUIError={null}
+        <DevModeWrapper
+          id="Loader.layout"
         >
-          <Message
-            color="blue"
+          <Error
+            FallbackComponent={[Function]}
+            boundary={false}
+            error={null}
+            onUIError={null}
           >
-            <div
-              className="ui blue message"
+            <Message
+              color="blue"
             >
-              Scan or type the barcode to checkout the physical copy for this patron.
-            </div>
-          </Message>
-        </Error>
+              <div
+                className="ui blue message"
+              >
+                Scan or type the barcode to checkout the physical copy for this patron.
+              </div>
+            </Message>
+          </Error>
+        </DevModeWrapper>
       </Overridable>
     </Loader>
   </Overridable(Loader)>
