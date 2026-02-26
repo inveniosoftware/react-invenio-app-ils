@@ -147,496 +147,500 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
         id="Loader.layout"
         isLoading={false}
       >
-        <Error
-          FallbackComponent={[Function]}
-          boundary={false}
-          error={null}
-          onUIError={null}
+        <DevModeWrapper
+          id="Loader.layout"
         >
-          <ResultsTable
-            columns={
-              Array [
-                Object {
-                  "formatter": [Function],
-                  "title": "Loan",
-                },
-                Object {
-                  "field": "metadata.patron.name",
-                  "formatter": [Function],
-                  "title": "Patron",
-                },
-                Object {
-                  "field": "metadata.request_start_date",
-                  "formatter": [Function],
-                  "title": "Request start date",
-                },
-                Object {
-                  "field": "metadata.request_expire_date",
-                  "formatter": [Function],
-                  "title": "Request end date",
-                },
-              ]
-            }
-            currentPage={1}
-            data={
-              Array [
-                Object {
-                  "id": 1,
-                  "metadata": Object {
-                    "document": Object {
-                      "edition": "1",
-                      "publication_year": "1950",
-                      "title": "The Gulf: The Making of An American Sea",
-                    },
-                    "document_pid": "docid-1",
-                    "end_date": "2018-07-28",
-                    "item_pid": Object {},
-                    "patron": Object {
-                      "email": "patron1@test.ch",
-                    },
-                    "patron_pid": "1",
-                    "pickup_location_pid": "1",
-                    "pid": "loanid-1",
-                    "request_expire_date": "2019-06-28",
-                    "request_start_date": "2018-06-28",
-                    "start_date": "2018-06-28",
-                    "state": "PENDING",
-                    "transaction_date": "2018-06-29",
-                    "transaction_location_pid": "1",
-                  },
-                  "pid": "loan1",
-                },
-                Object {
-                  "id": 2,
-                  "metadata": Object {
-                    "document": Object {
-                      "publication_year": "1950",
-                      "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
-                    },
-                    "document_pid": "docid-1",
-                    "end_date": "2018-07-28",
-                    "item_pid": Object {
-                      "type": "pitmid",
-                      "value": "itemid-2",
-                    },
-                    "patron": Object {
-                      "email": "patron2@test.ch",
-                    },
-                    "patron_pid": "1",
-                    "pickup_location_pid": "1",
-                    "pid": "loanid-2",
-                    "request_expire_date": "2019-06-28",
-                    "request_start_date": "2018-06-28",
-                    "start_date": "2018-06-28",
-                    "state": "PENDING",
-                    "transaction_date": "2018-06-29",
-                    "transaction_location_pid": "1",
-                  },
-                  "pid": "loan2",
-                },
-              ]
-            }
-            fixed={false}
-            headerActionComponent={null}
-            name="pending loan requests"
-            paginationComponent={null}
-            renderEmptyResultsElement={null}
-            seeAllComponent={
-              <SeeAllButton
-                disabled={false}
-                fluid={false}
-                to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
-              />
-            }
-            showAllResults={false}
-            showFooterSummary={true}
-            showMaxRows={5}
-            singleLine={true}
-            subtitle=""
-            title=""
-            totalHitsCount={2}
+          <Error
+            FallbackComponent={[Function]}
+            boundary={false}
+            error={null}
+            onUIError={null}
           >
-            <Table
-              as="table"
-              compact={true}
+            <ResultsTable
+              columns={
+                Array [
+                  Object {
+                    "formatter": [Function],
+                    "title": "Loan",
+                  },
+                  Object {
+                    "field": "metadata.patron.name",
+                    "formatter": [Function],
+                    "title": "Patron",
+                  },
+                  Object {
+                    "field": "metadata.request_start_date",
+                    "formatter": [Function],
+                    "title": "Request start date",
+                  },
+                  Object {
+                    "field": "metadata.request_expire_date",
+                    "formatter": [Function],
+                    "title": "Request end date",
+                  },
+                ]
+              }
+              currentPage={1}
+              data={
+                Array [
+                  Object {
+                    "id": 1,
+                    "metadata": Object {
+                      "document": Object {
+                        "edition": "1",
+                        "publication_year": "1950",
+                        "title": "The Gulf: The Making of An American Sea",
+                      },
+                      "document_pid": "docid-1",
+                      "end_date": "2018-07-28",
+                      "item_pid": Object {},
+                      "patron": Object {
+                        "email": "patron1@test.ch",
+                      },
+                      "patron_pid": "1",
+                      "pickup_location_pid": "1",
+                      "pid": "loanid-1",
+                      "request_expire_date": "2019-06-28",
+                      "request_start_date": "2018-06-28",
+                      "start_date": "2018-06-28",
+                      "state": "PENDING",
+                      "transaction_date": "2018-06-29",
+                      "transaction_location_pid": "1",
+                    },
+                    "pid": "loan1",
+                  },
+                  Object {
+                    "id": 2,
+                    "metadata": Object {
+                      "document": Object {
+                        "publication_year": "1950",
+                        "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
+                      },
+                      "document_pid": "docid-1",
+                      "end_date": "2018-07-28",
+                      "item_pid": Object {
+                        "type": "pitmid",
+                        "value": "itemid-2",
+                      },
+                      "patron": Object {
+                        "email": "patron2@test.ch",
+                      },
+                      "patron_pid": "1",
+                      "pickup_location_pid": "1",
+                      "pid": "loanid-2",
+                      "request_expire_date": "2019-06-28",
+                      "request_start_date": "2018-06-28",
+                      "start_date": "2018-06-28",
+                      "state": "PENDING",
+                      "transaction_date": "2018-06-29",
+                      "transaction_location_pid": "1",
+                    },
+                    "pid": "loan2",
+                  },
+                ]
+              }
               fixed={false}
+              headerActionComponent={null}
               name="pending loan requests"
-              selectable={true}
+              paginationComponent={null}
+              renderEmptyResultsElement={null}
+              seeAllComponent={
+                <SeeAllButton
+                  disabled={false}
+                  fluid={false}
+                  to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
+                />
+              }
+              showAllResults={false}
+              showFooterSummary={true}
+              showMaxRows={5}
               singleLine={true}
-              striped={true}
               subtitle=""
               title=""
-              unstackable={true}
+              totalHitsCount={2}
             >
-              <table
-                className="ui selectable single line striped unstackable compact table"
+              <Table
+                as="table"
+                compact={true}
+                fixed={false}
                 name="pending loan requests"
+                selectable={true}
+                singleLine={true}
+                striped={true}
                 subtitle=""
                 title=""
+                unstackable={true}
               >
-                <ResultsTableHeader
-                  columns={
-                    Array [
-                      Object {
-                        "formatter": [Function],
-                        "title": "Loan",
-                      },
-                      Object {
-                        "field": "metadata.patron.name",
-                        "formatter": [Function],
-                        "title": "Patron",
-                      },
-                      Object {
-                        "field": "metadata.request_start_date",
-                        "formatter": [Function],
-                        "title": "Request start date",
-                      },
-                      Object {
-                        "field": "metadata.request_expire_date",
-                        "formatter": [Function],
-                        "title": "Request end date",
-                      },
-                    ]
-                  }
+                <table
+                  className="ui selectable single line striped unstackable compact table"
+                  name="pending loan requests"
+                  subtitle=""
+                  title=""
                 >
-                  <TableHeader
-                    as="thead"
+                  <ResultsTableHeader
+                    columns={
+                      Array [
+                        Object {
+                          "formatter": [Function],
+                          "title": "Loan",
+                        },
+                        Object {
+                          "field": "metadata.patron.name",
+                          "formatter": [Function],
+                          "title": "Patron",
+                        },
+                        Object {
+                          "field": "metadata.request_start_date",
+                          "formatter": [Function],
+                          "title": "Request start date",
+                        },
+                        Object {
+                          "field": "metadata.request_expire_date",
+                          "formatter": [Function],
+                          "title": "Request end date",
+                        },
+                      ]
+                    }
                   >
-                    <thead
-                      className=""
+                    <TableHeader
+                      as="thead"
                     >
-                      <TableRow
-                        as="tr"
-                        cellAs="td"
-                        data-test="header"
+                      <thead
+                        className=""
                       >
-                        <tr
-                          className=""
+                        <TableRow
+                          as="tr"
+                          cellAs="td"
                           data-test="header"
                         >
-                          <TableHeaderCell
-                            as="th"
-                            key="Loan"
+                          <tr
+                            className=""
+                            data-test="header"
                           >
-                            <TableCell
+                            <TableHeaderCell
                               as="th"
-                              className=""
+                              key="Loan"
                             >
-                              <th
+                              <TableCell
+                                as="th"
                                 className=""
                               >
-                                Loan
-                              </th>
-                            </TableCell>
-                          </TableHeaderCell>
-                          <TableHeaderCell
-                            as="th"
-                            key="Patron"
-                          >
-                            <TableCell
+                                <th
+                                  className=""
+                                >
+                                  Loan
+                                </th>
+                              </TableCell>
+                            </TableHeaderCell>
+                            <TableHeaderCell
                               as="th"
-                              className=""
+                              key="Patron"
                             >
-                              <th
+                              <TableCell
+                                as="th"
                                 className=""
                               >
-                                Patron
-                              </th>
-                            </TableCell>
-                          </TableHeaderCell>
-                          <TableHeaderCell
-                            as="th"
-                            key="Request start date"
-                          >
-                            <TableCell
+                                <th
+                                  className=""
+                                >
+                                  Patron
+                                </th>
+                              </TableCell>
+                            </TableHeaderCell>
+                            <TableHeaderCell
                               as="th"
-                              className=""
+                              key="Request start date"
                             >
-                              <th
+                              <TableCell
+                                as="th"
                                 className=""
                               >
-                                Request start date
-                              </th>
-                            </TableCell>
-                          </TableHeaderCell>
-                          <TableHeaderCell
-                            as="th"
-                            key="Request end date"
-                          >
-                            <TableCell
+                                <th
+                                  className=""
+                                >
+                                  Request start date
+                                </th>
+                              </TableCell>
+                            </TableHeaderCell>
+                            <TableHeaderCell
                               as="th"
-                              className=""
+                              key="Request end date"
                             >
-                              <th
+                              <TableCell
+                                as="th"
                                 className=""
                               >
-                                Request end date
-                              </th>
-                            </TableCell>
-                          </TableHeaderCell>
-                        </tr>
-                      </TableRow>
-                    </thead>
-                  </TableHeader>
-                </ResultsTableHeader>
-                <ResultsTableBody
-                  columns={
-                    Array [
-                      Object {
-                        "formatter": [Function],
-                        "title": "Loan",
-                      },
-                      Object {
-                        "field": "metadata.patron.name",
-                        "formatter": [Function],
-                        "title": "Patron",
-                      },
-                      Object {
-                        "field": "metadata.request_start_date",
-                        "formatter": [Function],
-                        "title": "Request start date",
-                      },
-                      Object {
-                        "field": "metadata.request_expire_date",
-                        "formatter": [Function],
-                        "title": "Request end date",
-                      },
-                    ]
-                  }
-                  rows={
-                    Array [
-                      Object {
-                        "id": 1,
-                        "metadata": Object {
-                          "document": Object {
-                            "edition": "1",
-                            "publication_year": "1950",
-                            "title": "The Gulf: The Making of An American Sea",
-                          },
-                          "document_pid": "docid-1",
-                          "end_date": "2018-07-28",
-                          "item_pid": Object {},
-                          "patron": Object {
-                            "email": "patron1@test.ch",
-                          },
-                          "patron_pid": "1",
-                          "pickup_location_pid": "1",
-                          "pid": "loanid-1",
-                          "request_expire_date": "2019-06-28",
-                          "request_start_date": "2018-06-28",
-                          "start_date": "2018-06-28",
-                          "state": "PENDING",
-                          "transaction_date": "2018-06-29",
-                          "transaction_location_pid": "1",
+                                <th
+                                  className=""
+                                >
+                                  Request end date
+                                </th>
+                              </TableCell>
+                            </TableHeaderCell>
+                          </tr>
+                        </TableRow>
+                      </thead>
+                    </TableHeader>
+                  </ResultsTableHeader>
+                  <ResultsTableBody
+                    columns={
+                      Array [
+                        Object {
+                          "formatter": [Function],
+                          "title": "Loan",
                         },
-                        "pid": "loan1",
-                      },
-                      Object {
-                        "id": 2,
-                        "metadata": Object {
-                          "document": Object {
-                            "publication_year": "1950",
-                            "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
-                          },
-                          "document_pid": "docid-1",
-                          "end_date": "2018-07-28",
-                          "item_pid": Object {
-                            "type": "pitmid",
-                            "value": "itemid-2",
-                          },
-                          "patron": Object {
-                            "email": "patron2@test.ch",
-                          },
-                          "patron_pid": "1",
-                          "pickup_location_pid": "1",
-                          "pid": "loanid-2",
-                          "request_expire_date": "2019-06-28",
-                          "request_start_date": "2018-06-28",
-                          "start_date": "2018-06-28",
-                          "state": "PENDING",
-                          "transaction_date": "2018-06-29",
-                          "transaction_location_pid": "1",
+                        Object {
+                          "field": "metadata.patron.name",
+                          "formatter": [Function],
+                          "title": "Patron",
                         },
-                        "pid": "loan2",
-                      },
-                    ]
-                  }
-                >
-                  <TableBody
-                    as="tbody"
+                        Object {
+                          "field": "metadata.request_start_date",
+                          "formatter": [Function],
+                          "title": "Request start date",
+                        },
+                        Object {
+                          "field": "metadata.request_expire_date",
+                          "formatter": [Function],
+                          "title": "Request end date",
+                        },
+                      ]
+                    }
+                    rows={
+                      Array [
+                        Object {
+                          "id": 1,
+                          "metadata": Object {
+                            "document": Object {
+                              "edition": "1",
+                              "publication_year": "1950",
+                              "title": "The Gulf: The Making of An American Sea",
+                            },
+                            "document_pid": "docid-1",
+                            "end_date": "2018-07-28",
+                            "item_pid": Object {},
+                            "patron": Object {
+                              "email": "patron1@test.ch",
+                            },
+                            "patron_pid": "1",
+                            "pickup_location_pid": "1",
+                            "pid": "loanid-1",
+                            "request_expire_date": "2019-06-28",
+                            "request_start_date": "2018-06-28",
+                            "start_date": "2018-06-28",
+                            "state": "PENDING",
+                            "transaction_date": "2018-06-29",
+                            "transaction_location_pid": "1",
+                          },
+                          "pid": "loan1",
+                        },
+                        Object {
+                          "id": 2,
+                          "metadata": Object {
+                            "document": Object {
+                              "publication_year": "1950",
+                              "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
+                            },
+                            "document_pid": "docid-1",
+                            "end_date": "2018-07-28",
+                            "item_pid": Object {
+                              "type": "pitmid",
+                              "value": "itemid-2",
+                            },
+                            "patron": Object {
+                              "email": "patron2@test.ch",
+                            },
+                            "patron_pid": "1",
+                            "pickup_location_pid": "1",
+                            "pid": "loanid-2",
+                            "request_expire_date": "2019-06-28",
+                            "request_start_date": "2018-06-28",
+                            "start_date": "2018-06-28",
+                            "state": "PENDING",
+                            "transaction_date": "2018-06-29",
+                            "transaction_location_pid": "1",
+                          },
+                          "pid": "loan2",
+                        },
+                      ]
+                    }
                   >
-                    <tbody
-                      className=""
+                    <TableBody
+                      as="tbody"
                     >
-                      <TableRow
-                        as="tr"
-                        cellAs="td"
-                        data-test="loan1"
-                        key="loan1"
+                      <tbody
+                        className=""
                       >
-                        <tr
-                          className=""
+                        <TableRow
+                          as="tr"
+                          cellAs="td"
                           data-test="loan1"
+                          key="loan1"
                         >
-                          <TableCell
-                            as="td"
-                            data-label="Loan"
-                            data-test="0-loan1"
-                            key="0-loan1"
+                          <tr
+                            className=""
+                            data-test="loan1"
                           >
-                            <td
-                              className=""
+                            <TableCell
+                              as="td"
                               data-label="Loan"
                               data-test="0-loan1"
+                              key="0-loan1"
                             >
-                              <ForwardRef(Link)
-                                data-test="loanid-1"
-                                to="loan/loanid-1"
-                              />
-                            </td>
-                          </TableCell>
-                          <TableCell
-                            as="td"
-                            data-label="Patron"
-                            data-test="1-loan1"
-                            key="1-loan1"
-                          >
-                            <td
-                              className=""
+                              <td
+                                className=""
+                                data-label="Loan"
+                                data-test="0-loan1"
+                              >
+                                <ForwardRef(Link)
+                                  data-test="loanid-1"
+                                  to="loan/loanid-1"
+                                />
+                              </td>
+                            </TableCell>
+                            <TableCell
+                              as="td"
                               data-label="Patron"
                               data-test="1-loan1"
+                              key="1-loan1"
                             >
-                              <ForwardRef(Link)
-                                to="patron/1"
-                              />
-                            </td>
-                          </TableCell>
-                          <TableCell
-                            as="td"
-                            data-label="Request start date"
-                            data-test="2-loan1"
-                            key="2-loan1"
-                          >
-                            <td
-                              className=""
+                              <td
+                                className=""
+                                data-label="Patron"
+                                data-test="1-loan1"
+                              >
+                                <ForwardRef(Link)
+                                  to="patron/1"
+                                />
+                              </td>
+                            </TableCell>
+                            <TableCell
+                              as="td"
                               data-label="Request start date"
                               data-test="2-loan1"
+                              key="2-loan1"
                             >
-                              6/28/2018
-                            </td>
-                          </TableCell>
-                          <TableCell
-                            as="td"
-                            data-label="Request end date"
-                            data-test="3-loan1"
-                            key="3-loan1"
-                          >
-                            <td
-                              className=""
+                              <td
+                                className=""
+                                data-label="Request start date"
+                                data-test="2-loan1"
+                              >
+                                6/28/2018
+                              </td>
+                            </TableCell>
+                            <TableCell
+                              as="td"
                               data-label="Request end date"
                               data-test="3-loan1"
+                              key="3-loan1"
                             >
-                              6/28/2019
-                            </td>
-                          </TableCell>
-                        </tr>
-                      </TableRow>
-                      <TableRow
-                        as="tr"
-                        cellAs="td"
-                        data-test="loan2"
-                        key="loan2"
-                      >
-                        <tr
-                          className=""
+                              <td
+                                className=""
+                                data-label="Request end date"
+                                data-test="3-loan1"
+                              >
+                                6/28/2019
+                              </td>
+                            </TableCell>
+                          </tr>
+                        </TableRow>
+                        <TableRow
+                          as="tr"
+                          cellAs="td"
                           data-test="loan2"
+                          key="loan2"
                         >
-                          <TableCell
-                            as="td"
-                            data-label="Loan"
-                            data-test="0-loan2"
-                            key="0-loan2"
+                          <tr
+                            className=""
+                            data-test="loan2"
                           >
-                            <td
-                              className=""
+                            <TableCell
+                              as="td"
                               data-label="Loan"
                               data-test="0-loan2"
+                              key="0-loan2"
                             >
-                              <ForwardRef(Link)
-                                data-test="loanid-2"
-                                to="loan/loanid-2"
-                              />
-                            </td>
-                          </TableCell>
-                          <TableCell
-                            as="td"
-                            data-label="Patron"
-                            data-test="1-loan2"
-                            key="1-loan2"
-                          >
-                            <td
-                              className=""
+                              <td
+                                className=""
+                                data-label="Loan"
+                                data-test="0-loan2"
+                              >
+                                <ForwardRef(Link)
+                                  data-test="loanid-2"
+                                  to="loan/loanid-2"
+                                />
+                              </td>
+                            </TableCell>
+                            <TableCell
+                              as="td"
                               data-label="Patron"
                               data-test="1-loan2"
+                              key="1-loan2"
                             >
-                              <ForwardRef(Link)
-                                to="patron/1"
-                              />
-                            </td>
-                          </TableCell>
-                          <TableCell
-                            as="td"
-                            data-label="Request start date"
-                            data-test="2-loan2"
-                            key="2-loan2"
-                          >
-                            <td
-                              className=""
+                              <td
+                                className=""
+                                data-label="Patron"
+                                data-test="1-loan2"
+                              >
+                                <ForwardRef(Link)
+                                  to="patron/1"
+                                />
+                              </td>
+                            </TableCell>
+                            <TableCell
+                              as="td"
                               data-label="Request start date"
                               data-test="2-loan2"
+                              key="2-loan2"
                             >
-                              6/28/2018
-                            </td>
-                          </TableCell>
-                          <TableCell
-                            as="td"
-                            data-label="Request end date"
-                            data-test="3-loan2"
-                            key="3-loan2"
-                          >
-                            <td
-                              className=""
+                              <td
+                                className=""
+                                data-label="Request start date"
+                                data-test="2-loan2"
+                              >
+                                6/28/2018
+                              </td>
+                            </TableCell>
+                            <TableCell
+                              as="td"
                               data-label="Request end date"
                               data-test="3-loan2"
+                              key="3-loan2"
                             >
-                              6/28/2019
-                            </td>
-                          </TableCell>
-                        </tr>
-                      </TableRow>
-                    </tbody>
-                  </TableBody>
-                </ResultsTableBody>
-                <ResultsTableFooter
-                  allRowsNumber={2}
-                  columnsNumber={4}
-                  currentPage={1}
-                  paginationComponent={null}
-                  seeAllComponent={
-                    <SeeAllButton
-                      disabled={false}
-                      fluid={false}
-                      to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
-                    />
-                  }
-                  showAllResults={false}
-                  showFooterSummary={true}
-                  showMaxRows={5}
-                />
-              </table>
-            </Table>
-          </ResultsTable>
-        </Error>
+                              <td
+                                className=""
+                                data-label="Request end date"
+                                data-test="3-loan2"
+                              >
+                                6/28/2019
+                              </td>
+                            </TableCell>
+                          </tr>
+                        </TableRow>
+                      </tbody>
+                    </TableBody>
+                  </ResultsTableBody>
+                  <ResultsTableFooter
+                    allRowsNumber={2}
+                    columnsNumber={4}
+                    currentPage={1}
+                    paginationComponent={null}
+                    seeAllComponent={
+                      <SeeAllButton
+                        disabled={false}
+                        fluid={false}
+                        to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
+                      />
+                    }
+                    showAllResults={false}
+                    showFooterSummary={true}
+                    showMaxRows={5}
+                  />
+                </table>
+              </Table>
+            </ResultsTable>
+          </Error>
+        </DevModeWrapper>
       </Overridable>
     </Loader>
   </Overridable(Loader)>
@@ -675,87 +679,91 @@ exports[`DocumentPendingLoans tests should render show a message with no pending
         id="Loader.layout"
         isLoading={false}
       >
-        <Error
-          FallbackComponent={[Function]}
-          boundary={false}
-          error={null}
-          onUIError={null}
+        <DevModeWrapper
+          id="Loader.layout"
         >
-          <ResultsTable
-            columns={
-              Array [
-                Object {
-                  "formatter": [Function],
-                  "title": "Loan",
-                },
-                Object {
-                  "field": "metadata.patron.name",
-                  "formatter": [Function],
-                  "title": "Patron",
-                },
-                Object {
-                  "field": "metadata.request_start_date",
-                  "formatter": [Function],
-                  "title": "Request start date",
-                },
-                Object {
-                  "field": "metadata.request_expire_date",
-                  "formatter": [Function],
-                  "title": "Request end date",
-                },
-              ]
-            }
-            currentPage={1}
-            data={Array []}
-            fixed={false}
-            headerActionComponent={null}
-            name="pending loan requests"
-            paginationComponent={null}
-            renderEmptyResultsElement={null}
-            seeAllComponent={
-              <SeeAllButton
-                disabled={false}
-                fluid={false}
-                to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
-              />
-            }
-            showAllResults={false}
-            showFooterSummary={true}
-            showMaxRows={5}
-            singleLine={true}
-            subtitle=""
-            title=""
-            totalHitsCount={0}
+          <Error
+            FallbackComponent={[Function]}
+            boundary={false}
+            error={null}
+            onUIError={null}
           >
-            <Message
-              data-test="no-results"
-              icon={true}
-              info={true}
+            <ResultsTable
+              columns={
+                Array [
+                  Object {
+                    "formatter": [Function],
+                    "title": "Loan",
+                  },
+                  Object {
+                    "field": "metadata.patron.name",
+                    "formatter": [Function],
+                    "title": "Patron",
+                  },
+                  Object {
+                    "field": "metadata.request_start_date",
+                    "formatter": [Function],
+                    "title": "Request start date",
+                  },
+                  Object {
+                    "field": "metadata.request_expire_date",
+                    "formatter": [Function],
+                    "title": "Request end date",
+                  },
+                ]
+              }
+              currentPage={1}
+              data={Array []}
+              fixed={false}
+              headerActionComponent={null}
+              name="pending loan requests"
+              paginationComponent={null}
+              renderEmptyResultsElement={null}
+              seeAllComponent={
+                <SeeAllButton
+                  disabled={false}
+                  fluid={false}
+                  to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
+                />
+              }
+              showAllResults={false}
+              showFooterSummary={true}
+              showMaxRows={5}
+              singleLine={true}
+              subtitle=""
+              title=""
+              totalHitsCount={0}
             >
-              <div
-                className="ui icon info message"
+              <Message
                 data-test="no-results"
+                icon={true}
+                info={true}
               >
-                <MessageContent>
-                  <div
-                    className="content"
-                  >
-                    <MessageHeader>
-                      <div
-                        className="header"
-                      >
-                        No results found
-                      </div>
-                    </MessageHeader>
-                    There are no 
-                    pending loan requests
-                    .
-                  </div>
-                </MessageContent>
-              </div>
-            </Message>
-          </ResultsTable>
-        </Error>
+                <div
+                  className="ui icon info message"
+                  data-test="no-results"
+                >
+                  <MessageContent>
+                    <div
+                      className="content"
+                    >
+                      <MessageHeader>
+                        <div
+                          className="header"
+                        >
+                          No results found
+                        </div>
+                      </MessageHeader>
+                      There are no 
+                      pending loan requests
+                      .
+                    </div>
+                  </MessageContent>
+                </div>
+              </Message>
+            </ResultsTable>
+          </Error>
+        </DevModeWrapper>
       </Overridable>
     </Loader>
   </Overridable(Loader)>
@@ -849,1348 +857,1352 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
         id="Loader.layout"
         isLoading={false}
       >
-        <Error
-          FallbackComponent={[Function]}
-          boundary={false}
-          error={null}
-          onUIError={null}
+        <DevModeWrapper
+          id="Loader.layout"
         >
-          <ResultsTable
-            columns={
-              Array [
-                Object {
-                  "formatter": [Function],
-                  "title": "Loan",
-                },
-                Object {
-                  "field": "metadata.patron.name",
-                  "formatter": [Function],
-                  "title": "Patron",
-                },
-                Object {
-                  "field": "metadata.request_start_date",
-                  "formatter": [Function],
-                  "title": "Request start date",
-                },
-                Object {
-                  "field": "metadata.request_expire_date",
-                  "formatter": [Function],
-                  "title": "Request end date",
-                },
-              ]
-            }
-            currentPage={1}
-            data={
-              Array [
-                Object {
-                  "id": 1,
-                  "metadata": Object {
-                    "document": Object {
-                      "edition": "1",
-                      "publication_year": "1950",
-                      "title": "The Gulf: The Making of An American Sea",
-                    },
-                    "document_pid": "docid-1",
-                    "end_date": "2018-07-28",
-                    "item_pid": Object {},
-                    "patron": Object {
-                      "email": "patron1@test.ch",
-                    },
-                    "patron_pid": "1",
-                    "pickup_location_pid": "1",
-                    "pid": "loanid-1",
-                    "request_expire_date": "2019-06-28",
-                    "request_start_date": "2018-06-28",
-                    "start_date": "2018-06-28",
-                    "state": "PENDING",
-                    "transaction_date": "2018-06-29",
-                    "transaction_location_pid": "1",
-                  },
-                  "pid": "loan1",
-                },
-                Object {
-                  "id": 2,
-                  "metadata": Object {
-                    "document": Object {
-                      "publication_year": "1950",
-                      "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
-                    },
-                    "document_pid": "docid-1",
-                    "end_date": "2018-07-28",
-                    "item_pid": Object {
-                      "type": "pitmid",
-                      "value": "itemid-2",
-                    },
-                    "patron": Object {
-                      "email": "patron2@test.ch",
-                    },
-                    "patron_pid": "1",
-                    "pickup_location_pid": "1",
-                    "pid": "loanid-2",
-                    "request_expire_date": "2019-06-28",
-                    "request_start_date": "2018-06-28",
-                    "start_date": "2018-06-28",
-                    "state": "PENDING",
-                    "transaction_date": "2018-06-29",
-                    "transaction_location_pid": "1",
-                  },
-                  "pid": "loan2",
-                },
-              ]
-            }
-            fixed={false}
-            headerActionComponent={null}
-            name="pending loan requests"
-            paginationComponent={null}
-            renderEmptyResultsElement={null}
-            seeAllComponent={
-              <SeeAllButton
-                disabled={false}
-                fluid={false}
-                to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
-              />
-            }
-            showAllResults={false}
-            showFooterSummary={true}
-            showMaxRows={1}
-            singleLine={true}
-            subtitle=""
-            title=""
-            totalHitsCount={2}
+          <Error
+            FallbackComponent={[Function]}
+            boundary={false}
+            error={null}
+            onUIError={null}
           >
-            <Table
-              as="table"
-              compact={true}
+            <ResultsTable
+              columns={
+                Array [
+                  Object {
+                    "formatter": [Function],
+                    "title": "Loan",
+                  },
+                  Object {
+                    "field": "metadata.patron.name",
+                    "formatter": [Function],
+                    "title": "Patron",
+                  },
+                  Object {
+                    "field": "metadata.request_start_date",
+                    "formatter": [Function],
+                    "title": "Request start date",
+                  },
+                  Object {
+                    "field": "metadata.request_expire_date",
+                    "formatter": [Function],
+                    "title": "Request end date",
+                  },
+                ]
+              }
+              currentPage={1}
+              data={
+                Array [
+                  Object {
+                    "id": 1,
+                    "metadata": Object {
+                      "document": Object {
+                        "edition": "1",
+                        "publication_year": "1950",
+                        "title": "The Gulf: The Making of An American Sea",
+                      },
+                      "document_pid": "docid-1",
+                      "end_date": "2018-07-28",
+                      "item_pid": Object {},
+                      "patron": Object {
+                        "email": "patron1@test.ch",
+                      },
+                      "patron_pid": "1",
+                      "pickup_location_pid": "1",
+                      "pid": "loanid-1",
+                      "request_expire_date": "2019-06-28",
+                      "request_start_date": "2018-06-28",
+                      "start_date": "2018-06-28",
+                      "state": "PENDING",
+                      "transaction_date": "2018-06-29",
+                      "transaction_location_pid": "1",
+                    },
+                    "pid": "loan1",
+                  },
+                  Object {
+                    "id": 2,
+                    "metadata": Object {
+                      "document": Object {
+                        "publication_year": "1950",
+                        "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
+                      },
+                      "document_pid": "docid-1",
+                      "end_date": "2018-07-28",
+                      "item_pid": Object {
+                        "type": "pitmid",
+                        "value": "itemid-2",
+                      },
+                      "patron": Object {
+                        "email": "patron2@test.ch",
+                      },
+                      "patron_pid": "1",
+                      "pickup_location_pid": "1",
+                      "pid": "loanid-2",
+                      "request_expire_date": "2019-06-28",
+                      "request_start_date": "2018-06-28",
+                      "start_date": "2018-06-28",
+                      "state": "PENDING",
+                      "transaction_date": "2018-06-29",
+                      "transaction_location_pid": "1",
+                    },
+                    "pid": "loan2",
+                  },
+                ]
+              }
               fixed={false}
+              headerActionComponent={null}
               name="pending loan requests"
-              selectable={true}
+              paginationComponent={null}
+              renderEmptyResultsElement={null}
+              seeAllComponent={
+                <SeeAllButton
+                  disabled={false}
+                  fluid={false}
+                  to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
+                />
+              }
+              showAllResults={false}
+              showFooterSummary={true}
+              showMaxRows={1}
               singleLine={true}
-              striped={true}
               subtitle=""
               title=""
-              unstackable={true}
+              totalHitsCount={2}
             >
-              <table
-                className="ui selectable single line striped unstackable compact table"
+              <Table
+                as="table"
+                compact={true}
+                fixed={false}
                 name="pending loan requests"
+                selectable={true}
+                singleLine={true}
+                striped={true}
                 subtitle=""
                 title=""
+                unstackable={true}
               >
-                <ResultsTableHeader
-                  columns={
-                    Array [
-                      Object {
-                        "formatter": [Function],
-                        "title": "Loan",
-                      },
-                      Object {
-                        "field": "metadata.patron.name",
-                        "formatter": [Function],
-                        "title": "Patron",
-                      },
-                      Object {
-                        "field": "metadata.request_start_date",
-                        "formatter": [Function],
-                        "title": "Request start date",
-                      },
-                      Object {
-                        "field": "metadata.request_expire_date",
-                        "formatter": [Function],
-                        "title": "Request end date",
-                      },
-                    ]
-                  }
+                <table
+                  className="ui selectable single line striped unstackable compact table"
+                  name="pending loan requests"
+                  subtitle=""
+                  title=""
                 >
-                  <TableHeader
-                    as="thead"
-                  >
-                    <thead
-                      className=""
-                    >
-                      <TableRow
-                        as="tr"
-                        cellAs="td"
-                        data-test="header"
-                      >
-                        <tr
-                          className=""
-                          data-test="header"
-                        >
-                          <TableHeaderCell
-                            as="th"
-                            key="Loan"
-                          >
-                            <TableCell
-                              as="th"
-                              className=""
-                            >
-                              <th
-                                className=""
-                              >
-                                Loan
-                              </th>
-                            </TableCell>
-                          </TableHeaderCell>
-                          <TableHeaderCell
-                            as="th"
-                            key="Patron"
-                          >
-                            <TableCell
-                              as="th"
-                              className=""
-                            >
-                              <th
-                                className=""
-                              >
-                                Patron
-                              </th>
-                            </TableCell>
-                          </TableHeaderCell>
-                          <TableHeaderCell
-                            as="th"
-                            key="Request start date"
-                          >
-                            <TableCell
-                              as="th"
-                              className=""
-                            >
-                              <th
-                                className=""
-                              >
-                                Request start date
-                              </th>
-                            </TableCell>
-                          </TableHeaderCell>
-                          <TableHeaderCell
-                            as="th"
-                            key="Request end date"
-                          >
-                            <TableCell
-                              as="th"
-                              className=""
-                            >
-                              <th
-                                className=""
-                              >
-                                Request end date
-                              </th>
-                            </TableCell>
-                          </TableHeaderCell>
-                        </tr>
-                      </TableRow>
-                    </thead>
-                  </TableHeader>
-                </ResultsTableHeader>
-                <ResultsTableBody
-                  columns={
-                    Array [
-                      Object {
-                        "formatter": [Function],
-                        "title": "Loan",
-                      },
-                      Object {
-                        "field": "metadata.patron.name",
-                        "formatter": [Function],
-                        "title": "Patron",
-                      },
-                      Object {
-                        "field": "metadata.request_start_date",
-                        "formatter": [Function],
-                        "title": "Request start date",
-                      },
-                      Object {
-                        "field": "metadata.request_expire_date",
-                        "formatter": [Function],
-                        "title": "Request end date",
-                      },
-                    ]
-                  }
-                  rows={
-                    Array [
-                      Object {
-                        "id": 1,
-                        "metadata": Object {
-                          "document": Object {
-                            "edition": "1",
-                            "publication_year": "1950",
-                            "title": "The Gulf: The Making of An American Sea",
-                          },
-                          "document_pid": "docid-1",
-                          "end_date": "2018-07-28",
-                          "item_pid": Object {},
-                          "patron": Object {
-                            "email": "patron1@test.ch",
-                          },
-                          "patron_pid": "1",
-                          "pickup_location_pid": "1",
-                          "pid": "loanid-1",
-                          "request_expire_date": "2019-06-28",
-                          "request_start_date": "2018-06-28",
-                          "start_date": "2018-06-28",
-                          "state": "PENDING",
-                          "transaction_date": "2018-06-29",
-                          "transaction_location_pid": "1",
+                  <ResultsTableHeader
+                    columns={
+                      Array [
+                        Object {
+                          "formatter": [Function],
+                          "title": "Loan",
                         },
-                        "pid": "loan1",
-                      },
-                    ]
-                  }
-                >
-                  <TableBody
-                    as="tbody"
-                  >
-                    <tbody
-                      className=""
-                    >
-                      <TableRow
-                        as="tr"
-                        cellAs="td"
-                        data-test="loan1"
-                        key="loan1"
-                      >
-                        <tr
-                          className=""
-                          data-test="loan1"
-                        >
-                          <TableCell
-                            as="td"
-                            data-label="Loan"
-                            data-test="0-loan1"
-                            key="0-loan1"
-                          >
-                            <td
-                              className=""
-                              data-label="Loan"
-                              data-test="0-loan1"
-                            >
-                              <ForwardRef(Link)
-                                data-test="loanid-1"
-                                to="loan/loanid-1"
-                              />
-                            </td>
-                          </TableCell>
-                          <TableCell
-                            as="td"
-                            data-label="Patron"
-                            data-test="1-loan1"
-                            key="1-loan1"
-                          >
-                            <td
-                              className=""
-                              data-label="Patron"
-                              data-test="1-loan1"
-                            >
-                              <ForwardRef(Link)
-                                to="patron/1"
-                              />
-                            </td>
-                          </TableCell>
-                          <TableCell
-                            as="td"
-                            data-label="Request start date"
-                            data-test="2-loan1"
-                            key="2-loan1"
-                          >
-                            <td
-                              className=""
-                              data-label="Request start date"
-                              data-test="2-loan1"
-                            >
-                              6/28/2018
-                            </td>
-                          </TableCell>
-                          <TableCell
-                            as="td"
-                            data-label="Request end date"
-                            data-test="3-loan1"
-                            key="3-loan1"
-                          >
-                            <td
-                              className=""
-                              data-label="Request end date"
-                              data-test="3-loan1"
-                            >
-                              6/28/2019
-                            </td>
-                          </TableCell>
-                        </tr>
-                      </TableRow>
-                    </tbody>
-                  </TableBody>
-                </ResultsTableBody>
-                <ResultsTableFooter
-                  allRowsNumber={2}
-                  columnsNumber={4}
-                  currentPage={1}
-                  paginationComponent={null}
-                  seeAllComponent={
-                    <SeeAllButton
-                      disabled={false}
-                      fluid={false}
-                      to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
-                    />
-                  }
-                  showAllResults={false}
-                  showFooterSummary={true}
-                  showMaxRows={1}
-                >
-                  <TableFooter
-                    as="tfoot"
-                    data-test="footer"
-                    fullWidth={true}
+                        Object {
+                          "field": "metadata.patron.name",
+                          "formatter": [Function],
+                          "title": "Patron",
+                        },
+                        Object {
+                          "field": "metadata.request_start_date",
+                          "formatter": [Function],
+                          "title": "Request start date",
+                        },
+                        Object {
+                          "field": "metadata.request_expire_date",
+                          "formatter": [Function],
+                          "title": "Request end date",
+                        },
+                      ]
+                    }
                   >
                     <TableHeader
-                      as="tfoot"
-                      data-test="footer"
-                      fullWidth={true}
+                      as="thead"
                     >
-                      <tfoot
-                        className="full-width"
-                        data-test="footer"
+                      <thead
+                        className=""
                       >
                         <TableRow
                           as="tr"
                           cellAs="td"
+                          data-test="header"
                         >
                           <tr
                             className=""
+                            data-test="header"
                           >
                             <TableHeaderCell
                               as="th"
-                              colSpan={5}
-                              textAlign="right"
+                              key="Loan"
                             >
                               <TableCell
                                 as="th"
                                 className=""
+                              >
+                                <th
+                                  className=""
+                                >
+                                  Loan
+                                </th>
+                              </TableCell>
+                            </TableHeaderCell>
+                            <TableHeaderCell
+                              as="th"
+                              key="Patron"
+                            >
+                              <TableCell
+                                as="th"
+                                className=""
+                              >
+                                <th
+                                  className=""
+                                >
+                                  Patron
+                                </th>
+                              </TableCell>
+                            </TableHeaderCell>
+                            <TableHeaderCell
+                              as="th"
+                              key="Request start date"
+                            >
+                              <TableCell
+                                as="th"
+                                className=""
+                              >
+                                <th
+                                  className=""
+                                >
+                                  Request start date
+                                </th>
+                              </TableCell>
+                            </TableHeaderCell>
+                            <TableHeaderCell
+                              as="th"
+                              key="Request end date"
+                            >
+                              <TableCell
+                                as="th"
+                                className=""
+                              >
+                                <th
+                                  className=""
+                                >
+                                  Request end date
+                                </th>
+                              </TableCell>
+                            </TableHeaderCell>
+                          </tr>
+                        </TableRow>
+                      </thead>
+                    </TableHeader>
+                  </ResultsTableHeader>
+                  <ResultsTableBody
+                    columns={
+                      Array [
+                        Object {
+                          "formatter": [Function],
+                          "title": "Loan",
+                        },
+                        Object {
+                          "field": "metadata.patron.name",
+                          "formatter": [Function],
+                          "title": "Patron",
+                        },
+                        Object {
+                          "field": "metadata.request_start_date",
+                          "formatter": [Function],
+                          "title": "Request start date",
+                        },
+                        Object {
+                          "field": "metadata.request_expire_date",
+                          "formatter": [Function],
+                          "title": "Request end date",
+                        },
+                      ]
+                    }
+                    rows={
+                      Array [
+                        Object {
+                          "id": 1,
+                          "metadata": Object {
+                            "document": Object {
+                              "edition": "1",
+                              "publication_year": "1950",
+                              "title": "The Gulf: The Making of An American Sea",
+                            },
+                            "document_pid": "docid-1",
+                            "end_date": "2018-07-28",
+                            "item_pid": Object {},
+                            "patron": Object {
+                              "email": "patron1@test.ch",
+                            },
+                            "patron_pid": "1",
+                            "pickup_location_pid": "1",
+                            "pid": "loanid-1",
+                            "request_expire_date": "2019-06-28",
+                            "request_start_date": "2018-06-28",
+                            "start_date": "2018-06-28",
+                            "state": "PENDING",
+                            "transaction_date": "2018-06-29",
+                            "transaction_location_pid": "1",
+                          },
+                          "pid": "loan1",
+                        },
+                      ]
+                    }
+                  >
+                    <TableBody
+                      as="tbody"
+                    >
+                      <tbody
+                        className=""
+                      >
+                        <TableRow
+                          as="tr"
+                          cellAs="td"
+                          data-test="loan1"
+                          key="loan1"
+                        >
+                          <tr
+                            className=""
+                            data-test="loan1"
+                          >
+                            <TableCell
+                              as="td"
+                              data-label="Loan"
+                              data-test="0-loan1"
+                              key="0-loan1"
+                            >
+                              <td
+                                className=""
+                                data-label="Loan"
+                                data-test="0-loan1"
+                              >
+                                <ForwardRef(Link)
+                                  data-test="loanid-1"
+                                  to="loan/loanid-1"
+                                />
+                              </td>
+                            </TableCell>
+                            <TableCell
+                              as="td"
+                              data-label="Patron"
+                              data-test="1-loan1"
+                              key="1-loan1"
+                            >
+                              <td
+                                className=""
+                                data-label="Patron"
+                                data-test="1-loan1"
+                              >
+                                <ForwardRef(Link)
+                                  to="patron/1"
+                                />
+                              </td>
+                            </TableCell>
+                            <TableCell
+                              as="td"
+                              data-label="Request start date"
+                              data-test="2-loan1"
+                              key="2-loan1"
+                            >
+                              <td
+                                className=""
+                                data-label="Request start date"
+                                data-test="2-loan1"
+                              >
+                                6/28/2018
+                              </td>
+                            </TableCell>
+                            <TableCell
+                              as="td"
+                              data-label="Request end date"
+                              data-test="3-loan1"
+                              key="3-loan1"
+                            >
+                              <td
+                                className=""
+                                data-label="Request end date"
+                                data-test="3-loan1"
+                              >
+                                6/28/2019
+                              </td>
+                            </TableCell>
+                          </tr>
+                        </TableRow>
+                      </tbody>
+                    </TableBody>
+                  </ResultsTableBody>
+                  <ResultsTableFooter
+                    allRowsNumber={2}
+                    columnsNumber={4}
+                    currentPage={1}
+                    paginationComponent={null}
+                    seeAllComponent={
+                      <SeeAllButton
+                        disabled={false}
+                        fluid={false}
+                        to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
+                      />
+                    }
+                    showAllResults={false}
+                    showFooterSummary={true}
+                    showMaxRows={1}
+                  >
+                    <TableFooter
+                      as="tfoot"
+                      data-test="footer"
+                      fullWidth={true}
+                    >
+                      <TableHeader
+                        as="tfoot"
+                        data-test="footer"
+                        fullWidth={true}
+                      >
+                        <tfoot
+                          className="full-width"
+                          data-test="footer"
+                        >
+                          <TableRow
+                            as="tr"
+                            cellAs="td"
+                          >
+                            <tr
+                              className=""
+                            >
+                              <TableHeaderCell
+                                as="th"
                                 colSpan={5}
                                 textAlign="right"
                               >
-                                <th
-                                  className="right aligned"
+                                <TableCell
+                                  as="th"
+                                  className=""
                                   colSpan={5}
+                                  textAlign="right"
                                 >
-                                  <span
-                                    className="results-table-compact-summary"
+                                  <th
+                                    className="right aligned"
+                                    colSpan={5}
                                   >
-                                    Showing entries 
-                                    1
-                                    -
-                                    1
-                                     of 
-                                    2
-                                     
-                                  </span>
-                                  <span>
-                                    <SeeAllButton
-                                      disabled={false}
-                                      fluid={false}
-                                      to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
+                                    <span
+                                      className="results-table-compact-summary"
                                     >
-                                      <Button
-                                        as={
-                                          Object {
-                                            "$$typeof": Symbol(react.forward_ref),
-                                            "propTypes": Object {
-                                              "innerRef": [MockFunction] {
-                                                "calls": Array [
-                                                  Array [
-                                                    Object {
-                                                      "children": "loanid-1",
-                                                      "data-test": "loanid-1",
-                                                      "to": "loan/loanid-1",
-                                                    },
-                                                    "innerRef",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": undefined,
-                                                      "to": "patron/1",
-                                                    },
-                                                    "innerRef",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": "loanid-2",
-                                                      "data-test": "loanid-2",
-                                                      "to": "loan/loanid-2",
-                                                    },
-                                                    "innerRef",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": undefined,
-                                                      "to": "patron/1",
-                                                    },
-                                                    "innerRef",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": "loanid-1",
-                                                      "data-test": "loanid-1",
-                                                      "to": "loan/loanid-1",
-                                                    },
-                                                    "innerRef",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": undefined,
-                                                      "to": "patron/1",
-                                                    },
-                                                    "innerRef",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "aria-pressed": undefined,
-                                                      "children": Array [
-                                                        "See all",
-                                                        false,
-                                                        false,
-                                                      ],
-                                                      "className": "ui small button",
-                                                      "disabled": undefined,
-                                                      "onClick": [Function],
-                                                      "role": "button",
-                                                      "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
-                                                      "type": undefined,
-                                                    },
-                                                    "innerRef",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "aria-pressed": undefined,
-                                                      "children": Array [
-                                                        "See all",
-                                                        false,
-                                                        false,
-                                                      ],
-                                                      "className": "ui small button",
-                                                      "disabled": undefined,
-                                                      "onClick": [Function],
-                                                      "role": "button",
-                                                      "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
-                                                      "type": undefined,
-                                                    },
-                                                    "innerRef",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                ],
-                                                "results": Array [
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                ],
-                                              },
-                                              "onClick": [MockFunction] {
-                                                "calls": Array [
-                                                  Array [
-                                                    Object {
-                                                      "children": "loanid-1",
-                                                      "data-test": "loanid-1",
-                                                      "to": "loan/loanid-1",
-                                                    },
-                                                    "onClick",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": undefined,
-                                                      "to": "patron/1",
-                                                    },
-                                                    "onClick",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": "loanid-2",
-                                                      "data-test": "loanid-2",
-                                                      "to": "loan/loanid-2",
-                                                    },
-                                                    "onClick",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": undefined,
-                                                      "to": "patron/1",
-                                                    },
-                                                    "onClick",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": "loanid-1",
-                                                      "data-test": "loanid-1",
-                                                      "to": "loan/loanid-1",
-                                                    },
-                                                    "onClick",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": undefined,
-                                                      "to": "patron/1",
-                                                    },
-                                                    "onClick",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "aria-pressed": undefined,
-                                                      "children": Array [
-                                                        "See all",
-                                                        false,
-                                                        false,
-                                                      ],
-                                                      "className": "ui small button",
-                                                      "disabled": undefined,
-                                                      "onClick": [Function],
-                                                      "role": "button",
-                                                      "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
-                                                      "type": undefined,
-                                                    },
-                                                    "onClick",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "aria-pressed": undefined,
-                                                      "children": Array [
-                                                        "See all",
-                                                        false,
-                                                        false,
-                                                      ],
-                                                      "className": "ui small button",
-                                                      "disabled": undefined,
-                                                      "onClick": [Function],
-                                                      "role": "button",
-                                                      "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
-                                                      "type": undefined,
-                                                    },
-                                                    "onClick",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                ],
-                                                "results": Array [
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                ],
-                                              },
-                                              "replace": [MockFunction] {
-                                                "calls": Array [
-                                                  Array [
-                                                    Object {
-                                                      "children": "loanid-1",
-                                                      "data-test": "loanid-1",
-                                                      "to": "loan/loanid-1",
-                                                    },
-                                                    "replace",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": undefined,
-                                                      "to": "patron/1",
-                                                    },
-                                                    "replace",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": "loanid-2",
-                                                      "data-test": "loanid-2",
-                                                      "to": "loan/loanid-2",
-                                                    },
-                                                    "replace",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": undefined,
-                                                      "to": "patron/1",
-                                                    },
-                                                    "replace",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": "loanid-1",
-                                                      "data-test": "loanid-1",
-                                                      "to": "loan/loanid-1",
-                                                    },
-                                                    "replace",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": undefined,
-                                                      "to": "patron/1",
-                                                    },
-                                                    "replace",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "aria-pressed": undefined,
-                                                      "children": Array [
-                                                        "See all",
-                                                        false,
-                                                        false,
-                                                      ],
-                                                      "className": "ui small button",
-                                                      "disabled": undefined,
-                                                      "onClick": [Function],
-                                                      "role": "button",
-                                                      "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
-                                                      "type": undefined,
-                                                    },
-                                                    "replace",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "aria-pressed": undefined,
-                                                      "children": Array [
-                                                        "See all",
-                                                        false,
-                                                        false,
-                                                      ],
-                                                      "className": "ui small button",
-                                                      "disabled": undefined,
-                                                      "onClick": [Function],
-                                                      "role": "button",
-                                                      "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
-                                                      "type": undefined,
-                                                    },
-                                                    "replace",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                ],
-                                                "results": Array [
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                ],
-                                              },
-                                              "target": [MockFunction] {
-                                                "calls": Array [
-                                                  Array [
-                                                    Object {
-                                                      "children": "loanid-1",
-                                                      "data-test": "loanid-1",
-                                                      "to": "loan/loanid-1",
-                                                    },
-                                                    "target",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": undefined,
-                                                      "to": "patron/1",
-                                                    },
-                                                    "target",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": "loanid-2",
-                                                      "data-test": "loanid-2",
-                                                      "to": "loan/loanid-2",
-                                                    },
-                                                    "target",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": undefined,
-                                                      "to": "patron/1",
-                                                    },
-                                                    "target",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": "loanid-1",
-                                                      "data-test": "loanid-1",
-                                                      "to": "loan/loanid-1",
-                                                    },
-                                                    "target",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": undefined,
-                                                      "to": "patron/1",
-                                                    },
-                                                    "target",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "aria-pressed": undefined,
-                                                      "children": Array [
-                                                        "See all",
-                                                        false,
-                                                        false,
-                                                      ],
-                                                      "className": "ui small button",
-                                                      "disabled": undefined,
-                                                      "onClick": [Function],
-                                                      "role": "button",
-                                                      "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
-                                                      "type": undefined,
-                                                    },
-                                                    "target",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "aria-pressed": undefined,
-                                                      "children": Array [
-                                                        "See all",
-                                                        false,
-                                                        false,
-                                                      ],
-                                                      "className": "ui small button",
-                                                      "disabled": undefined,
-                                                      "onClick": [Function],
-                                                      "role": "button",
-                                                      "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
-                                                      "type": undefined,
-                                                    },
-                                                    "target",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                ],
-                                                "results": Array [
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                ],
-                                              },
-                                              "to": [MockFunction] {
-                                                "calls": Array [
-                                                  Array [
-                                                    Object {
-                                                      "children": "loanid-1",
-                                                      "data-test": "loanid-1",
-                                                      "to": "loan/loanid-1",
-                                                    },
-                                                    "to",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": undefined,
-                                                      "to": "patron/1",
-                                                    },
-                                                    "to",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": "loanid-2",
-                                                      "data-test": "loanid-2",
-                                                      "to": "loan/loanid-2",
-                                                    },
-                                                    "to",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": undefined,
-                                                      "to": "patron/1",
-                                                    },
-                                                    "to",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": "loanid-1",
-                                                      "data-test": "loanid-1",
-                                                      "to": "loan/loanid-1",
-                                                    },
-                                                    "to",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": undefined,
-                                                      "to": "patron/1",
-                                                    },
-                                                    "to",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "aria-pressed": undefined,
-                                                      "children": Array [
-                                                        "See all",
-                                                        false,
-                                                        false,
-                                                      ],
-                                                      "className": "ui small button",
-                                                      "disabled": undefined,
-                                                      "onClick": [Function],
-                                                      "role": "button",
-                                                      "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
-                                                      "type": undefined,
-                                                    },
-                                                    "to",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "aria-pressed": undefined,
-                                                      "children": Array [
-                                                        "See all",
-                                                        false,
-                                                        false,
-                                                      ],
-                                                      "className": "ui small button",
-                                                      "disabled": undefined,
-                                                      "onClick": [Function],
-                                                      "role": "button",
-                                                      "tabIndex": undefined,
-                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
-                                                      "type": undefined,
-                                                    },
-                                                    "to",
-                                                    "ForwardRef(Link)",
-                                                    "prop",
-                                                    null,
-                                                    "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                  ],
-                                                ],
-                                                "results": Array [
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                ],
-                                              },
-                                            },
-                                            "render": [MockFunction] {
-                                              "calls": Array [
-                                                Array [
-                                                  Object {
-                                                    "children": "loanid-1",
-                                                    "data-test": "loanid-1",
-                                                    "to": "loan/loanid-1",
-                                                  },
-                                                  null,
-                                                ],
-                                                Array [
-                                                  Object {
-                                                    "children": undefined,
-                                                    "to": "patron/1",
-                                                  },
-                                                  null,
-                                                ],
-                                                Array [
-                                                  Object {
-                                                    "children": "loanid-2",
-                                                    "data-test": "loanid-2",
-                                                    "to": "loan/loanid-2",
-                                                  },
-                                                  null,
-                                                ],
-                                                Array [
-                                                  Object {
-                                                    "children": undefined,
-                                                    "to": "patron/1",
-                                                  },
-                                                  null,
-                                                ],
-                                                Array [
-                                                  Object {
-                                                    "children": "loanid-1",
-                                                    "data-test": "loanid-1",
-                                                    "to": "loan/loanid-1",
-                                                  },
-                                                  null,
-                                                ],
-                                                Array [
-                                                  Object {
-                                                    "children": undefined,
-                                                    "to": "patron/1",
-                                                  },
-                                                  null,
-                                                ],
-                                                Array [
-                                                  Object {
-                                                    "aria-pressed": undefined,
-                                                    "children": Array [
-                                                      "See all",
-                                                      false,
-                                                      false,
-                                                    ],
-                                                    "className": "ui small button",
-                                                    "disabled": undefined,
-                                                    "onClick": [Function],
-                                                    "role": "button",
-                                                    "tabIndex": undefined,
-                                                    "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
-                                                    "type": undefined,
-                                                  },
-                                                  [Function],
-                                                ],
-                                              ],
-                                              "results": Array [
-                                                Object {
-                                                  "type": "return",
-                                                  "value": undefined,
-                                                },
-                                                Object {
-                                                  "type": "return",
-                                                  "value": undefined,
-                                                },
-                                                Object {
-                                                  "type": "return",
-                                                  "value": undefined,
-                                                },
-                                                Object {
-                                                  "type": "return",
-                                                  "value": undefined,
-                                                },
-                                                Object {
-                                                  "type": "return",
-                                                  "value": undefined,
-                                                },
-                                                Object {
-                                                  "type": "return",
-                                                  "value": undefined,
-                                                },
-                                                Object {
-                                                  "type": "return",
-                                                  "value": undefined,
-                                                },
-                                              ],
-                                            },
-                                          }
-                                        }
+                                      Showing entries 
+                                      1
+                                      -
+                                      1
+                                       of 
+                                      2
+                                       
+                                    </span>
+                                    <span>
+                                      <SeeAllButton
                                         disabled={false}
                                         fluid={false}
-                                        size="small"
                                         to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
                                       >
-                                        <Ref
-                                          innerRef={
+                                        <Button
+                                          as={
                                             Object {
-                                              "current": null,
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "propTypes": Object {
+                                                "innerRef": [MockFunction] {
+                                                  "calls": Array [
+                                                    Array [
+                                                      Object {
+                                                        "children": "loanid-1",
+                                                        "data-test": "loanid-1",
+                                                        "to": "loan/loanid-1",
+                                                      },
+                                                      "innerRef",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": undefined,
+                                                        "to": "patron/1",
+                                                      },
+                                                      "innerRef",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": "loanid-2",
+                                                        "data-test": "loanid-2",
+                                                        "to": "loan/loanid-2",
+                                                      },
+                                                      "innerRef",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": undefined,
+                                                        "to": "patron/1",
+                                                      },
+                                                      "innerRef",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": "loanid-1",
+                                                        "data-test": "loanid-1",
+                                                        "to": "loan/loanid-1",
+                                                      },
+                                                      "innerRef",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": undefined,
+                                                        "to": "patron/1",
+                                                      },
+                                                      "innerRef",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "aria-pressed": undefined,
+                                                        "children": Array [
+                                                          "See all",
+                                                          false,
+                                                          false,
+                                                        ],
+                                                        "className": "ui small button",
+                                                        "disabled": undefined,
+                                                        "onClick": [Function],
+                                                        "role": "button",
+                                                        "tabIndex": undefined,
+                                                        "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
+                                                        "type": undefined,
+                                                      },
+                                                      "innerRef",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "aria-pressed": undefined,
+                                                        "children": Array [
+                                                          "See all",
+                                                          false,
+                                                          false,
+                                                        ],
+                                                        "className": "ui small button",
+                                                        "disabled": undefined,
+                                                        "onClick": [Function],
+                                                        "role": "button",
+                                                        "tabIndex": undefined,
+                                                        "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
+                                                        "type": undefined,
+                                                      },
+                                                      "innerRef",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                  ],
+                                                  "results": Array [
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                  ],
+                                                },
+                                                "onClick": [MockFunction] {
+                                                  "calls": Array [
+                                                    Array [
+                                                      Object {
+                                                        "children": "loanid-1",
+                                                        "data-test": "loanid-1",
+                                                        "to": "loan/loanid-1",
+                                                      },
+                                                      "onClick",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": undefined,
+                                                        "to": "patron/1",
+                                                      },
+                                                      "onClick",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": "loanid-2",
+                                                        "data-test": "loanid-2",
+                                                        "to": "loan/loanid-2",
+                                                      },
+                                                      "onClick",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": undefined,
+                                                        "to": "patron/1",
+                                                      },
+                                                      "onClick",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": "loanid-1",
+                                                        "data-test": "loanid-1",
+                                                        "to": "loan/loanid-1",
+                                                      },
+                                                      "onClick",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": undefined,
+                                                        "to": "patron/1",
+                                                      },
+                                                      "onClick",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "aria-pressed": undefined,
+                                                        "children": Array [
+                                                          "See all",
+                                                          false,
+                                                          false,
+                                                        ],
+                                                        "className": "ui small button",
+                                                        "disabled": undefined,
+                                                        "onClick": [Function],
+                                                        "role": "button",
+                                                        "tabIndex": undefined,
+                                                        "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
+                                                        "type": undefined,
+                                                      },
+                                                      "onClick",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "aria-pressed": undefined,
+                                                        "children": Array [
+                                                          "See all",
+                                                          false,
+                                                          false,
+                                                        ],
+                                                        "className": "ui small button",
+                                                        "disabled": undefined,
+                                                        "onClick": [Function],
+                                                        "role": "button",
+                                                        "tabIndex": undefined,
+                                                        "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
+                                                        "type": undefined,
+                                                      },
+                                                      "onClick",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                  ],
+                                                  "results": Array [
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                  ],
+                                                },
+                                                "replace": [MockFunction] {
+                                                  "calls": Array [
+                                                    Array [
+                                                      Object {
+                                                        "children": "loanid-1",
+                                                        "data-test": "loanid-1",
+                                                        "to": "loan/loanid-1",
+                                                      },
+                                                      "replace",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": undefined,
+                                                        "to": "patron/1",
+                                                      },
+                                                      "replace",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": "loanid-2",
+                                                        "data-test": "loanid-2",
+                                                        "to": "loan/loanid-2",
+                                                      },
+                                                      "replace",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": undefined,
+                                                        "to": "patron/1",
+                                                      },
+                                                      "replace",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": "loanid-1",
+                                                        "data-test": "loanid-1",
+                                                        "to": "loan/loanid-1",
+                                                      },
+                                                      "replace",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": undefined,
+                                                        "to": "patron/1",
+                                                      },
+                                                      "replace",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "aria-pressed": undefined,
+                                                        "children": Array [
+                                                          "See all",
+                                                          false,
+                                                          false,
+                                                        ],
+                                                        "className": "ui small button",
+                                                        "disabled": undefined,
+                                                        "onClick": [Function],
+                                                        "role": "button",
+                                                        "tabIndex": undefined,
+                                                        "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
+                                                        "type": undefined,
+                                                      },
+                                                      "replace",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "aria-pressed": undefined,
+                                                        "children": Array [
+                                                          "See all",
+                                                          false,
+                                                          false,
+                                                        ],
+                                                        "className": "ui small button",
+                                                        "disabled": undefined,
+                                                        "onClick": [Function],
+                                                        "role": "button",
+                                                        "tabIndex": undefined,
+                                                        "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
+                                                        "type": undefined,
+                                                      },
+                                                      "replace",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                  ],
+                                                  "results": Array [
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                  ],
+                                                },
+                                                "target": [MockFunction] {
+                                                  "calls": Array [
+                                                    Array [
+                                                      Object {
+                                                        "children": "loanid-1",
+                                                        "data-test": "loanid-1",
+                                                        "to": "loan/loanid-1",
+                                                      },
+                                                      "target",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": undefined,
+                                                        "to": "patron/1",
+                                                      },
+                                                      "target",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": "loanid-2",
+                                                        "data-test": "loanid-2",
+                                                        "to": "loan/loanid-2",
+                                                      },
+                                                      "target",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": undefined,
+                                                        "to": "patron/1",
+                                                      },
+                                                      "target",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": "loanid-1",
+                                                        "data-test": "loanid-1",
+                                                        "to": "loan/loanid-1",
+                                                      },
+                                                      "target",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": undefined,
+                                                        "to": "patron/1",
+                                                      },
+                                                      "target",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "aria-pressed": undefined,
+                                                        "children": Array [
+                                                          "See all",
+                                                          false,
+                                                          false,
+                                                        ],
+                                                        "className": "ui small button",
+                                                        "disabled": undefined,
+                                                        "onClick": [Function],
+                                                        "role": "button",
+                                                        "tabIndex": undefined,
+                                                        "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
+                                                        "type": undefined,
+                                                      },
+                                                      "target",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "aria-pressed": undefined,
+                                                        "children": Array [
+                                                          "See all",
+                                                          false,
+                                                          false,
+                                                        ],
+                                                        "className": "ui small button",
+                                                        "disabled": undefined,
+                                                        "onClick": [Function],
+                                                        "role": "button",
+                                                        "tabIndex": undefined,
+                                                        "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
+                                                        "type": undefined,
+                                                      },
+                                                      "target",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                  ],
+                                                  "results": Array [
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                  ],
+                                                },
+                                                "to": [MockFunction] {
+                                                  "calls": Array [
+                                                    Array [
+                                                      Object {
+                                                        "children": "loanid-1",
+                                                        "data-test": "loanid-1",
+                                                        "to": "loan/loanid-1",
+                                                      },
+                                                      "to",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": undefined,
+                                                        "to": "patron/1",
+                                                      },
+                                                      "to",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": "loanid-2",
+                                                        "data-test": "loanid-2",
+                                                        "to": "loan/loanid-2",
+                                                      },
+                                                      "to",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": undefined,
+                                                        "to": "patron/1",
+                                                      },
+                                                      "to",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": "loanid-1",
+                                                        "data-test": "loanid-1",
+                                                        "to": "loan/loanid-1",
+                                                      },
+                                                      "to",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": undefined,
+                                                        "to": "patron/1",
+                                                      },
+                                                      "to",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "aria-pressed": undefined,
+                                                        "children": Array [
+                                                          "See all",
+                                                          false,
+                                                          false,
+                                                        ],
+                                                        "className": "ui small button",
+                                                        "disabled": undefined,
+                                                        "onClick": [Function],
+                                                        "role": "button",
+                                                        "tabIndex": undefined,
+                                                        "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
+                                                        "type": undefined,
+                                                      },
+                                                      "to",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "aria-pressed": undefined,
+                                                        "children": Array [
+                                                          "See all",
+                                                          false,
+                                                          false,
+                                                        ],
+                                                        "className": "ui small button",
+                                                        "disabled": undefined,
+                                                        "onClick": [Function],
+                                                        "role": "button",
+                                                        "tabIndex": undefined,
+                                                        "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
+                                                        "type": undefined,
+                                                      },
+                                                      "to",
+                                                      "ForwardRef(Link)",
+                                                      "prop",
+                                                      null,
+                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                    ],
+                                                  ],
+                                                  "results": Array [
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                              "render": [MockFunction] {
+                                                "calls": Array [
+                                                  Array [
+                                                    Object {
+                                                      "children": "loanid-1",
+                                                      "data-test": "loanid-1",
+                                                      "to": "loan/loanid-1",
+                                                    },
+                                                    null,
+                                                  ],
+                                                  Array [
+                                                    Object {
+                                                      "children": undefined,
+                                                      "to": "patron/1",
+                                                    },
+                                                    null,
+                                                  ],
+                                                  Array [
+                                                    Object {
+                                                      "children": "loanid-2",
+                                                      "data-test": "loanid-2",
+                                                      "to": "loan/loanid-2",
+                                                    },
+                                                    null,
+                                                  ],
+                                                  Array [
+                                                    Object {
+                                                      "children": undefined,
+                                                      "to": "patron/1",
+                                                    },
+                                                    null,
+                                                  ],
+                                                  Array [
+                                                    Object {
+                                                      "children": "loanid-1",
+                                                      "data-test": "loanid-1",
+                                                      "to": "loan/loanid-1",
+                                                    },
+                                                    null,
+                                                  ],
+                                                  Array [
+                                                    Object {
+                                                      "children": undefined,
+                                                      "to": "patron/1",
+                                                    },
+                                                    null,
+                                                  ],
+                                                  Array [
+                                                    Object {
+                                                      "aria-pressed": undefined,
+                                                      "children": Array [
+                                                        "See all",
+                                                        false,
+                                                        false,
+                                                      ],
+                                                      "className": "ui small button",
+                                                      "disabled": undefined,
+                                                      "onClick": [Function],
+                                                      "role": "button",
+                                                      "tabIndex": undefined,
+                                                      "to": "/backoffice/loans?q=document_pid:111 AND state:(PENDING)",
+                                                      "type": undefined,
+                                                    },
+                                                    [Function],
+                                                  ],
+                                                ],
+                                                "results": Array [
+                                                  Object {
+                                                    "type": "return",
+                                                    "value": undefined,
+                                                  },
+                                                  Object {
+                                                    "type": "return",
+                                                    "value": undefined,
+                                                  },
+                                                  Object {
+                                                    "type": "return",
+                                                    "value": undefined,
+                                                  },
+                                                  Object {
+                                                    "type": "return",
+                                                    "value": undefined,
+                                                  },
+                                                  Object {
+                                                    "type": "return",
+                                                    "value": undefined,
+                                                  },
+                                                  Object {
+                                                    "type": "return",
+                                                    "value": undefined,
+                                                  },
+                                                  Object {
+                                                    "type": "return",
+                                                    "value": undefined,
+                                                  },
+                                                ],
+                                              },
                                             }
                                           }
+                                          disabled={false}
+                                          fluid={false}
+                                          size="small"
+                                          to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
                                         >
-                                          <RefForward
+                                          <Ref
                                             innerRef={
                                               Object {
                                                 "current": null,
                                               }
                                             }
                                           >
-                                            <ForwardRef(Link)
-                                              className="ui small button"
-                                              onClick={[Function]}
-                                              role="button"
-                                              to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
-                                            />
-                                          </RefForward>
-                                        </Ref>
-                                      </Button>
-                                    </SeeAllButton>
-                                  </span>
-                                  <span />
-                                </th>
-                              </TableCell>
-                            </TableHeaderCell>
-                          </tr>
-                        </TableRow>
-                      </tfoot>
-                    </TableHeader>
-                  </TableFooter>
-                </ResultsTableFooter>
-              </table>
-            </Table>
-          </ResultsTable>
-        </Error>
+                                            <RefForward
+                                              innerRef={
+                                                Object {
+                                                  "current": null,
+                                                }
+                                              }
+                                            >
+                                              <ForwardRef(Link)
+                                                className="ui small button"
+                                                onClick={[Function]}
+                                                role="button"
+                                                to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
+                                              />
+                                            </RefForward>
+                                          </Ref>
+                                        </Button>
+                                      </SeeAllButton>
+                                    </span>
+                                    <span />
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                            </tr>
+                          </TableRow>
+                        </tfoot>
+                      </TableHeader>
+                    </TableFooter>
+                  </ResultsTableFooter>
+                </table>
+              </Table>
+            </ResultsTable>
+          </Error>
+        </DevModeWrapper>
       </Overridable>
     </Loader>
   </Overridable(Loader)>

@@ -163,637 +163,641 @@ exports[`DocumentItems tests should render item 1`] = `
           id="Loader.layout"
           isLoading={false}
         >
-          <Error
-            FallbackComponent={[Function]}
-            boundary={false}
-            error={null}
-            onUIError={null}
+          <DevModeWrapper
+            id="Loader.layout"
           >
-            <ResultsTable
-              columns={
-                Array [
-                  Object {
-                    "field": "metadata.barcode",
-                    "formatter": [Function],
-                    "title": "Barcode",
-                  },
-                  Object {
-                    "field": "metadata.status",
-                    "title": "Status",
-                  },
-                  Object {
-                    "field": "metadata.medium",
-                    "title": "Medium",
-                  },
-                  Object {
-                    "field": "metadata.internal_location.name",
-                    "formatter": [Function],
-                    "title": "Location",
-                  },
-                  Object {
-                    "field": "metadata.shelf",
-                    "title": "Shelf",
-                  },
-                  Object {
-                    "field": "metadata.circulation_restriction",
-                    "title": "Restrictions",
-                  },
-                  Object {
-                    "field": "metadata.circulation.state",
-                    "formatter": [Function],
-                    "title": "Loan Status",
-                  },
-                ]
-              }
-              currentPage={1}
-              data={
-                Array [
-                  Object {
-                    "ID": "1",
-                    "metadata": Object {
-                      "barcode": "123456789-1",
-                      "circulation_restriction": "NO_RESTRICTION",
-                      "document": Object {
-                        "title": "Document 1 title",
-                      },
-                      "document_pid": "docid-1",
-                      "internal_location": Object {
-                        "location": Object {
-                          "name": "Somewhere",
-                        },
-                      },
-                      "internal_location_pid": "ilocid-1",
-                      "medium": "NOT_SPECIFIED",
-                      "pid": "itemid-1",
-                      "shelf": "Shelf 1",
-                      "status": "MISSING",
-                    },
-                    "pid": "item1",
-                  },
-                  Object {
-                    "id": "2",
-                    "metadata": Object {
-                      "barcode": "123456789-2",
-                      "circulation_restriction": "ONE_WEEK",
-                      "document": Object {
-                        "title": "Document 2 title",
-                      },
-                      "document_pid": "docid-1",
-                      "internal_location": Object {
-                        "location": Object {
-                          "name": "Somewhere Else",
-                        },
-                      },
-                      "internal_location_pid": "ilocid-2",
-                      "medium": "NOT_SPECIFIED",
-                      "pid": "itemid-2",
-                      "shelf": "Shelf 2",
-                      "status": "CAN_CIRCULATE",
-                    },
-                    "pid": "item2",
-                  },
-                ]
-              }
-              fixed={false}
-              headerActionComponent={null}
-              name="attached items"
-              paginationComponent={null}
-              renderEmptyResultsElement={null}
-              seeAllComponent={
-                <SeeAllButton
-                  disabled={false}
-                  fluid={false}
-                  to="/backoffice/items?q=document_pid:111"
-                />
-              }
-              showAllResults={false}
-              showFooterSummary={true}
-              showMaxRows={5}
-              singleLine={true}
-              subtitle=""
-              title=""
-              totalHitsCount={2}
+            <Error
+              FallbackComponent={[Function]}
+              boundary={false}
+              error={null}
+              onUIError={null}
             >
-              <Table
-                as="table"
-                compact={true}
+              <ResultsTable
+                columns={
+                  Array [
+                    Object {
+                      "field": "metadata.barcode",
+                      "formatter": [Function],
+                      "title": "Barcode",
+                    },
+                    Object {
+                      "field": "metadata.status",
+                      "title": "Status",
+                    },
+                    Object {
+                      "field": "metadata.medium",
+                      "title": "Medium",
+                    },
+                    Object {
+                      "field": "metadata.internal_location.name",
+                      "formatter": [Function],
+                      "title": "Location",
+                    },
+                    Object {
+                      "field": "metadata.shelf",
+                      "title": "Shelf",
+                    },
+                    Object {
+                      "field": "metadata.circulation_restriction",
+                      "title": "Restrictions",
+                    },
+                    Object {
+                      "field": "metadata.circulation.state",
+                      "formatter": [Function],
+                      "title": "Loan Status",
+                    },
+                  ]
+                }
+                currentPage={1}
+                data={
+                  Array [
+                    Object {
+                      "ID": "1",
+                      "metadata": Object {
+                        "barcode": "123456789-1",
+                        "circulation_restriction": "NO_RESTRICTION",
+                        "document": Object {
+                          "title": "Document 1 title",
+                        },
+                        "document_pid": "docid-1",
+                        "internal_location": Object {
+                          "location": Object {
+                            "name": "Somewhere",
+                          },
+                        },
+                        "internal_location_pid": "ilocid-1",
+                        "medium": "NOT_SPECIFIED",
+                        "pid": "itemid-1",
+                        "shelf": "Shelf 1",
+                        "status": "MISSING",
+                      },
+                      "pid": "item1",
+                    },
+                    Object {
+                      "id": "2",
+                      "metadata": Object {
+                        "barcode": "123456789-2",
+                        "circulation_restriction": "ONE_WEEK",
+                        "document": Object {
+                          "title": "Document 2 title",
+                        },
+                        "document_pid": "docid-1",
+                        "internal_location": Object {
+                          "location": Object {
+                            "name": "Somewhere Else",
+                          },
+                        },
+                        "internal_location_pid": "ilocid-2",
+                        "medium": "NOT_SPECIFIED",
+                        "pid": "itemid-2",
+                        "shelf": "Shelf 2",
+                        "status": "CAN_CIRCULATE",
+                      },
+                      "pid": "item2",
+                    },
+                  ]
+                }
                 fixed={false}
+                headerActionComponent={null}
                 name="attached items"
-                selectable={true}
+                paginationComponent={null}
+                renderEmptyResultsElement={null}
+                seeAllComponent={
+                  <SeeAllButton
+                    disabled={false}
+                    fluid={false}
+                    to="/backoffice/items?q=document_pid:111"
+                  />
+                }
+                showAllResults={false}
+                showFooterSummary={true}
+                showMaxRows={5}
                 singleLine={true}
-                striped={true}
                 subtitle=""
                 title=""
-                unstackable={true}
+                totalHitsCount={2}
               >
-                <table
-                  className="ui selectable single line striped unstackable compact table"
+                <Table
+                  as="table"
+                  compact={true}
+                  fixed={false}
                   name="attached items"
+                  selectable={true}
+                  singleLine={true}
+                  striped={true}
                   subtitle=""
                   title=""
+                  unstackable={true}
                 >
-                  <ResultsTableHeader
-                    columns={
-                      Array [
-                        Object {
-                          "field": "metadata.barcode",
-                          "formatter": [Function],
-                          "title": "Barcode",
-                        },
-                        Object {
-                          "field": "metadata.status",
-                          "title": "Status",
-                        },
-                        Object {
-                          "field": "metadata.medium",
-                          "title": "Medium",
-                        },
-                        Object {
-                          "field": "metadata.internal_location.name",
-                          "formatter": [Function],
-                          "title": "Location",
-                        },
-                        Object {
-                          "field": "metadata.shelf",
-                          "title": "Shelf",
-                        },
-                        Object {
-                          "field": "metadata.circulation_restriction",
-                          "title": "Restrictions",
-                        },
-                        Object {
-                          "field": "metadata.circulation.state",
-                          "formatter": [Function],
-                          "title": "Loan Status",
-                        },
-                      ]
-                    }
+                  <table
+                    className="ui selectable single line striped unstackable compact table"
+                    name="attached items"
+                    subtitle=""
+                    title=""
                   >
-                    <TableHeader
-                      as="thead"
+                    <ResultsTableHeader
+                      columns={
+                        Array [
+                          Object {
+                            "field": "metadata.barcode",
+                            "formatter": [Function],
+                            "title": "Barcode",
+                          },
+                          Object {
+                            "field": "metadata.status",
+                            "title": "Status",
+                          },
+                          Object {
+                            "field": "metadata.medium",
+                            "title": "Medium",
+                          },
+                          Object {
+                            "field": "metadata.internal_location.name",
+                            "formatter": [Function],
+                            "title": "Location",
+                          },
+                          Object {
+                            "field": "metadata.shelf",
+                            "title": "Shelf",
+                          },
+                          Object {
+                            "field": "metadata.circulation_restriction",
+                            "title": "Restrictions",
+                          },
+                          Object {
+                            "field": "metadata.circulation.state",
+                            "formatter": [Function],
+                            "title": "Loan Status",
+                          },
+                        ]
+                      }
                     >
-                      <thead
-                        className=""
+                      <TableHeader
+                        as="thead"
                       >
-                        <TableRow
-                          as="tr"
-                          cellAs="td"
-                          data-test="header"
+                        <thead
+                          className=""
                         >
-                          <tr
-                            className=""
+                          <TableRow
+                            as="tr"
+                            cellAs="td"
                             data-test="header"
                           >
-                            <TableHeaderCell
-                              as="th"
-                              key="Barcode"
+                            <tr
+                              className=""
+                              data-test="header"
                             >
-                              <TableCell
+                              <TableHeaderCell
                                 as="th"
-                                className=""
+                                key="Barcode"
                               >
-                                <th
+                                <TableCell
+                                  as="th"
                                   className=""
                                 >
-                                  Barcode
-                                </th>
-                              </TableCell>
-                            </TableHeaderCell>
-                            <TableHeaderCell
-                              as="th"
-                              key="Status"
-                            >
-                              <TableCell
+                                  <th
+                                    className=""
+                                  >
+                                    Barcode
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
                                 as="th"
-                                className=""
+                                key="Status"
                               >
-                                <th
+                                <TableCell
+                                  as="th"
                                   className=""
                                 >
-                                  Status
-                                </th>
-                              </TableCell>
-                            </TableHeaderCell>
-                            <TableHeaderCell
-                              as="th"
-                              key="Medium"
-                            >
-                              <TableCell
+                                  <th
+                                    className=""
+                                  >
+                                    Status
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
                                 as="th"
-                                className=""
+                                key="Medium"
                               >
-                                <th
+                                <TableCell
+                                  as="th"
                                   className=""
                                 >
-                                  Medium
-                                </th>
-                              </TableCell>
-                            </TableHeaderCell>
-                            <TableHeaderCell
-                              as="th"
-                              key="Location"
-                            >
-                              <TableCell
+                                  <th
+                                    className=""
+                                  >
+                                    Medium
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
                                 as="th"
-                                className=""
+                                key="Location"
                               >
-                                <th
+                                <TableCell
+                                  as="th"
                                   className=""
                                 >
-                                  Location
-                                </th>
-                              </TableCell>
-                            </TableHeaderCell>
-                            <TableHeaderCell
-                              as="th"
-                              key="Shelf"
-                            >
-                              <TableCell
+                                  <th
+                                    className=""
+                                  >
+                                    Location
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
                                 as="th"
-                                className=""
+                                key="Shelf"
                               >
-                                <th
+                                <TableCell
+                                  as="th"
                                   className=""
                                 >
-                                  Shelf
-                                </th>
-                              </TableCell>
-                            </TableHeaderCell>
-                            <TableHeaderCell
-                              as="th"
-                              key="Restrictions"
-                            >
-                              <TableCell
+                                  <th
+                                    className=""
+                                  >
+                                    Shelf
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
                                 as="th"
-                                className=""
+                                key="Restrictions"
                               >
-                                <th
+                                <TableCell
+                                  as="th"
                                   className=""
                                 >
-                                  Restrictions
-                                </th>
-                              </TableCell>
-                            </TableHeaderCell>
-                            <TableHeaderCell
-                              as="th"
-                              key="Loan Status"
-                            >
-                              <TableCell
+                                  <th
+                                    className=""
+                                  >
+                                    Restrictions
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
                                 as="th"
-                                className=""
+                                key="Loan Status"
                               >
-                                <th
+                                <TableCell
+                                  as="th"
                                   className=""
                                 >
-                                  Loan Status
-                                </th>
-                              </TableCell>
-                            </TableHeaderCell>
-                          </tr>
-                        </TableRow>
-                      </thead>
-                    </TableHeader>
-                  </ResultsTableHeader>
-                  <ResultsTableBody
-                    columns={
-                      Array [
-                        Object {
-                          "field": "metadata.barcode",
-                          "formatter": [Function],
-                          "title": "Barcode",
-                        },
-                        Object {
-                          "field": "metadata.status",
-                          "title": "Status",
-                        },
-                        Object {
-                          "field": "metadata.medium",
-                          "title": "Medium",
-                        },
-                        Object {
-                          "field": "metadata.internal_location.name",
-                          "formatter": [Function],
-                          "title": "Location",
-                        },
-                        Object {
-                          "field": "metadata.shelf",
-                          "title": "Shelf",
-                        },
-                        Object {
-                          "field": "metadata.circulation_restriction",
-                          "title": "Restrictions",
-                        },
-                        Object {
-                          "field": "metadata.circulation.state",
-                          "formatter": [Function],
-                          "title": "Loan Status",
-                        },
-                      ]
-                    }
-                    rows={
-                      Array [
-                        Object {
-                          "ID": "1",
-                          "metadata": Object {
-                            "barcode": "123456789-1",
-                            "circulation_restriction": "NO_RESTRICTION",
-                            "document": Object {
-                              "title": "Document 1 title",
-                            },
-                            "document_pid": "docid-1",
-                            "internal_location": Object {
-                              "location": Object {
-                                "name": "Somewhere",
-                              },
-                            },
-                            "internal_location_pid": "ilocid-1",
-                            "medium": "NOT_SPECIFIED",
-                            "pid": "itemid-1",
-                            "shelf": "Shelf 1",
-                            "status": "MISSING",
+                                  <th
+                                    className=""
+                                  >
+                                    Loan Status
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                            </tr>
+                          </TableRow>
+                        </thead>
+                      </TableHeader>
+                    </ResultsTableHeader>
+                    <ResultsTableBody
+                      columns={
+                        Array [
+                          Object {
+                            "field": "metadata.barcode",
+                            "formatter": [Function],
+                            "title": "Barcode",
                           },
-                          "pid": "item1",
-                        },
-                        Object {
-                          "id": "2",
-                          "metadata": Object {
-                            "barcode": "123456789-2",
-                            "circulation_restriction": "ONE_WEEK",
-                            "document": Object {
-                              "title": "Document 2 title",
-                            },
-                            "document_pid": "docid-1",
-                            "internal_location": Object {
-                              "location": Object {
-                                "name": "Somewhere Else",
-                              },
-                            },
-                            "internal_location_pid": "ilocid-2",
-                            "medium": "NOT_SPECIFIED",
-                            "pid": "itemid-2",
-                            "shelf": "Shelf 2",
-                            "status": "CAN_CIRCULATE",
+                          Object {
+                            "field": "metadata.status",
+                            "title": "Status",
                           },
-                          "pid": "item2",
-                        },
-                      ]
-                    }
-                  >
-                    <TableBody
-                      as="tbody"
+                          Object {
+                            "field": "metadata.medium",
+                            "title": "Medium",
+                          },
+                          Object {
+                            "field": "metadata.internal_location.name",
+                            "formatter": [Function],
+                            "title": "Location",
+                          },
+                          Object {
+                            "field": "metadata.shelf",
+                            "title": "Shelf",
+                          },
+                          Object {
+                            "field": "metadata.circulation_restriction",
+                            "title": "Restrictions",
+                          },
+                          Object {
+                            "field": "metadata.circulation.state",
+                            "formatter": [Function],
+                            "title": "Loan Status",
+                          },
+                        ]
+                      }
+                      rows={
+                        Array [
+                          Object {
+                            "ID": "1",
+                            "metadata": Object {
+                              "barcode": "123456789-1",
+                              "circulation_restriction": "NO_RESTRICTION",
+                              "document": Object {
+                                "title": "Document 1 title",
+                              },
+                              "document_pid": "docid-1",
+                              "internal_location": Object {
+                                "location": Object {
+                                  "name": "Somewhere",
+                                },
+                              },
+                              "internal_location_pid": "ilocid-1",
+                              "medium": "NOT_SPECIFIED",
+                              "pid": "itemid-1",
+                              "shelf": "Shelf 1",
+                              "status": "MISSING",
+                            },
+                            "pid": "item1",
+                          },
+                          Object {
+                            "id": "2",
+                            "metadata": Object {
+                              "barcode": "123456789-2",
+                              "circulation_restriction": "ONE_WEEK",
+                              "document": Object {
+                                "title": "Document 2 title",
+                              },
+                              "document_pid": "docid-1",
+                              "internal_location": Object {
+                                "location": Object {
+                                  "name": "Somewhere Else",
+                                },
+                              },
+                              "internal_location_pid": "ilocid-2",
+                              "medium": "NOT_SPECIFIED",
+                              "pid": "itemid-2",
+                              "shelf": "Shelf 2",
+                              "status": "CAN_CIRCULATE",
+                            },
+                            "pid": "item2",
+                          },
+                        ]
+                      }
                     >
-                      <tbody
-                        className=""
+                      <TableBody
+                        as="tbody"
                       >
-                        <TableRow
-                          as="tr"
-                          cellAs="td"
-                          data-test="item1"
-                          key="item1"
+                        <tbody
+                          className=""
                         >
-                          <tr
-                            className=""
+                          <TableRow
+                            as="tr"
+                            cellAs="td"
                             data-test="item1"
+                            key="item1"
                           >
-                            <TableCell
-                              as="td"
-                              data-label="Barcode"
-                              data-test="0-item1"
-                              key="0-item1"
+                            <tr
+                              className=""
+                              data-test="item1"
                             >
-                              <td
-                                className=""
+                              <TableCell
+                                as="td"
                                 data-label="Barcode"
                                 data-test="0-item1"
+                                key="0-item1"
                               >
-                                <ForwardRef(Link)
-                                  data-test="itemid-1"
-                                  to="url/itemid-1"
-                                />
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Status"
-                              data-test="1-item1"
-                              key="1-item1"
-                            >
-                              <td
-                                className=""
+                                <td
+                                  className=""
+                                  data-label="Barcode"
+                                  data-test="0-item1"
+                                >
+                                  <ForwardRef(Link)
+                                    data-test="itemid-1"
+                                    to="url/itemid-1"
+                                  />
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
                                 data-label="Status"
                                 data-test="1-item1"
+                                key="1-item1"
                               >
-                                MISSING
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Medium"
-                              data-test="2-item1"
-                              key="2-item1"
-                            >
-                              <td
-                                className=""
+                                <td
+                                  className=""
+                                  data-label="Status"
+                                  data-test="1-item1"
+                                >
+                                  MISSING
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
                                 data-label="Medium"
                                 data-test="2-item1"
+                                key="2-item1"
                               >
-                                NOT_SPECIFIED
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Location"
-                              data-test="3-item1"
-                              key="3-item1"
-                            >
-                              <td
-                                className=""
+                                <td
+                                  className=""
+                                  data-label="Medium"
+                                  data-test="2-item1"
+                                >
+                                  NOT_SPECIFIED
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
                                 data-label="Location"
                                 data-test="3-item1"
+                                key="3-item1"
                               >
-                                undefined (Somewhere)
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Shelf"
-                              data-test="4-item1"
-                              key="4-item1"
-                            >
-                              <td
-                                className=""
+                                <td
+                                  className=""
+                                  data-label="Location"
+                                  data-test="3-item1"
+                                >
+                                  undefined (Somewhere)
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
                                 data-label="Shelf"
                                 data-test="4-item1"
+                                key="4-item1"
                               >
-                                Shelf 1
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Restrictions"
-                              data-test="5-item1"
-                              key="5-item1"
-                            >
-                              <td
-                                className=""
+                                <td
+                                  className=""
+                                  data-label="Shelf"
+                                  data-test="4-item1"
+                                >
+                                  Shelf 1
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
                                 data-label="Restrictions"
                                 data-test="5-item1"
+                                key="5-item1"
                               >
-                                NO_RESTRICTION
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Loan Status"
-                              data-test="6-item1"
-                              key="6-item1"
-                            >
-                              <td
-                                className=""
+                                <td
+                                  className=""
+                                  data-label="Restrictions"
+                                  data-test="5-item1"
+                                >
+                                  NO_RESTRICTION
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
                                 data-label="Loan Status"
                                 data-test="6-item1"
+                                key="6-item1"
                               >
-                                -
-                              </td>
-                            </TableCell>
-                          </tr>
-                        </TableRow>
-                        <TableRow
-                          as="tr"
-                          cellAs="td"
-                          data-test="item2"
-                          key="item2"
-                        >
-                          <tr
-                            className=""
+                                <td
+                                  className=""
+                                  data-label="Loan Status"
+                                  data-test="6-item1"
+                                >
+                                  -
+                                </td>
+                              </TableCell>
+                            </tr>
+                          </TableRow>
+                          <TableRow
+                            as="tr"
+                            cellAs="td"
                             data-test="item2"
+                            key="item2"
                           >
-                            <TableCell
-                              as="td"
-                              data-label="Barcode"
-                              data-test="0-item2"
-                              key="0-item2"
+                            <tr
+                              className=""
+                              data-test="item2"
                             >
-                              <td
-                                className=""
+                              <TableCell
+                                as="td"
                                 data-label="Barcode"
                                 data-test="0-item2"
+                                key="0-item2"
                               >
-                                <ForwardRef(Link)
-                                  data-test="itemid-2"
-                                  to="url/itemid-2"
-                                />
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Status"
-                              data-test="1-item2"
-                              key="1-item2"
-                            >
-                              <td
-                                className=""
+                                <td
+                                  className=""
+                                  data-label="Barcode"
+                                  data-test="0-item2"
+                                >
+                                  <ForwardRef(Link)
+                                    data-test="itemid-2"
+                                    to="url/itemid-2"
+                                  />
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
                                 data-label="Status"
                                 data-test="1-item2"
+                                key="1-item2"
                               >
-                                CAN_CIRCULATE
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Medium"
-                              data-test="2-item2"
-                              key="2-item2"
-                            >
-                              <td
-                                className=""
+                                <td
+                                  className=""
+                                  data-label="Status"
+                                  data-test="1-item2"
+                                >
+                                  CAN_CIRCULATE
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
                                 data-label="Medium"
                                 data-test="2-item2"
+                                key="2-item2"
                               >
-                                NOT_SPECIFIED
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Location"
-                              data-test="3-item2"
-                              key="3-item2"
-                            >
-                              <td
-                                className=""
+                                <td
+                                  className=""
+                                  data-label="Medium"
+                                  data-test="2-item2"
+                                >
+                                  NOT_SPECIFIED
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
                                 data-label="Location"
                                 data-test="3-item2"
+                                key="3-item2"
                               >
-                                undefined (Somewhere Else)
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Shelf"
-                              data-test="4-item2"
-                              key="4-item2"
-                            >
-                              <td
-                                className=""
+                                <td
+                                  className=""
+                                  data-label="Location"
+                                  data-test="3-item2"
+                                >
+                                  undefined (Somewhere Else)
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
                                 data-label="Shelf"
                                 data-test="4-item2"
+                                key="4-item2"
                               >
-                                Shelf 2
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Restrictions"
-                              data-test="5-item2"
-                              key="5-item2"
-                            >
-                              <td
-                                className=""
+                                <td
+                                  className=""
+                                  data-label="Shelf"
+                                  data-test="4-item2"
+                                >
+                                  Shelf 2
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
                                 data-label="Restrictions"
                                 data-test="5-item2"
+                                key="5-item2"
                               >
-                                ONE_WEEK
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Loan Status"
-                              data-test="6-item2"
-                              key="6-item2"
-                            >
-                              <td
-                                className=""
+                                <td
+                                  className=""
+                                  data-label="Restrictions"
+                                  data-test="5-item2"
+                                >
+                                  ONE_WEEK
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
                                 data-label="Loan Status"
                                 data-test="6-item2"
+                                key="6-item2"
                               >
-                                -
-                              </td>
-                            </TableCell>
-                          </tr>
-                        </TableRow>
-                      </tbody>
-                    </TableBody>
-                  </ResultsTableBody>
-                  <ResultsTableFooter
-                    allRowsNumber={2}
-                    columnsNumber={7}
-                    currentPage={1}
-                    paginationComponent={null}
-                    seeAllComponent={
-                      <SeeAllButton
-                        disabled={false}
-                        fluid={false}
-                        to="/backoffice/items?q=document_pid:111"
-                      />
-                    }
-                    showAllResults={false}
-                    showFooterSummary={true}
-                    showMaxRows={5}
-                  />
-                </table>
-              </Table>
-            </ResultsTable>
-          </Error>
+                                <td
+                                  className=""
+                                  data-label="Loan Status"
+                                  data-test="6-item2"
+                                >
+                                  -
+                                </td>
+                              </TableCell>
+                            </tr>
+                          </TableRow>
+                        </tbody>
+                      </TableBody>
+                    </ResultsTableBody>
+                    <ResultsTableFooter
+                      allRowsNumber={2}
+                      columnsNumber={7}
+                      currentPage={1}
+                      paginationComponent={null}
+                      seeAllComponent={
+                        <SeeAllButton
+                          disabled={false}
+                          fluid={false}
+                          to="/backoffice/items?q=document_pid:111"
+                        />
+                      }
+                      showAllResults={false}
+                      showFooterSummary={true}
+                      showMaxRows={5}
+                    />
+                  </table>
+                </Table>
+              </ResultsTable>
+            </Error>
+          </DevModeWrapper>
         </Overridable>
       </Loader>
     </Overridable(Loader)>
@@ -850,99 +854,103 @@ exports[`DocumentItems tests should render show a message with no items 1`] = `
           id="Loader.layout"
           isLoading={false}
         >
-          <Error
-            FallbackComponent={[Function]}
-            boundary={false}
-            error={null}
-            onUIError={null}
+          <DevModeWrapper
+            id="Loader.layout"
           >
-            <ResultsTable
-              columns={
-                Array [
-                  Object {
-                    "field": "metadata.barcode",
-                    "formatter": [Function],
-                    "title": "Barcode",
-                  },
-                  Object {
-                    "field": "metadata.status",
-                    "title": "Status",
-                  },
-                  Object {
-                    "field": "metadata.medium",
-                    "title": "Medium",
-                  },
-                  Object {
-                    "field": "metadata.internal_location.name",
-                    "formatter": [Function],
-                    "title": "Location",
-                  },
-                  Object {
-                    "field": "metadata.shelf",
-                    "title": "Shelf",
-                  },
-                  Object {
-                    "field": "metadata.circulation_restriction",
-                    "title": "Restrictions",
-                  },
-                  Object {
-                    "field": "metadata.circulation.state",
-                    "formatter": [Function],
-                    "title": "Loan Status",
-                  },
-                ]
-              }
-              currentPage={1}
-              data={Array []}
-              fixed={false}
-              headerActionComponent={null}
-              name="attached items"
-              paginationComponent={null}
-              renderEmptyResultsElement={null}
-              seeAllComponent={
-                <SeeAllButton
-                  disabled={false}
-                  fluid={false}
-                  to="/backoffice/items?q=document_pid:111"
-                />
-              }
-              showAllResults={false}
-              showFooterSummary={true}
-              showMaxRows={5}
-              singleLine={true}
-              subtitle=""
-              title=""
-              totalHitsCount={0}
+            <Error
+              FallbackComponent={[Function]}
+              boundary={false}
+              error={null}
+              onUIError={null}
             >
-              <Message
-                data-test="no-results"
-                icon={true}
-                info={true}
+              <ResultsTable
+                columns={
+                  Array [
+                    Object {
+                      "field": "metadata.barcode",
+                      "formatter": [Function],
+                      "title": "Barcode",
+                    },
+                    Object {
+                      "field": "metadata.status",
+                      "title": "Status",
+                    },
+                    Object {
+                      "field": "metadata.medium",
+                      "title": "Medium",
+                    },
+                    Object {
+                      "field": "metadata.internal_location.name",
+                      "formatter": [Function],
+                      "title": "Location",
+                    },
+                    Object {
+                      "field": "metadata.shelf",
+                      "title": "Shelf",
+                    },
+                    Object {
+                      "field": "metadata.circulation_restriction",
+                      "title": "Restrictions",
+                    },
+                    Object {
+                      "field": "metadata.circulation.state",
+                      "formatter": [Function],
+                      "title": "Loan Status",
+                    },
+                  ]
+                }
+                currentPage={1}
+                data={Array []}
+                fixed={false}
+                headerActionComponent={null}
+                name="attached items"
+                paginationComponent={null}
+                renderEmptyResultsElement={null}
+                seeAllComponent={
+                  <SeeAllButton
+                    disabled={false}
+                    fluid={false}
+                    to="/backoffice/items?q=document_pid:111"
+                  />
+                }
+                showAllResults={false}
+                showFooterSummary={true}
+                showMaxRows={5}
+                singleLine={true}
+                subtitle=""
+                title=""
+                totalHitsCount={0}
               >
-                <div
-                  className="ui icon info message"
+                <Message
                   data-test="no-results"
+                  icon={true}
+                  info={true}
                 >
-                  <MessageContent>
-                    <div
-                      className="content"
-                    >
-                      <MessageHeader>
-                        <div
-                          className="header"
-                        >
-                          No results found
-                        </div>
-                      </MessageHeader>
-                      There are no 
-                      attached items
-                      .
-                    </div>
-                  </MessageContent>
-                </div>
-              </Message>
-            </ResultsTable>
-          </Error>
+                  <div
+                    className="ui icon info message"
+                    data-test="no-results"
+                  >
+                    <MessageContent>
+                      <div
+                        className="content"
+                      >
+                        <MessageHeader>
+                          <div
+                            className="header"
+                          >
+                            No results found
+                          </div>
+                        </MessageHeader>
+                        There are no 
+                        attached items
+                        .
+                      </div>
+                    </MessageContent>
+                  </div>
+                </Message>
+              </ResultsTable>
+            </Error>
+          </DevModeWrapper>
         </Overridable>
       </Loader>
     </Overridable(Loader)>
@@ -1090,1197 +1098,1201 @@ exports[`DocumentItems tests should render the see all button when showing only 
           id="Loader.layout"
           isLoading={false}
         >
-          <Error
-            FallbackComponent={[Function]}
-            boundary={false}
-            error={null}
-            onUIError={null}
+          <DevModeWrapper
+            id="Loader.layout"
           >
-            <ResultsTable
-              columns={
-                Array [
-                  Object {
-                    "field": "metadata.barcode",
-                    "formatter": [Function],
-                    "title": "Barcode",
-                  },
-                  Object {
-                    "field": "metadata.status",
-                    "title": "Status",
-                  },
-                  Object {
-                    "field": "metadata.medium",
-                    "title": "Medium",
-                  },
-                  Object {
-                    "field": "metadata.internal_location.name",
-                    "formatter": [Function],
-                    "title": "Location",
-                  },
-                  Object {
-                    "field": "metadata.shelf",
-                    "title": "Shelf",
-                  },
-                  Object {
-                    "field": "metadata.circulation_restriction",
-                    "title": "Restrictions",
-                  },
-                  Object {
-                    "field": "metadata.circulation.state",
-                    "formatter": [Function],
-                    "title": "Loan Status",
-                  },
-                ]
-              }
-              currentPage={1}
-              data={
-                Array [
-                  Object {
-                    "ID": "1",
-                    "metadata": Object {
-                      "barcode": "123456789-1",
-                      "circulation_restriction": "NO_RESTRICTION",
-                      "document": Object {
-                        "title": "Document 1 title",
-                      },
-                      "document_pid": "docid-1",
-                      "internal_location": Object {
-                        "location": Object {
-                          "name": "Somewhere",
-                        },
-                      },
-                      "internal_location_pid": "ilocid-1",
-                      "medium": "NOT_SPECIFIED",
-                      "pid": "itemid-1",
-                      "shelf": "Shelf 1",
-                      "status": "MISSING",
-                    },
-                    "pid": "item1",
-                  },
-                  Object {
-                    "id": "2",
-                    "metadata": Object {
-                      "barcode": "123456789-2",
-                      "circulation_restriction": "ONE_WEEK",
-                      "document": Object {
-                        "title": "Document 2 title",
-                      },
-                      "document_pid": "docid-1",
-                      "internal_location": Object {
-                        "location": Object {
-                          "name": "Somewhere Else",
-                        },
-                      },
-                      "internal_location_pid": "ilocid-2",
-                      "medium": "NOT_SPECIFIED",
-                      "pid": "itemid-2",
-                      "shelf": "Shelf 2",
-                      "status": "CAN_CIRCULATE",
-                    },
-                    "pid": "item2",
-                  },
-                ]
-              }
-              fixed={false}
-              headerActionComponent={null}
-              name="attached items"
-              paginationComponent={null}
-              renderEmptyResultsElement={null}
-              seeAllComponent={
-                <SeeAllButton
-                  disabled={false}
-                  fluid={false}
-                  to="/backoffice/items?q=document_pid:111"
-                />
-              }
-              showAllResults={false}
-              showFooterSummary={true}
-              showMaxRows={1}
-              singleLine={true}
-              subtitle=""
-              title=""
-              totalHitsCount={2}
+            <Error
+              FallbackComponent={[Function]}
+              boundary={false}
+              error={null}
+              onUIError={null}
             >
-              <Table
-                as="table"
-                compact={true}
+              <ResultsTable
+                columns={
+                  Array [
+                    Object {
+                      "field": "metadata.barcode",
+                      "formatter": [Function],
+                      "title": "Barcode",
+                    },
+                    Object {
+                      "field": "metadata.status",
+                      "title": "Status",
+                    },
+                    Object {
+                      "field": "metadata.medium",
+                      "title": "Medium",
+                    },
+                    Object {
+                      "field": "metadata.internal_location.name",
+                      "formatter": [Function],
+                      "title": "Location",
+                    },
+                    Object {
+                      "field": "metadata.shelf",
+                      "title": "Shelf",
+                    },
+                    Object {
+                      "field": "metadata.circulation_restriction",
+                      "title": "Restrictions",
+                    },
+                    Object {
+                      "field": "metadata.circulation.state",
+                      "formatter": [Function],
+                      "title": "Loan Status",
+                    },
+                  ]
+                }
+                currentPage={1}
+                data={
+                  Array [
+                    Object {
+                      "ID": "1",
+                      "metadata": Object {
+                        "barcode": "123456789-1",
+                        "circulation_restriction": "NO_RESTRICTION",
+                        "document": Object {
+                          "title": "Document 1 title",
+                        },
+                        "document_pid": "docid-1",
+                        "internal_location": Object {
+                          "location": Object {
+                            "name": "Somewhere",
+                          },
+                        },
+                        "internal_location_pid": "ilocid-1",
+                        "medium": "NOT_SPECIFIED",
+                        "pid": "itemid-1",
+                        "shelf": "Shelf 1",
+                        "status": "MISSING",
+                      },
+                      "pid": "item1",
+                    },
+                    Object {
+                      "id": "2",
+                      "metadata": Object {
+                        "barcode": "123456789-2",
+                        "circulation_restriction": "ONE_WEEK",
+                        "document": Object {
+                          "title": "Document 2 title",
+                        },
+                        "document_pid": "docid-1",
+                        "internal_location": Object {
+                          "location": Object {
+                            "name": "Somewhere Else",
+                          },
+                        },
+                        "internal_location_pid": "ilocid-2",
+                        "medium": "NOT_SPECIFIED",
+                        "pid": "itemid-2",
+                        "shelf": "Shelf 2",
+                        "status": "CAN_CIRCULATE",
+                      },
+                      "pid": "item2",
+                    },
+                  ]
+                }
                 fixed={false}
+                headerActionComponent={null}
                 name="attached items"
-                selectable={true}
+                paginationComponent={null}
+                renderEmptyResultsElement={null}
+                seeAllComponent={
+                  <SeeAllButton
+                    disabled={false}
+                    fluid={false}
+                    to="/backoffice/items?q=document_pid:111"
+                  />
+                }
+                showAllResults={false}
+                showFooterSummary={true}
+                showMaxRows={1}
                 singleLine={true}
-                striped={true}
                 subtitle=""
                 title=""
-                unstackable={true}
+                totalHitsCount={2}
               >
-                <table
-                  className="ui selectable single line striped unstackable compact table"
+                <Table
+                  as="table"
+                  compact={true}
+                  fixed={false}
                   name="attached items"
+                  selectable={true}
+                  singleLine={true}
+                  striped={true}
                   subtitle=""
                   title=""
+                  unstackable={true}
                 >
-                  <ResultsTableHeader
-                    columns={
-                      Array [
-                        Object {
-                          "field": "metadata.barcode",
-                          "formatter": [Function],
-                          "title": "Barcode",
-                        },
-                        Object {
-                          "field": "metadata.status",
-                          "title": "Status",
-                        },
-                        Object {
-                          "field": "metadata.medium",
-                          "title": "Medium",
-                        },
-                        Object {
-                          "field": "metadata.internal_location.name",
-                          "formatter": [Function],
-                          "title": "Location",
-                        },
-                        Object {
-                          "field": "metadata.shelf",
-                          "title": "Shelf",
-                        },
-                        Object {
-                          "field": "metadata.circulation_restriction",
-                          "title": "Restrictions",
-                        },
-                        Object {
-                          "field": "metadata.circulation.state",
-                          "formatter": [Function],
-                          "title": "Loan Status",
-                        },
-                      ]
-                    }
+                  <table
+                    className="ui selectable single line striped unstackable compact table"
+                    name="attached items"
+                    subtitle=""
+                    title=""
                   >
-                    <TableHeader
-                      as="thead"
-                    >
-                      <thead
-                        className=""
-                      >
-                        <TableRow
-                          as="tr"
-                          cellAs="td"
-                          data-test="header"
-                        >
-                          <tr
-                            className=""
-                            data-test="header"
-                          >
-                            <TableHeaderCell
-                              as="th"
-                              key="Barcode"
-                            >
-                              <TableCell
-                                as="th"
-                                className=""
-                              >
-                                <th
-                                  className=""
-                                >
-                                  Barcode
-                                </th>
-                              </TableCell>
-                            </TableHeaderCell>
-                            <TableHeaderCell
-                              as="th"
-                              key="Status"
-                            >
-                              <TableCell
-                                as="th"
-                                className=""
-                              >
-                                <th
-                                  className=""
-                                >
-                                  Status
-                                </th>
-                              </TableCell>
-                            </TableHeaderCell>
-                            <TableHeaderCell
-                              as="th"
-                              key="Medium"
-                            >
-                              <TableCell
-                                as="th"
-                                className=""
-                              >
-                                <th
-                                  className=""
-                                >
-                                  Medium
-                                </th>
-                              </TableCell>
-                            </TableHeaderCell>
-                            <TableHeaderCell
-                              as="th"
-                              key="Location"
-                            >
-                              <TableCell
-                                as="th"
-                                className=""
-                              >
-                                <th
-                                  className=""
-                                >
-                                  Location
-                                </th>
-                              </TableCell>
-                            </TableHeaderCell>
-                            <TableHeaderCell
-                              as="th"
-                              key="Shelf"
-                            >
-                              <TableCell
-                                as="th"
-                                className=""
-                              >
-                                <th
-                                  className=""
-                                >
-                                  Shelf
-                                </th>
-                              </TableCell>
-                            </TableHeaderCell>
-                            <TableHeaderCell
-                              as="th"
-                              key="Restrictions"
-                            >
-                              <TableCell
-                                as="th"
-                                className=""
-                              >
-                                <th
-                                  className=""
-                                >
-                                  Restrictions
-                                </th>
-                              </TableCell>
-                            </TableHeaderCell>
-                            <TableHeaderCell
-                              as="th"
-                              key="Loan Status"
-                            >
-                              <TableCell
-                                as="th"
-                                className=""
-                              >
-                                <th
-                                  className=""
-                                >
-                                  Loan Status
-                                </th>
-                              </TableCell>
-                            </TableHeaderCell>
-                          </tr>
-                        </TableRow>
-                      </thead>
-                    </TableHeader>
-                  </ResultsTableHeader>
-                  <ResultsTableBody
-                    columns={
-                      Array [
-                        Object {
-                          "field": "metadata.barcode",
-                          "formatter": [Function],
-                          "title": "Barcode",
-                        },
-                        Object {
-                          "field": "metadata.status",
-                          "title": "Status",
-                        },
-                        Object {
-                          "field": "metadata.medium",
-                          "title": "Medium",
-                        },
-                        Object {
-                          "field": "metadata.internal_location.name",
-                          "formatter": [Function],
-                          "title": "Location",
-                        },
-                        Object {
-                          "field": "metadata.shelf",
-                          "title": "Shelf",
-                        },
-                        Object {
-                          "field": "metadata.circulation_restriction",
-                          "title": "Restrictions",
-                        },
-                        Object {
-                          "field": "metadata.circulation.state",
-                          "formatter": [Function],
-                          "title": "Loan Status",
-                        },
-                      ]
-                    }
-                    rows={
-                      Array [
-                        Object {
-                          "ID": "1",
-                          "metadata": Object {
-                            "barcode": "123456789-1",
-                            "circulation_restriction": "NO_RESTRICTION",
-                            "document": Object {
-                              "title": "Document 1 title",
-                            },
-                            "document_pid": "docid-1",
-                            "internal_location": Object {
-                              "location": Object {
-                                "name": "Somewhere",
-                              },
-                            },
-                            "internal_location_pid": "ilocid-1",
-                            "medium": "NOT_SPECIFIED",
-                            "pid": "itemid-1",
-                            "shelf": "Shelf 1",
-                            "status": "MISSING",
+                    <ResultsTableHeader
+                      columns={
+                        Array [
+                          Object {
+                            "field": "metadata.barcode",
+                            "formatter": [Function],
+                            "title": "Barcode",
                           },
-                          "pid": "item1",
-                        },
-                      ]
-                    }
-                  >
-                    <TableBody
-                      as="tbody"
-                    >
-                      <tbody
-                        className=""
-                      >
-                        <TableRow
-                          as="tr"
-                          cellAs="td"
-                          data-test="item1"
-                          key="item1"
-                        >
-                          <tr
-                            className=""
-                            data-test="item1"
-                          >
-                            <TableCell
-                              as="td"
-                              data-label="Barcode"
-                              data-test="0-item1"
-                              key="0-item1"
-                            >
-                              <td
-                                className=""
-                                data-label="Barcode"
-                                data-test="0-item1"
-                              >
-                                <ForwardRef(Link)
-                                  data-test="itemid-1"
-                                  to="url/itemid-1"
-                                />
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Status"
-                              data-test="1-item1"
-                              key="1-item1"
-                            >
-                              <td
-                                className=""
-                                data-label="Status"
-                                data-test="1-item1"
-                              >
-                                MISSING
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Medium"
-                              data-test="2-item1"
-                              key="2-item1"
-                            >
-                              <td
-                                className=""
-                                data-label="Medium"
-                                data-test="2-item1"
-                              >
-                                NOT_SPECIFIED
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Location"
-                              data-test="3-item1"
-                              key="3-item1"
-                            >
-                              <td
-                                className=""
-                                data-label="Location"
-                                data-test="3-item1"
-                              >
-                                undefined (Somewhere)
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Shelf"
-                              data-test="4-item1"
-                              key="4-item1"
-                            >
-                              <td
-                                className=""
-                                data-label="Shelf"
-                                data-test="4-item1"
-                              >
-                                Shelf 1
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Restrictions"
-                              data-test="5-item1"
-                              key="5-item1"
-                            >
-                              <td
-                                className=""
-                                data-label="Restrictions"
-                                data-test="5-item1"
-                              >
-                                NO_RESTRICTION
-                              </td>
-                            </TableCell>
-                            <TableCell
-                              as="td"
-                              data-label="Loan Status"
-                              data-test="6-item1"
-                              key="6-item1"
-                            >
-                              <td
-                                className=""
-                                data-label="Loan Status"
-                                data-test="6-item1"
-                              >
-                                -
-                              </td>
-                            </TableCell>
-                          </tr>
-                        </TableRow>
-                      </tbody>
-                    </TableBody>
-                  </ResultsTableBody>
-                  <ResultsTableFooter
-                    allRowsNumber={2}
-                    columnsNumber={7}
-                    currentPage={1}
-                    paginationComponent={null}
-                    seeAllComponent={
-                      <SeeAllButton
-                        disabled={false}
-                        fluid={false}
-                        to="/backoffice/items?q=document_pid:111"
-                      />
-                    }
-                    showAllResults={false}
-                    showFooterSummary={true}
-                    showMaxRows={1}
-                  >
-                    <TableFooter
-                      as="tfoot"
-                      data-test="footer"
-                      fullWidth={true}
+                          Object {
+                            "field": "metadata.status",
+                            "title": "Status",
+                          },
+                          Object {
+                            "field": "metadata.medium",
+                            "title": "Medium",
+                          },
+                          Object {
+                            "field": "metadata.internal_location.name",
+                            "formatter": [Function],
+                            "title": "Location",
+                          },
+                          Object {
+                            "field": "metadata.shelf",
+                            "title": "Shelf",
+                          },
+                          Object {
+                            "field": "metadata.circulation_restriction",
+                            "title": "Restrictions",
+                          },
+                          Object {
+                            "field": "metadata.circulation.state",
+                            "formatter": [Function],
+                            "title": "Loan Status",
+                          },
+                        ]
+                      }
                     >
                       <TableHeader
-                        as="tfoot"
-                        data-test="footer"
-                        fullWidth={true}
+                        as="thead"
                       >
-                        <tfoot
-                          className="full-width"
-                          data-test="footer"
+                        <thead
+                          className=""
                         >
                           <TableRow
                             as="tr"
                             cellAs="td"
+                            data-test="header"
                           >
                             <tr
                               className=""
+                              data-test="header"
                             >
                               <TableHeaderCell
                                 as="th"
-                                colSpan={8}
-                                textAlign="right"
+                                key="Barcode"
                               >
                                 <TableCell
                                   as="th"
                                   className=""
+                                >
+                                  <th
+                                    className=""
+                                  >
+                                    Barcode
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
+                                as="th"
+                                key="Status"
+                              >
+                                <TableCell
+                                  as="th"
+                                  className=""
+                                >
+                                  <th
+                                    className=""
+                                  >
+                                    Status
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
+                                as="th"
+                                key="Medium"
+                              >
+                                <TableCell
+                                  as="th"
+                                  className=""
+                                >
+                                  <th
+                                    className=""
+                                  >
+                                    Medium
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
+                                as="th"
+                                key="Location"
+                              >
+                                <TableCell
+                                  as="th"
+                                  className=""
+                                >
+                                  <th
+                                    className=""
+                                  >
+                                    Location
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
+                                as="th"
+                                key="Shelf"
+                              >
+                                <TableCell
+                                  as="th"
+                                  className=""
+                                >
+                                  <th
+                                    className=""
+                                  >
+                                    Shelf
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
+                                as="th"
+                                key="Restrictions"
+                              >
+                                <TableCell
+                                  as="th"
+                                  className=""
+                                >
+                                  <th
+                                    className=""
+                                  >
+                                    Restrictions
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                              <TableHeaderCell
+                                as="th"
+                                key="Loan Status"
+                              >
+                                <TableCell
+                                  as="th"
+                                  className=""
+                                >
+                                  <th
+                                    className=""
+                                  >
+                                    Loan Status
+                                  </th>
+                                </TableCell>
+                              </TableHeaderCell>
+                            </tr>
+                          </TableRow>
+                        </thead>
+                      </TableHeader>
+                    </ResultsTableHeader>
+                    <ResultsTableBody
+                      columns={
+                        Array [
+                          Object {
+                            "field": "metadata.barcode",
+                            "formatter": [Function],
+                            "title": "Barcode",
+                          },
+                          Object {
+                            "field": "metadata.status",
+                            "title": "Status",
+                          },
+                          Object {
+                            "field": "metadata.medium",
+                            "title": "Medium",
+                          },
+                          Object {
+                            "field": "metadata.internal_location.name",
+                            "formatter": [Function],
+                            "title": "Location",
+                          },
+                          Object {
+                            "field": "metadata.shelf",
+                            "title": "Shelf",
+                          },
+                          Object {
+                            "field": "metadata.circulation_restriction",
+                            "title": "Restrictions",
+                          },
+                          Object {
+                            "field": "metadata.circulation.state",
+                            "formatter": [Function],
+                            "title": "Loan Status",
+                          },
+                        ]
+                      }
+                      rows={
+                        Array [
+                          Object {
+                            "ID": "1",
+                            "metadata": Object {
+                              "barcode": "123456789-1",
+                              "circulation_restriction": "NO_RESTRICTION",
+                              "document": Object {
+                                "title": "Document 1 title",
+                              },
+                              "document_pid": "docid-1",
+                              "internal_location": Object {
+                                "location": Object {
+                                  "name": "Somewhere",
+                                },
+                              },
+                              "internal_location_pid": "ilocid-1",
+                              "medium": "NOT_SPECIFIED",
+                              "pid": "itemid-1",
+                              "shelf": "Shelf 1",
+                              "status": "MISSING",
+                            },
+                            "pid": "item1",
+                          },
+                        ]
+                      }
+                    >
+                      <TableBody
+                        as="tbody"
+                      >
+                        <tbody
+                          className=""
+                        >
+                          <TableRow
+                            as="tr"
+                            cellAs="td"
+                            data-test="item1"
+                            key="item1"
+                          >
+                            <tr
+                              className=""
+                              data-test="item1"
+                            >
+                              <TableCell
+                                as="td"
+                                data-label="Barcode"
+                                data-test="0-item1"
+                                key="0-item1"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Barcode"
+                                  data-test="0-item1"
+                                >
+                                  <ForwardRef(Link)
+                                    data-test="itemid-1"
+                                    to="url/itemid-1"
+                                  />
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="Status"
+                                data-test="1-item1"
+                                key="1-item1"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Status"
+                                  data-test="1-item1"
+                                >
+                                  MISSING
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="Medium"
+                                data-test="2-item1"
+                                key="2-item1"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Medium"
+                                  data-test="2-item1"
+                                >
+                                  NOT_SPECIFIED
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="Location"
+                                data-test="3-item1"
+                                key="3-item1"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Location"
+                                  data-test="3-item1"
+                                >
+                                  undefined (Somewhere)
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="Shelf"
+                                data-test="4-item1"
+                                key="4-item1"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Shelf"
+                                  data-test="4-item1"
+                                >
+                                  Shelf 1
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="Restrictions"
+                                data-test="5-item1"
+                                key="5-item1"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Restrictions"
+                                  data-test="5-item1"
+                                >
+                                  NO_RESTRICTION
+                                </td>
+                              </TableCell>
+                              <TableCell
+                                as="td"
+                                data-label="Loan Status"
+                                data-test="6-item1"
+                                key="6-item1"
+                              >
+                                <td
+                                  className=""
+                                  data-label="Loan Status"
+                                  data-test="6-item1"
+                                >
+                                  -
+                                </td>
+                              </TableCell>
+                            </tr>
+                          </TableRow>
+                        </tbody>
+                      </TableBody>
+                    </ResultsTableBody>
+                    <ResultsTableFooter
+                      allRowsNumber={2}
+                      columnsNumber={7}
+                      currentPage={1}
+                      paginationComponent={null}
+                      seeAllComponent={
+                        <SeeAllButton
+                          disabled={false}
+                          fluid={false}
+                          to="/backoffice/items?q=document_pid:111"
+                        />
+                      }
+                      showAllResults={false}
+                      showFooterSummary={true}
+                      showMaxRows={1}
+                    >
+                      <TableFooter
+                        as="tfoot"
+                        data-test="footer"
+                        fullWidth={true}
+                      >
+                        <TableHeader
+                          as="tfoot"
+                          data-test="footer"
+                          fullWidth={true}
+                        >
+                          <tfoot
+                            className="full-width"
+                            data-test="footer"
+                          >
+                            <TableRow
+                              as="tr"
+                              cellAs="td"
+                            >
+                              <tr
+                                className=""
+                              >
+                                <TableHeaderCell
+                                  as="th"
                                   colSpan={8}
                                   textAlign="right"
                                 >
-                                  <th
-                                    className="right aligned"
+                                  <TableCell
+                                    as="th"
+                                    className=""
                                     colSpan={8}
+                                    textAlign="right"
                                   >
-                                    <span
-                                      className="results-table-compact-summary"
+                                    <th
+                                      className="right aligned"
+                                      colSpan={8}
                                     >
-                                      Showing entries 
-                                      1
-                                      -
-                                      1
-                                       of 
-                                      2
-                                       
-                                    </span>
-                                    <span>
-                                      <SeeAllButton
-                                        disabled={false}
-                                        fluid={false}
-                                        to="/backoffice/items?q=document_pid:111"
+                                      <span
+                                        className="results-table-compact-summary"
                                       >
-                                        <Button
-                                          as={
-                                            Object {
-                                              "$$typeof": Symbol(react.forward_ref),
-                                              "propTypes": Object {
-                                                "innerRef": [MockFunction] {
-                                                  "calls": Array [
-                                                    Array [
-                                                      Object {
-                                                        "children": "123456789-1",
-                                                        "data-test": "itemid-1",
-                                                        "to": "url/itemid-1",
-                                                      },
-                                                      "innerRef",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "children": "123456789-2",
-                                                        "data-test": "itemid-2",
-                                                        "to": "url/itemid-2",
-                                                      },
-                                                      "innerRef",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "children": "123456789-1",
-                                                        "data-test": "itemid-1",
-                                                        "to": "url/itemid-1",
-                                                      },
-                                                      "innerRef",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "aria-pressed": undefined,
-                                                        "children": Array [
-                                                          "See all",
-                                                          false,
-                                                          false,
-                                                        ],
-                                                        "className": "ui small button",
-                                                        "disabled": undefined,
-                                                        "onClick": [Function],
-                                                        "role": "button",
-                                                        "tabIndex": undefined,
-                                                        "to": "/backoffice/items?q=document_pid:111",
-                                                        "type": undefined,
-                                                      },
-                                                      "innerRef",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "aria-pressed": undefined,
-                                                        "children": Array [
-                                                          "See all",
-                                                          false,
-                                                          false,
-                                                        ],
-                                                        "className": "ui small button",
-                                                        "disabled": undefined,
-                                                        "onClick": [Function],
-                                                        "role": "button",
-                                                        "tabIndex": undefined,
-                                                        "to": "/backoffice/items?q=document_pid:111",
-                                                        "type": undefined,
-                                                      },
-                                                      "innerRef",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                  ],
-                                                  "results": Array [
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                  ],
-                                                },
-                                                "onClick": [MockFunction] {
-                                                  "calls": Array [
-                                                    Array [
-                                                      Object {
-                                                        "children": "123456789-1",
-                                                        "data-test": "itemid-1",
-                                                        "to": "url/itemid-1",
-                                                      },
-                                                      "onClick",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "children": "123456789-2",
-                                                        "data-test": "itemid-2",
-                                                        "to": "url/itemid-2",
-                                                      },
-                                                      "onClick",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "children": "123456789-1",
-                                                        "data-test": "itemid-1",
-                                                        "to": "url/itemid-1",
-                                                      },
-                                                      "onClick",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "aria-pressed": undefined,
-                                                        "children": Array [
-                                                          "See all",
-                                                          false,
-                                                          false,
-                                                        ],
-                                                        "className": "ui small button",
-                                                        "disabled": undefined,
-                                                        "onClick": [Function],
-                                                        "role": "button",
-                                                        "tabIndex": undefined,
-                                                        "to": "/backoffice/items?q=document_pid:111",
-                                                        "type": undefined,
-                                                      },
-                                                      "onClick",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "aria-pressed": undefined,
-                                                        "children": Array [
-                                                          "See all",
-                                                          false,
-                                                          false,
-                                                        ],
-                                                        "className": "ui small button",
-                                                        "disabled": undefined,
-                                                        "onClick": [Function],
-                                                        "role": "button",
-                                                        "tabIndex": undefined,
-                                                        "to": "/backoffice/items?q=document_pid:111",
-                                                        "type": undefined,
-                                                      },
-                                                      "onClick",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                  ],
-                                                  "results": Array [
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                  ],
-                                                },
-                                                "replace": [MockFunction] {
-                                                  "calls": Array [
-                                                    Array [
-                                                      Object {
-                                                        "children": "123456789-1",
-                                                        "data-test": "itemid-1",
-                                                        "to": "url/itemid-1",
-                                                      },
-                                                      "replace",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "children": "123456789-2",
-                                                        "data-test": "itemid-2",
-                                                        "to": "url/itemid-2",
-                                                      },
-                                                      "replace",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "children": "123456789-1",
-                                                        "data-test": "itemid-1",
-                                                        "to": "url/itemid-1",
-                                                      },
-                                                      "replace",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "aria-pressed": undefined,
-                                                        "children": Array [
-                                                          "See all",
-                                                          false,
-                                                          false,
-                                                        ],
-                                                        "className": "ui small button",
-                                                        "disabled": undefined,
-                                                        "onClick": [Function],
-                                                        "role": "button",
-                                                        "tabIndex": undefined,
-                                                        "to": "/backoffice/items?q=document_pid:111",
-                                                        "type": undefined,
-                                                      },
-                                                      "replace",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "aria-pressed": undefined,
-                                                        "children": Array [
-                                                          "See all",
-                                                          false,
-                                                          false,
-                                                        ],
-                                                        "className": "ui small button",
-                                                        "disabled": undefined,
-                                                        "onClick": [Function],
-                                                        "role": "button",
-                                                        "tabIndex": undefined,
-                                                        "to": "/backoffice/items?q=document_pid:111",
-                                                        "type": undefined,
-                                                      },
-                                                      "replace",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                  ],
-                                                  "results": Array [
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                  ],
-                                                },
-                                                "target": [MockFunction] {
-                                                  "calls": Array [
-                                                    Array [
-                                                      Object {
-                                                        "children": "123456789-1",
-                                                        "data-test": "itemid-1",
-                                                        "to": "url/itemid-1",
-                                                      },
-                                                      "target",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "children": "123456789-2",
-                                                        "data-test": "itemid-2",
-                                                        "to": "url/itemid-2",
-                                                      },
-                                                      "target",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "children": "123456789-1",
-                                                        "data-test": "itemid-1",
-                                                        "to": "url/itemid-1",
-                                                      },
-                                                      "target",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "aria-pressed": undefined,
-                                                        "children": Array [
-                                                          "See all",
-                                                          false,
-                                                          false,
-                                                        ],
-                                                        "className": "ui small button",
-                                                        "disabled": undefined,
-                                                        "onClick": [Function],
-                                                        "role": "button",
-                                                        "tabIndex": undefined,
-                                                        "to": "/backoffice/items?q=document_pid:111",
-                                                        "type": undefined,
-                                                      },
-                                                      "target",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "aria-pressed": undefined,
-                                                        "children": Array [
-                                                          "See all",
-                                                          false,
-                                                          false,
-                                                        ],
-                                                        "className": "ui small button",
-                                                        "disabled": undefined,
-                                                        "onClick": [Function],
-                                                        "role": "button",
-                                                        "tabIndex": undefined,
-                                                        "to": "/backoffice/items?q=document_pid:111",
-                                                        "type": undefined,
-                                                      },
-                                                      "target",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                  ],
-                                                  "results": Array [
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                  ],
-                                                },
-                                                "to": [MockFunction] {
-                                                  "calls": Array [
-                                                    Array [
-                                                      Object {
-                                                        "children": "123456789-1",
-                                                        "data-test": "itemid-1",
-                                                        "to": "url/itemid-1",
-                                                      },
-                                                      "to",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "children": "123456789-2",
-                                                        "data-test": "itemid-2",
-                                                        "to": "url/itemid-2",
-                                                      },
-                                                      "to",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "children": "123456789-1",
-                                                        "data-test": "itemid-1",
-                                                        "to": "url/itemid-1",
-                                                      },
-                                                      "to",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "aria-pressed": undefined,
-                                                        "children": Array [
-                                                          "See all",
-                                                          false,
-                                                          false,
-                                                        ],
-                                                        "className": "ui small button",
-                                                        "disabled": undefined,
-                                                        "onClick": [Function],
-                                                        "role": "button",
-                                                        "tabIndex": undefined,
-                                                        "to": "/backoffice/items?q=document_pid:111",
-                                                        "type": undefined,
-                                                      },
-                                                      "to",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                    Array [
-                                                      Object {
-                                                        "aria-pressed": undefined,
-                                                        "children": Array [
-                                                          "See all",
-                                                          false,
-                                                          false,
-                                                        ],
-                                                        "className": "ui small button",
-                                                        "disabled": undefined,
-                                                        "onClick": [Function],
-                                                        "role": "button",
-                                                        "tabIndex": undefined,
-                                                        "to": "/backoffice/items?q=document_pid:111",
-                                                        "type": undefined,
-                                                      },
-                                                      "to",
-                                                      "ForwardRef(Link)",
-                                                      "prop",
-                                                      null,
-                                                      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
-                                                    ],
-                                                  ],
-                                                  "results": Array [
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                    Object {
-                                                      "type": "return",
-                                                      "value": undefined,
-                                                    },
-                                                  ],
-                                                },
-                                              },
-                                              "render": [MockFunction] {
-                                                "calls": Array [
-                                                  Array [
-                                                    Object {
-                                                      "children": "123456789-1",
-                                                      "data-test": "itemid-1",
-                                                      "to": "url/itemid-1",
-                                                    },
-                                                    null,
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": "123456789-2",
-                                                      "data-test": "itemid-2",
-                                                      "to": "url/itemid-2",
-                                                    },
-                                                    null,
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "children": "123456789-1",
-                                                      "data-test": "itemid-1",
-                                                      "to": "url/itemid-1",
-                                                    },
-                                                    null,
-                                                  ],
-                                                  Array [
-                                                    Object {
-                                                      "aria-pressed": undefined,
-                                                      "children": Array [
-                                                        "See all",
-                                                        false,
-                                                        false,
-                                                      ],
-                                                      "className": "ui small button",
-                                                      "disabled": undefined,
-                                                      "onClick": [Function],
-                                                      "role": "button",
-                                                      "tabIndex": undefined,
-                                                      "to": "/backoffice/items?q=document_pid:111",
-                                                      "type": undefined,
-                                                    },
-                                                    [Function],
-                                                  ],
-                                                ],
-                                                "results": Array [
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                  Object {
-                                                    "type": "return",
-                                                    "value": undefined,
-                                                  },
-                                                ],
-                                              },
-                                            }
-                                          }
+                                        Showing entries 
+                                        1
+                                        -
+                                        1
+                                         of 
+                                        2
+                                         
+                                      </span>
+                                      <span>
+                                        <SeeAllButton
                                           disabled={false}
                                           fluid={false}
-                                          size="small"
                                           to="/backoffice/items?q=document_pid:111"
                                         >
-                                          <Ref
-                                            innerRef={
+                                          <Button
+                                            as={
                                               Object {
-                                                "current": null,
+                                                "$$typeof": Symbol(react.forward_ref),
+                                                "propTypes": Object {
+                                                  "innerRef": [MockFunction] {
+                                                    "calls": Array [
+                                                      Array [
+                                                        Object {
+                                                          "children": "123456789-1",
+                                                          "data-test": "itemid-1",
+                                                          "to": "url/itemid-1",
+                                                        },
+                                                        "innerRef",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "children": "123456789-2",
+                                                          "data-test": "itemid-2",
+                                                          "to": "url/itemid-2",
+                                                        },
+                                                        "innerRef",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "children": "123456789-1",
+                                                          "data-test": "itemid-1",
+                                                          "to": "url/itemid-1",
+                                                        },
+                                                        "innerRef",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "aria-pressed": undefined,
+                                                          "children": Array [
+                                                            "See all",
+                                                            false,
+                                                            false,
+                                                          ],
+                                                          "className": "ui small button",
+                                                          "disabled": undefined,
+                                                          "onClick": [Function],
+                                                          "role": "button",
+                                                          "tabIndex": undefined,
+                                                          "to": "/backoffice/items?q=document_pid:111",
+                                                          "type": undefined,
+                                                        },
+                                                        "innerRef",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "aria-pressed": undefined,
+                                                          "children": Array [
+                                                            "See all",
+                                                            false,
+                                                            false,
+                                                          ],
+                                                          "className": "ui small button",
+                                                          "disabled": undefined,
+                                                          "onClick": [Function],
+                                                          "role": "button",
+                                                          "tabIndex": undefined,
+                                                          "to": "/backoffice/items?q=document_pid:111",
+                                                          "type": undefined,
+                                                        },
+                                                        "innerRef",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                    ],
+                                                    "results": Array [
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                    ],
+                                                  },
+                                                  "onClick": [MockFunction] {
+                                                    "calls": Array [
+                                                      Array [
+                                                        Object {
+                                                          "children": "123456789-1",
+                                                          "data-test": "itemid-1",
+                                                          "to": "url/itemid-1",
+                                                        },
+                                                        "onClick",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "children": "123456789-2",
+                                                          "data-test": "itemid-2",
+                                                          "to": "url/itemid-2",
+                                                        },
+                                                        "onClick",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "children": "123456789-1",
+                                                          "data-test": "itemid-1",
+                                                          "to": "url/itemid-1",
+                                                        },
+                                                        "onClick",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "aria-pressed": undefined,
+                                                          "children": Array [
+                                                            "See all",
+                                                            false,
+                                                            false,
+                                                          ],
+                                                          "className": "ui small button",
+                                                          "disabled": undefined,
+                                                          "onClick": [Function],
+                                                          "role": "button",
+                                                          "tabIndex": undefined,
+                                                          "to": "/backoffice/items?q=document_pid:111",
+                                                          "type": undefined,
+                                                        },
+                                                        "onClick",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "aria-pressed": undefined,
+                                                          "children": Array [
+                                                            "See all",
+                                                            false,
+                                                            false,
+                                                          ],
+                                                          "className": "ui small button",
+                                                          "disabled": undefined,
+                                                          "onClick": [Function],
+                                                          "role": "button",
+                                                          "tabIndex": undefined,
+                                                          "to": "/backoffice/items?q=document_pid:111",
+                                                          "type": undefined,
+                                                        },
+                                                        "onClick",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                    ],
+                                                    "results": Array [
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                    ],
+                                                  },
+                                                  "replace": [MockFunction] {
+                                                    "calls": Array [
+                                                      Array [
+                                                        Object {
+                                                          "children": "123456789-1",
+                                                          "data-test": "itemid-1",
+                                                          "to": "url/itemid-1",
+                                                        },
+                                                        "replace",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "children": "123456789-2",
+                                                          "data-test": "itemid-2",
+                                                          "to": "url/itemid-2",
+                                                        },
+                                                        "replace",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "children": "123456789-1",
+                                                          "data-test": "itemid-1",
+                                                          "to": "url/itemid-1",
+                                                        },
+                                                        "replace",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "aria-pressed": undefined,
+                                                          "children": Array [
+                                                            "See all",
+                                                            false,
+                                                            false,
+                                                          ],
+                                                          "className": "ui small button",
+                                                          "disabled": undefined,
+                                                          "onClick": [Function],
+                                                          "role": "button",
+                                                          "tabIndex": undefined,
+                                                          "to": "/backoffice/items?q=document_pid:111",
+                                                          "type": undefined,
+                                                        },
+                                                        "replace",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "aria-pressed": undefined,
+                                                          "children": Array [
+                                                            "See all",
+                                                            false,
+                                                            false,
+                                                          ],
+                                                          "className": "ui small button",
+                                                          "disabled": undefined,
+                                                          "onClick": [Function],
+                                                          "role": "button",
+                                                          "tabIndex": undefined,
+                                                          "to": "/backoffice/items?q=document_pid:111",
+                                                          "type": undefined,
+                                                        },
+                                                        "replace",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                    ],
+                                                    "results": Array [
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                    ],
+                                                  },
+                                                  "target": [MockFunction] {
+                                                    "calls": Array [
+                                                      Array [
+                                                        Object {
+                                                          "children": "123456789-1",
+                                                          "data-test": "itemid-1",
+                                                          "to": "url/itemid-1",
+                                                        },
+                                                        "target",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "children": "123456789-2",
+                                                          "data-test": "itemid-2",
+                                                          "to": "url/itemid-2",
+                                                        },
+                                                        "target",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "children": "123456789-1",
+                                                          "data-test": "itemid-1",
+                                                          "to": "url/itemid-1",
+                                                        },
+                                                        "target",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "aria-pressed": undefined,
+                                                          "children": Array [
+                                                            "See all",
+                                                            false,
+                                                            false,
+                                                          ],
+                                                          "className": "ui small button",
+                                                          "disabled": undefined,
+                                                          "onClick": [Function],
+                                                          "role": "button",
+                                                          "tabIndex": undefined,
+                                                          "to": "/backoffice/items?q=document_pid:111",
+                                                          "type": undefined,
+                                                        },
+                                                        "target",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "aria-pressed": undefined,
+                                                          "children": Array [
+                                                            "See all",
+                                                            false,
+                                                            false,
+                                                          ],
+                                                          "className": "ui small button",
+                                                          "disabled": undefined,
+                                                          "onClick": [Function],
+                                                          "role": "button",
+                                                          "tabIndex": undefined,
+                                                          "to": "/backoffice/items?q=document_pid:111",
+                                                          "type": undefined,
+                                                        },
+                                                        "target",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                    ],
+                                                    "results": Array [
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                    ],
+                                                  },
+                                                  "to": [MockFunction] {
+                                                    "calls": Array [
+                                                      Array [
+                                                        Object {
+                                                          "children": "123456789-1",
+                                                          "data-test": "itemid-1",
+                                                          "to": "url/itemid-1",
+                                                        },
+                                                        "to",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "children": "123456789-2",
+                                                          "data-test": "itemid-2",
+                                                          "to": "url/itemid-2",
+                                                        },
+                                                        "to",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "children": "123456789-1",
+                                                          "data-test": "itemid-1",
+                                                          "to": "url/itemid-1",
+                                                        },
+                                                        "to",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "aria-pressed": undefined,
+                                                          "children": Array [
+                                                            "See all",
+                                                            false,
+                                                            false,
+                                                          ],
+                                                          "className": "ui small button",
+                                                          "disabled": undefined,
+                                                          "onClick": [Function],
+                                                          "role": "button",
+                                                          "tabIndex": undefined,
+                                                          "to": "/backoffice/items?q=document_pid:111",
+                                                          "type": undefined,
+                                                        },
+                                                        "to",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                      Array [
+                                                        Object {
+                                                          "aria-pressed": undefined,
+                                                          "children": Array [
+                                                            "See all",
+                                                            false,
+                                                            false,
+                                                          ],
+                                                          "className": "ui small button",
+                                                          "disabled": undefined,
+                                                          "onClick": [Function],
+                                                          "role": "button",
+                                                          "tabIndex": undefined,
+                                                          "to": "/backoffice/items?q=document_pid:111",
+                                                          "type": undefined,
+                                                        },
+                                                        "to",
+                                                        "ForwardRef(Link)",
+                                                        "prop",
+                                                        null,
+                                                        "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+                                                      ],
+                                                    ],
+                                                    "results": Array [
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                      Object {
+                                                        "type": "return",
+                                                        "value": undefined,
+                                                      },
+                                                    ],
+                                                  },
+                                                },
+                                                "render": [MockFunction] {
+                                                  "calls": Array [
+                                                    Array [
+                                                      Object {
+                                                        "children": "123456789-1",
+                                                        "data-test": "itemid-1",
+                                                        "to": "url/itemid-1",
+                                                      },
+                                                      null,
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": "123456789-2",
+                                                        "data-test": "itemid-2",
+                                                        "to": "url/itemid-2",
+                                                      },
+                                                      null,
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "children": "123456789-1",
+                                                        "data-test": "itemid-1",
+                                                        "to": "url/itemid-1",
+                                                      },
+                                                      null,
+                                                    ],
+                                                    Array [
+                                                      Object {
+                                                        "aria-pressed": undefined,
+                                                        "children": Array [
+                                                          "See all",
+                                                          false,
+                                                          false,
+                                                        ],
+                                                        "className": "ui small button",
+                                                        "disabled": undefined,
+                                                        "onClick": [Function],
+                                                        "role": "button",
+                                                        "tabIndex": undefined,
+                                                        "to": "/backoffice/items?q=document_pid:111",
+                                                        "type": undefined,
+                                                      },
+                                                      [Function],
+                                                    ],
+                                                  ],
+                                                  "results": Array [
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                    Object {
+                                                      "type": "return",
+                                                      "value": undefined,
+                                                    },
+                                                  ],
+                                                },
                                               }
                                             }
+                                            disabled={false}
+                                            fluid={false}
+                                            size="small"
+                                            to="/backoffice/items?q=document_pid:111"
                                           >
-                                            <RefForward
+                                            <Ref
                                               innerRef={
                                                 Object {
                                                   "current": null,
                                                 }
                                               }
                                             >
-                                              <ForwardRef(Link)
-                                                className="ui small button"
-                                                onClick={[Function]}
-                                                role="button"
-                                                to="/backoffice/items?q=document_pid:111"
-                                              />
-                                            </RefForward>
-                                          </Ref>
-                                        </Button>
-                                      </SeeAllButton>
-                                    </span>
-                                    <span />
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                            </tr>
-                          </TableRow>
-                        </tfoot>
-                      </TableHeader>
-                    </TableFooter>
-                  </ResultsTableFooter>
-                </table>
-              </Table>
-            </ResultsTable>
-          </Error>
+                                              <RefForward
+                                                innerRef={
+                                                  Object {
+                                                    "current": null,
+                                                  }
+                                                }
+                                              >
+                                                <ForwardRef(Link)
+                                                  className="ui small button"
+                                                  onClick={[Function]}
+                                                  role="button"
+                                                  to="/backoffice/items?q=document_pid:111"
+                                                />
+                                              </RefForward>
+                                            </Ref>
+                                          </Button>
+                                        </SeeAllButton>
+                                      </span>
+                                      <span />
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                              </tr>
+                            </TableRow>
+                          </tfoot>
+                        </TableHeader>
+                      </TableFooter>
+                    </ResultsTableFooter>
+                  </table>
+                </Table>
+              </ResultsTable>
+            </Error>
+          </DevModeWrapper>
         </Overridable>
       </Loader>
     </Overridable(Loader)>

@@ -190,775 +190,779 @@ exports[`PatronCurrentLoans tests should render patron loans 1`] = `
             id="Loader.layout"
             isLoading={false}
           >
-            <Error
-              FallbackComponent={[Function]}
-              boundary={false}
-              error={null}
-              onUIError={null}
+            <DevModeWrapper
+              id="Loader.layout"
             >
-              <ResultsTable
-                columns={
-                  Array [
-                    Object {
-                      "formatter": [Function],
-                      "title": "Loan",
-                    },
-                    Object {
-                      "formatter": [Function],
-                      "title": "Document",
-                    },
-                    Object {
-                      "formatter": [Function],
-                      "title": "Item barcode",
-                    },
-                    Object {
-                      "field": "metadata.start_date",
-                      "formatter": [Function],
-                      "title": "Start date",
-                    },
-                    Object {
-                      "field": "metadata.end_date",
-                      "formatter": [Function],
-                      "title": "End date",
-                    },
-                    Object {
-                      "field": "metadata.extension_count",
-                      "title": "Renewals",
-                    },
-                  ]
-                }
-                currentPage={1}
-                data={
-                  Array [
-                    Object {
-                      "id": 1,
-                      "metadata": Object {
-                        "document": Object {
-                          "publication_year": "1950",
-                          "title": "Less: A Novel",
-                        },
-                        "document_pid": "docid-7",
-                        "end_date": "2018-07-28",
-                        "item": Object {
-                          "barcode": "123456789-54",
-                        },
-                        "item_pid": Object {
-                          "type": "pitmid",
-                          "value": "itemid-56",
-                        },
-                        "patron_pid": "1",
-                        "pickup_location_pid": "1",
-                        "pid": "loanid-5",
-                        "request_expire_date": "2019-06-28",
-                        "request_start_date": "2018-06-28",
-                        "start_date": "2018-06-28",
-                        "state": "ITEM_ON_LOAN",
-                        "transaction_date": "2018-06-29",
-                        "transaction_location_pid": "1",
-                      },
-                      "pid": "loan1",
-                    },
-                    Object {
-                      "id": 2,
-                      "metadata": Object {
-                        "document": Object {
-                          "publication_year": "1950",
-                          "title": "Less: A Novel",
-                        },
-                        "document_pid": "docid-8",
-                        "end_date": "2018-07-28",
-                        "item": Object {
-                          "barcode": "123456789-54",
-                        },
-                        "item_pid": Object {
-                          "type": "pitmid",
-                          "value": "itemid-57",
-                        },
-                        "patron_pid": "2",
-                        "pickup_location_pid": "1",
-                        "pid": "loanid-6",
-                        "request_expire_date": "2019-06-28",
-                        "request_start_date": "2018-06-28",
-                        "start_date": "2018-06-28",
-                        "state": "ITEM_ON_LOAN",
-                        "transaction_date": "2018-06-29",
-                        "transaction_location_pid": "1",
-                      },
-                      "pid": "loan2",
-                    },
-                  ]
-                }
-                fixed={false}
-                headerActionComponent={null}
-                name="current loans"
-                paginationComponent={null}
-                renderEmptyResultsElement={null}
-                seeAllComponent={
-                  <SeeAllButton
-                    disabled={false}
-                    fluid={false}
-                    to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
-                  />
-                }
-                showAllResults={false}
-                showFooterSummary={true}
-                showMaxRows={5}
-                singleLine={true}
-                subtitle=""
-                title=""
-                totalHitsCount={2}
+              <Error
+                FallbackComponent={[Function]}
+                boundary={false}
+                error={null}
+                onUIError={null}
               >
-                <Table
-                  as="table"
-                  compact={true}
+                <ResultsTable
+                  columns={
+                    Array [
+                      Object {
+                        "formatter": [Function],
+                        "title": "Loan",
+                      },
+                      Object {
+                        "formatter": [Function],
+                        "title": "Document",
+                      },
+                      Object {
+                        "formatter": [Function],
+                        "title": "Item barcode",
+                      },
+                      Object {
+                        "field": "metadata.start_date",
+                        "formatter": [Function],
+                        "title": "Start date",
+                      },
+                      Object {
+                        "field": "metadata.end_date",
+                        "formatter": [Function],
+                        "title": "End date",
+                      },
+                      Object {
+                        "field": "metadata.extension_count",
+                        "title": "Renewals",
+                      },
+                    ]
+                  }
+                  currentPage={1}
+                  data={
+                    Array [
+                      Object {
+                        "id": 1,
+                        "metadata": Object {
+                          "document": Object {
+                            "publication_year": "1950",
+                            "title": "Less: A Novel",
+                          },
+                          "document_pid": "docid-7",
+                          "end_date": "2018-07-28",
+                          "item": Object {
+                            "barcode": "123456789-54",
+                          },
+                          "item_pid": Object {
+                            "type": "pitmid",
+                            "value": "itemid-56",
+                          },
+                          "patron_pid": "1",
+                          "pickup_location_pid": "1",
+                          "pid": "loanid-5",
+                          "request_expire_date": "2019-06-28",
+                          "request_start_date": "2018-06-28",
+                          "start_date": "2018-06-28",
+                          "state": "ITEM_ON_LOAN",
+                          "transaction_date": "2018-06-29",
+                          "transaction_location_pid": "1",
+                        },
+                        "pid": "loan1",
+                      },
+                      Object {
+                        "id": 2,
+                        "metadata": Object {
+                          "document": Object {
+                            "publication_year": "1950",
+                            "title": "Less: A Novel",
+                          },
+                          "document_pid": "docid-8",
+                          "end_date": "2018-07-28",
+                          "item": Object {
+                            "barcode": "123456789-54",
+                          },
+                          "item_pid": Object {
+                            "type": "pitmid",
+                            "value": "itemid-57",
+                          },
+                          "patron_pid": "2",
+                          "pickup_location_pid": "1",
+                          "pid": "loanid-6",
+                          "request_expire_date": "2019-06-28",
+                          "request_start_date": "2018-06-28",
+                          "start_date": "2018-06-28",
+                          "state": "ITEM_ON_LOAN",
+                          "transaction_date": "2018-06-29",
+                          "transaction_location_pid": "1",
+                        },
+                        "pid": "loan2",
+                      },
+                    ]
+                  }
                   fixed={false}
+                  headerActionComponent={null}
                   name="current loans"
-                  selectable={true}
+                  paginationComponent={null}
+                  renderEmptyResultsElement={null}
+                  seeAllComponent={
+                    <SeeAllButton
+                      disabled={false}
+                      fluid={false}
+                      to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
+                    />
+                  }
+                  showAllResults={false}
+                  showFooterSummary={true}
+                  showMaxRows={5}
                   singleLine={true}
-                  striped={true}
                   subtitle=""
                   title=""
-                  unstackable={true}
+                  totalHitsCount={2}
                 >
-                  <table
-                    className="ui selectable single line striped unstackable compact table"
+                  <Table
+                    as="table"
+                    compact={true}
+                    fixed={false}
                     name="current loans"
+                    selectable={true}
+                    singleLine={true}
+                    striped={true}
                     subtitle=""
                     title=""
+                    unstackable={true}
                   >
-                    <ResultsTableHeader
-                      columns={
-                        Array [
-                          Object {
-                            "formatter": [Function],
-                            "title": "Loan",
-                          },
-                          Object {
-                            "formatter": [Function],
-                            "title": "Document",
-                          },
-                          Object {
-                            "formatter": [Function],
-                            "title": "Item barcode",
-                          },
-                          Object {
-                            "field": "metadata.start_date",
-                            "formatter": [Function],
-                            "title": "Start date",
-                          },
-                          Object {
-                            "field": "metadata.end_date",
-                            "formatter": [Function],
-                            "title": "End date",
-                          },
-                          Object {
-                            "field": "metadata.extension_count",
-                            "title": "Renewals",
-                          },
-                        ]
-                      }
+                    <table
+                      className="ui selectable single line striped unstackable compact table"
+                      name="current loans"
+                      subtitle=""
+                      title=""
                     >
-                      <TableHeader
-                        as="thead"
+                      <ResultsTableHeader
+                        columns={
+                          Array [
+                            Object {
+                              "formatter": [Function],
+                              "title": "Loan",
+                            },
+                            Object {
+                              "formatter": [Function],
+                              "title": "Document",
+                            },
+                            Object {
+                              "formatter": [Function],
+                              "title": "Item barcode",
+                            },
+                            Object {
+                              "field": "metadata.start_date",
+                              "formatter": [Function],
+                              "title": "Start date",
+                            },
+                            Object {
+                              "field": "metadata.end_date",
+                              "formatter": [Function],
+                              "title": "End date",
+                            },
+                            Object {
+                              "field": "metadata.extension_count",
+                              "title": "Renewals",
+                            },
+                          ]
+                        }
                       >
-                        <thead
-                          className=""
+                        <TableHeader
+                          as="thead"
                         >
-                          <TableRow
-                            as="tr"
-                            cellAs="td"
-                            data-test="header"
+                          <thead
+                            className=""
                           >
-                            <tr
-                              className=""
+                            <TableRow
+                              as="tr"
+                              cellAs="td"
                               data-test="header"
                             >
-                              <TableHeaderCell
-                                as="th"
-                                key="Loan"
+                              <tr
+                                className=""
+                                data-test="header"
                               >
-                                <TableCell
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="Loan"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    Loan
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Document"
-                              >
-                                <TableCell
+                                    <th
+                                      className=""
+                                    >
+                                      Loan
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="Document"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    Document
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Item barcode"
-                              >
-                                <TableCell
+                                    <th
+                                      className=""
+                                    >
+                                      Document
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="Item barcode"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    Item barcode
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Start date"
-                              >
-                                <TableCell
+                                    <th
+                                      className=""
+                                    >
+                                      Item barcode
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="Start date"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    Start date
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="End date"
-                              >
-                                <TableCell
+                                    <th
+                                      className=""
+                                    >
+                                      Start date
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="End date"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    End date
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Renewals"
-                              >
-                                <TableCell
+                                    <th
+                                      className=""
+                                    >
+                                      End date
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="Renewals"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    Renewals
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                            </tr>
-                          </TableRow>
-                        </thead>
-                      </TableHeader>
-                    </ResultsTableHeader>
-                    <ResultsTableBody
-                      columns={
-                        Array [
-                          Object {
-                            "formatter": [Function],
-                            "title": "Loan",
-                          },
-                          Object {
-                            "formatter": [Function],
-                            "title": "Document",
-                          },
-                          Object {
-                            "formatter": [Function],
-                            "title": "Item barcode",
-                          },
-                          Object {
-                            "field": "metadata.start_date",
-                            "formatter": [Function],
-                            "title": "Start date",
-                          },
-                          Object {
-                            "field": "metadata.end_date",
-                            "formatter": [Function],
-                            "title": "End date",
-                          },
-                          Object {
-                            "field": "metadata.extension_count",
-                            "title": "Renewals",
-                          },
-                        ]
-                      }
-                      rows={
-                        Array [
-                          Object {
-                            "id": 1,
-                            "metadata": Object {
-                              "document": Object {
-                                "publication_year": "1950",
-                                "title": "Less: A Novel",
-                              },
-                              "document_pid": "docid-7",
-                              "end_date": "2018-07-28",
-                              "item": Object {
-                                "barcode": "123456789-54",
-                              },
-                              "item_pid": Object {
-                                "type": "pitmid",
-                                "value": "itemid-56",
-                              },
-                              "patron_pid": "1",
-                              "pickup_location_pid": "1",
-                              "pid": "loanid-5",
-                              "request_expire_date": "2019-06-28",
-                              "request_start_date": "2018-06-28",
-                              "start_date": "2018-06-28",
-                              "state": "ITEM_ON_LOAN",
-                              "transaction_date": "2018-06-29",
-                              "transaction_location_pid": "1",
+                                    <th
+                                      className=""
+                                    >
+                                      Renewals
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                              </tr>
+                            </TableRow>
+                          </thead>
+                        </TableHeader>
+                      </ResultsTableHeader>
+                      <ResultsTableBody
+                        columns={
+                          Array [
+                            Object {
+                              "formatter": [Function],
+                              "title": "Loan",
                             },
-                            "pid": "loan1",
-                          },
-                          Object {
-                            "id": 2,
-                            "metadata": Object {
-                              "document": Object {
-                                "publication_year": "1950",
-                                "title": "Less: A Novel",
-                              },
-                              "document_pid": "docid-8",
-                              "end_date": "2018-07-28",
-                              "item": Object {
-                                "barcode": "123456789-54",
-                              },
-                              "item_pid": Object {
-                                "type": "pitmid",
-                                "value": "itemid-57",
-                              },
-                              "patron_pid": "2",
-                              "pickup_location_pid": "1",
-                              "pid": "loanid-6",
-                              "request_expire_date": "2019-06-28",
-                              "request_start_date": "2018-06-28",
-                              "start_date": "2018-06-28",
-                              "state": "ITEM_ON_LOAN",
-                              "transaction_date": "2018-06-29",
-                              "transaction_location_pid": "1",
+                            Object {
+                              "formatter": [Function],
+                              "title": "Document",
                             },
-                            "pid": "loan2",
-                          },
-                        ]
-                      }
-                    >
-                      <TableBody
-                        as="tbody"
+                            Object {
+                              "formatter": [Function],
+                              "title": "Item barcode",
+                            },
+                            Object {
+                              "field": "metadata.start_date",
+                              "formatter": [Function],
+                              "title": "Start date",
+                            },
+                            Object {
+                              "field": "metadata.end_date",
+                              "formatter": [Function],
+                              "title": "End date",
+                            },
+                            Object {
+                              "field": "metadata.extension_count",
+                              "title": "Renewals",
+                            },
+                          ]
+                        }
+                        rows={
+                          Array [
+                            Object {
+                              "id": 1,
+                              "metadata": Object {
+                                "document": Object {
+                                  "publication_year": "1950",
+                                  "title": "Less: A Novel",
+                                },
+                                "document_pid": "docid-7",
+                                "end_date": "2018-07-28",
+                                "item": Object {
+                                  "barcode": "123456789-54",
+                                },
+                                "item_pid": Object {
+                                  "type": "pitmid",
+                                  "value": "itemid-56",
+                                },
+                                "patron_pid": "1",
+                                "pickup_location_pid": "1",
+                                "pid": "loanid-5",
+                                "request_expire_date": "2019-06-28",
+                                "request_start_date": "2018-06-28",
+                                "start_date": "2018-06-28",
+                                "state": "ITEM_ON_LOAN",
+                                "transaction_date": "2018-06-29",
+                                "transaction_location_pid": "1",
+                              },
+                              "pid": "loan1",
+                            },
+                            Object {
+                              "id": 2,
+                              "metadata": Object {
+                                "document": Object {
+                                  "publication_year": "1950",
+                                  "title": "Less: A Novel",
+                                },
+                                "document_pid": "docid-8",
+                                "end_date": "2018-07-28",
+                                "item": Object {
+                                  "barcode": "123456789-54",
+                                },
+                                "item_pid": Object {
+                                  "type": "pitmid",
+                                  "value": "itemid-57",
+                                },
+                                "patron_pid": "2",
+                                "pickup_location_pid": "1",
+                                "pid": "loanid-6",
+                                "request_expire_date": "2019-06-28",
+                                "request_start_date": "2018-06-28",
+                                "start_date": "2018-06-28",
+                                "state": "ITEM_ON_LOAN",
+                                "transaction_date": "2018-06-29",
+                                "transaction_location_pid": "1",
+                              },
+                              "pid": "loan2",
+                            },
+                          ]
+                        }
                       >
-                        <tbody
-                          className=""
+                        <TableBody
+                          as="tbody"
                         >
-                          <TableRow
-                            as="tr"
-                            cellAs="td"
-                            data-test="loan1"
-                            key="loan1"
+                          <tbody
+                            className=""
                           >
-                            <tr
-                              className=""
+                            <TableRow
+                              as="tr"
+                              cellAs="td"
                               data-test="loan1"
+                              key="loan1"
                             >
-                              <TableCell
-                                as="td"
-                                data-label="Loan"
-                                data-test="0-loan1"
-                                key="0-loan1"
+                              <tr
+                                className=""
+                                data-test="loan1"
                               >
-                                <td
-                                  className=""
+                                <TableCell
+                                  as="td"
                                   data-label="Loan"
                                   data-test="0-loan1"
+                                  key="0-loan1"
                                 >
-                                  <Link
-                                    data-test="loanid-5"
-                                    to="url/loanid-5"
+                                  <td
+                                    className=""
+                                    data-label="Loan"
+                                    data-test="0-loan1"
                                   >
-                                    <LinkAnchor
+                                    <Link
                                       data-test="loanid-5"
-                                      href="/url/loanid-5"
-                                      navigate={[Function]}
+                                      to="url/loanid-5"
                                     >
-                                      <a
+                                      <LinkAnchor
                                         data-test="loanid-5"
                                         href="/url/loanid-5"
-                                        onClick={[Function]}
+                                        navigate={[Function]}
                                       >
-                                        loanid-5
-                                      </a>
-                                    </LinkAnchor>
-                                  </Link>
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Document"
-                                data-test="1-loan1"
-                                key="1-loan1"
-                              >
-                                <td
-                                  className=""
+                                        <a
+                                          data-test="loanid-5"
+                                          href="/url/loanid-5"
+                                          onClick={[Function]}
+                                        >
+                                          loanid-5
+                                        </a>
+                                      </LinkAnchor>
+                                    </Link>
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Document"
                                   data-test="1-loan1"
+                                  key="1-loan1"
                                 >
-                                  <Link
-                                    data-test="loanid-5"
-                                    to="/backoffice/documents/docid-7"
+                                  <td
+                                    className=""
+                                    data-label="Document"
+                                    data-test="1-loan1"
                                   >
-                                    <LinkAnchor
+                                    <Link
                                       data-test="loanid-5"
-                                      href="/backoffice/documents/docid-7"
-                                      navigate={[Function]}
+                                      to="/backoffice/documents/docid-7"
                                     >
-                                      <a
+                                      <LinkAnchor
                                         data-test="loanid-5"
                                         href="/backoffice/documents/docid-7"
-                                        onClick={[Function]}
+                                        navigate={[Function]}
                                       >
-                                        <Overridable(LiteratureTitle)
-                                          publicationYear="1950"
-                                          title="Less: A Novel"
+                                        <a
+                                          data-test="loanid-5"
+                                          href="/backoffice/documents/docid-7"
+                                          onClick={[Function]}
                                         >
-                                          <LiteratureTitle
-                                            edition={null}
+                                          <Overridable(LiteratureTitle)
                                             publicationYear="1950"
                                             title="Less: A Novel"
-                                            truncate={true}
-                                            truncateLines={2}
-                                            truncateWidth={null}
-                                            volume={null}
                                           >
-                                            <Truncate
-                                              lines={2}
-                                              width={null}
+                                            <LiteratureTitle
+                                              edition={null}
+                                              publicationYear="1950"
+                                              title="Less: A Novel"
+                                              truncate={true}
+                                              truncateLines={2}
+                                              truncateWidth={null}
+                                              volume={null}
                                             >
-                                              <span
-                                                style={
-                                                  Object {
-                                                    "WebkitBoxOrient": "vertical",
-                                                    "WebkitLineClamp": 2,
-                                                    "display": "-webkit-box",
-                                                    "overflow": "hidden",
-                                                    "textOverflow": "ellipsis",
-                                                    "whiteSpace": "normal",
-                                                  }
-                                                }
+                                              <Truncate
+                                                lines={2}
+                                                width={null}
                                               >
-                                                Less: A Novel
-                                                 
-                                                <EditionYearVolume
-                                                  edition={null}
-                                                  publicationYear="1950"
-                                                  volume={null}
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "WebkitBoxOrient": "vertical",
+                                                      "WebkitLineClamp": 2,
+                                                      "display": "-webkit-box",
+                                                      "overflow": "hidden",
+                                                      "textOverflow": "ellipsis",
+                                                      "whiteSpace": "normal",
+                                                    }
+                                                  }
                                                 >
-                                                  (1950)
-                                                </EditionYearVolume>
-                                              </span>
-                                            </Truncate>
-                                          </LiteratureTitle>
-                                        </Overridable(LiteratureTitle)>
-                                      </a>
-                                    </LinkAnchor>
-                                  </Link>
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Item barcode"
-                                data-test="2-loan1"
-                                key="2-loan1"
-                              >
-                                <td
-                                  className=""
+                                                  Less: A Novel
+                                                   
+                                                  <EditionYearVolume
+                                                    edition={null}
+                                                    publicationYear="1950"
+                                                    volume={null}
+                                                  >
+                                                    (1950)
+                                                  </EditionYearVolume>
+                                                </span>
+                                              </Truncate>
+                                            </LiteratureTitle>
+                                          </Overridable(LiteratureTitle)>
+                                        </a>
+                                      </LinkAnchor>
+                                    </Link>
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Item barcode"
                                   data-test="2-loan1"
+                                  key="2-loan1"
                                 >
-                                  <Link
-                                    to="/backoffice/items/itemid-56"
+                                  <td
+                                    className=""
+                                    data-label="Item barcode"
+                                    data-test="2-loan1"
                                   >
-                                    <LinkAnchor
-                                      href="/backoffice/items/itemid-56"
-                                      navigate={[Function]}
+                                    <Link
+                                      to="/backoffice/items/itemid-56"
                                     >
-                                      <a
+                                      <LinkAnchor
                                         href="/backoffice/items/itemid-56"
-                                        onClick={[Function]}
+                                        navigate={[Function]}
                                       >
-                                        123456789-54
-                                      </a>
-                                    </LinkAnchor>
-                                  </Link>
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Start date"
-                                data-test="3-loan1"
-                                key="3-loan1"
-                              >
-                                <td
-                                  className=""
+                                        <a
+                                          href="/backoffice/items/itemid-56"
+                                          onClick={[Function]}
+                                        >
+                                          123456789-54
+                                        </a>
+                                      </LinkAnchor>
+                                    </Link>
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Start date"
                                   data-test="3-loan1"
+                                  key="3-loan1"
                                 >
-                                  6/28/2018
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="End date"
-                                data-test="4-loan1"
-                                key="4-loan1"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="Start date"
+                                    data-test="3-loan1"
+                                  >
+                                    6/28/2018
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="End date"
                                   data-test="4-loan1"
+                                  key="4-loan1"
                                 >
-                                  7/28/2018
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Renewals"
-                                data-test="5-loan1"
-                                key="5-loan1"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="End date"
+                                    data-test="4-loan1"
+                                  >
+                                    7/28/2018
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Renewals"
                                   data-test="5-loan1"
+                                  key="5-loan1"
                                 >
-                                  -
-                                </td>
-                              </TableCell>
-                            </tr>
-                          </TableRow>
-                          <TableRow
-                            as="tr"
-                            cellAs="td"
-                            data-test="loan2"
-                            key="loan2"
-                          >
-                            <tr
-                              className=""
+                                  <td
+                                    className=""
+                                    data-label="Renewals"
+                                    data-test="5-loan1"
+                                  >
+                                    -
+                                  </td>
+                                </TableCell>
+                              </tr>
+                            </TableRow>
+                            <TableRow
+                              as="tr"
+                              cellAs="td"
                               data-test="loan2"
+                              key="loan2"
                             >
-                              <TableCell
-                                as="td"
-                                data-label="Loan"
-                                data-test="0-loan2"
-                                key="0-loan2"
+                              <tr
+                                className=""
+                                data-test="loan2"
                               >
-                                <td
-                                  className=""
+                                <TableCell
+                                  as="td"
                                   data-label="Loan"
                                   data-test="0-loan2"
+                                  key="0-loan2"
                                 >
-                                  <Link
-                                    data-test="loanid-6"
-                                    to="url/loanid-6"
+                                  <td
+                                    className=""
+                                    data-label="Loan"
+                                    data-test="0-loan2"
                                   >
-                                    <LinkAnchor
+                                    <Link
                                       data-test="loanid-6"
-                                      href="/url/loanid-6"
-                                      navigate={[Function]}
+                                      to="url/loanid-6"
                                     >
-                                      <a
+                                      <LinkAnchor
                                         data-test="loanid-6"
                                         href="/url/loanid-6"
-                                        onClick={[Function]}
+                                        navigate={[Function]}
                                       >
-                                        loanid-6
-                                      </a>
-                                    </LinkAnchor>
-                                  </Link>
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Document"
-                                data-test="1-loan2"
-                                key="1-loan2"
-                              >
-                                <td
-                                  className=""
+                                        <a
+                                          data-test="loanid-6"
+                                          href="/url/loanid-6"
+                                          onClick={[Function]}
+                                        >
+                                          loanid-6
+                                        </a>
+                                      </LinkAnchor>
+                                    </Link>
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Document"
                                   data-test="1-loan2"
+                                  key="1-loan2"
                                 >
-                                  <Link
-                                    data-test="loanid-6"
-                                    to="/backoffice/documents/docid-8"
+                                  <td
+                                    className=""
+                                    data-label="Document"
+                                    data-test="1-loan2"
                                   >
-                                    <LinkAnchor
+                                    <Link
                                       data-test="loanid-6"
-                                      href="/backoffice/documents/docid-8"
-                                      navigate={[Function]}
+                                      to="/backoffice/documents/docid-8"
                                     >
-                                      <a
+                                      <LinkAnchor
                                         data-test="loanid-6"
                                         href="/backoffice/documents/docid-8"
-                                        onClick={[Function]}
+                                        navigate={[Function]}
                                       >
-                                        <Overridable(LiteratureTitle)
-                                          publicationYear="1950"
-                                          title="Less: A Novel"
+                                        <a
+                                          data-test="loanid-6"
+                                          href="/backoffice/documents/docid-8"
+                                          onClick={[Function]}
                                         >
-                                          <LiteratureTitle
-                                            edition={null}
+                                          <Overridable(LiteratureTitle)
                                             publicationYear="1950"
                                             title="Less: A Novel"
-                                            truncate={true}
-                                            truncateLines={2}
-                                            truncateWidth={null}
-                                            volume={null}
                                           >
-                                            <Truncate
-                                              lines={2}
-                                              width={null}
+                                            <LiteratureTitle
+                                              edition={null}
+                                              publicationYear="1950"
+                                              title="Less: A Novel"
+                                              truncate={true}
+                                              truncateLines={2}
+                                              truncateWidth={null}
+                                              volume={null}
                                             >
-                                              <span
-                                                style={
-                                                  Object {
-                                                    "WebkitBoxOrient": "vertical",
-                                                    "WebkitLineClamp": 2,
-                                                    "display": "-webkit-box",
-                                                    "overflow": "hidden",
-                                                    "textOverflow": "ellipsis",
-                                                    "whiteSpace": "normal",
-                                                  }
-                                                }
+                                              <Truncate
+                                                lines={2}
+                                                width={null}
                                               >
-                                                Less: A Novel
-                                                 
-                                                <EditionYearVolume
-                                                  edition={null}
-                                                  publicationYear="1950"
-                                                  volume={null}
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "WebkitBoxOrient": "vertical",
+                                                      "WebkitLineClamp": 2,
+                                                      "display": "-webkit-box",
+                                                      "overflow": "hidden",
+                                                      "textOverflow": "ellipsis",
+                                                      "whiteSpace": "normal",
+                                                    }
+                                                  }
                                                 >
-                                                  (1950)
-                                                </EditionYearVolume>
-                                              </span>
-                                            </Truncate>
-                                          </LiteratureTitle>
-                                        </Overridable(LiteratureTitle)>
-                                      </a>
-                                    </LinkAnchor>
-                                  </Link>
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Item barcode"
-                                data-test="2-loan2"
-                                key="2-loan2"
-                              >
-                                <td
-                                  className=""
+                                                  Less: A Novel
+                                                   
+                                                  <EditionYearVolume
+                                                    edition={null}
+                                                    publicationYear="1950"
+                                                    volume={null}
+                                                  >
+                                                    (1950)
+                                                  </EditionYearVolume>
+                                                </span>
+                                              </Truncate>
+                                            </LiteratureTitle>
+                                          </Overridable(LiteratureTitle)>
+                                        </a>
+                                      </LinkAnchor>
+                                    </Link>
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Item barcode"
                                   data-test="2-loan2"
+                                  key="2-loan2"
                                 >
-                                  <Link
-                                    to="/backoffice/items/itemid-57"
+                                  <td
+                                    className=""
+                                    data-label="Item barcode"
+                                    data-test="2-loan2"
                                   >
-                                    <LinkAnchor
-                                      href="/backoffice/items/itemid-57"
-                                      navigate={[Function]}
+                                    <Link
+                                      to="/backoffice/items/itemid-57"
                                     >
-                                      <a
+                                      <LinkAnchor
                                         href="/backoffice/items/itemid-57"
-                                        onClick={[Function]}
+                                        navigate={[Function]}
                                       >
-                                        123456789-54
-                                      </a>
-                                    </LinkAnchor>
-                                  </Link>
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Start date"
-                                data-test="3-loan2"
-                                key="3-loan2"
-                              >
-                                <td
-                                  className=""
+                                        <a
+                                          href="/backoffice/items/itemid-57"
+                                          onClick={[Function]}
+                                        >
+                                          123456789-54
+                                        </a>
+                                      </LinkAnchor>
+                                    </Link>
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Start date"
                                   data-test="3-loan2"
+                                  key="3-loan2"
                                 >
-                                  6/28/2018
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="End date"
-                                data-test="4-loan2"
-                                key="4-loan2"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="Start date"
+                                    data-test="3-loan2"
+                                  >
+                                    6/28/2018
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="End date"
                                   data-test="4-loan2"
+                                  key="4-loan2"
                                 >
-                                  7/28/2018
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Renewals"
-                                data-test="5-loan2"
-                                key="5-loan2"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="End date"
+                                    data-test="4-loan2"
+                                  >
+                                    7/28/2018
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Renewals"
                                   data-test="5-loan2"
+                                  key="5-loan2"
                                 >
-                                  -
-                                </td>
-                              </TableCell>
-                            </tr>
-                          </TableRow>
-                        </tbody>
-                      </TableBody>
-                    </ResultsTableBody>
-                    <ResultsTableFooter
-                      allRowsNumber={2}
-                      columnsNumber={6}
-                      currentPage={1}
-                      paginationComponent={null}
-                      seeAllComponent={
-                        <SeeAllButton
-                          disabled={false}
-                          fluid={false}
-                          to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
-                        />
-                      }
-                      showAllResults={false}
-                      showFooterSummary={true}
-                      showMaxRows={5}
-                    />
-                  </table>
-                </Table>
-              </ResultsTable>
-            </Error>
+                                  <td
+                                    className=""
+                                    data-label="Renewals"
+                                    data-test="5-loan2"
+                                  >
+                                    -
+                                  </td>
+                                </TableCell>
+                              </tr>
+                            </TableRow>
+                          </tbody>
+                        </TableBody>
+                      </ResultsTableBody>
+                      <ResultsTableFooter
+                        allRowsNumber={2}
+                        columnsNumber={6}
+                        currentPage={1}
+                        paginationComponent={null}
+                        seeAllComponent={
+                          <SeeAllButton
+                            disabled={false}
+                            fluid={false}
+                            to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
+                          />
+                        }
+                        showAllResults={false}
+                        showFooterSummary={true}
+                        showMaxRows={5}
+                      />
+                    </table>
+                  </Table>
+                </ResultsTable>
+              </Error>
+            </DevModeWrapper>
           </Overridable>
         </Loader>
       </Overridable(Loader)>
@@ -1010,94 +1014,98 @@ exports[`PatronCurrentLoans tests should render show a message with no user loan
         id="Loader.layout"
         isLoading={false}
       >
-        <Error
-          FallbackComponent={[Function]}
-          boundary={false}
-          error={null}
-          onUIError={null}
+        <DevModeWrapper
+          id="Loader.layout"
         >
-          <ResultsTable
-            columns={
-              Array [
-                Object {
-                  "formatter": [Function],
-                  "title": "Loan",
-                },
-                Object {
-                  "formatter": [Function],
-                  "title": "Document",
-                },
-                Object {
-                  "formatter": [Function],
-                  "title": "Item barcode",
-                },
-                Object {
-                  "field": "metadata.start_date",
-                  "formatter": [Function],
-                  "title": "Start date",
-                },
-                Object {
-                  "field": "metadata.end_date",
-                  "formatter": [Function],
-                  "title": "End date",
-                },
-                Object {
-                  "field": "metadata.extension_count",
-                  "title": "Renewals",
-                },
-              ]
-            }
-            currentPage={1}
-            data={Array []}
-            fixed={false}
-            headerActionComponent={null}
-            name="current loans"
-            paginationComponent={null}
-            renderEmptyResultsElement={null}
-            seeAllComponent={
-              <SeeAllButton
-                disabled={false}
-                fluid={false}
-                to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
-              />
-            }
-            showAllResults={false}
-            showFooterSummary={true}
-            showMaxRows={5}
-            singleLine={true}
-            subtitle=""
-            title=""
-            totalHitsCount={0}
+          <Error
+            FallbackComponent={[Function]}
+            boundary={false}
+            error={null}
+            onUIError={null}
           >
-            <Message
-              data-test="no-results"
-              icon={true}
-              info={true}
+            <ResultsTable
+              columns={
+                Array [
+                  Object {
+                    "formatter": [Function],
+                    "title": "Loan",
+                  },
+                  Object {
+                    "formatter": [Function],
+                    "title": "Document",
+                  },
+                  Object {
+                    "formatter": [Function],
+                    "title": "Item barcode",
+                  },
+                  Object {
+                    "field": "metadata.start_date",
+                    "formatter": [Function],
+                    "title": "Start date",
+                  },
+                  Object {
+                    "field": "metadata.end_date",
+                    "formatter": [Function],
+                    "title": "End date",
+                  },
+                  Object {
+                    "field": "metadata.extension_count",
+                    "title": "Renewals",
+                  },
+                ]
+              }
+              currentPage={1}
+              data={Array []}
+              fixed={false}
+              headerActionComponent={null}
+              name="current loans"
+              paginationComponent={null}
+              renderEmptyResultsElement={null}
+              seeAllComponent={
+                <SeeAllButton
+                  disabled={false}
+                  fluid={false}
+                  to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
+                />
+              }
+              showAllResults={false}
+              showFooterSummary={true}
+              showMaxRows={5}
+              singleLine={true}
+              subtitle=""
+              title=""
+              totalHitsCount={0}
             >
-              <div
-                className="ui icon info message"
+              <Message
                 data-test="no-results"
+                icon={true}
+                info={true}
               >
-                <MessageContent>
-                  <div
-                    className="content"
-                  >
-                    <MessageHeader>
-                      <div
-                        className="header"
-                      >
-                        No results found
-                      </div>
-                    </MessageHeader>
-                    There are no 
-                    current loans
-                    .
-                  </div>
-                </MessageContent>
-              </div>
-            </Message>
-          </ResultsTable>
-        </Error>
+                <div
+                  className="ui icon info message"
+                  data-test="no-results"
+                >
+                  <MessageContent>
+                    <div
+                      className="content"
+                    >
+                      <MessageHeader>
+                        <div
+                          className="header"
+                        >
+                          No results found
+                        </div>
+                      </MessageHeader>
+                      There are no 
+                      current loans
+                      .
+                    </div>
+                  </MessageContent>
+                </div>
+              </Message>
+            </ResultsTable>
+          </Error>
+        </DevModeWrapper>
       </Overridable>
     </Loader>
   </Overridable(Loader)>
@@ -1226,644 +1234,634 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
             id="Loader.layout"
             isLoading={false}
           >
-            <Error
-              FallbackComponent={[Function]}
-              boundary={false}
-              error={null}
-              onUIError={null}
+            <DevModeWrapper
+              id="Loader.layout"
             >
-              <ResultsTable
-                columns={
-                  Array [
-                    Object {
-                      "formatter": [Function],
-                      "title": "Loan",
-                    },
-                    Object {
-                      "formatter": [Function],
-                      "title": "Document",
-                    },
-                    Object {
-                      "formatter": [Function],
-                      "title": "Item barcode",
-                    },
-                    Object {
-                      "field": "metadata.start_date",
-                      "formatter": [Function],
-                      "title": "Start date",
-                    },
-                    Object {
-                      "field": "metadata.end_date",
-                      "formatter": [Function],
-                      "title": "End date",
-                    },
-                    Object {
-                      "field": "metadata.extension_count",
-                      "title": "Renewals",
-                    },
-                  ]
-                }
-                currentPage={1}
-                data={
-                  Array [
-                    Object {
-                      "id": 1,
-                      "metadata": Object {
-                        "document": Object {
-                          "publication_year": "1950",
-                          "title": "Less: A Novel",
-                        },
-                        "document_pid": "docid-7",
-                        "end_date": "2018-07-28",
-                        "item": Object {
-                          "barcode": "123456789-54",
-                        },
-                        "item_pid": Object {
-                          "type": "pitmid",
-                          "value": "itemid-56",
-                        },
-                        "patron_pid": "1",
-                        "pickup_location_pid": "1",
-                        "pid": "loanid-5",
-                        "request_expire_date": "2019-06-28",
-                        "request_start_date": "2018-06-28",
-                        "start_date": "2018-06-28",
-                        "state": "ITEM_ON_LOAN",
-                        "transaction_date": "2018-06-29",
-                        "transaction_location_pid": "1",
-                      },
-                      "pid": "loan1",
-                    },
-                    Object {
-                      "id": 2,
-                      "metadata": Object {
-                        "document": Object {
-                          "publication_year": "1950",
-                          "title": "Less: A Novel",
-                        },
-                        "document_pid": "docid-8",
-                        "end_date": "2018-07-28",
-                        "item": Object {
-                          "barcode": "123456789-54",
-                        },
-                        "item_pid": Object {
-                          "type": "pitmid",
-                          "value": "itemid-57",
-                        },
-                        "patron_pid": "2",
-                        "pickup_location_pid": "1",
-                        "pid": "loanid-6",
-                        "request_expire_date": "2019-06-28",
-                        "request_start_date": "2018-06-28",
-                        "start_date": "2018-06-28",
-                        "state": "ITEM_ON_LOAN",
-                        "transaction_date": "2018-06-29",
-                        "transaction_location_pid": "1",
-                      },
-                      "pid": "loan2",
-                    },
-                  ]
-                }
-                fixed={false}
-                headerActionComponent={null}
-                name="current loans"
-                paginationComponent={null}
-                renderEmptyResultsElement={null}
-                seeAllComponent={
-                  <SeeAllButton
-                    disabled={false}
-                    fluid={false}
-                    to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
-                  />
-                }
-                showAllResults={false}
-                showFooterSummary={true}
-                showMaxRows={1}
-                singleLine={true}
-                subtitle=""
-                title=""
-                totalHitsCount={2}
+              <Error
+                FallbackComponent={[Function]}
+                boundary={false}
+                error={null}
+                onUIError={null}
               >
-                <Table
-                  as="table"
-                  compact={true}
+                <ResultsTable
+                  columns={
+                    Array [
+                      Object {
+                        "formatter": [Function],
+                        "title": "Loan",
+                      },
+                      Object {
+                        "formatter": [Function],
+                        "title": "Document",
+                      },
+                      Object {
+                        "formatter": [Function],
+                        "title": "Item barcode",
+                      },
+                      Object {
+                        "field": "metadata.start_date",
+                        "formatter": [Function],
+                        "title": "Start date",
+                      },
+                      Object {
+                        "field": "metadata.end_date",
+                        "formatter": [Function],
+                        "title": "End date",
+                      },
+                      Object {
+                        "field": "metadata.extension_count",
+                        "title": "Renewals",
+                      },
+                    ]
+                  }
+                  currentPage={1}
+                  data={
+                    Array [
+                      Object {
+                        "id": 1,
+                        "metadata": Object {
+                          "document": Object {
+                            "publication_year": "1950",
+                            "title": "Less: A Novel",
+                          },
+                          "document_pid": "docid-7",
+                          "end_date": "2018-07-28",
+                          "item": Object {
+                            "barcode": "123456789-54",
+                          },
+                          "item_pid": Object {
+                            "type": "pitmid",
+                            "value": "itemid-56",
+                          },
+                          "patron_pid": "1",
+                          "pickup_location_pid": "1",
+                          "pid": "loanid-5",
+                          "request_expire_date": "2019-06-28",
+                          "request_start_date": "2018-06-28",
+                          "start_date": "2018-06-28",
+                          "state": "ITEM_ON_LOAN",
+                          "transaction_date": "2018-06-29",
+                          "transaction_location_pid": "1",
+                        },
+                        "pid": "loan1",
+                      },
+                      Object {
+                        "id": 2,
+                        "metadata": Object {
+                          "document": Object {
+                            "publication_year": "1950",
+                            "title": "Less: A Novel",
+                          },
+                          "document_pid": "docid-8",
+                          "end_date": "2018-07-28",
+                          "item": Object {
+                            "barcode": "123456789-54",
+                          },
+                          "item_pid": Object {
+                            "type": "pitmid",
+                            "value": "itemid-57",
+                          },
+                          "patron_pid": "2",
+                          "pickup_location_pid": "1",
+                          "pid": "loanid-6",
+                          "request_expire_date": "2019-06-28",
+                          "request_start_date": "2018-06-28",
+                          "start_date": "2018-06-28",
+                          "state": "ITEM_ON_LOAN",
+                          "transaction_date": "2018-06-29",
+                          "transaction_location_pid": "1",
+                        },
+                        "pid": "loan2",
+                      },
+                    ]
+                  }
                   fixed={false}
+                  headerActionComponent={null}
                   name="current loans"
-                  selectable={true}
+                  paginationComponent={null}
+                  renderEmptyResultsElement={null}
+                  seeAllComponent={
+                    <SeeAllButton
+                      disabled={false}
+                      fluid={false}
+                      to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
+                    />
+                  }
+                  showAllResults={false}
+                  showFooterSummary={true}
+                  showMaxRows={1}
                   singleLine={true}
-                  striped={true}
                   subtitle=""
                   title=""
-                  unstackable={true}
+                  totalHitsCount={2}
                 >
-                  <table
-                    className="ui selectable single line striped unstackable compact table"
+                  <Table
+                    as="table"
+                    compact={true}
+                    fixed={false}
                     name="current loans"
+                    selectable={true}
+                    singleLine={true}
+                    striped={true}
                     subtitle=""
                     title=""
+                    unstackable={true}
                   >
-                    <ResultsTableHeader
-                      columns={
-                        Array [
-                          Object {
-                            "formatter": [Function],
-                            "title": "Loan",
-                          },
-                          Object {
-                            "formatter": [Function],
-                            "title": "Document",
-                          },
-                          Object {
-                            "formatter": [Function],
-                            "title": "Item barcode",
-                          },
-                          Object {
-                            "field": "metadata.start_date",
-                            "formatter": [Function],
-                            "title": "Start date",
-                          },
-                          Object {
-                            "field": "metadata.end_date",
-                            "formatter": [Function],
-                            "title": "End date",
-                          },
-                          Object {
-                            "field": "metadata.extension_count",
-                            "title": "Renewals",
-                          },
-                        ]
-                      }
+                    <table
+                      className="ui selectable single line striped unstackable compact table"
+                      name="current loans"
+                      subtitle=""
+                      title=""
                     >
-                      <TableHeader
-                        as="thead"
-                      >
-                        <thead
-                          className=""
-                        >
-                          <TableRow
-                            as="tr"
-                            cellAs="td"
-                            data-test="header"
-                          >
-                            <tr
-                              className=""
-                              data-test="header"
-                            >
-                              <TableHeaderCell
-                                as="th"
-                                key="Loan"
-                              >
-                                <TableCell
-                                  as="th"
-                                  className=""
-                                >
-                                  <th
-                                    className=""
-                                  >
-                                    Loan
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Document"
-                              >
-                                <TableCell
-                                  as="th"
-                                  className=""
-                                >
-                                  <th
-                                    className=""
-                                  >
-                                    Document
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Item barcode"
-                              >
-                                <TableCell
-                                  as="th"
-                                  className=""
-                                >
-                                  <th
-                                    className=""
-                                  >
-                                    Item barcode
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Start date"
-                              >
-                                <TableCell
-                                  as="th"
-                                  className=""
-                                >
-                                  <th
-                                    className=""
-                                  >
-                                    Start date
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="End date"
-                              >
-                                <TableCell
-                                  as="th"
-                                  className=""
-                                >
-                                  <th
-                                    className=""
-                                  >
-                                    End date
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Renewals"
-                              >
-                                <TableCell
-                                  as="th"
-                                  className=""
-                                >
-                                  <th
-                                    className=""
-                                  >
-                                    Renewals
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                            </tr>
-                          </TableRow>
-                        </thead>
-                      </TableHeader>
-                    </ResultsTableHeader>
-                    <ResultsTableBody
-                      columns={
-                        Array [
-                          Object {
-                            "formatter": [Function],
-                            "title": "Loan",
-                          },
-                          Object {
-                            "formatter": [Function],
-                            "title": "Document",
-                          },
-                          Object {
-                            "formatter": [Function],
-                            "title": "Item barcode",
-                          },
-                          Object {
-                            "field": "metadata.start_date",
-                            "formatter": [Function],
-                            "title": "Start date",
-                          },
-                          Object {
-                            "field": "metadata.end_date",
-                            "formatter": [Function],
-                            "title": "End date",
-                          },
-                          Object {
-                            "field": "metadata.extension_count",
-                            "title": "Renewals",
-                          },
-                        ]
-                      }
-                      rows={
-                        Array [
-                          Object {
-                            "id": 1,
-                            "metadata": Object {
-                              "document": Object {
-                                "publication_year": "1950",
-                                "title": "Less: A Novel",
-                              },
-                              "document_pid": "docid-7",
-                              "end_date": "2018-07-28",
-                              "item": Object {
-                                "barcode": "123456789-54",
-                              },
-                              "item_pid": Object {
-                                "type": "pitmid",
-                                "value": "itemid-56",
-                              },
-                              "patron_pid": "1",
-                              "pickup_location_pid": "1",
-                              "pid": "loanid-5",
-                              "request_expire_date": "2019-06-28",
-                              "request_start_date": "2018-06-28",
-                              "start_date": "2018-06-28",
-                              "state": "ITEM_ON_LOAN",
-                              "transaction_date": "2018-06-29",
-                              "transaction_location_pid": "1",
+                      <ResultsTableHeader
+                        columns={
+                          Array [
+                            Object {
+                              "formatter": [Function],
+                              "title": "Loan",
                             },
-                            "pid": "loan1",
-                          },
-                        ]
-                      }
-                    >
-                      <TableBody
-                        as="tbody"
-                      >
-                        <tbody
-                          className=""
-                        >
-                          <TableRow
-                            as="tr"
-                            cellAs="td"
-                            data-test="loan1"
-                            key="loan1"
-                          >
-                            <tr
-                              className=""
-                              data-test="loan1"
-                            >
-                              <TableCell
-                                as="td"
-                                data-label="Loan"
-                                data-test="0-loan1"
-                                key="0-loan1"
-                              >
-                                <td
-                                  className=""
-                                  data-label="Loan"
-                                  data-test="0-loan1"
-                                >
-                                  <Link
-                                    data-test="loanid-5"
-                                    to="url/loanid-5"
-                                  >
-                                    <LinkAnchor
-                                      data-test="loanid-5"
-                                      href="/url/loanid-5"
-                                      navigate={[Function]}
-                                    >
-                                      <a
-                                        data-test="loanid-5"
-                                        href="/url/loanid-5"
-                                        onClick={[Function]}
-                                      >
-                                        loanid-5
-                                      </a>
-                                    </LinkAnchor>
-                                  </Link>
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Document"
-                                data-test="1-loan1"
-                                key="1-loan1"
-                              >
-                                <td
-                                  className=""
-                                  data-label="Document"
-                                  data-test="1-loan1"
-                                >
-                                  <Link
-                                    data-test="loanid-5"
-                                    to="/backoffice/documents/docid-7"
-                                  >
-                                    <LinkAnchor
-                                      data-test="loanid-5"
-                                      href="/backoffice/documents/docid-7"
-                                      navigate={[Function]}
-                                    >
-                                      <a
-                                        data-test="loanid-5"
-                                        href="/backoffice/documents/docid-7"
-                                        onClick={[Function]}
-                                      >
-                                        <Overridable(LiteratureTitle)
-                                          publicationYear="1950"
-                                          title="Less: A Novel"
-                                        >
-                                          <LiteratureTitle
-                                            edition={null}
-                                            publicationYear="1950"
-                                            title="Less: A Novel"
-                                            truncate={true}
-                                            truncateLines={2}
-                                            truncateWidth={null}
-                                            volume={null}
-                                          >
-                                            <Truncate
-                                              lines={2}
-                                              width={null}
-                                            >
-                                              <span
-                                                style={
-                                                  Object {
-                                                    "WebkitBoxOrient": "vertical",
-                                                    "WebkitLineClamp": 2,
-                                                    "display": "-webkit-box",
-                                                    "overflow": "hidden",
-                                                    "textOverflow": "ellipsis",
-                                                    "whiteSpace": "normal",
-                                                  }
-                                                }
-                                              >
-                                                Less: A Novel
-                                                 
-                                                <EditionYearVolume
-                                                  edition={null}
-                                                  publicationYear="1950"
-                                                  volume={null}
-                                                >
-                                                  (1950)
-                                                </EditionYearVolume>
-                                              </span>
-                                            </Truncate>
-                                          </LiteratureTitle>
-                                        </Overridable(LiteratureTitle)>
-                                      </a>
-                                    </LinkAnchor>
-                                  </Link>
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Item barcode"
-                                data-test="2-loan1"
-                                key="2-loan1"
-                              >
-                                <td
-                                  className=""
-                                  data-label="Item barcode"
-                                  data-test="2-loan1"
-                                >
-                                  <Link
-                                    to="/backoffice/items/itemid-56"
-                                  >
-                                    <LinkAnchor
-                                      href="/backoffice/items/itemid-56"
-                                      navigate={[Function]}
-                                    >
-                                      <a
-                                        href="/backoffice/items/itemid-56"
-                                        onClick={[Function]}
-                                      >
-                                        123456789-54
-                                      </a>
-                                    </LinkAnchor>
-                                  </Link>
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Start date"
-                                data-test="3-loan1"
-                                key="3-loan1"
-                              >
-                                <td
-                                  className=""
-                                  data-label="Start date"
-                                  data-test="3-loan1"
-                                >
-                                  6/28/2018
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="End date"
-                                data-test="4-loan1"
-                                key="4-loan1"
-                              >
-                                <td
-                                  className=""
-                                  data-label="End date"
-                                  data-test="4-loan1"
-                                >
-                                  7/28/2018
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Renewals"
-                                data-test="5-loan1"
-                                key="5-loan1"
-                              >
-                                <td
-                                  className=""
-                                  data-label="Renewals"
-                                  data-test="5-loan1"
-                                >
-                                  -
-                                </td>
-                              </TableCell>
-                            </tr>
-                          </TableRow>
-                        </tbody>
-                      </TableBody>
-                    </ResultsTableBody>
-                    <ResultsTableFooter
-                      allRowsNumber={2}
-                      columnsNumber={6}
-                      currentPage={1}
-                      paginationComponent={null}
-                      seeAllComponent={
-                        <SeeAllButton
-                          disabled={false}
-                          fluid={false}
-                          to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
-                        />
-                      }
-                      showAllResults={false}
-                      showFooterSummary={true}
-                      showMaxRows={1}
-                    >
-                      <TableFooter
-                        as="tfoot"
-                        data-test="footer"
-                        fullWidth={true}
+                            Object {
+                              "formatter": [Function],
+                              "title": "Document",
+                            },
+                            Object {
+                              "formatter": [Function],
+                              "title": "Item barcode",
+                            },
+                            Object {
+                              "field": "metadata.start_date",
+                              "formatter": [Function],
+                              "title": "Start date",
+                            },
+                            Object {
+                              "field": "metadata.end_date",
+                              "formatter": [Function],
+                              "title": "End date",
+                            },
+                            Object {
+                              "field": "metadata.extension_count",
+                              "title": "Renewals",
+                            },
+                          ]
+                        }
                       >
                         <TableHeader
-                          as="tfoot"
-                          data-test="footer"
-                          fullWidth={true}
+                          as="thead"
                         >
-                          <tfoot
-                            className="full-width"
-                            data-test="footer"
+                          <thead
+                            className=""
                           >
                             <TableRow
                               as="tr"
                               cellAs="td"
+                              data-test="header"
                             >
                               <tr
                                 className=""
+                                data-test="header"
                               >
                                 <TableHeaderCell
                                   as="th"
-                                  colSpan={7}
-                                  textAlign="right"
+                                  key="Loan"
                                 >
                                   <TableCell
                                     as="th"
                                     className=""
+                                  >
+                                    <th
+                                      className=""
+                                    >
+                                      Loan
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
+                                  as="th"
+                                  key="Document"
+                                >
+                                  <TableCell
+                                    as="th"
+                                    className=""
+                                  >
+                                    <th
+                                      className=""
+                                    >
+                                      Document
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
+                                  as="th"
+                                  key="Item barcode"
+                                >
+                                  <TableCell
+                                    as="th"
+                                    className=""
+                                  >
+                                    <th
+                                      className=""
+                                    >
+                                      Item barcode
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
+                                  as="th"
+                                  key="Start date"
+                                >
+                                  <TableCell
+                                    as="th"
+                                    className=""
+                                  >
+                                    <th
+                                      className=""
+                                    >
+                                      Start date
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
+                                  as="th"
+                                  key="End date"
+                                >
+                                  <TableCell
+                                    as="th"
+                                    className=""
+                                  >
+                                    <th
+                                      className=""
+                                    >
+                                      End date
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
+                                  as="th"
+                                  key="Renewals"
+                                >
+                                  <TableCell
+                                    as="th"
+                                    className=""
+                                  >
+                                    <th
+                                      className=""
+                                    >
+                                      Renewals
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                              </tr>
+                            </TableRow>
+                          </thead>
+                        </TableHeader>
+                      </ResultsTableHeader>
+                      <ResultsTableBody
+                        columns={
+                          Array [
+                            Object {
+                              "formatter": [Function],
+                              "title": "Loan",
+                            },
+                            Object {
+                              "formatter": [Function],
+                              "title": "Document",
+                            },
+                            Object {
+                              "formatter": [Function],
+                              "title": "Item barcode",
+                            },
+                            Object {
+                              "field": "metadata.start_date",
+                              "formatter": [Function],
+                              "title": "Start date",
+                            },
+                            Object {
+                              "field": "metadata.end_date",
+                              "formatter": [Function],
+                              "title": "End date",
+                            },
+                            Object {
+                              "field": "metadata.extension_count",
+                              "title": "Renewals",
+                            },
+                          ]
+                        }
+                        rows={
+                          Array [
+                            Object {
+                              "id": 1,
+                              "metadata": Object {
+                                "document": Object {
+                                  "publication_year": "1950",
+                                  "title": "Less: A Novel",
+                                },
+                                "document_pid": "docid-7",
+                                "end_date": "2018-07-28",
+                                "item": Object {
+                                  "barcode": "123456789-54",
+                                },
+                                "item_pid": Object {
+                                  "type": "pitmid",
+                                  "value": "itemid-56",
+                                },
+                                "patron_pid": "1",
+                                "pickup_location_pid": "1",
+                                "pid": "loanid-5",
+                                "request_expire_date": "2019-06-28",
+                                "request_start_date": "2018-06-28",
+                                "start_date": "2018-06-28",
+                                "state": "ITEM_ON_LOAN",
+                                "transaction_date": "2018-06-29",
+                                "transaction_location_pid": "1",
+                              },
+                              "pid": "loan1",
+                            },
+                          ]
+                        }
+                      >
+                        <TableBody
+                          as="tbody"
+                        >
+                          <tbody
+                            className=""
+                          >
+                            <TableRow
+                              as="tr"
+                              cellAs="td"
+                              data-test="loan1"
+                              key="loan1"
+                            >
+                              <tr
+                                className=""
+                                data-test="loan1"
+                              >
+                                <TableCell
+                                  as="td"
+                                  data-label="Loan"
+                                  data-test="0-loan1"
+                                  key="0-loan1"
+                                >
+                                  <td
+                                    className=""
+                                    data-label="Loan"
+                                    data-test="0-loan1"
+                                  >
+                                    <Link
+                                      data-test="loanid-5"
+                                      to="url/loanid-5"
+                                    >
+                                      <LinkAnchor
+                                        data-test="loanid-5"
+                                        href="/url/loanid-5"
+                                        navigate={[Function]}
+                                      >
+                                        <a
+                                          data-test="loanid-5"
+                                          href="/url/loanid-5"
+                                          onClick={[Function]}
+                                        >
+                                          loanid-5
+                                        </a>
+                                      </LinkAnchor>
+                                    </Link>
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
+                                  data-label="Document"
+                                  data-test="1-loan1"
+                                  key="1-loan1"
+                                >
+                                  <td
+                                    className=""
+                                    data-label="Document"
+                                    data-test="1-loan1"
+                                  >
+                                    <Link
+                                      data-test="loanid-5"
+                                      to="/backoffice/documents/docid-7"
+                                    >
+                                      <LinkAnchor
+                                        data-test="loanid-5"
+                                        href="/backoffice/documents/docid-7"
+                                        navigate={[Function]}
+                                      >
+                                        <a
+                                          data-test="loanid-5"
+                                          href="/backoffice/documents/docid-7"
+                                          onClick={[Function]}
+                                        >
+                                          <Overridable(LiteratureTitle)
+                                            publicationYear="1950"
+                                            title="Less: A Novel"
+                                          >
+                                            <LiteratureTitle
+                                              edition={null}
+                                              publicationYear="1950"
+                                              title="Less: A Novel"
+                                              truncate={true}
+                                              truncateLines={2}
+                                              truncateWidth={null}
+                                              volume={null}
+                                            >
+                                              <Truncate
+                                                lines={2}
+                                                width={null}
+                                              >
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "WebkitBoxOrient": "vertical",
+                                                      "WebkitLineClamp": 2,
+                                                      "display": "-webkit-box",
+                                                      "overflow": "hidden",
+                                                      "textOverflow": "ellipsis",
+                                                      "whiteSpace": "normal",
+                                                    }
+                                                  }
+                                                >
+                                                  Less: A Novel
+                                                   
+                                                  <EditionYearVolume
+                                                    edition={null}
+                                                    publicationYear="1950"
+                                                    volume={null}
+                                                  >
+                                                    (1950)
+                                                  </EditionYearVolume>
+                                                </span>
+                                              </Truncate>
+                                            </LiteratureTitle>
+                                          </Overridable(LiteratureTitle)>
+                                        </a>
+                                      </LinkAnchor>
+                                    </Link>
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
+                                  data-label="Item barcode"
+                                  data-test="2-loan1"
+                                  key="2-loan1"
+                                >
+                                  <td
+                                    className=""
+                                    data-label="Item barcode"
+                                    data-test="2-loan1"
+                                  >
+                                    <Link
+                                      to="/backoffice/items/itemid-56"
+                                    >
+                                      <LinkAnchor
+                                        href="/backoffice/items/itemid-56"
+                                        navigate={[Function]}
+                                      >
+                                        <a
+                                          href="/backoffice/items/itemid-56"
+                                          onClick={[Function]}
+                                        >
+                                          123456789-54
+                                        </a>
+                                      </LinkAnchor>
+                                    </Link>
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
+                                  data-label="Start date"
+                                  data-test="3-loan1"
+                                  key="3-loan1"
+                                >
+                                  <td
+                                    className=""
+                                    data-label="Start date"
+                                    data-test="3-loan1"
+                                  >
+                                    6/28/2018
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
+                                  data-label="End date"
+                                  data-test="4-loan1"
+                                  key="4-loan1"
+                                >
+                                  <td
+                                    className=""
+                                    data-label="End date"
+                                    data-test="4-loan1"
+                                  >
+                                    7/28/2018
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
+                                  data-label="Renewals"
+                                  data-test="5-loan1"
+                                  key="5-loan1"
+                                >
+                                  <td
+                                    className=""
+                                    data-label="Renewals"
+                                    data-test="5-loan1"
+                                  >
+                                    -
+                                  </td>
+                                </TableCell>
+                              </tr>
+                            </TableRow>
+                          </tbody>
+                        </TableBody>
+                      </ResultsTableBody>
+                      <ResultsTableFooter
+                        allRowsNumber={2}
+                        columnsNumber={6}
+                        currentPage={1}
+                        paginationComponent={null}
+                        seeAllComponent={
+                          <SeeAllButton
+                            disabled={false}
+                            fluid={false}
+                            to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
+                          />
+                        }
+                        showAllResults={false}
+                        showFooterSummary={true}
+                        showMaxRows={1}
+                      >
+                        <TableFooter
+                          as="tfoot"
+                          data-test="footer"
+                          fullWidth={true}
+                        >
+                          <TableHeader
+                            as="tfoot"
+                            data-test="footer"
+                            fullWidth={true}
+                          >
+                            <tfoot
+                              className="full-width"
+                              data-test="footer"
+                            >
+                              <TableRow
+                                as="tr"
+                                cellAs="td"
+                              >
+                                <tr
+                                  className=""
+                                >
+                                  <TableHeaderCell
+                                    as="th"
                                     colSpan={7}
                                     textAlign="right"
                                   >
-                                    <th
-                                      className="right aligned"
+                                    <TableCell
+                                      as="th"
+                                      className=""
                                       colSpan={7}
+                                      textAlign="right"
                                     >
-                                      <span
-                                        className="results-table-compact-summary"
+                                      <th
+                                        className="right aligned"
+                                        colSpan={7}
                                       >
-                                        Showing entries 
-                                        1
-                                        -
-                                        1
-                                         of 
-                                        2
-                                         
-                                      </span>
-                                      <span>
-                                        <SeeAllButton
-                                          disabled={false}
-                                          fluid={false}
-                                          to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
+                                        <span
+                                          className="results-table-compact-summary"
                                         >
-                                          <Button
-                                            as={
-                                              Object {
-                                                "$$typeof": Symbol(react.forward_ref),
-                                                "propTypes": Object {
-                                                  "innerRef": [Function],
-                                                  "onClick": [Function],
-                                                  "replace": [Function],
-                                                  "target": [Function],
-                                                  "to": [Function],
-                                                },
-                                                "render": [Function],
-                                              }
-                                            }
+                                          Showing entries 
+                                          1
+                                          -
+                                          1
+                                           of 
+                                          2
+                                           
+                                        </span>
+                                        <span>
+                                          <SeeAllButton
                                             disabled={false}
                                             fluid={false}
-                                            size="small"
                                             to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
                                           >
-                                            <Ref
-                                              innerRef={
+                                            <Button
+                                              as={
                                                 Object {
-                                                  "current": <a
-                                                    class="ui small button"
-                                                    href="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
-                                                    role="button"
-                                                  >
-                                                    See all
-                                                  </a>,
+                                                  "$$typeof": Symbol(react.forward_ref),
+                                                  "propTypes": Object {
+                                                    "innerRef": [Function],
+                                                    "onClick": [Function],
+                                                    "replace": [Function],
+                                                    "target": [Function],
+                                                    "to": [Function],
+                                                  },
+                                                  "render": [Function],
                                                 }
                                               }
+                                              disabled={false}
+                                              fluid={false}
+                                              size="small"
+                                              to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
                                             >
-                                              <RefForward
+                                              <Ref
                                                 innerRef={
                                                   Object {
                                                     "current": <a
@@ -1876,48 +1874,62 @@ exports[`PatronCurrentLoans tests should render the see all button when showing 
                                                   }
                                                 }
                                               >
-                                                <Link
-                                                  className="ui small button"
-                                                  onClick={[Function]}
-                                                  role="button"
-                                                  to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
+                                                <RefForward
+                                                  innerRef={
+                                                    Object {
+                                                      "current": <a
+                                                        class="ui small button"
+                                                        href="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
+                                                        role="button"
+                                                      >
+                                                        See all
+                                                      </a>,
+                                                    }
+                                                  }
                                                 >
-                                                  <LinkAnchor
+                                                  <Link
                                                     className="ui small button"
-                                                    href="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
-                                                    navigate={[Function]}
                                                     onClick={[Function]}
                                                     role="button"
+                                                    to="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
                                                   >
-                                                    <a
+                                                    <LinkAnchor
                                                       className="ui small button"
                                                       href="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
+                                                      navigate={[Function]}
                                                       onClick={[Function]}
                                                       role="button"
                                                     >
-                                                      See all
-                                                    </a>
-                                                  </LinkAnchor>
-                                                </Link>
-                                              </RefForward>
-                                            </Ref>
-                                          </Button>
-                                        </SeeAllButton>
-                                      </span>
-                                      <span />
-                                    </th>
-                                  </TableCell>
-                                </TableHeaderCell>
-                              </tr>
-                            </TableRow>
-                          </tfoot>
-                        </TableHeader>
-                      </TableFooter>
-                    </ResultsTableFooter>
-                  </table>
-                </Table>
-              </ResultsTable>
-            </Error>
+                                                      <a
+                                                        className="ui small button"
+                                                        href="/backoffice/loans?q=patron_pid:2 AND state:(ITEM_AT_DESK OR ITEM_ON_LOAN OR ITEM_IN_TRANSIT_FOR_PICKUP OR ITEM_IN_TRANSIT_TO_HOUSE)&sort=-created"
+                                                        onClick={[Function]}
+                                                        role="button"
+                                                      >
+                                                        See all
+                                                      </a>
+                                                    </LinkAnchor>
+                                                  </Link>
+                                                </RefForward>
+                                              </Ref>
+                                            </Button>
+                                          </SeeAllButton>
+                                        </span>
+                                        <span />
+                                      </th>
+                                    </TableCell>
+                                  </TableHeaderCell>
+                                </tr>
+                              </TableRow>
+                            </tfoot>
+                          </TableHeader>
+                        </TableFooter>
+                      </ResultsTableFooter>
+                    </table>
+                  </Table>
+                </ResultsTable>
+              </Error>
+            </DevModeWrapper>
           </Overridable>
         </Loader>
       </Overridable(Loader)>

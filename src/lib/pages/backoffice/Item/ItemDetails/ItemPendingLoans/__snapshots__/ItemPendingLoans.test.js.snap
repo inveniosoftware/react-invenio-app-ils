@@ -34,115 +34,119 @@ exports[`ItemPendingLoans tests should render show a message with no requested l
         id="Loader.layout"
         isLoading={false}
       >
-        <Error
-          FallbackComponent={[Function]}
-          boundary={false}
-          error={Object {}}
-          onUIError={null}
+        <DevModeWrapper
+          id="Loader.layout"
         >
-          <Header
-            as="h3"
-            attached="top"
-            id="loans-request"
+          <Error
+            FallbackComponent={[Function]}
+            boundary={false}
+            error={Object {}}
+            onUIError={null}
           >
-            <h3
-              className="ui top attached header"
+            <Header
+              as="h3"
+              attached="top"
               id="loans-request"
             >
-              Loan requests
-            </h3>
-          </Header>
-          <Segment
-            attached="bottom"
-            className="bo-metadata-segment no-padding"
-          >
-            <div
-              className="ui bottom attached segment bo-metadata-segment no-padding"
-            >
-              <ResultsTable
-                columns={
-                  Array [
-                    Object {
-                      "formatter": [Function],
-                      "title": "Loan",
-                    },
-                    Object {
-                      "field": "metadata.patron.name",
-                      "formatter": [Function],
-                      "title": "Patron",
-                    },
-                    Object {
-                      "field": "metadata.state",
-                      "title": "State",
-                    },
-                    Object {
-                      "field": "metadata.request_start_date",
-                      "formatter": [Function],
-                      "title": "Request start date",
-                    },
-                    Object {
-                      "field": "metadata.request_expire_date",
-                      "formatter": [Function],
-                      "title": "Request end date",
-                    },
-                    Object {
-                      "field": "",
-                      "formatter": [Function],
-                      "title": "Actions",
-                    },
-                  ]
-                }
-                currentPage={1}
-                data={Array []}
-                fixed={false}
-                headerActionComponent={null}
-                name="loans"
-                paginationComponent={null}
-                renderEmptyResultsElement={[Function]}
-                seeAllComponent={
-                  <SeeAllButton
-                    disabled={false}
-                    fluid={false}
-                    to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
-                  />
-                }
-                showAllResults={false}
-                showFooterSummary={true}
-                showMaxRows={5}
-                singleLine={true}
-                subtitle=""
-                title=""
-                totalHitsCount={0}
+              <h3
+                className="ui top attached header"
+                id="loans-request"
               >
-                <Message
-                  data-test="no-results"
-                  icon={true}
-                  info={true}
+                Loan requests
+              </h3>
+            </Header>
+            <Segment
+              attached="bottom"
+              className="bo-metadata-segment no-padding"
+            >
+              <div
+                className="ui bottom attached segment bo-metadata-segment no-padding"
+              >
+                <ResultsTable
+                  columns={
+                    Array [
+                      Object {
+                        "formatter": [Function],
+                        "title": "Loan",
+                      },
+                      Object {
+                        "field": "metadata.patron.name",
+                        "formatter": [Function],
+                        "title": "Patron",
+                      },
+                      Object {
+                        "field": "metadata.state",
+                        "title": "State",
+                      },
+                      Object {
+                        "field": "metadata.request_start_date",
+                        "formatter": [Function],
+                        "title": "Request start date",
+                      },
+                      Object {
+                        "field": "metadata.request_expire_date",
+                        "formatter": [Function],
+                        "title": "Request end date",
+                      },
+                      Object {
+                        "field": "",
+                        "formatter": [Function],
+                        "title": "Actions",
+                      },
+                    ]
+                  }
+                  currentPage={1}
+                  data={Array []}
+                  fixed={false}
+                  headerActionComponent={null}
+                  name="loans"
+                  paginationComponent={null}
+                  renderEmptyResultsElement={[Function]}
+                  seeAllComponent={
+                    <SeeAllButton
+                      disabled={false}
+                      fluid={false}
+                      to="/backoffice/loans?q=document_pid:111 AND state:(PENDING)"
+                    />
+                  }
+                  showAllResults={false}
+                  showFooterSummary={true}
+                  showMaxRows={5}
+                  singleLine={true}
+                  subtitle=""
+                  title=""
+                  totalHitsCount={0}
                 >
-                  <div
-                    className="ui icon info message"
+                  <Message
                     data-test="no-results"
+                    icon={true}
+                    info={true}
                   >
-                    <MessageContent>
-                      <div
-                        className="content"
-                      >
-                        <MessageHeader>
-                          <div
-                            className="header"
-                          >
-                            No loan requests
-                          </div>
-                        </MessageHeader>
-                        There are no loan requests for this item.
-                      </div>
-                    </MessageContent>
-                  </div>
-                </Message>
-              </ResultsTable>
-            </div>
-          </Segment>
-        </Error>
+                    <div
+                      className="ui icon info message"
+                      data-test="no-results"
+                    >
+                      <MessageContent>
+                        <div
+                          className="content"
+                        >
+                          <MessageHeader>
+                            <div
+                              className="header"
+                            >
+                              No loan requests
+                            </div>
+                          </MessageHeader>
+                          There are no loan requests for this item.
+                        </div>
+                      </MessageContent>
+                    </div>
+                  </Message>
+                </ResultsTable>
+              </div>
+            </Segment>
+          </Error>
+        </DevModeWrapper>
       </Overridable>
     </Loader>
   </Overridable(Loader)>

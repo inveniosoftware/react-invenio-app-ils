@@ -166,620 +166,624 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
         id="Loader.layout"
         isLoading={false}
       >
-        <Error
-          FallbackComponent={[Function]}
-          boundary={false}
-          error={Object {}}
-          onUIError={null}
+        <DevModeWrapper
+          id="Loader.layout"
         >
-          <Header
-            as="h3"
-            attached="top"
-            id="loans-history"
+          <Error
+            FallbackComponent={[Function]}
+            boundary={false}
+            error={Object {}}
+            onUIError={null}
           >
-            <h3
-              className="ui top attached header"
+            <Header
+              as="h3"
+              attached="top"
               id="loans-history"
             >
-              Loans history
-            </h3>
-          </Header>
-          <Segment
-            attached="bottom"
-            className="bo-metadata-segment no-padding"
-          >
-            <div
-              className="ui bottom attached segment bo-metadata-segment no-padding"
-            >
-              <ResultsTable
-                columns={
-                  Array [
-                    Object {
-                      "formatter": [Function],
-                      "title": "Loan",
-                    },
-                    Object {
-                      "field": "metadata.patron.name",
-                      "title": "Patron",
-                    },
-                    Object {
-                      "field": "metadata.state",
-                      "title": "State",
-                    },
-                    Object {
-                      "field": "metadata.start_date",
-                      "formatter": [Function],
-                      "title": "Start date",
-                    },
-                    Object {
-                      "field": "metadata.end_date",
-                      "formatter": [Function],
-                      "title": "End date",
-                    },
-                    Object {
-                      "field": "metadata.extension_count",
-                      "title": "Renewals",
-                    },
-                  ]
-                }
-                currentPage={1}
-                data={
-                  Array [
-                    Object {
-                      "id": 1,
-                      "metadata": Object {
-                        "document": Object {
-                          "edition": "1",
-                          "publication_year": "1950",
-                          "title": "The Gulf: The Making of An American Sea",
-                        },
-                        "document_pid": "docid-1",
-                        "end_date": "2018-07-28",
-                        "item_pid": Object {},
-                        "patron": Object {
-                          "email": "patron1@test.ch",
-                        },
-                        "patron_pid": "1",
-                        "pickup_location_pid": "1",
-                        "pid": "loanid-1",
-                        "request_expire_date": "2019-06-28",
-                        "request_start_date": "2018-06-28",
-                        "start_date": "2018-06-28",
-                        "state": "PENDING",
-                        "transaction_date": "2018-06-29",
-                        "transaction_location_pid": "1",
-                      },
-                      "pid": "loan1",
-                    },
-                    Object {
-                      "id": 2,
-                      "metadata": Object {
-                        "document": Object {
-                          "publication_year": "1950",
-                          "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
-                        },
-                        "document_pid": "docid-1",
-                        "end_date": "2018-07-28",
-                        "item_pid": Object {
-                          "type": "pitmid",
-                          "value": "itemid-2",
-                        },
-                        "patron": Object {
-                          "email": "patron2@test.ch",
-                        },
-                        "patron_pid": "1",
-                        "pickup_location_pid": "1",
-                        "pid": "loanid-2",
-                        "request_expire_date": "2019-06-28",
-                        "request_start_date": "2018-06-28",
-                        "start_date": "2018-06-28",
-                        "state": "PENDING",
-                        "transaction_date": "2018-06-29",
-                        "transaction_location_pid": "1",
-                      },
-                      "pid": "loan2",
-                    },
-                  ]
-                }
-                fixed={false}
-                headerActionComponent={null}
-                name="loans"
-                paginationComponent={null}
-                renderEmptyResultsElement={[Function]}
-                seeAllComponent={
-                  <SeeAllButton
-                    disabled={false}
-                    fluid={false}
-                    to="/backoffice/loans?q=item_pid.value:222 AND state:(ITEM_RETURNED OR CANCELLED)"
-                  />
-                }
-                showAllResults={false}
-                showFooterSummary={true}
-                showMaxRows={5}
-                singleLine={true}
-                subtitle=""
-                title=""
-                totalHitsCount={2}
+              <h3
+                className="ui top attached header"
+                id="loans-history"
               >
-                <Table
-                  as="table"
-                  compact={true}
+                Loans history
+              </h3>
+            </Header>
+            <Segment
+              attached="bottom"
+              className="bo-metadata-segment no-padding"
+            >
+              <div
+                className="ui bottom attached segment bo-metadata-segment no-padding"
+              >
+                <ResultsTable
+                  columns={
+                    Array [
+                      Object {
+                        "formatter": [Function],
+                        "title": "Loan",
+                      },
+                      Object {
+                        "field": "metadata.patron.name",
+                        "title": "Patron",
+                      },
+                      Object {
+                        "field": "metadata.state",
+                        "title": "State",
+                      },
+                      Object {
+                        "field": "metadata.start_date",
+                        "formatter": [Function],
+                        "title": "Start date",
+                      },
+                      Object {
+                        "field": "metadata.end_date",
+                        "formatter": [Function],
+                        "title": "End date",
+                      },
+                      Object {
+                        "field": "metadata.extension_count",
+                        "title": "Renewals",
+                      },
+                    ]
+                  }
+                  currentPage={1}
+                  data={
+                    Array [
+                      Object {
+                        "id": 1,
+                        "metadata": Object {
+                          "document": Object {
+                            "edition": "1",
+                            "publication_year": "1950",
+                            "title": "The Gulf: The Making of An American Sea",
+                          },
+                          "document_pid": "docid-1",
+                          "end_date": "2018-07-28",
+                          "item_pid": Object {},
+                          "patron": Object {
+                            "email": "patron1@test.ch",
+                          },
+                          "patron_pid": "1",
+                          "pickup_location_pid": "1",
+                          "pid": "loanid-1",
+                          "request_expire_date": "2019-06-28",
+                          "request_start_date": "2018-06-28",
+                          "start_date": "2018-06-28",
+                          "state": "PENDING",
+                          "transaction_date": "2018-06-29",
+                          "transaction_location_pid": "1",
+                        },
+                        "pid": "loan1",
+                      },
+                      Object {
+                        "id": 2,
+                        "metadata": Object {
+                          "document": Object {
+                            "publication_year": "1950",
+                            "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
+                          },
+                          "document_pid": "docid-1",
+                          "end_date": "2018-07-28",
+                          "item_pid": Object {
+                            "type": "pitmid",
+                            "value": "itemid-2",
+                          },
+                          "patron": Object {
+                            "email": "patron2@test.ch",
+                          },
+                          "patron_pid": "1",
+                          "pickup_location_pid": "1",
+                          "pid": "loanid-2",
+                          "request_expire_date": "2019-06-28",
+                          "request_start_date": "2018-06-28",
+                          "start_date": "2018-06-28",
+                          "state": "PENDING",
+                          "transaction_date": "2018-06-29",
+                          "transaction_location_pid": "1",
+                        },
+                        "pid": "loan2",
+                      },
+                    ]
+                  }
                   fixed={false}
+                  headerActionComponent={null}
                   name="loans"
-                  selectable={true}
+                  paginationComponent={null}
+                  renderEmptyResultsElement={[Function]}
+                  seeAllComponent={
+                    <SeeAllButton
+                      disabled={false}
+                      fluid={false}
+                      to="/backoffice/loans?q=item_pid.value:222 AND state:(ITEM_RETURNED OR CANCELLED)"
+                    />
+                  }
+                  showAllResults={false}
+                  showFooterSummary={true}
+                  showMaxRows={5}
                   singleLine={true}
-                  striped={true}
                   subtitle=""
                   title=""
-                  unstackable={true}
+                  totalHitsCount={2}
                 >
-                  <table
-                    className="ui selectable single line striped unstackable compact table"
+                  <Table
+                    as="table"
+                    compact={true}
+                    fixed={false}
                     name="loans"
+                    selectable={true}
+                    singleLine={true}
+                    striped={true}
                     subtitle=""
                     title=""
+                    unstackable={true}
                   >
-                    <ResultsTableHeader
-                      columns={
-                        Array [
-                          Object {
-                            "formatter": [Function],
-                            "title": "Loan",
-                          },
-                          Object {
-                            "field": "metadata.patron.name",
-                            "title": "Patron",
-                          },
-                          Object {
-                            "field": "metadata.state",
-                            "title": "State",
-                          },
-                          Object {
-                            "field": "metadata.start_date",
-                            "formatter": [Function],
-                            "title": "Start date",
-                          },
-                          Object {
-                            "field": "metadata.end_date",
-                            "formatter": [Function],
-                            "title": "End date",
-                          },
-                          Object {
-                            "field": "metadata.extension_count",
-                            "title": "Renewals",
-                          },
-                        ]
-                      }
+                    <table
+                      className="ui selectable single line striped unstackable compact table"
+                      name="loans"
+                      subtitle=""
+                      title=""
                     >
-                      <TableHeader
-                        as="thead"
+                      <ResultsTableHeader
+                        columns={
+                          Array [
+                            Object {
+                              "formatter": [Function],
+                              "title": "Loan",
+                            },
+                            Object {
+                              "field": "metadata.patron.name",
+                              "title": "Patron",
+                            },
+                            Object {
+                              "field": "metadata.state",
+                              "title": "State",
+                            },
+                            Object {
+                              "field": "metadata.start_date",
+                              "formatter": [Function],
+                              "title": "Start date",
+                            },
+                            Object {
+                              "field": "metadata.end_date",
+                              "formatter": [Function],
+                              "title": "End date",
+                            },
+                            Object {
+                              "field": "metadata.extension_count",
+                              "title": "Renewals",
+                            },
+                          ]
+                        }
                       >
-                        <thead
-                          className=""
+                        <TableHeader
+                          as="thead"
                         >
-                          <TableRow
-                            as="tr"
-                            cellAs="td"
-                            data-test="header"
+                          <thead
+                            className=""
                           >
-                            <tr
-                              className=""
+                            <TableRow
+                              as="tr"
+                              cellAs="td"
                               data-test="header"
                             >
-                              <TableHeaderCell
-                                as="th"
-                                key="Loan"
+                              <tr
+                                className=""
+                                data-test="header"
                               >
-                                <TableCell
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="Loan"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    Loan
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Patron"
-                              >
-                                <TableCell
+                                    <th
+                                      className=""
+                                    >
+                                      Loan
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="Patron"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    Patron
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="State"
-                              >
-                                <TableCell
+                                    <th
+                                      className=""
+                                    >
+                                      Patron
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="State"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    State
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Start date"
-                              >
-                                <TableCell
+                                    <th
+                                      className=""
+                                    >
+                                      State
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="Start date"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    Start date
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="End date"
-                              >
-                                <TableCell
+                                    <th
+                                      className=""
+                                    >
+                                      Start date
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="End date"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    End date
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                              <TableHeaderCell
-                                as="th"
-                                key="Renewals"
-                              >
-                                <TableCell
+                                    <th
+                                      className=""
+                                    >
+                                      End date
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                                <TableHeaderCell
                                   as="th"
-                                  className=""
+                                  key="Renewals"
                                 >
-                                  <th
+                                  <TableCell
+                                    as="th"
                                     className=""
                                   >
-                                    Renewals
-                                  </th>
-                                </TableCell>
-                              </TableHeaderCell>
-                            </tr>
-                          </TableRow>
-                        </thead>
-                      </TableHeader>
-                    </ResultsTableHeader>
-                    <ResultsTableBody
-                      columns={
-                        Array [
-                          Object {
-                            "formatter": [Function],
-                            "title": "Loan",
-                          },
-                          Object {
-                            "field": "metadata.patron.name",
-                            "title": "Patron",
-                          },
-                          Object {
-                            "field": "metadata.state",
-                            "title": "State",
-                          },
-                          Object {
-                            "field": "metadata.start_date",
-                            "formatter": [Function],
-                            "title": "Start date",
-                          },
-                          Object {
-                            "field": "metadata.end_date",
-                            "formatter": [Function],
-                            "title": "End date",
-                          },
-                          Object {
-                            "field": "metadata.extension_count",
-                            "title": "Renewals",
-                          },
-                        ]
-                      }
-                      rows={
-                        Array [
-                          Object {
-                            "id": 1,
-                            "metadata": Object {
-                              "document": Object {
-                                "edition": "1",
-                                "publication_year": "1950",
-                                "title": "The Gulf: The Making of An American Sea",
-                              },
-                              "document_pid": "docid-1",
-                              "end_date": "2018-07-28",
-                              "item_pid": Object {},
-                              "patron": Object {
-                                "email": "patron1@test.ch",
-                              },
-                              "patron_pid": "1",
-                              "pickup_location_pid": "1",
-                              "pid": "loanid-1",
-                              "request_expire_date": "2019-06-28",
-                              "request_start_date": "2018-06-28",
-                              "start_date": "2018-06-28",
-                              "state": "PENDING",
-                              "transaction_date": "2018-06-29",
-                              "transaction_location_pid": "1",
+                                    <th
+                                      className=""
+                                    >
+                                      Renewals
+                                    </th>
+                                  </TableCell>
+                                </TableHeaderCell>
+                              </tr>
+                            </TableRow>
+                          </thead>
+                        </TableHeader>
+                      </ResultsTableHeader>
+                      <ResultsTableBody
+                        columns={
+                          Array [
+                            Object {
+                              "formatter": [Function],
+                              "title": "Loan",
                             },
-                            "pid": "loan1",
-                          },
-                          Object {
-                            "id": 2,
-                            "metadata": Object {
-                              "document": Object {
-                                "publication_year": "1950",
-                                "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
-                              },
-                              "document_pid": "docid-1",
-                              "end_date": "2018-07-28",
-                              "item_pid": Object {
-                                "type": "pitmid",
-                                "value": "itemid-2",
-                              },
-                              "patron": Object {
-                                "email": "patron2@test.ch",
-                              },
-                              "patron_pid": "1",
-                              "pickup_location_pid": "1",
-                              "pid": "loanid-2",
-                              "request_expire_date": "2019-06-28",
-                              "request_start_date": "2018-06-28",
-                              "start_date": "2018-06-28",
-                              "state": "PENDING",
-                              "transaction_date": "2018-06-29",
-                              "transaction_location_pid": "1",
+                            Object {
+                              "field": "metadata.patron.name",
+                              "title": "Patron",
                             },
-                            "pid": "loan2",
-                          },
-                        ]
-                      }
-                    >
-                      <TableBody
-                        as="tbody"
+                            Object {
+                              "field": "metadata.state",
+                              "title": "State",
+                            },
+                            Object {
+                              "field": "metadata.start_date",
+                              "formatter": [Function],
+                              "title": "Start date",
+                            },
+                            Object {
+                              "field": "metadata.end_date",
+                              "formatter": [Function],
+                              "title": "End date",
+                            },
+                            Object {
+                              "field": "metadata.extension_count",
+                              "title": "Renewals",
+                            },
+                          ]
+                        }
+                        rows={
+                          Array [
+                            Object {
+                              "id": 1,
+                              "metadata": Object {
+                                "document": Object {
+                                  "edition": "1",
+                                  "publication_year": "1950",
+                                  "title": "The Gulf: The Making of An American Sea",
+                                },
+                                "document_pid": "docid-1",
+                                "end_date": "2018-07-28",
+                                "item_pid": Object {},
+                                "patron": Object {
+                                  "email": "patron1@test.ch",
+                                },
+                                "patron_pid": "1",
+                                "pickup_location_pid": "1",
+                                "pid": "loanid-1",
+                                "request_expire_date": "2019-06-28",
+                                "request_start_date": "2018-06-28",
+                                "start_date": "2018-06-28",
+                                "state": "PENDING",
+                                "transaction_date": "2018-06-29",
+                                "transaction_location_pid": "1",
+                              },
+                              "pid": "loan1",
+                            },
+                            Object {
+                              "id": 2,
+                              "metadata": Object {
+                                "document": Object {
+                                  "publication_year": "1950",
+                                  "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
+                                },
+                                "document_pid": "docid-1",
+                                "end_date": "2018-07-28",
+                                "item_pid": Object {
+                                  "type": "pitmid",
+                                  "value": "itemid-2",
+                                },
+                                "patron": Object {
+                                  "email": "patron2@test.ch",
+                                },
+                                "patron_pid": "1",
+                                "pickup_location_pid": "1",
+                                "pid": "loanid-2",
+                                "request_expire_date": "2019-06-28",
+                                "request_start_date": "2018-06-28",
+                                "start_date": "2018-06-28",
+                                "state": "PENDING",
+                                "transaction_date": "2018-06-29",
+                                "transaction_location_pid": "1",
+                              },
+                              "pid": "loan2",
+                            },
+                          ]
+                        }
                       >
-                        <tbody
-                          className=""
+                        <TableBody
+                          as="tbody"
                         >
-                          <TableRow
-                            as="tr"
-                            cellAs="td"
-                            data-test="loan1"
-                            key="loan1"
+                          <tbody
+                            className=""
                           >
-                            <tr
-                              className=""
+                            <TableRow
+                              as="tr"
+                              cellAs="td"
                               data-test="loan1"
+                              key="loan1"
                             >
-                              <TableCell
-                                as="td"
-                                data-label="Loan"
-                                data-test="0-loan1"
-                                key="0-loan1"
+                              <tr
+                                className=""
+                                data-test="loan1"
                               >
-                                <td
-                                  className=""
+                                <TableCell
+                                  as="td"
                                   data-label="Loan"
                                   data-test="0-loan1"
+                                  key="0-loan1"
                                 >
-                                  <ForwardRef(Link)
-                                    data-test="loanid-1"
-                                    to="url/loanid-1"
-                                  />
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Patron"
-                                data-test="1-loan1"
-                                key="1-loan1"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="Loan"
+                                    data-test="0-loan1"
+                                  >
+                                    <ForwardRef(Link)
+                                      data-test="loanid-1"
+                                      to="url/loanid-1"
+                                    />
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Patron"
                                   data-test="1-loan1"
+                                  key="1-loan1"
                                 >
-                                  -
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="State"
-                                data-test="2-loan1"
-                                key="2-loan1"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="Patron"
+                                    data-test="1-loan1"
+                                  >
+                                    -
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="State"
                                   data-test="2-loan1"
+                                  key="2-loan1"
                                 >
-                                  PENDING
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Start date"
-                                data-test="3-loan1"
-                                key="3-loan1"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="State"
+                                    data-test="2-loan1"
+                                  >
+                                    PENDING
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Start date"
                                   data-test="3-loan1"
+                                  key="3-loan1"
                                 >
-                                  6/28/2018
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="End date"
-                                data-test="4-loan1"
-                                key="4-loan1"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="Start date"
+                                    data-test="3-loan1"
+                                  >
+                                    6/28/2018
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="End date"
                                   data-test="4-loan1"
+                                  key="4-loan1"
                                 >
-                                  7/28/2018
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Renewals"
-                                data-test="5-loan1"
-                                key="5-loan1"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="End date"
+                                    data-test="4-loan1"
+                                  >
+                                    7/28/2018
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Renewals"
                                   data-test="5-loan1"
+                                  key="5-loan1"
                                 >
-                                  -
-                                </td>
-                              </TableCell>
-                            </tr>
-                          </TableRow>
-                          <TableRow
-                            as="tr"
-                            cellAs="td"
-                            data-test="loan2"
-                            key="loan2"
-                          >
-                            <tr
-                              className=""
+                                  <td
+                                    className=""
+                                    data-label="Renewals"
+                                    data-test="5-loan1"
+                                  >
+                                    -
+                                  </td>
+                                </TableCell>
+                              </tr>
+                            </TableRow>
+                            <TableRow
+                              as="tr"
+                              cellAs="td"
                               data-test="loan2"
+                              key="loan2"
                             >
-                              <TableCell
-                                as="td"
-                                data-label="Loan"
-                                data-test="0-loan2"
-                                key="0-loan2"
+                              <tr
+                                className=""
+                                data-test="loan2"
                               >
-                                <td
-                                  className=""
+                                <TableCell
+                                  as="td"
                                   data-label="Loan"
                                   data-test="0-loan2"
+                                  key="0-loan2"
                                 >
-                                  <ForwardRef(Link)
-                                    data-test="loanid-2"
-                                    to="url/loanid-2"
-                                  />
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Patron"
-                                data-test="1-loan2"
-                                key="1-loan2"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="Loan"
+                                    data-test="0-loan2"
+                                  >
+                                    <ForwardRef(Link)
+                                      data-test="loanid-2"
+                                      to="url/loanid-2"
+                                    />
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Patron"
                                   data-test="1-loan2"
+                                  key="1-loan2"
                                 >
-                                  -
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="State"
-                                data-test="2-loan2"
-                                key="2-loan2"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="Patron"
+                                    data-test="1-loan2"
+                                  >
+                                    -
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="State"
                                   data-test="2-loan2"
+                                  key="2-loan2"
                                 >
-                                  PENDING
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Start date"
-                                data-test="3-loan2"
-                                key="3-loan2"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="State"
+                                    data-test="2-loan2"
+                                  >
+                                    PENDING
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Start date"
                                   data-test="3-loan2"
+                                  key="3-loan2"
                                 >
-                                  6/28/2018
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="End date"
-                                data-test="4-loan2"
-                                key="4-loan2"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="Start date"
+                                    data-test="3-loan2"
+                                  >
+                                    6/28/2018
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="End date"
                                   data-test="4-loan2"
+                                  key="4-loan2"
                                 >
-                                  7/28/2018
-                                </td>
-                              </TableCell>
-                              <TableCell
-                                as="td"
-                                data-label="Renewals"
-                                data-test="5-loan2"
-                                key="5-loan2"
-                              >
-                                <td
-                                  className=""
+                                  <td
+                                    className=""
+                                    data-label="End date"
+                                    data-test="4-loan2"
+                                  >
+                                    7/28/2018
+                                  </td>
+                                </TableCell>
+                                <TableCell
+                                  as="td"
                                   data-label="Renewals"
                                   data-test="5-loan2"
+                                  key="5-loan2"
                                 >
-                                  -
-                                </td>
-                              </TableCell>
-                            </tr>
-                          </TableRow>
-                        </tbody>
-                      </TableBody>
-                    </ResultsTableBody>
-                    <ResultsTableFooter
-                      allRowsNumber={2}
-                      columnsNumber={6}
-                      currentPage={1}
-                      paginationComponent={null}
-                      seeAllComponent={
-                        <SeeAllButton
-                          disabled={false}
-                          fluid={false}
-                          to="/backoffice/loans?q=item_pid.value:222 AND state:(ITEM_RETURNED OR CANCELLED)"
-                        />
-                      }
-                      showAllResults={false}
-                      showFooterSummary={true}
-                      showMaxRows={5}
-                    />
-                  </table>
-                </Table>
-              </ResultsTable>
-            </div>
-          </Segment>
-        </Error>
+                                  <td
+                                    className=""
+                                    data-label="Renewals"
+                                    data-test="5-loan2"
+                                  >
+                                    -
+                                  </td>
+                                </TableCell>
+                              </tr>
+                            </TableRow>
+                          </tbody>
+                        </TableBody>
+                      </ResultsTableBody>
+                      <ResultsTableFooter
+                        allRowsNumber={2}
+                        columnsNumber={6}
+                        currentPage={1}
+                        paginationComponent={null}
+                        seeAllComponent={
+                          <SeeAllButton
+                            disabled={false}
+                            fluid={false}
+                            to="/backoffice/loans?q=item_pid.value:222 AND state:(ITEM_RETURNED OR CANCELLED)"
+                          />
+                        }
+                        showAllResults={false}
+                        showFooterSummary={true}
+                        showMaxRows={5}
+                      />
+                    </table>
+                  </Table>
+                </ResultsTable>
+              </div>
+            </Segment>
+          </Error>
+        </DevModeWrapper>
       </Overridable>
     </Loader>
   </Overridable(Loader)>
@@ -818,113 +822,117 @@ exports[`ItemPastLoans tests should render show a message with no past loans 1`]
         id="Loader.layout"
         isLoading={false}
       >
-        <Error
-          FallbackComponent={[Function]}
-          boundary={false}
-          error={Object {}}
-          onUIError={null}
+        <DevModeWrapper
+          id="Loader.layout"
         >
-          <Header
-            as="h3"
-            attached="top"
-            id="loans-history"
+          <Error
+            FallbackComponent={[Function]}
+            boundary={false}
+            error={Object {}}
+            onUIError={null}
           >
-            <h3
-              className="ui top attached header"
+            <Header
+              as="h3"
+              attached="top"
               id="loans-history"
             >
-              Loans history
-            </h3>
-          </Header>
-          <Segment
-            attached="bottom"
-            className="bo-metadata-segment no-padding"
-          >
-            <div
-              className="ui bottom attached segment bo-metadata-segment no-padding"
-            >
-              <ResultsTable
-                columns={
-                  Array [
-                    Object {
-                      "formatter": [Function],
-                      "title": "Loan",
-                    },
-                    Object {
-                      "field": "metadata.patron.name",
-                      "title": "Patron",
-                    },
-                    Object {
-                      "field": "metadata.state",
-                      "title": "State",
-                    },
-                    Object {
-                      "field": "metadata.start_date",
-                      "formatter": [Function],
-                      "title": "Start date",
-                    },
-                    Object {
-                      "field": "metadata.end_date",
-                      "formatter": [Function],
-                      "title": "End date",
-                    },
-                    Object {
-                      "field": "metadata.extension_count",
-                      "title": "Renewals",
-                    },
-                  ]
-                }
-                currentPage={1}
-                data={Array []}
-                fixed={false}
-                headerActionComponent={null}
-                name="loans"
-                paginationComponent={null}
-                renderEmptyResultsElement={[Function]}
-                seeAllComponent={
-                  <SeeAllButton
-                    disabled={false}
-                    fluid={false}
-                    to="/backoffice/loans?q=item_pid.value:222 AND state:(ITEM_RETURNED OR CANCELLED)"
-                  />
-                }
-                showAllResults={false}
-                showFooterSummary={true}
-                showMaxRows={5}
-                singleLine={true}
-                subtitle=""
-                title=""
-                totalHitsCount={0}
+              <h3
+                className="ui top attached header"
+                id="loans-history"
               >
-                <Message
-                  data-test="no-results"
-                  icon={true}
-                  info={true}
+                Loans history
+              </h3>
+            </Header>
+            <Segment
+              attached="bottom"
+              className="bo-metadata-segment no-padding"
+            >
+              <div
+                className="ui bottom attached segment bo-metadata-segment no-padding"
+              >
+                <ResultsTable
+                  columns={
+                    Array [
+                      Object {
+                        "formatter": [Function],
+                        "title": "Loan",
+                      },
+                      Object {
+                        "field": "metadata.patron.name",
+                        "title": "Patron",
+                      },
+                      Object {
+                        "field": "metadata.state",
+                        "title": "State",
+                      },
+                      Object {
+                        "field": "metadata.start_date",
+                        "formatter": [Function],
+                        "title": "Start date",
+                      },
+                      Object {
+                        "field": "metadata.end_date",
+                        "formatter": [Function],
+                        "title": "End date",
+                      },
+                      Object {
+                        "field": "metadata.extension_count",
+                        "title": "Renewals",
+                      },
+                    ]
+                  }
+                  currentPage={1}
+                  data={Array []}
+                  fixed={false}
+                  headerActionComponent={null}
+                  name="loans"
+                  paginationComponent={null}
+                  renderEmptyResultsElement={[Function]}
+                  seeAllComponent={
+                    <SeeAllButton
+                      disabled={false}
+                      fluid={false}
+                      to="/backoffice/loans?q=item_pid.value:222 AND state:(ITEM_RETURNED OR CANCELLED)"
+                    />
+                  }
+                  showAllResults={false}
+                  showFooterSummary={true}
+                  showMaxRows={5}
+                  singleLine={true}
+                  subtitle=""
+                  title=""
+                  totalHitsCount={0}
                 >
-                  <div
-                    className="ui icon info message"
+                  <Message
                     data-test="no-results"
+                    icon={true}
+                    info={true}
                   >
-                    <MessageContent>
-                      <div
-                        className="content"
-                      >
-                        <MessageHeader>
-                          <div
-                            className="header"
-                          >
-                            No loans history
-                          </div>
-                        </MessageHeader>
-                        There are no past loans for this item.
-                      </div>
-                    </MessageContent>
-                  </div>
-                </Message>
-              </ResultsTable>
-            </div>
-          </Segment>
-        </Error>
+                    <div
+                      className="ui icon info message"
+                      data-test="no-results"
+                    >
+                      <MessageContent>
+                        <div
+                          className="content"
+                        >
+                          <MessageHeader>
+                            <div
+                              className="header"
+                            >
+                              No loans history
+                            </div>
+                          </MessageHeader>
+                          There are no past loans for this item.
+                        </div>
+                      </MessageContent>
+                    </div>
+                  </Message>
+                </ResultsTable>
+              </div>
+            </Segment>
+          </Error>
+        </DevModeWrapper>
       </Overridable>
     </Loader>
   </Overridable(Loader)>
