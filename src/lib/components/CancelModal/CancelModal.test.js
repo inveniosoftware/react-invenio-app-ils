@@ -75,7 +75,7 @@ describe('CancelModal tests', () => {
     expect(popup.prop('open')).toEqual(true);
   });
 
-  it('should perform the loan action given a reason', () => {
+  it('should perform the loan action given a reason', async () => {
     const value = 'test';
     const mockAction = jest.fn();
     const pid = loan.pid;
@@ -90,7 +90,7 @@ describe('CancelModal tests', () => {
     );
     component.find('button').simulate('click');
 
-    act(() => {
+    await act(() => {
       component.setState({ value });
     });
 
@@ -98,7 +98,7 @@ describe('CancelModal tests', () => {
 
     const cancelButton = component.find('button.red');
 
-    act(() => {
+    await act(() => {
       cancelButton.simulate('click');
     });
 
