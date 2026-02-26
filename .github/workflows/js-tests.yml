@@ -50,7 +50,7 @@ jobs:
         run: npm test -- --coverage
 
       - name: Build
-        run: npm run build
+        run: npm run lib-build
         env:
           # avoid fail on warnings
           CI: false
