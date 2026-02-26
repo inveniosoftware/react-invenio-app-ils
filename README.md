@@ -12,5 +12,5 @@ environment:
 ```shell
 $ rm -rf package-lock.json node_modules
 # Run the container with x86_64 architecture and install packages
-$ docker run -it --platform="linux/amd64" --rm -v $(pwd):/app -w /app node:14-alpine sh -c "npm install"
+$ docker run -it --platform="linux/amd64" --rm -v $(pwd):/app -w /app node:22-alpine sh -c "npm install"
 ```
