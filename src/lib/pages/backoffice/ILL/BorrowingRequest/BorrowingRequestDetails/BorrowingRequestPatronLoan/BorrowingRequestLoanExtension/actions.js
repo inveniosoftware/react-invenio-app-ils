@@ -53,9 +53,8 @@ export const borrowingRequestLoanExtensionDecline = (borrowingRequestPid) => {
     });
 
     try {
-      const response = await borrowingRequestApi.declineExtension(
-        borrowingRequestPid
-      );
+      const response =
+        await borrowingRequestApi.declineExtension(borrowingRequestPid);
       await searchReady();
       dispatch({
         type: SUCCESS,

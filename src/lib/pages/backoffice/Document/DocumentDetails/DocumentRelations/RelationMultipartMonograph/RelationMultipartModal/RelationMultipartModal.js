@@ -87,7 +87,8 @@ export default class RelationMultipartModal extends Component {
                   <br />
                   is{' '}
                   <Label color="blue">
-                    volume {volume && <Label.Detail>{volume}</Label.Detail>}{' '}
+                    volume{' '}
+                    {volume && <Label.Detail>{volume}</Label.Detail>}{' '}
                   </Label>{' '}
                   of
                 </>
