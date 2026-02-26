@@ -21,11 +21,14 @@ export class DocumentContent extends Component {
         <Divider horizontal>Table of contents</Divider>
         {!_isEmpty(table_of_content) ? (
           <List ordered>
-            {table_of_content.map((entry) => (
-              <List.Item key={entry}>
-                <List.Content>{entry}</List.Content>
-              </List.Item>
-            ))}
+            {
+              // eslint-disable-next-line camelcase
+              table_of_content.map((entry) => (
+                <List.Item key={entry}>
+                  <List.Content>{entry}</List.Content>
+                </List.Item>
+              ))
+            }
           </List>
         ) : (
           'No table of contents'

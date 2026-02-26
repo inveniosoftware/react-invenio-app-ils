@@ -37,6 +37,7 @@ export class DocumentPublishing extends Component {
       },
     } = this.props;
     let rows = [];
+    // eslint-disable-next-line camelcase
     conference_info.map((conf) => {
       for (const [key, val] of Object.entries(conf)) {
         if (Array.isArray(val)) {
@@ -57,6 +58,7 @@ export class DocumentPublishing extends Component {
           rows.push({ name: capitalize(key), value: val });
         }
       }
+      // eslint-disable-next-line camelcase
       if (conference_info.length > 1) {
         rows.push(<br />);
         rows.push(<br />);
