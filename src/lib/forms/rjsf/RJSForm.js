@@ -3,7 +3,6 @@ import { RJSFLabelField } from '@forms/rjsf/fields/RJSFLabelField';
 import { RJSFTitleField } from '@forms/rjsf/fields/RJSFTitleField';
 import {
   ArrayFieldTemplateWithWrapper,
-  FieldTemplateWithWrapper,
   ObjectFieldTemplateWrapperGrid,
 } from '@forms/rjsf/RJSFCustomTemplates';
 import { RJSFCheckboxWidget } from '@forms/rjsf/widgets/RJSFCheckboxWidget';
@@ -138,9 +137,10 @@ export class RJSForm extends Component {
           return errors;
         }}
         extraErrors={errors}
-        ObjectFieldTemplate={ObjectFieldTemplateWrapperGrid}
-        FieldTemplate={FieldTemplateWithWrapper}
-        ArrayFieldTemplate={ArrayFieldTemplateWithWrapper}
+        templates={{
+          ObjectFieldTemplate: ObjectFieldTemplateWrapperGrid,
+          ArrayFieldTemplate: ArrayFieldTemplateWithWrapper,
+        }}
         disabled={isLoading}
         onSubmit={this.onSubmit}
       >
