@@ -6,7 +6,7 @@ import { Button } from 'semantic-ui-react';
 
 Settings.defaultZoneName = 'utc';
 const stringDate = '2018-01-01T11:05:00+01:00';
-const dateTime = DateTime.fromISO('2018-01-01T11:05:00+01:00');
+const dateTime = DateTime.fromISO('2018-01-01T11:05:00+01:00').toUTC();
 const start = dateTime.plus({ days: 1 });
 const end = dateTime.plus({ months: 1 });
 
