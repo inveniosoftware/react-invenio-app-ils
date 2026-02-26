@@ -96,6 +96,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
       <Media
         className=""
         greaterThanOrEqual="computer"
+        style={Object {}}
       >
         <Connect(Overridable(ResultsLoader$1))>
           <Connect(Overridable(EmptyResults$1)) />
@@ -110,6 +111,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
       <Media
         className=""
         lessThan="computer"
+        style={Object {}}
       >
         <SeriesLiteratureSearchMobile
           metadata={

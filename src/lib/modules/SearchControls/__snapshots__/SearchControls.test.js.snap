@@ -4,6 +4,9 @@ exports[`SearchControls tests should load the SearchControls component 1`] = `
 <ContextProvider
   value={
     Object {
+      "getServerState": undefined,
+      "noopCheck": "once",
+      "stabilityCheck": "once",
       "store": Object {
         "clearActions": [Function],
         "dispatch": [Function],
