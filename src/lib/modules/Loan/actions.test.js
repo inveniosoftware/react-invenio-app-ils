@@ -62,48 +62,33 @@ describe('Loan details tests', () => {
         });
     });
 
-    it('should call loan action with itemPid when passed', (done) => {
+    it('should call loan action with itemPid when passed', async () => {
       mockDoAction.mockResolvedValue(response);
-      return store
-        .dispatch(
-          actions.performLoanAction('urlForAction', '123', '1', {
-            itemPid: { type: 'itemid', value: '333' },
-          })
-        )
-        .then(() => {
-          expect(mockDoAction).toHaveBeenCalledWith(
-            'urlForAction',
-            '123',
-            '1',
-            { itemPid: { type: 'itemid', value: '333' }, cancelReason: null }
-          );
-          done();
-        });
+      await store.dispatch(
+        actions.performLoanAction('urlForAction', '123', '1', {
+          itemPid: { type: 'itemid', value: '333' },
+        })
+      );
+      expect(mockDoAction).toHaveBeenCalledWith('urlForAction', '123', '1', {
+        itemPid: { type: 'itemid', value: '333' },
+        cancelReason: null,
+      });
     });
 
-    it('should call loan action with cancelReason when passed', (done) => {
+    it('should call loan action with cancelReason when passed', async () => {
       mockDoAction.mockResolvedValue(response);
-      return store
-        .dispatch(
-          actions.performLoanAction('urlForAction', '123', '1', {
-            cancelReason: 'Not valid anymore',
-          })
-        )
-        .then(() => {
-          expect(mockDoAction).toHaveBeenCalledWith(
-            'urlForAction',
-            '123',
-            '1',
-            {
-              itemPid: null,
-              cancelReason: 'Not valid anymore',
-            }
-          );
-          done();
-        });
+      await store.dispatch(
+        actions.performLoanAction('urlForAction', '123', '1', {
+          cancelReason: 'Not valid anymore',
+        })
+      );
+      expect(mockDoAction).toHaveBeenCalledWith('urlForAction', '123', '1', {
+        itemPid: null,
+        cancelReason: 'Not valid anymore',
+      });
     });
 
-    it('should dispatch a success action when loan action succeeds', (done) => {
+    it('should dispatch a success action when loan action succeeds', async () => {
       mockDoAction.mockResolvedValue(response);
 
       const expectedActions = [
@@ -113,22 +98,18 @@ describe('Loan details tests', () => {
         },
       ];
 
-      return store
-        .dispatch(actions.performLoanAction('urlForAction', '123', '1'))
-        .then(() => {
-          expect(mockDoAction).toHaveBeenCalledWith(
-            'urlForAction',
-            '123',
-            '1',
-            { itemPid: null, cancelReason: null }
-          );
-          const actions = store.getActions();
-          expect(actions[1]).toEqual(expectedActions[0]);
-          done();
-        });
+      await store.dispatch(
+        actions.performLoanAction('urlForAction', '123', '1')
+      );
+      expect(mockDoAction).toHaveBeenCalledWith('urlForAction', '123', '1', {
+        itemPid: null,
+        cancelReason: null,
+      });
+      const storeActions = store.getActions();
+      expect(storeActions[1]).toEqual(expectedActions[0]);
     });
 
-    it('should dispatch an error action when oan action fails', (done) => {
+    it('should dispatch an error action when loan action fails', async () => {
       mockDoAction.mockRejectedValue([500, 'Error']);
 
       const expectedActions = [
@@ -138,19 +119,17 @@ describe('Loan details tests', () => {
         },
       ];
 
-      return store
-        .dispatch(actions.performLoanAction('wrongUrlForAction', '123', '1'))
-        .then(() => {
-          expect(mockDoAction).toHaveBeenCalledWith(
-            'wrongUrlForAction',
-            '123',
-            '1',
-            { itemPid: null, cancelReason: null }
-          );
-          const actions = store.getActions();
-          expect(actions[1]).toEqual(expectedActions[0]);
-          done();
-        });
+      await store.dispatch(
+        actions.performLoanAction('wrongUrlForAction', '123', '1')
+      );
+      expect(mockDoAction).toHaveBeenCalledWith(
+        'wrongUrlForAction',
+        '123',
+        '1',
+        { itemPid: null, cancelReason: null }
+      );
+      const storeActions = store.getActions();
+      expect(storeActions[1]).toEqual(expectedActions[0]);
     });
   });
 });
