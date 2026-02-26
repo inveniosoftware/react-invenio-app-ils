@@ -21,6 +21,7 @@
     "@redux-devtools/extension": "^3.3.0",
     "@rjsf/core": "^5.0.0",
     "@rjsf/semantic-ui": "^5.0.0",
+    "@rjsf/validator-ajv8": "^5.0.0",
     "axios": "^1.8.2",
     "formik": "^2.4.0",
     "html5-qrcode": "^2.3.8",
