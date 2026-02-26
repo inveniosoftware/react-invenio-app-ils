@@ -1,10 +1,32 @@
 {
-  "extends": ["react-app", "plugin:prettier/recommended", "eslint:recommended"],
-  "plugins": ["react"],
+  "extends": [
+    "plugin:prettier/recommended",
+    "eslint:recommended",
+  ],
+  "plugins": [
+    "react",
+    "jsx-a11y"
+  ],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": true,
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "env": {
     "browser": true,
+    "commonjs": true,
+    "es6": true,
     "jest": true,
-    "es6": true
+    "node": true
   },
   "globals": {
     "cy": true,
@@ -25,13 +47,24 @@
     "react/no-access-state-in-setstate": "warn",
     "react/no-array-index-key": "warn",
     "react/jsx-boolean-value": "error",
-    "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
+    "react/jsx-closing-bracket-location": [
+      "error",
+      "tag-aligned"
+    ],
     "react/jsx-closing-tag-location": "error",
-    "react/jsx-curly-brace-presence": ["error", { "props": "never" }],
+    "react/jsx-curly-brace-presence": [
+      "error",
+      {
+        "props": "never"
+      }
+    ],
     "react/jsx-curly-spacing": "error",
     "react/jsx-equals-spacing": "error",
     "react/jsx-filename-extension": "off",
-    "react/jsx-indent-props": ["error", "first"],
+    "react/jsx-indent-props": [
+      "error",
+      "first"
+    ],
     "react/jsx-key": "error",
     "react/jsx-no-comment-textnodes": "error",
     "react/jsx-no-duplicate-props": "error",
@@ -79,12 +112,16 @@
     "react/no-unescaped-entities": [
       "error",
       {
-        "forbid": [">", "}"]
+        "forbid": [
+          ">",
+          "}"
+        ]
       }
     ],
     "react/no-unknown-property": "error",
     "react/no-unused-prop-types": "error",
     "react/no-unused-state": "error",
+    "no-unused-vars": "off",
     "react/no-will-update-set-state": "error",
     "react/prefer-es6-class": "error",
     "react/prop-types": "error",
