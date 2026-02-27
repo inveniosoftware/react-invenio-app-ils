@@ -25,8 +25,8 @@ jobs:
 
       - name: Update npm and Install
         run: |
-          npm install --legacy-peer-deps -g npm@latest
-          npm ci
+          npm install -g npm@latest
+          npm ci --legacy-peer-deps
 
       - name: Build
         run: npm run lib-build
