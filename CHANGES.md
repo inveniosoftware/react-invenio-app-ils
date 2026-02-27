@@ -1,5 +1,23 @@
 # Changes
 
+Version 3.0.0 (released 2026-02-27)
+
+dependencies: bump `react-overridable` and `react-searchkit` versions
+form: adapt way in which rjsf templates are passed and remove legacy template
+forms: add rjsf validator which is required after upgrade
+tests: ensure `act()` is awaited
+tests: remove unnecessary `component.update()`
+tests: add comment explaining the usage of the enzyme react 18 adapter
+tests: add comment to explain why test needs fake timers
+chore: add eslint ignore comments
+chore: add eslint fixes commit to `.git-blame-ignore-revs`
+chore: fix eslint errors
+tests: update snapshots that use links
+tests: update snapshots that changed because of dependency updates
+tests: update tests to work on new react and jest version
+global: update dependencies and remove CRACO
+global: remove option to run package as application
+
 Version 2.2.0 (released 2026-02-25)
 
 - backoffice: fix: loans: ensure date filters can be changed
