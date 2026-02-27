@@ -1,8 +1,10 @@
-import HiddenWidget from '@rjsf/core';
+import { getDefaultRegistry } from '@rjsf/core';
 import _capitalize from 'lodash/capitalize';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header } from 'semantic-ui-react';
+
+const { HiddenWidget } = getDefaultRegistry().widgets;
 
 /**
  * Custom field to display a field as a label and the value in the hidden field
