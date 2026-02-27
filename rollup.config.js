@@ -60,11 +60,14 @@ export default {
     }),
     peerDepsExternal(),
     localResolve(),
-    resolve(),
+    resolve({
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    }),
     babel({
-      babelHelpers: "runtime",
-      extensions: [".js", ".jsx"],
-      exclude: "node_modules/**"
+      presets: ['@babel/preset-typescript'],
+      babelHelpers: 'runtime',
+      exclude: 'node_modules/**',
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }),
     commonjs(),
     copy({
