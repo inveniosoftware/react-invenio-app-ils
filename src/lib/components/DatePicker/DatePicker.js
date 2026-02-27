@@ -31,16 +31,44 @@ class DatePicker extends Component {
   };
 
   getInitialDate = (initialDate, disable) => {
-    let firstAvailableDay = DateTime.local();
-    let initialDateChecked = initialDate;
+    const { minDate, maxDate } = this.props;
+
+    let startDate = DateTime.local();
+    if (minDate) {
+      const min = DateTime.fromISO(minDate);
+      if (min.isValid && min > startDate) {
+        startDate = min;
+      }
+    }
+
+    // Find first non-disabled day
+    let firstAvailableDay = startDate;
+    const maxDateLimit = maxDate ? DateTime.fromISO(maxDate) : null;
+
     while (disable.includes(toShortDate(firstAvailableDay))) {
-      firstAvailableDay = new DateTime(firstAvailableDay.plus({ days: 1 }));
+      firstAvailableDay = firstAvailableDay.plus({ days: 1 });
+      if (
+        maxDateLimit &&
+        maxDateLimit.isValid &&
+        firstAvailableDay > maxDateLimit
+      ) {
+        firstAvailableDay = startDate;
+        break;
+      }
     }
-    const firstAvailableDayToShortDate = toShortDate(firstAvailableDay);
-    if (initialDate < firstAvailableDayToShortDate) {
-      initialDateChecked = firstAvailableDayToShortDate;
+
+    const firstAvailableDayStr = toShortDate(firstAvailableDay);
+
+    if (!initialDate || initialDate < firstAvailableDayStr) {
+      return firstAvailableDayStr;
     }
-    return initialDateChecked;
+
+    // Clamp initialDate to maxDate
+    if (maxDate && initialDate > maxDate) {
+      return firstAvailableDayStr;
+    }
+
+    return initialDate;
   };
 
   render() {
