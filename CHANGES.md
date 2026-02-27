@@ -1,5 +1,10 @@
 # Changes
 
+Version 3.0.1 (released 2026-02-27)
+
+publish: ensure `legacy-peer-deps` option is set for installing dependencies
+global: update `package-lock`
+
 Version 3.0.0 (released 2026-02-27)
 
 dependencies: bump `react-overridable` and `react-searchkit` versions
