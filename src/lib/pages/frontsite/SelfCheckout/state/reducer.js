@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import {
   SEARCH_HAS_ERROR,
   SEARCH_IS_LOADING,

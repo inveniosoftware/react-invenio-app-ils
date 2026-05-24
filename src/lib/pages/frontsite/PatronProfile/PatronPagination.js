@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2022 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React from 'react';
 import { Pagination } from '@components/Pagination';
 import PropTypes from 'prop-types';

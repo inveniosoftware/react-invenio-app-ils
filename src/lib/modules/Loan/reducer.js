@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2025 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import {
   ACTION_HAS_ERROR,
   ACTION_IS_LOADING,

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { dateFormatter } from '@api/date';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { http } from '@api/base';
 import _has from 'lodash/has';
 

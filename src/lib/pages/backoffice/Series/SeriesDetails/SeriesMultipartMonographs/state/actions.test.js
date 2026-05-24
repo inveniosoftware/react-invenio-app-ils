@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { seriesApi } from '@api/series';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';

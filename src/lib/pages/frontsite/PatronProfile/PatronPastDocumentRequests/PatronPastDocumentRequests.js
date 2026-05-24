@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2023 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { dateFormatter } from '@api/date';
 import { Error } from '@components/Error';
 import { ILSItemPlaceholder } from '@components/ILSPlaceholder/ILSPlaceholder';

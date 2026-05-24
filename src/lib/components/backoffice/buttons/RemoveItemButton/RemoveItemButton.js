@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React, { Component } from 'react';
 import { Button, Popup } from 'semantic-ui-react';
 import PropTypes from 'prop-types';

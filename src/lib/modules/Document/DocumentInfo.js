@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2022 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { invenioConfig } from '@config';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';

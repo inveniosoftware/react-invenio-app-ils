@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import HiddenWidget from '@rjsf/core';
 import _capitalize from 'lodash/capitalize';
 import PropTypes from 'prop-types';

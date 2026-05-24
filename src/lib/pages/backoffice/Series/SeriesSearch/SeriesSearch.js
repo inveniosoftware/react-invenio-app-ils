@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { responseRejectInterceptor } from '@api/base';
 import { seriesApi } from '@api/series/series';
 import { NewButton } from '@components/backoffice/buttons/NewButton';

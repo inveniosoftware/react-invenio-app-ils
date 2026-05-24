@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { orderApi } from '@api/acquisition';
 import { borrowingRequestApi } from '@api/ill';
 import { invenioConfig } from '@config';

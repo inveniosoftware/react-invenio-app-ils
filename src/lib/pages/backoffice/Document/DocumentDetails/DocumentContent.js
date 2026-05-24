@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { DocumentEItems } from '@pages/backoffice/Document/DocumentDetails/DocumentEItems';
 import { DocumentItems } from '@pages/backoffice/Document/DocumentDetails/DocumentItems';
 import { DocumentPendingLoans } from '@pages/backoffice/Document/DocumentDetails/DocumentPendingLoans';

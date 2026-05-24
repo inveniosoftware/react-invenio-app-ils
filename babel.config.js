@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 module.exports = {
   presets: [
     ['@babel/preset-env', { targets: { node: 'current' } }],

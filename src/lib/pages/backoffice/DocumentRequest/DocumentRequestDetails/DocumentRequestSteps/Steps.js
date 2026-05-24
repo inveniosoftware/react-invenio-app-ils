@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 export const STEPS = {
   CHOOSE_DOCUMENT: 0,
   CHOOSE_PROVIDER: 1,

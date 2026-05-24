@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 export function IEFallback() {
   window.onload = function () {
     const style = document.createElement('style');

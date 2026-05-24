@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2022 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import * as seriesTestData from '@testData/series.json';
 import _cloneDeep from 'lodash/cloneDeep';
 import { qsBuilderForSeries } from './RequestSerializer';

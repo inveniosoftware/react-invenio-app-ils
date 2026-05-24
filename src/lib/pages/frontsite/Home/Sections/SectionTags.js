@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React, { Component } from 'react';
 import { Container, Header } from 'semantic-ui-react';
 import { TagCloud } from 'react-tagcloud';

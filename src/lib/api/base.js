@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2025 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { invenioConfig } from '@config';
 import { goTo, replaceTo } from '@history';
 import { AuthenticationRoutes, FrontSiteRoutes } from '@routes/urls';

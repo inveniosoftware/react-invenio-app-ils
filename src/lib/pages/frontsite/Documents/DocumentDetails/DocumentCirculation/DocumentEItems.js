@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { FrontSiteRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';

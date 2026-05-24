@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2025 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';

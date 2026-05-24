@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { toShortDateTime } from '@api/date';
 import { LocationsLink } from '@components/backoffice/buttons/ViewDetailsButtons/LocationsLink';
 import { PatronDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/PatronDetailsLink';

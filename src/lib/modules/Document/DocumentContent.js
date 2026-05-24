@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { DocumentSubjects } from '@pages/backoffice/Document/DocumentDetails/DocumentMetadata/DocumentSubjects';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2022 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { invenioConfig } from '@config';
 import { LiteratureMetadataExtensions } from '@modules/Literature/LiteratureMetadataExtensions';
 import _isEmpty from 'lodash/isEmpty';

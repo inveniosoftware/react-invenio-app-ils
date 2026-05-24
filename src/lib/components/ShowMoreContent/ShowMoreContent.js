@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import ShowMore from 'react-show-more';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';

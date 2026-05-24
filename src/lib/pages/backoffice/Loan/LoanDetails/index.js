@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2025 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { connect } from 'react-redux';
 
 import { clearLoanDetails, fetchLoanDetails } from '@modules/Loan/actions';

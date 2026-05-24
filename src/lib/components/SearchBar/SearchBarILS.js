@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2022 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import PropTypes from 'prop-types';
 import React, { Component, createRef } from 'react';
 import { Input } from 'semantic-ui-react';

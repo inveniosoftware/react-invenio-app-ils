@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 describe('backoffice overview', () => {
   Cypress.Cookies.defaults({
     preserve: 'csrftoken',

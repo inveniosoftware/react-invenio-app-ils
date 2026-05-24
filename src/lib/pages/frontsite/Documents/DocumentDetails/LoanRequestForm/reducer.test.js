@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { loanRequestFormReducer as reducer, initialState } from './reducer';
 import * as actions from './actions';
 

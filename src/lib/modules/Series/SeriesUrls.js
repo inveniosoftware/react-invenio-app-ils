@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import _isEmpty from 'lodash/isEmpty';
 import _truncate from 'lodash/truncate';
 import PropTypes from 'prop-types';

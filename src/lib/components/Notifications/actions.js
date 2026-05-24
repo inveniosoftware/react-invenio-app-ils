@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { isAPIError, shouldShowErrorPage } from '@components/Error/Error';
 
 export const ADD = 'notifications/ADD';

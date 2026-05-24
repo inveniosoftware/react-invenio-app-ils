@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React, { Component } from 'react';
 import { withCancel } from '@api/utils';
 import { invenioConfig } from '@config';

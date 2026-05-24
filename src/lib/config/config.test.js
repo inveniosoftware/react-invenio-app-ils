@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { invenioConfig } from '@config';
 import { shallow } from 'enzyme';
 import React from 'react';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { connect } from 'react-redux';
 import { fetchMostLoanedDocuments } from './state/actions';
 import MostLoanedDocumentsListComponent from './MostLoanedDocumentsList';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { RedirectToLoginButton } from '@authentication/components/RedirectToLoginButton';
 import { sessionManager } from '@authentication/services/SessionManager';
 import { ShowMoreItems } from '@components/ShowMoreItems';

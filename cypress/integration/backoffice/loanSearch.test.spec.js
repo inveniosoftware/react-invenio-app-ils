@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 describe('backoffice loan search page', () => {
   const loansSearchRoute = '/backoffice/loans';
   const loansSearchUrl = Cypress.config().baseUrl + loansSearchRoute;

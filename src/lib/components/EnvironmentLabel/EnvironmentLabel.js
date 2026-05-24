@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
 import { invenioConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/backoffice/backofficeUrls';

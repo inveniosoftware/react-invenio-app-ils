@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2025 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { bannerApi } from '@api/banners';
 
 export const BANNER_RESET = 'fetchBanners/RESET';

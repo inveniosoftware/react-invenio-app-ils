@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2022 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { ShowMoreItems } from '@components/ShowMoreItems';
 import { invenioConfig } from '@config';
 import _isEmpty from 'lodash/isEmpty';

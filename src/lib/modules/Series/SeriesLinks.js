@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { LiteratureAccessUrls } from '@modules/Literature/LiteratureAccessUrls';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { RJSFDocumentRequestProviderField } from '@forms/rjsf/fields/RJSFDocumentRequestProviderField';
 import { RJSFLabelField } from '@forms/rjsf/fields/RJSFLabelField';
 import { RJSFTitleField } from '@forms/rjsf/fields/RJSFTitleField';

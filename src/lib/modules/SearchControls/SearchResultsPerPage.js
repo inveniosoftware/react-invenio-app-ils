@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React, { Component } from 'react';
 import { ResultsPerPage } from 'react-searchkit';
 import { getSearchConfig } from '@config';

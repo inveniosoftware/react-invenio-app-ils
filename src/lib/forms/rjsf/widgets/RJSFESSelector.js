@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { withCancel } from '@api/utils';
 import _debounce from 'lodash/debounce';
 import _find from 'lodash/find';

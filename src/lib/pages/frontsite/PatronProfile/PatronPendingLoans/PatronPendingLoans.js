@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2023 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { loanApi } from '@api/loans';
 import { searchReady, withCancel } from '@api/utils';
 import { Error } from '@components/Error';

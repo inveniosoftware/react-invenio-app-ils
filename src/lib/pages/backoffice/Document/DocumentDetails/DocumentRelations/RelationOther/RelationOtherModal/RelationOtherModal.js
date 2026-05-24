@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { documentApi } from '@api/documents';
 import { DocumentSelectListEntry } from '@modules/Document/backoffice/DocumentSelectListEntry';
 import DocumentLanguages from '@modules/Document/DocumentLanguages';

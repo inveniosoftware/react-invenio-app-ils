@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { orderApi } from '@api/acquisition';
 import { getSearchTotal } from '@api/utils';
 import { NewButton } from '@components/backoffice/buttons/NewButton';

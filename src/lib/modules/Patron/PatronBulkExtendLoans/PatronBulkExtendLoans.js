@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { loanApi } from '@api/loans';
 import { invenioConfig } from '@config/index';
 import { OverbookedConfirmModal } from '@components/OverbookedConfirmModal';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { IS_ANONYMOUS, IS_LOADING, SUCCESS } from './actions';
 import reducer, { initialState } from './reducer';
 

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { connect } from 'react-redux';
 import { sendOverdueLoansNotificationReminder } from './state/actions';
 import OverdueLoanSendNotificationModalComponent from '@modules/Loan/backoffice/OverdueLoanSendNotificationModal/OverdueLoanSendNotificationModal';

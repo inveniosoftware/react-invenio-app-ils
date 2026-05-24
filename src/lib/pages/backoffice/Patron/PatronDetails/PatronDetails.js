@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2025 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import { PatronBulkExtendLoans } from '@modules/Patron/PatronBulkExtendLoans';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { statsApi } from '@api/stats';
 import { recordToPidType, withCancel } from '@api/utils';
 import _get from 'lodash/get';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { withCancel } from '@api/utils';
 import { itemApi } from '@api/items';
 import { recordToPidType } from '@api/utils';

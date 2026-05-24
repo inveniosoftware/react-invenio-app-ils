@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { HitsSearch } from '@modules/ESSelector/HitsSearch';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';

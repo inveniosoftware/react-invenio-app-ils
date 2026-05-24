@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { addProvider } from '@pages/backoffice/DocumentRequest/DocumentRequestDetails/state/actions';
 import { connect } from 'react-redux';
 import ChooseProviderStepPanelComponent from './ChooseProviderStepPanel';

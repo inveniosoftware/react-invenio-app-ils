@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { toShortDate } from '@api/date';
 import { loanApi } from '@api/loans';
 import { DateTime } from 'luxon';

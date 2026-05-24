@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { InfoPopup } from '@components/InfoPopup';
 import { SeparatedList } from '@components/SeparatedList';
 import capitalize from 'lodash/capitalize';

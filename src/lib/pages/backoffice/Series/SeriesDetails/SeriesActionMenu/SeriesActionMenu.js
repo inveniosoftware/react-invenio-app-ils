@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { EditButton } from '@components/backoffice/buttons/EditButton';
 import { SeriesDeleteModal } from '../SeriesDeleteModal';
 import { BackOfficeRoutes } from '@routes/urls';

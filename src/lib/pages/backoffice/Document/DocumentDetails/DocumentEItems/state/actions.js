@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { eItemApi } from '@api/eitems';
 import { sendErrorNotification } from '@components/Notifications';
 

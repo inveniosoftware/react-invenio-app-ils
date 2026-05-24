@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { BackOfficeBase } from '@routes/backoffice/backofficeUrls';
 import { generatePath } from 'react-router-dom';
 

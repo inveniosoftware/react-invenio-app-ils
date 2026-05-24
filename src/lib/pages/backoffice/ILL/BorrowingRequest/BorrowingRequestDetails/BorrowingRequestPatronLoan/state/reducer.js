@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { HAS_ERROR, IS_LOADING, SUCCESS } from './actions';
 
 export const initialState = {

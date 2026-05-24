@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { documentApi } from '@api/documents';
 import { sessionManager } from '@authentication/services/SessionManager';
 import _get from 'lodash/get';

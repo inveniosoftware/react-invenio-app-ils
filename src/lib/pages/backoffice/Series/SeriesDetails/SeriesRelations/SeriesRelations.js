@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Error } from '@components/Error';
 import { Loader } from '@components/Loader';
 import { RelationEdition } from '@modules/Relations/backoffice/RelationEdition';

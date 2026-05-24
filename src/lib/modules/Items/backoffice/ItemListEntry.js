@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { DocumentIcon, ItemIcon } from '@components/backoffice/icons';
 import { getDisplayVal } from '@config';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';

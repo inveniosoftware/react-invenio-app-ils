@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import testData from '@testData/acq_vendors.json';
 import { mount } from 'enzyme';

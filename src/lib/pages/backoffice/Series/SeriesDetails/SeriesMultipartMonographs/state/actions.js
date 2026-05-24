@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { seriesApi } from '@api/series';
 import { sendErrorNotification } from '@components/Notifications';
 

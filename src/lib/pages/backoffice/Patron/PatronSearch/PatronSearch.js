@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { responseRejectInterceptor } from '@api/base';
 import { patronApi } from '@api/patrons';
 import { ExportReactSearchKitResults } from '@components/backoffice/ExportSearchResults';

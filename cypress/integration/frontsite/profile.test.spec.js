@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 describe('frontsite profile', () => {
   it('should redirect to login if not logged in', () => {
     cy.shouldRedirectToLogin('/profile');

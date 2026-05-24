@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { SUCCESS as FETCH_SERIES_SUCCESS } from '../../state/actions';
 import { IS_LOADING, SUCCESS, HAS_ERROR } from './actions';
 

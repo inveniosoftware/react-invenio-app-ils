@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2025 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { connect } from 'react-redux';
 import BannerComponent from './Banners';
 import { fetchBanners, resetBanners } from './state/actions';

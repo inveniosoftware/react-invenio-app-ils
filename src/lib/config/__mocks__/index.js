@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import _merge from 'lodash/merge';
 import { APP_CONFIG, RECORDS_CONFIG } from '../defaultConfig';
 

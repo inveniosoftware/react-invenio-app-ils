@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { eItemApi } from '@api/eitems';
 import { fileApi } from '@api/files';
 import testData from '@testData/eitems.json';

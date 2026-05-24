@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { toShortDateTime } from '@api/date';
 import { CreatedBy, UpdatedBy } from '@components/backoffice/ChangedBy';
 import { MetadataTable } from '@components/backoffice/MetadataTable';

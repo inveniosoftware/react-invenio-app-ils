@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2025 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Banners } from '@components/Banners';
 import { NotFound } from '@components/HttpErrors';
 import { ILSFooter } from '@components/ILSFooter';

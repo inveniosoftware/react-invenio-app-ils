@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { UrlList } from '@components/backoffice/UrlList';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';

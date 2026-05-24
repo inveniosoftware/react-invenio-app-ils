@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { RedirectToLoginButton } from '@authentication/components/RedirectToLoginButton';
 import { authenticationService } from '@authentication/services/AuthenticationService';
 import { EnvironmentLabel } from '@components/EnvironmentLabel';

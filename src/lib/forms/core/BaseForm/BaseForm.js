@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { ErrorMessage } from '@forms/core/ErrorMessage';
 import { Formik, getIn } from 'formik';
 import _isEmpty from 'lodash/isEmpty';

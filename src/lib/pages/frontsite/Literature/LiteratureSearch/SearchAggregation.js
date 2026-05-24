@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2022 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React, { Component } from 'react';
 import SearchAggregationsCards from '@modules/SearchControls/SearchAggregationsCards';
 import { Header } from 'semantic-ui-react';

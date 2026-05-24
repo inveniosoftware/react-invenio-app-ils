@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { parametrize } from 'react-overridable';
 import { screenIsWiderThan } from '@components/utils';
 import { Breakpoints } from '@components/Media';

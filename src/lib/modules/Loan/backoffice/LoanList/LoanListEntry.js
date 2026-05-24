@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { DocumentIcon, ItemIcon, LoanIcon } from '@components/backoffice/icons';
 import LoanLinkToItem from '@modules/Loan/backoffice/LoanLinkToItem';
 

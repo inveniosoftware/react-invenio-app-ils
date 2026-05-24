@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Pagination } from '@components/Pagination';
 import { MenuBucketAggregationValueElementOverrides } from '@modules/SearchControls/overridden/MenuBucketAggregationElement';
 import { AvailableLoanBucketAggregationValues } from './overridden/AvailableLoanBucketAggregationValues';

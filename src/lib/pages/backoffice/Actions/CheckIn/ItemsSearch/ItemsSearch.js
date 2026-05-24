@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { SearchBarILS } from '@components/SearchBar';
 import { LoanListEntry } from '@modules/Loan/backoffice/LoanList/LoanListEntry';
 import SearchResultsList from '@modules/SearchControls/SearchResultsList';

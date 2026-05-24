@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2025 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { BANNER_HAS_ERROR, BANNER_RESET, BANNER_SUCCESS } from './actions';
 
 export const initialState = {

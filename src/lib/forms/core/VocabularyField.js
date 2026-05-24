@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { withCancel } from '@api/utils';
 import { vocabularyApi } from '@api/vocabularies';
 import { invenioConfig } from '@config';

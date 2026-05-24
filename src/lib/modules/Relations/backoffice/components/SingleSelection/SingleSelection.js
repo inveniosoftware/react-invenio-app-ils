@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { RemoveItemButton } from '@components/backoffice/buttons/RemoveItemButton';
 import { RelationCard } from '@modules/Relations/backoffice/components/RelationCard';
 import React, { Component } from 'react';

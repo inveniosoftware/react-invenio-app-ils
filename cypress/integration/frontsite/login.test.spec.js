@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 describe('frontsite login', () => {
   const registerLoginAliases = () => {
     cy.get('input#email').as('email');

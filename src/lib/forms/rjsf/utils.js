@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 export const ignoreRJSFEnterEvent = (document) => {
   /* For unknown reasons empty fields are spawned when pressing
   the 'enter' key inside a RJSF input element so we have to manually prevent it */

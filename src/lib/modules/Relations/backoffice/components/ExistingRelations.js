@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2025 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Pagination } from '@components/Pagination';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import React, { Component } from 'react';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { patronApi } from '@api/patrons';
 import { EditButton } from '@components/backoffice/buttons/EditButton';
 import { NewButton } from '@components/backoffice/buttons/NewButton';

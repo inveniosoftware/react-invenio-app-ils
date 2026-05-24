@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { invenioConfig } from '@config';
 import { InfoMessage } from '@components/backoffice/InfoMessage';
 import { BorrowingRequest } from './BorrowingRequest';

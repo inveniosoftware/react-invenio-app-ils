@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 //https://127.0.0.1:3000/search?f=doctype%3ABOOK
 
 describe('frontsite literature details', () => {

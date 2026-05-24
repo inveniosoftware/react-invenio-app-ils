@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { sendErrorNotification } from '@components/Notifications';
 
 export const IS_LOADING = 'fetchReferences/IS_LOADING';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import alias from '@rollup/plugin-alias';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';

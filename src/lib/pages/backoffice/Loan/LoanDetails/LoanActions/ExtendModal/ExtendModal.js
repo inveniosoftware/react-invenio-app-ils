@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Modal, Header, Icon, Grid } from 'semantic-ui-react';

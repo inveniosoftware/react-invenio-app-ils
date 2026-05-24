@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { FastField, Field, getIn } from 'formik';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';

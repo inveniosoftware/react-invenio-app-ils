@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { BackOfficeRoutes } from '@routes/urls';
 import testData from '@testData/loans.json';
 import { mount, shallow } from 'enzyme';

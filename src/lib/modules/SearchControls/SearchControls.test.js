@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2022 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import * as testData from '@testData/documents.json';

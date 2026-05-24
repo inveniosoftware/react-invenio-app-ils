@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { http } from '@api/base';
 import { invenioConfig } from '@config';
 import _get from 'lodash/get';

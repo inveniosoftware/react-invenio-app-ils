@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Truncate } from '@components/Truncate';
 import LiteratureCover from '@modules/Literature/LiteratureCover';
 import LiteratureTags from '@modules/Literature/LiteratureTags';

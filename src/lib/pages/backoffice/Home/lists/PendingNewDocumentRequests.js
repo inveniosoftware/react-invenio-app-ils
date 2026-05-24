@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { dateFormatter } from '@api/date';
 import { documentRequestApi } from '@api/documentRequests';
 import { withCancel } from '@api/utils';

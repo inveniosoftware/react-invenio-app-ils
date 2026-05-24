@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { connect } from 'react-redux';
 import { checkoutItem } from '../ItemsCheckout/state/actions';
 import ItemsSearchComponent from './ItemsSearch';

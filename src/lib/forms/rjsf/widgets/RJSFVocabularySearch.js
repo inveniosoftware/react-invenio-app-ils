@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { vocabularyApi } from '@api/vocabularies';
 import { RJSFESSelector } from '@forms/rjsf/widgets/RJSFESSelector';
 import PropTypes from 'prop-types';

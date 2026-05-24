@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2022 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { PatronPagination } from './PatronPagination';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';

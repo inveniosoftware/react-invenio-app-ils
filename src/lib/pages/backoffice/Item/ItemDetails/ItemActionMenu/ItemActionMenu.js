@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { loanApi } from '@api/loans';
 import { patronApi } from '@api/patrons';
 import { recordToPidType } from '@api/utils';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import PropTypes from 'prop-types';

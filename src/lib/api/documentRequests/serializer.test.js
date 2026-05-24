@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { serializer } from './serializer';
 
 const stringDate = '2018-01-01T11:05:00+01:00';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 describe('backoffice document', () => {
   const fieldFor = (label, find) => {
     return cy.contains('.field > label', label).parent().find(find);

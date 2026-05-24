@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2025 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { borrowingRequestApi } from '@api/ill';
 
 export const IS_LOADING = 'fetchBorrowingRequestDetails/IS_LOADING';

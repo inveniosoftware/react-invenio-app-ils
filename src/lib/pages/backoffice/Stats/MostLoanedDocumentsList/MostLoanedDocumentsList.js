@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import SearchResultsList from '@modules/SearchControls/SearchResultsList';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';

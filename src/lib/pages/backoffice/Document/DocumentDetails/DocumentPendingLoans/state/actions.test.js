@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { loanApi } from '@api/loans';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';

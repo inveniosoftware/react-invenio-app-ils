@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Error as IlsError } from '@components/Error';
 import { SearchControlsMobile } from '@modules/SearchControls/SearchControlsMobile';
 import SearchFooter from '@modules/SearchControls/SearchFooter';

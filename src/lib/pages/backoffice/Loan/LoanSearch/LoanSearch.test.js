@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { mount } from 'enzyme';
 import { DateTime, Settings } from 'luxon';

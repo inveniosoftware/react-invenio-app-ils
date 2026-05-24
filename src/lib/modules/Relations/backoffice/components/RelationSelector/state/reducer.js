@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import remove from 'lodash/remove';
 import { SELECT_OPTION, REMOVE_SELECTION, RESET_SELECTIONS } from './actions';
 

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { loanDetailsReducer, initialDetailsState } from './reducer';
 import {
   DETAILS_IS_LOADING,

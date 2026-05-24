@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 describe('frontsite search', () => {
   const registerSearchAliases = () => {
     cy.url().should('contain', Cypress.config().baseUrl + '/search');

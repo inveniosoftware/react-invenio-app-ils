@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { authenticationService } from '@authentication/services/AuthenticationService';
 import { AuthenticationRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';

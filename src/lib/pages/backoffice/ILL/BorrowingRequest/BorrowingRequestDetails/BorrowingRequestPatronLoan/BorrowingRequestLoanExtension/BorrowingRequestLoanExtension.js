@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { toShortDate } from '@api/date';
 import { InfoMessage } from '@components/InfoMessage';
 import { invenioConfig } from '@config';

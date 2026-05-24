@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import { _SearchDateRange as SearchDateRange } from './SearchDateRange';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { apiConfig, http } from '@api/base';
 import { getSearchTotal, prepareSumQuery } from '@api/utils';
 import _isEmpty from 'lodash/isEmpty';

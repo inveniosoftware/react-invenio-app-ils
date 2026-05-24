@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import _groupBy from 'lodash/groupBy';
 import _isEmpty from 'lodash/isEmpty';

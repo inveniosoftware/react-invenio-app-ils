@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React from 'react';
 import SeriesListEntry from './SeriesListEntry';
 import * as testData from '@testData/series.json';

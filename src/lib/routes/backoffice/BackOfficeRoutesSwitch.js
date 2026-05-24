@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { NotFound } from '@components/HttpErrors';
 import { OrderDetails } from '@pages/backoffice/Acquisition/Order/OrderDetails';
 import { OrderEditor } from '@pages/backoffice/Acquisition/Order/OrderEditor';

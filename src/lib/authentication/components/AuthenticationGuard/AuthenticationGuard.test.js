@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { mount } from 'enzyme/build';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';

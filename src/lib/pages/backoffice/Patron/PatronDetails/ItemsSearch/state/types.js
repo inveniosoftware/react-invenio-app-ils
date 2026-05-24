@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2022 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 //separated into different file because of a circular dependency caused otherwise
 export const IS_LOADING = 'itemsSearchBarcode/IS_LOADING';
 export const SUCCESS = 'itemsSearchBarcode/SUCCESS';

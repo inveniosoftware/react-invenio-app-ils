@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React, { Component } from 'react';
 import { Button, Card, Container, Header, Icon } from 'semantic-ui-react';
 import { AcquisitionOrderIcon } from '@components/backoffice/icons';

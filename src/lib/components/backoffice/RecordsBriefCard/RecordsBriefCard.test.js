@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { mount, shallow } from 'enzyme';
 import React from 'react';
 import { Button, Icon } from 'semantic-ui-react';

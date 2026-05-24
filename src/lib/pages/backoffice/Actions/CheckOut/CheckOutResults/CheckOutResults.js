@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Loader } from '@components/Loader';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import DocumentLanguages from '@modules/Document/DocumentLanguages';
 import { RemoveItemButton } from '@components/backoffice/buttons/RemoveItemButton';
 import { RelationListEntry } from '@modules/Relations/backoffice/components/RelationListEntry';

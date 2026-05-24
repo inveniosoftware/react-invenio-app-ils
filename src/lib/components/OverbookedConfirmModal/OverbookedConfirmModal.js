@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Modal } from 'semantic-ui-react';

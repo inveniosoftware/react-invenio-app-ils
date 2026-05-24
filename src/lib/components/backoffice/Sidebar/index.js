@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { logout } from '@authentication/state/actions';
 import { addNotification } from '@components/Notifications';
 import { connect } from 'react-redux';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { documentApi } from '@api/documents';
 import { DeleteRecordModal } from '@components/backoffice/DeleteRecordModal';
 import { DeleteButton } from '@components/backoffice/DeleteRecordModal/DeleteButton';

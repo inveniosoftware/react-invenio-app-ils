@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Settings } from 'luxon';

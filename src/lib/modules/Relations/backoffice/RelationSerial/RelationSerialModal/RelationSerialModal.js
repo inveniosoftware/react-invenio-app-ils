@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { SeriesAuthors } from '@modules/Series/SeriesAuthors';
 import SeriesSelectListEntry from '@modules/Series/backoffice/SeriesSelectListEntry';
 import { RelationModal } from '@modules/Relations/backoffice/components/RelationModal';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 describe('backoffice loan details page', () => {
   const loansSearchRoute = '/backoffice/loans';
 

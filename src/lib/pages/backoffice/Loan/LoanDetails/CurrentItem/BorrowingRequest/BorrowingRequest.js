@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { BorrowingRequestDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/BorrowingRequestDetailsLink';
 import { InfoMessage } from '@components/backoffice/InfoMessage';
 import React, { Component } from 'react';

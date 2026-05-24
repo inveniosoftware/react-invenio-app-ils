@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import _isEmpty from 'lodash/isEmpty';
 import { Accordion, Dropdown } from 'semantic-ui-react';
 import { BucketAggregation } from 'react-searchkit';

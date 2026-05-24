@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2022 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import DocumentToc from '@modules/Document/DocumentToc';
 import { DocumentSubjects } from './DocumentSubjects';
 import React, { Component } from 'react';

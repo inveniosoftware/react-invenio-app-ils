@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import Overridable from 'react-overridable';
 import React from 'react';
 import HttpError from './HttpError';

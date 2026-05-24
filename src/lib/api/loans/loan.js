@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { apiConfig, http } from '@api/base';
 import { toShortDate } from '@api/date';
 import { getSearchTotal, prepareDateQuery, prepareSumQuery } from '@api/utils';

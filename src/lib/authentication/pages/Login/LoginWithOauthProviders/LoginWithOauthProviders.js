@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { LoginWithOauthButton } from '@authentication/components/LoginWithOauthButton';
 import { parseParams } from '@authentication/utils';
 import { invenioConfig } from '@config';

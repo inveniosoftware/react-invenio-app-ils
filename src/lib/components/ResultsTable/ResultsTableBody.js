@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { prettyPrintBooleanValue } from '@components/utils';
 import _get from 'lodash/get';
 import _isFunction from 'lodash/isFunction';

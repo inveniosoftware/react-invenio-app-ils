@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { connect } from 'react-redux';
 import PatronBulkExtendLoansComponent from './PatronBulkExtendLoans';
 import { bulkLoanExtension } from './actions';

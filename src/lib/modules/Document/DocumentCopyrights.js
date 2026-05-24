@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021-2022 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Divider, Header, List } from 'semantic-ui-react';

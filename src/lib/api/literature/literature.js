@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2022 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { apiConfig, http } from '@api/base';
 import { getSearchTotal } from '@api/utils';
 import { serializer } from './serializer';

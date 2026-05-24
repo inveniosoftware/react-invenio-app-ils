@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React, { Component } from 'react';
 import { Grid, Header, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';

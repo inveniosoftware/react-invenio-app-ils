@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import reducer, { initialState } from './reducer';
 import {
   SEARCH_IS_LOADING,

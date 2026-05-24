@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React, { act } from 'react';
 import { shallow, mount } from 'enzyme';
 import CancelModal from './CancelModal';

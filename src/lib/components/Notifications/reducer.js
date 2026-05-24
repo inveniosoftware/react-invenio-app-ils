@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { ADD, REMOVE, CLEAR_ALL } from './actions';
 
 export const initialState = {

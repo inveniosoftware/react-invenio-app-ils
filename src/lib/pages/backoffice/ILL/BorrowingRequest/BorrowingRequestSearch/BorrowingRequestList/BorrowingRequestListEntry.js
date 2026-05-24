@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { getDisplayVal, invenioConfig } from '@config';
 import { ILLBorrowingRequestIcon } from '@components/backoffice/icons';
 import { BackOfficeRoutes, ILLRoutes, ProviderRoutes } from '@routes/urls';

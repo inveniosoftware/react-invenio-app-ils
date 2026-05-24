@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { pageApi } from '@api/staticPages/page';
 
 export const IS_LOADING = 'fetchStaticPage/IS_LOADING';

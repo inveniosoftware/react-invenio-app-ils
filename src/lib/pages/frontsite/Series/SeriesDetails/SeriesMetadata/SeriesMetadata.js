@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Media } from '@components/Media';
 import SeriesMetadataAccordion from '@modules/Series/SeriesMetadataAccordion';
 import SeriesMetadataTabs from '@modules/Series/SeriesMetadataTabs';

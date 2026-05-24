@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { recordToPidType } from '@api/utils';
 import SeriesCard from './SeriesCard';
 import { DocumentCard } from './DocumentCard';

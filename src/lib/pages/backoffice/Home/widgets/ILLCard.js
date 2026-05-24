@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { borrowingRequestApi } from '@api/ill';
 import { withCancel } from '@api/utils';
 import { NewButton } from '@components/backoffice/buttons/NewButton';

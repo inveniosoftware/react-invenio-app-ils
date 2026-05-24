@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React from 'react';
 import { Truncate } from '@components/Truncate';
 import _find from 'lodash/find';

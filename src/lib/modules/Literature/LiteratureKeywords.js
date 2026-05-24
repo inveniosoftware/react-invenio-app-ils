@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React from 'react';
 import Overridable from 'react-overridable';
 import PropTypes from 'prop-types';

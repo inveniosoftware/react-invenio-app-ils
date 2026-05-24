@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { fetchPatronCurrentLoans } from '@modules/Patron/PatronCurrentLoans/actions';
 import { connect } from 'react-redux';
 import PatronCurrentLoansComponent from './PatronCurrentLoans';

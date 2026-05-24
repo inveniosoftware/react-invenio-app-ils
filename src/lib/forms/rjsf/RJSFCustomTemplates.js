@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { RJSFormWrapper } from '@forms/rjsf/RJSFormWrapper';
 import { Templates } from '@rjsf/semantic-ui';
 

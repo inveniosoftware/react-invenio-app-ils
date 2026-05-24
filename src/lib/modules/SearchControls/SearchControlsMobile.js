@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2022 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Count, Sort } from 'react-searchkit';
 import React, { Component } from 'react';
 import { Grid, Container, Menu, Sticky } from 'semantic-ui-react';

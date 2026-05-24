@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 // Temporary extracted common props that used in init
 
 export const DEFAULT_CURRENCY = 'CHF';

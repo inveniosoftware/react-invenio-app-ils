@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 describe('frontsite footer', () => {
   it('should have a link to the library schedule', () => {
     cy.visit('/');

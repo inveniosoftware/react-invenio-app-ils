@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 describe('navbar links', () => {
   it('should be able to go to login page', () => {
     cy.visit('/');

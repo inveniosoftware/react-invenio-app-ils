@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { borrowingRequestApi } from '@api/ill';
 import { sessionManager } from '@authentication/services/SessionManager';
 import configureMockStore from 'redux-mock-store';

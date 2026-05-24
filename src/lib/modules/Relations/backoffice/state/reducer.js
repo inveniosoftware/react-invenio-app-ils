@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { SUCCESS as FETCH_DOCUMENT_SUCCESS } from '@pages/backoffice/Document/DocumentDetails/state/actions';
 import { SUCCESS as FETCH_SERIES_SUCCESS } from '@pages/backoffice/Series/SeriesDetails/state/actions';
 import { IS_LOADING, SUCCESS, HAS_ERROR } from './actions';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { configure } from 'enzyme';
 // Enzyme has no support for React 18. 
 // To keep the tests working we added a React 18 adapter for now.

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { MetadataTable } from '@components/backoffice/MetadataTable';
 import { ItemDetailsLink } from '@components/backoffice/buttons/ViewDetailsButtons/ItemDetailsLink';
 import PropTypes from 'prop-types';

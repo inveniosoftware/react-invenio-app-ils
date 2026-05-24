@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { dateFormatter } from '@api/date';
 import { borrowingRequestApi } from '@api/ill';
 import { SeeAllButton } from '@components/backoffice/buttons/SeeAllButton';

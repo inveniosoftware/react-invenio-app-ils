@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2025 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { OverdueLoanSendNotificationModal } from '@modules/Loan/backoffice/OverdueLoanSendNotificationModal';
 import { InfoMessage } from '@components/backoffice/InfoMessage';
 import React, { Component } from 'react';

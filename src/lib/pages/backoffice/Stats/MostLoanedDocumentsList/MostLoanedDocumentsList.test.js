@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import * as testData from '@testData/documents.json';
 import { mount, shallow } from 'enzyme';
 import { Settings } from 'luxon';

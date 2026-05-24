@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Widgets } from '@rjsf/semantic-ui';
 import React, { Component } from 'react';
 import { Divider } from 'semantic-ui-react';

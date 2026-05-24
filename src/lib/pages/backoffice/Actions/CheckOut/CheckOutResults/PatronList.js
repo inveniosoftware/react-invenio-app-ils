@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { invenioConfig } from '@config';
 import { BackOfficeRoutes } from '@routes/urls';

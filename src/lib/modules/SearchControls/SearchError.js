@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { getStaticPageByName } from '@config';
 import { SearchMessage } from '@modules/SearchControls/SearchMessage';
 import _get from 'lodash/get';

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { authenticationService } from '@authentication/services/AuthenticationService';
 import { parseParams } from '@authentication/utils';
 import { BaseForm } from '@forms/core/BaseForm';

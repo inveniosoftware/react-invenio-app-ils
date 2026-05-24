@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { SearchControlsMobile } from '@modules/SearchControls/SearchControlsMobile';
 import SearchFooter from '@modules/SearchControls/SearchFooter';
 import SearchPagination from '@modules/SearchControls/SearchPagination';

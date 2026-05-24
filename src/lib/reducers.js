@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2021-2025 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { authenticationReducer } from '@authentication/reducer';
 import { deleteRecordModalReducer } from '@components/backoffice/DeleteRecordModal/reducer';
 import { fetchBannersReducer } from '@components/Banners/state/reducer';

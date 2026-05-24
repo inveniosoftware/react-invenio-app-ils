@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import _find from 'lodash/find';
 import _get from 'lodash/get';
 import _map from 'lodash/map';

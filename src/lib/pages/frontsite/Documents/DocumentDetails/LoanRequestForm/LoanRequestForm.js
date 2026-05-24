@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2025 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Checkbox, Form, Message, Header, Icon } from 'semantic-ui-react';

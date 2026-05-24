@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { BackOfficeRoutes, ILLRoutes } from '@routes/urls';
 import documentTestData from '@testData/documents.json';
 import testData from '@testData/ill_borrowing_requests.json';

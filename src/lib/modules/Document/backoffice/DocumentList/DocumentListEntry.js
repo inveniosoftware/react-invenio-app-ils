@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { EItemIcon } from '@components/backoffice/icons';
 import { invenioConfig } from '@config';
 import DocumentAuthors from '@modules/Document/DocumentAuthors';
