@@ -1,5 +1,9 @@
 # Changes
 
+Version 3.0.2 (released 2026-06-19)
+
+- fix(history): duplicate browser history entries
+
 Version 3.0.1 (released 2026-02-27)
 
 publish: ensure `legacy-peer-deps` option is set for installing dependencies
