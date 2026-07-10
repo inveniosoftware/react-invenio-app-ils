@@ -148,6 +148,6 @@ ol.ui.list {
 
 .ui.ordered.list {
   .item::before {
-    margin-left: 2.25rem;
+    margin-left: -2.25rem;
   }
 }
