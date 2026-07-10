@@ -816,7 +816,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                                         edition="1"
                                                         withLabel={false}
                                                       >
-                                                        ed. 1
+                                                        1 ed.
                                                       </LiteratureEdition>
                                                     </Overridable(LiteratureEdition)>
                                                      - 
@@ -1042,7 +1042,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                                         edition="1"
                                                         withLabel={false}
                                                       >
-                                                        ed. 1
+                                                        1 ed.
                                                       </LiteratureEdition>
                                                     </Overridable(LiteratureEdition)>
                                                      - 
@@ -2054,7 +2054,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                                                         edition="1"
                                                         withLabel={false}
                                                       >
-                                                        ed. 1
+                                                        1 ed.
                                                       </LiteratureEdition>
                                                     </Overridable(LiteratureEdition)>
                                                      - 

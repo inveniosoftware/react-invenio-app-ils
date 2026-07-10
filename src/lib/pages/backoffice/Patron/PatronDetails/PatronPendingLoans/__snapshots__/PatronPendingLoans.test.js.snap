@@ -711,7 +711,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                                         edition="1"
                                                         withLabel={false}
                                                       >
-                                                        ed. 1
+                                                        1 ed.
                                                       </LiteratureEdition>
                                                     </Overridable(LiteratureEdition)>
                                                      - 
@@ -868,7 +868,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                                         edition="1"
                                                         withLabel={false}
                                                       >
-                                                        ed. 1
+                                                        1 ed.
                                                       </LiteratureEdition>
                                                     </Overridable(LiteratureEdition)>
                                                      - 
@@ -1710,7 +1710,7 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                                         edition="1"
                                                         withLabel={false}
                                                       >
-                                                        ed. 1
+                                                        1 ed.
                                                       </LiteratureEdition>
                                                     </Overridable(LiteratureEdition)>
                                                      - 
