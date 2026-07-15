@@ -140,3 +140,14 @@ ul.ui.list.no-list-margin {
     padding-left: 0em;
   }
 }
+
+.ui.ordered.list,
+ol.ui.list {
+  margin-left: 2.25rem;
+}
+
+.ui.ordered.list {
+  .item::before {
+    margin-left: -2.25rem;
+  }
+}
