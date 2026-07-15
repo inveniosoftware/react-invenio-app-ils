@@ -13,10 +13,10 @@ class LiteratureEdition extends Component {
 
     return withLabel ? (
       <>
-        <label>edition</label> {edition}
+        {edition} <label>edition</label>
       </>
     ) : (
-      `ed. ${edition}`
+      `${edition} ed.`
     );
   }
 }
