@@ -1,5 +1,10 @@
 # Changes
 
+Version 3.0.3 (released 2026-07-15)
+
+- fix(styling): fixed broken contents display
+- change(literature): updated edition text position
+
 Version 3.0.2 (released 2026-06-19)
 
 - fix(history): duplicate browser history entries
