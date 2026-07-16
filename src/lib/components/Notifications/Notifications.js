@@ -8,6 +8,27 @@ import PropTypes from 'prop-types';
 import { ErrorMessage, SuccessMessage, WarningMessage } from './messages';
 
 export default class Notifications extends Component {
+  renderMessageContent = (notification) => {
+    const [before, after] = notification.content.split(notification.linkDisplayName);
+
+    if (notification.link) {
+      return (
+        <>
+          {before}
+            <a 
+              style={{ textDecoration: 'underline' }} 
+              href={notification.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {notification.linkDisplayName}
+            </a>
+          {after}
+        </>
+      );
+    } else return notification.content;
+  };
+
   renderNotification(notification) {
     const { removeNotification } = this.props;
 
@@ -23,7 +44,7 @@ export default class Notifications extends Component {
         id={notification.id}
         key={notification.id}
         header={notification.title}
-        content={notification.content}
+        content={this.renderMessageContent(notification)}
         removeNotification={removeNotification}
       />
     );
