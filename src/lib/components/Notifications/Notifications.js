@@ -11,7 +11,7 @@ export default class Notifications extends Component {
   renderMessageContent = (notification) => {
     const [before, after] = notification.content.split(notification.linkDisplayName);
 
-    if (notification.link) {
+    if (notification.link && notification.linkDisplayName) {
       return (
         <>
           {before}
