@@ -62,7 +62,7 @@ export const checkin = (barcode, onSuccess) => {
             `No item or no loan for barcode ${barcode}`,
             'error',
             `/backoffice/documents?q=${barcode}`,
-            barcode,
+            barcode
           )
         );
       }
