@@ -4,7 +4,7 @@
  */
 
 import { configure } from 'enzyme';
-// Enzyme has no support for React 18. 
+// Enzyme has no support for React 18.
 // To keep the tests working we added a React 18 adapter for now.
 // The adapter is unofficial and the project should move to a different testing library.
 import Adapter from '@cfaester/enzyme-adapter-react-18';
