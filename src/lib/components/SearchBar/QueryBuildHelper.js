@@ -18,9 +18,10 @@ class _QueryBuildHelper extends Component {
     const previousQueryString = queryString;
 
     if (previousQueryString === '') {
-      updateQueryState({ queryString: newCriteriaString });
+      updateQueryState({ ...currentQueryState, queryString: newCriteriaString });
     } else {
       updateQueryState({
+        ...currentQueryState,
         queryString: `${previousQueryString} AND ${newCriteriaString}`,
       });
     }
