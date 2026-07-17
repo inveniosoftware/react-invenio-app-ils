@@ -924,6 +924,18 @@ export const RECORDS_CONFIG = {
           sortOrder: 'asc',
           text: 'Most relevant',
         },
+        {
+          order: 2,
+          sortBy: 'name',
+          sortOrder: 'asc',
+          text: 'Name [A-Z]',
+        },
+        {
+          order: 3,
+          sortBy: 'name_desc',
+          sortOrder: 'asc',
+          text: 'Name [Z-A]',
+        },
       ],
       defaultPage: 1,
       defaultSize: 15,
