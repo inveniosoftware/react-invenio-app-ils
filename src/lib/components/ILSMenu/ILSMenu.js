@@ -163,6 +163,7 @@ class ILSMenu extends Component {
                   <Menu.Item
                     as={Link}
                     to={FrontSiteRoutes.documentsListWithQuery('')}
+                    aria-label="Search"
                   >
                     <Icon name="search" />
                   </Menu.Item>

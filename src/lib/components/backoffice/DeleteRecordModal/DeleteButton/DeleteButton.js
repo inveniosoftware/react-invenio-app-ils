@@ -14,6 +14,7 @@ export default class DeleteButton extends Component {
         icon="trash alternate"
         size="small"
         title="Delete record"
+        aria-label="Delete record"
         {...this.props}
       />
     );

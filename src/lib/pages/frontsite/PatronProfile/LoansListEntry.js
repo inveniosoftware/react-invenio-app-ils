@@ -47,6 +47,7 @@ export default class LoansListEntry extends Component {
           <div className="float-right">
             <Link
               to={FrontSiteRoutes.documentsListWithQuery(`"${documentTitle}"`)}
+              aria-label="Search for this literature in the catalogue"
             >
               <Icon name="search" />
             </Link>

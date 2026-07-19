@@ -76,6 +76,7 @@ class PatronPastDocumentRequests extends Component {
             to={FrontSiteRoutes.documentsListWithQuery(
               `"${row.metadata.document.title}"`
             )}
+            aria-label="Search for this literature in the catalogue"
           >
             <Icon name="search" />
           </Link>
