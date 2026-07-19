@@ -15,11 +15,11 @@ import {
   Divider,
   Grid,
   Icon,
-  Popup,
   Ref,
   Segment,
   Sticky,
 } from 'semantic-ui-react';
+import { PopupIcon } from '@components/PopupIcon';
 import { SeriesActionMenu } from './SeriesActionMenu';
 import { SeriesDocuments } from './SeriesDocuments';
 import { SeriesMultipartMonographs } from './SeriesMultipartMonographs';
@@ -65,8 +65,9 @@ export default class SeriesDetails extends Component {
       <Accordion.Title>
         <Icon name="dropdown" />
         Documents in this series{docsInSeries}
-        <Popup
-          trigger={<Icon name="help circle" style={{ float: 'right' }} />}
+        <PopupIcon
+          icon="help circle"
+          iconProps={{ style: { float: 'right' } }}
           content="You can add/remove documents to this series by using the series panel in the document details"
           position="top right"
         />
@@ -90,8 +91,9 @@ export default class SeriesDetails extends Component {
       <Accordion.Title>
         <Icon name="dropdown" />
         Multipart monographs in this series{multiMonoInSeries}
-        <Popup
-          trigger={<Icon name="help circle" style={{ float: 'right' }} />}
+        <PopupIcon
+          icon="help circle"
+          iconProps={{ style: { float: 'right' } }}
           content="You can add/remove multipart monograph to this series by using the series panel in the document details"
           position="top right"
         />

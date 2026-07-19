@@ -12,7 +12,8 @@ import _get from 'lodash/get';
 import _has from 'lodash/has';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Button, Icon, Popup } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
+import { PopupIcon } from '@components/PopupIcon';
 import { DateTime } from 'luxon';
 
 const INFO_MESSAGES = {
@@ -171,9 +172,9 @@ class LoanExtendButton extends Component {
           />
         )}
         {isDisabled && (
-          <Popup
+          <PopupIcon
             content={validation.msg}
-            trigger={<Icon name="info" />}
+            icon="info"
             position="top right"
           />
         )}
