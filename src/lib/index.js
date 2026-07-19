@@ -49,6 +49,7 @@ export { withCancel, recordToPidType } from '@api/utils';
 export { Media } from '@components/Media';
 export { IEFallback } from '@components/Fallbacks/IEFallback';
 export { InfoPopup } from '@components/InfoPopup';
+export { PopupIcon } from '@components/PopupIcon';
 export { Pagination } from '@components/Pagination';
 export { SeparatedList } from '@components/SeparatedList';
 export { SectionServices } from '@pages/frontsite/Home/Sections/SectionServices';

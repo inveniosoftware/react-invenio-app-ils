@@ -5,26 +5,25 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Popup, Icon } from 'semantic-ui-react';
+import { PopupIcon } from '@components/PopupIcon';
 
 export const InfoPopup = ({ children, message }) => {
   return (
-    <Popup
-      content={message}
-      wide="very"
-      trigger={
-        <span className="info-popup">
-          {children}
-          <Icon color="grey" name="question circle outline" />
-        </span>
-      }
-    />
+    <span className="info-popup">
+      <PopupIcon
+        content={message}
+        icon="question circle outline"
+        iconProps={{ color: 'grey' }}
+        wide="very"
+        triggerChildren={children}
+      />
+    </span>
   );
 };
 
 InfoPopup.propTypes = {
   children: PropTypes.node,
-  message: PropTypes.node.isRequired,
+  message: PropTypes.string.isRequired,
 };
 
 InfoPopup.defaultProps = {
