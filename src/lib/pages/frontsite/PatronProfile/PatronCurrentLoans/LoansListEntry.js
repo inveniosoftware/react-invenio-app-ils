@@ -44,16 +44,20 @@ export default class LoansListEntry extends Component {
   };
 
   getOverdueLabel = () => (
-    <h4>
-      Your loan is overdue. Please return the literature as soon as possible!
-    </h4>
+    <p className="loan-message" style={{ fontSize: '15px' }}>
+      <strong>
+        Your loan is overdue. Please return the literature as soon as possible!
+      </strong>
+    </p>
   );
 
   getReturnLabel = (endDate) => (
-    <h4>
-      Please return the literature before date
-      <Header size="large">{DateTime.fromISO(endDate).toLocaleString()}</Header>
-    </h4>
+    <p className="loan-message" style={{ fontSize: '15px' }}>
+      <strong>
+        Please return the literature before date{' '}
+        {DateTime.fromISO(endDate).toLocaleString()}
+      </strong>
+    </p>
   );
 
   getOngoingLabel = (startDate, isIllBrwReq) => {
