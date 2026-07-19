@@ -12,10 +12,10 @@ export default class DocumentStats extends Component {
   render() {
     const { metadata } = this.props;
     return (
-      <List verticalAlign="middle" style={{ color: '#aaa' }}>
+      <List verticalAlign="middle" style={{ color: '#595959' }}>
         <List.Item>
           <List.Content floated="right">
-            <Header style={{ color: '#aaa' }}>
+            <Header style={{ color: '#595959' }}>
               {metadata.loan_extensions}
             </Header>
           </List.Content>
