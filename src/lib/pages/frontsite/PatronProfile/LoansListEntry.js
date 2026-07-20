@@ -58,7 +58,14 @@ export default class LoansListEntry extends Component {
     return (
       <Overridable id="LoansListEntry.layout" {...this.props}>
         <Item className={itemClass} key={loan.pid}>
-          <LiteratureCover asItem size="tiny" url={coverUrl} {...linkToProp} />
+          <LiteratureCover
+            asItem
+            size="tiny"
+            url={coverUrl}
+            {...linkToProp}
+            tabindex="-1"
+            aria-hidden="true"
+          />
           <Item.Content>
             <Item.Header {...toProp}>
               <LiteratureTitle
