@@ -12,22 +12,22 @@ exports[`DocumentPendingLoans tests should load the details component 1`] = `
   >
     <ResultsTable
       columns={
-        Array [
-          Object {
+        [
+          {
             "formatter": [Function],
             "title": "Loan",
           },
-          Object {
+          {
             "field": "metadata.patron.name",
             "formatter": [Function],
             "title": "Patron",
           },
-          Object {
+          {
             "field": "metadata.request_start_date",
             "formatter": [Function],
             "title": "Request start date",
           },
-          Object {
+          {
             "field": "metadata.request_expire_date",
             "formatter": [Function],
             "title": "Request end date",
@@ -35,7 +35,7 @@ exports[`DocumentPendingLoans tests should load the details component 1`] = `
         ]
       }
       currentPage={1}
-      data={Array []}
+      data={[]}
       fixed={false}
       headerActionComponent={null}
       name="pending loan requests"
@@ -63,8 +63,8 @@ exports[`DocumentPendingLoans tests should load the details component 1`] = `
 exports[`DocumentPendingLoans tests should render pending loans 1`] = `
 <DocumentPendingLoans
   documentDetails={
-    Object {
-      "metadata": Object {
+    {
+      "metadata": {
         "item_pid": 222,
         "pid": 111,
       },
@@ -72,20 +72,20 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
     }
   }
   documentPendingLoans={
-    Object {
-      "hits": Array [
-        Object {
+    {
+      "hits": [
+        {
           "id": 1,
-          "metadata": Object {
-            "document": Object {
+          "metadata": {
+            "document": {
               "edition": "1",
               "publication_year": "1950",
               "title": "The Gulf: The Making of An American Sea",
             },
             "document_pid": "docid-1",
             "end_date": "2018-07-28",
-            "item_pid": Object {},
-            "patron": Object {
+            "item_pid": {},
+            "patron": {
               "email": "patron1@test.ch",
             },
             "patron_pid": "1",
@@ -100,20 +100,20 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
           },
           "pid": "loan1",
         },
-        Object {
+        {
           "id": 2,
-          "metadata": Object {
-            "document": Object {
+          "metadata": {
+            "document": {
               "publication_year": "1950",
               "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
             },
             "document_pid": "docid-1",
             "end_date": "2018-07-28",
-            "item_pid": Object {
+            "item_pid": {
               "type": "pitmid",
               "value": "itemid-2",
             },
-            "patron": Object {
+            "patron": {
               "email": "patron2@test.ch",
             },
             "patron_pid": "1",
@@ -158,22 +158,22 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
           >
             <ResultsTable
               columns={
-                Array [
-                  Object {
+                [
+                  {
                     "formatter": [Function],
                     "title": "Loan",
                   },
-                  Object {
+                  {
                     "field": "metadata.patron.name",
                     "formatter": [Function],
                     "title": "Patron",
                   },
-                  Object {
+                  {
                     "field": "metadata.request_start_date",
                     "formatter": [Function],
                     "title": "Request start date",
                   },
-                  Object {
+                  {
                     "field": "metadata.request_expire_date",
                     "formatter": [Function],
                     "title": "Request end date",
@@ -182,19 +182,19 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
               }
               currentPage={1}
               data={
-                Array [
-                  Object {
+                [
+                  {
                     "id": 1,
-                    "metadata": Object {
-                      "document": Object {
+                    "metadata": {
+                      "document": {
                         "edition": "1",
                         "publication_year": "1950",
                         "title": "The Gulf: The Making of An American Sea",
                       },
                       "document_pid": "docid-1",
                       "end_date": "2018-07-28",
-                      "item_pid": Object {},
-                      "patron": Object {
+                      "item_pid": {},
+                      "patron": {
                         "email": "patron1@test.ch",
                       },
                       "patron_pid": "1",
@@ -209,20 +209,20 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
                     },
                     "pid": "loan1",
                   },
-                  Object {
+                  {
                     "id": 2,
-                    "metadata": Object {
-                      "document": Object {
+                    "metadata": {
+                      "document": {
                         "publication_year": "1950",
                         "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
                       },
                       "document_pid": "docid-1",
                       "end_date": "2018-07-28",
-                      "item_pid": Object {
+                      "item_pid": {
                         "type": "pitmid",
                         "value": "itemid-2",
                       },
-                      "patron": Object {
+                      "patron": {
                         "email": "patron2@test.ch",
                       },
                       "patron_pid": "1",
@@ -279,22 +279,22 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
                 >
                   <ResultsTableHeader
                     columns={
-                      Array [
-                        Object {
+                      [
+                        {
                           "formatter": [Function],
                           "title": "Loan",
                         },
-                        Object {
+                        {
                           "field": "metadata.patron.name",
                           "formatter": [Function],
                           "title": "Patron",
                         },
-                        Object {
+                        {
                           "field": "metadata.request_start_date",
                           "formatter": [Function],
                           "title": "Request start date",
                         },
-                        Object {
+                        {
                           "field": "metadata.request_expire_date",
                           "formatter": [Function],
                           "title": "Request end date",
@@ -384,22 +384,22 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
                   </ResultsTableHeader>
                   <ResultsTableBody
                     columns={
-                      Array [
-                        Object {
+                      [
+                        {
                           "formatter": [Function],
                           "title": "Loan",
                         },
-                        Object {
+                        {
                           "field": "metadata.patron.name",
                           "formatter": [Function],
                           "title": "Patron",
                         },
-                        Object {
+                        {
                           "field": "metadata.request_start_date",
                           "formatter": [Function],
                           "title": "Request start date",
                         },
-                        Object {
+                        {
                           "field": "metadata.request_expire_date",
                           "formatter": [Function],
                           "title": "Request end date",
@@ -407,19 +407,19 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
                       ]
                     }
                     rows={
-                      Array [
-                        Object {
+                      [
+                        {
                           "id": 1,
-                          "metadata": Object {
-                            "document": Object {
+                          "metadata": {
+                            "document": {
                               "edition": "1",
                               "publication_year": "1950",
                               "title": "The Gulf: The Making of An American Sea",
                             },
                             "document_pid": "docid-1",
                             "end_date": "2018-07-28",
-                            "item_pid": Object {},
-                            "patron": Object {
+                            "item_pid": {},
+                            "patron": {
                               "email": "patron1@test.ch",
                             },
                             "patron_pid": "1",
@@ -434,20 +434,20 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
                           },
                           "pid": "loan1",
                         },
-                        Object {
+                        {
                           "id": 2,
-                          "metadata": Object {
-                            "document": Object {
+                          "metadata": {
+                            "document": {
                               "publication_year": "1950",
                               "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
                             },
                             "document_pid": "docid-1",
                             "end_date": "2018-07-28",
-                            "item_pid": Object {
+                            "item_pid": {
                               "type": "pitmid",
                               "value": "itemid-2",
                             },
-                            "patron": Object {
+                            "patron": {
                               "email": "patron2@test.ch",
                             },
                             "patron_pid": "1",
@@ -650,8 +650,8 @@ exports[`DocumentPendingLoans tests should render pending loans 1`] = `
 exports[`DocumentPendingLoans tests should render show a message with no pending loans 1`] = `
 <DocumentPendingLoans
   documentDetails={
-    Object {
-      "metadata": Object {
+    {
+      "metadata": {
         "item_pid": 222,
         "pid": 111,
       },
@@ -659,8 +659,8 @@ exports[`DocumentPendingLoans tests should render show a message with no pending
     }
   }
   documentPendingLoans={
-    Object {
-      "hits": Array [],
+    {
+      "hits": [],
       "total": 0,
     }
   }
@@ -690,22 +690,22 @@ exports[`DocumentPendingLoans tests should render show a message with no pending
           >
             <ResultsTable
               columns={
-                Array [
-                  Object {
+                [
+                  {
                     "formatter": [Function],
                     "title": "Loan",
                   },
-                  Object {
+                  {
                     "field": "metadata.patron.name",
                     "formatter": [Function],
                     "title": "Patron",
                   },
-                  Object {
+                  {
                     "field": "metadata.request_start_date",
                     "formatter": [Function],
                     "title": "Request start date",
                   },
-                  Object {
+                  {
                     "field": "metadata.request_expire_date",
                     "formatter": [Function],
                     "title": "Request end date",
@@ -713,7 +713,7 @@ exports[`DocumentPendingLoans tests should render show a message with no pending
                 ]
               }
               currentPage={1}
-              data={Array []}
+              data={[]}
               fixed={false}
               headerActionComponent={null}
               name="pending loan requests"
@@ -773,8 +773,8 @@ exports[`DocumentPendingLoans tests should render show a message with no pending
 exports[`DocumentPendingLoans tests should render the see all button when showing only a few pending loans 1`] = `
 <DocumentPendingLoans
   documentDetails={
-    Object {
-      "metadata": Object {
+    {
+      "metadata": {
         "item_pid": 222,
         "pid": 111,
       },
@@ -782,20 +782,20 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
     }
   }
   documentPendingLoans={
-    Object {
-      "hits": Array [
-        Object {
+    {
+      "hits": [
+        {
           "id": 1,
-          "metadata": Object {
-            "document": Object {
+          "metadata": {
+            "document": {
               "edition": "1",
               "publication_year": "1950",
               "title": "The Gulf: The Making of An American Sea",
             },
             "document_pid": "docid-1",
             "end_date": "2018-07-28",
-            "item_pid": Object {},
-            "patron": Object {
+            "item_pid": {},
+            "patron": {
               "email": "patron1@test.ch",
             },
             "patron_pid": "1",
@@ -810,20 +810,20 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
           },
           "pid": "loan1",
         },
-        Object {
+        {
           "id": 2,
-          "metadata": Object {
-            "document": Object {
+          "metadata": {
+            "document": {
               "publication_year": "1950",
               "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
             },
             "document_pid": "docid-1",
             "end_date": "2018-07-28",
-            "item_pid": Object {
+            "item_pid": {
               "type": "pitmid",
               "value": "itemid-2",
             },
-            "patron": Object {
+            "patron": {
               "email": "patron2@test.ch",
             },
             "patron_pid": "1",
@@ -868,22 +868,22 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
           >
             <ResultsTable
               columns={
-                Array [
-                  Object {
+                [
+                  {
                     "formatter": [Function],
                     "title": "Loan",
                   },
-                  Object {
+                  {
                     "field": "metadata.patron.name",
                     "formatter": [Function],
                     "title": "Patron",
                   },
-                  Object {
+                  {
                     "field": "metadata.request_start_date",
                     "formatter": [Function],
                     "title": "Request start date",
                   },
-                  Object {
+                  {
                     "field": "metadata.request_expire_date",
                     "formatter": [Function],
                     "title": "Request end date",
@@ -892,19 +892,19 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
               }
               currentPage={1}
               data={
-                Array [
-                  Object {
+                [
+                  {
                     "id": 1,
-                    "metadata": Object {
-                      "document": Object {
+                    "metadata": {
+                      "document": {
                         "edition": "1",
                         "publication_year": "1950",
                         "title": "The Gulf: The Making of An American Sea",
                       },
                       "document_pid": "docid-1",
                       "end_date": "2018-07-28",
-                      "item_pid": Object {},
-                      "patron": Object {
+                      "item_pid": {},
+                      "patron": {
                         "email": "patron1@test.ch",
                       },
                       "patron_pid": "1",
@@ -919,20 +919,20 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                     },
                     "pid": "loan1",
                   },
-                  Object {
+                  {
                     "id": 2,
-                    "metadata": Object {
-                      "document": Object {
+                    "metadata": {
+                      "document": {
                         "publication_year": "1950",
                         "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
                       },
                       "document_pid": "docid-1",
                       "end_date": "2018-07-28",
-                      "item_pid": Object {
+                      "item_pid": {
                         "type": "pitmid",
                         "value": "itemid-2",
                       },
-                      "patron": Object {
+                      "patron": {
                         "email": "patron2@test.ch",
                       },
                       "patron_pid": "1",
@@ -989,22 +989,22 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                 >
                   <ResultsTableHeader
                     columns={
-                      Array [
-                        Object {
+                      [
+                        {
                           "formatter": [Function],
                           "title": "Loan",
                         },
-                        Object {
+                        {
                           "field": "metadata.patron.name",
                           "formatter": [Function],
                           "title": "Patron",
                         },
-                        Object {
+                        {
                           "field": "metadata.request_start_date",
                           "formatter": [Function],
                           "title": "Request start date",
                         },
-                        Object {
+                        {
                           "field": "metadata.request_expire_date",
                           "formatter": [Function],
                           "title": "Request end date",
@@ -1094,22 +1094,22 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                   </ResultsTableHeader>
                   <ResultsTableBody
                     columns={
-                      Array [
-                        Object {
+                      [
+                        {
                           "formatter": [Function],
                           "title": "Loan",
                         },
-                        Object {
+                        {
                           "field": "metadata.patron.name",
                           "formatter": [Function],
                           "title": "Patron",
                         },
-                        Object {
+                        {
                           "field": "metadata.request_start_date",
                           "formatter": [Function],
                           "title": "Request start date",
                         },
-                        Object {
+                        {
                           "field": "metadata.request_expire_date",
                           "formatter": [Function],
                           "title": "Request end date",
@@ -1117,19 +1117,19 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                       ]
                     }
                     rows={
-                      Array [
-                        Object {
+                      [
+                        {
                           "id": 1,
-                          "metadata": Object {
-                            "document": Object {
+                          "metadata": {
+                            "document": {
                               "edition": "1",
                               "publication_year": "1950",
                               "title": "The Gulf: The Making of An American Sea",
                             },
                             "document_pid": "docid-1",
                             "end_date": "2018-07-28",
-                            "item_pid": Object {},
-                            "patron": Object {
+                            "item_pid": {},
+                            "patron": {
                               "email": "patron1@test.ch",
                             },
                             "patron_pid": "1",
@@ -1300,13 +1300,13 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                       >
                                         <Button
                                           as={
-                                            Object {
+                                            {
                                               "$$typeof": Symbol(react.forward_ref),
-                                              "propTypes": Object {
+                                              "propTypes": {
                                                 "innerRef": [MockFunction] {
-                                                  "calls": Array [
-                                                    Array [
-                                                      Object {
+                                                  "calls": [
+                                                    [
+                                                      {
                                                         "children": "loanid-1",
                                                         "data-test": "loanid-1",
                                                         "to": "loan/loanid-1",
@@ -1317,8 +1317,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": undefined,
                                                         "to": "patron/1",
                                                       },
@@ -1328,8 +1328,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": "loanid-2",
                                                         "data-test": "loanid-2",
                                                         "to": "loan/loanid-2",
@@ -1340,8 +1340,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": undefined,
                                                         "to": "patron/1",
                                                       },
@@ -1351,8 +1351,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": "loanid-1",
                                                         "data-test": "loanid-1",
                                                         "to": "loan/loanid-1",
@@ -1363,8 +1363,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": undefined,
                                                         "to": "patron/1",
                                                       },
@@ -1374,10 +1374,10 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "aria-pressed": undefined,
-                                                        "children": Array [
+                                                        "children": [
                                                           "See all",
                                                           false,
                                                           false,
@@ -1396,10 +1396,10 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "aria-pressed": undefined,
-                                                        "children": Array [
+                                                        "children": [
                                                           "See all",
                                                           false,
                                                           false,
@@ -1419,45 +1419,45 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
                                                   ],
-                                                  "results": Array [
-                                                    Object {
+                                                  "results": [
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
                                                   ],
                                                 },
                                                 "onClick": [MockFunction] {
-                                                  "calls": Array [
-                                                    Array [
-                                                      Object {
+                                                  "calls": [
+                                                    [
+                                                      {
                                                         "children": "loanid-1",
                                                         "data-test": "loanid-1",
                                                         "to": "loan/loanid-1",
@@ -1468,8 +1468,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": undefined,
                                                         "to": "patron/1",
                                                       },
@@ -1479,8 +1479,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": "loanid-2",
                                                         "data-test": "loanid-2",
                                                         "to": "loan/loanid-2",
@@ -1491,8 +1491,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": undefined,
                                                         "to": "patron/1",
                                                       },
@@ -1502,8 +1502,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": "loanid-1",
                                                         "data-test": "loanid-1",
                                                         "to": "loan/loanid-1",
@@ -1514,8 +1514,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": undefined,
                                                         "to": "patron/1",
                                                       },
@@ -1525,10 +1525,10 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "aria-pressed": undefined,
-                                                        "children": Array [
+                                                        "children": [
                                                           "See all",
                                                           false,
                                                           false,
@@ -1547,10 +1547,10 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "aria-pressed": undefined,
-                                                        "children": Array [
+                                                        "children": [
                                                           "See all",
                                                           false,
                                                           false,
@@ -1570,45 +1570,45 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
                                                   ],
-                                                  "results": Array [
-                                                    Object {
+                                                  "results": [
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
                                                   ],
                                                 },
                                                 "replace": [MockFunction] {
-                                                  "calls": Array [
-                                                    Array [
-                                                      Object {
+                                                  "calls": [
+                                                    [
+                                                      {
                                                         "children": "loanid-1",
                                                         "data-test": "loanid-1",
                                                         "to": "loan/loanid-1",
@@ -1619,8 +1619,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": undefined,
                                                         "to": "patron/1",
                                                       },
@@ -1630,8 +1630,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": "loanid-2",
                                                         "data-test": "loanid-2",
                                                         "to": "loan/loanid-2",
@@ -1642,8 +1642,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": undefined,
                                                         "to": "patron/1",
                                                       },
@@ -1653,8 +1653,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": "loanid-1",
                                                         "data-test": "loanid-1",
                                                         "to": "loan/loanid-1",
@@ -1665,8 +1665,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": undefined,
                                                         "to": "patron/1",
                                                       },
@@ -1676,10 +1676,10 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "aria-pressed": undefined,
-                                                        "children": Array [
+                                                        "children": [
                                                           "See all",
                                                           false,
                                                           false,
@@ -1698,10 +1698,10 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "aria-pressed": undefined,
-                                                        "children": Array [
+                                                        "children": [
                                                           "See all",
                                                           false,
                                                           false,
@@ -1721,45 +1721,45 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
                                                   ],
-                                                  "results": Array [
-                                                    Object {
+                                                  "results": [
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
                                                   ],
                                                 },
                                                 "target": [MockFunction] {
-                                                  "calls": Array [
-                                                    Array [
-                                                      Object {
+                                                  "calls": [
+                                                    [
+                                                      {
                                                         "children": "loanid-1",
                                                         "data-test": "loanid-1",
                                                         "to": "loan/loanid-1",
@@ -1770,8 +1770,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": undefined,
                                                         "to": "patron/1",
                                                       },
@@ -1781,8 +1781,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": "loanid-2",
                                                         "data-test": "loanid-2",
                                                         "to": "loan/loanid-2",
@@ -1793,8 +1793,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": undefined,
                                                         "to": "patron/1",
                                                       },
@@ -1804,8 +1804,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": "loanid-1",
                                                         "data-test": "loanid-1",
                                                         "to": "loan/loanid-1",
@@ -1816,8 +1816,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": undefined,
                                                         "to": "patron/1",
                                                       },
@@ -1827,10 +1827,10 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "aria-pressed": undefined,
-                                                        "children": Array [
+                                                        "children": [
                                                           "See all",
                                                           false,
                                                           false,
@@ -1849,10 +1849,10 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "aria-pressed": undefined,
-                                                        "children": Array [
+                                                        "children": [
                                                           "See all",
                                                           false,
                                                           false,
@@ -1872,45 +1872,45 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
                                                   ],
-                                                  "results": Array [
-                                                    Object {
+                                                  "results": [
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
                                                   ],
                                                 },
                                                 "to": [MockFunction] {
-                                                  "calls": Array [
-                                                    Array [
-                                                      Object {
+                                                  "calls": [
+                                                    [
+                                                      {
                                                         "children": "loanid-1",
                                                         "data-test": "loanid-1",
                                                         "to": "loan/loanid-1",
@@ -1921,8 +1921,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": undefined,
                                                         "to": "patron/1",
                                                       },
@@ -1932,8 +1932,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": "loanid-2",
                                                         "data-test": "loanid-2",
                                                         "to": "loan/loanid-2",
@@ -1944,8 +1944,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": undefined,
                                                         "to": "patron/1",
                                                       },
@@ -1955,8 +1955,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": "loanid-1",
                                                         "data-test": "loanid-1",
                                                         "to": "loan/loanid-1",
@@ -1967,8 +1967,8 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": undefined,
                                                         "to": "patron/1",
                                                       },
@@ -1978,10 +1978,10 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "aria-pressed": undefined,
-                                                        "children": Array [
+                                                        "children": [
                                                           "See all",
                                                           false,
                                                           false,
@@ -2000,10 +2000,10 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       null,
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "aria-pressed": undefined,
-                                                        "children": Array [
+                                                        "children": [
                                                           "See all",
                                                           false,
                                                           false,
@@ -2023,36 +2023,36 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                       "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                     ],
                                                   ],
-                                                  "results": Array [
-                                                    Object {
+                                                  "results": [
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
@@ -2060,56 +2060,56 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                 },
                                               },
                                               "render": [MockFunction] {
-                                                "calls": Array [
-                                                  Array [
-                                                    Object {
+                                                "calls": [
+                                                  [
+                                                    {
                                                       "children": "loanid-1",
                                                       "data-test": "loanid-1",
                                                       "to": "loan/loanid-1",
                                                     },
                                                     null,
                                                   ],
-                                                  Array [
-                                                    Object {
+                                                  [
+                                                    {
                                                       "children": undefined,
                                                       "to": "patron/1",
                                                     },
                                                     null,
                                                   ],
-                                                  Array [
-                                                    Object {
+                                                  [
+                                                    {
                                                       "children": "loanid-2",
                                                       "data-test": "loanid-2",
                                                       "to": "loan/loanid-2",
                                                     },
                                                     null,
                                                   ],
-                                                  Array [
-                                                    Object {
+                                                  [
+                                                    {
                                                       "children": undefined,
                                                       "to": "patron/1",
                                                     },
                                                     null,
                                                   ],
-                                                  Array [
-                                                    Object {
+                                                  [
+                                                    {
                                                       "children": "loanid-1",
                                                       "data-test": "loanid-1",
                                                       "to": "loan/loanid-1",
                                                     },
                                                     null,
                                                   ],
-                                                  Array [
-                                                    Object {
+                                                  [
+                                                    {
                                                       "children": undefined,
                                                       "to": "patron/1",
                                                     },
                                                     null,
                                                   ],
-                                                  Array [
-                                                    Object {
+                                                  [
+                                                    {
                                                       "aria-pressed": undefined,
-                                                      "children": Array [
+                                                      "children": [
                                                         "See all",
                                                         false,
                                                         false,
@@ -2125,32 +2125,32 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                                     [Function],
                                                   ],
                                                 ],
-                                                "results": Array [
-                                                  Object {
+                                                "results": [
+                                                  {
                                                     "type": "return",
                                                     "value": undefined,
                                                   },
-                                                  Object {
+                                                  {
                                                     "type": "return",
                                                     "value": undefined,
                                                   },
-                                                  Object {
+                                                  {
                                                     "type": "return",
                                                     "value": undefined,
                                                   },
-                                                  Object {
+                                                  {
                                                     "type": "return",
                                                     "value": undefined,
                                                   },
-                                                  Object {
+                                                  {
                                                     "type": "return",
                                                     "value": undefined,
                                                   },
-                                                  Object {
+                                                  {
                                                     "type": "return",
                                                     "value": undefined,
                                                   },
-                                                  Object {
+                                                  {
                                                     "type": "return",
                                                     "value": undefined,
                                                   },
@@ -2165,14 +2165,14 @@ exports[`DocumentPendingLoans tests should render the see all button when showin
                                         >
                                           <Ref
                                             innerRef={
-                                              Object {
+                                              {
                                                 "current": null,
                                               }
                                             }
                                           >
                                             <RefForward
                                               innerRef={
-                                                Object {
+                                                {
                                                   "current": null,
                                                 }
                                               }

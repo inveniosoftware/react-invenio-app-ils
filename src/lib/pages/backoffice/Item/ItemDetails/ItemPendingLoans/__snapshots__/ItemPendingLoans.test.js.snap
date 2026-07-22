@@ -3,18 +3,18 @@
 exports[`ItemPendingLoans tests should render show a message with no requested loans 1`] = `
 <ItemPendingLoans
   data={
-    Object {
-      "hits": Array [],
+    {
+      "hits": [],
       "total": 0,
     }
   }
-  error={Object {}}
+  error={{}}
   fetchPendingLoans={[Function]}
   isLoading={false}
   isPendingLoansLoading={false}
   itemDetails={
-    Object {
-      "metadata": Object {
+    {
+      "metadata": {
         "document_pid": 111,
         "pid": 222,
       },
@@ -40,7 +40,7 @@ exports[`ItemPendingLoans tests should render show a message with no requested l
           <Error
             FallbackComponent={[Function]}
             boundary={false}
-            error={Object {}}
+            error={{}}
             onUIError={null}
           >
             <Header
@@ -64,31 +64,31 @@ exports[`ItemPendingLoans tests should render show a message with no requested l
               >
                 <ResultsTable
                   columns={
-                    Array [
-                      Object {
+                    [
+                      {
                         "formatter": [Function],
                         "title": "Loan",
                       },
-                      Object {
+                      {
                         "field": "metadata.patron.name",
                         "formatter": [Function],
                         "title": "Patron",
                       },
-                      Object {
+                      {
                         "field": "metadata.state",
                         "title": "State",
                       },
-                      Object {
+                      {
                         "field": "metadata.request_start_date",
                         "formatter": [Function],
                         "title": "Request start date",
                       },
-                      Object {
+                      {
                         "field": "metadata.request_expire_date",
                         "formatter": [Function],
                         "title": "Request end date",
                       },
-                      Object {
+                      {
                         "field": "",
                         "formatter": [Function],
                         "title": "Actions",
@@ -96,7 +96,7 @@ exports[`ItemPendingLoans tests should render show a message with no requested l
                     ]
                   }
                   currentPage={1}
-                  data={Array []}
+                  data={[]}
                   fixed={false}
                   headerActionComponent={null}
                   name="loans"

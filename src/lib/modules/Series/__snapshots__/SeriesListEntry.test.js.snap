@@ -4,9 +4,9 @@ exports[`should render correctly 1`] = `
 <Item>
   <ItemImage
     as={
-      Object {
+      {
         "$$typeof": Symbol(react.forward_ref),
-        "propTypes": Object {
+        "propTypes": {
           "innerRef": [Function],
           "onClick": [Function],
           "replace": [Function],
@@ -29,9 +29,9 @@ exports[`should render correctly 1`] = `
     </ItemMeta>
     <ItemHeader
       as={
-        Object {
+        {
           "$$typeof": Symbol(react.forward_ref),
-          "propTypes": Object {
+          "propTypes": {
             "innerRef": [Function],
             "onClick": [Function],
             "replace": [Function],
@@ -50,7 +50,7 @@ exports[`should render correctly 1`] = `
     <ItemMeta>
       <SeriesAuthors
         authors={
-          Array [
+          [
             "Einstein, Albert",
             "Stachel, John J et al.",
           ]
@@ -78,7 +78,7 @@ exports[`should render correctly 1`] = `
                   Languages: 
                 </span>
                 <SeriesLanguages
-                  languages={Array []}
+                  languages={[]}
                 />
               </ListContent>
             </ListItem>

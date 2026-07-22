@@ -3,28 +3,28 @@
 exports[`should render correctly 1`] = `
 <DocumentListEntry
   metadata={
-    Object {
+    {
       "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
       "abstract": "This is an abstract",
-      "authors": Array [
-        Object {
+      "authors": [
+        {
           "full_name": "Jack E. Davis",
         },
       ],
-      "circulation": Object {
+      "circulation": {
         "available_items_for_loan_count": 0,
       },
       "document_type": "BOOK",
       "edition": "1",
-      "eitems": Object {
-        "hits": Array [],
+      "eitems": {
+        "hits": [],
         "total": 0,
       },
-      "keywords": Object {
+      "keywords": {
         "source": "X",
         "value": "Patata",
       },
-      "languages": Array [
+      "languages": [
         "en",
       ],
       "pid": "13",

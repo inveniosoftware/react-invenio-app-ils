@@ -9,7 +9,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
   </Divider>
   <ContextProvider
     value={
-      Object {
+      {
         "BucketAggregation.element.available-for-loan": [Function],
         "BucketAggregation.element.menu": [Function],
         "BucketAggregationValues.element.available-for-loan": [Function],
@@ -27,13 +27,13 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
   >
     <Overridable(ReactSearchKit)
       defaultSortingOnEmptyQueryString={
-        Object {
+        {
           "sortBy": "created",
           "sortOrder": "desc",
         }
       }
       history={
-        Object {
+        {
           "action": "POP",
           "block": [Function],
           "createHref": [Function],
@@ -42,7 +42,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
           "goForward": [Function],
           "length": 1,
           "listen": [Function],
-          "location": Object {
+          "location": {
             "hash": "",
             "pathname": "/",
             "search": "",
@@ -53,7 +53,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
         }
       }
       initialQueryState={
-        Object {
+        {
           "layout": "grid",
           "page": 1,
           "size": 15,
@@ -64,7 +64,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
       searchApi={
         InvenioSearchApi {
           "axiosCancelToken": [Function],
-          "axiosConfig": Object {
+          "axiosConfig": {
             "url": "https://127.0.0.1:5000/api/literature/",
             "withCredentials": true,
           },
@@ -83,7 +83,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
         }
       }
       urlHandlerApi={
-        Object {
+        {
           "enabled": false,
         }
       }
@@ -96,7 +96,7 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
       <Media
         className=""
         greaterThanOrEqual="computer"
-        style={Object {}}
+        style={{}}
       >
         <Connect(Overridable(ResultsLoader$1))>
           <Connect(Overridable(EmptyResults$1)) />
@@ -111,14 +111,14 @@ exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch com
       <Media
         className=""
         lessThan="computer"
-        style={Object {}}
+        style={{}}
       >
         <SeriesLiteratureSearchMobile
           metadata={
-            Object {
+            {
               "$schema": "https://127.0.0.1:5000/schemas/series/series-v1.0.0.json",
               "abstract": "This is a multipart monograph",
-              "authors": Array [
+              "authors": [
                 "Einstein, Albert",
                 "Stachel, John J et al.",
               ],

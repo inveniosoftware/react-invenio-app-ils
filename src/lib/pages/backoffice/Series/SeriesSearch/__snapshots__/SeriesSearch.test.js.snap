@@ -3,20 +3,20 @@
 exports[`SeriesSearch ResultsTable tests should not render when empty results 1`] = `
 <ResultsTable
   columns={
-    Array [
-      Object {
+    [
+      {
         "field": "",
         "formatter": [Function],
         "title": "view",
       },
-      Object {
+      {
         "field": "metadata.title",
         "title": "Title",
       },
     ]
   }
   currentPage={1}
-  data={Array []}
+  data={[]}
   fixed={false}
   headerActionComponent={null}
   name=""
@@ -63,13 +63,13 @@ exports[`SeriesSearch ResultsTable tests should not render when empty results 1`
 exports[`SeriesSearch ResultsTable tests should render a list of results 1`] = `
 <ResultsTable
   columns={
-    Array [
-      Object {
+    [
+      {
         "field": "",
         "formatter": [Function],
         "title": "view",
       },
-      Object {
+      {
         "field": "metadata.title",
         "title": "Title",
       },
@@ -77,21 +77,21 @@ exports[`SeriesSearch ResultsTable tests should render a list of results 1`] = `
   }
   currentPage={1}
   data={
-    Array [
-      Object {
+    [
+      {
         "created": "2018-01-01T11:05:00+01:00",
         "id": "3",
-        "metadata": Object {
+        "metadata": {
           "abstract": "This is an abstract",
-          "authors": Array [
+          "authors": [
             "Author1",
           ],
-          "languages": Array [
+          "languages": [
             "en",
           ],
           "mode_of_issuance": "SERIAL",
           "pid": "3",
-          "related_records": Array [],
+          "related_records": [],
           "title": "This is a title",
         },
         "pid": "3",
@@ -133,13 +133,13 @@ exports[`SeriesSearch ResultsTable tests should render a list of results 1`] = `
     >
       <ResultsTableHeader
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "metadata.title",
               "title": "Title",
             },
@@ -198,34 +198,34 @@ exports[`SeriesSearch ResultsTable tests should render a list of results 1`] = `
       </ResultsTableHeader>
       <ResultsTableBody
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "metadata.title",
               "title": "Title",
             },
           ]
         }
         rows={
-          Array [
-            Object {
+          [
+            {
               "created": "2018-01-01T11:05:00+01:00",
               "id": "3",
-              "metadata": Object {
+              "metadata": {
                 "abstract": "This is an abstract",
-                "authors": Array [
+                "authors": [
                   "Author1",
                 ],
-                "languages": Array [
+                "languages": [
                   "en",
                 ],
                 "mode_of_issuance": "SERIAL",
                 "pid": "3",
-                "related_records": Array [],
+                "related_records": [],
                 "title": "This is a title",
               },
               "pid": "3",
@@ -267,7 +267,7 @@ exports[`SeriesSearch ResultsTable tests should render a list of results 1`] = `
                     >
                       <Ref
                         innerRef={
-                          Object {
+                          {
                             "current": <button
                               class="ui button"
                             >
@@ -278,7 +278,7 @@ exports[`SeriesSearch ResultsTable tests should render a list of results 1`] = `
                       >
                         <RefFindNode
                           innerRef={
-                            Object {
+                            {
                               "current": <button
                                 class="ui button"
                               >

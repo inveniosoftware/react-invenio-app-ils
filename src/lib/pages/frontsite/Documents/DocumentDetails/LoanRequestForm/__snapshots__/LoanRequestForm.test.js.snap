@@ -3,29 +3,29 @@
 exports[`DocumentMetadata tests should render the loan request form correctly 1`] = `
 <Overridable(LoanRequestForm)
   document={
-    Object {
+    {
       "created": "2019-07-08T10:44:02.366+02:00",
       "id": 71,
-      "links": Object {
+      "links": {
         "self": "https://127.0.0.1:5000/api/documents/71",
       },
-      "metadata": Object {
+      "metadata": {
         "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-        "_access": Object {},
+        "_access": {},
         "abstract": "This is an abstract",
-        "authors": Array [
-          Object {
+        "authors": [
+          {
             "full_name": "Jack E. Davis",
           },
         ],
-        "circulation": Object {},
-        "document_type": Array [
+        "circulation": {},
+        "document_type": [
           "BOOK",
         ],
         "edition": "1",
-        "eitems": Object {
-          "hits": Array [
-            Object {
+        "eitems": {
+          "hits": [
+            {
               "description": "Non ipsum",
               "open_access": true,
               "pid": "145",
@@ -33,23 +33,23 @@ exports[`DocumentMetadata tests should render the loan request form correctly 1`
           ],
           "total": 1,
         },
-        "keywords": Object {
+        "keywords": {
           "source": "X",
           "value": "Patata",
         },
-        "languages": Array [
+        "languages": [
           "en",
         ],
         "pid": "71",
         "publication_year": "1950",
-        "relations": Object {},
-        "tags": Array [],
+        "relations": {},
+        "tags": [],
         "title": "The Gulf: The Making of An American Sea",
       },
       "updated": "2019-07-08T10:44:18.354+02:00",
     }
   }
-  error={Object {}}
+  error={{}}
   hasError={false}
   initializeState={[Function]}
   isSuccessful={true}
@@ -58,29 +58,29 @@ exports[`DocumentMetadata tests should render the loan request form correctly 1`
 >
   <LoanRequestForm
     document={
-      Object {
+      {
         "created": "2019-07-08T10:44:02.366+02:00",
         "id": 71,
-        "links": Object {
+        "links": {
           "self": "https://127.0.0.1:5000/api/documents/71",
         },
-        "metadata": Object {
+        "metadata": {
           "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-          "_access": Object {},
+          "_access": {},
           "abstract": "This is an abstract",
-          "authors": Array [
-            Object {
+          "authors": [
+            {
               "full_name": "Jack E. Davis",
             },
           ],
-          "circulation": Object {},
-          "document_type": Array [
+          "circulation": {},
+          "document_type": [
             "BOOK",
           ],
           "edition": "1",
-          "eitems": Object {
-            "hits": Array [
-              Object {
+          "eitems": {
+            "hits": [
+              {
                 "description": "Non ipsum",
                 "open_access": true,
                 "pid": "145",
@@ -88,23 +88,23 @@ exports[`DocumentMetadata tests should render the loan request form correctly 1`
             ],
             "total": 1,
           },
-          "keywords": Object {
+          "keywords": {
             "source": "X",
             "value": "Patata",
           },
-          "languages": Array [
+          "languages": [
             "en",
           ],
           "pid": "71",
           "publication_year": "1950",
-          "relations": Object {},
-          "tags": Array [],
+          "relations": {},
+          "tags": [],
           "title": "The Gulf: The Making of An American Sea",
         },
         "updated": "2019-07-08T10:44:18.354+02:00",
       }
     }
-    error={Object {}}
+    error={{}}
     hasError={false}
     initializeState={[Function]}
     isSuccessful={true}

@@ -4,16 +4,16 @@ exports[`DocumentItems tests should load the DocumentItems component 1`] = `
 <DocumentItems
   columnFormat={null}
   documentDetails={
-    Object {
-      "metadata": Object {
+    {
+      "metadata": {
         "pid": 111,
       },
       "pid": 111,
     }
   }
   documentItems={
-    Object {
-      "hits": Array [],
+    {
+      "hits": [],
       "total": 0,
     }
   }
@@ -27,27 +27,27 @@ exports[`DocumentItems tests should load the DocumentItems component 1`] = `
 exports[`DocumentItems tests should render item 1`] = `
 <Overridable(DocumentItems)
   documentDetails={
-    Object {
-      "metadata": Object {
+    {
+      "metadata": {
         "pid": 111,
       },
       "pid": 111,
     }
   }
   documentItems={
-    Object {
-      "hits": Array [
-        Object {
+    {
+      "hits": [
+        {
           "ID": "1",
-          "metadata": Object {
+          "metadata": {
             "barcode": "123456789-1",
             "circulation_restriction": "NO_RESTRICTION",
-            "document": Object {
+            "document": {
               "title": "Document 1 title",
             },
             "document_pid": "docid-1",
-            "internal_location": Object {
-              "location": Object {
+            "internal_location": {
+              "location": {
                 "name": "Somewhere",
               },
             },
@@ -59,17 +59,17 @@ exports[`DocumentItems tests should render item 1`] = `
           },
           "pid": "item1",
         },
-        Object {
+        {
           "id": "2",
-          "metadata": Object {
+          "metadata": {
             "barcode": "123456789-2",
             "circulation_restriction": "ONE_WEEK",
-            "document": Object {
+            "document": {
               "title": "Document 2 title",
             },
             "document_pid": "docid-1",
-            "internal_location": Object {
-              "location": Object {
+            "internal_location": {
+              "location": {
                 "name": "Somewhere Else",
               },
             },
@@ -90,27 +90,27 @@ exports[`DocumentItems tests should render item 1`] = `
   <DocumentItems
     columnFormat={null}
     documentDetails={
-      Object {
-        "metadata": Object {
+      {
+        "metadata": {
           "pid": 111,
         },
         "pid": 111,
       }
     }
     documentItems={
-      Object {
-        "hits": Array [
-          Object {
+      {
+        "hits": [
+          {
             "ID": "1",
-            "metadata": Object {
+            "metadata": {
               "barcode": "123456789-1",
               "circulation_restriction": "NO_RESTRICTION",
-              "document": Object {
+              "document": {
                 "title": "Document 1 title",
               },
               "document_pid": "docid-1",
-              "internal_location": Object {
-                "location": Object {
+              "internal_location": {
+                "location": {
                   "name": "Somewhere",
                 },
               },
@@ -122,17 +122,17 @@ exports[`DocumentItems tests should render item 1`] = `
             },
             "pid": "item1",
           },
-          Object {
+          {
             "id": "2",
-            "metadata": Object {
+            "metadata": {
               "barcode": "123456789-2",
               "circulation_restriction": "ONE_WEEK",
-              "document": Object {
+              "document": {
                 "title": "Document 2 title",
               },
               "document_pid": "docid-1",
-              "internal_location": Object {
-                "location": Object {
+              "internal_location": {
+                "location": {
                   "name": "Somewhere Else",
                 },
               },
@@ -174,34 +174,34 @@ exports[`DocumentItems tests should render item 1`] = `
             >
               <ResultsTable
                 columns={
-                  Array [
-                    Object {
+                  [
+                    {
                       "field": "metadata.barcode",
                       "formatter": [Function],
                       "title": "Barcode",
                     },
-                    Object {
+                    {
                       "field": "metadata.status",
                       "title": "Status",
                     },
-                    Object {
+                    {
                       "field": "metadata.medium",
                       "title": "Medium",
                     },
-                    Object {
+                    {
                       "field": "metadata.internal_location.name",
                       "formatter": [Function],
                       "title": "Location",
                     },
-                    Object {
+                    {
                       "field": "metadata.shelf",
                       "title": "Shelf",
                     },
-                    Object {
+                    {
                       "field": "metadata.circulation_restriction",
                       "title": "Restrictions",
                     },
-                    Object {
+                    {
                       "field": "metadata.circulation.state",
                       "formatter": [Function],
                       "title": "Loan Status",
@@ -210,18 +210,18 @@ exports[`DocumentItems tests should render item 1`] = `
                 }
                 currentPage={1}
                 data={
-                  Array [
-                    Object {
+                  [
+                    {
                       "ID": "1",
-                      "metadata": Object {
+                      "metadata": {
                         "barcode": "123456789-1",
                         "circulation_restriction": "NO_RESTRICTION",
-                        "document": Object {
+                        "document": {
                           "title": "Document 1 title",
                         },
                         "document_pid": "docid-1",
-                        "internal_location": Object {
-                          "location": Object {
+                        "internal_location": {
+                          "location": {
                             "name": "Somewhere",
                           },
                         },
@@ -233,17 +233,17 @@ exports[`DocumentItems tests should render item 1`] = `
                       },
                       "pid": "item1",
                     },
-                    Object {
+                    {
                       "id": "2",
-                      "metadata": Object {
+                      "metadata": {
                         "barcode": "123456789-2",
                         "circulation_restriction": "ONE_WEEK",
-                        "document": Object {
+                        "document": {
                           "title": "Document 2 title",
                         },
                         "document_pid": "docid-1",
-                        "internal_location": Object {
-                          "location": Object {
+                        "internal_location": {
+                          "location": {
                             "name": "Somewhere Else",
                           },
                         },
@@ -297,34 +297,34 @@ exports[`DocumentItems tests should render item 1`] = `
                   >
                     <ResultsTableHeader
                       columns={
-                        Array [
-                          Object {
+                        [
+                          {
                             "field": "metadata.barcode",
                             "formatter": [Function],
                             "title": "Barcode",
                           },
-                          Object {
+                          {
                             "field": "metadata.status",
                             "title": "Status",
                           },
-                          Object {
+                          {
                             "field": "metadata.medium",
                             "title": "Medium",
                           },
-                          Object {
+                          {
                             "field": "metadata.internal_location.name",
                             "formatter": [Function],
                             "title": "Location",
                           },
-                          Object {
+                          {
                             "field": "metadata.shelf",
                             "title": "Shelf",
                           },
-                          Object {
+                          {
                             "field": "metadata.circulation_restriction",
                             "title": "Restrictions",
                           },
-                          Object {
+                          {
                             "field": "metadata.circulation.state",
                             "formatter": [Function],
                             "title": "Loan Status",
@@ -459,34 +459,34 @@ exports[`DocumentItems tests should render item 1`] = `
                     </ResultsTableHeader>
                     <ResultsTableBody
                       columns={
-                        Array [
-                          Object {
+                        [
+                          {
                             "field": "metadata.barcode",
                             "formatter": [Function],
                             "title": "Barcode",
                           },
-                          Object {
+                          {
                             "field": "metadata.status",
                             "title": "Status",
                           },
-                          Object {
+                          {
                             "field": "metadata.medium",
                             "title": "Medium",
                           },
-                          Object {
+                          {
                             "field": "metadata.internal_location.name",
                             "formatter": [Function],
                             "title": "Location",
                           },
-                          Object {
+                          {
                             "field": "metadata.shelf",
                             "title": "Shelf",
                           },
-                          Object {
+                          {
                             "field": "metadata.circulation_restriction",
                             "title": "Restrictions",
                           },
-                          Object {
+                          {
                             "field": "metadata.circulation.state",
                             "formatter": [Function],
                             "title": "Loan Status",
@@ -494,18 +494,18 @@ exports[`DocumentItems tests should render item 1`] = `
                         ]
                       }
                       rows={
-                        Array [
-                          Object {
+                        [
+                          {
                             "ID": "1",
-                            "metadata": Object {
+                            "metadata": {
                               "barcode": "123456789-1",
                               "circulation_restriction": "NO_RESTRICTION",
-                              "document": Object {
+                              "document": {
                                 "title": "Document 1 title",
                               },
                               "document_pid": "docid-1",
-                              "internal_location": Object {
-                                "location": Object {
+                              "internal_location": {
+                                "location": {
                                   "name": "Somewhere",
                                 },
                               },
@@ -517,17 +517,17 @@ exports[`DocumentItems tests should render item 1`] = `
                             },
                             "pid": "item1",
                           },
-                          Object {
+                          {
                             "id": "2",
-                            "metadata": Object {
+                            "metadata": {
                               "barcode": "123456789-2",
                               "circulation_restriction": "ONE_WEEK",
-                              "document": Object {
+                              "document": {
                                 "title": "Document 2 title",
                               },
                               "document_pid": "docid-1",
-                              "internal_location": Object {
-                                "location": Object {
+                              "internal_location": {
+                                "location": {
                                   "name": "Somewhere Else",
                                 },
                               },
@@ -808,16 +808,16 @@ exports[`DocumentItems tests should render item 1`] = `
 exports[`DocumentItems tests should render show a message with no items 1`] = `
 <Overridable(DocumentItems)
   documentDetails={
-    Object {
-      "metadata": Object {
+    {
+      "metadata": {
         "pid": 111,
       },
       "pid": 111,
     }
   }
   documentItems={
-    Object {
-      "hits": Array [],
+    {
+      "hits": [],
       "total": 0,
     }
   }
@@ -826,16 +826,16 @@ exports[`DocumentItems tests should render show a message with no items 1`] = `
   <DocumentItems
     columnFormat={null}
     documentDetails={
-      Object {
-        "metadata": Object {
+      {
+        "metadata": {
           "pid": 111,
         },
         "pid": 111,
       }
     }
     documentItems={
-      Object {
-        "hits": Array [],
+      {
+        "hits": [],
         "total": 0,
       }
     }
@@ -865,34 +865,34 @@ exports[`DocumentItems tests should render show a message with no items 1`] = `
             >
               <ResultsTable
                 columns={
-                  Array [
-                    Object {
+                  [
+                    {
                       "field": "metadata.barcode",
                       "formatter": [Function],
                       "title": "Barcode",
                     },
-                    Object {
+                    {
                       "field": "metadata.status",
                       "title": "Status",
                     },
-                    Object {
+                    {
                       "field": "metadata.medium",
                       "title": "Medium",
                     },
-                    Object {
+                    {
                       "field": "metadata.internal_location.name",
                       "formatter": [Function],
                       "title": "Location",
                     },
-                    Object {
+                    {
                       "field": "metadata.shelf",
                       "title": "Shelf",
                     },
-                    Object {
+                    {
                       "field": "metadata.circulation_restriction",
                       "title": "Restrictions",
                     },
-                    Object {
+                    {
                       "field": "metadata.circulation.state",
                       "formatter": [Function],
                       "title": "Loan Status",
@@ -900,7 +900,7 @@ exports[`DocumentItems tests should render show a message with no items 1`] = `
                   ]
                 }
                 currentPage={1}
-                data={Array []}
+                data={[]}
                 fixed={false}
                 headerActionComponent={null}
                 name="attached items"
@@ -961,27 +961,27 @@ exports[`DocumentItems tests should render show a message with no items 1`] = `
 exports[`DocumentItems tests should render the see all button when showing only a few items 1`] = `
 <Overridable(DocumentItems)
   documentDetails={
-    Object {
-      "metadata": Object {
+    {
+      "metadata": {
         "pid": 111,
       },
       "pid": 111,
     }
   }
   documentItems={
-    Object {
-      "hits": Array [
-        Object {
+    {
+      "hits": [
+        {
           "ID": "1",
-          "metadata": Object {
+          "metadata": {
             "barcode": "123456789-1",
             "circulation_restriction": "NO_RESTRICTION",
-            "document": Object {
+            "document": {
               "title": "Document 1 title",
             },
             "document_pid": "docid-1",
-            "internal_location": Object {
-              "location": Object {
+            "internal_location": {
+              "location": {
                 "name": "Somewhere",
               },
             },
@@ -993,17 +993,17 @@ exports[`DocumentItems tests should render the see all button when showing only 
           },
           "pid": "item1",
         },
-        Object {
+        {
           "id": "2",
-          "metadata": Object {
+          "metadata": {
             "barcode": "123456789-2",
             "circulation_restriction": "ONE_WEEK",
-            "document": Object {
+            "document": {
               "title": "Document 2 title",
             },
             "document_pid": "docid-1",
-            "internal_location": Object {
-              "location": Object {
+            "internal_location": {
+              "location": {
                 "name": "Somewhere Else",
               },
             },
@@ -1025,27 +1025,27 @@ exports[`DocumentItems tests should render the see all button when showing only 
   <DocumentItems
     columnFormat={null}
     documentDetails={
-      Object {
-        "metadata": Object {
+      {
+        "metadata": {
           "pid": 111,
         },
         "pid": 111,
       }
     }
     documentItems={
-      Object {
-        "hits": Array [
-          Object {
+      {
+        "hits": [
+          {
             "ID": "1",
-            "metadata": Object {
+            "metadata": {
               "barcode": "123456789-1",
               "circulation_restriction": "NO_RESTRICTION",
-              "document": Object {
+              "document": {
                 "title": "Document 1 title",
               },
               "document_pid": "docid-1",
-              "internal_location": Object {
-                "location": Object {
+              "internal_location": {
+                "location": {
                   "name": "Somewhere",
                 },
               },
@@ -1057,17 +1057,17 @@ exports[`DocumentItems tests should render the see all button when showing only 
             },
             "pid": "item1",
           },
-          Object {
+          {
             "id": "2",
-            "metadata": Object {
+            "metadata": {
               "barcode": "123456789-2",
               "circulation_restriction": "ONE_WEEK",
-              "document": Object {
+              "document": {
                 "title": "Document 2 title",
               },
               "document_pid": "docid-1",
-              "internal_location": Object {
-                "location": Object {
+              "internal_location": {
+                "location": {
                   "name": "Somewhere Else",
                 },
               },
@@ -1109,34 +1109,34 @@ exports[`DocumentItems tests should render the see all button when showing only 
             >
               <ResultsTable
                 columns={
-                  Array [
-                    Object {
+                  [
+                    {
                       "field": "metadata.barcode",
                       "formatter": [Function],
                       "title": "Barcode",
                     },
-                    Object {
+                    {
                       "field": "metadata.status",
                       "title": "Status",
                     },
-                    Object {
+                    {
                       "field": "metadata.medium",
                       "title": "Medium",
                     },
-                    Object {
+                    {
                       "field": "metadata.internal_location.name",
                       "formatter": [Function],
                       "title": "Location",
                     },
-                    Object {
+                    {
                       "field": "metadata.shelf",
                       "title": "Shelf",
                     },
-                    Object {
+                    {
                       "field": "metadata.circulation_restriction",
                       "title": "Restrictions",
                     },
-                    Object {
+                    {
                       "field": "metadata.circulation.state",
                       "formatter": [Function],
                       "title": "Loan Status",
@@ -1145,18 +1145,18 @@ exports[`DocumentItems tests should render the see all button when showing only 
                 }
                 currentPage={1}
                 data={
-                  Array [
-                    Object {
+                  [
+                    {
                       "ID": "1",
-                      "metadata": Object {
+                      "metadata": {
                         "barcode": "123456789-1",
                         "circulation_restriction": "NO_RESTRICTION",
-                        "document": Object {
+                        "document": {
                           "title": "Document 1 title",
                         },
                         "document_pid": "docid-1",
-                        "internal_location": Object {
-                          "location": Object {
+                        "internal_location": {
+                          "location": {
                             "name": "Somewhere",
                           },
                         },
@@ -1168,17 +1168,17 @@ exports[`DocumentItems tests should render the see all button when showing only 
                       },
                       "pid": "item1",
                     },
-                    Object {
+                    {
                       "id": "2",
-                      "metadata": Object {
+                      "metadata": {
                         "barcode": "123456789-2",
                         "circulation_restriction": "ONE_WEEK",
-                        "document": Object {
+                        "document": {
                           "title": "Document 2 title",
                         },
                         "document_pid": "docid-1",
-                        "internal_location": Object {
-                          "location": Object {
+                        "internal_location": {
+                          "location": {
                             "name": "Somewhere Else",
                           },
                         },
@@ -1232,34 +1232,34 @@ exports[`DocumentItems tests should render the see all button when showing only 
                   >
                     <ResultsTableHeader
                       columns={
-                        Array [
-                          Object {
+                        [
+                          {
                             "field": "metadata.barcode",
                             "formatter": [Function],
                             "title": "Barcode",
                           },
-                          Object {
+                          {
                             "field": "metadata.status",
                             "title": "Status",
                           },
-                          Object {
+                          {
                             "field": "metadata.medium",
                             "title": "Medium",
                           },
-                          Object {
+                          {
                             "field": "metadata.internal_location.name",
                             "formatter": [Function],
                             "title": "Location",
                           },
-                          Object {
+                          {
                             "field": "metadata.shelf",
                             "title": "Shelf",
                           },
-                          Object {
+                          {
                             "field": "metadata.circulation_restriction",
                             "title": "Restrictions",
                           },
-                          Object {
+                          {
                             "field": "metadata.circulation.state",
                             "formatter": [Function],
                             "title": "Loan Status",
@@ -1394,34 +1394,34 @@ exports[`DocumentItems tests should render the see all button when showing only 
                     </ResultsTableHeader>
                     <ResultsTableBody
                       columns={
-                        Array [
-                          Object {
+                        [
+                          {
                             "field": "metadata.barcode",
                             "formatter": [Function],
                             "title": "Barcode",
                           },
-                          Object {
+                          {
                             "field": "metadata.status",
                             "title": "Status",
                           },
-                          Object {
+                          {
                             "field": "metadata.medium",
                             "title": "Medium",
                           },
-                          Object {
+                          {
                             "field": "metadata.internal_location.name",
                             "formatter": [Function],
                             "title": "Location",
                           },
-                          Object {
+                          {
                             "field": "metadata.shelf",
                             "title": "Shelf",
                           },
-                          Object {
+                          {
                             "field": "metadata.circulation_restriction",
                             "title": "Restrictions",
                           },
-                          Object {
+                          {
                             "field": "metadata.circulation.state",
                             "formatter": [Function],
                             "title": "Loan Status",
@@ -1429,18 +1429,18 @@ exports[`DocumentItems tests should render the see all button when showing only 
                         ]
                       }
                       rows={
-                        Array [
-                          Object {
+                        [
+                          {
                             "ID": "1",
-                            "metadata": Object {
+                            "metadata": {
                               "barcode": "123456789-1",
                               "circulation_restriction": "NO_RESTRICTION",
-                              "document": Object {
+                              "document": {
                                 "title": "Document 1 title",
                               },
                               "document_pid": "docid-1",
-                              "internal_location": Object {
-                                "location": Object {
+                              "internal_location": {
+                                "location": {
                                   "name": "Somewhere",
                                 },
                               },
@@ -1648,13 +1648,13 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                         >
                                           <Button
                                             as={
-                                              Object {
+                                              {
                                                 "$$typeof": Symbol(react.forward_ref),
-                                                "propTypes": Object {
+                                                "propTypes": {
                                                   "innerRef": [MockFunction] {
-                                                    "calls": Array [
-                                                      Array [
-                                                        Object {
+                                                    "calls": [
+                                                      [
+                                                        {
                                                           "children": "123456789-1",
                                                           "data-test": "itemid-1",
                                                           "to": "url/itemid-1",
@@ -1665,8 +1665,8 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "children": "123456789-2",
                                                           "data-test": "itemid-2",
                                                           "to": "url/itemid-2",
@@ -1677,8 +1677,8 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "children": "123456789-1",
                                                           "data-test": "itemid-1",
                                                           "to": "url/itemid-1",
@@ -1689,10 +1689,10 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "aria-pressed": undefined,
-                                                          "children": Array [
+                                                          "children": [
                                                             "See all",
                                                             false,
                                                             false,
@@ -1711,10 +1711,10 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "aria-pressed": undefined,
-                                                          "children": Array [
+                                                          "children": [
                                                             "See all",
                                                             false,
                                                             false,
@@ -1734,33 +1734,33 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
                                                     ],
-                                                    "results": Array [
-                                                      Object {
+                                                    "results": [
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
                                                     ],
                                                   },
                                                   "onClick": [MockFunction] {
-                                                    "calls": Array [
-                                                      Array [
-                                                        Object {
+                                                    "calls": [
+                                                      [
+                                                        {
                                                           "children": "123456789-1",
                                                           "data-test": "itemid-1",
                                                           "to": "url/itemid-1",
@@ -1771,8 +1771,8 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "children": "123456789-2",
                                                           "data-test": "itemid-2",
                                                           "to": "url/itemid-2",
@@ -1783,8 +1783,8 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "children": "123456789-1",
                                                           "data-test": "itemid-1",
                                                           "to": "url/itemid-1",
@@ -1795,10 +1795,10 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "aria-pressed": undefined,
-                                                          "children": Array [
+                                                          "children": [
                                                             "See all",
                                                             false,
                                                             false,
@@ -1817,10 +1817,10 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "aria-pressed": undefined,
-                                                          "children": Array [
+                                                          "children": [
                                                             "See all",
                                                             false,
                                                             false,
@@ -1840,33 +1840,33 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
                                                     ],
-                                                    "results": Array [
-                                                      Object {
+                                                    "results": [
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
                                                     ],
                                                   },
                                                   "replace": [MockFunction] {
-                                                    "calls": Array [
-                                                      Array [
-                                                        Object {
+                                                    "calls": [
+                                                      [
+                                                        {
                                                           "children": "123456789-1",
                                                           "data-test": "itemid-1",
                                                           "to": "url/itemid-1",
@@ -1877,8 +1877,8 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "children": "123456789-2",
                                                           "data-test": "itemid-2",
                                                           "to": "url/itemid-2",
@@ -1889,8 +1889,8 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "children": "123456789-1",
                                                           "data-test": "itemid-1",
                                                           "to": "url/itemid-1",
@@ -1901,10 +1901,10 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "aria-pressed": undefined,
-                                                          "children": Array [
+                                                          "children": [
                                                             "See all",
                                                             false,
                                                             false,
@@ -1923,10 +1923,10 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "aria-pressed": undefined,
-                                                          "children": Array [
+                                                          "children": [
                                                             "See all",
                                                             false,
                                                             false,
@@ -1946,33 +1946,33 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
                                                     ],
-                                                    "results": Array [
-                                                      Object {
+                                                    "results": [
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
                                                     ],
                                                   },
                                                   "target": [MockFunction] {
-                                                    "calls": Array [
-                                                      Array [
-                                                        Object {
+                                                    "calls": [
+                                                      [
+                                                        {
                                                           "children": "123456789-1",
                                                           "data-test": "itemid-1",
                                                           "to": "url/itemid-1",
@@ -1983,8 +1983,8 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "children": "123456789-2",
                                                           "data-test": "itemid-2",
                                                           "to": "url/itemid-2",
@@ -1995,8 +1995,8 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "children": "123456789-1",
                                                           "data-test": "itemid-1",
                                                           "to": "url/itemid-1",
@@ -2007,10 +2007,10 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "aria-pressed": undefined,
-                                                          "children": Array [
+                                                          "children": [
                                                             "See all",
                                                             false,
                                                             false,
@@ -2029,10 +2029,10 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "aria-pressed": undefined,
-                                                          "children": Array [
+                                                          "children": [
                                                             "See all",
                                                             false,
                                                             false,
@@ -2052,33 +2052,33 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
                                                     ],
-                                                    "results": Array [
-                                                      Object {
+                                                    "results": [
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
                                                     ],
                                                   },
                                                   "to": [MockFunction] {
-                                                    "calls": Array [
-                                                      Array [
-                                                        Object {
+                                                    "calls": [
+                                                      [
+                                                        {
                                                           "children": "123456789-1",
                                                           "data-test": "itemid-1",
                                                           "to": "url/itemid-1",
@@ -2089,8 +2089,8 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "children": "123456789-2",
                                                           "data-test": "itemid-2",
                                                           "to": "url/itemid-2",
@@ -2101,8 +2101,8 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "children": "123456789-1",
                                                           "data-test": "itemid-1",
                                                           "to": "url/itemid-1",
@@ -2113,10 +2113,10 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "aria-pressed": undefined,
-                                                          "children": Array [
+                                                          "children": [
                                                             "See all",
                                                             false,
                                                             false,
@@ -2135,10 +2135,10 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         null,
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
-                                                      Array [
-                                                        Object {
+                                                      [
+                                                        {
                                                           "aria-pressed": undefined,
-                                                          "children": Array [
+                                                          "children": [
                                                             "See all",
                                                             false,
                                                             false,
@@ -2158,24 +2158,24 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                         "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
                                                       ],
                                                     ],
-                                                    "results": Array [
-                                                      Object {
+                                                    "results": [
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
-                                                      Object {
+                                                      {
                                                         "type": "return",
                                                         "value": undefined,
                                                       },
@@ -2183,35 +2183,35 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                   },
                                                 },
                                                 "render": [MockFunction] {
-                                                  "calls": Array [
-                                                    Array [
-                                                      Object {
+                                                  "calls": [
+                                                    [
+                                                      {
                                                         "children": "123456789-1",
                                                         "data-test": "itemid-1",
                                                         "to": "url/itemid-1",
                                                       },
                                                       null,
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": "123456789-2",
                                                         "data-test": "itemid-2",
                                                         "to": "url/itemid-2",
                                                       },
                                                       null,
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "children": "123456789-1",
                                                         "data-test": "itemid-1",
                                                         "to": "url/itemid-1",
                                                       },
                                                       null,
                                                     ],
-                                                    Array [
-                                                      Object {
+                                                    [
+                                                      {
                                                         "aria-pressed": undefined,
-                                                        "children": Array [
+                                                        "children": [
                                                           "See all",
                                                           false,
                                                           false,
@@ -2227,20 +2227,20 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                                       [Function],
                                                     ],
                                                   ],
-                                                  "results": Array [
-                                                    Object {
+                                                  "results": [
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
-                                                    Object {
+                                                    {
                                                       "type": "return",
                                                       "value": undefined,
                                                     },
@@ -2255,14 +2255,14 @@ exports[`DocumentItems tests should render the see all button when showing only 
                                           >
                                             <Ref
                                               innerRef={
-                                                Object {
+                                                {
                                                   "current": null,
                                                 }
                                               }
                                             >
                                               <RefForward
                                                 innerRef={
-                                                  Object {
+                                                  {
                                                     "current": null,
                                                   }
                                                 }

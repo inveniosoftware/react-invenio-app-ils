@@ -21,13 +21,13 @@ exports[`ResultsTable tests should load the ResultTable component 1`] = `
 exports[`ResultsTable tests should not render the see all button when showing only a few rows 1`] = `
 <ResultsTable
   columns={
-    Array [
-      Object {
+    [
+      {
         "field": "",
         "formatter": [Function],
         "title": "view",
       },
-      Object {
+      {
         "field": "id",
         "title": "ID",
       },
@@ -35,8 +35,8 @@ exports[`ResultsTable tests should not render the see all button when showing on
   }
   currentPage={1}
   data={
-    Array [
-      Object {
+    [
+      {
         "end_date": "2018-01-01",
         "id": "1",
         "patron_pid": "patron_1",
@@ -44,7 +44,7 @@ exports[`ResultsTable tests should not render the see all button when showing on
         "start_date": "2018-01-01",
         "updated": "2018-01-01",
       },
-      Object {
+      {
         "end_date": "2018-01-01",
         "id": "2",
         "patron_pid": "patron_2",
@@ -88,13 +88,13 @@ exports[`ResultsTable tests should not render the see all button when showing on
     >
       <ResultsTableHeader
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "id",
               "title": "ID",
             },
@@ -153,21 +153,21 @@ exports[`ResultsTable tests should not render the see all button when showing on
       </ResultsTableHeader>
       <ResultsTableBody
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "id",
               "title": "ID",
             },
           ]
         }
         rows={
-          Array [
-            Object {
+          [
+            {
               "end_date": "2018-01-01",
               "id": "1",
               "patron_pid": "patron_1",
@@ -175,7 +175,7 @@ exports[`ResultsTable tests should not render the see all button when showing on
               "start_date": "2018-01-01",
               "updated": "2018-01-01",
             },
-            Object {
+            {
               "end_date": "2018-01-01",
               "id": "2",
               "patron_pid": "patron_2",
@@ -219,7 +219,7 @@ exports[`ResultsTable tests should not render the see all button when showing on
                     >
                       <Ref
                         innerRef={
-                          Object {
+                          {
                             "current": <button
                               class="ui button"
                             >
@@ -230,7 +230,7 @@ exports[`ResultsTable tests should not render the see all button when showing on
                       >
                         <RefFindNode
                           innerRef={
-                            Object {
+                            {
                               "current": <button
                                 class="ui button"
                               >
@@ -293,7 +293,7 @@ exports[`ResultsTable tests should not render the see all button when showing on
                     >
                       <Ref
                         innerRef={
-                          Object {
+                          {
                             "current": <button
                               class="ui button"
                             >
@@ -304,7 +304,7 @@ exports[`ResultsTable tests should not render the see all button when showing on
                       >
                         <RefFindNode
                           innerRef={
-                            Object {
+                            {
                               "current": <button
                                 class="ui button"
                               >
@@ -361,13 +361,13 @@ exports[`ResultsTable tests should not render the see all button when showing on
 exports[`ResultsTable tests should render the see all button when showing only a few rows 1`] = `
 <ResultsTable
   columns={
-    Array [
-      Object {
+    [
+      {
         "field": "",
         "formatter": [Function],
         "title": "view",
       },
-      Object {
+      {
         "field": "id",
         "title": "ID",
       },
@@ -375,8 +375,8 @@ exports[`ResultsTable tests should render the see all button when showing only a
   }
   currentPage={1}
   data={
-    Array [
-      Object {
+    [
+      {
         "end_date": "2018-01-01",
         "id": "1",
         "patron_pid": "patron_1",
@@ -384,7 +384,7 @@ exports[`ResultsTable tests should render the see all button when showing only a
         "start_date": "2018-01-01",
         "updated": "2018-01-01",
       },
-      Object {
+      {
         "end_date": "2018-01-01",
         "id": "2",
         "patron_pid": "patron_2",
@@ -436,13 +436,13 @@ exports[`ResultsTable tests should render the see all button when showing only a
     >
       <ResultsTableHeader
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "id",
               "title": "ID",
             },
@@ -501,21 +501,21 @@ exports[`ResultsTable tests should render the see all button when showing only a
       </ResultsTableHeader>
       <ResultsTableBody
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "id",
               "title": "ID",
             },
           ]
         }
         rows={
-          Array [
-            Object {
+          [
+            {
               "end_date": "2018-01-01",
               "id": "1",
               "patron_pid": "patron_1",
@@ -559,7 +559,7 @@ exports[`ResultsTable tests should render the see all button when showing only a
                     >
                       <Ref
                         innerRef={
-                          Object {
+                          {
                             "current": <button
                               class="ui button"
                             >
@@ -570,7 +570,7 @@ exports[`ResultsTable tests should render the see all button when showing only a
                       >
                         <RefFindNode
                           innerRef={
-                            Object {
+                            {
                               "current": <button
                                 class="ui button"
                               >
@@ -682,7 +682,7 @@ exports[`ResultsTable tests should render the see all button when showing only a
                           >
                             <Ref
                               innerRef={
-                                Object {
+                                {
                                   "current": <button
                                     class="ui small button"
                                   >
@@ -693,7 +693,7 @@ exports[`ResultsTable tests should render the see all button when showing only a
                             >
                               <RefFindNode
                                 innerRef={
-                                  Object {
+                                  {
                                     "current": <button
                                       class="ui small button"
                                     >

@@ -47,14 +47,14 @@ exports[`CancelModal tests should load the cancel loan modal component 1`] = `
       disabled={false}
       eventsEnabled={true}
       on={
-        Array [
+        [
           "click",
           "hover",
         ]
       }
       open={false}
       pinned={false}
-      popperModifiers={Array []}
+      popperModifiers={[]}
       position="bottom left"
     />
   </ModalContent>

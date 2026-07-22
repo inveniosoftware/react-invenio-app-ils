@@ -12,24 +12,24 @@ exports[`PatronDocumentRequests tests should load the details component 1`] = `
   >
     <ResultsTable
       columns={
-        Array [
-          Object {
+        [
+          {
             "formatter": [Function],
             "title": "Request",
           },
-          Object {
+          {
             "field": "metadata.document_pid",
             "title": "Document",
           },
-          Object {
+          {
             "formatter": [Function],
             "title": "Title",
           },
-          Object {
+          {
             "field": "metadata.state",
             "title": "State",
           },
-          Object {
+          {
             "field": "created",
             "formatter": [Function],
             "title": "Created on ",
@@ -37,7 +37,7 @@ exports[`PatronDocumentRequests tests should load the details component 1`] = `
         ]
       }
       currentPage={1}
-      data={Array []}
+      data={[]}
       fixed={false}
       headerActionComponent={null}
       name="new book requests"
@@ -66,7 +66,7 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
 <BrowserRouter>
   <Router
     history={
-      Object {
+      {
         "action": "POP",
         "block": [Function],
         "createHref": [Function],
@@ -75,7 +75,7 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
         "goForward": [Function],
         "length": 1,
         "listen": [Function],
-        "location": Object {
+        "location": {
           "hash": "",
           "pathname": "/",
           "search": "",
@@ -88,13 +88,13 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
   >
     <PatronDocumentRequests
       data={
-        Object {
-          "hits": Array [
-            Object {
+        {
+          "hits": [
+            {
               "created": "2018-01-01T11:05:00+01:00",
               "id": 1,
-              "metadata": Object {
-                "patron": Object {
+              "metadata": {
+                "patron": {
                   "email": "patron_1@test.ch",
                   "id": "patron_1",
                   "name": "patron_1",
@@ -107,11 +107,11 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
               "pid": "documentRequest1",
               "updated": "2018-01-01T11:05:00+01:00",
             },
-            Object {
+            {
               "created": "2018-01-01T11:05:00+01:00",
               "id": 2,
-              "metadata": Object {
-                "patron": Object {
+              "metadata": {
+                "patron": {
                   "email": "patron_2@test.ch",
                   "id": "patron_2",
                   "name": "patron_2",
@@ -131,13 +131,13 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
       error={null}
       fetchPatronDocumentRequests={
         [MockFunction] {
-          "calls": Array [
-            Array [
+          "calls": [
+            [
               "2",
             ],
           ],
-          "results": Array [
-            Object {
+          "results": [
+            {
               "type": "return",
               "value": undefined,
             },
@@ -146,7 +146,7 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
       }
       isLoading={false}
       patronDetails={
-        Object {
+        {
           "email": "name@test.ch",
           "name": "Name",
           "user_pid": "2",
@@ -175,24 +175,24 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
               >
                 <ResultsTable
                   columns={
-                    Array [
-                      Object {
+                    [
+                      {
                         "formatter": [Function],
                         "title": "Request",
                       },
-                      Object {
+                      {
                         "field": "metadata.document_pid",
                         "title": "Document",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Title",
                       },
-                      Object {
+                      {
                         "field": "metadata.state",
                         "title": "State",
                       },
-                      Object {
+                      {
                         "field": "created",
                         "formatter": [Function],
                         "title": "Created on ",
@@ -201,12 +201,12 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                   }
                   currentPage={1}
                   data={
-                    Array [
-                      Object {
+                    [
+                      {
                         "created": "2018-01-01T11:05:00+01:00",
                         "id": 1,
-                        "metadata": Object {
-                          "patron": Object {
+                        "metadata": {
+                          "patron": {
                             "email": "patron_1@test.ch",
                             "id": "patron_1",
                             "name": "patron_1",
@@ -219,11 +219,11 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                         "pid": "documentRequest1",
                         "updated": "2018-01-01T11:05:00+01:00",
                       },
-                      Object {
+                      {
                         "created": "2018-01-01T11:05:00+01:00",
                         "id": 2,
-                        "metadata": Object {
-                          "patron": Object {
+                        "metadata": {
+                          "patron": {
                             "email": "patron_2@test.ch",
                             "id": "patron_2",
                             "name": "patron_2",
@@ -278,24 +278,24 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                     >
                       <ResultsTableHeader
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Request",
                             },
-                            Object {
+                            {
                               "field": "metadata.document_pid",
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Title",
                             },
-                            Object {
+                            {
                               "field": "metadata.state",
                               "title": "State",
                             },
-                            Object {
+                            {
                               "field": "created",
                               "formatter": [Function],
                               "title": "Created on ",
@@ -400,24 +400,24 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                       </ResultsTableHeader>
                       <ResultsTableBody
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Request",
                             },
-                            Object {
+                            {
                               "field": "metadata.document_pid",
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Title",
                             },
-                            Object {
+                            {
                               "field": "metadata.state",
                               "title": "State",
                             },
-                            Object {
+                            {
                               "field": "created",
                               "formatter": [Function],
                               "title": "Created on ",
@@ -425,12 +425,12 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                           ]
                         }
                         rows={
-                          Array [
-                            Object {
+                          [
+                            {
                               "created": "2018-01-01T11:05:00+01:00",
                               "id": 1,
-                              "metadata": Object {
-                                "patron": Object {
+                              "metadata": {
+                                "patron": {
                                   "email": "patron_1@test.ch",
                                   "id": "patron_1",
                                   "name": "patron_1",
@@ -443,11 +443,11 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                               "pid": "documentRequest1",
                               "updated": "2018-01-01T11:05:00+01:00",
                             },
-                            Object {
+                            {
                               "created": "2018-01-01T11:05:00+01:00",
                               "id": 2,
-                              "metadata": Object {
-                                "patron": Object {
+                              "metadata": {
+                                "patron": {
                                   "email": "patron_2@test.ch",
                                   "id": "patron_2",
                                   "name": "patron_2",
@@ -541,7 +541,7 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                                     >
                                       <span
                                         style={
-                                          Object {
+                                          {
                                             "WebkitBoxOrient": "vertical",
                                             "WebkitLineClamp": 1,
                                             "display": "-webkit-box",
@@ -660,7 +660,7 @@ exports[`PatronDocumentRequests tests should render patron document requests 1`]
                                     >
                                       <span
                                         style={
-                                          Object {
+                                          {
                                             "WebkitBoxOrient": "vertical",
                                             "WebkitLineClamp": 1,
                                             "display": "-webkit-box",
@@ -743,7 +743,7 @@ exports[`PatronDocumentRequests tests should render show a message with no user 
 <BrowserRouter>
   <Router
     history={
-      Object {
+      {
         "action": "POP",
         "block": [Function],
         "createHref": [Function],
@@ -752,7 +752,7 @@ exports[`PatronDocumentRequests tests should render show a message with no user 
         "goForward": [Function],
         "length": 1,
         "listen": [Function],
-        "location": Object {
+        "location": {
           "hash": "",
           "pathname": "/",
           "search": "",
@@ -765,21 +765,21 @@ exports[`PatronDocumentRequests tests should render show a message with no user 
   >
     <PatronDocumentRequests
       data={
-        Object {
-          "hits": Array [],
+        {
+          "hits": [],
           "total": 0,
         }
       }
       error={null}
       fetchPatronDocumentRequests={
         [MockFunction] {
-          "calls": Array [
-            Array [
+          "calls": [
+            [
               "2",
             ],
           ],
-          "results": Array [
-            Object {
+          "results": [
+            {
               "type": "return",
               "value": undefined,
             },
@@ -788,7 +788,7 @@ exports[`PatronDocumentRequests tests should render show a message with no user 
       }
       isLoading={false}
       patronDetails={
-        Object {
+        {
           "email": "name@test.ch",
           "name": "Name",
           "user_pid": "2",
@@ -817,24 +817,24 @@ exports[`PatronDocumentRequests tests should render show a message with no user 
               >
                 <ResultsTable
                   columns={
-                    Array [
-                      Object {
+                    [
+                      {
                         "formatter": [Function],
                         "title": "Request",
                       },
-                      Object {
+                      {
                         "field": "metadata.document_pid",
                         "title": "Document",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Title",
                       },
-                      Object {
+                      {
                         "field": "metadata.state",
                         "title": "State",
                       },
-                      Object {
+                      {
                         "field": "created",
                         "formatter": [Function],
                         "title": "Created on ",
@@ -842,7 +842,7 @@ exports[`PatronDocumentRequests tests should render show a message with no user 
                     ]
                   }
                   currentPage={1}
-                  data={Array []}
+                  data={[]}
                   fixed={false}
                   headerActionComponent={null}
                   name="new book requests"
@@ -905,7 +905,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
 <BrowserRouter>
   <Router
     history={
-      Object {
+      {
         "action": "POP",
         "block": [Function],
         "createHref": [Function],
@@ -914,7 +914,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
         "goForward": [Function],
         "length": 1,
         "listen": [Function],
-        "location": Object {
+        "location": {
           "hash": "",
           "pathname": "/",
           "search": "",
@@ -927,13 +927,13 @@ exports[`PatronDocumentRequests tests should render the see all button when show
   >
     <PatronDocumentRequests
       data={
-        Object {
-          "hits": Array [
-            Object {
+        {
+          "hits": [
+            {
               "created": "2018-01-01T11:05:00+01:00",
               "id": 1,
-              "metadata": Object {
-                "patron": Object {
+              "metadata": {
+                "patron": {
                   "email": "patron_1@test.ch",
                   "id": "patron_1",
                   "name": "patron_1",
@@ -946,11 +946,11 @@ exports[`PatronDocumentRequests tests should render the see all button when show
               "pid": "documentRequest1",
               "updated": "2018-01-01T11:05:00+01:00",
             },
-            Object {
+            {
               "created": "2018-01-01T11:05:00+01:00",
               "id": 2,
-              "metadata": Object {
-                "patron": Object {
+              "metadata": {
+                "patron": {
                   "email": "patron_2@test.ch",
                   "id": "patron_2",
                   "name": "patron_2",
@@ -970,13 +970,13 @@ exports[`PatronDocumentRequests tests should render the see all button when show
       error={null}
       fetchPatronDocumentRequests={
         [MockFunction] {
-          "calls": Array [
-            Array [
+          "calls": [
+            [
               "2",
             ],
           ],
-          "results": Array [
-            Object {
+          "results": [
+            {
               "type": "return",
               "value": undefined,
             },
@@ -985,7 +985,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
       }
       isLoading={false}
       patronDetails={
-        Object {
+        {
           "email": "name@test.ch",
           "name": "Name",
           "user_pid": "2",
@@ -1014,24 +1014,24 @@ exports[`PatronDocumentRequests tests should render the see all button when show
               >
                 <ResultsTable
                   columns={
-                    Array [
-                      Object {
+                    [
+                      {
                         "formatter": [Function],
                         "title": "Request",
                       },
-                      Object {
+                      {
                         "field": "metadata.document_pid",
                         "title": "Document",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Title",
                       },
-                      Object {
+                      {
                         "field": "metadata.state",
                         "title": "State",
                       },
-                      Object {
+                      {
                         "field": "created",
                         "formatter": [Function],
                         "title": "Created on ",
@@ -1040,12 +1040,12 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                   }
                   currentPage={1}
                   data={
-                    Array [
-                      Object {
+                    [
+                      {
                         "created": "2018-01-01T11:05:00+01:00",
                         "id": 1,
-                        "metadata": Object {
-                          "patron": Object {
+                        "metadata": {
+                          "patron": {
                             "email": "patron_1@test.ch",
                             "id": "patron_1",
                             "name": "patron_1",
@@ -1058,11 +1058,11 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                         "pid": "documentRequest1",
                         "updated": "2018-01-01T11:05:00+01:00",
                       },
-                      Object {
+                      {
                         "created": "2018-01-01T11:05:00+01:00",
                         "id": 2,
-                        "metadata": Object {
-                          "patron": Object {
+                        "metadata": {
+                          "patron": {
                             "email": "patron_2@test.ch",
                             "id": "patron_2",
                             "name": "patron_2",
@@ -1117,24 +1117,24 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                     >
                       <ResultsTableHeader
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Request",
                             },
-                            Object {
+                            {
                               "field": "metadata.document_pid",
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Title",
                             },
-                            Object {
+                            {
                               "field": "metadata.state",
                               "title": "State",
                             },
-                            Object {
+                            {
                               "field": "created",
                               "formatter": [Function],
                               "title": "Created on ",
@@ -1239,24 +1239,24 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                       </ResultsTableHeader>
                       <ResultsTableBody
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Request",
                             },
-                            Object {
+                            {
                               "field": "metadata.document_pid",
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Title",
                             },
-                            Object {
+                            {
                               "field": "metadata.state",
                               "title": "State",
                             },
-                            Object {
+                            {
                               "field": "created",
                               "formatter": [Function],
                               "title": "Created on ",
@@ -1264,12 +1264,12 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                           ]
                         }
                         rows={
-                          Array [
-                            Object {
+                          [
+                            {
                               "created": "2018-01-01T11:05:00+01:00",
                               "id": 1,
-                              "metadata": Object {
-                                "patron": Object {
+                              "metadata": {
+                                "patron": {
                                   "email": "patron_1@test.ch",
                                   "id": "patron_1",
                                   "name": "patron_1",
@@ -1363,7 +1363,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                     >
                                       <span
                                         style={
-                                          Object {
+                                          {
                                             "WebkitBoxOrient": "vertical",
                                             "WebkitLineClamp": 1,
                                             "display": "-webkit-box",
@@ -1484,9 +1484,9 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                           >
                                             <Button
                                               as={
-                                                Object {
+                                                {
                                                   "$$typeof": Symbol(react.forward_ref),
-                                                  "propTypes": Object {
+                                                  "propTypes": {
                                                     "innerRef": [Function],
                                                     "onClick": [Function],
                                                     "replace": [Function],
@@ -1503,7 +1503,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                             >
                                               <Ref
                                                 innerRef={
-                                                  Object {
+                                                  {
                                                     "current": <a
                                                       class="ui small button"
                                                       href="/backoffice/document-requests?q=patron_pid:2&sort=-created"
@@ -1516,7 +1516,7 @@ exports[`PatronDocumentRequests tests should render the see all button when show
                                               >
                                                 <RefForward
                                                   innerRef={
-                                                    Object {
+                                                    {
                                                       "current": <a
                                                         class="ui small button"
                                                         href="/backoffice/document-requests?q=patron_pid:2&sort=-created"

@@ -2,9 +2,9 @@
 
 exports[`EItemsSearch ResultsTable tests should not render when empty results 1`] = `
 <ResultsTable
-  columns={Array []}
+  columns={[]}
   currentPage={1}
-  data={Array []}
+  data={[]}
   fixed={false}
   headerActionComponent={null}
   name=""
@@ -51,13 +51,13 @@ exports[`EItemsSearch ResultsTable tests should not render when empty results 1`
 exports[`EItemsSearch ResultsTable tests should render a list of results 1`] = `
 <ResultsTable
   columns={
-    Array [
-      Object {
+    [
+      {
         "field": "",
         "formatter": [Function],
         "title": "view",
       },
-      Object {
+      {
         "field": "metadata.description",
         "title": "Description",
       },
@@ -65,11 +65,11 @@ exports[`EItemsSearch ResultsTable tests should render a list of results 1`] = `
   }
   currentPage={1}
   data={
-    Array [
-      Object {
-        "metadata": Object {
+    [
+      {
+        "metadata": {
           "description": "Description of the electronic item",
-          "document": Object {
+          "document": {
             "title": "Document 1 title",
           },
           "document_pid": "docid-1",
@@ -79,10 +79,10 @@ exports[`EItemsSearch ResultsTable tests should render a list of results 1`] = `
         },
         "pid": "eitemid-1",
       },
-      Object {
-        "metadata": Object {
+      {
+        "metadata": {
           "description": "Description of the electronic item",
-          "document": Object {
+          "document": {
             "title": "Document 2 title",
           },
           "document_pid": "docid-2",
@@ -128,13 +128,13 @@ exports[`EItemsSearch ResultsTable tests should render a list of results 1`] = `
     >
       <ResultsTableHeader
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "metadata.description",
               "title": "Description",
             },
@@ -193,24 +193,24 @@ exports[`EItemsSearch ResultsTable tests should render a list of results 1`] = `
       </ResultsTableHeader>
       <ResultsTableBody
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "metadata.description",
               "title": "Description",
             },
           ]
         }
         rows={
-          Array [
-            Object {
-              "metadata": Object {
+          [
+            {
+              "metadata": {
                 "description": "Description of the electronic item",
-                "document": Object {
+                "document": {
                   "title": "Document 1 title",
                 },
                 "document_pid": "docid-1",
@@ -220,10 +220,10 @@ exports[`EItemsSearch ResultsTable tests should render a list of results 1`] = `
               },
               "pid": "eitemid-1",
             },
-            Object {
-              "metadata": Object {
+            {
+              "metadata": {
                 "description": "Description of the electronic item",
-                "document": Object {
+                "document": {
                   "title": "Document 2 title",
                 },
                 "document_pid": "docid-2",
@@ -269,7 +269,7 @@ exports[`EItemsSearch ResultsTable tests should render a list of results 1`] = `
                     >
                       <Ref
                         innerRef={
-                          Object {
+                          {
                             "current": <button
                               class="ui button"
                             >
@@ -280,7 +280,7 @@ exports[`EItemsSearch ResultsTable tests should render a list of results 1`] = `
                       >
                         <RefFindNode
                           innerRef={
-                            Object {
+                            {
                               "current": <button
                                 class="ui button"
                               >
@@ -343,7 +343,7 @@ exports[`EItemsSearch ResultsTable tests should render a list of results 1`] = `
                     >
                       <Ref
                         innerRef={
-                          Object {
+                          {
                             "current": <button
                               class="ui button"
                             >
@@ -354,7 +354,7 @@ exports[`EItemsSearch ResultsTable tests should render a list of results 1`] = `
                       >
                         <RefFindNode
                           innerRef={
-                            Object {
+                            {
                               "current": <button
                                 class="ui button"
                               >

@@ -96,13 +96,13 @@ exports[`DocumentStats tests should load the component 1`] = `
                       disabled={false}
                       eventsEnabled={true}
                       on={
-                        Array [
+                        [
                           "click",
                           "hover",
                         ]
                       }
                       pinned={false}
-                      popperModifiers={Array []}
+                      popperModifiers={[]}
                       position="top right"
                       trigger={
                         <Icon

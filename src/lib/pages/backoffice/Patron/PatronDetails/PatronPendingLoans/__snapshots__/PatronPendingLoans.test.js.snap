@@ -12,21 +12,21 @@ exports[`PatronLoans tests should load the details component 1`] = `
   >
     <ResultsTable
       columns={
-        Array [
-          Object {
+        [
+          {
             "formatter": [Function],
             "title": "Loan",
           },
-          Object {
+          {
             "formatter": [Function],
             "title": "Document",
           },
-          Object {
+          {
             "field": "metadata.request_start_date",
             "formatter": [Function],
             "title": "Request interest from",
           },
-          Object {
+          {
             "field": "metadata.request_expire_date",
             "formatter": [Function],
             "title": "Request expires on",
@@ -34,7 +34,7 @@ exports[`PatronLoans tests should load the details component 1`] = `
         ]
       }
       currentPage={1}
-      data={Array []}
+      data={[]}
       fixed={false}
       headerActionComponent={null}
       name="loan requests"
@@ -63,7 +63,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
 <BrowserRouter>
   <Router
     history={
-      Object {
+      {
         "action": "POP",
         "block": [Function],
         "createHref": [Function],
@@ -72,7 +72,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
         "goForward": [Function],
         "length": 1,
         "listen": [Function],
-        "location": Object {
+        "location": {
           "hash": "",
           "pathname": "/",
           "search": "",
@@ -85,26 +85,26 @@ exports[`PatronLoans tests should render patron loans 1`] = `
   >
     <PatronPendingLoans
       data={
-        Object {
-          "hits": Array [
-            Object {
+        {
+          "hits": [
+            {
               "id": 1,
-              "metadata": Object {
-                "document": Object {
+              "metadata": {
+                "document": {
                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                   "abstract": "This is an abstract",
-                  "authors": Array [
-                    Object {
+                  "authors": [
+                    {
                       "full_name": "Jack E. Davis",
                     },
                   ],
                   "document_type": "BOOK",
                   "edition": "1",
-                  "keywords": Object {
+                  "keywords": {
                     "source": "X",
                     "value": "Patata",
                   },
-                  "languages": Array [
+                  "languages": [
                     "en",
                   ],
                   "pid": "docid-1",
@@ -113,8 +113,8 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                 },
                 "document_pid": "docid-1",
                 "end_date": "2018-07-28",
-                "item_pid": Object {},
-                "patron": Object {
+                "item_pid": {},
+                "patron": {
                   "email": "patron1@test.ch",
                 },
                 "patron_pid": "1",
@@ -129,24 +129,24 @@ exports[`PatronLoans tests should render patron loans 1`] = `
               },
               "pid": "loan1",
             },
-            Object {
+            {
               "id": 2,
-              "metadata": Object {
-                "document": Object {
+              "metadata": {
+                "document": {
                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                   "abstract": "This is an abstract",
-                  "authors": Array [
-                    Object {
+                  "authors": [
+                    {
                       "full_name": "Jack E. Davis",
                     },
                   ],
                   "document_type": "BOOK",
                   "edition": "1",
-                  "keywords": Object {
+                  "keywords": {
                     "source": "X",
                     "value": "Patata",
                   },
-                  "languages": Array [
+                  "languages": [
                     "en",
                   ],
                   "pid": "docid-1",
@@ -155,11 +155,11 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                 },
                 "document_pid": "docid-1",
                 "end_date": "2018-07-28",
-                "item_pid": Object {
+                "item_pid": {
                   "type": "pitmid",
                   "value": "itemid-2",
                 },
-                "patron": Object {
+                "patron": {
                   "email": "patron2@test.ch",
                 },
                 "patron_pid": "1",
@@ -181,13 +181,13 @@ exports[`PatronLoans tests should render patron loans 1`] = `
       error={null}
       fetchPatronPendingLoans={
         [MockFunction] {
-          "calls": Array [
-            Array [
+          "calls": [
+            [
               "2",
             ],
           ],
-          "results": Array [
-            Object {
+          "results": [
+            {
               "type": "return",
               "value": undefined,
             },
@@ -197,7 +197,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
       isLoading={false}
       loanState=""
       patronDetails={
-        Object {
+        {
           "user_pid": "2",
         }
       }
@@ -224,21 +224,21 @@ exports[`PatronLoans tests should render patron loans 1`] = `
               >
                 <ResultsTable
                   columns={
-                    Array [
-                      Object {
+                    [
+                      {
                         "formatter": [Function],
                         "title": "Loan",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Document",
                       },
-                      Object {
+                      {
                         "field": "metadata.request_start_date",
                         "formatter": [Function],
                         "title": "Request interest from",
                       },
-                      Object {
+                      {
                         "field": "metadata.request_expire_date",
                         "formatter": [Function],
                         "title": "Request expires on",
@@ -247,25 +247,25 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                   }
                   currentPage={1}
                   data={
-                    Array [
-                      Object {
+                    [
+                      {
                         "id": 1,
-                        "metadata": Object {
-                          "document": Object {
+                        "metadata": {
+                          "document": {
                             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                             "abstract": "This is an abstract",
-                            "authors": Array [
-                              Object {
+                            "authors": [
+                              {
                                 "full_name": "Jack E. Davis",
                               },
                             ],
                             "document_type": "BOOK",
                             "edition": "1",
-                            "keywords": Object {
+                            "keywords": {
                               "source": "X",
                               "value": "Patata",
                             },
-                            "languages": Array [
+                            "languages": [
                               "en",
                             ],
                             "pid": "docid-1",
@@ -274,8 +274,8 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                           },
                           "document_pid": "docid-1",
                           "end_date": "2018-07-28",
-                          "item_pid": Object {},
-                          "patron": Object {
+                          "item_pid": {},
+                          "patron": {
                             "email": "patron1@test.ch",
                           },
                           "patron_pid": "1",
@@ -290,24 +290,24 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                         },
                         "pid": "loan1",
                       },
-                      Object {
+                      {
                         "id": 2,
-                        "metadata": Object {
-                          "document": Object {
+                        "metadata": {
+                          "document": {
                             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                             "abstract": "This is an abstract",
-                            "authors": Array [
-                              Object {
+                            "authors": [
+                              {
                                 "full_name": "Jack E. Davis",
                               },
                             ],
                             "document_type": "BOOK",
                             "edition": "1",
-                            "keywords": Object {
+                            "keywords": {
                               "source": "X",
                               "value": "Patata",
                             },
-                            "languages": Array [
+                            "languages": [
                               "en",
                             ],
                             "pid": "docid-1",
@@ -316,11 +316,11 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                           },
                           "document_pid": "docid-1",
                           "end_date": "2018-07-28",
-                          "item_pid": Object {
+                          "item_pid": {
                             "type": "pitmid",
                             "value": "itemid-2",
                           },
-                          "patron": Object {
+                          "patron": {
                             "email": "patron2@test.ch",
                           },
                           "patron_pid": "1",
@@ -377,21 +377,21 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                     >
                       <ResultsTableHeader
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Loan",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_start_date",
                               "formatter": [Function],
                               "title": "Request interest from",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_expire_date",
                               "formatter": [Function],
                               "title": "Request expires on",
@@ -481,21 +481,21 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                       </ResultsTableHeader>
                       <ResultsTableBody
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Loan",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_start_date",
                               "formatter": [Function],
                               "title": "Request interest from",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_expire_date",
                               "formatter": [Function],
                               "title": "Request expires on",
@@ -503,25 +503,25 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                           ]
                         }
                         rows={
-                          Array [
-                            Object {
+                          [
+                            {
                               "id": 1,
-                              "metadata": Object {
-                                "document": Object {
+                              "metadata": {
+                                "document": {
                                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                                   "abstract": "This is an abstract",
-                                  "authors": Array [
-                                    Object {
+                                  "authors": [
+                                    {
                                       "full_name": "Jack E. Davis",
                                     },
                                   ],
                                   "document_type": "BOOK",
                                   "edition": "1",
-                                  "keywords": Object {
+                                  "keywords": {
                                     "source": "X",
                                     "value": "Patata",
                                   },
-                                  "languages": Array [
+                                  "languages": [
                                     "en",
                                   ],
                                   "pid": "docid-1",
@@ -530,8 +530,8 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                 },
                                 "document_pid": "docid-1",
                                 "end_date": "2018-07-28",
-                                "item_pid": Object {},
-                                "patron": Object {
+                                "item_pid": {},
+                                "patron": {
                                   "email": "patron1@test.ch",
                                 },
                                 "patron_pid": "1",
@@ -546,24 +546,24 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                               },
                               "pid": "loan1",
                             },
-                            Object {
+                            {
                               "id": 2,
-                              "metadata": Object {
-                                "document": Object {
+                              "metadata": {
+                                "document": {
                                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                                   "abstract": "This is an abstract",
-                                  "authors": Array [
-                                    Object {
+                                  "authors": [
+                                    {
                                       "full_name": "Jack E. Davis",
                                     },
                                   ],
                                   "document_type": "BOOK",
                                   "edition": "1",
-                                  "keywords": Object {
+                                  "keywords": {
                                     "source": "X",
                                     "value": "Patata",
                                   },
-                                  "languages": Array [
+                                  "languages": [
                                     "en",
                                   ],
                                   "pid": "docid-1",
@@ -572,11 +572,11 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                 },
                                 "document_pid": "docid-1",
                                 "end_date": "2018-07-28",
-                                "item_pid": Object {
+                                "item_pid": {
                                   "type": "pitmid",
                                   "value": "itemid-2",
                                 },
-                                "patron": Object {
+                                "patron": {
                                   "email": "patron2@test.ch",
                                 },
                                 "patron_pid": "1",
@@ -686,7 +686,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                               >
                                                 <span
                                                   style={
-                                                    Object {
+                                                    {
                                                       "WebkitBoxOrient": "vertical",
                                                       "WebkitLineClamp": 2,
                                                       "display": "-webkit-box",
@@ -843,7 +843,7 @@ exports[`PatronLoans tests should render patron loans 1`] = `
                                               >
                                                 <span
                                                   style={
-                                                    Object {
+                                                    {
                                                       "WebkitBoxOrient": "vertical",
                                                       "WebkitLineClamp": 2,
                                                       "display": "-webkit-box",
@@ -950,7 +950,7 @@ exports[`PatronLoans tests should render show a message with no user loans 1`] =
 <BrowserRouter>
   <Router
     history={
-      Object {
+      {
         "action": "POP",
         "block": [Function],
         "createHref": [Function],
@@ -959,7 +959,7 @@ exports[`PatronLoans tests should render show a message with no user loans 1`] =
         "goForward": [Function],
         "length": 1,
         "listen": [Function],
-        "location": Object {
+        "location": {
           "hash": "",
           "pathname": "/",
           "search": "",
@@ -972,21 +972,21 @@ exports[`PatronLoans tests should render show a message with no user loans 1`] =
   >
     <PatronPendingLoans
       data={
-        Object {
-          "hits": Array [],
+        {
+          "hits": [],
           "total": 0,
         }
       }
       error={null}
       fetchPatronPendingLoans={
         [MockFunction] {
-          "calls": Array [
-            Array [
+          "calls": [
+            [
               "2",
             ],
           ],
-          "results": Array [
-            Object {
+          "results": [
+            {
               "type": "return",
               "value": undefined,
             },
@@ -996,7 +996,7 @@ exports[`PatronLoans tests should render show a message with no user loans 1`] =
       isLoading={false}
       loanState=""
       patronDetails={
-        Object {
+        {
           "user_pid": "2",
         }
       }
@@ -1023,21 +1023,21 @@ exports[`PatronLoans tests should render show a message with no user loans 1`] =
               >
                 <ResultsTable
                   columns={
-                    Array [
-                      Object {
+                    [
+                      {
                         "formatter": [Function],
                         "title": "Loan",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Document",
                       },
-                      Object {
+                      {
                         "field": "metadata.request_start_date",
                         "formatter": [Function],
                         "title": "Request interest from",
                       },
-                      Object {
+                      {
                         "field": "metadata.request_expire_date",
                         "formatter": [Function],
                         "title": "Request expires on",
@@ -1045,7 +1045,7 @@ exports[`PatronLoans tests should render show a message with no user loans 1`] =
                     ]
                   }
                   currentPage={1}
-                  data={Array []}
+                  data={[]}
                   fixed={false}
                   headerActionComponent={null}
                   name="loan requests"
@@ -1108,7 +1108,7 @@ exports[`PatronLoans tests should render the see all button when showing only a 
 <BrowserRouter>
   <Router
     history={
-      Object {
+      {
         "action": "POP",
         "block": [Function],
         "createHref": [Function],
@@ -1117,7 +1117,7 @@ exports[`PatronLoans tests should render the see all button when showing only a 
         "goForward": [Function],
         "length": 1,
         "listen": [Function],
-        "location": Object {
+        "location": {
           "hash": "",
           "pathname": "/",
           "search": "",
@@ -1130,26 +1130,26 @@ exports[`PatronLoans tests should render the see all button when showing only a 
   >
     <PatronPendingLoans
       data={
-        Object {
-          "hits": Array [
-            Object {
+        {
+          "hits": [
+            {
               "id": 1,
-              "metadata": Object {
-                "document": Object {
+              "metadata": {
+                "document": {
                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                   "abstract": "This is an abstract",
-                  "authors": Array [
-                    Object {
+                  "authors": [
+                    {
                       "full_name": "Jack E. Davis",
                     },
                   ],
                   "document_type": "BOOK",
                   "edition": "1",
-                  "keywords": Object {
+                  "keywords": {
                     "source": "X",
                     "value": "Patata",
                   },
-                  "languages": Array [
+                  "languages": [
                     "en",
                   ],
                   "pid": "docid-1",
@@ -1158,8 +1158,8 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                 },
                 "document_pid": "docid-1",
                 "end_date": "2018-07-28",
-                "item_pid": Object {},
-                "patron": Object {
+                "item_pid": {},
+                "patron": {
                   "email": "patron1@test.ch",
                 },
                 "patron_pid": "1",
@@ -1174,24 +1174,24 @@ exports[`PatronLoans tests should render the see all button when showing only a 
               },
               "pid": "loan1",
             },
-            Object {
+            {
               "id": 2,
-              "metadata": Object {
-                "document": Object {
+              "metadata": {
+                "document": {
                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                   "abstract": "This is an abstract",
-                  "authors": Array [
-                    Object {
+                  "authors": [
+                    {
                       "full_name": "Jack E. Davis",
                     },
                   ],
                   "document_type": "BOOK",
                   "edition": "1",
-                  "keywords": Object {
+                  "keywords": {
                     "source": "X",
                     "value": "Patata",
                   },
-                  "languages": Array [
+                  "languages": [
                     "en",
                   ],
                   "pid": "docid-1",
@@ -1200,11 +1200,11 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                 },
                 "document_pid": "docid-1",
                 "end_date": "2018-07-28",
-                "item_pid": Object {
+                "item_pid": {
                   "type": "pitmid",
                   "value": "itemid-2",
                 },
-                "patron": Object {
+                "patron": {
                   "email": "patron2@test.ch",
                 },
                 "patron_pid": "1",
@@ -1226,13 +1226,13 @@ exports[`PatronLoans tests should render the see all button when showing only a 
       error={null}
       fetchPatronPendingLoans={
         [MockFunction] {
-          "calls": Array [
-            Array [
+          "calls": [
+            [
               "2",
             ],
           ],
-          "results": Array [
-            Object {
+          "results": [
+            {
               "type": "return",
               "value": undefined,
             },
@@ -1241,7 +1241,7 @@ exports[`PatronLoans tests should render the see all button when showing only a 
       }
       isLoading={false}
       patronDetails={
-        Object {
+        {
           "user_pid": "2",
         }
       }
@@ -1268,21 +1268,21 @@ exports[`PatronLoans tests should render the see all button when showing only a 
               >
                 <ResultsTable
                   columns={
-                    Array [
-                      Object {
+                    [
+                      {
                         "formatter": [Function],
                         "title": "Loan",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Document",
                       },
-                      Object {
+                      {
                         "field": "metadata.request_start_date",
                         "formatter": [Function],
                         "title": "Request interest from",
                       },
-                      Object {
+                      {
                         "field": "metadata.request_expire_date",
                         "formatter": [Function],
                         "title": "Request expires on",
@@ -1291,25 +1291,25 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                   }
                   currentPage={1}
                   data={
-                    Array [
-                      Object {
+                    [
+                      {
                         "id": 1,
-                        "metadata": Object {
-                          "document": Object {
+                        "metadata": {
+                          "document": {
                             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                             "abstract": "This is an abstract",
-                            "authors": Array [
-                              Object {
+                            "authors": [
+                              {
                                 "full_name": "Jack E. Davis",
                               },
                             ],
                             "document_type": "BOOK",
                             "edition": "1",
-                            "keywords": Object {
+                            "keywords": {
                               "source": "X",
                               "value": "Patata",
                             },
-                            "languages": Array [
+                            "languages": [
                               "en",
                             ],
                             "pid": "docid-1",
@@ -1318,8 +1318,8 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                           },
                           "document_pid": "docid-1",
                           "end_date": "2018-07-28",
-                          "item_pid": Object {},
-                          "patron": Object {
+                          "item_pid": {},
+                          "patron": {
                             "email": "patron1@test.ch",
                           },
                           "patron_pid": "1",
@@ -1334,24 +1334,24 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                         },
                         "pid": "loan1",
                       },
-                      Object {
+                      {
                         "id": 2,
-                        "metadata": Object {
-                          "document": Object {
+                        "metadata": {
+                          "document": {
                             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                             "abstract": "This is an abstract",
-                            "authors": Array [
-                              Object {
+                            "authors": [
+                              {
                                 "full_name": "Jack E. Davis",
                               },
                             ],
                             "document_type": "BOOK",
                             "edition": "1",
-                            "keywords": Object {
+                            "keywords": {
                               "source": "X",
                               "value": "Patata",
                             },
-                            "languages": Array [
+                            "languages": [
                               "en",
                             ],
                             "pid": "docid-1",
@@ -1360,11 +1360,11 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                           },
                           "document_pid": "docid-1",
                           "end_date": "2018-07-28",
-                          "item_pid": Object {
+                          "item_pid": {
                             "type": "pitmid",
                             "value": "itemid-2",
                           },
-                          "patron": Object {
+                          "patron": {
                             "email": "patron2@test.ch",
                           },
                           "patron_pid": "1",
@@ -1421,21 +1421,21 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                     >
                       <ResultsTableHeader
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Loan",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_start_date",
                               "formatter": [Function],
                               "title": "Request interest from",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_expire_date",
                               "formatter": [Function],
                               "title": "Request expires on",
@@ -1525,21 +1525,21 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                       </ResultsTableHeader>
                       <ResultsTableBody
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Loan",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_start_date",
                               "formatter": [Function],
                               "title": "Request interest from",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_expire_date",
                               "formatter": [Function],
                               "title": "Request expires on",
@@ -1547,25 +1547,25 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                           ]
                         }
                         rows={
-                          Array [
-                            Object {
+                          [
+                            {
                               "id": 1,
-                              "metadata": Object {
-                                "document": Object {
+                              "metadata": {
+                                "document": {
                                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                                   "abstract": "This is an abstract",
-                                  "authors": Array [
-                                    Object {
+                                  "authors": [
+                                    {
                                       "full_name": "Jack E. Davis",
                                     },
                                   ],
                                   "document_type": "BOOK",
                                   "edition": "1",
-                                  "keywords": Object {
+                                  "keywords": {
                                     "source": "X",
                                     "value": "Patata",
                                   },
-                                  "languages": Array [
+                                  "languages": [
                                     "en",
                                   ],
                                   "pid": "docid-1",
@@ -1574,8 +1574,8 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                 },
                                 "document_pid": "docid-1",
                                 "end_date": "2018-07-28",
-                                "item_pid": Object {},
-                                "patron": Object {
+                                "item_pid": {},
+                                "patron": {
                                   "email": "patron1@test.ch",
                                 },
                                 "patron_pid": "1",
@@ -1685,7 +1685,7 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                               >
                                                 <span
                                                   style={
-                                                    Object {
+                                                    {
                                                       "WebkitBoxOrient": "vertical",
                                                       "WebkitLineClamp": 2,
                                                       "display": "-webkit-box",
@@ -1830,9 +1830,9 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                           >
                                             <Button
                                               as={
-                                                Object {
+                                                {
                                                   "$$typeof": Symbol(react.forward_ref),
-                                                  "propTypes": Object {
+                                                  "propTypes": {
                                                     "innerRef": [Function],
                                                     "onClick": [Function],
                                                     "replace": [Function],
@@ -1849,7 +1849,7 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                             >
                                               <Ref
                                                 innerRef={
-                                                  Object {
+                                                  {
                                                     "current": <a
                                                       class="ui small button"
                                                       href="/backoffice/loans?q=patron_pid:2 AND state:(PENDING)"
@@ -1862,7 +1862,7 @@ exports[`PatronLoans tests should render the see all button when showing only a 
                                               >
                                                 <RefForward
                                                   innerRef={
-                                                    Object {
+                                                    {
                                                       "current": <a
                                                         class="ui small button"
                                                         href="/backoffice/loans?q=patron_pid:2 AND state:(PENDING)"

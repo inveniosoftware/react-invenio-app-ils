@@ -7,7 +7,7 @@ exports[`ItemPastLoans tests should load the past loans component 1`] = `
   <Error
     FallbackComponent={[Function]}
     boundary={false}
-    error={Object {}}
+    error={{}}
     onUIError={null}
   >
     <Header
@@ -23,37 +23,37 @@ exports[`ItemPastLoans tests should load the past loans component 1`] = `
     >
       <ResultsTable
         columns={
-          Array [
-            Object {
+          [
+            {
               "formatter": [Function],
               "title": "Loan",
             },
-            Object {
+            {
               "field": "metadata.patron.name",
               "title": "Patron",
             },
-            Object {
+            {
               "field": "metadata.state",
               "title": "State",
             },
-            Object {
+            {
               "field": "metadata.start_date",
               "formatter": [Function],
               "title": "Start date",
             },
-            Object {
+            {
               "field": "metadata.end_date",
               "formatter": [Function],
               "title": "End date",
             },
-            Object {
+            {
               "field": "metadata.extension_count",
               "title": "Renewals",
             },
           ]
         }
         currentPage={1}
-        data={Array []}
+        data={[]}
         fixed={false}
         headerActionComponent={null}
         name="loans"
@@ -82,20 +82,20 @@ exports[`ItemPastLoans tests should load the past loans component 1`] = `
 exports[`ItemPastLoans tests should render pending loans 1`] = `
 <ItemPastLoans
   data={
-    Object {
-      "hits": Array [
-        Object {
+    {
+      "hits": [
+        {
           "id": 1,
-          "metadata": Object {
-            "document": Object {
+          "metadata": {
+            "document": {
               "edition": "1",
               "publication_year": "1950",
               "title": "The Gulf: The Making of An American Sea",
             },
             "document_pid": "docid-1",
             "end_date": "2018-07-28",
-            "item_pid": Object {},
-            "patron": Object {
+            "item_pid": {},
+            "patron": {
               "email": "patron1@test.ch",
             },
             "patron_pid": "1",
@@ -110,20 +110,20 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
           },
           "pid": "loan1",
         },
-        Object {
+        {
           "id": 2,
-          "metadata": Object {
-            "document": Object {
+          "metadata": {
+            "document": {
               "publication_year": "1950",
               "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
             },
             "document_pid": "docid-1",
             "end_date": "2018-07-28",
-            "item_pid": Object {
+            "item_pid": {
               "type": "pitmid",
               "value": "itemid-2",
             },
-            "patron": Object {
+            "patron": {
               "email": "patron2@test.ch",
             },
             "patron_pid": "1",
@@ -142,12 +142,12 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
       "total": 2,
     }
   }
-  error={Object {}}
+  error={{}}
   fetchPastLoans={[Function]}
   isLoading={false}
   itemDetails={
-    Object {
-      "metadata": Object {
+    {
+      "metadata": {
         "document_pid": 111,
         "pid": 222,
       },
@@ -172,7 +172,7 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
           <Error
             FallbackComponent={[Function]}
             boundary={false}
-            error={Object {}}
+            error={{}}
             onUIError={null}
           >
             <Header
@@ -196,30 +196,30 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
               >
                 <ResultsTable
                   columns={
-                    Array [
-                      Object {
+                    [
+                      {
                         "formatter": [Function],
                         "title": "Loan",
                       },
-                      Object {
+                      {
                         "field": "metadata.patron.name",
                         "title": "Patron",
                       },
-                      Object {
+                      {
                         "field": "metadata.state",
                         "title": "State",
                       },
-                      Object {
+                      {
                         "field": "metadata.start_date",
                         "formatter": [Function],
                         "title": "Start date",
                       },
-                      Object {
+                      {
                         "field": "metadata.end_date",
                         "formatter": [Function],
                         "title": "End date",
                       },
-                      Object {
+                      {
                         "field": "metadata.extension_count",
                         "title": "Renewals",
                       },
@@ -227,19 +227,19 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
                   }
                   currentPage={1}
                   data={
-                    Array [
-                      Object {
+                    [
+                      {
                         "id": 1,
-                        "metadata": Object {
-                          "document": Object {
+                        "metadata": {
+                          "document": {
                             "edition": "1",
                             "publication_year": "1950",
                             "title": "The Gulf: The Making of An American Sea",
                           },
                           "document_pid": "docid-1",
                           "end_date": "2018-07-28",
-                          "item_pid": Object {},
-                          "patron": Object {
+                          "item_pid": {},
+                          "patron": {
                             "email": "patron1@test.ch",
                           },
                           "patron_pid": "1",
@@ -254,20 +254,20 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
                         },
                         "pid": "loan1",
                       },
-                      Object {
+                      {
                         "id": 2,
-                        "metadata": Object {
-                          "document": Object {
+                        "metadata": {
+                          "document": {
                             "publication_year": "1950",
                             "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
                           },
                           "document_pid": "docid-1",
                           "end_date": "2018-07-28",
-                          "item_pid": Object {
+                          "item_pid": {
                             "type": "pitmid",
                             "value": "itemid-2",
                           },
-                          "patron": Object {
+                          "patron": {
                             "email": "patron2@test.ch",
                           },
                           "patron_pid": "1",
@@ -324,30 +324,30 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
                     >
                       <ResultsTableHeader
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Loan",
                             },
-                            Object {
+                            {
                               "field": "metadata.patron.name",
                               "title": "Patron",
                             },
-                            Object {
+                            {
                               "field": "metadata.state",
                               "title": "State",
                             },
-                            Object {
+                            {
                               "field": "metadata.start_date",
                               "formatter": [Function],
                               "title": "Start date",
                             },
-                            Object {
+                            {
                               "field": "metadata.end_date",
                               "formatter": [Function],
                               "title": "End date",
                             },
-                            Object {
+                            {
                               "field": "metadata.extension_count",
                               "title": "Renewals",
                             },
@@ -466,49 +466,49 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
                       </ResultsTableHeader>
                       <ResultsTableBody
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Loan",
                             },
-                            Object {
+                            {
                               "field": "metadata.patron.name",
                               "title": "Patron",
                             },
-                            Object {
+                            {
                               "field": "metadata.state",
                               "title": "State",
                             },
-                            Object {
+                            {
                               "field": "metadata.start_date",
                               "formatter": [Function],
                               "title": "Start date",
                             },
-                            Object {
+                            {
                               "field": "metadata.end_date",
                               "formatter": [Function],
                               "title": "End date",
                             },
-                            Object {
+                            {
                               "field": "metadata.extension_count",
                               "title": "Renewals",
                             },
                           ]
                         }
                         rows={
-                          Array [
-                            Object {
+                          [
+                            {
                               "id": 1,
-                              "metadata": Object {
-                                "document": Object {
+                              "metadata": {
+                                "document": {
                                   "edition": "1",
                                   "publication_year": "1950",
                                   "title": "The Gulf: The Making of An American Sea",
                                 },
                                 "document_pid": "docid-1",
                                 "end_date": "2018-07-28",
-                                "item_pid": Object {},
-                                "patron": Object {
+                                "item_pid": {},
+                                "patron": {
                                   "email": "patron1@test.ch",
                                 },
                                 "patron_pid": "1",
@@ -523,20 +523,20 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
                               },
                               "pid": "loan1",
                             },
-                            Object {
+                            {
                               "id": 2,
-                              "metadata": Object {
-                                "document": Object {
+                              "metadata": {
+                                "document": {
                                   "publication_year": "1950",
                                   "title": "Prairie Fires: The American Dreams of Laura Ingalls Wilder",
                                 },
                                 "document_pid": "docid-1",
                                 "end_date": "2018-07-28",
-                                "item_pid": Object {
+                                "item_pid": {
                                   "type": "pitmid",
                                   "value": "itemid-2",
                                 },
-                                "patron": Object {
+                                "patron": {
                                   "email": "patron2@test.ch",
                                 },
                                 "patron_pid": "1",
@@ -793,17 +793,17 @@ exports[`ItemPastLoans tests should render pending loans 1`] = `
 exports[`ItemPastLoans tests should render show a message with no past loans 1`] = `
 <ItemPastLoans
   data={
-    Object {
-      "hits": Array [],
+    {
+      "hits": [],
       "total": 0,
     }
   }
-  error={Object {}}
+  error={{}}
   fetchPastLoans={[Function]}
   isLoading={false}
   itemDetails={
-    Object {
-      "metadata": Object {
+    {
+      "metadata": {
         "document_pid": 111,
         "pid": 222,
       },
@@ -828,7 +828,7 @@ exports[`ItemPastLoans tests should render show a message with no past loans 1`]
           <Error
             FallbackComponent={[Function]}
             boundary={false}
-            error={Object {}}
+            error={{}}
             onUIError={null}
           >
             <Header
@@ -852,37 +852,37 @@ exports[`ItemPastLoans tests should render show a message with no past loans 1`]
               >
                 <ResultsTable
                   columns={
-                    Array [
-                      Object {
+                    [
+                      {
                         "formatter": [Function],
                         "title": "Loan",
                       },
-                      Object {
+                      {
                         "field": "metadata.patron.name",
                         "title": "Patron",
                       },
-                      Object {
+                      {
                         "field": "metadata.state",
                         "title": "State",
                       },
-                      Object {
+                      {
                         "field": "metadata.start_date",
                         "formatter": [Function],
                         "title": "Start date",
                       },
-                      Object {
+                      {
                         "field": "metadata.end_date",
                         "formatter": [Function],
                         "title": "End date",
                       },
-                      Object {
+                      {
                         "field": "metadata.extension_count",
                         "title": "Renewals",
                       },
                     ]
                   }
                   currentPage={1}
-                  data={Array []}
+                  data={[]}
                   fixed={false}
                   headerActionComponent={null}
                   name="loans"
