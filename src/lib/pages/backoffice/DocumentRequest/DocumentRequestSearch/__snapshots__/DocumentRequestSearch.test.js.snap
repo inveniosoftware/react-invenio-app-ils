@@ -2,9 +2,9 @@
 
 exports[`DocumentRequestsSearch ResultsTable tests should not render when empty results 1`] = `
 <ResultsTable
-  columns={Array []}
+  columns={[]}
   currentPage={1}
-  data={Array []}
+  data={[]}
   fixed={false}
   headerActionComponent={null}
   name=""
@@ -51,13 +51,13 @@ exports[`DocumentRequestsSearch ResultsTable tests should not render when empty 
 exports[`DocumentRequestsSearch ResultsTable tests should render a list of results 1`] = `
 <ResultsTable
   columns={
-    Array [
-      Object {
+    [
+      {
         "field": "",
         "formatter": [Function],
         "title": "view",
       },
-      Object {
+      {
         "field": "metadata.title",
         "title": "Title",
       },
@@ -65,12 +65,12 @@ exports[`DocumentRequestsSearch ResultsTable tests should render a list of resul
   }
   currentPage={1}
   data={
-    Array [
-      Object {
+    [
+      {
         "id": 3,
-        "metadata": Object {
+        "metadata": {
           "authors": "Author1",
-          "patron": Object {
+          "patron": {
             "name": "John Doe",
           },
           "patron_pid": "1",
@@ -116,13 +116,13 @@ exports[`DocumentRequestsSearch ResultsTable tests should render a list of resul
     >
       <ResultsTableHeader
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "metadata.title",
               "title": "Title",
             },
@@ -181,25 +181,25 @@ exports[`DocumentRequestsSearch ResultsTable tests should render a list of resul
       </ResultsTableHeader>
       <ResultsTableBody
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "metadata.title",
               "title": "Title",
             },
           ]
         }
         rows={
-          Array [
-            Object {
+          [
+            {
               "id": 3,
-              "metadata": Object {
+              "metadata": {
                 "authors": "Author1",
-                "patron": Object {
+                "patron": {
                   "name": "John Doe",
                 },
                 "patron_pid": "1",
@@ -245,7 +245,7 @@ exports[`DocumentRequestsSearch ResultsTable tests should render a list of resul
                     >
                       <Ref
                         innerRef={
-                          Object {
+                          {
                             "current": <button
                               class="ui button"
                             >
@@ -256,7 +256,7 @@ exports[`DocumentRequestsSearch ResultsTable tests should render a list of resul
                       >
                         <RefFindNode
                           innerRef={
-                            Object {
+                            {
                               "current": <button
                                 class="ui button"
                               >

@@ -4,7 +4,8 @@
  */
 
 import * as testData from '@testData/documents.json';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import React from 'react';
 import DocumentListEntry from './DocumentListEntry';
 
@@ -20,6 +21,10 @@ it('should render correctly', () => {
     },
   };
 
-  const component = shallow(<DocumentListEntry metadata={data.metadata} />);
-  expect(component).toMatchSnapshot();
+  const { asFragment } = render(
+    <MemoryRouter>
+      <DocumentListEntry metadata={data.metadata} />
+    </MemoryRouter>
+  );
+  expect(asFragment()).toMatchSnapshot();
 });

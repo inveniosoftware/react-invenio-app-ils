@@ -12,38 +12,38 @@ exports[`PatronPastBorrowingRequests tests should load the details component 1`]
   >
     <ResultsTable
       columns={
-        Array [
-          Object {
+        [
+          {
             "formatter": [Function],
             "title": "Borrowing Request",
           },
-          Object {
+          {
             "formatter": [Function],
             "title": "Loan",
           },
-          Object {
+          {
             "formatter": [Function],
             "title": "Document",
           },
-          Object {
+          {
             "formatter": [Function],
             "title": "Provider",
           },
-          Object {
+          {
             "field": "created",
             "formatter": [Function],
             "title": "Created on",
           },
-          Object {
+          {
             "field": "metadata.status",
             "title": "State",
           },
-          Object {
+          {
             "field": "metadata.request_date",
             "formatter": [Function],
             "title": "Requested on",
           },
-          Object {
+          {
             "field": "metadata.received_date",
             "formatter": [Function],
             "title": "Received on",
@@ -51,7 +51,7 @@ exports[`PatronPastBorrowingRequests tests should load the details component 1`]
         ]
       }
       currentPage={1}
-      data={Array []}
+      data={[]}
       fixed={false}
       headerActionComponent={null}
       name="past borrowing requests"
@@ -80,7 +80,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
 <BrowserRouter>
   <Router
     history={
-      Object {
+      {
         "action": "POP",
         "block": [Function],
         "createHref": [Function],
@@ -89,7 +89,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
         "goForward": [Function],
         "length": 1,
         "listen": [Function],
-        "location": Object {
+        "location": {
           "hash": "",
           "pathname": "/",
           "search": "",
@@ -102,26 +102,26 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
   >
     <PatronPastBorrowingRequests
       data={
-        Object {
-          "hits": Array [
-            Object {
+        {
+          "hits": [
+            {
               "id": 1,
-              "metadata": Object {
-                "document": Object {
+              "metadata": {
+                "document": {
                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                   "abstract": "This is an abstract",
-                  "authors": Array [
-                    Object {
+                  "authors": [
+                    {
                       "full_name": "Jack E. Davis",
                     },
                   ],
                   "document_type": "BOOK",
                   "edition": "1",
-                  "keywords": Object {
+                  "keywords": {
                     "source": "X",
                     "value": "Patata",
                   },
-                  "languages": Array [
+                  "languages": [
                     "en",
                   ],
                   "pid": "docid-1",
@@ -131,7 +131,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                 "document_pid": "docid-1",
                 "patron_pid": "1",
                 "pid": "illbid-1",
-                "provider": Object {
+                "provider": {
                   "name": "Library 1",
                   "pid": "ill-provid-1",
                   "type": "LIBRARY",
@@ -142,24 +142,24 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
               },
               "pid": "borrowing-request1",
             },
-            Object {
+            {
               "id": 2,
-              "metadata": Object {
-                "document": Object {
+              "metadata": {
+                "document": {
                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                   "abstract": "This is an abstract",
-                  "authors": Array [
-                    Object {
+                  "authors": [
+                    {
                       "full_name": "Jack E. Davis",
                     },
                   ],
                   "document_type": "BOOK",
                   "edition": "1",
-                  "keywords": Object {
+                  "keywords": {
                     "source": "X",
                     "value": "Patata",
                   },
-                  "languages": Array [
+                  "languages": [
                     "en",
                   ],
                   "pid": "docid-1",
@@ -169,7 +169,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                 "document_pid": "docid-2",
                 "patron_pid": "2",
                 "pid": "illbid-2",
-                "provider": Object {
+                "provider": {
                   "name": "Library 2",
                   "pid": "ill-provid-2",
                   "type": "LIBRARY",
@@ -187,13 +187,13 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
       error={null}
       fetchPatronPastBorrowingRequests={
         [MockFunction] {
-          "calls": Array [
-            Array [
+          "calls": [
+            [
               "2",
             ],
           ],
-          "results": Array [
-            Object {
+          "results": [
+            {
               "type": "return",
               "value": undefined,
             },
@@ -202,7 +202,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
       }
       isLoading={false}
       patronDetails={
-        Object {
+        {
           "user_pid": "2",
         }
       }
@@ -229,38 +229,38 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
               >
                 <ResultsTable
                   columns={
-                    Array [
-                      Object {
+                    [
+                      {
                         "formatter": [Function],
                         "title": "Borrowing Request",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Loan",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Document",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Provider",
                       },
-                      Object {
+                      {
                         "field": "created",
                         "formatter": [Function],
                         "title": "Created on",
                       },
-                      Object {
+                      {
                         "field": "metadata.status",
                         "title": "State",
                       },
-                      Object {
+                      {
                         "field": "metadata.request_date",
                         "formatter": [Function],
                         "title": "Requested on",
                       },
-                      Object {
+                      {
                         "field": "metadata.received_date",
                         "formatter": [Function],
                         "title": "Received on",
@@ -269,25 +269,25 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                   }
                   currentPage={1}
                   data={
-                    Array [
-                      Object {
+                    [
+                      {
                         "id": 1,
-                        "metadata": Object {
-                          "document": Object {
+                        "metadata": {
+                          "document": {
                             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                             "abstract": "This is an abstract",
-                            "authors": Array [
-                              Object {
+                            "authors": [
+                              {
                                 "full_name": "Jack E. Davis",
                               },
                             ],
                             "document_type": "BOOK",
                             "edition": "1",
-                            "keywords": Object {
+                            "keywords": {
                               "source": "X",
                               "value": "Patata",
                             },
-                            "languages": Array [
+                            "languages": [
                               "en",
                             ],
                             "pid": "docid-1",
@@ -297,7 +297,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                           "document_pid": "docid-1",
                           "patron_pid": "1",
                           "pid": "illbid-1",
-                          "provider": Object {
+                          "provider": {
                             "name": "Library 1",
                             "pid": "ill-provid-1",
                             "type": "LIBRARY",
@@ -308,24 +308,24 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                         },
                         "pid": "borrowing-request1",
                       },
-                      Object {
+                      {
                         "id": 2,
-                        "metadata": Object {
-                          "document": Object {
+                        "metadata": {
+                          "document": {
                             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                             "abstract": "This is an abstract",
-                            "authors": Array [
-                              Object {
+                            "authors": [
+                              {
                                 "full_name": "Jack E. Davis",
                               },
                             ],
                             "document_type": "BOOK",
                             "edition": "1",
-                            "keywords": Object {
+                            "keywords": {
                               "source": "X",
                               "value": "Patata",
                             },
-                            "languages": Array [
+                            "languages": [
                               "en",
                             ],
                             "pid": "docid-1",
@@ -335,7 +335,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                           "document_pid": "docid-2",
                           "patron_pid": "2",
                           "pid": "illbid-2",
-                          "provider": Object {
+                          "provider": {
                             "name": "Library 2",
                             "pid": "ill-provid-2",
                             "type": "LIBRARY",
@@ -388,38 +388,38 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                     >
                       <ResultsTableHeader
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Borrowing Request",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Loan",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Provider",
                             },
-                            Object {
+                            {
                               "field": "created",
                               "formatter": [Function],
                               "title": "Created on",
                             },
-                            Object {
+                            {
                               "field": "metadata.status",
                               "title": "State",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_date",
                               "formatter": [Function],
                               "title": "Requested on",
                             },
-                            Object {
+                            {
                               "field": "metadata.received_date",
                               "formatter": [Function],
                               "title": "Received on",
@@ -569,38 +569,38 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                       </ResultsTableHeader>
                       <ResultsTableBody
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Borrowing Request",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Loan",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Provider",
                             },
-                            Object {
+                            {
                               "field": "created",
                               "formatter": [Function],
                               "title": "Created on",
                             },
-                            Object {
+                            {
                               "field": "metadata.status",
                               "title": "State",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_date",
                               "formatter": [Function],
                               "title": "Requested on",
                             },
-                            Object {
+                            {
                               "field": "metadata.received_date",
                               "formatter": [Function],
                               "title": "Received on",
@@ -608,25 +608,25 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                           ]
                         }
                         rows={
-                          Array [
-                            Object {
+                          [
+                            {
                               "id": 1,
-                              "metadata": Object {
-                                "document": Object {
+                              "metadata": {
+                                "document": {
                                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                                   "abstract": "This is an abstract",
-                                  "authors": Array [
-                                    Object {
+                                  "authors": [
+                                    {
                                       "full_name": "Jack E. Davis",
                                     },
                                   ],
                                   "document_type": "BOOK",
                                   "edition": "1",
-                                  "keywords": Object {
+                                  "keywords": {
                                     "source": "X",
                                     "value": "Patata",
                                   },
-                                  "languages": Array [
+                                  "languages": [
                                     "en",
                                   ],
                                   "pid": "docid-1",
@@ -636,7 +636,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                 "document_pid": "docid-1",
                                 "patron_pid": "1",
                                 "pid": "illbid-1",
-                                "provider": Object {
+                                "provider": {
                                   "name": "Library 1",
                                   "pid": "ill-provid-1",
                                   "type": "LIBRARY",
@@ -647,24 +647,24 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                               },
                               "pid": "borrowing-request1",
                             },
-                            Object {
+                            {
                               "id": 2,
-                              "metadata": Object {
-                                "document": Object {
+                              "metadata": {
+                                "document": {
                                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                                   "abstract": "This is an abstract",
-                                  "authors": Array [
-                                    Object {
+                                  "authors": [
+                                    {
                                       "full_name": "Jack E. Davis",
                                     },
                                   ],
                                   "document_type": "BOOK",
                                   "edition": "1",
-                                  "keywords": Object {
+                                  "keywords": {
                                     "source": "X",
                                     "value": "Patata",
                                   },
-                                  "languages": Array [
+                                  "languages": [
                                     "en",
                                   ],
                                   "pid": "docid-1",
@@ -674,7 +674,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                 "document_pid": "docid-2",
                                 "patron_pid": "2",
                                 "pid": "illbid-2",
-                                "provider": Object {
+                                "provider": {
                                   "name": "Library 2",
                                   "pid": "ill-provid-2",
                                   "type": "LIBRARY",
@@ -791,7 +791,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                               >
                                                 <span
                                                   style={
-                                                    Object {
+                                                    {
                                                       "WebkitBoxOrient": "vertical",
                                                       "WebkitLineClamp": 2,
                                                       "display": "-webkit-box",
@@ -1017,7 +1017,7 @@ exports[`PatronPastBorrowingRequests tests should render patron borrowing reques
                                               >
                                                 <span
                                                   style={
-                                                    Object {
+                                                    {
                                                       "WebkitBoxOrient": "vertical",
                                                       "WebkitLineClamp": 2,
                                                       "display": "-webkit-box",
@@ -1182,7 +1182,7 @@ exports[`PatronPastBorrowingRequests tests should render show a message with no 
 <BrowserRouter>
   <Router
     history={
-      Object {
+      {
         "action": "POP",
         "block": [Function],
         "createHref": [Function],
@@ -1191,7 +1191,7 @@ exports[`PatronPastBorrowingRequests tests should render show a message with no 
         "goForward": [Function],
         "length": 1,
         "listen": [Function],
-        "location": Object {
+        "location": {
           "hash": "",
           "pathname": "/",
           "search": "",
@@ -1204,21 +1204,21 @@ exports[`PatronPastBorrowingRequests tests should render show a message with no 
   >
     <PatronPastBorrowingRequests
       data={
-        Object {
-          "hits": Array [],
+        {
+          "hits": [],
           "total": 0,
         }
       }
       error={null}
       fetchPatronPastBorrowingRequests={
         [MockFunction] {
-          "calls": Array [
-            Array [
+          "calls": [
+            [
               "2",
             ],
           ],
-          "results": Array [
-            Object {
+          "results": [
+            {
               "type": "return",
               "value": undefined,
             },
@@ -1227,7 +1227,7 @@ exports[`PatronPastBorrowingRequests tests should render show a message with no 
       }
       isLoading={false}
       patronDetails={
-        Object {
+        {
           "user_pid": "2",
         }
       }
@@ -1254,38 +1254,38 @@ exports[`PatronPastBorrowingRequests tests should render show a message with no 
               >
                 <ResultsTable
                   columns={
-                    Array [
-                      Object {
+                    [
+                      {
                         "formatter": [Function],
                         "title": "Borrowing Request",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Loan",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Document",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Provider",
                       },
-                      Object {
+                      {
                         "field": "created",
                         "formatter": [Function],
                         "title": "Created on",
                       },
-                      Object {
+                      {
                         "field": "metadata.status",
                         "title": "State",
                       },
-                      Object {
+                      {
                         "field": "metadata.request_date",
                         "formatter": [Function],
                         "title": "Requested on",
                       },
-                      Object {
+                      {
                         "field": "metadata.received_date",
                         "formatter": [Function],
                         "title": "Received on",
@@ -1293,7 +1293,7 @@ exports[`PatronPastBorrowingRequests tests should render show a message with no 
                     ]
                   }
                   currentPage={1}
-                  data={Array []}
+                  data={[]}
                   fixed={false}
                   headerActionComponent={null}
                   name="past borrowing requests"
@@ -1356,7 +1356,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
 <BrowserRouter>
   <Router
     history={
-      Object {
+      {
         "action": "POP",
         "block": [Function],
         "createHref": [Function],
@@ -1365,7 +1365,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
         "goForward": [Function],
         "length": 1,
         "listen": [Function],
-        "location": Object {
+        "location": {
           "hash": "",
           "pathname": "/",
           "search": "",
@@ -1378,26 +1378,26 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
   >
     <PatronPastBorrowingRequests
       data={
-        Object {
-          "hits": Array [
-            Object {
+        {
+          "hits": [
+            {
               "id": 1,
-              "metadata": Object {
-                "document": Object {
+              "metadata": {
+                "document": {
                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                   "abstract": "This is an abstract",
-                  "authors": Array [
-                    Object {
+                  "authors": [
+                    {
                       "full_name": "Jack E. Davis",
                     },
                   ],
                   "document_type": "BOOK",
                   "edition": "1",
-                  "keywords": Object {
+                  "keywords": {
                     "source": "X",
                     "value": "Patata",
                   },
-                  "languages": Array [
+                  "languages": [
                     "en",
                   ],
                   "pid": "docid-1",
@@ -1407,7 +1407,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                 "document_pid": "docid-1",
                 "patron_pid": "1",
                 "pid": "illbid-1",
-                "provider": Object {
+                "provider": {
                   "name": "Library 1",
                   "pid": "ill-provid-1",
                   "type": "LIBRARY",
@@ -1418,24 +1418,24 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
               },
               "pid": "borrowing-request1",
             },
-            Object {
+            {
               "id": 2,
-              "metadata": Object {
-                "document": Object {
+              "metadata": {
+                "document": {
                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                   "abstract": "This is an abstract",
-                  "authors": Array [
-                    Object {
+                  "authors": [
+                    {
                       "full_name": "Jack E. Davis",
                     },
                   ],
                   "document_type": "BOOK",
                   "edition": "1",
-                  "keywords": Object {
+                  "keywords": {
                     "source": "X",
                     "value": "Patata",
                   },
-                  "languages": Array [
+                  "languages": [
                     "en",
                   ],
                   "pid": "docid-1",
@@ -1445,7 +1445,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                 "document_pid": "docid-2",
                 "patron_pid": "2",
                 "pid": "illbid-2",
-                "provider": Object {
+                "provider": {
                   "name": "Library 2",
                   "pid": "ill-provid-2",
                   "type": "LIBRARY",
@@ -1463,13 +1463,13 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
       error={null}
       fetchPatronPastBorrowingRequests={
         [MockFunction] {
-          "calls": Array [
-            Array [
+          "calls": [
+            [
               "2",
             ],
           ],
-          "results": Array [
-            Object {
+          "results": [
+            {
               "type": "return",
               "value": undefined,
             },
@@ -1478,7 +1478,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
       }
       isLoading={false}
       patronDetails={
-        Object {
+        {
           "user_pid": "2",
         }
       }
@@ -1505,38 +1505,38 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
               >
                 <ResultsTable
                   columns={
-                    Array [
-                      Object {
+                    [
+                      {
                         "formatter": [Function],
                         "title": "Borrowing Request",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Loan",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Document",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Provider",
                       },
-                      Object {
+                      {
                         "field": "created",
                         "formatter": [Function],
                         "title": "Created on",
                       },
-                      Object {
+                      {
                         "field": "metadata.status",
                         "title": "State",
                       },
-                      Object {
+                      {
                         "field": "metadata.request_date",
                         "formatter": [Function],
                         "title": "Requested on",
                       },
-                      Object {
+                      {
                         "field": "metadata.received_date",
                         "formatter": [Function],
                         "title": "Received on",
@@ -1545,25 +1545,25 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                   }
                   currentPage={1}
                   data={
-                    Array [
-                      Object {
+                    [
+                      {
                         "id": 1,
-                        "metadata": Object {
-                          "document": Object {
+                        "metadata": {
+                          "document": {
                             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                             "abstract": "This is an abstract",
-                            "authors": Array [
-                              Object {
+                            "authors": [
+                              {
                                 "full_name": "Jack E. Davis",
                               },
                             ],
                             "document_type": "BOOK",
                             "edition": "1",
-                            "keywords": Object {
+                            "keywords": {
                               "source": "X",
                               "value": "Patata",
                             },
-                            "languages": Array [
+                            "languages": [
                               "en",
                             ],
                             "pid": "docid-1",
@@ -1573,7 +1573,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                           "document_pid": "docid-1",
                           "patron_pid": "1",
                           "pid": "illbid-1",
-                          "provider": Object {
+                          "provider": {
                             "name": "Library 1",
                             "pid": "ill-provid-1",
                             "type": "LIBRARY",
@@ -1584,24 +1584,24 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                         },
                         "pid": "borrowing-request1",
                       },
-                      Object {
+                      {
                         "id": 2,
-                        "metadata": Object {
-                          "document": Object {
+                        "metadata": {
+                          "document": {
                             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                             "abstract": "This is an abstract",
-                            "authors": Array [
-                              Object {
+                            "authors": [
+                              {
                                 "full_name": "Jack E. Davis",
                               },
                             ],
                             "document_type": "BOOK",
                             "edition": "1",
-                            "keywords": Object {
+                            "keywords": {
                               "source": "X",
                               "value": "Patata",
                             },
-                            "languages": Array [
+                            "languages": [
                               "en",
                             ],
                             "pid": "docid-1",
@@ -1611,7 +1611,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                           "document_pid": "docid-2",
                           "patron_pid": "2",
                           "pid": "illbid-2",
-                          "provider": Object {
+                          "provider": {
                             "name": "Library 2",
                             "pid": "ill-provid-2",
                             "type": "LIBRARY",
@@ -1664,38 +1664,38 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                     >
                       <ResultsTableHeader
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Borrowing Request",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Loan",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Provider",
                             },
-                            Object {
+                            {
                               "field": "created",
                               "formatter": [Function],
                               "title": "Created on",
                             },
-                            Object {
+                            {
                               "field": "metadata.status",
                               "title": "State",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_date",
                               "formatter": [Function],
                               "title": "Requested on",
                             },
-                            Object {
+                            {
                               "field": "metadata.received_date",
                               "formatter": [Function],
                               "title": "Received on",
@@ -1845,38 +1845,38 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                       </ResultsTableHeader>
                       <ResultsTableBody
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Borrowing Request",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Loan",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Provider",
                             },
-                            Object {
+                            {
                               "field": "created",
                               "formatter": [Function],
                               "title": "Created on",
                             },
-                            Object {
+                            {
                               "field": "metadata.status",
                               "title": "State",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_date",
                               "formatter": [Function],
                               "title": "Requested on",
                             },
-                            Object {
+                            {
                               "field": "metadata.received_date",
                               "formatter": [Function],
                               "title": "Received on",
@@ -1884,25 +1884,25 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                           ]
                         }
                         rows={
-                          Array [
-                            Object {
+                          [
+                            {
                               "id": 1,
-                              "metadata": Object {
-                                "document": Object {
+                              "metadata": {
+                                "document": {
                                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                                   "abstract": "This is an abstract",
-                                  "authors": Array [
-                                    Object {
+                                  "authors": [
+                                    {
                                       "full_name": "Jack E. Davis",
                                     },
                                   ],
                                   "document_type": "BOOK",
                                   "edition": "1",
-                                  "keywords": Object {
+                                  "keywords": {
                                     "source": "X",
                                     "value": "Patata",
                                   },
-                                  "languages": Array [
+                                  "languages": [
                                     "en",
                                   ],
                                   "pid": "docid-1",
@@ -1912,7 +1912,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                                 "document_pid": "docid-1",
                                 "patron_pid": "1",
                                 "pid": "illbid-1",
-                                "provider": Object {
+                                "provider": {
                                   "name": "Library 1",
                                   "pid": "ill-provid-1",
                                   "type": "LIBRARY",
@@ -2029,7 +2029,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                                               >
                                                 <span
                                                   style={
-                                                    Object {
+                                                    {
                                                       "WebkitBoxOrient": "vertical",
                                                       "WebkitLineClamp": 2,
                                                       "display": "-webkit-box",
@@ -2232,9 +2232,9 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                                           >
                                             <Button
                                               as={
-                                                Object {
+                                                {
                                                   "$$typeof": Symbol(react.forward_ref),
-                                                  "propTypes": Object {
+                                                  "propTypes": {
                                                     "innerRef": [Function],
                                                     "onClick": [Function],
                                                     "replace": [Function],
@@ -2251,7 +2251,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                                             >
                                               <Ref
                                                 innerRef={
-                                                  Object {
+                                                  {
                                                     "current": <a
                                                       class="ui small button"
                                                       href="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(CANCELLED OR RETURNED)"
@@ -2264,7 +2264,7 @@ exports[`PatronPastBorrowingRequests tests should render the see all button when
                                               >
                                                 <RefForward
                                                   innerRef={
-                                                    Object {
+                                                    {
                                                       "current": <a
                                                         class="ui small button"
                                                         href="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(CANCELLED OR RETURNED)"

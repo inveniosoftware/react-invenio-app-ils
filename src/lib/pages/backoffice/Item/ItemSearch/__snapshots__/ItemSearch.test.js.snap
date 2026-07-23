@@ -2,9 +2,9 @@
 
 exports[`ItemsSearch ResultsList tests should not render when empty results 1`] = `
 <ResultsTable
-  columns={Array []}
+  columns={[]}
   currentPage={1}
-  data={Array []}
+  data={[]}
   fixed={false}
   headerActionComponent={null}
   name=""
@@ -51,13 +51,13 @@ exports[`ItemsSearch ResultsList tests should not render when empty results 1`] 
 exports[`ItemsSearch ResultsList tests should render a list of results 1`] = `
 <ResultsTable
   columns={
-    Array [
-      Object {
+    [
+      {
         "field": "",
         "formatter": [Function],
         "title": "view",
       },
-      Object {
+      {
         "field": "metadata.status",
         "title": "Status",
       },
@@ -65,17 +65,17 @@ exports[`ItemsSearch ResultsList tests should render a list of results 1`] = `
   }
   currentPage={1}
   data={
-    Array [
-      Object {
+    [
+      {
         "created": "2018-01-01T11:05:00+01:00",
         "id": 987,
-        "metadata": Object {
+        "metadata": {
           "barcode": "9865745223",
-          "document": Object {
+          "document": {
             "pid": 1342,
           },
           "document_pid": 1342,
-          "internal_location": Object {
+          "internal_location": {
             "name": "A library",
             "pid": 1,
           },
@@ -120,13 +120,13 @@ exports[`ItemsSearch ResultsList tests should render a list of results 1`] = `
     >
       <ResultsTableHeader
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "metadata.status",
               "title": "Status",
             },
@@ -185,30 +185,30 @@ exports[`ItemsSearch ResultsList tests should render a list of results 1`] = `
       </ResultsTableHeader>
       <ResultsTableBody
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "metadata.status",
               "title": "Status",
             },
           ]
         }
         rows={
-          Array [
-            Object {
+          [
+            {
               "created": "2018-01-01T11:05:00+01:00",
               "id": 987,
-              "metadata": Object {
+              "metadata": {
                 "barcode": "9865745223",
-                "document": Object {
+                "document": {
                   "pid": 1342,
                 },
                 "document_pid": 1342,
-                "internal_location": Object {
+                "internal_location": {
                   "name": "A library",
                   "pid": 1,
                 },
@@ -253,7 +253,7 @@ exports[`ItemsSearch ResultsList tests should render a list of results 1`] = `
                     >
                       <Ref
                         innerRef={
-                          Object {
+                          {
                             "current": <button
                               class="ui button"
                             >
@@ -264,7 +264,7 @@ exports[`ItemsSearch ResultsList tests should render a list of results 1`] = `
                       >
                         <RefFindNode
                           innerRef={
-                            Object {
+                            {
                               "current": <button
                                 class="ui button"
                               >

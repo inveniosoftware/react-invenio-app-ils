@@ -23,7 +23,4 @@ module.exports = {
     '^@testData(.*)$': '<rootDir>/src/testData$1',
   },
   snapshotSerializers: ['enzyme-to-json/serializer'],
-  snapshotFormat: {
-    printBasicPrototype: true,
-  },
 };

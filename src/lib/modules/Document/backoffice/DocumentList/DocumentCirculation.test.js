@@ -4,7 +4,7 @@
  */
 
 import * as testData from '@testData/documents.json';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import React from 'react';
 import DocumentCirculation from './DocumentCirculation';
 
@@ -25,7 +25,8 @@ describe('DocumentCirculation tests', () => {
   };
 
   it('should load the DocumentCirculation component', () => {
-    const component = shallow(<DocumentCirculation document={document} />);
-    expect(component).toMatchSnapshot();
+    const { asFragment } = render(<DocumentCirculation document={document} />);
+
+    expect(asFragment()).toMatchSnapshot();
   });
 });

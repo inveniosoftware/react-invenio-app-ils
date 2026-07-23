@@ -12,39 +12,39 @@ exports[`PatronCurrentBorrowingRequests tests should load the details component 
   >
     <ResultsTable
       columns={
-        Array [
-          Object {
+        [
+          {
             "formatter": [Function],
             "title": "Loan",
           },
-          Object {
+          {
             "formatter": [Function],
             "title": "Document",
           },
-          Object {
+          {
             "formatter": [Function],
             "title": "Provider",
           },
-          Object {
+          {
             "field": "created",
             "formatter": [Function],
             "title": "Created on",
           },
-          Object {
+          {
             "field": "metadata.status",
             "title": "State",
           },
-          Object {
+          {
             "field": "metadata.request_date",
             "formatter": [Function],
             "title": "Requested on",
           },
-          Object {
+          {
             "field": "metadata.expected_delivery_date",
             "formatter": [Function],
             "title": "Expected delivery",
           },
-          Object {
+          {
             "field": "metadata.received_date",
             "formatter": [Function],
             "title": "Received on",
@@ -52,7 +52,7 @@ exports[`PatronCurrentBorrowingRequests tests should load the details component 
         ]
       }
       currentPage={1}
-      data={Array []}
+      data={[]}
       fixed={false}
       headerActionComponent={null}
       name="borrowing requests"
@@ -81,7 +81,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
 <BrowserRouter>
   <Router
     history={
-      Object {
+      {
         "action": "POP",
         "block": [Function],
         "createHref": [Function],
@@ -90,7 +90,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
         "goForward": [Function],
         "length": 1,
         "listen": [Function],
-        "location": Object {
+        "location": {
           "hash": "",
           "pathname": "/",
           "search": "",
@@ -103,26 +103,26 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
   >
     <PatronCurrentBorrowingRequests
       data={
-        Object {
-          "hits": Array [
-            Object {
+        {
+          "hits": [
+            {
               "id": 1,
-              "metadata": Object {
-                "document": Object {
+              "metadata": {
+                "document": {
                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                   "abstract": "This is an abstract",
-                  "authors": Array [
-                    Object {
+                  "authors": [
+                    {
                       "full_name": "Jack E. Davis",
                     },
                   ],
                   "document_type": "BOOK",
                   "edition": "1",
-                  "keywords": Object {
+                  "keywords": {
                     "source": "X",
                     "value": "Patata",
                   },
-                  "languages": Array [
+                  "languages": [
                     "en",
                   ],
                   "pid": "docid-1",
@@ -132,7 +132,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                 "document_pid": "docid-1",
                 "patron_pid": "1",
                 "pid": "illbid-1",
-                "provider": Object {
+                "provider": {
                   "name": "Library 1",
                   "pid": "ill-provid-1",
                   "type": "LIBRARY",
@@ -143,24 +143,24 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
               },
               "pid": "borrowing-request1",
             },
-            Object {
+            {
               "id": 2,
-              "metadata": Object {
-                "document": Object {
+              "metadata": {
+                "document": {
                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                   "abstract": "This is an abstract",
-                  "authors": Array [
-                    Object {
+                  "authors": [
+                    {
                       "full_name": "Jack E. Davis",
                     },
                   ],
                   "document_type": "BOOK",
                   "edition": "1",
-                  "keywords": Object {
+                  "keywords": {
                     "source": "X",
                     "value": "Patata",
                   },
-                  "languages": Array [
+                  "languages": [
                     "en",
                   ],
                   "pid": "docid-1",
@@ -170,7 +170,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                 "document_pid": "docid-2",
                 "patron_pid": "2",
                 "pid": "illbid-2",
-                "provider": Object {
+                "provider": {
                   "name": "Library 2",
                   "pid": "ill-provid-2",
                   "type": "LIBRARY",
@@ -188,13 +188,13 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
       error={null}
       fetchPatronCurrentBorrowingRequests={
         [MockFunction] {
-          "calls": Array [
-            Array [
+          "calls": [
+            [
               "2",
             ],
           ],
-          "results": Array [
-            Object {
+          "results": [
+            {
               "type": "return",
               "value": undefined,
             },
@@ -203,7 +203,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
       }
       isLoading={false}
       patronDetails={
-        Object {
+        {
           "user_pid": "2",
         }
       }
@@ -230,39 +230,39 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
               >
                 <ResultsTable
                   columns={
-                    Array [
-                      Object {
+                    [
+                      {
                         "formatter": [Function],
                         "title": "Loan",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Document",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Provider",
                       },
-                      Object {
+                      {
                         "field": "created",
                         "formatter": [Function],
                         "title": "Created on",
                       },
-                      Object {
+                      {
                         "field": "metadata.status",
                         "title": "State",
                       },
-                      Object {
+                      {
                         "field": "metadata.request_date",
                         "formatter": [Function],
                         "title": "Requested on",
                       },
-                      Object {
+                      {
                         "field": "metadata.expected_delivery_date",
                         "formatter": [Function],
                         "title": "Expected delivery",
                       },
-                      Object {
+                      {
                         "field": "metadata.received_date",
                         "formatter": [Function],
                         "title": "Received on",
@@ -271,25 +271,25 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                   }
                   currentPage={1}
                   data={
-                    Array [
-                      Object {
+                    [
+                      {
                         "id": 1,
-                        "metadata": Object {
-                          "document": Object {
+                        "metadata": {
+                          "document": {
                             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                             "abstract": "This is an abstract",
-                            "authors": Array [
-                              Object {
+                            "authors": [
+                              {
                                 "full_name": "Jack E. Davis",
                               },
                             ],
                             "document_type": "BOOK",
                             "edition": "1",
-                            "keywords": Object {
+                            "keywords": {
                               "source": "X",
                               "value": "Patata",
                             },
-                            "languages": Array [
+                            "languages": [
                               "en",
                             ],
                             "pid": "docid-1",
@@ -299,7 +299,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                           "document_pid": "docid-1",
                           "patron_pid": "1",
                           "pid": "illbid-1",
-                          "provider": Object {
+                          "provider": {
                             "name": "Library 1",
                             "pid": "ill-provid-1",
                             "type": "LIBRARY",
@@ -310,24 +310,24 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                         },
                         "pid": "borrowing-request1",
                       },
-                      Object {
+                      {
                         "id": 2,
-                        "metadata": Object {
-                          "document": Object {
+                        "metadata": {
+                          "document": {
                             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                             "abstract": "This is an abstract",
-                            "authors": Array [
-                              Object {
+                            "authors": [
+                              {
                                 "full_name": "Jack E. Davis",
                               },
                             ],
                             "document_type": "BOOK",
                             "edition": "1",
-                            "keywords": Object {
+                            "keywords": {
                               "source": "X",
                               "value": "Patata",
                             },
-                            "languages": Array [
+                            "languages": [
                               "en",
                             ],
                             "pid": "docid-1",
@@ -337,7 +337,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                           "document_pid": "docid-2",
                           "patron_pid": "2",
                           "pid": "illbid-2",
-                          "provider": Object {
+                          "provider": {
                             "name": "Library 2",
                             "pid": "ill-provid-2",
                             "type": "LIBRARY",
@@ -390,39 +390,39 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                     >
                       <ResultsTableHeader
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Loan",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Provider",
                             },
-                            Object {
+                            {
                               "field": "created",
                               "formatter": [Function],
                               "title": "Created on",
                             },
-                            Object {
+                            {
                               "field": "metadata.status",
                               "title": "State",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_date",
                               "formatter": [Function],
                               "title": "Requested on",
                             },
-                            Object {
+                            {
                               "field": "metadata.expected_delivery_date",
                               "formatter": [Function],
                               "title": "Expected delivery",
                             },
-                            Object {
+                            {
                               "field": "metadata.received_date",
                               "formatter": [Function],
                               "title": "Received on",
@@ -572,39 +572,39 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                       </ResultsTableHeader>
                       <ResultsTableBody
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Loan",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Provider",
                             },
-                            Object {
+                            {
                               "field": "created",
                               "formatter": [Function],
                               "title": "Created on",
                             },
-                            Object {
+                            {
                               "field": "metadata.status",
                               "title": "State",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_date",
                               "formatter": [Function],
                               "title": "Requested on",
                             },
-                            Object {
+                            {
                               "field": "metadata.expected_delivery_date",
                               "formatter": [Function],
                               "title": "Expected delivery",
                             },
-                            Object {
+                            {
                               "field": "metadata.received_date",
                               "formatter": [Function],
                               "title": "Received on",
@@ -612,25 +612,25 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                           ]
                         }
                         rows={
-                          Array [
-                            Object {
+                          [
+                            {
                               "id": 1,
-                              "metadata": Object {
-                                "document": Object {
+                              "metadata": {
+                                "document": {
                                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                                   "abstract": "This is an abstract",
-                                  "authors": Array [
-                                    Object {
+                                  "authors": [
+                                    {
                                       "full_name": "Jack E. Davis",
                                     },
                                   ],
                                   "document_type": "BOOK",
                                   "edition": "1",
-                                  "keywords": Object {
+                                  "keywords": {
                                     "source": "X",
                                     "value": "Patata",
                                   },
-                                  "languages": Array [
+                                  "languages": [
                                     "en",
                                   ],
                                   "pid": "docid-1",
@@ -640,7 +640,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                 "document_pid": "docid-1",
                                 "patron_pid": "1",
                                 "pid": "illbid-1",
-                                "provider": Object {
+                                "provider": {
                                   "name": "Library 1",
                                   "pid": "ill-provid-1",
                                   "type": "LIBRARY",
@@ -651,24 +651,24 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                               },
                               "pid": "borrowing-request1",
                             },
-                            Object {
+                            {
                               "id": 2,
-                              "metadata": Object {
-                                "document": Object {
+                              "metadata": {
+                                "document": {
                                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                                   "abstract": "This is an abstract",
-                                  "authors": Array [
-                                    Object {
+                                  "authors": [
+                                    {
                                       "full_name": "Jack E. Davis",
                                     },
                                   ],
                                   "document_type": "BOOK",
                                   "edition": "1",
-                                  "keywords": Object {
+                                  "keywords": {
                                     "source": "X",
                                     "value": "Patata",
                                   },
-                                  "languages": Array [
+                                  "languages": [
                                     "en",
                                   ],
                                   "pid": "docid-1",
@@ -678,7 +678,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                 "document_pid": "docid-2",
                                 "patron_pid": "2",
                                 "pid": "illbid-2",
-                                "provider": Object {
+                                "provider": {
                                   "name": "Library 2",
                                   "pid": "ill-provid-2",
                                   "type": "LIBRARY",
@@ -784,7 +784,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                               >
                                                 <span
                                                   style={
-                                                    Object {
+                                                    {
                                                       "WebkitBoxOrient": "vertical",
                                                       "WebkitLineClamp": 2,
                                                       "display": "-webkit-box",
@@ -1018,7 +1018,7 @@ exports[`PatronCurrentBorrowingRequests tests should render patron borrowing req
                                               >
                                                 <span
                                                   style={
-                                                    Object {
+                                                    {
                                                       "WebkitBoxOrient": "vertical",
                                                       "WebkitLineClamp": 2,
                                                       "display": "-webkit-box",
@@ -1202,7 +1202,7 @@ exports[`PatronCurrentBorrowingRequests tests should render show a message with 
 <BrowserRouter>
   <Router
     history={
-      Object {
+      {
         "action": "POP",
         "block": [Function],
         "createHref": [Function],
@@ -1211,7 +1211,7 @@ exports[`PatronCurrentBorrowingRequests tests should render show a message with 
         "goForward": [Function],
         "length": 1,
         "listen": [Function],
-        "location": Object {
+        "location": {
           "hash": "",
           "pathname": "/",
           "search": "",
@@ -1224,21 +1224,21 @@ exports[`PatronCurrentBorrowingRequests tests should render show a message with 
   >
     <PatronCurrentBorrowingRequests
       data={
-        Object {
-          "hits": Array [],
+        {
+          "hits": [],
           "total": 0,
         }
       }
       error={null}
       fetchPatronCurrentBorrowingRequests={
         [MockFunction] {
-          "calls": Array [
-            Array [
+          "calls": [
+            [
               "2",
             ],
           ],
-          "results": Array [
-            Object {
+          "results": [
+            {
               "type": "return",
               "value": undefined,
             },
@@ -1247,7 +1247,7 @@ exports[`PatronCurrentBorrowingRequests tests should render show a message with 
       }
       isLoading={false}
       patronDetails={
-        Object {
+        {
           "user_pid": "2",
         }
       }
@@ -1274,39 +1274,39 @@ exports[`PatronCurrentBorrowingRequests tests should render show a message with 
               >
                 <ResultsTable
                   columns={
-                    Array [
-                      Object {
+                    [
+                      {
                         "formatter": [Function],
                         "title": "Loan",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Document",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Provider",
                       },
-                      Object {
+                      {
                         "field": "created",
                         "formatter": [Function],
                         "title": "Created on",
                       },
-                      Object {
+                      {
                         "field": "metadata.status",
                         "title": "State",
                       },
-                      Object {
+                      {
                         "field": "metadata.request_date",
                         "formatter": [Function],
                         "title": "Requested on",
                       },
-                      Object {
+                      {
                         "field": "metadata.expected_delivery_date",
                         "formatter": [Function],
                         "title": "Expected delivery",
                       },
-                      Object {
+                      {
                         "field": "metadata.received_date",
                         "formatter": [Function],
                         "title": "Received on",
@@ -1314,7 +1314,7 @@ exports[`PatronCurrentBorrowingRequests tests should render show a message with 
                     ]
                   }
                   currentPage={1}
-                  data={Array []}
+                  data={[]}
                   fixed={false}
                   headerActionComponent={null}
                   name="borrowing requests"
@@ -1377,7 +1377,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
 <BrowserRouter>
   <Router
     history={
-      Object {
+      {
         "action": "POP",
         "block": [Function],
         "createHref": [Function],
@@ -1386,7 +1386,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
         "goForward": [Function],
         "length": 1,
         "listen": [Function],
-        "location": Object {
+        "location": {
           "hash": "",
           "pathname": "/",
           "search": "",
@@ -1399,26 +1399,26 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
   >
     <PatronCurrentBorrowingRequests
       data={
-        Object {
-          "hits": Array [
-            Object {
+        {
+          "hits": [
+            {
               "id": 1,
-              "metadata": Object {
-                "document": Object {
+              "metadata": {
+                "document": {
                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                   "abstract": "This is an abstract",
-                  "authors": Array [
-                    Object {
+                  "authors": [
+                    {
                       "full_name": "Jack E. Davis",
                     },
                   ],
                   "document_type": "BOOK",
                   "edition": "1",
-                  "keywords": Object {
+                  "keywords": {
                     "source": "X",
                     "value": "Patata",
                   },
-                  "languages": Array [
+                  "languages": [
                     "en",
                   ],
                   "pid": "docid-1",
@@ -1428,7 +1428,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                 "document_pid": "docid-1",
                 "patron_pid": "1",
                 "pid": "illbid-1",
-                "provider": Object {
+                "provider": {
                   "name": "Library 1",
                   "pid": "ill-provid-1",
                   "type": "LIBRARY",
@@ -1439,24 +1439,24 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
               },
               "pid": "borrowing-request1",
             },
-            Object {
+            {
               "id": 2,
-              "metadata": Object {
-                "document": Object {
+              "metadata": {
+                "document": {
                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                   "abstract": "This is an abstract",
-                  "authors": Array [
-                    Object {
+                  "authors": [
+                    {
                       "full_name": "Jack E. Davis",
                     },
                   ],
                   "document_type": "BOOK",
                   "edition": "1",
-                  "keywords": Object {
+                  "keywords": {
                     "source": "X",
                     "value": "Patata",
                   },
-                  "languages": Array [
+                  "languages": [
                     "en",
                   ],
                   "pid": "docid-1",
@@ -1466,7 +1466,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                 "document_pid": "docid-2",
                 "patron_pid": "2",
                 "pid": "illbid-2",
-                "provider": Object {
+                "provider": {
                   "name": "Library 2",
                   "pid": "ill-provid-2",
                   "type": "LIBRARY",
@@ -1484,13 +1484,13 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
       error={null}
       fetchPatronCurrentBorrowingRequests={
         [MockFunction] {
-          "calls": Array [
-            Array [
+          "calls": [
+            [
               "2",
             ],
           ],
-          "results": Array [
-            Object {
+          "results": [
+            {
               "type": "return",
               "value": undefined,
             },
@@ -1499,7 +1499,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
       }
       isLoading={false}
       patronDetails={
-        Object {
+        {
           "user_pid": "2",
         }
       }
@@ -1526,39 +1526,39 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
               >
                 <ResultsTable
                   columns={
-                    Array [
-                      Object {
+                    [
+                      {
                         "formatter": [Function],
                         "title": "Loan",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Document",
                       },
-                      Object {
+                      {
                         "formatter": [Function],
                         "title": "Provider",
                       },
-                      Object {
+                      {
                         "field": "created",
                         "formatter": [Function],
                         "title": "Created on",
                       },
-                      Object {
+                      {
                         "field": "metadata.status",
                         "title": "State",
                       },
-                      Object {
+                      {
                         "field": "metadata.request_date",
                         "formatter": [Function],
                         "title": "Requested on",
                       },
-                      Object {
+                      {
                         "field": "metadata.expected_delivery_date",
                         "formatter": [Function],
                         "title": "Expected delivery",
                       },
-                      Object {
+                      {
                         "field": "metadata.received_date",
                         "formatter": [Function],
                         "title": "Received on",
@@ -1567,25 +1567,25 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                   }
                   currentPage={1}
                   data={
-                    Array [
-                      Object {
+                    [
+                      {
                         "id": 1,
-                        "metadata": Object {
-                          "document": Object {
+                        "metadata": {
+                          "document": {
                             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                             "abstract": "This is an abstract",
-                            "authors": Array [
-                              Object {
+                            "authors": [
+                              {
                                 "full_name": "Jack E. Davis",
                               },
                             ],
                             "document_type": "BOOK",
                             "edition": "1",
-                            "keywords": Object {
+                            "keywords": {
                               "source": "X",
                               "value": "Patata",
                             },
-                            "languages": Array [
+                            "languages": [
                               "en",
                             ],
                             "pid": "docid-1",
@@ -1595,7 +1595,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                           "document_pid": "docid-1",
                           "patron_pid": "1",
                           "pid": "illbid-1",
-                          "provider": Object {
+                          "provider": {
                             "name": "Library 1",
                             "pid": "ill-provid-1",
                             "type": "LIBRARY",
@@ -1606,24 +1606,24 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                         },
                         "pid": "borrowing-request1",
                       },
-                      Object {
+                      {
                         "id": 2,
-                        "metadata": Object {
-                          "document": Object {
+                        "metadata": {
+                          "document": {
                             "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                             "abstract": "This is an abstract",
-                            "authors": Array [
-                              Object {
+                            "authors": [
+                              {
                                 "full_name": "Jack E. Davis",
                               },
                             ],
                             "document_type": "BOOK",
                             "edition": "1",
-                            "keywords": Object {
+                            "keywords": {
                               "source": "X",
                               "value": "Patata",
                             },
-                            "languages": Array [
+                            "languages": [
                               "en",
                             ],
                             "pid": "docid-1",
@@ -1633,7 +1633,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                           "document_pid": "docid-2",
                           "patron_pid": "2",
                           "pid": "illbid-2",
-                          "provider": Object {
+                          "provider": {
                             "name": "Library 2",
                             "pid": "ill-provid-2",
                             "type": "LIBRARY",
@@ -1686,39 +1686,39 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                     >
                       <ResultsTableHeader
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Loan",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Provider",
                             },
-                            Object {
+                            {
                               "field": "created",
                               "formatter": [Function],
                               "title": "Created on",
                             },
-                            Object {
+                            {
                               "field": "metadata.status",
                               "title": "State",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_date",
                               "formatter": [Function],
                               "title": "Requested on",
                             },
-                            Object {
+                            {
                               "field": "metadata.expected_delivery_date",
                               "formatter": [Function],
                               "title": "Expected delivery",
                             },
-                            Object {
+                            {
                               "field": "metadata.received_date",
                               "formatter": [Function],
                               "title": "Received on",
@@ -1868,39 +1868,39 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                       </ResultsTableHeader>
                       <ResultsTableBody
                         columns={
-                          Array [
-                            Object {
+                          [
+                            {
                               "formatter": [Function],
                               "title": "Loan",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Document",
                             },
-                            Object {
+                            {
                               "formatter": [Function],
                               "title": "Provider",
                             },
-                            Object {
+                            {
                               "field": "created",
                               "formatter": [Function],
                               "title": "Created on",
                             },
-                            Object {
+                            {
                               "field": "metadata.status",
                               "title": "State",
                             },
-                            Object {
+                            {
                               "field": "metadata.request_date",
                               "formatter": [Function],
                               "title": "Requested on",
                             },
-                            Object {
+                            {
                               "field": "metadata.expected_delivery_date",
                               "formatter": [Function],
                               "title": "Expected delivery",
                             },
-                            Object {
+                            {
                               "field": "metadata.received_date",
                               "formatter": [Function],
                               "title": "Received on",
@@ -1908,25 +1908,25 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                           ]
                         }
                         rows={
-                          Array [
-                            Object {
+                          [
+                            {
                               "id": 1,
-                              "metadata": Object {
-                                "document": Object {
+                              "metadata": {
+                                "document": {
                                   "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
                                   "abstract": "This is an abstract",
-                                  "authors": Array [
-                                    Object {
+                                  "authors": [
+                                    {
                                       "full_name": "Jack E. Davis",
                                     },
                                   ],
                                   "document_type": "BOOK",
                                   "edition": "1",
-                                  "keywords": Object {
+                                  "keywords": {
                                     "source": "X",
                                     "value": "Patata",
                                   },
-                                  "languages": Array [
+                                  "languages": [
                                     "en",
                                   ],
                                   "pid": "docid-1",
@@ -1936,7 +1936,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                 "document_pid": "docid-1",
                                 "patron_pid": "1",
                                 "pid": "illbid-1",
-                                "provider": Object {
+                                "provider": {
                                   "name": "Library 1",
                                   "pid": "ill-provid-1",
                                   "type": "LIBRARY",
@@ -2042,7 +2042,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                               >
                                                 <span
                                                   style={
-                                                    Object {
+                                                    {
                                                       "WebkitBoxOrient": "vertical",
                                                       "WebkitLineClamp": 2,
                                                       "display": "-webkit-box",
@@ -2264,9 +2264,9 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                           >
                                             <Button
                                               as={
-                                                Object {
+                                                {
                                                   "$$typeof": Symbol(react.forward_ref),
-                                                  "propTypes": Object {
+                                                  "propTypes": {
                                                     "innerRef": [Function],
                                                     "onClick": [Function],
                                                     "replace": [Function],
@@ -2283,7 +2283,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                             >
                                               <Ref
                                                 innerRef={
-                                                  Object {
+                                                  {
                                                     "current": <a
                                                       class="ui small button"
                                                       href="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN)"
@@ -2296,7 +2296,7 @@ exports[`PatronCurrentBorrowingRequests tests should render the see all button w
                                               >
                                                 <RefForward
                                                   innerRef={
-                                                    Object {
+                                                    {
                                                       "current": <a
                                                         class="ui small button"
                                                         href="/backoffice/ill/borrowing-requests?q=patron_pid:2 AND status:(PENDING OR REQUESTED OR ON_LOAN)"

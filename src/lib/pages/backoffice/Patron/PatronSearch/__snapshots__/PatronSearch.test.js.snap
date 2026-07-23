@@ -3,28 +3,28 @@
 exports[`PatronsSearch ResultsList tests should not render when empty results 1`] = `
 <ResultsTable
   columns={
-    Array [
-      Object {
+    [
+      {
         "field": "",
         "formatter": [Function],
         "title": "view",
       },
-      Object {
+      {
         "field": "metadata.id",
         "title": "ID",
       },
-      Object {
+      {
         "field": "metadata.name",
         "title": "Name",
       },
-      Object {
+      {
         "field": "metadata.email",
         "title": "Email",
       },
     ]
   }
   currentPage={1}
-  data={Array []}
+  data={[]}
   fixed={false}
   headerActionComponent={null}
   name=""
@@ -71,21 +71,21 @@ exports[`PatronsSearch ResultsList tests should not render when empty results 1`
 exports[`PatronsSearch ResultsList tests should render a list of results 1`] = `
 <ResultsTable
   columns={
-    Array [
-      Object {
+    [
+      {
         "field": "",
         "formatter": [Function],
         "title": "view",
       },
-      Object {
+      {
         "field": "metadata.id",
         "title": "ID",
       },
-      Object {
+      {
         "field": "metadata.name",
         "title": "Name",
       },
-      Object {
+      {
         "field": "metadata.email",
         "title": "Email",
       },
@@ -93,12 +93,12 @@ exports[`PatronsSearch ResultsList tests should render a list of results 1`] = `
   }
   currentPage={1}
   data={
-    Array [
-      Object {
+    [
+      {
         "id": 3,
-        "metadata": Object {
+        "metadata": {
           "email": "admin@test.ch",
-          "links": Object {
+          "links": {
             "self": "https://localhost:5000/api/patrons/3",
           },
           "name": "admin",
@@ -140,21 +140,21 @@ exports[`PatronsSearch ResultsList tests should render a list of results 1`] = `
     >
       <ResultsTableHeader
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "metadata.id",
               "title": "ID",
             },
-            Object {
+            {
               "field": "metadata.name",
               "title": "Name",
             },
-            Object {
+            {
               "field": "metadata.email",
               "title": "Email",
             },
@@ -243,33 +243,33 @@ exports[`PatronsSearch ResultsList tests should render a list of results 1`] = `
       </ResultsTableHeader>
       <ResultsTableBody
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "metadata.id",
               "title": "ID",
             },
-            Object {
+            {
               "field": "metadata.name",
               "title": "Name",
             },
-            Object {
+            {
               "field": "metadata.email",
               "title": "Email",
             },
           ]
         }
         rows={
-          Array [
-            Object {
+          [
+            {
               "id": 3,
-              "metadata": Object {
+              "metadata": {
                 "email": "admin@test.ch",
-                "links": Object {
+                "links": {
                   "self": "https://localhost:5000/api/patrons/3",
                 },
                 "name": "admin",
@@ -311,7 +311,7 @@ exports[`PatronsSearch ResultsList tests should render a list of results 1`] = `
                     >
                       <Ref
                         innerRef={
-                          Object {
+                          {
                             "current": <button
                               class="ui button"
                             >
@@ -322,7 +322,7 @@ exports[`PatronsSearch ResultsList tests should render a list of results 1`] = `
                       >
                         <RefFindNode
                           innerRef={
-                            Object {
+                            {
                               "current": <button
                                 class="ui button"
                               >

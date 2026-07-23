@@ -1,135 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SeriesLiteratureSearch tests should load the SeriesLiteratureSearch component 1`] = `
-<Fragment>
-  <Divider
-    horizontal={true}
+<DocumentFragment>
+  <div
+    class="ui horizontal divider"
   >
     Volumes in this series
-  </Divider>
-  <ContextProvider
-    value={
-      Object {
-        "BucketAggregation.element.available-for-loan": [Function],
-        "BucketAggregation.element.menu": [Function],
-        "BucketAggregationValues.element.available-for-loan": [Function],
-        "BucketAggregationValues.element.card": [Function],
-        "EmptyResults.element": [Function],
-        "Error.element": [Function],
-        "Pagination.element": [Function],
-        "ResultsGrid": [Function],
-        "ResultsList": [Function],
-        "SearchBar": [Function],
-        "SortBy.element.desktop": [Function],
-        "SortBy.element.mobile": [Function],
-      }
-    }
+  </div>
+  <div
+    class="ui container series-details-search-container"
   >
-    <Overridable(ReactSearchKit)
-      defaultSortingOnEmptyQueryString={
-        Object {
-          "sortBy": "created",
-          "sortOrder": "desc",
-        }
-      }
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "createHref": [Function],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-      initialQueryState={
-        Object {
-          "layout": "grid",
-          "page": 1,
-          "size": 15,
-          "sortBy": "bestmatch",
-          "sortOrder": "asc",
-        }
-      }
-      searchApi={
-        InvenioSearchApi {
-          "axiosCancelToken": [Function],
-          "axiosConfig": Object {
-            "url": "https://127.0.0.1:5000/api/literature/",
-            "withCredentials": true,
-          },
-          "http": [Function],
-          "requestInterceptor": undefined,
-          "requestSerializer": LiteratureRequestSerializer {
-            "_addFilter": [Function],
-            "_addFilters": [Function],
-            "serialize": [Function],
-          },
-          "responseInterceptor": undefined,
-          "responseSerializer": InvenioResponseSerializer {
-            "serialize": [Function],
-          },
-          "search": [Function],
-        }
-      }
-      urlHandlerApi={
-        Object {
-          "enabled": false,
-        }
-      }
+    <div
+      class="ui big fluid action input  ils-searchbar"
     >
-      <Container
-        className="series-details-search-container"
+      <input
+        placeholder="Search for volumes or issues..."
+        type="text"
+        value=""
+      />
+      <button
+        class="ui icon button"
       >
-        <Connect(WrappedComponent) />
-      </Container>
-      <Media
-        className=""
-        greaterThanOrEqual="computer"
-        style={Object {}}
-      >
-        <Connect(Overridable(ResultsLoader$1))>
-          <Connect(Overridable(EmptyResults$1)) />
-          <Connect(Overridable(Error$2)) />
-          <Connect(WrappedComponent)
-            modelName="LITERATURE"
-          />
-          <Connect(Overridable(ResultsMultiLayout$1)) />
-          <Connect(WrappedComponent) />
-        </Connect(Overridable(ResultsLoader$1))>
-      </Media>
-      <Media
-        className=""
-        lessThan="computer"
-        style={Object {}}
-      >
-        <SeriesLiteratureSearchMobile
-          metadata={
-            Object {
-              "$schema": "https://127.0.0.1:5000/schemas/series/series-v1.0.0.json",
-              "abstract": "This is a multipart monograph",
-              "authors": Array [
-                "Einstein, Albert",
-                "Stachel, John J et al.",
-              ],
-              "mode_of_issuance": "MULTIPART_MONOGRAPH",
-              "pid": "serid-1",
-              "title": "The Gulf: The Making of An American Sea",
-            }
-          }
+        <i
+          aria-hidden="true"
+          class="search icon"
         />
-      </Media>
-    </Overridable(ReactSearchKit)>
-  </ContextProvider>
-</Fragment>
+      </button>
+    </div>
+  </div>
+  <div
+    class="fresnel-container fresnel-greaterThanOrEqual-computer "
+  >
+    <div
+      class="ui huge active centered inline loader"
+    />
+  </div>
+  <div
+    class="fresnel-container fresnel-lessThan-computer "
+  >
+    <div
+      class="ui fluid container grid-documents-search"
+    >
+      <div
+        class="ui huge active centered inline loader"
+      />
+    </div>
+  </div>
+</DocumentFragment>
 `;

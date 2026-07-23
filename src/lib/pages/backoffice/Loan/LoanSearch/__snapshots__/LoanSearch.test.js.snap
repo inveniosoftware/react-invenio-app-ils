@@ -3,20 +3,20 @@
 exports[`LoansSearch ResultsTable tests should not render when empty results 1`] = `
 <ResultsTable
   columns={
-    Array [
-      Object {
+    [
+      {
         "field": "",
         "formatter": [Function],
         "title": "view",
       },
-      Object {
+      {
         "field": "metadata.state",
         "title": "State",
       },
     ]
   }
   currentPage={1}
-  data={Array []}
+  data={[]}
   fixed={false}
   headerActionComponent={null}
   name=""
@@ -63,13 +63,13 @@ exports[`LoansSearch ResultsTable tests should not render when empty results 1`]
 exports[`LoansSearch ResultsTable tests should render a list of results 1`] = `
 <ResultsTable
   columns={
-    Array [
-      Object {
+    [
+      {
         "field": "",
         "formatter": [Function],
         "title": "view",
       },
-      Object {
+      {
         "field": "metadata.state",
         "title": "State",
       },
@@ -77,13 +77,13 @@ exports[`LoansSearch ResultsTable tests should render a list of results 1`] = `
   }
   currentPage={1}
   data={
-    Array [
-      Object {
+    [
+      {
         "created": "2018-01-01T11:05:00+01:00",
         "id": 3,
-        "metadata": Object {
+        "metadata": {
           "end_date": "2018-02-01T10:05:00.000Z",
-          "patron": Object {
+          "patron": {
             "email": "patron@test.ch",
           },
           "patron_pid": 1,
@@ -127,13 +127,13 @@ exports[`LoansSearch ResultsTable tests should render a list of results 1`] = `
     >
       <ResultsTableHeader
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "metadata.state",
               "title": "State",
             },
@@ -192,26 +192,26 @@ exports[`LoansSearch ResultsTable tests should render a list of results 1`] = `
       </ResultsTableHeader>
       <ResultsTableBody
         columns={
-          Array [
-            Object {
+          [
+            {
               "field": "",
               "formatter": [Function],
               "title": "view",
             },
-            Object {
+            {
               "field": "metadata.state",
               "title": "State",
             },
           ]
         }
         rows={
-          Array [
-            Object {
+          [
+            {
               "created": "2018-01-01T11:05:00+01:00",
               "id": 3,
-              "metadata": Object {
+              "metadata": {
                 "end_date": "2018-02-01T10:05:00.000Z",
-                "patron": Object {
+                "patron": {
                   "email": "patron@test.ch",
                 },
                 "patron_pid": 1,
@@ -255,7 +255,7 @@ exports[`LoansSearch ResultsTable tests should render a list of results 1`] = `
                     >
                       <Ref
                         innerRef={
-                          Object {
+                          {
                             "current": <button
                               class="ui button"
                             >
@@ -266,7 +266,7 @@ exports[`LoansSearch ResultsTable tests should render a list of results 1`] = `
                       >
                         <RefFindNode
                           innerRef={
-                            Object {
+                            {
                               "current": <button
                                 class="ui button"
                               >

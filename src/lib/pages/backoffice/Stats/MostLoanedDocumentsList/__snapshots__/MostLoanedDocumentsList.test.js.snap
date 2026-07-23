@@ -72,7 +72,7 @@ exports[`MostLoanedDocumentsList tests should load the component 1`] = `
         <SearchResultsList
           ListEntryElement={[Function]}
           renderMiddleColumn={[Function]}
-          results={Array []}
+          results={[]}
         />
       </Error>
     </Overridable(Loader)>

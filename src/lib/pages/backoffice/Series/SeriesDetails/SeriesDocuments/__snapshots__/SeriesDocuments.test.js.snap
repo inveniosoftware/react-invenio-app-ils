@@ -7,29 +7,29 @@ exports[`SeriesDocuments tests should load the SeriesDocuments component 1`] = `
   <Error
     FallbackComponent={[Function]}
     boundary={false}
-    error={Object {}}
+    error={{}}
     onUIError={null}
   >
     <ResultsTable
       columns={
-        Array [
-          Object {
+        [
+          {
             "field": "metadata.pid",
             "title": "PID",
           },
-          Object {
+          {
             "field": "",
             "formatter": [Function],
             "title": "Title",
           },
-          Object {
+          {
             "formatter": [Function],
             "title": "Volume",
           },
         ]
       }
       currentPage={1}
-      data={Array []}
+      data={[]}
       fixed={false}
       headerActionComponent={null}
       name="documents"

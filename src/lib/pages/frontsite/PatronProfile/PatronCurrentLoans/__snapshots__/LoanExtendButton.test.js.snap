@@ -3,12 +3,12 @@
 exports[`Extend loan button tests should match snapshot 1`] = `
 <LoanExtendButton
   loan={
-    Object {
-      "availableActions": Object {
+    {
+      "availableActions": {
         "extend": "url/extend",
       },
-      "metadata": Object {
-        "document": Object {
+      "metadata": {
+        "document": {
           "edition": "1",
           "publication_year": "1950",
           "title": "The Gulf: The Making of An American Sea",
@@ -16,8 +16,8 @@ exports[`Extend loan button tests should match snapshot 1`] = `
         "document_pid": "docid-1",
         "end_date": "2020-02-01T10:05:00.000Z",
         "extension_count": 0,
-        "item_pid": Object {},
-        "patron": Object {
+        "item_pid": {},
+        "patron": {
           "email": "patron1@test.ch",
         },
         "patron_pid": "1",
@@ -41,13 +41,13 @@ exports[`Extend loan button tests should match snapshot 1`] = `
     disabled={false}
     eventsEnabled={true}
     on={
-      Array [
+      [
         "click",
         "hover",
       ]
     }
     pinned={false}
-    popperModifiers={Array []}
+    popperModifiers={[]}
     position="top right"
     trigger={
       <Icon
@@ -77,7 +77,7 @@ exports[`Extend loan button tests should match snapshot 1`] = `
         />
       }
       triggerRef={
-        Object {
+        {
           "current": <i
             aria-hidden="true"
             class="info icon"
@@ -125,7 +125,7 @@ exports[`Extend loan button tests should match snapshot 1`] = `
   >
     <Ref
       innerRef={
-        Object {
+        {
           "current": <button
             class="ui blue small disabled button"
             disabled=""
@@ -138,7 +138,7 @@ exports[`Extend loan button tests should match snapshot 1`] = `
     >
       <RefFindNode
         innerRef={
-          Object {
+          {
             "current": <button
               class="ui blue small disabled button"
               disabled=""

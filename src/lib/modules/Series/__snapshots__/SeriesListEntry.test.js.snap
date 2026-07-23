@@ -1,94 +1,104 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render correctly 1`] = `
-<Item>
-  <ItemImage
-    as={
-      Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "propTypes": Object {
-          "innerRef": [Function],
-          "onClick": [Function],
-          "replace": [Function],
-          "target": [Function],
-          "to": [Function],
-        },
-        "render": [Function],
-      }
-    }
-    floated="left"
-    to="/series/serid-1"
+<DocumentFragment>
+  <div
+    class="item"
   >
-    <Overridable(LiteratureCover)
-      size="small"
-    />
-  </ItemImage>
-  <ItemContent>
-    <ItemMeta>
-      SERIES
-    </ItemMeta>
-    <ItemHeader
-      as={
-        Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "propTypes": Object {
-            "innerRef": [Function],
-            "onClick": [Function],
-            "replace": [Function],
-            "target": [Function],
-            "to": [Function],
-          },
-          "render": [Function],
-        }
-      }
-      to="/series/serid-1"
+    <a
+      class="left floated image"
+      href="/series/serid-1"
     >
-      <Overridable(LiteratureTitle)
-        title="The Gulf: The Making of An American Sea"
+      <img
+        class="ui small centered image image-cover"
       />
-    </ItemHeader>
-    <ItemMeta>
-      <SeriesAuthors
-        authors={
-          Array [
-            "Einstein, Albert",
-            "Stachel, John J et al.",
-          ]
-        }
-        prefix="by "
-      />
-    </ItemMeta>
-    <ItemDescription>
-      <Truncate
-        lines={2}
-        width={null}
+    </a>
+    <div
+      class="content"
+    >
+      <div
+        class="meta"
       >
-        This is a multipart monograph
-      </Truncate>
-    </ItemDescription>
-    <ItemMeta>
-      <Grid>
-        <GridColumn
-          width={4}
+        SERIES
+      </div>
+      <a
+        class="header"
+        href="/series/serid-1"
+      >
+        <span
+          style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; white-space: normal;"
         >
-          <List>
-            <ListItem>
-              <ListContent>
-                <span>
-                  Languages: 
-                </span>
-                <SeriesLanguages
-                  languages={Array []}
-                />
-              </ListContent>
-            </ListItem>
-          </List>
-        </GridColumn>
-      </Grid>
-    </ItemMeta>
-    <ItemExtra>
-      <Overridable(LiteratureTags) />
-    </ItemExtra>
-  </ItemContent>
-</Item>
+          The Gulf: The Making of An American Sea 
+        </span>
+      </a>
+      <div
+        class="meta"
+      >
+        <div
+          class="document-authors-list-wrapper"
+        >
+          by 
+          <div
+            class="ui horizontal list document-authors-list"
+            role="list"
+          >
+            <div
+              class="item"
+              role="listitem"
+            >
+              Einstein, Albert; 
+            </div>
+            <div
+              class="item"
+              role="listitem"
+            >
+              Stachel, John J et al.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="description"
+      >
+        <span
+          style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; white-space: normal;"
+        >
+          This is a multipart monograph
+        </span>
+      </div>
+      <div
+        class="meta"
+      >
+        <div
+          class="ui grid"
+        >
+          <div
+            class="four wide column"
+          >
+            <div
+              class="ui list"
+              role="list"
+            >
+              <div
+                class="item"
+                role="listitem"
+              >
+                <div
+                  class="content"
+                >
+                  <span>
+                    Languages: 
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="extra"
+      />
+    </div>
+  </div>
+</DocumentFragment>
 `;
