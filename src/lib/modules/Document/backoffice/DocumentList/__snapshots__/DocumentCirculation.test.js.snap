@@ -1,68 +1,93 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DocumentCirculation tests should load the DocumentCirculation component 1`] = `
-<List
-  className="document-circulation"
-  verticalAlign="middle"
->
-  <ListItem>
-    <ListContent
-      floated="right"
+<DocumentFragment>
+  <div
+    class="ui middle aligned list document-circulation"
+    role="list"
+  >
+    <div
+      class="item"
+      role="listitem"
     >
-      <strong>
-        2
-      </strong>
-    </ListContent>
-    <ListContent>
-      total physical copies
-    </ListContent>
-  </ListItem>
-  <ListItem>
-    <ListContent
-      floated="right"
+      <div
+        class="right floated content"
+      >
+        <strong>
+          2
+        </strong>
+      </div>
+      <div
+        class="content"
+      >
+        total physical copies
+      </div>
+    </div>
+    <div
+      class="item"
+      role="listitem"
     >
-      <strong>
-        2
-      </strong>
-    </ListContent>
-    <ListContent>
-      available copies for loan
-    </ListContent>
-  </ListItem>
-  <ListItem>
-    <ListContent
-      floated="right"
+      <div
+        class="right floated content"
+      >
+        <strong>
+          2
+        </strong>
+      </div>
+      <div
+        class="content"
+      >
+        available copies for loan
+      </div>
+    </div>
+    <div
+      class="item"
+      role="listitem"
     >
-      <strong />
-    </ListContent>
-    <ListContent>
-      active loans
-    </ListContent>
-  </ListItem>
-  <ListItem>
-    <ListContent
-      floated="right"
+      <div
+        class="right floated content"
+      >
+        <strong />
+      </div>
+      <div
+        class="content"
+      >
+        active loans
+      </div>
+    </div>
+    <div
+      class="item"
+      role="listitem"
     >
-      <strong />
-    </ListContent>
-    <ListContent>
-      loan requests
-    </ListContent>
-  </ListItem>
-  <ListItem>
-    <ListContent
-      floated="right"
+      <div
+        class="right floated content"
+      >
+        <strong />
+      </div>
+      <div
+        class="content"
+      >
+        loan requests
+      </div>
+    </div>
+    <div
+      class="item"
+      role="listitem"
     >
-      <Icon
-        as="i"
-        color="green"
-        name="minus"
-        size="small"
-      />
-    </ListContent>
-    <ListContent>
-      overbooked
-    </ListContent>
-  </ListItem>
-</List>
+      <div
+        class="right floated content"
+      >
+        <i
+          aria-hidden="true"
+          class="green minus small icon"
+        />
+      </div>
+      <div
+        class="content"
+      >
+        overbooked
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
 `;

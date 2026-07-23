@@ -4,9 +4,10 @@
  */
 
 import React from 'react';
+import { render } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom';
 import SeriesListEntry from './SeriesListEntry';
 import * as testData from '@testData/series.json';
-import { shallow } from 'enzyme';
 
 it('should render correctly', () => {
   const data = {
@@ -15,6 +16,10 @@ it('should render correctly', () => {
     },
   };
 
-  const component = shallow(<SeriesListEntry metadata={data.metadata} />);
-  expect(component).toMatchSnapshot();
+  const { asFragment } = render(
+    <MemoryRouter>
+      <SeriesListEntry metadata={data.metadata} />
+    </MemoryRouter>
+  )
+  expect(asFragment()).toMatchSnapshot();
 });

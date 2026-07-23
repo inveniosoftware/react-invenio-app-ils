@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react'
 import documentsTestData from '@testData/documents.json';
 import seriesTestData from '@testData/series.json';
 
@@ -51,12 +51,12 @@ describe('SeriesLiteratureSearch tests', () => {
   const layoutToggleMock = jest.fn();
 
   it('should load the SeriesLiteratureSearch component', () => {
-    const component = shallow(
+    const { asFragment } = render(
       <SeriesLiteratureSearch
         metadata={series}
         layoutToggle={layoutToggleMock}
       />
     );
-    expect(component).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

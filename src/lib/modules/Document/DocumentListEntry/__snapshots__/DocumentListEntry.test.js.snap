@@ -1,36 +1,131 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render correctly 1`] = `
-<DocumentListEntry
-  metadata={
-    {
-      "$schema": "https://127.0.0.1:5000/schemas/documents/document-v1.0.0.json",
-      "abstract": "This is an abstract",
-      "authors": [
-        {
-          "full_name": "Jack E. Davis",
-        },
-      ],
-      "circulation": {
-        "available_items_for_loan_count": 0,
-      },
-      "document_type": "BOOK",
-      "edition": "1",
-      "eitems": {
-        "hits": [],
-        "total": 0,
-      },
-      "keywords": {
-        "source": "X",
-        "value": "Patata",
-      },
-      "languages": [
-        "en",
-      ],
-      "pid": "13",
-      "publication_year": "1950",
-      "title": "The Gulf: The Making of An American Sea",
-    }
-  }
-/>
+<DocumentFragment>
+  <div
+    class="item"
+  >
+    <a
+      class="left floated image"
+      href="/literature/13"
+    >
+      <img
+        class="ui small centered image image-cover"
+      />
+    </a>
+    <div
+      class="content"
+    >
+      <div
+        class="meta"
+      >
+        BOOK
+      </div>
+      <a
+        class="header"
+        href="/literature/13"
+      >
+        <span
+          style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; white-space: normal;"
+        >
+          The Gulf: The Making of An American Sea 
+        </span>
+      </a>
+      <div
+        class="meta"
+      >
+        <div
+          class="default-margin-bottom"
+        >
+          by 
+          <div
+            class="ui horizontal list document-authors-list"
+            role="list"
+          >
+            <div
+              class="item"
+              role="listitem"
+            >
+              Jack E. Davis
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="description"
+      >
+        <span
+          style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; white-space: normal;"
+        >
+          This is an abstract
+        </span>
+      </div>
+      <div
+        class="meta"
+      >
+        <div
+          class="ui equal width grid"
+        >
+          <div
+            class="column"
+          />
+          <div
+            class="column"
+          />
+          <div
+            class="column"
+          >
+            <div
+              class="ui list"
+              role="list"
+            >
+              <div
+                class="item"
+                role="listitem"
+              >
+                <div
+                  class="content"
+                >
+                  <span>
+                    Edition: 
+                  </span>
+                  1
+                </div>
+              </div>
+              <div
+                class="item"
+                role="listitem"
+              >
+                <div
+                  class="content"
+                >
+                  <span>
+                    Languages: 
+                  </span>
+                  <div
+                    class="ui horizontal list document-languages-list"
+                    role="list"
+                  >
+                    <div
+                      class="item"
+                      role="listitem"
+                    >
+                      EN
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+          />
+        </div>
+      </div>
+      <div
+        class="extra"
+      />
+    </div>
+  </div>
+</DocumentFragment>
 `;
