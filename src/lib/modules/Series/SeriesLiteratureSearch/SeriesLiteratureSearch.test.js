@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { render } from '@testing-library/react'
+import { render } from '@testing-library/react';
 import documentsTestData from '@testData/documents.json';
 import seriesTestData from '@testData/series.json';
 

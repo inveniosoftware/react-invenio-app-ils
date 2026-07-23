@@ -4,7 +4,7 @@
  */
 
 import * as testData from '@testData/documents.json';
-import { render } from '@testing-library/react'
+import { render } from '@testing-library/react';
 import React from 'react';
 import DocumentCirculation from './DocumentCirculation';
 
@@ -25,9 +25,7 @@ describe('DocumentCirculation tests', () => {
   };
 
   it('should load the DocumentCirculation component', () => {
-    const { asFragment } = render(
-      <DocumentCirculation document={document} />
-    );
+    const { asFragment } = render(<DocumentCirculation document={document} />);
 
     expect(asFragment()).toMatchSnapshot();
   });
