@@ -28,6 +28,7 @@ export {
   getStaticPageByRoute,
   getStaticPagesRoutes,
   invenioConfig,
+  DOCUMENT_TYPES,
 } from '@config';
 export { SeriesCardGroup } from '@modules/Series/SeriesCardGroup';
 export { DocumentCardGroup } from '@modules/Document/DocumentCardGroup';
