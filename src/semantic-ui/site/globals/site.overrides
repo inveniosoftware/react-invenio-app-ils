@@ -485,6 +485,10 @@ a {
     .message {
       padding-right: 2.5em;
     }
+
+    .notification-link {
+      text-decoration: underline;
+    }
   }
 
   .bo-sidebar {
