@@ -18,7 +18,7 @@ export default class Notifications extends Component {
         <>
           {before}
           <a
-            style={{ textDecoration: 'underline' }}
+            className="notification-link"
             href={notification.link}
             target="_blank"
             rel="noopener noreferrer"
