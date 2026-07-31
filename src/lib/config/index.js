@@ -150,3 +150,5 @@ export const getStaticPageByRoute = (path) => {
 export const getStaticPageByName = (name) => {
   return _find(invenioConfig.APP.STATIC_PAGES, ['name', name]);
 };
+
+export { DOCUMENT_TYPES } from './common';
