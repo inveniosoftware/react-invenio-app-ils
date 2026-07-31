@@ -35,29 +35,33 @@ export default class LoanUpdateDates extends Component {
     return metadata.state === 'CANCELLED';
   };
 
-  isActiveOrCompleted = () => {
+  isReturned = () => {
     const {
       loan: { metadata },
     } = this.props;
-    return (
-      invenioConfig.CIRCULATION.loanActiveStates.includes(metadata.state) ||
-      metadata.state === 'ITEM_RETURNED'
-    );
+    return metadata.state === 'ITEM_RETURNED';
+  };
+
+  isActive = () => {
+    const {
+      loan: { metadata },
+    } = this.props;
+    return invenioConfig.CIRCULATION.loanActiveStates.includes(metadata.state);
+  };
+
+  isEditable = () => {
+    return !this.isCancelled() && !this.isReturned();
   };
 
   handleStartDateChange = (value) => {
     this.setState(
-      this.isActiveOrCompleted()
-        ? { startDate: value }
-        : { requestStartDate: value }
+      this.isActive() ? { startDate: value } : { requestStartDate: value }
     );
   };
 
   handleEndDateChange = (value) => {
     this.setState(
-      this.isActiveOrCompleted()
-        ? { endDate: value }
-        : { requestExpireDate: value }
+      this.isActive() ? { endDate: value } : { requestExpireDate: value }
     );
   };
 
@@ -84,7 +88,7 @@ export default class LoanUpdateDates extends Component {
   isSelectionValid = () => {
     const { startDate, endDate, requestStartDate, requestExpireDate } =
       this.state;
-    const active = this.isActiveOrCompleted();
+    const active = this.isActive();
     const start = active ? startDate : requestStartDate;
     const end = active ? endDate : requestExpireDate;
     return start && end && DateTime.fromISO(start) < DateTime.fromISO(end);
@@ -99,7 +103,7 @@ export default class LoanUpdateDates extends Component {
     } = this.props;
     const { startDate, endDate, requestStartDate, requestExpireDate } =
       this.state;
-    const data = this.isActiveOrCompleted()
+    const data = this.isActive()
       ? {
           startDate: startDate,
           endDate: endDate,
@@ -124,6 +128,19 @@ export default class LoanUpdateDates extends Component {
     );
   };
 
+  renderNotEditableMessage = () => {
+    const reason = this.isCancelled()
+      ? 'This loan has been cancelled.'
+      : 'This loan has already been returned.';
+    return (
+      <Message
+        info
+        header="Dates cannot be edited"
+        content={`${reason} Loan dates can only be edited while a loan is active or pending.`}
+      />
+    );
+  };
+
   render() {
     const { isLoading, hasError, error } = this.props;
     const {
@@ -134,17 +151,15 @@ export default class LoanUpdateDates extends Component {
       requestExpireDate,
     } = this.state;
 
-    const active = this.isActiveOrCompleted();
+    const editable = this.isEditable();
+    const active = this.isActive();
 
     const title = active ? 'Edit loan dates' : 'Edit period of interest';
     const startLabel = active ? 'Start date' : 'Period of interest starts';
     const endLabel = active ? 'End date' : 'Period of interest ends';
 
     const warning =
-      !active &&
-      !this.isCancelled() &&
-      requestStartDate &&
-      requestStartDate < this.today()
+      editable && !active && requestStartDate && requestStartDate < this.today()
         ? 'The requested start date is in the past, the loan will be cancelled.'
         : null;
 
@@ -166,7 +181,9 @@ export default class LoanUpdateDates extends Component {
         <Modal open={modalOpen}>
           <Modal.Header>{title}</Modal.Header>
           <Modal.Content>
-            {hasError && (
+            {!editable && this.renderNotEditableMessage()}
+
+            {editable && hasError && (
               <Message
                 error
                 header="Something went wrong"
@@ -174,50 +191,54 @@ export default class LoanUpdateDates extends Component {
               />
             )}
 
-            {warning && this.renderWarning(warning)}
+            {editable && warning && this.renderWarning(warning)}
 
-            <Form>
-              <Form.Group>
-                <Form.Field inline required>
-                  <label>{startLabel}</label>
-                  <LocationDatePicker
-                    maxDate={active ? this.today() : null}
-                    defaultValue={active ? startDate : requestStartDate}
-                    locationPid={sessionManager.user.locationPid}
-                    placeholder={startLabel}
-                    handleDateChange={(value) =>
-                      this.handleStartDateChange(value)
-                    }
-                  />
-                </Form.Field>
-                <Form.Field inline required>
-                  <label>{endLabel}</label>
-                  <LocationDatePicker
-                    defaultValue={active ? endDate : requestExpireDate}
-                    locationPid={sessionManager.user.locationPid}
-                    placeholder={endLabel}
-                    handleDateChange={(value) =>
-                      this.handleEndDateChange(value)
-                    }
-                  />
-                </Form.Field>
-              </Form.Group>
-              {hint && this.renderHint(hint)}
-            </Form>
+            {editable && (
+              <Form>
+                <Form.Group>
+                  <Form.Field inline required>
+                    <label>{startLabel}</label>
+                    <LocationDatePicker
+                      maxDate={active ? this.today() : null}
+                      defaultValue={active ? startDate : requestStartDate}
+                      locationPid={sessionManager.user.locationPid}
+                      placeholder={startLabel}
+                      handleDateChange={(value) =>
+                        this.handleStartDateChange(value)
+                      }
+                    />
+                  </Form.Field>
+                  <Form.Field inline required>
+                    <label>{endLabel}</label>
+                    <LocationDatePicker
+                      defaultValue={active ? endDate : requestExpireDate}
+                      locationPid={sessionManager.user.locationPid}
+                      placeholder={endLabel}
+                      handleDateChange={(value) =>
+                        this.handleEndDateChange(value)
+                      }
+                    />
+                  </Form.Field>
+                </Form.Group>
+                {hint && this.renderHint(hint)}
+              </Form>
+            )}
           </Modal.Content>
           <Modal.Actions key="modalActions">
             <Button onClick={this.handleCloseModal} disabled={isLoading}>
-              Cancel
+              {editable ? 'Cancel' : 'Close'}
             </Button>
-            <Button
-              primary
-              disabled={!this.isSelectionValid() || isLoading}
-              loading={isLoading}
-              icon="checkmark"
-              labelPosition="left"
-              content="Submit"
-              onClick={this.handleUpdateLoanDates}
-            />
+            {editable && (
+              <Button
+                primary
+                disabled={!this.isSelectionValid() || isLoading}
+                loading={isLoading}
+                icon="checkmark"
+                labelPosition="left"
+                content="Submit"
+                onClick={this.handleUpdateLoanDates}
+              />
+            )}
           </Modal.Actions>
         </Modal>
       </>
