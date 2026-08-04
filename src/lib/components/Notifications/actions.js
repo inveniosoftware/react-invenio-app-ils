@@ -35,13 +35,21 @@ export const sendWarningNotification = (title, content) => {
   return addNotification(title, content, 'warning');
 };
 
-export const addNotification = (title, content, type) => {
+export const addNotification = (
+  title,
+  content,
+  type,
+  link = undefined,
+  linkDisplayName = undefined
+) => {
   return {
     type: ADD,
     payload: {
       type: type,
       title: title,
       content: content,
+      link: link,
+      linkDisplayName: linkDisplayName,
     },
   };
 };

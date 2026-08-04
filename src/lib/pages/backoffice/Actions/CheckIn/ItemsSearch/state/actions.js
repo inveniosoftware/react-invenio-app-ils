@@ -60,7 +60,9 @@ export const checkin = (barcode, onSuccess) => {
           addNotification(
             'Error',
             `No item or no loan for barcode ${barcode}`,
-            'error'
+            'error',
+            `/backoffice/documents?q=${barcode}`,
+            barcode
           )
         );
       }
