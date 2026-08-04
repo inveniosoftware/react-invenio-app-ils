@@ -14,12 +14,12 @@ class SearchAggregation extends Component {
     const { currentResultsState, modelName } = this.props;
     const totalResults = currentResultsState.data.total;
 
-    return totalResults > 0 ? (
+    return (
       <>
         <Header content="Filter by" />
         <SearchAggregationsCards modelName={modelName} />
       </>
-    ) : null;
+    );
   }
 }
 
