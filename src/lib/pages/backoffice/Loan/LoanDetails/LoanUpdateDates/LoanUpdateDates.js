@@ -8,7 +8,15 @@ import { invenioConfig } from '@config';
 import { DateTime } from 'luxon';
 import { PropTypes } from 'prop-types';
 import React, { Component } from 'react';
-import { Button, Divider, Form, Icon, Message, Modal } from 'semantic-ui-react';
+import {
+  Button,
+  Divider,
+  Form,
+  Icon,
+  Message,
+  Modal,
+  Popup,
+} from 'semantic-ui-react';
 import { sessionManager } from '@authentication/services/SessionManager';
 import { LocationDatePicker } from '@modules/Location';
 
@@ -165,25 +173,39 @@ export default class LoanUpdateDates extends Component {
 
     const hint = active ? 'The loan start date cannot be in the future.' : null;
 
+    const notEditableReason = this.isCancelled()
+      ? 'This loan has been cancelled.'
+      : 'This loan has already been returned.';
+
+    const editButton = (
+      <Button
+        icon
+        primary
+        labelPosition="left"
+        fluid
+        onClick={this.handleOpenModal}
+        disabled={!editable}
+      >
+        <Icon name="edit" />
+        {title}
+      </Button>
+    );
+
     return (
       <>
-        <Button
-          icon
-          primary
-          labelPosition="left"
-          fluid
-          onClick={this.handleOpenModal}
-        >
-          <Icon name="edit" />
-          {title}
-        </Button>
+        {editable ? (
+          editButton
+        ) : (
+          <Popup
+            content={`${notEditableReason} Loan dates can only be edited while a loan is active or pending.`}
+            trigger={<span>{editButton}</span>}
+          />
+        )}
 
         <Modal open={modalOpen}>
           <Modal.Header>{title}</Modal.Header>
           <Modal.Content>
-            {!editable && this.renderNotEditableMessage()}
-
-            {editable && hasError && (
+            {hasError && (
               <Message
                 error
                 header="Something went wrong"
@@ -191,54 +213,50 @@ export default class LoanUpdateDates extends Component {
               />
             )}
 
-            {editable && warning && this.renderWarning(warning)}
+            {warning && this.renderWarning(warning)}
 
-            {editable && (
-              <Form>
-                <Form.Group>
-                  <Form.Field inline required>
-                    <label>{startLabel}</label>
-                    <LocationDatePicker
-                      maxDate={active ? this.today() : null}
-                      defaultValue={active ? startDate : requestStartDate}
-                      locationPid={sessionManager.user.locationPid}
-                      placeholder={startLabel}
-                      handleDateChange={(value) =>
-                        this.handleStartDateChange(value)
-                      }
-                    />
-                  </Form.Field>
-                  <Form.Field inline required>
-                    <label>{endLabel}</label>
-                    <LocationDatePicker
-                      defaultValue={active ? endDate : requestExpireDate}
-                      locationPid={sessionManager.user.locationPid}
-                      placeholder={endLabel}
-                      handleDateChange={(value) =>
-                        this.handleEndDateChange(value)
-                      }
-                    />
-                  </Form.Field>
-                </Form.Group>
-                {hint && this.renderHint(hint)}
-              </Form>
-            )}
+            <Form>
+              <Form.Group>
+                <Form.Field inline required>
+                  <label>{startLabel}</label>
+                  <LocationDatePicker
+                    maxDate={active ? this.today() : null}
+                    defaultValue={active ? startDate : requestStartDate}
+                    locationPid={sessionManager.user.locationPid}
+                    placeholder={startLabel}
+                    handleDateChange={(value) =>
+                      this.handleStartDateChange(value)
+                    }
+                  />
+                </Form.Field>
+                <Form.Field inline required>
+                  <label>{endLabel}</label>
+                  <LocationDatePicker
+                    defaultValue={active ? endDate : requestExpireDate}
+                    locationPid={sessionManager.user.locationPid}
+                    placeholder={endLabel}
+                    handleDateChange={(value) =>
+                      this.handleEndDateChange(value)
+                    }
+                  />
+                </Form.Field>
+              </Form.Group>
+              {hint && this.renderHint(hint)}
+            </Form>
           </Modal.Content>
           <Modal.Actions key="modalActions">
             <Button onClick={this.handleCloseModal} disabled={isLoading}>
-              {editable ? 'Cancel' : 'Close'}
+              Cancel
             </Button>
-            {editable && (
-              <Button
-                primary
-                disabled={!this.isSelectionValid() || isLoading}
-                loading={isLoading}
-                icon="checkmark"
-                labelPosition="left"
-                content="Submit"
-                onClick={this.handleUpdateLoanDates}
-              />
-            )}
+            <Button
+              primary
+              disabled={!this.isSelectionValid() || isLoading}
+              loading={isLoading}
+              icon="checkmark"
+              labelPosition="left"
+              content="Submit"
+              onClick={this.handleUpdateLoanDates}
+            />
           </Modal.Actions>
         </Modal>
       </>
