@@ -32,6 +32,13 @@ export default class EItemDetails extends Component {
     if (!samePidFromRouter) {
       fetchEItemDetails(eitemPid);
     }
+
+    const { renderTabTitle, data } = this.props;
+    if (renderTabTitle) {
+      renderTabTitle({
+        title: data.metadata.title,
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -88,8 +95,10 @@ EItemDetails.propTypes = {
       eitemPid: PropTypes.string,
     }),
   }).isRequired,
+  renderTabTitle: PropTypes.func,
 };
 
 EItemDetails.defaultProps = {
   error: null,
+  renderTabTitle: null,
 };

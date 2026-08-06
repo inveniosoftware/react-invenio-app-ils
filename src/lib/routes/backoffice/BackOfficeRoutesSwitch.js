@@ -51,10 +51,25 @@ import Overridable from 'react-overridable';
 import { Route, Switch } from 'react-router-dom';
 
 export default class BackOfficeRoutesSwitch extends Component {
+  renderTabTitle = ({
+    title,
+    prefix = 'Admin: ',
+    suffix = ' | CERN Library Catalogue',
+  }) => {
+    document.title = `${prefix}${title}${suffix}`;
+  };
+
   render() {
     return (
       <Switch>
-        <Route exact path={BackOfficeRoutes.home} component={Home} />
+        <Route
+          exact
+          path={BackOfficeRoutes.home}
+          render={(props) => {
+            this.renderTabTitle({ prefix: '', title: 'Admin Panel' });
+            return <Home {...props} />;
+          }}
+        />
         {/* documents */}
         <Route
           exact
@@ -74,7 +89,14 @@ export default class BackOfficeRoutesSwitch extends Component {
         <Route
           exact
           path={BackOfficeRoutes.documentDetails}
-          component={DocumentDetails}
+          render={(props) => {
+            return (
+              <DocumentDetails
+                {...props}
+                renderTabTitle={this.renderTabTitle}
+              />
+            );
+          }}
         />
         {/* eitems */}
         <Route
@@ -95,7 +117,11 @@ export default class BackOfficeRoutesSwitch extends Component {
         <Route
           exact
           path={BackOfficeRoutes.eitemDetails}
-          component={EItemDetails}
+          render={(props) => {
+            return (
+              <EItemDetails {...props} renderTabTitle={this.renderTabTitle} />
+            );
+          }}
         />
         {/*/!* items *!/*/}
         <Route exact path={BackOfficeRoutes.itemsList} component={ItemSearch} />

@@ -47,6 +47,13 @@ export default class DocumentDetails extends Component {
     if (!samePidFromRouter) {
       fetchDocumentDetails(documentPid);
     }
+
+    const { renderTabTitle, data } = this.props;
+    if (renderTabTitle) {
+      renderTabTitle({
+        title: data.metadata.title,
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -115,8 +122,10 @@ DocumentDetails.propTypes = {
       documentPid: PropTypes.string,
     }),
   }).isRequired,
+  renderTabTitle: PropTypes.func,
 };
 
 DocumentDetails.defaultProps = {
   error: null,
+  renderTabTitle: null,
 };
