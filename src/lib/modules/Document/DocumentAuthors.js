@@ -6,7 +6,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
-import { Icon, List, Popup } from 'semantic-ui-react';
+import { List } from 'semantic-ui-react';
+import { PopupIcon } from '@components/PopupIcon';
 import { invenioConfig } from '@config';
 
 const ET_AL_LABEL = 'et al.';
@@ -132,11 +133,11 @@ class PopUpShowMoreFields extends Component {
     return (
       <>
         {' '}
-        <Popup
+        <PopupIcon
           content={this.renderPopupContent(author)}
+          ariaLabel={`More information about ${author.full_name}`}
           position="top center"
           flowing
-          trigger={<Icon name="info circle" />}
         />
       </>
     );
