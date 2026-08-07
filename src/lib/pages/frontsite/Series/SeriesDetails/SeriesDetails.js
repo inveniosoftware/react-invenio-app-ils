@@ -25,6 +25,7 @@ import { Link } from 'react-router-dom';
 import { Container, Grid, Icon, Label } from 'semantic-ui-react';
 import { SeriesMetadata } from './SeriesMetadata';
 import SeriesPanel from './SeriesPanel/SeriesPanel';
+import { Helmet } from 'react-helmet-async';
 
 const SeriesDetailsLayout = ({ error, isLoading, series }) => {
   const breadcrumbs = () => [
@@ -32,89 +33,94 @@ const SeriesDetailsLayout = ({ error, isLoading, series }) => {
     { to: FrontSiteRoutes.documentsList, label: 'Search' },
   ];
   return (
-    <Overridable id="SeriesDetails.layout" {...{ error, isLoading, series }}>
-      <Error boundary error={error}>
-        <Container className="document-details-container default-margin-top">
-          <ILSParagraphPlaceholder isLoading={isLoading} linesNumber={1}>
-            <Grid columns={2}>
-              <Grid.Column computer={13} tablet={13} mobile={16}>
-                <Breadcrumbs
-                  isLoading={isLoading}
-                  elements={breadcrumbs()}
-                  currentElement={
-                    series.metadata ? series.metadata.title : null
-                  }
-                />
-              </Grid.Column>
-              <Grid.Column
-                computer={3}
-                tablet={3}
-                mobile={16}
-                textAlign="right"
-              >
-                {!_isEmpty(series.metadata) && (
-                  <AuthenticationGuard
-                    silent
-                    authorizedComponent={() => (
-                      <Label
-                        as={Link}
-                        to={BackOfficeRoutes.seriesDetailsFor(
-                          series.metadata.pid
-                        )}
-                        color="grey"
-                      >
-                        <Icon name="cogs" />
-                        Open in Backoffice
-                      </Label>
-                    )}
-                    roles={['admin', 'librarian']}
-                    loginComponent={() => null}
+    <>
+      <Helmet>
+        <title>{series.metadata ? series.metadata.title : 'Series'}</title>
+      </Helmet>
+      <Overridable id="SeriesDetails.layout" {...{ error, isLoading, series }}>
+        <Error boundary error={error}>
+          <Container className="document-details-container default-margin-top">
+            <ILSParagraphPlaceholder isLoading={isLoading} linesNumber={1}>
+              <Grid columns={2}>
+                <Grid.Column computer={13} tablet={13} mobile={16}>
+                  <Breadcrumbs
+                    isLoading={isLoading}
+                    elements={breadcrumbs()}
+                    currentElement={
+                      series.metadata ? series.metadata.title : null
+                    }
                   />
-                )}
-              </Grid.Column>
-            </Grid>
-          </ILSParagraphPlaceholder>
+                </Grid.Column>
+                <Grid.Column
+                  computer={3}
+                  tablet={3}
+                  mobile={16}
+                  textAlign="right"
+                >
+                  {!_isEmpty(series.metadata) && (
+                    <AuthenticationGuard
+                      silent
+                      authorizedComponent={() => (
+                        <Label
+                          as={Link}
+                          to={BackOfficeRoutes.seriesDetailsFor(
+                            series.metadata.pid
+                          )}
+                          color="grey"
+                        >
+                          <Icon name="cogs" />
+                          Open in Backoffice
+                        </Label>
+                      )}
+                      roles={['admin', 'librarian']}
+                      loginComponent={() => null}
+                    />
+                  )}
+                </Grid.Column>
+              </Grid>
+            </ILSParagraphPlaceholder>
 
-          <SeriesPanel isLoading={isLoading} series={series} />
-        </Container>
-        <Container className="series-tags spaced">
-          <Media greaterThanOrEqual="tablet">
-            <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
-              <LiteratureTags tags={series.metadata.tags} />
-            </ILSParagraphPlaceholder>
-          </Media>
-        </Container>
-        {series.metadata.physical_volumes && (
-          <Container className="items-locations spaced">
-            <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
-              <SeriesPhysicalVolumes
-                physicalVolumes={series.metadata.physical_volumes}
-                header="Where to find"
-              />
-            </ILSParagraphPlaceholder>
+            <SeriesPanel isLoading={isLoading} series={series} />
           </Container>
-        )}
-        <Media greaterThanOrEqual="computer">
-          <Container className="items-locations spaced">
+          <Container className="series-tags spaced">
+            <Media greaterThanOrEqual="tablet">
+              <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
+                <LiteratureTags tags={series.metadata.tags} />
+              </ILSParagraphPlaceholder>
+            </Media>
+          </Container>
+          {series.metadata.physical_volumes && (
+            <Container className="items-locations spaced">
+              <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
+                <SeriesPhysicalVolumes
+                  physicalVolumes={series.metadata.physical_volumes}
+                  header="Where to find"
+                />
+              </ILSParagraphPlaceholder>
+            </Container>
+          )}
+          <Media greaterThanOrEqual="computer">
+            <Container className="items-locations spaced">
+              <ILSParagraphPlaceholder linesNumber={3} isLoading={isLoading}>
+                <SeriesLiteratureSearch metadata={series.metadata} />
+              </ILSParagraphPlaceholder>
+            </Container>
+          </Media>
+          <Media lessThan="computer">
             <ILSParagraphPlaceholder linesNumber={3} isLoading={isLoading}>
               <SeriesLiteratureSearch metadata={series.metadata} />
             </ILSParagraphPlaceholder>
+          </Media>
+          <Container className="section" fluid>
+            <Container>
+              <ILSParagraphPlaceholder linesNumber={20} isLoading={isLoading}>
+                <SeriesMetadata />
+              </ILSParagraphPlaceholder>
+            </Container>
           </Container>
-        </Media>
-        <Media lessThan="computer">
-          <ILSParagraphPlaceholder linesNumber={3} isLoading={isLoading}>
-            <SeriesLiteratureSearch metadata={series.metadata} />
-          </ILSParagraphPlaceholder>
-        </Media>
-        <Container className="section" fluid>
-          <Container>
-            <ILSParagraphPlaceholder linesNumber={20} isLoading={isLoading}>
-              <SeriesMetadata />
-            </ILSParagraphPlaceholder>
-          </Container>
-        </Container>
-      </Error>
-    </Overridable>
+        </Error>
+      </Overridable>
+    </>
   );
 };
 

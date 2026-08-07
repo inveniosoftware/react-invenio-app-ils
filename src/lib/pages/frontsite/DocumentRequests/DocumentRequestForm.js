@@ -20,6 +20,7 @@ import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Link } from 'react-router-dom';
 import { Container, Divider, Form, Header, Segment } from 'semantic-ui-react';
+import { Helmet } from 'react-helmet-async';
 
 class DocumentRequestForm extends Component {
   constructor(props) {
@@ -250,9 +251,14 @@ class DocumentRequestForm extends Component {
   }
   render() {
     return (
-      <AuthenticationGuard
-        authorizedComponent={() => this.renderAuthorized()}
-      />
+      <>
+        <Helmet>
+          <title>Document Request Form</title>
+        </Helmet>
+        <AuthenticationGuard
+          authorizedComponent={() => this.renderAuthorized()}
+        />
+      </>
     );
   }
 }

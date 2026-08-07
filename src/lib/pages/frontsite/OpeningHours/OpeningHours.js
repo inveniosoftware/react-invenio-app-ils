@@ -16,6 +16,7 @@ import _sortBy from 'lodash/sortBy';
 import { AuthenticationGuard } from '@authentication/components/AuthenticationGuard';
 import { Link } from 'react-router-dom';
 import { BackOfficeRoutes } from '@routes/backoffice/backofficeUrls';
+import { Helmet } from 'react-helmet-async';
 
 class OpeningHours extends Component {
   constructor(props) {
@@ -59,16 +60,21 @@ class OpeningHours extends Component {
   render() {
     const { error, isLoading } = this.props;
     return (
-      <Container className="spaced">
-        <Overridable id="OpeningHours.details">
-          <Header as="h2">Opening hours</Header>
-        </Overridable>
-        <Loader isLoading={isLoading}>
-          <Error error={error}>
-            <Grid>{this.renderItems()}</Grid>
-          </Error>
-        </Loader>
-      </Container>
+      <>
+        <Helmet>
+          <title>Opening Hours</title>
+        </Helmet>
+        <Container className="spaced">
+          <Overridable id="OpeningHours.details">
+            <Header as="h2">Opening hours</Header>
+          </Overridable>
+          <Loader isLoading={isLoading}>
+            <Error error={error}>
+              <Grid>{this.renderItems()}</Grid>
+            </Error>
+          </Loader>
+        </Container>
+      </>
     );
   }
 }

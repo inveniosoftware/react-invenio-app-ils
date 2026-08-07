@@ -18,6 +18,7 @@ import {
 import { BarcodeScanner } from '@components/BarcodeScanner';
 import { SelfCheckoutModal } from './SelfCheckoutModal';
 import { ManualCheckout } from './ManualCheckout';
+import { Helmet } from 'react-helmet-async';
 
 class SelfCheckout extends React.Component {
   constructor(props) {
@@ -105,25 +106,30 @@ class SelfCheckout extends React.Component {
   render() {
     const { showModal } = this.state;
     return (
-      <Container className="spaced" textAlign="center">
-        <Header as="h1">SELF-CHECKOUT</Header>
-        <Container>
-          <BarcodeScanner onBarcodeDetected={this.onBarcodeDetected} />
-          <ManualCheckout show onBarcodeInput={this.onBarcodeDetected} />
-          <Message warning compact>
-            Barcode not detected while scanning?
-            <br />
-            Try using another browser. (Recommended:{' '}
-            <a href="https://www.google.com/chrome/">Google Chrome</a>)
-          </Message>
+      <>
+        <Helmet>
+          <title>Self Checkout</title>
+        </Helmet>
+        <Container className="spaced" textAlign="center">
+          <Header as="h1">SELF-CHECKOUT</Header>
+          <Container>
+            <BarcodeScanner onBarcodeDetected={this.onBarcodeDetected} />
+            <ManualCheckout show onBarcodeInput={this.onBarcodeDetected} />
+            <Message warning compact>
+              Barcode not detected while scanning?
+              <br />
+              Try using another browser. (Recommended:{' '}
+              <a href="https://www.google.com/chrome/">Google Chrome</a>)
+            </Message>
+          </Container>
+          <SelfCheckoutModal
+            modalOpened={showModal}
+            toggleModal={this.toggleModal}
+            onBarcodeDetected={this.onBarcodeDetected}
+          />
+          {this.renderInstructions()}
         </Container>
-        <SelfCheckoutModal
-          modalOpened={showModal}
-          toggleModal={this.toggleModal}
-          onBarcodeDetected={this.onBarcodeDetected}
-        />
-        {this.renderInstructions()}
-      </Container>
+      </>
     );
   }
 }
