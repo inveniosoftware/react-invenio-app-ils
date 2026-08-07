@@ -11,6 +11,7 @@ import {
   TooManyRequests,
   Unauthorized,
 } from '@components/HttpErrors';
+import { Helmet } from 'react-helmet-async';
 
 export class ErrorsPage extends Component {
   render() {
@@ -19,23 +20,63 @@ export class ErrorsPage extends Component {
     if (params) {
       if (params.errorCode >= 500) {
         if (params.errorId) {
-          return <InternalServerError errorId={params.errorId} />;
+          return (
+            <>
+              <Helmet>
+                <title>Internal Server Error</title>
+              </Helmet>
+              <InternalServerError errorId={params.errorId} />
+            </>
+          );
         }
-        return <InternalServerError />;
+        return (
+          <>
+            <Helmet>
+              <title>Internal Server Error</title>
+            </Helmet>
+            <InternalServerError />
+          </>
+        );
       } else if (params.errorCode === 404) {
-        return <NotFound />;
+        return (
+          <>
+            <Helmet>
+              <title>Page Not Found</title>
+            </Helmet>
+            <NotFound />
+          </>
+        );
       } else if (params.errorCode === 410) {
         return (
-          <HttpErrorComponent
-            title="Resource No Longer Available"
-            message="The requested content has been removed."
-            icon="compass outline"
-          />
+          <>
+            <Helmet>
+              <title>Resource No Longer Available</title>
+            </Helmet>
+            <HttpErrorComponent
+              title="Resource No Longer Available"
+              message="The requested content has been removed."
+              icon="compass outline"
+            />
+          </>
         );
       } else if (params.errorCode === 403) {
-        return <Unauthorized />;
+        return (
+          <>
+            <Helmet>
+              <title>Unauthorized</title>
+            </Helmet>
+            <Unauthorized />
+          </>
+        );
       } else if (params.errorCode === 429) {
-        return <TooManyRequests />;
+        return (
+          <>
+            <Helmet>
+              <title>Too Many Requests</title>
+            </Helmet>
+            <TooManyRequests />
+          </>
+        );
       }
     }
     return null;

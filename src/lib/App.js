@@ -20,6 +20,7 @@ import { connect, Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { configureStore } from './store';
 import { MediaContextProvider } from '@components/Media';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 
 export const ILSStore = configureStore();
 
@@ -55,31 +56,37 @@ export default class App extends Component {
 
   render() {
     return (
-      <MediaContextProvider>
-        <Provider store={ILSStore}>
-          <FetchUser>
-            <Switch>
-              <Route exact path={AuthenticationRoutes.login}>
-                <Login />
-              </Route>
-              <AuthenticationGuard
-                path={AuthenticationRoutes.confirmEmail}
-                authorizedComponent={ConfirmEmail}
-              />
-              <AuthenticationGuard
-                path={BackOfficeRoutes.home}
-                authorizedComponent={BackOffice}
-                unAuthorizedComponent={UnAuthorized}
-                roles={['admin', 'librarian']}
-              />
-              <FrontSite />
-              <Route>
-                <NotFound />
-              </Route>
-            </Switch>
-          </FetchUser>
-        </Provider>
-      </MediaContextProvider>
+      <HelmetProvider>
+        <Helmet
+          defaultTitle={invenioConfig.APP.NAME || 'CERN Library Catalogue'}
+          titleTemplate={`%s | ${invenioConfig.APP.NAME || 'CERN Library Catalogue'}`}
+        />
+        <MediaContextProvider>
+          <Provider store={ILSStore}>
+            <FetchUser>
+              <Switch>
+                <Route exact path={AuthenticationRoutes.login}>
+                  <Login />
+                </Route>
+                <AuthenticationGuard
+                  path={AuthenticationRoutes.confirmEmail}
+                  authorizedComponent={ConfirmEmail}
+                />
+                <AuthenticationGuard
+                  path={BackOfficeRoutes.home}
+                  authorizedComponent={BackOffice}
+                  unAuthorizedComponent={UnAuthorized}
+                  roles={['admin', 'librarian']}
+                />
+                <FrontSite />
+                <Route>
+                  <NotFound />
+                </Route>
+              </Switch>
+            </FetchUser>
+          </Provider>
+        </MediaContextProvider>
+      </HelmetProvider>
     );
   }
 }

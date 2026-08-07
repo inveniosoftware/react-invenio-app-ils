@@ -14,6 +14,7 @@ import { PatronOverview } from './PatronOverview';
 import { PatronPastDocumentRequests } from './PatronPastDocumentRequests';
 import { PatronPastLoans } from './PatronPastLoans';
 import { PatronPendingLoans } from './PatronPendingLoans';
+import { Helmet } from 'react-helmet-async';
 
 class PatronProfile extends Component {
   constructor(props) {
@@ -79,9 +80,14 @@ class PatronProfile extends Component {
 
   render() {
     return (
-      <AuthenticationGuard
-        authorizedComponent={() => this.renderWhenAuthorised()}
-      />
+      <>
+        <Helmet>
+          <title>Profile</title>
+        </Helmet>
+        <AuthenticationGuard
+          authorizedComponent={() => this.renderWhenAuthorised()}
+        />
+      </>
     );
   }
 }
