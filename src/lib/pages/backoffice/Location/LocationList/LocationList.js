@@ -18,6 +18,7 @@ import { NewButton } from '@components/backoffice/buttons/NewButton';
 import { BackOfficeRoutes } from '@routes/urls';
 import { goTo } from '@history';
 import _get from 'lodash/get';
+import { Helmet } from 'react-helmet-async';
 
 export default class LocationList extends Component {
   constructor(props) {
@@ -104,24 +105,29 @@ export default class LocationList extends Component {
     let { data, isLoading, error } = this.props;
 
     return (
-      <Container fluid>
-        <Header as="h2">Physical locations </Header>
-        <Grid>
-          <Grid.Column width={16}>
-            <Container fluid className="spaced">
-              <Loader isLoading={isLoading}>
-                <Error error={error}>{this.renderResults(data)}</Error>
-              </Loader>
-            </Container>
-            <br />
-            <Divider />
-            <br />
-            <Container fluid className="spaced">
-              <InternalLocationList />
-            </Container>
-          </Grid.Column>
-        </Grid>
-      </Container>
+      <>
+        <Helmet>
+          <title>Locations</title>
+        </Helmet>
+        <Container fluid>
+          <Header as="h2">Physical locations </Header>
+          <Grid>
+            <Grid.Column width={16}>
+              <Container fluid className="spaced">
+                <Loader isLoading={isLoading}>
+                  <Error error={error}>{this.renderResults(data)}</Error>
+                </Loader>
+              </Container>
+              <br />
+              <Divider />
+              <br />
+              <Container fluid className="spaced">
+                <InternalLocationList />
+              </Container>
+            </Grid.Column>
+          </Grid>
+        </Container>
+      </>
     );
   }
 }

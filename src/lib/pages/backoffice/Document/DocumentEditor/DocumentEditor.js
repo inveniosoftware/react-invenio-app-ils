@@ -17,6 +17,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { schema } from './schema';
 import { uiSchema } from './uiSchema';
+import { Helmet } from 'react-helmet-async';
 
 export class DocumentEditor extends Component {
   constructor(props) {
@@ -140,31 +141,43 @@ export class DocumentEditor extends Component {
       }
 
       return (
-        <Loader isLoading={isLoading}>
-          <Error error={error}>
-            <RJSForm
-              schema={schema()}
-              uiSchema={uiSchema(formTitle, { tooManyAuthors: tooManyAuthors })}
-              formData={data.metadata}
-              submitAction={this.submitAction}
-              successCallback={this.successCallback}
-              successMessage="The document was successfully updated."
-            />
-          </Error>
-        </Loader>
+        <>
+          <Helmet>
+            <title>{`Edit document - ${documentPid ?? ''}`}</title>
+          </Helmet>
+          <Loader isLoading={isLoading}>
+            <Error error={error}>
+              <RJSForm
+                schema={schema()}
+                uiSchema={uiSchema(formTitle, {
+                  tooManyAuthors: tooManyAuthors,
+                })}
+                formData={data.metadata}
+                submitAction={this.submitAction}
+                successCallback={this.successCallback}
+                successMessage="The document was successfully updated."
+              />
+            </Error>
+          </Loader>
+        </>
       );
     } else {
       const formTitle = 'Document - Create';
       const prefilledFormData = _get(this.props, 'location.state.formData', {});
       return (
-        <RJSForm
-          schema={schema()}
-          uiSchema={uiSchema(formTitle)}
-          formData={prefilledFormData}
-          submitAction={this.submitAction}
-          successCallback={this.successCallback}
-          successMessage="The document was successfully created."
-        />
+        <>
+          <Helmet>
+            <title>{`Edit location - ${data.metadata?.title ?? ''}`}</title>
+          </Helmet>
+          <RJSForm
+            schema={schema()}
+            uiSchema={uiSchema(formTitle)}
+            formData={prefilledFormData}
+            submitAction={this.submitAction}
+            successCallback={this.successCallback}
+            successMessage="The document was successfully created."
+          />
+        </>
       );
     }
   }

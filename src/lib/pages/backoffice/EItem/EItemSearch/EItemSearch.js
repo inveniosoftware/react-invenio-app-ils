@@ -34,6 +34,7 @@ import {
 } from 'react-searchkit';
 import { Button, Container, Grid, Header } from 'semantic-ui-react';
 import EItemListEntry from './EItemListEntry';
+import { Helmet } from 'react-helmet-async';
 
 export class EItemSearch extends Component {
   modelName = 'EITEMS';
@@ -87,6 +88,9 @@ export class EItemSearch extends Component {
     const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
+        <Helmet>
+          <title>E-Items</title>
+        </Helmet>
         <Header as="h2">E-items</Header>
         <OverridableContext.Provider
           value={{

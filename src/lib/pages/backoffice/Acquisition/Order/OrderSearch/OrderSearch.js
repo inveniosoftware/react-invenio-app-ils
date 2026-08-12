@@ -33,6 +33,7 @@ import {
   SearchBar,
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
+import { Helmet } from 'react-helmet-async';
 
 class OrderResponseSerializer {
   serialize(results) {
@@ -85,6 +86,9 @@ export class OrderSearch extends Component {
     const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
+        <Helmet>
+          <title>Purchase orders</title>
+        </Helmet>
         <Header as="h2">Purchase Orders</Header>
         <OverridableContext.Provider
           value={{

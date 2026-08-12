@@ -33,6 +33,7 @@ import {
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
 import { DocumentRequestListEntry } from './DocumentRequestListEntry';
+import { Helmet } from 'react-helmet-async';
 
 export class DocumentRequestSearch extends Component {
   modelName = 'DOCUMENT_REQUESTS';
@@ -67,6 +68,9 @@ export class DocumentRequestSearch extends Component {
     const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
+        <Helmet>
+          <title>Document requests</title>
+        </Helmet>
         <Header as="h2">Requests for new literature</Header>
         <OverridableContext.Provider
           value={{

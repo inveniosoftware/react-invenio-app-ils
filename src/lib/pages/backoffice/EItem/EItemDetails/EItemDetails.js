@@ -12,6 +12,7 @@ import { EItemFiles } from './EItemFiles';
 import { EItemHeader } from './EItemHeader';
 import { EItemMetadata } from './EItemMetadata';
 import { EItemActionMenu } from './EItemActionMenu';
+import { Helmet } from 'react-helmet-async';
 
 export default class EItemDetails extends Component {
   constructor(props) {
@@ -40,39 +41,45 @@ export default class EItemDetails extends Component {
   }
 
   render() {
-    const { isLoading, error, data } = this.props;
+    const { isLoading, error, data, match } = this.props;
+    const eitemPid = match.params.eitemPid;
     return (
-      <div ref={this.headerRef}>
-        <Container fluid>
-          <Loader isLoading={isLoading}>
-            <Error error={error}>
-              <Sticky context={this.headerRef} className="solid-background">
-                <Container fluid className="spaced">
-                  <EItemHeader data={data} />
+      <>
+        <Helmet>
+          <title>{`E-Items - ${eitemPid ?? ''}`}</title>
+        </Helmet>
+        <div ref={this.headerRef}>
+          <Container fluid>
+            <Loader isLoading={isLoading}>
+              <Error error={error}>
+                <Sticky context={this.headerRef} className="solid-background">
+                  <Container fluid className="spaced">
+                    <EItemHeader data={data} />
+                  </Container>
+                  <Divider />
+                </Sticky>
+                <Container fluid>
+                  <Ref innerRef={this.menuRef}>
+                    <Grid columns={2}>
+                      <Grid.Column width={13}>
+                        <Container className="spaced">
+                          <EItemMetadata />
+                          <EItemFiles />
+                        </Container>
+                      </Grid.Column>
+                      <Grid.Column width={3}>
+                        <Sticky context={this.menuRef} offset={180}>
+                          <EItemActionMenu offset={-180} />
+                        </Sticky>
+                      </Grid.Column>
+                    </Grid>
+                  </Ref>
                 </Container>
-                <Divider />
-              </Sticky>
-              <Container fluid>
-                <Ref innerRef={this.menuRef}>
-                  <Grid columns={2}>
-                    <Grid.Column width={13}>
-                      <Container className="spaced">
-                        <EItemMetadata />
-                        <EItemFiles />
-                      </Container>
-                    </Grid.Column>
-                    <Grid.Column width={3}>
-                      <Sticky context={this.menuRef} offset={180}>
-                        <EItemActionMenu offset={-180} />
-                      </Sticky>
-                    </Grid.Column>
-                  </Grid>
-                </Ref>
-              </Container>
-            </Error>
-          </Loader>
-        </Container>
-      </div>
+              </Error>
+            </Loader>
+          </Container>
+        </div>
+      </>
     );
   }
 }

@@ -9,6 +9,7 @@ import { EmailLink } from '@components/EmailLink';
 import { invenioConfig } from '@config';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Grid } from 'semantic-ui-react';
 
 export class ProviderInformation extends React.Component {
@@ -43,16 +44,21 @@ export class ProviderInformation extends React.Component {
       });
 
     return (
-      <Grid columns={2} id="provider-info">
-        <Grid.Row>
-          <Grid.Column>
-            <MetadataTable labelWidth={5} rows={leftTable} />
-          </Grid.Column>
-          <Grid.Column>
-            <MetadataTable labelWidth={5} rows={rightTable} />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <>
+        <Helmet>
+          <title>{`Provider - ${provider.name}`}</title>
+        </Helmet>
+        <Grid columns={2} id="provider-info">
+          <Grid.Row>
+            <Grid.Column>
+              <MetadataTable labelWidth={5} rows={leftTable} />
+            </Grid.Column>
+            <Grid.Column>
+              <MetadataTable labelWidth={5} rows={rightTable} />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </>
     );
   }
 }
