@@ -1,5 +1,12 @@
 # Changes
 
+Version 3.1.0 (released 2026-08-13)
+
+- fix(patron search): fixed too many page options
+- add(patron search): added alphabetical patron search
+- fix(search): stopped filters disappearing when no results
+- improvement(config): import from default config
+
 Version 3.0.3 (released 2026-07-15)
 
 - fix(styling): fixed broken contents display
