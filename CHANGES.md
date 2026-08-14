@@ -1,5 +1,9 @@
 # Changes
 
+Version 3.1.2 (released 2026-08-14)
+
+- fix(dependencies): fix package lock
+
 Version 3.1.1 (released 2026-08-14)
 
 - fix(dependencies): fix package lock
