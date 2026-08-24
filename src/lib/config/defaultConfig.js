@@ -181,7 +181,7 @@ export const RECORDS_CONFIG = {
         iconClass: 'warehouse',
       },
       DELIVERY: {
-        text: 'To my office',
+        text: 'To my office (free delivery service)',
         iconClass: 'dolly',
       },
     },
