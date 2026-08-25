@@ -12,6 +12,8 @@ import {
   sendWarningNotification,
 } from '@components/Notifications';
 import { FrontSiteRoutes } from '@routes/urls';
+import { searchReady } from '@api/utils';
+import { fetchPatronCurrentLoans } from '@modules/Patron/PatronCurrentLoans/actions';
 
 export const SEARCH_HAS_ERROR = 'selfCheckOut/SEARCH_HAS_ERROR';
 export const SEARCH_IS_LOADING = 'selfCheckOut/SEARCH_IS_LOADING';
@@ -52,6 +54,10 @@ export const selfCheckOut = (documentPid, itemPid, patronPid) => {
   return async (dispatch) => {
     try {
       await loanApi.doSelfCheckout(documentPid, itemPid, patronPid);
+      await searchReady();
+
+      dispatch(fetchPatronCurrentLoans(patronPid));
+
       const linkToLoan = (
         <p>
           Self-checkout completed! You can view all your current loans on your{' '}
