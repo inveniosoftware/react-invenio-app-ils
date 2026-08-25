@@ -44,6 +44,10 @@ class ILSMenu extends Component {
           </>
         ) : null}
         <Dropdown.Divider />
+        <Dropdown.Item as={Link} to={FrontSiteRoutes.selfCheckout}>
+          Self-checkout
+        </Dropdown.Item>
+        <Dropdown.Divider />
         <Dropdown.Item onClick={this.logout}>Sign out</Dropdown.Item>
       </Dropdown.Menu>
     );
