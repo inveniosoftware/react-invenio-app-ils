@@ -17,6 +17,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { schema } from './schema';
 import { uiSchema } from './uiSchema';
+import { Helmet } from 'react-helmet-async';
 
 export class OrderEditor extends Component {
   constructor(props) {
@@ -126,31 +127,41 @@ export class OrderEditor extends Component {
     if (isEditing) {
       const formTitle = `Acquisition order - Edit #${orderPid}`;
       return (
-        <Loader isLoading={isLoading}>
-          <Error error={error}>
-            <RJSForm
-              schema={schema()}
-              uiSchema={uiSchema(formTitle)}
-              formData={data.metadata}
-              submitAction={this.submitAction}
-              successCallback={this.successCallback}
-              successMessage="The acquisition order was successfully updated."
-            />
-          </Error>
-        </Loader>
+        <>
+          <Helmet>
+            <title>{`Edit order - ${orderPid ?? ''}`}</title>
+          </Helmet>
+          <Loader isLoading={isLoading}>
+            <Error error={error}>
+              <RJSForm
+                schema={schema()}
+                uiSchema={uiSchema(formTitle)}
+                formData={data.metadata}
+                submitAction={this.submitAction}
+                successCallback={this.successCallback}
+                successMessage="The acquisition order was successfully updated."
+              />
+            </Error>
+          </Loader>
+        </>
       );
     } else {
       const formTitle = 'Acquisition order - Create';
       const prefilledFormData = _get(this.props, 'location.state.formData', {});
       return (
-        <RJSForm
-          schema={schema()}
-          uiSchema={uiSchema(formTitle)}
-          formData={prefilledFormData}
-          submitAction={this.submitAction}
-          successCallback={this.successCallback}
-          successMessage="The acquisition order was successfully created."
-        />
+        <>
+          <Helmet>
+            <title>{`Edit order - ${orderPid ?? ''}`}</title>
+          </Helmet>
+          <RJSForm
+            schema={schema()}
+            uiSchema={uiSchema(formTitle)}
+            formData={prefilledFormData}
+            submitAction={this.submitAction}
+            successCallback={this.successCallback}
+            successMessage="The acquisition order was successfully created."
+          />
+        </>
       );
     }
   }

@@ -32,6 +32,7 @@ import {
   SearchBar,
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
+import { Helmet } from 'react-helmet-async';
 
 export class DocumentSearch extends Component {
   modelName = 'DOCUMENTS';
@@ -67,6 +68,9 @@ export class DocumentSearch extends Component {
 
     return (
       <>
+        <Helmet>
+          <title>Documents</title>
+        </Helmet>
         <Header as="h2">Documents</Header>
         <OverridableContext.Provider
           value={{

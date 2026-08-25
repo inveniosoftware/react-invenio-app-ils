@@ -16,6 +16,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { schema } from './schema';
 import { uiSchema } from './uiSchema';
+import { Helmet } from 'react-helmet-async';
 
 export class LocationEditor extends Component {
   constructor(props) {
@@ -148,18 +149,23 @@ export class LocationEditor extends Component {
     if (isEditing) {
       const formTitle = `Location - Edit #${locationPid}`;
       return (
-        <Loader isLoading={isLoading}>
-          <Error error={error}>
-            <RJSForm
-              schema={schema()}
-              uiSchema={uiSchema(formTitle)}
-              formData={data.metadata}
-              submitAction={this.submitAction}
-              successCallback={this.successCallback}
-              successMessage="The location was successfully updated."
-            />
-          </Error>
-        </Loader>
+        <>
+          <Helmet>
+            <title>{`Edit location - ${locationPid ?? ''}`}</title>
+          </Helmet>
+          <Loader isLoading={isLoading}>
+            <Error error={error}>
+              <RJSForm
+                schema={schema()}
+                uiSchema={uiSchema(formTitle)}
+                formData={data.metadata}
+                submitAction={this.submitAction}
+                successCallback={this.successCallback}
+                successMessage="The location was successfully updated."
+              />
+            </Error>
+          </Loader>
+        </>
       );
     } else {
       const formTitle = 'Location - Create';
@@ -168,14 +174,19 @@ export class LocationEditor extends Component {
         ? prefilledFormData
         : this.prepareDataForCreation();
       return (
-        <RJSForm
-          schema={schema()}
-          uiSchema={uiSchema(formTitle)}
-          formData={formInitialData}
-          submitAction={this.submitAction}
-          successCallback={this.successCallback}
-          successMessage="The location was successfully created."
-        />
+        <>
+          <Helmet>
+            <title>{`Edit location - ${locationPid ?? ''}`}</title>
+          </Helmet>
+          <RJSForm
+            schema={schema()}
+            uiSchema={uiSchema(formTitle)}
+            formData={formInitialData}
+            submitAction={this.submitAction}
+            successCallback={this.successCallback}
+            successMessage="The location was successfully created."
+          />
+        </>
       );
     }
   }

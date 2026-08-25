@@ -32,6 +32,7 @@ import {
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
 import BorrowingRequestListEntry from './BorrowingRequestList/BorrowingRequestListEntry';
+import { Helmet } from 'react-helmet-async';
 
 export class BorrowingRequestSearch extends Component {
   modelName = 'ILL_BORROWING_REQUESTS';
@@ -69,6 +70,9 @@ export class BorrowingRequestSearch extends Component {
 
     return (
       <>
+        <Helmet>
+          <title>Borrowing requests</title>
+        </Helmet>
         <Header as="h2">Borrowing Requests</Header>
         <OverridableContext.Provider
           value={{

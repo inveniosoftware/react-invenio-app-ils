@@ -12,6 +12,7 @@ import { DocumentRequestActions } from './DocumentRequestActions';
 import { DocumentRequestHeader } from './DocumentRequestHeader';
 import { DocumentRequestMetadata } from './DocumentRequestMetadata';
 import { DocumentRequestSteps } from './DocumentRequestSteps';
+import { Helmet } from 'react-helmet-async';
 
 export default class DocumentRequestDetails extends Component {
   constructor(props) {
@@ -44,38 +45,46 @@ export default class DocumentRequestDetails extends Component {
   render() {
     const { data, isLoading, error } = this.props;
     return (
-      <div ref={this.headerRef}>
-        <Container fluid>
-          <Loader isLoading={isLoading}>
-            <Error error={error}>
-              {data.metadata ? (
-                <>
-                  <Sticky context={this.headerRef} className="solid-background">
-                    <Container fluid className="spaced">
-                      <DocumentRequestHeader
-                        created={data.created}
-                        docReq={data.metadata}
-                      />
-                      <Divider />
+      <>
+        <Helmet>
+          <title>{`Document request - ${data.metadata?.title ?? ''}`}</title>
+        </Helmet>
+        <div ref={this.headerRef}>
+          <Container fluid>
+            <Loader isLoading={isLoading}>
+              <Error error={error}>
+                {data.metadata ? (
+                  <>
+                    <Sticky
+                      context={this.headerRef}
+                      className="solid-background"
+                    >
+                      <Container fluid className="spaced">
+                        <DocumentRequestHeader
+                          created={data.created}
+                          docReq={data.metadata}
+                        />
+                        <Divider />
+                      </Container>
+                    </Sticky>
+                    <Container fluid>
+                      <Grid columns={2}>
+                        <Grid.Column width={13}>
+                          <DocumentRequestSteps docReq={data.metadata} />
+                          <DocumentRequestMetadata docReq={data.metadata} />
+                        </Grid.Column>
+                        <Grid.Column width={3}>
+                          <DocumentRequestActions docReq={data.metadata} />
+                        </Grid.Column>
+                      </Grid>
                     </Container>
-                  </Sticky>
-                  <Container fluid>
-                    <Grid columns={2}>
-                      <Grid.Column width={13}>
-                        <DocumentRequestSteps docReq={data.metadata} />
-                        <DocumentRequestMetadata docReq={data.metadata} />
-                      </Grid.Column>
-                      <Grid.Column width={3}>
-                        <DocumentRequestActions docReq={data.metadata} />
-                      </Grid.Column>
-                    </Grid>
-                  </Container>
-                </>
-              ) : null}
-            </Error>
-          </Loader>
-        </Container>
-      </div>
+                  </>
+                ) : null}
+              </Error>
+            </Loader>
+          </Container>
+        </div>
+      </>
     );
   }
 }

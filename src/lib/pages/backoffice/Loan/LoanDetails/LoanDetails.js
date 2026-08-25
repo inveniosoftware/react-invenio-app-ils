@@ -14,6 +14,7 @@ import { LoanOverbookedWarning } from './LoanOverbookedWarning';
 import { Loan } from './Loan';
 import { AvailableItems } from './AvailableItems';
 import { LoanActionMenu } from './LoanActionMenu';
+import { Helmet } from 'react-helmet-async';
 
 export default class LoanDetails extends Component {
   constructor(props) {
@@ -47,50 +48,63 @@ export default class LoanDetails extends Component {
   }
 
   render() {
-    const { isLoading, error, data, firstLoanRequested } = this.props;
+    const {
+      isLoading,
+      error,
+      data,
+      firstLoanRequested,
+      match: {
+        params: { loanPid },
+      },
+    } = this.props;
     return (
-      <div ref={this.headerRef}>
-        <Container fluid>
-          <Loader isLoading={isLoading}>
-            <Error error={error}>
-              <Sticky context={this.headerRef} className="solid-background">
-                <Container fluid className="spaced">
-                  <LoanHeader data={data} />
-                </Container>
-                <Divider />
-              </Sticky>
-              <Container fluid>
-                <Ref innerRef={this.menuRef}>
-                  <Grid columns={2}>
-                    <Grid.Column width={13}>
-                      <Container className="spaced">
+      <>
+        <Helmet>
+          <title>{`Loan - ${loanPid ?? ''}`}</title>
+        </Helmet>
+        <div ref={this.headerRef}>
+          <Container fluid>
+            <Loader isLoading={isLoading}>
+              <Error error={error}>
+                <Sticky context={this.headerRef} className="solid-background">
+                  <Container fluid className="spaced">
+                    <LoanHeader data={data} />
+                  </Container>
+                  <Divider />
+                </Sticky>
+                <Container fluid>
+                  <Ref innerRef={this.menuRef}>
+                    <Grid columns={2}>
+                      <Grid.Column width={13}>
                         <Container className="spaced">
-                          {data.metadata?.document_pid && (
-                            <LoanOverbookedWarning
-                              documentPid={data.metadata.document_pid}
+                          <Container className="spaced">
+                            {data.metadata?.document_pid && (
+                              <LoanOverbookedWarning
+                                documentPid={data.metadata.document_pid}
+                              />
+                            )}
+                            <Loan />
+                            <CurrentItem />
+                            <AvailableItems
+                              loan={data}
+                              firstLoanRequested={firstLoanRequested}
                             />
-                          )}
-                          <Loan />
-                          <CurrentItem />
-                          <AvailableItems
-                            loan={data}
-                            firstLoanRequested={firstLoanRequested}
-                          />
+                          </Container>
                         </Container>
-                      </Container>
-                    </Grid.Column>
-                    <Grid.Column width={3}>
-                      <Sticky context={this.menuRef} offset={200}>
-                        <LoanActionMenu loan={data} offset={-200} />
-                      </Sticky>
-                    </Grid.Column>
-                  </Grid>
-                </Ref>
-              </Container>
-            </Error>
-          </Loader>
-        </Container>
-      </div>
+                      </Grid.Column>
+                      <Grid.Column width={3}>
+                        <Sticky context={this.menuRef} offset={200}>
+                          <LoanActionMenu loan={data} offset={-200} />
+                        </Sticky>
+                      </Grid.Column>
+                    </Grid>
+                  </Ref>
+                </Container>
+              </Error>
+            </Loader>
+          </Container>
+        </div>
+      </>
     );
   }
 }
