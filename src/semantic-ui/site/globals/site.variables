@@ -49,7 +49,9 @@
 @boSidebarBackgroundColor  : #eee;
 @fsBorderColor             : #c6c4d0;
 @metadataFieldsColor       : rgba(0,0,0,0.6);
-@mutedTextColor            : #aaa;
+@mutedTextColor            : #595959;
+
+@lightTextColor            : rgba(0,0,0,0.6);
 
 @danger                    : @red;
 @success                   : @green;
