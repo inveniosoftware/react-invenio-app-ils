@@ -31,6 +31,11 @@ class DocumentRequestForm extends Component {
         ...props.location.state?.formData,
       },
     };
+
+    // const { renderTabTitle } = this.props;
+    // if (renderTabTitle) {
+    //   document.title = renderTabTitle({ title: 'Request Resources' });
+    // }
   }
 
   onSerializeSubmit = (values) => {
@@ -277,6 +282,7 @@ DocumentRequestForm.propTypes = {
   notes: PropTypes.object,
   publisher: PropTypes.object,
   location: PropTypes.object,
+  // renderTabTitle: PropTypes.func,
 };
 
 DocumentRequestForm.defaultProps = {
@@ -348,6 +354,7 @@ DocumentRequestForm.defaultProps = {
     label: 'Publisher',
     placeholder: 'Publisher',
   },
+  // renderTabTitle: null,
 };
 
 export default Overridable.component(
