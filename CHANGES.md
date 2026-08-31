@@ -1,5 +1,9 @@
 # Changes
 
+Version 3.2.1 (released 2026-08-31)
+
+- chore(release): republish due to incorrect commit tagged for 3.2.0 npm publish
+
 Version 3.2.0 (released 2026-08-31)
 
 - upgrade(selfcheckout): added link and page refresh on redirect
