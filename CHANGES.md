@@ -1,5 +1,13 @@
 # Changes
 
+Version 3.2.0 (released 2026-08-31)
+
+- upgrade(selfcheckout): added link and page refresh on redirect
+- edit(loans): loan dates now only editable when active or pending
+- change(notifications): updated check-in error to include a link to search for document with error
+- change(notifications): changed renderer to support a link
+- cancel(modal): remove usage of findDOMNode
+
 Version 3.1.2 (released 2026-08-14)
 
 - fix(dependencies): fix package lock
