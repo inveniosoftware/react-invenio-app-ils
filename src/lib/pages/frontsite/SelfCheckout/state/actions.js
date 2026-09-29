@@ -58,13 +58,14 @@ export const selfCheckOut = (documentPid, itemPid, patronPid) => {
 
       dispatch(fetchPatronCurrentLoans(patronPid));
 
-      const linkToLoan = (
-        <p>
-          Self-checkout completed! You can view all your current loans on your{' '}
-          <Link to={FrontSiteRoutes.patronProfile}>profile</Link> page.
-        </p>
+      dispatch(
+        sendSuccessNotification(
+          'Success!',
+          'Self-checkout completed! You can view all your current loans on your profile page.',
+          FrontSiteRoutes.patronProfile,
+          'profile'
+        )
       );
-      dispatch(sendSuccessNotification('Success!', linkToLoan));
     } catch (error) {
       dispatch(sendErrorNotification(error));
     }

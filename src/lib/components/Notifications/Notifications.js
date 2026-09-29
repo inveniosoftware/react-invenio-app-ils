@@ -9,26 +9,26 @@ import { ErrorMessage, SuccessMessage, WarningMessage } from './messages';
 
 export default class Notifications extends Component {
   renderMessageContent = (notification) => {
-    const [before, after] = notification.content.split(
-      notification.linkDisplayName
-    );
+    const { content, link, linkDisplayName } = notification;
 
-    if (notification.link && notification.linkDisplayName) {
+    if (link && linkDisplayName) {
+      const [before, after] = content.split(linkDisplayName);
+
       return (
         <>
           {before}
           <a
             className="notification-link"
-            href={notification.link}
+            href={link}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {notification.linkDisplayName}
+            {linkDisplayName}
           </a>
           {after}
         </>
       );
-    } else return notification.content;
+    } else return content;
   };
 
   renderNotification(notification) {
