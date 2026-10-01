@@ -26,6 +26,7 @@ import { SeriesMultipartMonographs } from './SeriesMultipartMonographs';
 import SeriesMetadataTabs from './SeriesMetadata/SeriesMetadataTabs';
 import { SeriesRelations } from './SeriesRelations/';
 import { SeriesHeader } from './SeriesHeader';
+import { Helmet } from 'react-helmet-async';
 
 export default class SeriesDetails extends Component {
   constructor(props) {
@@ -151,50 +152,55 @@ export default class SeriesDetails extends Component {
   render() {
     const { isLoading, error, data, relations } = this.props;
     return (
-      <div ref={this.headerRef}>
-        <Container fluid>
-          <Loader isLoading={isLoading}>
-            <Error error={error}>
-              <Sticky context={this.headerRef} className="solid-background">
-                <Container fluid className="spaced">
-                  <SeriesHeader data={data} />
+      <>
+        <Helmet>
+          <title>{`Series - ${data.metadata?.title ?? ''}`}</title>
+        </Helmet>
+        <div ref={this.headerRef}>
+          <Container fluid>
+            <Loader isLoading={isLoading}>
+              <Error error={error}>
+                <Sticky context={this.headerRef} className="solid-background">
+                  <Container fluid className="spaced">
+                    <SeriesHeader data={data} />
+                  </Container>
+                  <Divider />
+                </Sticky>
+                <Container fluid>
+                  <Ref innerRef={this.menuRef}>
+                    <Grid columns={2}>
+                      <Grid.Column width={13}>
+                        <Container className="spaced">
+                          <div id="metadata">
+                            <SeriesMetadataTabs series={data} />
+                          </div>
+                          <Accordion
+                            fluid
+                            styled
+                            className="highlighted"
+                            panels={this.seriesPanels()}
+                            exclusive={false}
+                            defaultActiveIndex={[0, 1, 2]}
+                          />
+                        </Container>
+                      </Grid.Column>
+                      <Grid.Column width={3}>
+                        <Sticky context={this.menuRef} offset={150}>
+                          <SeriesActionMenu
+                            anchors={this.anchors}
+                            series={data}
+                            relations={relations}
+                          />
+                        </Sticky>
+                      </Grid.Column>
+                    </Grid>
+                  </Ref>
                 </Container>
-                <Divider />
-              </Sticky>
-              <Container fluid>
-                <Ref innerRef={this.menuRef}>
-                  <Grid columns={2}>
-                    <Grid.Column width={13}>
-                      <Container className="spaced">
-                        <div id="metadata">
-                          <SeriesMetadataTabs series={data} />
-                        </div>
-                        <Accordion
-                          fluid
-                          styled
-                          className="highlighted"
-                          panels={this.seriesPanels()}
-                          exclusive={false}
-                          defaultActiveIndex={[0, 1, 2]}
-                        />
-                      </Container>
-                    </Grid.Column>
-                    <Grid.Column width={3}>
-                      <Sticky context={this.menuRef} offset={150}>
-                        <SeriesActionMenu
-                          anchors={this.anchors}
-                          series={data}
-                          relations={relations}
-                        />
-                      </Sticky>
-                    </Grid.Column>
-                  </Grid>
-                </Ref>
-              </Container>
-            </Error>
-          </Loader>
-        </Container>
-      </div>
+              </Error>
+            </Loader>
+          </Container>
+        </div>
+      </>
     );
   }
 }

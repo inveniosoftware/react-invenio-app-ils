@@ -14,6 +14,7 @@ import { ItemHeader } from './ItemHeader';
 import { ItemMetadata } from './ItemMetadata';
 import { ItemPastLoans } from './ItemPastLoans';
 import { ItemPendingLoans } from './ItemPendingLoans';
+import { Helmet } from 'react-helmet-async';
 
 export default class ItemDetails extends Component {
   constructor(props) {
@@ -43,43 +44,49 @@ export default class ItemDetails extends Component {
   }
 
   render() {
-    const { isLoading, error, data } = this.props;
+    const { isLoading, error, data, match } = this.props;
+    const itemPid = match.params.itemPid;
     return (
-      <div ref={this.headerRef}>
-        <Container fluid>
-          <Loader isLoading={isLoading}>
-            <Error error={error}>
-              <Sticky context={this.headerRef} className="solid-background">
-                <Container fluid className="spaced">
-                  <ItemHeader data={data} />
-                </Container>
-                <Divider />
-              </Sticky>
-              <Container fluid>
-                <Ref innerRef={this.menuRef}>
-                  <Grid columns={2}>
-                    <Grid.Column width={13}>
-                      <Container className="spaced">
+      <>
+        <Helmet>
+          <title>{`Physical copy - ${itemPid ?? ''}`}</title>
+        </Helmet>
+        <div ref={this.headerRef}>
+          <Container fluid>
+            <Loader isLoading={isLoading}>
+              <Error error={error}>
+                <Sticky context={this.headerRef} className="solid-background">
+                  <Container fluid className="spaced">
+                    <ItemHeader data={data} />
+                  </Container>
+                  <Divider />
+                </Sticky>
+                <Container fluid>
+                  <Ref innerRef={this.menuRef}>
+                    <Grid columns={2}>
+                      <Grid.Column width={13}>
                         <Container className="spaced">
-                          <ItemCirculation />
-                          <ItemMetadata />
-                          <ItemPendingLoans />
-                          <ItemPastLoans />
+                          <Container className="spaced">
+                            <ItemCirculation />
+                            <ItemMetadata />
+                            <ItemPendingLoans />
+                            <ItemPastLoans />
+                          </Container>
                         </Container>
-                      </Container>
-                    </Grid.Column>
-                    <Grid.Column width={3}>
-                      <Sticky context={this.menuRef} offset={180}>
-                        <ItemActionMenu offset={-180} />
-                      </Sticky>
-                    </Grid.Column>
-                  </Grid>
-                </Ref>
-              </Container>
-            </Error>
-          </Loader>
-        </Container>
-      </div>
+                      </Grid.Column>
+                      <Grid.Column width={3}>
+                        <Sticky context={this.menuRef} offset={180}>
+                          <ItemActionMenu offset={-180} />
+                        </Sticky>
+                      </Grid.Column>
+                    </Grid>
+                  </Ref>
+                </Container>
+              </Error>
+            </Loader>
+          </Container>
+        </div>
+      </>
     );
   }
 }

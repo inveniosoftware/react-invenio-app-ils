@@ -26,6 +26,7 @@ import { LocationInformation } from './LocationInformation';
 import { goTo } from '@history';
 import { internalLocationApi } from '@api/locations';
 import { LocationOpeningHours } from '@pages/frontsite/OpeningHours';
+import { Helmet } from 'react-helmet-async';
 
 const DeleteLocationButton = (props) => {
   return (
@@ -173,40 +174,45 @@ export default class LocationDetails extends React.Component {
     const { data, isLoading, error, deleteLocation } = this.props;
 
     return (
-      <div ref={this.headerRef}>
-        <Container fluid>
-          <Loader isLoading={isLoading}>
-            <Error error={error}>
-              <Sticky context={this.headerRef} className="solid-background">
-                <Container fluid className="spaced">
-                  <LocationHeader data={data} />
+      <>
+        <Helmet>
+          <title>{`Location - ${data.metadata?.name ?? ''}`}</title>
+        </Helmet>
+        <div ref={this.headerRef}>
+          <Container fluid>
+            <Loader isLoading={isLoading}>
+              <Error error={error}>
+                <Sticky context={this.headerRef} className="solid-background">
+                  <Container fluid className="spaced">
+                    <LocationHeader data={data} />
+                  </Container>
+                  <Divider />
+                </Sticky>
+                <Container fluid>
+                  <Ref innerRef={this.menuRef}>
+                    <Grid columns={2}>
+                      <Grid.Column width={13}>
+                        <Container className="spaced">
+                          <LocationDetailsInner data={data} />
+                          <LocationOpeningHours location={data} />
+                        </Container>
+                      </Grid.Column>
+                      <Grid.Column width={3}>
+                        <Sticky context={this.menuRef} offset={150}>
+                          <ActionMenu
+                            data={data}
+                            deleteLocationHandler={deleteLocation}
+                          />
+                        </Sticky>
+                      </Grid.Column>
+                    </Grid>
+                  </Ref>
                 </Container>
-                <Divider />
-              </Sticky>
-              <Container fluid>
-                <Ref innerRef={this.menuRef}>
-                  <Grid columns={2}>
-                    <Grid.Column width={13}>
-                      <Container className="spaced">
-                        <LocationDetailsInner data={data} />
-                        <LocationOpeningHours location={data} />
-                      </Container>
-                    </Grid.Column>
-                    <Grid.Column width={3}>
-                      <Sticky context={this.menuRef} offset={150}>
-                        <ActionMenu
-                          data={data}
-                          deleteLocationHandler={deleteLocation}
-                        />
-                      </Sticky>
-                    </Grid.Column>
-                  </Grid>
-                </Ref>
-              </Container>
-            </Error>
-          </Loader>
-        </Container>
-      </div>
+              </Error>
+            </Loader>
+          </Container>
+        </div>
+      </>
     );
   }
 }

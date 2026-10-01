@@ -35,6 +35,7 @@ import { OrderStatistics } from './OrderStatistics';
 import { PaymentInformation } from '@components/backoffice/PaymentInformation';
 import { OrderSteps } from './OrderSteps';
 import Overridable from 'react-overridable';
+import { Helmet } from 'react-helmet-async';
 
 class OrderHeader extends React.Component {
   renderStatus(status) {
@@ -207,45 +208,51 @@ export default class OrderDetails extends React.Component {
   }
 
   render() {
-    const { isLoading, error, data } = this.props;
+    const { isLoading, error, data, match } = this.props;
+    const orderPid = match.params.orderPid;
     const metadata = data.metadata || {};
     return (
-      <div ref={this.headerRef}>
-        <Container fluid>
-          <Loader isLoading={isLoading}>
-            <Error error={error}>
-              <Sticky context={this.headerRef} className="solid-background">
-                <Container fluid className="spaced">
-                  <OrderHeader data={data} />
-                </Container>
-                <Divider />
-              </Sticky>
+      <>
+        <Helmet>
+          <title>{`Order - ${orderPid ?? ''}`}</title>
+        </Helmet>
+        <div ref={this.headerRef}>
+          <Container fluid>
+            <Loader isLoading={isLoading}>
+              <Error error={error}>
+                <Sticky context={this.headerRef} className="solid-background">
+                  <Container fluid className="spaced">
+                    <OrderHeader data={data} />
+                  </Container>
+                  <Divider />
+                </Sticky>
 
-              <Container fluid>
-                <Ref innerRef={this.menuRef}>
-                  <Grid columns={2}>
-                    <Grid.Column width={13}>
-                      <Container className="spaced">
+                <Container fluid>
+                  <Ref innerRef={this.menuRef}>
+                    <Grid columns={2}>
+                      <Grid.Column width={13}>
                         <Container className="spaced">
-                          <OrderStatistics order={metadata} />
-                          <br />
-                          <OrderSteps order={metadata} />
+                          <Container className="spaced">
+                            <OrderStatistics order={metadata} />
+                            <br />
+                            <OrderSteps order={metadata} />
+                          </Container>
+                          <OrderPanels data={data} />
                         </Container>
-                        <OrderPanels data={data} />
-                      </Container>
-                    </Grid.Column>
-                    <Grid.Column width={3}>
-                      <Sticky context={this.menuRef} offset={150}>
-                        <ActionMenu data={metadata} offset={-150} />
-                      </Sticky>
-                    </Grid.Column>
-                  </Grid>
-                </Ref>
-              </Container>
-            </Error>
-          </Loader>
-        </Container>
-      </div>
+                      </Grid.Column>
+                      <Grid.Column width={3}>
+                        <Sticky context={this.menuRef} offset={150}>
+                          <ActionMenu data={metadata} offset={-150} />
+                        </Sticky>
+                      </Grid.Column>
+                    </Grid>
+                  </Ref>
+                </Container>
+              </Error>
+            </Loader>
+          </Container>
+        </div>
+      </>
     );
   }
 }

@@ -34,6 +34,7 @@ import {
   SearchBar,
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
+import { Helmet } from 'react-helmet-async';
 
 export class ItemSearch extends Component {
   modelName = 'ITEMS';
@@ -81,6 +82,9 @@ export class ItemSearch extends Component {
     const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
+        <Helmet>
+          <title>Physical copies</title>
+        </Helmet>
         <Header as="h2">Physical copies</Header>
         <OverridableContext.Provider
           value={{

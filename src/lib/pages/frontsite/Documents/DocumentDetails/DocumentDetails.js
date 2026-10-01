@@ -27,6 +27,7 @@ import { DocumentMetadata } from './DocumentMetadata';
 import DocumentPanel from './DocumentPanel/DocumentPanel';
 import { NotFound } from '@components/HttpErrors';
 import { DocumentSubjectSearch } from '@modules/Document/DocumentSubjectSearch';
+import { Helmet } from 'react-helmet-async';
 
 const DocumentDetailsLayout = ({
   error,
@@ -39,94 +40,108 @@ const DocumentDetailsLayout = ({
     { to: FrontSiteRoutes.documentsList, label: 'Search' },
   ];
   return (
-    <Overridable
-      id="DocumentDetails.layout"
-      {...{
-        error,
-        isLoading,
-        documentDetails,
-      }}
-    >
-      <Error boundary error={error}>
-        <Container className="document-details-container default-margin-top">
-          <Grid columns={2}>
-            <Grid.Column computer={13} tablet={13} mobile={16}>
-              <ILSParagraphPlaceholder isLoading={isLoading} linesNumber={1}>
-                <Breadcrumbs
-                  isLoading={isLoading}
-                  elements={breadcrumbs()}
-                  currentElement={
-                    documentDetails.metadata
-                      ? documentDetails.metadata.title
-                      : null
-                  }
-                />
+    <>
+      <Helmet>
+        <title>
+          {documentDetails.metadata
+            ? documentDetails.metadata.title
+            : 'Document'}
+        </title>
+      </Helmet>
+      <Overridable
+        id="DocumentDetails.layout"
+        {...{
+          error,
+          isLoading,
+          documentDetails,
+        }}
+      >
+        <Error boundary error={error}>
+          <Container className="document-details-container default-margin-top">
+            <Grid columns={2}>
+              <Grid.Column computer={13} tablet={13} mobile={16}>
+                <ILSParagraphPlaceholder isLoading={isLoading} linesNumber={1}>
+                  <Breadcrumbs
+                    isLoading={isLoading}
+                    elements={breadcrumbs()}
+                    currentElement={
+                      documentDetails.metadata
+                        ? documentDetails.metadata.title
+                        : null
+                    }
+                  />
+                </ILSParagraphPlaceholder>
+              </Grid.Column>
+              <Grid.Column
+                computer={3}
+                tablet={3}
+                mobile={16}
+                textAlign="right"
+              >
+                {!_isEmpty(documentDetails.metadata) && (
+                  <AuthenticationGuard
+                    silent
+                    authorizedComponent={() => (
+                      <Label
+                        as={Link}
+                        to={BackOfficeRoutes.documentDetailsFor(
+                          documentDetails.metadata.pid
+                        )}
+                        color="grey"
+                      >
+                        <Icon name="cogs" />
+                        Open in Backoffice
+                      </Label>
+                    )}
+                    roles={['admin', 'librarian']}
+                    loginComponent={() => null}
+                  />
+                )}
+              </Grid.Column>
+            </Grid>
+            <DocumentPanel
+              isLoading={isLoading}
+              documentDetails={documentDetails}
+              loansInfo={loansInfo}
+            />
+          </Container>
+          <Container className="document-tags spaced">
+            <Media greaterThanOrEqual="tablet">
+              <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
+                <LiteratureTags tags={documentDetails.metadata.tags} />
               </ILSParagraphPlaceholder>
-            </Grid.Column>
-            <Grid.Column computer={3} tablet={3} mobile={16} textAlign="right">
-              {!_isEmpty(documentDetails.metadata) && (
-                <AuthenticationGuard
-                  silent
-                  authorizedComponent={() => (
-                    <Label
-                      as={Link}
-                      to={BackOfficeRoutes.documentDetailsFor(
-                        documentDetails.metadata.pid
-                      )}
-                      color="grey"
-                    >
-                      <Icon name="cogs" />
-                      Open in Backoffice
-                    </Label>
-                  )}
-                  roles={['admin', 'librarian']}
-                  loginComponent={() => null}
-                />
-              )}
-            </Grid.Column>
-          </Grid>
-          <DocumentPanel
-            isLoading={isLoading}
-            documentDetails={documentDetails}
-            loansInfo={loansInfo}
-          />
-        </Container>
-        <Container className="document-tags spaced">
-          <Media greaterThanOrEqual="tablet">
-            <ILSParagraphPlaceholder linesNumber={1} isLoading={isLoading}>
-              <LiteratureTags tags={documentDetails.metadata.tags} />
-            </ILSParagraphPlaceholder>
-          </Media>
-        </Container>
-        <Container className="items-locations spaced">
-          <ILSParagraphPlaceholder linesNumber={3} isLoading={isLoading}>
-            <DocumentItems />
-          </ILSParagraphPlaceholder>
-        </Container>
-        <Container className="section" fluid>
-          <Container>
-            <ILSParagraphPlaceholder linesNumber={20} isLoading={isLoading}>
-              <DocumentMetadata documentDetails={documentDetails} />
+            </Media>
+          </Container>
+          <Container className="items-locations spaced">
+            <ILSParagraphPlaceholder linesNumber={3} isLoading={isLoading}>
+              <DocumentItems />
             </ILSParagraphPlaceholder>
           </Container>
-        </Container>
-        <DocumentSubjectSearch
-          metadata={documentDetails.metadata}
-          isLoading={isLoading}
-        />
-        <AuthenticationGuard
-          authorizedComponent={() => (
-            <Container textAlign="center">
-              {!_isEmpty(documentDetails.metadata) && (
-                <DocumentStats document={documentDetails} />
-              )}
+          <Container className="section" fluid>
+            <Container>
+              <ILSParagraphPlaceholder linesNumber={20} isLoading={isLoading}>
+                <DocumentMetadata documentDetails={documentDetails} />
+              </ILSParagraphPlaceholder>
             </Container>
-          )}
-          loginComponent={() => null}
-          silent
-        />
-      </Error>
-    </Overridable>
+          </Container>
+          <DocumentSubjectSearch
+            metadata={documentDetails.metadata}
+            isLoading={isLoading}
+          />
+          <AuthenticationGuard
+            authorizedComponent={() => (
+              <Container textAlign="center">
+                {!_isEmpty(documentDetails.metadata) && (
+                  <DocumentStats document={documentDetails} />
+                )}
+              </Container>
+            )}
+            loginComponent={() => null}
+            silent
+          />
+        </Error>
+      </Overridable>
+    </>
   );
 };
 

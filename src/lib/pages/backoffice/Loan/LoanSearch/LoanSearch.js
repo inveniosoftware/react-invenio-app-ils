@@ -34,6 +34,7 @@ import {
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
 import { SearchDateRange } from './SearchDateRange';
+import { Helmet } from 'react-helmet-async';
 
 export class LoanSearch extends Component {
   modelName = 'LOANS';
@@ -65,6 +66,9 @@ export class LoanSearch extends Component {
     const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
+        <Helmet>
+          <title>Loans</title>
+        </Helmet>
         <Header as="h2">Loans and requests</Header>
         <OverridableContext.Provider
           value={{

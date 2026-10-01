@@ -14,6 +14,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Overridable from 'react-overridable';
 import { Container, Header } from 'semantic-ui-react';
+import { Helmet } from 'react-helmet-async';
 
 class StaticPage extends Component {
   componentDidMount() {
@@ -35,27 +36,32 @@ class StaticPage extends Component {
     const { isLoading, error, data } = this.props;
 
     return (
-      <Overridable
-        id="StaticPage.layout"
-        isLoading={isLoading}
-        error={error}
-        data={data}
-      >
-        <Error boundary error={error}>
-          <Container className="spaced">
-            <ILSHeaderPlaceholder fluid isLoading={isLoading} image="false">
-              <Header as="h1">{data.title}</Header>
-            </ILSHeaderPlaceholder>
-            <ILSParagraphPlaceholder
-              fluid
-              isLoading={isLoading}
-              linesNumber={30}
-            >
-              {this.parseStaticPageContent(data.content)}
-            </ILSParagraphPlaceholder>
-          </Container>
-        </Error>
-      </Overridable>
+      <>
+        <Helmet>
+          <title>{data.title}</title>
+        </Helmet>
+        <Overridable
+          id="StaticPage.layout"
+          isLoading={isLoading}
+          error={error}
+          data={data}
+        >
+          <Error boundary error={error}>
+            <Container className="spaced">
+              <ILSHeaderPlaceholder fluid isLoading={isLoading} image="false">
+                <Header as="h1">{data.title}</Header>
+              </ILSHeaderPlaceholder>
+              <ILSParagraphPlaceholder
+                fluid
+                isLoading={isLoading}
+                linesNumber={30}
+              >
+                {this.parseStaticPageContent(data.content)}
+              </ILSParagraphPlaceholder>
+            </Container>
+          </Error>
+        </Overridable>
+      </>
     );
   }
 }

@@ -35,6 +35,7 @@ import SearchMessage from './SearchMessage/SearchMessage';
 import SearchGuideLink from './SearchGuideLink/SearchGuideLink';
 import SearchAggregation from './SearchAggregation';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet-async';
 
 class LiteratureSearch extends Component {
   modelName = 'LITERATURE';
@@ -56,74 +57,88 @@ class LiteratureSearch extends Component {
     const { overriddenSearchAppCmps } = this.props;
 
     const urlHandler = setReactSearchKitUrlHandler(this.modelName);
+
+    const searchParams = new URLSearchParams(history.location.search);
+    const query = searchParams.get('q');
+
     return (
-      <Overridable id="LiteratureSearch.searchAppCmps" {...this.props}>
-        <OverridableContext.Provider
-          value={{
-            ...SearchControlsOverridesMap,
-            ...LiteratureSearchOverridesMap,
-            ...SearchBarOverridesMap,
-            ...overriddenSearchAppCmps,
-          }}
-        >
-          <ReactSearchKit
-            searchApi={this.searchApi}
-            history={history}
-            urlHandlerApi={urlHandler}
-            overridableId="LiteratureSearchOverridable"
-            initialQueryState={initialState}
-            defaultSortingOnEmptyQueryString={defaultSortingOnEmptyQueryString}
+      <>
+        <Helmet>
+          <title>{query ? `Search - '${query}'` : 'Search'}</title>
+        </Helmet>
+        <Overridable id="LiteratureSearch.searchAppCmps" {...this.props}>
+          <OverridableContext.Provider
+            value={{
+              ...SearchControlsOverridesMap,
+              ...LiteratureSearchOverridesMap,
+              ...SearchBarOverridesMap,
+              ...overriddenSearchAppCmps,
+            }}
           >
-            <Overridable id="LiteratureSearch.layout">
-              <>
-                <Container fluid className="literature-search-container">
-                  <Container>
-                    <SearchBar
-                      placeholder={
-                        invenioConfig.APP.HOME_SEARCH_BAR_PLACEHOLDER
-                      }
-                      {...invenioConfig.APP.SEARCH_BAR_PROPS}
-                    />
-                    <SearchGuideLink />
+            <ReactSearchKit
+              searchApi={this.searchApi}
+              history={history}
+              urlHandlerApi={urlHandler}
+              overridableId="LiteratureSearchOverridable"
+              initialQueryState={initialState}
+              defaultSortingOnEmptyQueryString={
+                defaultSortingOnEmptyQueryString
+              }
+            >
+              <Overridable id="LiteratureSearch.layout">
+                <>
+                  <Container fluid className="literature-search-container">
+                    <Container>
+                      <SearchBar
+                        placeholder={
+                          invenioConfig.APP.HOME_SEARCH_BAR_PLACEHOLDER
+                        }
+                        {...invenioConfig.APP.SEARCH_BAR_PROPS}
+                      />
+                      <SearchGuideLink />
+                    </Container>
                   </Container>
-                </Container>
-                <Overridable id="LiteratureSearch.results.header" />
-                <Media greaterThanOrEqual="computer">
-                  <Container fluid className="fs-search-body">
-                    <Grid
-                      columns={2}
-                      stackable
-                      relaxed
-                      className="grid-documents-search"
-                    >
-                      <ResultsLoader>
-                        <Grid.Column width={3} className="search-aggregations">
-                          <SearchAggregation modelName={this.modelName} />
-                        </Grid.Column>
-                        <Grid.Column width={13} className="search-results">
-                          <EmptyResults />
-                          <Error />
-                          <SearchControls modelName={this.modelName} />
-                          <ResultsMultiLayout />
-                          <Container fluid className="search-results-footer">
-                            <SearchFooter />
-                            <Container className="search-results-message">
-                              <SearchMessage />
+                  <Overridable id="LiteratureSearch.results.header" />
+                  <Media greaterThanOrEqual="computer">
+                    <Container fluid className="fs-search-body">
+                      <Grid
+                        columns={2}
+                        stackable
+                        relaxed
+                        className="grid-documents-search"
+                      >
+                        <ResultsLoader>
+                          <Grid.Column
+                            width={3}
+                            className="search-aggregations"
+                          >
+                            <SearchAggregation modelName={this.modelName} />
+                          </Grid.Column>
+                          <Grid.Column width={13} className="search-results">
+                            <EmptyResults />
+                            <Error />
+                            <SearchControls modelName={this.modelName} />
+                            <ResultsMultiLayout />
+                            <Container fluid className="search-results-footer">
+                              <SearchFooter />
+                              <Container className="search-results-message">
+                                <SearchMessage />
+                              </Container>
                             </Container>
-                          </Container>
-                        </Grid.Column>
-                      </ResultsLoader>
-                    </Grid>
-                  </Container>
-                </Media>
-                <Media lessThan="computer">
-                  <LiteratureSearchMobile />
-                </Media>
-              </>
-            </Overridable>
-          </ReactSearchKit>
-        </OverridableContext.Provider>
-      </Overridable>
+                          </Grid.Column>
+                        </ResultsLoader>
+                      </Grid>
+                    </Container>
+                  </Media>
+                  <Media lessThan="computer">
+                    <LiteratureSearchMobile />
+                  </Media>
+                </>
+              </Overridable>
+            </ReactSearchKit>
+          </OverridableContext.Provider>
+        </Overridable>
+      </>
     );
   }
 }

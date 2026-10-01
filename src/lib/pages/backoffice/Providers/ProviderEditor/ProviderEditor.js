@@ -15,6 +15,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { schema } from './schema';
 import { uiSchema } from './uiSchema';
+import { Helmet } from 'react-helmet-async';
 
 export class ProviderEditor extends Component {
   constructor(props) {
@@ -80,18 +81,23 @@ export class ProviderEditor extends Component {
     if (isEditing) {
       const formTitle = `Provider - Edit #${providerPid}`;
       return (
-        <Loader isLoading={isLoading}>
-          <Error error={error}>
-            <RJSForm
-              schema={schema()}
-              uiSchema={uiSchema(formTitle)}
-              formData={data.metadata}
-              submitAction={this.submitAction}
-              successCallback={this.successCallback}
-              successMessage="The provider was successfully updated."
-            />
-          </Error>
-        </Loader>
+        <>
+          <Helmet>
+            <title>{`Edit provider - ${data.metadata?.name ?? ''}`}</title>
+          </Helmet>
+          <Loader isLoading={isLoading}>
+            <Error error={error}>
+              <RJSForm
+                schema={schema()}
+                uiSchema={uiSchema(formTitle)}
+                formData={data.metadata}
+                submitAction={this.submitAction}
+                successCallback={this.successCallback}
+                successMessage="The provider was successfully updated."
+              />
+            </Error>
+          </Loader>
+        </>
       );
     } else {
       const formTitle = 'Provider - Create';

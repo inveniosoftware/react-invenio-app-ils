@@ -32,6 +32,7 @@ import { BorrowingRequestPayment } from './BorrowingRequestPayment';
 import { BorrowingRequestStatistics } from './BorrowingRequestStatistics';
 import { BorrowingRequestSteps } from './BorrowingRequestSteps';
 import { renderSubtitle } from '@modules/Document/utils';
+import { Helmet } from 'react-helmet-async';
 
 class BorrowingRequestHeader extends React.Component {
   renderStatus(status) {
@@ -185,41 +186,46 @@ export default class BorrowingRequestDetails extends Component {
     const { isLoading, error, data } = this.props;
     const metadata = data.metadata || {};
     return (
-      <div ref={this.headerRef}>
-        <Container fluid>
-          <Loader isLoading={isLoading}>
-            <Error error={error}>
-              <Sticky context={this.headerRef} className="solid-background">
-                <Container fluid className="spaced">
-                  <BorrowingRequestHeader brwReq={metadata} />
-                </Container>
-                <Divider />
-              </Sticky>
+      <>
+        <Helmet>
+          <title>{`Borrowing request - ${this.props.match.params.borrowingRequestPid}`}</title>
+        </Helmet>
+        <div ref={this.headerRef}>
+          <Container fluid>
+            <Loader isLoading={isLoading}>
+              <Error error={error}>
+                <Sticky context={this.headerRef} className="solid-background">
+                  <Container fluid className="spaced">
+                    <BorrowingRequestHeader brwReq={metadata} />
+                  </Container>
+                  <Divider />
+                </Sticky>
 
-              <Container fluid>
-                <Ref innerRef={this.menuRef}>
-                  <Grid columns={2}>
-                    <Grid.Column width={13}>
-                      <Container className="spaced">
-                        <BorrowingRequestStatistics brwReq={metadata} />
-                        <br />
-                        <BorrowingRequestSteps brwReq={metadata} />
-                        <BorrowingRequestMetadata brwReq={data} />
-                        <BorrowingRequestPayment brwReq={metadata} />
-                      </Container>
-                    </Grid.Column>
-                    <Grid.Column width={3}>
-                      <Sticky context={this.menuRef} offset={150}>
-                        <ActionMenu brwReq={metadata} offset={-150} />
-                      </Sticky>
-                    </Grid.Column>
-                  </Grid>
-                </Ref>
-              </Container>
-            </Error>
-          </Loader>
-        </Container>
-      </div>
+                <Container fluid>
+                  <Ref innerRef={this.menuRef}>
+                    <Grid columns={2}>
+                      <Grid.Column width={13}>
+                        <Container className="spaced">
+                          <BorrowingRequestStatistics brwReq={metadata} />
+                          <br />
+                          <BorrowingRequestSteps brwReq={metadata} />
+                          <BorrowingRequestMetadata brwReq={data} />
+                          <BorrowingRequestPayment brwReq={metadata} />
+                        </Container>
+                      </Grid.Column>
+                      <Grid.Column width={3}>
+                        <Sticky context={this.menuRef} offset={150}>
+                          <ActionMenu brwReq={metadata} offset={-150} />
+                        </Sticky>
+                      </Grid.Column>
+                    </Grid>
+                  </Ref>
+                </Container>
+              </Error>
+            </Loader>
+          </Container>
+        </div>
+      </>
     );
   }
 }

@@ -30,6 +30,7 @@ import {
 } from 'react-searchkit';
 import { Container, Grid, Header } from 'semantic-ui-react';
 import { PatronResultsList } from './PatronResultsList';
+import { Helmet } from 'react-helmet-async';
 
 export class PatronSearch extends Component {
   modelName = 'PATRONS';
@@ -63,6 +64,9 @@ export class PatronSearch extends Component {
     const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
+        <Helmet>
+          <title>Patrons</title>
+        </Helmet>
         <Header as="h2">Patrons</Header>
         <OverridableContext.Provider
           value={{

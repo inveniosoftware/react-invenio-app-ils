@@ -34,6 +34,7 @@ import {
 } from 'react-searchkit';
 import { Button, Container, Grid, Header } from 'semantic-ui-react';
 import { SeriesListEntry } from './SeriesListEntry';
+import { Helmet } from 'react-helmet-async';
 
 export class SeriesSearch extends Component {
   modelName = 'SERIES';
@@ -79,6 +80,9 @@ export class SeriesSearch extends Component {
     const urlHandler = setReactSearchKitUrlHandler(this.modelName);
     return (
       <>
+        <Helmet>
+          <title>Series</title>
+        </Helmet>
         <Header as="h2">Series</Header>
         <OverridableContext.Provider
           value={{

@@ -13,6 +13,7 @@ import { DocumentMetadata } from './DocumentMetadata';
 import { DocumentSummary } from './DocumentSummary';
 import { DocumentContent } from './DocumentContent';
 import { DocumentHeader } from './DocumentHeader';
+import { Helmet } from 'react-helmet-async';
 
 export default class DocumentDetails extends Component {
   constructor(props) {
@@ -57,48 +58,53 @@ export default class DocumentDetails extends Component {
   render() {
     const { isLoading, error, data } = this.props;
     return (
-      <div ref={this.headerRef}>
-        <Container fluid>
-          <Loader isLoading={isLoading}>
-            <Error error={error}>
-              <Sticky context={this.headerRef} className="solid-background">
-                <Container fluid className="spaced">
-                  <DocumentHeader data={data} />
-                </Container>
-                <Divider />
-              </Sticky>
-              <Container fluid>
-                <Ref innerRef={this.menuRef}>
-                  <Grid columns={2}>
-                    <Grid.Column width={13}>
-                      <Container className="spaced">
+      <>
+        <Helmet>
+          <title>{`Document - ${data.metadata?.title ?? ''}`}</title>
+        </Helmet>
+        <div ref={this.headerRef}>
+          <Container fluid>
+            <Loader isLoading={isLoading}>
+              <Error error={error}>
+                <Sticky context={this.headerRef} className="solid-background">
+                  <Container fluid className="spaced">
+                    <DocumentHeader data={data} />
+                  </Container>
+                  <Divider />
+                </Sticky>
+                <Container fluid>
+                  <Ref innerRef={this.menuRef}>
+                    <Grid columns={2}>
+                      <Grid.Column width={13}>
                         <Container className="spaced">
-                          <div
-                            ref={this.anchors.summaryRef}
-                            id="document-summary"
-                          >
-                            <DocumentSummary
-                              anchors={this.anchors}
-                              document={data}
-                            />
-                          </div>
+                          <Container className="spaced">
+                            <div
+                              ref={this.anchors.summaryRef}
+                              id="document-summary"
+                            >
+                              <DocumentSummary
+                                anchors={this.anchors}
+                                document={data}
+                              />
+                            </div>
+                          </Container>
+                          <DocumentMetadata anchors={this.anchors} />
+                          <DocumentContent anchors={this.anchors} data={data} />
                         </Container>
-                        <DocumentMetadata anchors={this.anchors} />
-                        <DocumentContent anchors={this.anchors} data={data} />
-                      </Container>
-                    </Grid.Column>
-                    <Grid.Column width={3}>
-                      <Sticky context={this.menuRef} offset={200}>
-                        <DocumentActionMenu offset={-250} />
-                      </Sticky>
-                    </Grid.Column>
-                  </Grid>
-                </Ref>
-              </Container>
-            </Error>
-          </Loader>
-        </Container>
-      </div>
+                      </Grid.Column>
+                      <Grid.Column width={3}>
+                        <Sticky context={this.menuRef} offset={200}>
+                          <DocumentActionMenu offset={-250} />
+                        </Sticky>
+                      </Grid.Column>
+                    </Grid>
+                  </Ref>
+                </Container>
+              </Error>
+            </Loader>
+          </Container>
+        </div>
+      </>
     );
   }
 }
