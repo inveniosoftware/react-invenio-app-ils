@@ -17,6 +17,7 @@ export default class CheckOutSearch extends Component {
   render() {
     return (
       <SearchBarILS
+        id="checkout-searchbar"
         onSearchHandler={this.executeCheckoutAndClearInput}
         placeholder="Insert patron id/email or physical copy barcode to start check-out..."
       />
