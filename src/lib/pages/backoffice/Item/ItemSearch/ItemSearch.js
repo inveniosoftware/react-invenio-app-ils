@@ -98,6 +98,7 @@ export class ItemSearch extends Component {
               <Container fluid className="spaced">
                 <SearchBar
                   placeholder="Search for physical copies..."
+                  id="physical-copies-searchbar"
                   {...invenioConfig.APP.SEARCH_BAR_PROPS}
                 />
                 <QueryBuildHelper fields={helperFields} />

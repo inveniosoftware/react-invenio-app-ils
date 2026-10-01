@@ -99,6 +99,7 @@ class Sidebar extends Component {
                   <Menu.Header>Actions</Menu.Header>
                   <Menu.Menu>
                     <Menu.Item
+                      id="sidebar-checkin-button"
                       as={Link}
                       active={checkInActive}
                       to={BackOfficeRoutes.checkIn}
@@ -107,6 +108,7 @@ class Sidebar extends Component {
                       <div className="menu-item-description">Return copies</div>
                     </Menu.Item>
                     <Menu.Item
+                      id="sidebar-checkout-button"
                       as={Link}
                       active={checkOutActive}
                       to={BackOfficeRoutes.checkOut}
@@ -172,6 +174,7 @@ class Sidebar extends Component {
                         Series / Monographs
                       </Menu.Item>
                       <Menu.Item
+                        id="sidebar-physical-copies-button"
                         as={Link}
                         active={itemsActive}
                         to={BackOfficeRoutes.itemsList}
