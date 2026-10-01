@@ -1,5 +1,9 @@
 # Changes
 
+Version 3.2.3 (released 2026-10-01)
+
+- fix(searchbar): correctly pass id into searchbar
+
 Version 3.2.2 (released 2026-09-30)
 
 - change(sidebar & searchbar): add ids for rfid support
