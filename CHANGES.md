@@ -1,5 +1,9 @@
 # Changes
 
+Version 3.2.2 (released 2026-09-30)
+
+- change(sidebar & searchbar): add ids for rfid support
+
 Version 3.2.1 (released 2026-08-31)
 
 - chore(release): republish due to incorrect commit tagged for 3.2.0 npm publish
