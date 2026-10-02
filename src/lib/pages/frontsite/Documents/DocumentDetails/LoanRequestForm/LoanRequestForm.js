@@ -90,6 +90,7 @@ class LoanRequestForm extends Component {
               />
             </label>
           }
+          aria-label={method.text}
           name="deliveryMethodRadioGroup"
           value={method.value}
           checked={deliveryMethod === method.value}
@@ -124,6 +125,7 @@ class LoanRequestForm extends Component {
         <Checkbox
           className="loan-request-delivery-date"
           label="I require it before a certain date."
+          aria-label="I require it before a certain date."
           onClick={() => {
             this.setState({ activeDeliveryDate: !activeDeliveryDate });
           }}

@@ -7,7 +7,7 @@ import DocumentAuthors from '@modules/Document/DocumentAuthors';
 import LiteratureTitle from '@modules/Literature/LiteratureTitle';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Icon, Popup } from 'semantic-ui-react';
+import { PopupIcon } from '@components/PopupIcon';
 
 export default class DocumentSelectListEntry extends Component {
   render() {
@@ -20,10 +20,7 @@ export default class DocumentSelectListEntry extends Component {
         <div className="price">PID #{document.metadata.pid}</div>
         <div className="title">
           {disabled && (
-            <Popup
-              content="This document was already selected."
-              trigger={<Icon name="info circle" />}
-            />
+            <PopupIcon content="This document was already selected." />
           )}
           <LiteratureTitle
             title={document.metadata.title}

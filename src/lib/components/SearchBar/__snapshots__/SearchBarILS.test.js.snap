@@ -14,10 +14,12 @@ exports[`SearchBar tests should match snapshot 1`] = `
   <Input
     action={
       Object {
+        "aria-label": "Submit search",
         "icon": "search",
         "onClick": [Function],
       }
     }
+    aria-label="Search"
     className=" ils-searchbar"
     fluid={true}
     onChange={[Function]}
@@ -33,6 +35,7 @@ exports[`SearchBar tests should match snapshot 1`] = `
       onPaste={[Function]}
     >
       <input
+        aria-label="Search"
         onChange={[Function]}
         onKeyPress={[Function]}
         placeholder="Search"
@@ -40,6 +43,7 @@ exports[`SearchBar tests should match snapshot 1`] = `
         value=""
       />
       <Button
+        aria-label="Submit search"
         as="button"
         icon="search"
         onClick={[Function]}
@@ -48,6 +52,7 @@ exports[`SearchBar tests should match snapshot 1`] = `
           innerRef={
             Object {
               "current": <button
+                aria-label="Submit search"
                 class="ui icon button"
               >
                 <i
@@ -62,6 +67,7 @@ exports[`SearchBar tests should match snapshot 1`] = `
             innerRef={
               Object {
                 "current": <button
+                  aria-label="Submit search"
                   class="ui icon button"
                 >
                   <i
@@ -73,6 +79,7 @@ exports[`SearchBar tests should match snapshot 1`] = `
             }
           >
             <button
+              aria-label="Submit search"
               className="ui icon button"
               onClick={[Function]}
             >

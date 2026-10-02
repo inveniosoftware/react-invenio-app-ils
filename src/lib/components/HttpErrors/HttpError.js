@@ -5,7 +5,7 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Button, Icon } from 'semantic-ui-react';
+import { Grid, Button, Icon, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import Overridable from 'react-overridable';
 
@@ -24,8 +24,14 @@ class HttpError extends Component {
             <Grid.Column>
               <Icon name={icon} size="massive" />
               <h1>{title}</h1>
-              <h3>{message}</h3>
-              {errorId ? <h4> Error Id: {errorId}</h4> : null}
+              <Header as="h2" size="small">
+                {message}
+              </Header>
+              {errorId ? (
+                <p>
+                  <strong>Error Id:</strong> {errorId}
+                </p>
+              ) : null}
               {!isBackOffice && (
                 <Link to="/">
                   <Button icon labelPosition="left" primary>

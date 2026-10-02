@@ -11,7 +11,8 @@ import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Button, Icon, Popup } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
+import { PopupIcon } from '@components/PopupIcon';
 import { DateTime } from 'luxon';
 
 const INFO_MESSAGES = {
@@ -87,11 +88,7 @@ const validateLoanExtension = (brwReqLoan) => {
   return {
     isValid: isValid,
     cmp: msg ? (
-      <Popup
-        content={msg}
-        trigger={<Icon name="info" />}
-        position="top right"
-      />
+      <PopupIcon content={msg} icon="info" position="top right" />
     ) : null,
   };
 };
