@@ -33,6 +33,9 @@ import { Error as IlsError } from '@components/Error';
 import { SearchControlsMobile } from '@modules/SearchControls/SearchControlsMobile';
 import { ILSParagraphPlaceholder } from '@components/ILSPlaceholder';
 
+// same as the cards of a row of the grid
+const SUBJECT_RESULTS_SIZE = 5;
+
 export const DocumentSubjectSearch = ({ metadata, isLoading }) => {
   const renderDocumentSubjectSearch = !_isEmpty(metadata.subjects);
   return (
@@ -69,7 +72,6 @@ const queryBuilderForSubjects = (documentMetadata) => {
   return class DocumentSubjectsSerializer extends InvenioRequestSerializer {
     serialize(stateQuery) {
       stateQuery.queryString = subjectsQuery;
-      stateQuery.size = 5;
       return super.serialize(stateQuery);
     }
   };
@@ -90,7 +92,12 @@ class DocumentSubjects extends React.Component {
       },
     });
 
-    const initialState = setReactSearchKitInitialQueryState(this.modelName);
+    // the page size is part of the state, so that the pagination counts the
+    // pages with the same size as the one that is requested
+    const initialState = {
+      ...setReactSearchKitInitialQueryState(this.modelName),
+      size: SUBJECT_RESULTS_SIZE,
+    };
     const defaultSortingOnEmptyQueryString =
       setReactSearchKitDefaultSortingOnEmptyQueryString(this.modelName);
     const urlHandler = setReactSearchKitUrlHandler(this.modelName, false);
@@ -120,6 +127,7 @@ class DocumentSubjects extends React.Component {
                   <SearchControls
                     modelName={this.modelName}
                     withLayoutSwitcher={false}
+                    withResultsPerPage={false}
                   />
                   <ResultsGrid />
                   <SearchFooter />
@@ -159,6 +167,7 @@ class DocumentSubjectsMobile extends React.Component {
                 <SearchControlsMobile
                   ref={this.stickyRef}
                   modelName="DOCUMENTS"
+                  withResultsPerPage={false}
                 />
               </Sticky>
               <Container className="fs-search-body" textAlign="center">

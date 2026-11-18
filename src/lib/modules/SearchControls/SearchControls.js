@@ -18,6 +18,7 @@ class SearchControlsComponent extends Component {
   render() {
     const {
       withLayoutSwitcher,
+      withResultsPerPage,
       defaultLayout,
       modelName,
       currentResultsState,
@@ -38,7 +39,9 @@ class SearchControlsComponent extends Component {
                 )}
                 <Grid.Column width={10}>
                   <Count label={(cmp) => <div>{cmp} results found</div>} />
-                  <SearchResultsPerPage modelName={modelName} />
+                  {withResultsPerPage && (
+                    <SearchResultsPerPage modelName={modelName} />
+                  )}
                 </Grid.Column>
               </Grid>
             </Grid.Column>
@@ -65,7 +68,10 @@ class SearchControlsComponent extends Component {
           </Grid>
         </Media>
         <Media lessThan="computer">
-          <SearchControlsMobile modelName={modelName} />
+          <SearchControlsMobile
+            modelName={modelName}
+            withResultsPerPage={withResultsPerPage}
+          />
         </Media>
         <Media lessThan="largeScreen">
           <Grid>
@@ -82,12 +88,14 @@ class SearchControlsComponent extends Component {
 SearchControlsComponent.propTypes = {
   modelName: PropTypes.string.isRequired,
   withLayoutSwitcher: PropTypes.bool,
+  withResultsPerPage: PropTypes.bool,
   defaultLayout: PropTypes.oneOf(['grid', 'list']),
   currentResultsState: PropTypes.object.isRequired,
 };
 
 SearchControlsComponent.defaultProps = {
   withLayoutSwitcher: true,
+  withResultsPerPage: true,
   defaultLayout: 'grid',
 };
 

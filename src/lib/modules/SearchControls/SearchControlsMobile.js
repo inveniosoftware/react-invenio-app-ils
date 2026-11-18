@@ -20,7 +20,8 @@ class SearchControlsMobileComponent extends Component {
   };
 
   render() {
-    const { stickyRef, modelName, currentResultsState } = this.props;
+    const { stickyRef, modelName, currentResultsState, withResultsPerPage } =
+      this.props;
     const totalResults = currentResultsState.data.total;
     const searchConfig = getSearchConfig(modelName);
 
@@ -50,16 +51,18 @@ class SearchControlsMobileComponent extends Component {
                   className="vertical-align-content"
                   textAlign="right"
                 >
-                  <div>
-                    <SearchResultsPerPage
-                      modelName={modelName}
-                      label={(cmp) => (
-                        <div className="mobile-results-page">
-                          {cmp} results per page
-                        </div>
-                      )}
-                    />
-                  </div>
+                  {withResultsPerPage && (
+                    <div>
+                      <SearchResultsPerPage
+                        modelName={modelName}
+                        label={(cmp) => (
+                          <div className="mobile-results-page">
+                            {cmp} results per page
+                          </div>
+                        )}
+                      />
+                    </div>
+                  )}
                 </Grid.Column>
               </Grid>
             </Container>
@@ -73,11 +76,13 @@ class SearchControlsMobileComponent extends Component {
 SearchControlsMobileComponent.propTypes = {
   modelName: PropTypes.string.isRequired,
   stickyRef: PropTypes.object,
+  withResultsPerPage: PropTypes.bool,
   currentResultsState: PropTypes.object.isRequired,
 };
 
 SearchControlsMobileComponent.defaultProps = {
   stickyRef: null,
+  withResultsPerPage: true,
 };
 
 export const SearchControlsMobile = withState(SearchControlsMobileComponent);
