@@ -13,3 +13,42 @@ Form Variables - REACT-INVENIO-APP-ILS
 @fieldsetErrorTextColor: @errorTextColor;
 
 @dropdownErrorColor: @errorBorderColor;
+
+/*-------------------------------
+  Sectioned record editor
+  (RJSF forms rendered in numbered sections with a sticky record bar)
+  The palette is the one of the "Record Editor, Modern" mock-up.
+--------------------------------*/
+@sectionsPageBackground: #f5f6f8;
+@sectionsSurface: #ffffff;
+@sectionsSunken: #f1f3f5;
+@sectionsLine: #e6e8ec;
+@sectionsLineStrong: #d3d7de;
+@sectionsText: #15181d;
+@sectionsMuted: #6a717d;
+@sectionsAccent: #0f766e;
+@sectionsAccentSoft: #e5f3f1;
+@sectionsRequired: #d92d20;
+@sectionsOk: #15803d;
+@sectionsOkSoft: #e6f5eb;
+@sectionsWarn: #b45309;
+@sectionsWarnSoft: #fdf2e1;
+@sectionsRadius: 12px;
+@sectionsRadiusSmall: 8px;
+@sectionsInputHeight: 34px;
+
+// One colour per section (tab number, top border, table bars, buttons). The
+// n-th section of a form takes the n-th colour, then they start over.
+@sectionColor1: #0f766e; @sectionSoft1: #e4f3f0; // teal
+@sectionColor2: #2c5ba8; @sectionSoft2: #e9f0fc; // blue
+@sectionColor3: #6544c2; @sectionSoft3: #f1edfc; // purple
+@sectionColor4: #9a5b06; @sectionSoft4: #fbf2df; // amber
+@sectionColor5: #b02a5b; @sectionSoft5: #fcebf1; // pink
+@sectionColor6: #3d7a1d; @sectionSoft6: #ebf5e3; // green
+@sectionColor7: #4b5563; @sectionSoft7: #eef0f3; // grey
+
+// distance of the sticky record bar from the top of the window (e.g. the
+// height of a fixed navigation bar above it)
+@recordBarTop: 0;
+// room left above a section when jumping to it from the tabs
+@sectionScrollOffset: 130px;

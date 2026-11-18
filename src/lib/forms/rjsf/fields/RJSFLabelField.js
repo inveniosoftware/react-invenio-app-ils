@@ -15,8 +15,8 @@ const { HiddenWidget } = getDefaultRegistry().widgets;
  */
 export class RJSFLabelField extends Component {
   render() {
-    const { idSchema, formData } = this.props;
-    const { $id } = idSchema;
+    const { fieldPathId, formData } = this.props;
+    const { $id } = fieldPathId;
     return (
       <>
         {formData && (
@@ -30,12 +30,12 @@ export class RJSFLabelField extends Component {
 
 RJSFLabelField.propTypes = {
   formData: PropTypes.string,
-  idSchema: PropTypes.object,
+  fieldPathId: PropTypes.object,
 };
 
 RJSFLabelField.defaultProps = {
   formData: undefined,
-  idSchema: {
+  fieldPathId: {
     $id: '',
   },
 };

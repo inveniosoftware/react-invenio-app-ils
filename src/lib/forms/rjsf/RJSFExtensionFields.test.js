@@ -304,3 +304,61 @@ describe('test ui schema extensions', () => {
     });
   });
 });
+
+describe('ui schema extensions as multi selects', () => {
+  const extensions = {
+    label: 'CERN',
+    fields: {
+      free: { type: 'array', items: { type: 'string' } },
+      all: {
+        type: 'array',
+        items: { type: 'string', widget: 'vocabulary', vocabularyType: 'inst' },
+      },
+      search: {
+        type: 'array',
+        items: {
+          type: 'string',
+          widget: 'vocabularySearch',
+          vocabularyType: 'lang',
+        },
+      },
+      numbers: { type: 'array', items: { type: 'number' } },
+      text: { type: 'string' },
+    },
+  };
+
+  it('keeps the stock array rendering by default', () => {
+    const { uiSchemaExtensions } = getUiSchemaExtensions(extensions);
+    expect(uiSchemaExtensions.extensions.free['ui:field']).toBeUndefined();
+    expect(uiSchemaExtensions.extensions.free['ui:options'].orderable).toBe(
+      false
+    );
+  });
+
+  it('maps arrays of strings to the multi select field when asked to', () => {
+    const { uiSchemaExtensions } = getUiSchemaExtensions(extensions, {
+      multiSelect: true,
+    });
+    const fields = uiSchemaExtensions.extensions;
+    expect(fields.free).toEqual({
+      'ui:field': 'multiSelect',
+      'ui:options': { source: 'free' },
+    });
+    expect(fields.all).toEqual({
+      'ui:field': 'multiSelect',
+      'ui:options': { source: 'all', vocabularyType: 'inst' },
+    });
+    expect(fields.search).toEqual({
+      'ui:field': 'multiSelect',
+      'ui:options': { source: 'search', vocabularyType: 'lang' },
+    });
+  });
+
+  it('leaves the other arrays and fields as they are', () => {
+    const { uiSchemaExtensions } = getUiSchemaExtensions(extensions, {
+      multiSelect: true,
+    });
+    expect(uiSchemaExtensions.extensions.numbers['ui:field']).toBeUndefined();
+    expect(uiSchemaExtensions.extensions.text).toBeUndefined();
+  });
+});

@@ -71,7 +71,26 @@ export const getSchemaExtensions = (extensions) => {
 
 const ALLOWED_UI_WIDGETS_VOCABULARIES = ['vocabulary', 'vocabularySearch'];
 
-const getUiSchemaFieldProps = (fieldConfig) => {
+/**
+ * ui schema of an array of strings edited in a single multi select control
+ * (see RJSFMultiSelectField): free text, or a vocabulary.
+ */
+const getMultiSelectUiSchema = (itemsConfig) => {
+  const { widget, vocabularyType } = itemsConfig;
+  if (!widget) {
+    return { 'ui:field': 'multiSelect', 'ui:options': { source: 'free' } };
+  }
+  return {
+    'ui:field': 'multiSelect',
+    'ui:options': {
+      // a vocabulary searched as you type, or a small one loaded at once
+      source: widget === 'vocabularySearch' ? 'search' : 'all',
+      vocabularyType,
+    },
+  };
+};
+
+const getUiSchemaFieldProps = (fieldConfig, { multiSelect = false } = {}) => {
   const uiSchemaProps = {};
   switch (fieldConfig.type) {
     case 'number':
@@ -102,6 +121,9 @@ const getUiSchemaFieldProps = (fieldConfig) => {
       // no extra props if not a vocabulary
       break;
     case 'array': {
+      if (multiSelect && _get(fieldConfig, 'items.type') === 'string') {
+        return getMultiSelectUiSchema(fieldConfig.items);
+      }
       uiSchemaProps['ui:options'] = {
         orderable: false,
         semantic: {
@@ -123,7 +145,13 @@ const getUiSchemaFieldProps = (fieldConfig) => {
   return uiSchemaProps;
 };
 
-export const getUiSchemaExtensions = (extensions) => {
+/**
+ * @param {Object} extensions - the extensions configuration
+ * @param {Object} options
+ * @param {boolean} options.multiSelect - edit the arrays of strings in a
+ *   single multi select control (for forms rendered in sections)
+ */
+export const getUiSchemaExtensions = (extensions, options = {}) => {
   if (_isEmpty(extensions) || _isEmpty(_get(extensions, 'fields'))) {
     return {
       uiSchemaExtensions: {},
@@ -144,7 +172,7 @@ export const getUiSchemaExtensions = (extensions) => {
   fieldNames.forEach((fieldName, index) => {
     // field props
     const fieldConfig = fields[fieldName];
-    const uiSchemaProps = getUiSchemaFieldProps(fieldConfig);
+    const uiSchemaProps = getUiSchemaFieldProps(fieldConfig, options);
     if (!_isEmpty(uiSchemaProps)) {
       schemaFields[fieldName] = uiSchemaProps;
     }

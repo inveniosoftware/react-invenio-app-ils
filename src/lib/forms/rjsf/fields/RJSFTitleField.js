@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
+import { getUiOptions } from '@rjsf/utils';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Header } from 'semantic-ui-react';
@@ -13,8 +14,8 @@ import { Header } from 'semantic-ui-react';
  */
 export class RJSFTitleField extends Component {
   render() {
-    const { options, title } = this.props;
-    const { semantic } = options;
+    const { uiSchema, title } = this.props;
+    const { semantic } = getUiOptions(uiSchema);
     return title ? (
       <Header dividing as="h4" {...semantic}>
         {title}
@@ -24,16 +25,11 @@ export class RJSFTitleField extends Component {
 }
 
 RJSFTitleField.propTypes = {
-  options: PropTypes.object,
+  uiSchema: PropTypes.object,
   title: PropTypes.string,
 };
 
 RJSFTitleField.defaultProps = {
-  options: {
-    semantic: {
-      inverted: false,
-      dividing: true,
-    },
-  },
+  uiSchema: {},
   title: null,
 };

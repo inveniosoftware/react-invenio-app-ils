@@ -3,14 +3,25 @@
  * SPDX-License-Identifier: MIT
  */
 
+import { GridRow } from '@forms/rjsf/layout/GridRow';
+import { SectionedObjectFieldTemplate } from '@forms/rjsf/layout/SectionedObjectFieldTemplate';
+import { ArrayItemContext } from '@forms/rjsf/layout/arrays/ArrayItemContext';
+import { TableCells } from '@forms/rjsf/layout/arrays/ArrayItemTemplate';
+import {
+  hasArrayLayout,
+  SectionedArrayTemplate,
+} from '@forms/rjsf/layout/arrays/SectionedArrayTemplate';
+import { NestedObjectRows } from '@forms/rjsf/layout/NestedObjectRows';
+import { isInArray, isInCard, schemaKey } from '@forms/rjsf/layout/rows';
+import { hasSections } from '@forms/rjsf/layout/sections';
 import { RJSFormWrapper } from '@forms/rjsf/RJSFormWrapper';
 import { Templates } from '@rjsf/semantic-ui';
+import { titleId } from '@rjsf/utils';
 
 const { ArrayFieldTemplate, ObjectFieldTemplate } = Templates;
-import _find from 'lodash/find';
 import PropTypes from 'prop-types';
-import React from 'react';
-import { Divider, Form, Grid } from 'semantic-ui-react';
+import React, { useContext } from 'react';
+import { Grid } from 'semantic-ui-react';
 import { ignoreRJSFEnterEvent } from './utils';
 
 /**
@@ -44,7 +55,7 @@ const Wrapper = ({ uiSchema, children }) => {
 
 Wrapper.propTypes = {
   uiSchema: PropTypes.object.isRequired,
-  children: PropTypes.array,
+  children: PropTypes.node,
 };
 
 /**
@@ -66,85 +77,31 @@ ObjectFieldTemplateWithWrapper.propTypes = {
 };
 
 /**
- * Grid divider component
- */
-function GridDivider(props) {
-  const { colWidth } = props;
-  return (
-    <Grid.Column width={colWidth}>
-      <Divider fitted />
-    </Grid.Column>
-  );
-}
-
-GridDivider.propTypes = {
-  colWidth: PropTypes.number.isRequired,
-};
-
-/**
- * Form field wrapped in a Grid.Col
- */
-function GridCol(props) {
-  const { field, colWidth } = props;
-  return <Grid.Column width={colWidth}>{field.content}</Grid.Column>;
-}
-
-GridCol.propTypes = {
-  colWidth: PropTypes.number.isRequired,
-  field: PropTypes.object.isRequired,
-};
-
-/**
- * Form fields wrapped in a Grid.Row
- */
-function GridRow(props) {
-  const { formProps, row } = props;
-  return (
-    <Grid.Row>
-      {Object.keys(row).map((fieldName, i) => {
-        const colWidth = row[fieldName];
-        const isDivider = fieldName === 'custom:divider';
-        if (isDivider) {
-          return <GridDivider colWidth={colWidth} key={i} />;
-        } else {
-          const field = _find(
-            formProps.properties,
-            (obj) => obj.name === fieldName
-          );
-          return field ? (
-            <GridCol
-              field={field}
-              colWidth={colWidth}
-              key={field.content.key}
-            />
-          ) : null;
-        }
-      })}
-    </Grid.Row>
-  );
-}
-
-GridRow.propTypes = {
-  formProps: PropTypes.object.isRequired,
-  row: PropTypes.object.isRequired,
-};
-
-/**
  * Custom ObjectFieldTemplate component to wrap each `object` field with <Grid />
  * and render each subfield in Rows/Cols.
  * @param {*} props
  */
 function ObjectFieldTemplateGrid(props) {
-  const { idSchema, uiSchema, title, required, registry } = props;
+  const {
+    fieldPathId,
+    uiSchema,
+    schema,
+    title,
+    required,
+    registry,
+    hideTitle,
+  } = props;
   const { TitleFieldTemplate: TitleField } = registry.templates;
   const fieldTitle = uiSchema['ui:title'] || title;
   return (
     <>
-      {fieldTitle && (
+      {fieldTitle && !hideTitle && (
         <TitleField
-          id={`${idSchema.$id}-title`}
+          id={titleId(fieldPathId)}
           title={fieldTitle}
-          options={uiSchema['ui:options']}
+          schema={schema}
+          uiSchema={uiSchema}
+          registry={registry}
           required={required}
         />
       )}
@@ -165,8 +122,10 @@ function ObjectFieldTemplateGrid(props) {
 }
 
 ObjectFieldTemplateGrid.propTypes = {
-  idSchema: PropTypes.object.isRequired,
+  fieldPathId: PropTypes.object.isRequired,
   uiSchema: PropTypes.object.isRequired,
+  schema: PropTypes.object,
+  hideTitle: PropTypes.bool,
   title: PropTypes.string.isRequired,
   registry: PropTypes.object.isRequired,
   required: PropTypes.bool,
@@ -174,6 +133,7 @@ ObjectFieldTemplateGrid.propTypes = {
 
 ObjectFieldTemplateGrid.defaultProps = {
   required: false,
+  hideTitle: false,
 };
 
 /**
@@ -182,8 +142,35 @@ ObjectFieldTemplateGrid.defaultProps = {
  * @param {*} props
  */
 export function ObjectFieldTemplateWrapperGrid(props) {
-  const { idSchema, uiSchema } = props;
-  const isRoot = idSchema.$id === 'root';
+  const { fieldPathId, uiSchema } = props;
+  const itemContext = useContext(ArrayItemContext);
+  const isRoot = fieldPathId.$id === 'root';
+  if (isRoot && hasSections(uiSchema)) {
+    // root of a form rendered in numbered sections with a sticky record bar
+    return <SectionedObjectFieldTemplate {...props} />;
+  }
+  const { registry } = props;
+  const isLayoutItem =
+    itemContext && itemContext.itemPathKey === schemaKey(fieldPathId.path);
+  if (isLayoutItem && itemContext.layout === 'table') {
+    // item of a table array: its fields are the cells of the row
+    return (
+      <TableCells properties={props.properties} columns={itemContext.columns} />
+    );
+  }
+  if (isLayoutItem && itemContext.layout === 'cards') {
+    // the title is already in the header of the card; fields one per line
+    return <NestedObjectRows {...props} hideTitle />;
+  }
+  if (
+    !isRoot &&
+    registry.formContext &&
+    registry.formContext.sectioned &&
+    (!isInArray(fieldPathId.path) || isInCard(itemContext, fieldPathId.path))
+  ) {
+    // object inside a sectioned form (or a card): one field per line
+    return <NestedObjectRows {...props} />;
+  }
   return isRoot ? (
     <Wrapper uiSchema={uiSchema['custom:root'] || {}}>
       {ObjectFieldTemplateGrid(props)}
@@ -194,8 +181,10 @@ export function ObjectFieldTemplateWrapperGrid(props) {
 }
 
 ObjectFieldTemplateWrapperGrid.propTypes = {
-  idSchema: PropTypes.object.isRequired,
+  fieldPathId: PropTypes.object.isRequired,
+  properties: PropTypes.array.isRequired,
   uiSchema: PropTypes.object.isRequired,
+  registry: PropTypes.object.isRequired,
 };
 
 ObjectFieldTemplateWrapperGrid.defaultProps = {};
@@ -207,6 +196,10 @@ ObjectFieldTemplateWrapperGrid.defaultProps = {};
 export function ArrayFieldTemplateWithWrapper(props) {
   const { children, uiSchema } = props;
   ignoreRJSFEnterEvent(document);
+
+  if (hasArrayLayout(props)) {
+    return <SectionedArrayTemplate {...props} />;
+  }
 
   return (
     <Wrapper uiSchema={uiSchema}>
