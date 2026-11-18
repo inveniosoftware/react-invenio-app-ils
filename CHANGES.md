@@ -1,5 +1,9 @@
 # Changes
 
+Version 3.2.4 (released 2026-11-18)
+
+- fix(selfcheckout): fix new notification error
+
 Version 3.2.3 (released 2026-10-01)
 
 - fix(searchbar): correctly pass id into searchbar
