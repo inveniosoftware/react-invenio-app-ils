@@ -22,6 +22,8 @@ module.exports = {
     '^@theme(.*)$': '<rootDir>/src/semantic-ui$1',
     '^@testData(.*)$': '<rootDir>/src/testData$1',
   },
+  // rjsf v6 depends on ESM-only packages that must be transformed by babel
+  transformIgnorePatterns: ['/node_modules/(?!(@x0k)/)'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   snapshotFormat: {
     printBasicPrototype: true,
