@@ -89,28 +89,19 @@ exports[`DocumentStats tests should load the component 1`] = `
                   >
                     average
                      
-                    <Popup
+                    <PopupIcon
+                      ariaLabel={null}
                       content="This average is computed with the number of past
                     loans on the selected range of dates, and the current number
                     of items (1) of the document."
-                      disabled={false}
-                      eventsEnabled={true}
-                      on={
-                        Array [
-                          "click",
-                          "hover",
-                        ]
+                      icon="info circle"
+                      iconProps={
+                        Object {
+                          "size": "small",
+                        }
                       }
-                      pinned={false}
-                      popperModifiers={Array []}
                       position="top right"
-                      trigger={
-                        <Icon
-                          as="i"
-                          name="info circle"
-                          size="small"
-                        />
-                      }
+                      triggerChildren={null}
                     />
                   </TableHeaderCell>
                 </TableRow>
