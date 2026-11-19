@@ -1,5 +1,9 @@
 # Changes
 
+Version 3.2.5 (released 2026-11-19)
+
+- add(subject relations): fix pagination on related subjects 
+
 Version 3.2.4 (released 2026-11-18)
 
 - fix(selfcheckout): fix new notification error
