@@ -70,3 +70,847 @@ Form Overrides - REACT-INVENIO-APP-ILS
     }
   }
 }
+
+/*******************************
+  Sectioned record editor
+  Modern skin, after the "Record Editor, Modern" mock-up.
+  The colours are CSS custom properties, set from the variables of
+  form.variables: a theme (e.g. a dark one) only has to override them.
+*******************************/
+
+.rjsf-sections {
+  --rjsf-surface: @sectionsSurface;
+  --rjsf-sunken: @sectionsSunken;
+  --rjsf-ink: @sectionsText;
+  --rjsf-muted: @sectionsMuted;
+  --rjsf-line: @sectionsLine;
+  --rjsf-line-strong: @sectionsLineStrong;
+  --rjsf-accent: @sectionsAccent;
+  --rjsf-accent-soft: @sectionsAccentSoft;
+  --rjsf-req: @sectionsRequired;
+  --rjsf-ok: @sectionsOk;
+  --rjsf-ok-soft: @sectionsOkSoft;
+  --rjsf-warn: @sectionsWarn;
+  --rjsf-warn-soft: @sectionsWarnSoft;
+  --rjsf-radius: @sectionsRadius;
+  --rjsf-radius-small: @sectionsRadiusSmall;
+  --rjsf-input-height: @sectionsInputHeight;
+  // colour of the section the element is in (see .rjsf-color-N)
+  --sec: @sectionColor1;
+  --sec-soft: @sectionSoft1;
+
+  color: var(--rjsf-ink);
+
+  .rjsf-color-1 { --sec: @sectionColor1; --sec-soft: @sectionSoft1; }
+  .rjsf-color-2 { --sec: @sectionColor2; --sec-soft: @sectionSoft2; }
+  .rjsf-color-3 { --sec: @sectionColor3; --sec-soft: @sectionSoft3; }
+  .rjsf-color-4 { --sec: @sectionColor4; --sec-soft: @sectionSoft4; }
+  .rjsf-color-5 { --sec: @sectionColor5; --sec-soft: @sectionSoft5; }
+  .rjsf-color-6 { --sec: @sectionColor6; --sec-soft: @sectionSoft6; }
+  .rjsf-color-7 { --sec: @sectionColor7; --sec-soft: @sectionSoft7; }
+
+  /* ---------- Record bar ---------- */
+  .rjsf-record-bar {
+    position: sticky;
+    top: @recordBarTop;
+    z-index: 20;
+    background: ~"color-mix(in srgb, var(--rjsf-surface) 92%, transparent)";
+    backdrop-filter: saturate(1.4) blur(10px);
+    border-bottom: 1px solid var(--rjsf-line);
+    margin-bottom: 1rem;
+  }
+
+  .rjsf-record-bar-inner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.65rem 1.5rem;
+  }
+
+  .rjsf-crumbs {
+    font-size: 0.85rem;
+    color: var(--rjsf-muted);
+
+    b {
+      font-weight: 500;
+      color: var(--rjsf-ink);
+    }
+  }
+
+  .rjsf-record-title {
+    flex: 1 1 280px;
+    min-width: 0;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .rjsf-record-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .ui.button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      margin: 0;
+      padding: 0 14px;
+      font-weight: 500;
+      border-radius: var(--rjsf-radius-small);
+    }
+
+    // Cancel
+    .ui.button:not(.primary) {
+      color: var(--rjsf-ink);
+      background: var(--rjsf-surface);
+      box-shadow: inset 0 0 0 1px var(--rjsf-line-strong);
+    }
+
+    // Save: the accent colour of the editor
+    .ui.primary.button {
+      color: #fff;
+      background: var(--rjsf-accent);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+
+      &:hover,
+      &:focus {
+        background: var(--rjsf-accent);
+        filter: brightness(1.08);
+      }
+    }
+
+    .rjsf-keys-toggle {
+      font-size: 0.85rem;
+      color: var(--rjsf-muted);
+      margin-right: 0.5rem;
+    }
+  }
+
+  /* ---------- Status pills ---------- */
+  .rjsf-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    height: 24px;
+    padding: 0 0.7rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+
+    &::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    &.ok {
+      color: var(--rjsf-ok);
+      background: var(--rjsf-ok-soft);
+    }
+
+    &.warn {
+      color: var(--rjsf-warn);
+      background: var(--rjsf-warn-soft);
+    }
+
+    &.neutral {
+      color: var(--rjsf-muted);
+      background: var(--rjsf-sunken);
+    }
+  }
+
+  /* ---------- Tabs (jump to a section, never hide one) ---------- */
+  .rjsf-tabs {
+    display: flex;
+    gap: 4px;
+    padding: 0 1.5rem;
+    overflow-x: auto;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 9px 10px 8px;
+      color: var(--rjsf-muted);
+      font-weight: 500;
+      white-space: nowrap;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+
+      &:hover {
+        color: var(--sec);
+      }
+
+      &.active {
+        color: var(--rjsf-ink);
+        border-bottom-color: var(--sec);
+
+        .rjsf-tab-n {
+          background: var(--sec);
+          color: var(--rjsf-surface);
+        }
+      }
+    }
+
+    .rjsf-tab-n {
+      display: grid;
+      place-items: center;
+      width: 18px;
+      height: 18px;
+      // the inherited line height would push the digit below the middle
+      line-height: 1;
+      padding: 0;
+      font-size: 0.8rem;
+      border-radius: 6px;
+      background: var(--sec-soft);
+      color: var(--sec);
+    }
+
+    // number of items of the section (e.g. the authors)
+    .rjsf-tab-count {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--rjsf-muted);
+
+      &::before {
+        content: "(";
+      }
+
+      &::after {
+        content: ")";
+      }
+    }
+
+    .rjsf-tab-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--rjsf-req);
+
+      &.done {
+        background: var(--rjsf-ok);
+      }
+    }
+  }
+
+  /* ---------- Blocks (sections) ---------- */
+  .rjsf-sections-body {
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .rjsf-block {
+    background: var(--rjsf-surface);
+    border: 1px solid var(--rjsf-line);
+    border-top: 3px solid var(--sec);
+    border-radius: var(--rjsf-radius);
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.03);
+    scroll-margin-top: @sectionScrollOffset;
+  }
+
+  .rjsf-block-head {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.7rem 1.25rem 0.1rem;
+
+    h2 {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+  }
+
+  .rjsf-block-n {
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    line-height: 1;
+    padding: 0;
+    font-size: 0.85rem;
+    color: var(--sec);
+    background: var(--sec-soft);
+    border-radius: 7px;
+  }
+
+  .rjsf-block-count {
+    padding: 0 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--sec);
+    background: var(--sec-soft);
+    border-radius: 999px;
+  }
+
+  .rjsf-block-hint {
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: var(--rjsf-muted);
+  }
+
+  .rjsf-block-body {
+    padding: 0.25rem 1.25rem 0.8rem;
+  }
+
+  .rjsf-block-body.with-grid {
+    padding: 0.5rem 1.25rem 0.8rem;
+  }
+
+  /* ---------- Schema keys (toggle in the record bar) ---------- */
+  .rjsf-key {
+    font-family: Menlo, Consolas, monospace;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--rjsf-accent);
+    background: transparent;
+    padding: 0;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  &:not(.show-keys) .rjsf-key {
+    display: none;
+  }
+
+  // the MARC 21 equivalent of a field ("MARC" toggle in the record bar)
+  .rjsf-marc {
+    padding: 0 0.4em;
+    font-family: Menlo, Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--sec);
+    background: var(--sec-soft);
+    border-radius: 4px;
+  }
+
+  &:not(.show-marc) .rjsf-marc {
+    display: none;
+  }
+
+  /* ---------- Label | field rows: one field per line ---------- */
+  .rjsf-row {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    align-items: center;
+    border-bottom: 1px solid var(--rjsf-line);
+  }
+
+  .rjsf-block-field:last-child > .rjsf-row,
+  .rjsf-subgroup-item:last-child > .rjsf-row {
+    border-bottom: 0;
+  }
+
+  // a row followed by an array has no line under it: the tinted bar of the
+  // array marks the boundary
+  .rjsf-block-field:has(+ .rjsf-block-field .rjsf-array) > .rjsf-row,
+  .rjsf-subgroup-item:has(+ .rjsf-subgroup-item .rjsf-array) > .rjsf-row {
+    border-bottom: 0;
+  }
+
+  .rjsf-row-label {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0.4rem 0.75rem 0.4rem 0;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: var(--rjsf-muted);
+    background: transparent;
+
+    // the star sticks to the text of the label, even when the keys wrap
+    &.required .rjsf-row-label-text::after {
+      content: " *";
+      color: var(--rjsf-req);
+      font-weight: 600;
+    }
+  }
+
+  .rjsf-row-value {
+    min-width: 0;
+    padding: 0.2rem 0;
+    display: flex;
+    align-items: center;
+
+    > * {
+      flex: 1;
+      min-width: 0;
+    }
+
+    // the label of the widget is replaced by the one of the row
+    .field > label:first-child,
+    .field > .sui-field-label {
+      display: none;
+    }
+  }
+
+  .rjsf-subgroup-subhead,
+  .rjsf-subhead {
+    padding: 0.15rem 0 0.3rem;
+    font-size: 0.93rem;
+    font-weight: 600;
+    background: transparent;
+    border: 0;
+  }
+
+  .rjsf-subgroup {
+    border: 0;
+  }
+
+  /* ---------- Fields: filled inputs ---------- */
+  .field,
+  .fields {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .ui.input > input,
+  .field input:not([type="checkbox"]):not([type="radio"]),
+  .field textarea,
+  .field .ui.selection.dropdown,
+  .rjsf-multiselect .ui.selection.dropdown {
+    font-size: 0.95rem;
+    color: var(--rjsf-ink);
+    background: var(--rjsf-sunken);
+    border: 1px solid transparent;
+    border-radius: var(--rjsf-radius-small);
+    box-shadow: none;
+    transition: border-color 0.12s, background 0.12s, box-shadow 0.12s;
+
+    &:hover {
+      border-color: var(--rjsf-line-strong);
+    }
+  }
+
+  .ui.input > input,
+  .field input[type="text"],
+  .field input[type="number"],
+  .field input[type="url"],
+  .field input[type="date"] {
+    height: var(--rjsf-input-height);
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .ui.input > input:focus,
+  .field input:not([type="checkbox"]):not([type="radio"]):focus,
+  .field textarea:focus,
+  .field .ui.selection.dropdown:focus,
+  .field .ui.selection.active.dropdown,
+  .rjsf-multiselect .ui.selection.dropdown:focus,
+  .rjsf-multiselect .ui.selection.active.dropdown {
+    outline: none;
+    background: var(--rjsf-surface);
+    border-color: var(--rjsf-accent);
+    box-shadow: 0 0 0 3px var(--rjsf-accent-soft);
+  }
+
+  .field .ui.selection.dropdown,
+  .rjsf-multiselect .ui.selection.dropdown {
+    min-height: var(--rjsf-input-height);
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+
+    // the icons (caret, search, clear): centred on the height of the control,
+    // whatever it is
+    > i.icon {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      height: auto;
+      margin: 0;
+      padding: 0 0.9em;
+      line-height: 1;
+    }
+
+    .menu {
+      border-color: var(--rjsf-accent);
+      border-radius: 0 0 var(--rjsf-radius-small) var(--rjsf-radius-small);
+    }
+  }
+
+  // values of a multi select: pills
+  .ui.multiple.dropdown > .label {
+    padding: 0.4em 0.8em;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--rjsf-ink);
+    background: var(--sec-soft);
+    border: 0;
+    border-radius: 999px;
+    box-shadow: none;
+  }
+
+  // switches (yes/no fields): the colour of the section they are in
+  .ui.toggle.checkbox input:checked ~ label::before,
+  .ui.toggle.checkbox input:focus:checked ~ label::before {
+    background-color: var(--sec) !important;
+  }
+
+  /* ---------- Arrays: a bar tinted with the colour of the section ---------- */
+  // An array of a section runs edge to edge: it undoes the side padding of
+  // the section body, so that it has no margin and no frame of its own. It
+  // has no lines around it either: its tinted bar marks where it starts.
+  .rjsf-array {
+    margin: 0.4rem -1.25rem 0;
+    background: var(--rjsf-surface);
+    border: 0;
+    border-radius: 0;
+    // no `overflow: hidden` here: it would cut the menus of the dropdowns
+  }
+
+  // the last array of a section reaches the bottom of the section
+  .rjsf-block-field:last-child
+    .rjsf-array:not(.rjsf-array-bare):not(.rjsf-array-plain) {
+    margin-bottom: -0.8rem;
+    border-radius: 0 0 calc(var(--rjsf-radius) - 1px)
+      calc(var(--rjsf-radius) - 1px);
+  }
+
+  .rjsf-array-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.4rem 1.25rem;
+    background: ~"color-mix(in srgb, var(--sec-soft) 60%, var(--rjsf-surface))";
+    // a hairline above the header (and one below it, before the items)
+    border-top: 1px solid var(--rjsf-line);
+    border-bottom: 1px solid var(--rjsf-line);
+  }
+
+  .rjsf-array-title {
+    font-size: 0.93rem;
+    font-weight: 600;
+
+    &.required::after {
+      content: " *";
+      color: var(--rjsf-req);
+    }
+  }
+
+  .rjsf-array-count {
+    padding: 0 0.45rem;
+    font-size: 0.8rem;
+    color: var(--rjsf-muted);
+    background: var(--rjsf-sunken);
+    border-radius: 999px;
+  }
+
+  .rjsf-add {
+    margin-left: auto;
+    height: 26px;
+    padding: 0 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--sec);
+    background: var(--sec-soft);
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+
+    &:hover {
+      background: ~"color-mix(in srgb, var(--sec) 16%, var(--rjsf-surface))";
+    }
+  }
+
+  .rjsf-array-empty {
+    padding: 0.3rem 1.25rem 0.5rem;
+    font-size: 0.9rem;
+    color: var(--rjsf-muted);
+  }
+
+  .rjsf-array-errors {
+    padding: 0.3rem 1.25rem;
+    font-size: 0.9rem;
+    color: var(--rjsf-req);
+  }
+
+  // the empty message only shows while there are no items
+  .rjsf-array-items:not(:empty) ~ .rjsf-array-empty {
+    display: none;
+  }
+
+  .rjsf-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    color: var(--rjsf-muted);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      color: var(--rjsf-ink);
+      background: var(--rjsf-sunken);
+      border-color: var(--rjsf-line);
+    }
+
+    &.del:hover:not(:disabled) {
+      color: var(--rjsf-req);
+    }
+
+    &:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+
+    .icon {
+      margin: 0;
+    }
+  }
+
+  .rjsf-item-tools {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2px;
+  }
+
+  // field labels of widgets are replaced by the column titles; keep them
+  // available to screen readers
+  .rjsf-array-table .rjsf-cell .field > label:first-child,
+  .rjsf-array-list .rjsf-array-row-fields .field > label:first-child,
+  .rjsf-array-chips .rjsf-chip-body .field > label:first-child {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  // text areas of a table (a note, a statement...) are as high as the other
+  // inputs of the row; they can still be stretched with the handle
+  .rjsf-array-table .rjsf-cell .field textarea {
+    height: var(--rjsf-input-height);
+    min-height: var(--rjsf-input-height);
+    resize: vertical;
+  }
+
+  /* table: header + rows */
+  .rjsf-array-head,
+  .rjsf-array-row {
+    display: grid;
+    align-items: start;
+    gap: 6px;
+    padding: 2px 1.25rem;
+  }
+
+  .rjsf-array-head {
+    padding-top: 0.35rem;
+    padding-bottom: 0.15rem;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--rjsf-muted);
+
+    .required::after {
+      content: " *";
+      color: var(--rjsf-req);
+    }
+  }
+
+  .rjsf-cells {
+    display: grid;
+    gap: 6px;
+    align-items: start;
+  }
+
+  .rjsf-array-items > .rjsf-array-row:hover {
+    background: ~"color-mix(in srgb, var(--rjsf-sunken) 55%, transparent)";
+  }
+
+  .rjsf-array-items > .rjsf-array-row:last-child {
+    padding-bottom: 0.65rem;
+  }
+
+  .rjsf-array-row-fields {
+    min-width: 0;
+  }
+
+  /* chips */
+  .rjsf-array-chips .rjsf-array-items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    padding: 0.5rem 1.25rem;
+
+    .rjsf-add {
+      margin-left: 0;
+    }
+  }
+
+  .rjsf-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 2px 2px 2px 8px;
+    background: var(--sec-soft);
+    border-radius: 999px;
+
+    .ui.input > input,
+    .field input[type="text"] {
+      min-width: 9rem;
+    }
+
+    .ui.dropdown {
+      min-width: 12rem;
+    }
+  }
+
+  /* cards (e.g. authors, conferences): a side line and a coloured header */
+  .rjsf-array-cards > .rjsf-array-items {
+    display: grid;
+    gap: 0.6rem;
+    padding: 0.5rem 1.25rem 0.7rem;
+  }
+
+  // no box around the cards (the authors): they are boxes already
+  .rjsf-array-bare {
+    margin: 0.5rem 0 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+
+    > .rjsf-array-bar {
+      padding: 0 0 0.4rem;
+      background: transparent;
+      border-top: 0;
+      border-bottom: 0;
+    }
+
+    > .rjsf-array-items {
+      padding: 0;
+    }
+
+    > .rjsf-array-empty {
+      padding: 0.25rem 0;
+    }
+  }
+
+  .rjsf-card {
+    background: var(--rjsf-surface);
+    border: 0;
+    border-left: 3px solid var(--sec);
+    border-radius: 0 10px 10px 0;
+  }
+
+  .rjsf-card-head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.75rem;
+    background: var(--sec-soft);
+    border-bottom: 0;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .rjsf-card-n {
+    display: grid;
+    place-items: center;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 0.3rem;
+    line-height: 1;
+    font-family: Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    color: var(--sec);
+    background: var(--rjsf-surface);
+    border-radius: 7px;
+  }
+
+  .rjsf-card-title {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .rjsf-card-body {
+    padding: 0.5rem 0 0.4rem 0.9rem;
+  }
+
+  /* lists inside a card: plain, no colour and no box */
+  .rjsf-array-plain {
+    margin: 0.6rem 0 0.2rem;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+
+    > .rjsf-array-bar {
+      padding: 0.25rem 0 0.4rem;
+      background: transparent;
+      border-top: 0;
+      border-bottom: 1px solid var(--rjsf-line);
+      border-radius: 0;
+    }
+
+    .rjsf-array-head,
+    .rjsf-array-row {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    > .rjsf-array-items > .rjsf-array-row:hover {
+      background: transparent;
+    }
+
+    > .rjsf-array-empty {
+      padding: 0.25rem 0;
+    }
+
+    // an affiliation (a card in a card): a thin neutral line
+    .rjsf-card {
+      border-left: 2px solid var(--rjsf-line-strong);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .rjsf-card-head {
+      background: var(--rjsf-sunken);
+    }
+
+    .rjsf-card-n {
+      color: var(--rjsf-muted);
+    }
+  }
+
+  @media only screen and (max-width: 700px) {
+    .rjsf-row {
+      grid-template-columns: 1fr;
+    }
+
+    .rjsf-row-label {
+      padding-bottom: 0;
+    }
+  }
+}

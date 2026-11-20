@@ -321,7 +321,7 @@ export const schema = () => {
             },
           },
         },
-        title: 'Keywords',
+        title: 'Subjects',
         type: 'array',
       },
       languages: {
@@ -442,7 +442,7 @@ export const schema = () => {
           required: ['value', 'scheme'],
           type: 'object',
         },
-        title: 'Subjects',
+        title: 'Classification',
         type: 'array',
       },
       table_of_content: {

@@ -222,21 +222,24 @@ export class RJSFDocumentRequestProviderField extends Component {
     this.providerPidValue = React.createRef();
   }
 
-  handlePidTypeChange = (value) => {
-    const { onChange } = this.props;
+  // rjsf 6: a field reports its change together with its path
+  emitChange = (value) => {
+    const { onChange, fieldPathId } = this.props;
+    onChange(value, fieldPathId.path, undefined, fieldPathId.$id);
+  };
 
+  handlePidTypeChange = (value) => {
     // notify that the pid_type has been changed
     this.providerPidValue.current.onPidTypeChanged();
 
     this.setState({ pidType: value });
-    onChange({
+    this.emitChange({
       pid_type: value,
       pid: undefined,
     });
   };
 
   handlePidValueChange = (value) => {
-    const { onChange } = this.props;
     const { pidType } = this.state;
 
     // if the pidType is selected, then set the object otherwise
@@ -248,7 +251,7 @@ export class RJSFDocumentRequestProviderField extends Component {
         }
       : undefined;
 
-    onChange(fieldValue);
+    this.emitChange(fieldValue);
   };
 
   render() {
@@ -275,6 +278,7 @@ export class RJSFDocumentRequestProviderField extends Component {
 RJSFDocumentRequestProviderField.propTypes = {
   formData: PropTypes.object,
   onChange: PropTypes.func.isRequired,
+  fieldPathId: PropTypes.object.isRequired,
 };
 
 RJSFDocumentRequestProviderField.defaultProps = {

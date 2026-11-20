@@ -7,6 +7,7 @@ import alias from '@rollup/plugin-alias';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
+import fs from 'fs';
 import path from 'path';
 import localResolve from 'rollup-plugin-local-resolve';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
@@ -41,6 +42,29 @@ const aliases = [
   { find: '@theme', replacement: path.resolve(__dirname, 'src/semantic-ui/') },
 ];
 
+// The theme files (`.variables`, `.overrides`, `theme.config`...) are copied to
+// `dist/theme` but are not imported by any module, so `rollup --watch` would
+// never notice a change in them. This plugin registers them as watched files:
+// editing one triggers a rebuild, which copies the theme again.
+const themeDir = path.resolve(__dirname, 'src/semantic-ui');
+
+const listFiles = (dir) =>
+  fs
+    .readdirSync(dir, { withFileTypes: true })
+    .flatMap((entry) =>
+      entry.isDirectory()
+        ? listFiles(path.join(dir, entry.name))
+        : [path.join(dir, entry.name)]
+    )
+    .filter((file) => path.basename(file) !== '.DS_Store');
+
+const watchTheme = () => ({
+  name: 'watch-theme',
+  buildStart() {
+    listFiles(themeDir).forEach((file) => this.addWatchFile(file));
+  },
+});
+
 export default {
   input: 'src/lib/index.js',
   output: [
@@ -72,6 +96,7 @@ export default {
       exclude: "node_modules/**"
     }),
     commonjs(),
+    watchTheme(),
     copy({
       targets: [{ src: 'src/semantic-ui/*', dest: 'dist/theme' }],
     }),

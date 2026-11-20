@@ -5,6 +5,7 @@
 
 import { RJSFDocumentRequestProviderField } from '@forms/rjsf/fields/RJSFDocumentRequestProviderField';
 import { RJSFLabelField } from '@forms/rjsf/fields/RJSFLabelField';
+import { RJSFMultiSelectField } from '@forms/rjsf/fields/RJSFMultiSelectField';
 import { RJSFTitleField } from '@forms/rjsf/fields/RJSFTitleField';
 import {
   ArrayFieldTemplateWithWrapper,
@@ -20,6 +21,9 @@ import { RJSFReferencedProvider } from '@forms/rjsf/widgets/RJSFReferencedProvid
 import { RJSFTimeWidget } from '@forms/rjsf/widgets/RJSFTimeWidget';
 import { RJSFVocabulary } from '@forms/rjsf/widgets/RJSFVocabulary';
 import { RJSFVocabularySearch } from '@forms/rjsf/widgets/RJSFVocabularySearch';
+import { RJSFArrayFieldItemTemplate } from '@forms/rjsf/layout/arrays/ArrayItemTemplate';
+import { RJSFFieldTemplate } from '@forms/rjsf/layout/FieldTemplate';
+import { hasSections } from '@forms/rjsf/layout/sections';
 import { goBack } from '@history';
 import Form from '@rjsf/semantic-ui';
 import validator from '@rjsf/validator-ajv8';
@@ -30,6 +34,11 @@ import React, { Component } from 'react';
 import { Button, Confirm, Container, Divider } from 'semantic-ui-react';
 import { removeEmptyValues } from './RecordSerializer';
 import { ignoreRJSFEnterEvent } from './utils';
+
+// In the sectioned layout an array is not pre-filled with empty items up to its
+// `minItems`: the form says that an item is needed instead (and validation
+// fails until there is one).
+const SECTIONED_FORM_BEHAVIOR = { arrayMinItems: { populate: 'never' } };
 
 const customWidgets = {
   CheckboxWidget: RJSFCheckboxWidget,
@@ -48,6 +57,7 @@ const customFields = {
   TitleField: RJSFTitleField,
   documentRequestProviderField: RJSFDocumentRequestProviderField,
   labelField: RJSFLabelField,
+  multiSelect: RJSFMultiSelectField,
 };
 
 export class RJSForm extends Component {
@@ -127,6 +137,8 @@ export class RJSForm extends Component {
     const { discardConfirmOpen, errors, isLoading, submittedFormData } =
       this.state;
     const formReturnedErrors = !_isEmpty(errors);
+    // in the sectioned layout Save/Cancel live in the sticky record bar
+    const sectioned = hasSections(uiSchema);
 
     return (
       <Form
@@ -142,15 +154,26 @@ export class RJSForm extends Component {
           return errors;
         }}
         extraErrors={errors}
+        experimental_defaultFormStateBehavior={
+          sectioned ? SECTIONED_FORM_BEHAVIOR : undefined
+        }
+        formContext={{
+          sectioned,
+          marc: uiSchema['custom:marc'],
+          isLoading,
+          onCancel: () => this.setState({ discardConfirmOpen: true }),
+        }}
         templates={{
+          FieldTemplate: RJSFFieldTemplate,
           ObjectFieldTemplate: ObjectFieldTemplateWrapperGrid,
           ArrayFieldTemplate: ArrayFieldTemplateWithWrapper,
+          ArrayFieldItemTemplate: RJSFArrayFieldItemTemplate,
         }}
         disabled={isLoading}
         onSubmit={this.onSubmit}
       >
-        <Container textAlign="right">
-          <Divider hidden />
+        <Container textAlign={sectioned ? undefined : 'right'}>
+          {!sectioned && <Divider hidden />}
           <Confirm
             content="Are you sure you want to discard any change?"
             open={discardConfirmOpen}
@@ -159,21 +182,25 @@ export class RJSForm extends Component {
             onCancel={() => this.setState({ discardConfirmOpen: false })}
             onConfirm={() => goBack()}
           />
-          <Button
-            type="button"
-            content="Discard"
-            disabled={isLoading}
-            onClick={() => this.setState({ discardConfirmOpen: true })}
-          />
-          <Button
-            positive
-            icon="check"
-            labelPosition="left"
-            name="submit"
-            type="submit"
-            content="Submit"
-            loading={isLoading}
-          />
+          {!sectioned && (
+            <>
+              <Button
+                type="button"
+                content="Discard"
+                disabled={isLoading}
+                onClick={() => this.setState({ discardConfirmOpen: true })}
+              />
+              <Button
+                positive
+                icon="check"
+                labelPosition="left"
+                name="submit"
+                type="submit"
+                content="Submit"
+                loading={isLoading}
+              />
+            </>
+          )}
         </Container>
       </Form>
     );

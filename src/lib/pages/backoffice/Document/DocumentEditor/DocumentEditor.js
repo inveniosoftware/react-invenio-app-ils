@@ -144,7 +144,13 @@ export class DocumentEditor extends Component {
           <Error error={error}>
             <RJSForm
               schema={schema()}
-              uiSchema={uiSchema(formTitle, { tooManyAuthors: tooManyAuthors })}
+              uiSchema={uiSchema(formTitle, {
+                tooManyAuthors: tooManyAuthors,
+                breadcrumb: [
+                  { text: 'Documents', to: BackOfficeRoutes.documentsList },
+                  { text: `#${documentPid}` },
+                ],
+              })}
               formData={data.metadata}
               submitAction={this.submitAction}
               successCallback={this.successCallback}
@@ -159,7 +165,12 @@ export class DocumentEditor extends Component {
       return (
         <RJSForm
           schema={schema()}
-          uiSchema={uiSchema(formTitle)}
+          uiSchema={uiSchema(formTitle, {
+            breadcrumb: [
+              { text: 'Documents', to: BackOfficeRoutes.documentsList },
+              { text: 'New' },
+            ],
+          })}
           formData={prefilledFormData}
           submitAction={this.submitAction}
           successCallback={this.successCallback}
