@@ -1,11 +1,16 @@
 /*
- * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
  * SPDX-License-Identifier: MIT
  */
 
 import { itemApi } from '@api/items';
+import { loanApi } from '@api/loans';
 import { patronApi } from '@api/patrons';
-import { sendErrorNotification } from '@components/Notifications';
+import { recordToPidType } from '@api/utils';
+import {
+  sendErrorNotification,
+  sendSuccessNotification,
+} from '@components/Notifications';
 import { goTo } from '@history';
 import { BackOfficeRoutes } from '@routes/urls';
 
@@ -15,6 +20,12 @@ export const SEARCH_IS_LOADING = 'checkOutSearch/SEARCH_IS_LOADING';
 export const SEARCH_ITEM_SUCCESS = 'checkOutSearch/SEARCH_ITEM_SUCCESS  ';
 export const SEARCH_PATRON_SUCCESS = 'checkOutSearch/SEARCH_PATRON_SUCCESS  ';
 export const UPDATE_RESULT_MESSAGE = 'checkOutSearch/UPDATE_RESULT_MESSAGE';
+export const ADD_TO_CHECKOUT_LIST = 'checkOutSearch/ADD_TO_CHECKOUT_LIST';
+export const REMOVE_FROM_CHECKOUT_LIST =
+  'checkOutSearch/REMOVE_FROM_CHECKOUT_LIST';
+export const CHECKOUT_LIST_IS_LOADING =
+  'checkOutSearch/CHECKOUT_LIST_IS_LOADING';
+export const CHECKOUT_LIST_DONE = 'checkOutSearch/CHECKOUT_LIST_DONE';
 
 export const updateResultMessage = (message) => {
   return (dispatch) => {
@@ -63,7 +74,7 @@ const searchItems = async (dispatch, term) => {
   return response.data.hits;
 };
 
-export const checkOutSearch = (term) => {
+export const checkOutSearch = (term, onSuccess = () => {}) => {
   return async (dispatch) => {
     dispatch({
       type: SEARCH_IS_LOADING,
@@ -79,7 +90,11 @@ export const checkOutSearch = (term) => {
 
       items = await searchItems(dispatch, term);
       if (items.length === 1) {
-        return goTo(BackOfficeRoutes.itemDetailsFor(items[0].metadata.pid));
+        // fetch the record directly: the search index may have a stale
+        // circulation state, e.g. not yet reindexed after a new loan
+        const response = await itemApi.get(items[0].metadata.pid);
+        dispatch({ type: ADD_TO_CHECKOUT_LIST, payload: response.data });
+        return onSuccess();
       }
 
       if (items.length === 0 && patrons.length === 0) {
@@ -94,6 +109,40 @@ export const checkOutSearch = (term) => {
         payload: error,
       });
       dispatch(sendErrorNotification(error));
+    }
+  };
+};
+
+export const removeFromCheckOutList = (itemPid) => {
+  return (dispatch) => {
+    dispatch({ type: REMOVE_FROM_CHECKOUT_LIST, payload: itemPid });
+  };
+};
+
+export const checkOutItems = (items, patronPid) => {
+  return async (dispatch) => {
+    dispatch({ type: CHECKOUT_LIST_IS_LOADING });
+    const checkedOutPids = [];
+    for (const item of items) {
+      try {
+        await loanApi.doCheckout(
+          item.metadata.document_pid,
+          { type: recordToPidType(item), value: item.metadata.pid },
+          patronPid
+        );
+        checkedOutPids.push(item.metadata.pid);
+      } catch (error) {
+        dispatch(sendErrorNotification(error));
+      }
+    }
+    dispatch({ type: CHECKOUT_LIST_DONE, payload: checkedOutPids });
+    if (checkedOutPids.length > 0) {
+      dispatch(
+        sendSuccessNotification(
+          'Success!',
+          `${checkedOutPids.length} of ${items.length} physical copies checked out on behalf of patron ${patronPid}.`
+        )
+      );
     }
   };
 };
