@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
  * SPDX-License-Identifier: MIT
  */
 
@@ -12,5 +12,14 @@ Message Overrides - REACT-INVENIO-APP-ILS
     margin-top: 2em;
     margin-bottom: 2em;
     padding: 0;
+  }
+}
+
+/* Rendered as a <span> inside the ESSelectorModal content <p> */
+.ui.message.checkout-list-warning {
+  display: block;
+
+  span {
+    display: block;
   }
 }

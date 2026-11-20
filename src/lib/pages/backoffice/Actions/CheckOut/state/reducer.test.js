@@ -1,11 +1,15 @@
 /*
- * SPDX-FileCopyrightText: 2020 CERN.
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
  * SPDX-License-Identifier: MIT
  */
 
 import reducer, { initialState } from './reducer';
 import {
+  ADD_TO_CHECKOUT_LIST,
+  CHECKOUT_LIST_DONE,
+  CHECKOUT_LIST_IS_LOADING,
   CLEAR_RESULTS,
+  REMOVE_FROM_CHECKOUT_LIST,
   SEARCH_IS_LOADING,
   SEARCH_HAS_ERROR,
   SEARCH_PATRON_SUCCESS,
@@ -95,6 +99,73 @@ describe('Check Out reducer', () => {
       isLoading: false,
       itemList: action.payload,
       error: {},
+    });
+  });
+
+  it('should add the item to the check-out list on ADD_TO_CHECKOUT_LIST action', () => {
+    const item = { metadata: { pid: 'item-pid' } };
+    inputState.itemList = [item];
+    const action = {
+      type: ADD_TO_CHECKOUT_LIST,
+      payload: item,
+    };
+    expect(reducer(inputState, action)).toEqual({
+      ...inputState,
+      isLoading: false,
+      itemList: [],
+      checkOutList: [item],
+    });
+  });
+
+  it('should not add the same item twice on ADD_TO_CHECKOUT_LIST action', () => {
+    const item = { metadata: { pid: 'item-pid' } };
+    inputState.checkOutList = [item];
+    const action = {
+      type: ADD_TO_CHECKOUT_LIST,
+      payload: item,
+    };
+    expect(reducer(inputState, action).checkOutList).toEqual([item]);
+  });
+
+  it('should remove the item from the check-out list on REMOVE_FROM_CHECKOUT_LIST action', () => {
+    inputState.checkOutList = [
+      { metadata: { pid: 'item-1' } },
+      { metadata: { pid: 'item-2' } },
+    ];
+    const action = {
+      type: REMOVE_FROM_CHECKOUT_LIST,
+      payload: 'item-1',
+    };
+    expect(reducer(inputState, action)).toEqual({
+      ...inputState,
+      checkOutList: [{ metadata: { pid: 'item-2' } }],
+    });
+  });
+
+  it('should start the loader on CHECKOUT_LIST_IS_LOADING action', () => {
+    const action = {
+      type: CHECKOUT_LIST_IS_LOADING,
+    };
+    expect(reducer(inputState, action)).toEqual({
+      ...inputState,
+      checkOutListIsLoading: true,
+    });
+  });
+
+  it('should stop the loader and remove checked out items on CHECKOUT_LIST_DONE action', () => {
+    inputState.checkOutListIsLoading = true;
+    inputState.checkOutList = [
+      { metadata: { pid: 'item-1' } },
+      { metadata: { pid: 'item-2' } },
+    ];
+    const action = {
+      type: CHECKOUT_LIST_DONE,
+      payload: ['item-1'],
+    };
+    expect(reducer(inputState, action)).toEqual({
+      ...inputState,
+      checkOutListIsLoading: false,
+      checkOutList: [{ metadata: { pid: 'item-2' } }],
     });
   });
 });
