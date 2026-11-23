@@ -74,7 +74,7 @@ describe('Check Out tests', () => {
         makeItem('1'),
         makeItem('2'),
         makeItem('3'),
-        makeItem('4', 'IN_BINDING'),
+        makeItem('4', 'FOR_REFERENCE_ONLY'),
       ];
 
       await store.dispatch(actions.checkOutItems(items, '7', 'Jane Doe'));

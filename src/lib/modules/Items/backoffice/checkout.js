@@ -10,24 +10,29 @@ import { invenioConfig } from '@config';
 import _get from 'lodash/get';
 
 const ON_LOAN_STATE = 'ITEM_ON_LOAN';
-const MISSING_STATUS = 'MISSING';
+// statuses that are set back to CAN_CIRCULATE (via a forced checkout) when
+// the physical copy is checked out
+const STATUSES_SET_TO_CIRCULATE = ['MISSING', 'IN_BINDING', 'SCANNING'];
+
+const statusToText = (status) => status.toLowerCase().replace(/_/g, ' ');
 
 /**
  * Describe what prevents, or what will change on, a backoffice checkout of
  * the item. Returns null when the item can be checked out as it is.
  *
  * - `canCheckOut: true`: the checkout will go ahead after fixing the item,
- *   i.e. checking in its current loan and/or setting it to circulate.
+ *   i.e. checking in its current loan and/or setting it to circulate when
+ *   missing, in binding or scanning.
  * - `canCheckOut: false`: the checkout is blocked.
  */
 export const getCheckOutIssue = (item) => {
   const { circulation, status } = item.metadata;
   const loanState = _get(circulation, 'state');
   const isOnLoan = loanState === ON_LOAN_STATE;
-  const isMissing = status === MISSING_STATUS;
+  const willSetToCirculate = STATUSES_SET_TO_CIRCULATE.includes(status);
 
   if (
-    !isMissing &&
+    !willSetToCirculate &&
     !invenioConfig.ITEMS.canCirculateStatuses.includes(status)
   ) {
     return { canCheckOut: false, text: `Cannot circulate (${status})` };
@@ -45,8 +50,10 @@ export const getCheckOutIssue = (item) => {
       `on loan since ${circulation.start_date}, it will be checked in first`
     );
   }
-  if (isMissing) {
-    changes.push('missing, its status will be set to can circulate');
+  if (willSetToCirculate) {
+    changes.push(
+      `${statusToText(status)}, its status will be set to can circulate`
+    );
   }
   return changes.length > 0
     ? { canCheckOut: true, text: `Currently ${changes.join('; ')}` }
@@ -67,8 +74,8 @@ const checkInCurrentLoan = async (item) => {
 
 /**
  * Backoffice checkout: when the item is currently on loan, check in that
- * loan first; when it is missing, force the checkout so that the backend
- * sets it back to circulate. The item is fetched again to use its current
+ * loan first; when it is missing, in binding or scanning, force the checkout
+ * so that the backend sets it back to circulate. The item is fetched again to use its current
  * circulation state, which may be stale in search results.
  *
  * Returns the checkout response and the list of changes made to the item.
@@ -90,9 +97,14 @@ export const checkOutItem = async (
         `the previous loan of patron ${item.metadata.circulation.patron_pid} was checked in`
       );
     }
-    if (item.metadata.status === MISSING_STATUS) {
+    const { status } = item.metadata;
+    if (STATUSES_SET_TO_CIRCULATE.includes(status)) {
       force = true;
-      changes.push('the physical copy status was set to can circulate');
+      changes.push(
+        `the physical copy status was changed from ${statusToText(
+          status
+        )} to can circulate`
+      );
     }
   }
 

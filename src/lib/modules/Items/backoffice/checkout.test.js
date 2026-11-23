@@ -52,8 +52,17 @@ describe('getCheckOutIssue', () => {
     expect(issue.text).toContain('can circulate');
   });
 
+  it.each(['IN_BINDING', 'SCANNING'])(
+    'should allow the checkout of an item with status %s',
+    (status) => {
+      const issue = getCheckOutIssue(makeItem(status));
+      expect(issue.canCheckOut).toBe(true);
+      expect(issue.text).toContain('can circulate');
+    }
+  );
+
   it('should block the checkout of an item that cannot circulate', () => {
-    const issue = getCheckOutIssue(makeItem('IN_BINDING'));
+    const issue = getCheckOutIssue(makeItem('FOR_REFERENCE_ONLY'));
     expect(issue.canCheckOut).toBe(false);
   });
 
@@ -132,8 +141,25 @@ describe('checkOutItem', () => {
     expect(changes).toHaveLength(1);
   });
 
+  it.each(['IN_BINDING', 'SCANNING'])(
+    'should force the checkout of an item with status %s',
+    async (status) => {
+      itemApi.get.mockResolvedValue({ data: makeItem(status) });
+
+      const { changes } = await checkOutItem(documentPid, itemPid, patronPid);
+
+      expect(loanApi.doCheckout).toHaveBeenCalledWith(
+        documentPid,
+        itemPid,
+        patronPid,
+        { force: true }
+      );
+      expect(changes).toHaveLength(1);
+    }
+  );
+
   it('should not change an item that cannot circulate', async () => {
-    itemApi.get.mockResolvedValue({ data: makeItem('IN_BINDING') });
+    itemApi.get.mockResolvedValue({ data: makeItem('FOR_REFERENCE_ONLY') });
 
     const { changes } = await checkOutItem(documentPid, itemPid, patronPid);
 
