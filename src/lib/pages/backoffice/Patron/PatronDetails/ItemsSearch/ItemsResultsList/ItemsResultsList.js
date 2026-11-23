@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
  * SPDX-License-Identifier: MIT
  */
 
@@ -7,6 +7,7 @@ import { recordToPidType } from '@api/utils';
 import { Loader } from '@components/Loader';
 import { ResultsTable } from '@components/ResultsTable/ResultsTable';
 import { invenioConfig } from '@config';
+import { getCheckOutIssue } from '@modules/Items/backoffice';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -55,18 +56,18 @@ export default class ItemsResultsList extends Component {
     const circulationStatus = !_isEmpty(row.metadata.circulation)
       ? row.metadata.circulation.state
       : null;
+    const issue = getCheckOutIssue(row);
+    // on loan copies can be checked out after checking in the current loan
+    const isItemOnLoan =
+      invenioConfig.CIRCULATION.loanActiveStates.includes(circulationStatus) &&
+      !(issue && issue.canCheckOut);
 
-    return !invenioConfig.CIRCULATION.loanActiveStates.includes(
-      circulationStatus
-    ) && invenioConfig.ITEMS.canCirculateStatuses.includes(row.metadata.status)
+    return issue === null
       ? buttonCheckout
-      : this.renderForceCheckoutModal(
-          row,
-          invenioConfig.CIRCULATION.loanActiveStates.includes(circulationStatus)
-        );
+      : this.renderForceCheckoutModal(row, isItemOnLoan, issue);
   };
 
-  renderForceCheckoutModal = (item, isItemOnLoan) => {
+  renderForceCheckoutModal = (item, isItemOnLoan, issue) => {
     const { isModalOpen } = this.state;
     const { patronPid } = this.props;
     const itemPid = {
@@ -90,13 +91,12 @@ export default class ItemsResultsList extends Component {
           onClose={this.toggleModal}
           closeIcon
         >
-          <Header
-            icon="exclamation triangle"
-            content="Force Check out of Missing Item"
-          />
+          <Header icon="exclamation triangle" content="Force Check out" />
           <Modal.Content>
             <p>
-              You are creating a loan for a physical copy that cannot circulate.
+              {issue.canCheckOut
+                ? `${issue.text}.`
+                : 'You are creating a loan for a physical copy that cannot circulate.'}{' '}
               Are you sure?
             </p>
           </Modal.Content>

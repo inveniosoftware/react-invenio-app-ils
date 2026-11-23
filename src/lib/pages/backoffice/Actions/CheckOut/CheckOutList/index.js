@@ -10,8 +10,8 @@ import { checkOutItems, removeFromCheckOutList } from '../state/actions';
 const mapDispatchToProps = (dispatch) => ({
   removeFromCheckOutList: (itemPid) =>
     dispatch(removeFromCheckOutList(itemPid)),
-  checkOutItems: (items, patronPid) =>
-    dispatch(checkOutItems(items, patronPid)),
+  checkOutItems: (items, patronPid, patronName) =>
+    dispatch(checkOutItems(items, patronPid, patronName)),
 });
 
 const mapStateToProps = (state) => ({

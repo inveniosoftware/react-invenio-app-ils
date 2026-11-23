@@ -4,15 +4,22 @@
  */
 
 import { itemApi } from '@api/items';
-import { loanApi } from '@api/loans';
 import { patronApi } from '@api/patrons';
 import { recordToPidType } from '@api/utils';
 import {
+  addNotification,
   sendErrorNotification,
   sendSuccessNotification,
+  sendWarningNotification,
 } from '@components/Notifications';
 import { goTo } from '@history';
+import { checkOutItem, getCheckOutIssue } from '@modules/Items/backoffice';
 import { BackOfficeRoutes } from '@routes/urls';
+import _get from 'lodash/get';
+import _lowerFirst from 'lodash/lowerFirst';
+import _upperFirst from 'lodash/upperFirst';
+import React from 'react';
+import { List } from 'semantic-ui-react';
 
 export const CLEAR_RESULTS = 'checkOutSearch/CLEAR_RESULTS';
 export const SEARCH_HAS_ERROR = 'checkOutSearch/SEARCH_HAS_ERROR';
@@ -119,28 +126,84 @@ export const removeFromCheckOutList = (itemPid) => {
   };
 };
 
-export const checkOutItems = (items, patronPid) => {
+const describeItem = (item) =>
+  `${_get(item, 'metadata.document.title')} (${item.metadata.barcode})`;
+
+/**
+ * Show one entry as plain text, several as a bulleted list so that they can
+ * be read quickly before the notification is dismissed.
+ */
+const renderEntries = (entries) =>
+  entries.length === 1 ? entries[0] : <List bulleted items={entries} />;
+
+export const checkOutItems = (items, patronPid, patronName) => {
   return async (dispatch) => {
     dispatch({ type: CHECKOUT_LIST_IS_LOADING });
-    const checkedOutPids = [];
+    const checkedOut = [];
+    const checkedOutWithChanges = [];
+    const failed = [];
+
     for (const item of items) {
+      const issue = getCheckOutIssue(item);
+      if (issue && !issue.canCheckOut) {
+        failed.push({ item, reason: `skipped, ${_lowerFirst(issue.text)}` });
+        continue;
+      }
       try {
-        await loanApi.doCheckout(
+        const { changes } = await checkOutItem(
           item.metadata.document_pid,
           { type: recordToPidType(item), value: item.metadata.pid },
           patronPid
         );
-        checkedOutPids.push(item.metadata.pid);
+        if (changes.length > 0) {
+          checkedOutWithChanges.push({ item, changes });
+        } else {
+          checkedOut.push(item);
+        }
       } catch (error) {
-        dispatch(sendErrorNotification(error));
+        const reason = _get(error, 'response.data.message', error.message);
+        failed.push({ item, reason });
       }
     }
-    dispatch({ type: CHECKOUT_LIST_DONE, payload: checkedOutPids });
-    if (checkedOutPids.length > 0) {
+
+    dispatch({
+      type: CHECKOUT_LIST_DONE,
+      payload: [
+        ...checkedOut,
+        ...checkedOutWithChanges.map(({ item }) => item),
+      ].map((item) => item.metadata.pid),
+    });
+
+    const patron = `${patronName} (patron ${patronPid})`;
+    if (checkedOut.length > 0) {
       dispatch(
         sendSuccessNotification(
-          'Success!',
-          `${checkedOutPids.length} of ${items.length} physical copies checked out on behalf of patron ${patronPid}.`
+          `Checked out to ${patron} (${checkedOut.length} of ${items.length})`,
+          renderEntries(checkedOut.map(describeItem))
+        )
+      );
+    }
+    if (checkedOutWithChanges.length > 0) {
+      dispatch(
+        sendWarningNotification(
+          `Checked out to ${patron}, with changes (${checkedOutWithChanges.length} of ${items.length})`,
+          renderEntries(
+            checkedOutWithChanges.map(
+              ({ item, changes }) =>
+                `${describeItem(item)}: ${_upperFirst(changes.join('; '))}.`
+            )
+          )
+        )
+      );
+    }
+    if (failed.length > 0) {
+      dispatch(
+        addNotification(
+          `Not checked out (${failed.length} of ${items.length})`,
+          renderEntries(
+            failed.map(({ item, reason }) => `${describeItem(item)}: ${reason}`)
+          ),
+          'error'
         )
       );
     }

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { invenioConfig } from '@config';
+import { getCheckOutIssue } from '@modules/Items/backoffice';
 import { BackOfficeRoutes } from '@routes/urls';
 import _get from 'lodash/get';
 import PropTypes from 'prop-types';
@@ -11,29 +11,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Icon, Label, List } from 'semantic-ui-react';
 
-/**
- * Returns the reason why the item cannot be checked out, or null if it can.
- */
-export const getCheckOutProblem = (item) => {
-  const { circulation, status } = item.metadata;
-  if (
-    invenioConfig.CIRCULATION.loanActiveStates.includes(
-      _get(circulation, 'state')
-    )
-  ) {
-    return {
-      color: 'orange',
-      text: `On loan since ${circulation.start_date}`,
-    };
-  }
-  if (!invenioConfig.ITEMS.canCirculateStatuses.includes(status)) {
-    return { color: 'red', text: `Cannot circulate (${status})` };
-  }
-  return null;
-};
-
 export const CheckOutListEntry = ({ item, onRemove }) => {
-  const problem = getCheckOutProblem(item);
+  const issue = getCheckOutIssue(item);
+  const color = issue ? (issue.canCheckOut ? 'orange' : 'red') : 'green';
   return (
     <List.Item>
       <List.Content floated="right">
@@ -55,8 +35,8 @@ export const CheckOutListEntry = ({ item, onRemove }) => {
         </List.Header>
         <List.Description>
           <Icon name="barcode" /> {item.metadata.barcode}{' '}
-          <Label size="tiny" color={problem ? problem.color : 'green'}>
-            {problem ? problem.text : 'Available'}
+          <Label size="tiny" color={color}>
+            {issue ? issue.text : 'Available'}
           </Label>
         </List.Description>
       </List.Content>

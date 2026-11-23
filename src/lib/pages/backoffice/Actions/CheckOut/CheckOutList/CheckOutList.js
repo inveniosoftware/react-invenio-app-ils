@@ -7,11 +7,11 @@ import { patronApi } from '@api/patrons';
 import { LoanIcon } from '@components/backoffice/icons';
 import { ESSelectorModal } from '@modules/ESSelector';
 import { serializePatron } from '@modules/ESSelector/serializer';
-import _get from 'lodash/get';
+import { CheckOutIssuesMessage } from '@modules/Items/backoffice';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Button, Icon, List, Message, Segment } from 'semantic-ui-react';
-import { CheckOutListEntry, getCheckOutProblem } from './CheckOutListEntry';
+import { Button, List, Segment } from 'semantic-ui-react';
+import { CheckOutListEntry } from './CheckOutListEntry';
 
 const pluralizeCopies = (count) =>
   `${count} physical ${count === 1 ? 'copy' : 'copies'}`;
@@ -30,35 +30,15 @@ const patronSearch = (query) =>
 export default class CheckOutList extends Component {
   onSave = (results) => {
     const { items, checkOutItems } = this.props;
-    checkOutItems(items, results[0].metadata.id.toString());
+    const { id, name } = results[0].metadata;
+    checkOutItems(items, id.toString(), name);
   };
 
-  /**
-   * NOTE: ESSelectorModal wraps the content in a <p>, so the warning is
-   * rendered with inline elements to keep the DOM valid.
-   */
   renderModalContent = () => {
     const { items } = this.props;
-    const problems = items
-      .map((item) => ({ item, problem: getCheckOutProblem(item) }))
-      .filter(({ problem }) => problem);
-
     return (
       <>
-        {problems.length > 0 && (
-          <Message warning as="span" className="checkout-list-warning">
-            <Icon name="warning sign" />
-            <strong>
-              {pluralizeCopies(problems.length)} cannot be checked out:
-            </strong>
-            {problems.map(({ item, problem }) => (
-              <span key={item.metadata.pid}>
-                {item.metadata.barcode} -{' '}
-                {_get(item, 'metadata.document.title')}: {problem.text}
-              </span>
-            ))}
-          </Message>
-        )}
+        <CheckOutIssuesMessage items={items} />
         Insert patron id/email to create the loans:
       </>
     );

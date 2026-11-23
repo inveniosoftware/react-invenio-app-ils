@@ -1,10 +1,11 @@
 /*
- * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
  * SPDX-License-Identifier: MIT
  */
 
 import { itemApi } from '@api/items';
 import { sendErrorNotification } from '@components/Notifications';
+import { getCheckOutIssue } from '@modules/Items/backoffice';
 import { checkoutItem } from '../../ItemsCheckout/state/actions';
 import _isEmpty from 'lodash/isEmpty';
 import { recordToPidType } from '@api/utils';
@@ -73,6 +74,4 @@ export const clearResults = () => {
 };
 
 const hitAvailableForCheckout = (hits) =>
-  !_isEmpty(hits) &&
-  hits.length === 1 &&
-  hits[0].metadata.status === 'CAN_CIRCULATE';
+  !_isEmpty(hits) && hits.length === 1 && getCheckOutIssue(hits[0]) === null;
