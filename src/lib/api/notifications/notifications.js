@@ -71,8 +71,11 @@ const queryBuilder = () => {
 
 const list = async (query) => {
   const response = await http.get(`${apiPaths.list}?q=${query}`);
-  response.data.total = getSearchTotal(response.data.hits);
-  response.data = response.data.hits;
+  // the backend returns at most `size` hits, but `total` is the real count
+  response.data = {
+    hits: response.data.hits,
+    total: getSearchTotal(response.data),
+  };
   return response;
 };
 

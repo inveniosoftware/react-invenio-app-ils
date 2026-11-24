@@ -19,7 +19,7 @@ export default class OverdueLoanSendNotificationModal extends Component {
     super(props);
 
     this.state = {
-      reminders: {},
+      reminders: { hits: [], total: 0 },
       isModalOpen: false,
     };
   }
@@ -63,7 +63,7 @@ export default class OverdueLoanSendNotificationModal extends Component {
 
   renderTrigger = () => {
     const { isLoading } = this.props;
-    const remindersCount = this.state.reminders.length;
+    const remindersCount = this.state.reminders.total;
     return (
       <Button
         labelPosition="right"
