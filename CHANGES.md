@@ -1,5 +1,9 @@
 # Changes
 
+Version 3.2.6 (released 2026-11-24)
+
+- fix(notifications): display correct total numbers
+
 Version 3.2.5 (released 2026-11-19)
 
 - add(subject relations): fix pagination on related subjects 
