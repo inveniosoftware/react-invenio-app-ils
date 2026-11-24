@@ -18,6 +18,7 @@ export default class RemoveItemButton extends Component {
         negative
         onClick={() => onClick(dataPid)}
         className="bo-remove-item"
+        aria-label="Remove item"
       />
     );
 

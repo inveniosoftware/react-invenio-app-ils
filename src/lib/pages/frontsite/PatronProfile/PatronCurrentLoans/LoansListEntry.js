@@ -5,7 +5,8 @@
 
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Header, Icon, Label, Message, Popup } from 'semantic-ui-react';
+import { Header, Label, Message, Popup } from 'semantic-ui-react';
+import { PopupIcon } from '@components/PopupIcon';
 import LoansListItem from '../LoansListEntry';
 import { BrwReqLoanExtendButton } from './BrwReqLoanExtendButton';
 import { LoanExtendButton } from './LoanExtendButton';
@@ -43,23 +44,28 @@ export default class LoansListEntry extends Component {
   };
 
   getOverdueLabel = () => (
-    <h4>
-      Your loan is overdue. Please return the literature as soon as possible!
-    </h4>
+    <p className="loan-message" style={{ fontSize: '15px' }}>
+      <strong>
+        Your loan is overdue. Please return the literature as soon as possible!
+      </strong>
+    </p>
   );
 
   getReturnLabel = (endDate) => (
-    <h4>
-      Please return the literature before date
-      <Header size="large">{DateTime.fromISO(endDate).toLocaleString()}</Header>
-    </h4>
+    <p className="loan-message" style={{ fontSize: '15px' }}>
+      <strong>
+        Please return the literature before date{' '}
+        {DateTime.fromISO(endDate).toLocaleString()}
+      </strong>
+    </p>
   );
 
   getOngoingLabel = (startDate, isIllBrwReq) => {
     const illWarningCmp = isIllBrwReq ? (
-      <Popup
+      <PopupIcon
         content="This loan involves third party library, please return on time."
-        trigger={<Icon name="exclamation circle" size="large" color="red" />}
+        icon="exclamation circle"
+        iconProps={{ size: 'large', color: 'red' }}
       />
     ) : null;
     return (

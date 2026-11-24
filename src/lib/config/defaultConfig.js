@@ -83,11 +83,16 @@ export const APP_CONFIG = {
   ],
   SEARCH_BAR_PROPS: {
     autofocus: true,
-    actionProps: { icon: 'search', content: null },
+    actionProps: {
+      icon: 'search',
+      content: null,
+      'aria-label': 'Submit search',
+    },
     uiProps: {
       className: 'ils-searchbar',
       fluid: true,
       size: 'big',
+      'aria-label': 'Search',
     },
   },
   HOME_SEARCH_BAR_PLACEHOLDER:
