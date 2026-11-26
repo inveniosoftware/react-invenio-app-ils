@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
  * SPDX-License-Identifier: MIT
  */
 
@@ -7,6 +7,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { initialState } from './reducer';
+import { itemApi } from '@api/items';
 import { loanApi } from '@api/loans';
 
 const middlewares = [thunk];
@@ -15,6 +16,9 @@ const mockStore = configureMockStore(middlewares);
 const mockDoCheckout = jest.fn();
 loanApi.doCheckout = mockDoCheckout;
 loanApi.list = jest.fn();
+itemApi.get = jest.fn().mockResolvedValue({
+  data: { metadata: { status: 'CAN_CIRCULATE', circulation: {} } },
+});
 
 const response = { data: {} };
 const expectedPayload = {};

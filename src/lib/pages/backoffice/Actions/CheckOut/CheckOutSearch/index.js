@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2020-2021 CERN.
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
  * SPDX-License-Identifier: MIT
  */
 
@@ -8,7 +8,8 @@ import CheckOutSearchComponent from './CheckOutSearch';
 import { checkOutSearch } from '../state/actions';
 
 const mapDispatchToProps = (dispatch) => ({
-  checkOutSearch: (term) => dispatch(checkOutSearch(term)),
+  checkOutSearch: (term, onSuccess) =>
+    dispatch(checkOutSearch(term, onSuccess)),
 });
 
 const mapStateToProps = (state) => ({

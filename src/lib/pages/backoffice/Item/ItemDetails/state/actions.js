@@ -1,16 +1,16 @@
 /*
- * SPDX-FileCopyrightText: 2020-2025 CERN.
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
  * SPDX-License-Identifier: MIT
  */
 
 import { itemApi } from '@api/items';
-import { loanApi } from '@api/loans';
 import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
 import { goTo } from '@history';
+import { checkOutItem } from '@modules/Items/backoffice';
 import { BackOfficeRoutes } from '@routes/urls';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -94,7 +94,7 @@ export const checkoutItem = (
       type: IS_LOADING,
     });
     try {
-      const response = await loanApi.doCheckout(
+      const { response, changes } = await checkOutItem(
         documentPid,
         itemPid,
         patronPid,
@@ -108,6 +108,7 @@ export const checkoutItem = (
           <Link to={BackOfficeRoutes.loanDetailsFor(pid)}>
             You can now view the loan details.
           </Link>
+          {changes.map((change) => ` Note: ${change}.`)}
         </p>
       );
       dispatch(sendSuccessNotification('Success!', linkToLoan));

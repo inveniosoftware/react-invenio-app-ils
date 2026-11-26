@@ -1,5 +1,11 @@
 # Changes
 
+Version 3.3.0 (released 2026-11-26)
+
+- update(checkout): in_binding and scanning statuses now behave like missing
+- update(checkout): fix error messages and missing or loaned books 
+- update(checkout): multiple books can be checked out at once
+
 Version 3.2.6 (released 2026-11-24)
 
 - fix(notifications): display correct total numbers

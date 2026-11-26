@@ -1,14 +1,14 @@
 /*
- * SPDX-FileCopyrightText: 2020-2022 CERN.
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
  * SPDX-License-Identifier: MIT
  */
 
-import { loanApi } from '@api/loans';
 import { searchReady } from '@api/utils';
 import {
   sendErrorNotification,
   sendSuccessNotification,
 } from '@components/Notifications';
+import { checkOutItem } from '@modules/Items/backoffice';
 import {
   fetchPatronCurrentLoans,
   IS_LOADING as CURRENT_LOANS_IS_LOADING,
@@ -33,7 +33,7 @@ export const checkoutItem = (
       type: IS_LOADING,
     });
     try {
-      const response = await loanApi.doCheckout(
+      const { response, changes } = await checkOutItem(
         documentPid,
         itemPid,
         patronPid,
@@ -59,7 +59,10 @@ export const checkoutItem = (
       dispatch(
         sendSuccessNotification(
           'Loan Created',
-          'The new loan was successfully created.'
+          [
+            'The new loan was successfully created.',
+            ...changes.map((change) => `Note: ${change}.`),
+          ].join(' ')
         )
       );
     } catch (error) {

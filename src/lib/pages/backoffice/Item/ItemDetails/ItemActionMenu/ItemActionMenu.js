@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2020-2024 CERN.
+ * SPDX-FileCopyrightText: 2020-2026 CERN.
  * SPDX-License-Identifier: MIT
  */
 
@@ -18,6 +18,10 @@ import { invenioConfig } from '@config';
 import { goTo } from '@history';
 import { ESSelectorModal } from '@modules/ESSelector';
 import { serializePatron } from '@modules/ESSelector/serializer';
+import {
+  CheckOutIssuesMessage,
+  getCheckOutIssue,
+} from '@modules/Items/backoffice';
 import { BackOfficeRoutes } from '@routes/urls';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -32,14 +36,9 @@ export default class ItemActionMenu extends Component {
   }
 
   checkOutDisabled() {
-    const {
-      item: { metadata },
-    } = this.props;
-    return (
-      invenioConfig.CIRCULATION.loanActiveStates.includes(
-        metadata.circulation.state
-      ) || !invenioConfig.ITEMS.canCirculateStatuses.includes(metadata.status)
-    );
+    const { item } = this.props;
+    const issue = getCheckOutIssue(item);
+    return issue !== null && !issue.canCheckOut;
   }
 
   hasCheckOutItem() {
@@ -181,7 +180,12 @@ export default class ItemActionMenu extends Component {
           query={this.patronSearch}
           serializer={serializePatron}
           title={`You are about to checkout the physical copy with barcode ${item.metadata.barcode}.`}
-          content="Insert patron id/email to create a loan:"
+          content={
+            <>
+              <CheckOutIssuesMessage items={[item]} />
+              Insert patron id/email to create a loan:
+            </>
+          }
           selectionInfoText="The loan will be created for the following patron:"
           emptySelectionInfoText="No patron selected yet"
           onSave={this.checkoutItem}
